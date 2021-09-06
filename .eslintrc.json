@@ -1,3 +1,21 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-use-before-define": "warn",
+    "react/prop-types": "off",
+    "camelcase": "off",
+    "no-unused-vars": "warn",
+    "no-undef": "off",
+    "react/display-name": "off"
+  }
 }
