@@ -23,7 +23,7 @@ const Home: NextPage = () => {
           Banner
         </div>
       </section>
-      <section className="bg-gray-500">
+      <section className="bg-gray-500" id="news">
         <div className="w-[860px] h-[450px] mx-auto py-10">
           <h1 className="text-2xl mb-5 text-white text-center tracking-widest">
             [ 最新消息 ]
