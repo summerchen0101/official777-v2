@@ -7,3 +7,43 @@ body,
 #__next {
   height: 100%;
 }
+
+@layer components {
+  td,
+  th {
+    @apply px-3 py-2 text-left;
+  }
+  thead tr {
+    @apply border-b border-white;
+  }
+  tbody tr {
+    @apply border-b border-gray-200;
+  }
+  tbody tr:last-of-type {
+    @apply border-b-0;
+  }
+  tbody {
+    @apply bg-gray-100;
+  }
+  table {
+    @apply w-full sm:w-auto bg-gray-300 text-gray-800 rounded-t;
+  }
+  table.desc tbody tr td:first-of-type {
+    @apply bg-gray-200;
+  }
+}
+
+.tab {
+  @apply text-white bg-gray-500 rounded-sm px-3 py-1 cursor-pointer hover:bg-gray-400;
+}
+.tab.active {
+  @apply bg-indigo-500 hover:bg-indigo-400;
+}
+
+.btn {
+  @apply text-white bg-gray-500 rounded-sm px-3 py-1 cursor-pointer hover:bg-gray-400;
+}
+
+.btn.primary {
+  @apply bg-indigo-500 hover:bg-indigo-400;
+}
