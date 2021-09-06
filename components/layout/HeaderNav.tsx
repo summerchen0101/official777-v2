@@ -1,5 +1,6 @@
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
+import HeaderNavItem from '../HeaderNavItem'
 
 function HeaderNav() {
   const router = useRouter()
@@ -7,15 +8,35 @@ function HeaderNav() {
     <header className="bg-white shadow-md fixed top-0 w-full">
       <div className="w-[860px] h-[80px] mx-auto flex justify-evenly items-center">
         <div className="text-3xl text-indigo-500 font-semibold">LOGO</div>
-        <div className="nav" onClick={() => router.push('#news')}>
-          最新消息
-        </div>
-        <div className="nav" onClick={() => router.push('#game')}>
-          遊戲介紹
-        </div>
-        <div className="nav">會員專區</div>
-        <div className="nav">排行榜</div>
-        <div className="nav">客服中心</div>
+        <HeaderNavItem label="最新消息" onClick={() => router.push('#news')} />
+        <HeaderNavItem
+          label="遊戲介紹"
+          subs={[
+            { label: '基本介紹', onClick: () => router.push('/') },
+            { label: '遊戲說明', onClick: () => router.push('/') },
+            { label: '道具說明', onClick: () => router.push('/') },
+            { label: '紅包說明', onClick: () => router.push('/') },
+            { label: 'VIP介紹', onClick: () => router.push('/') },
+          ]}
+        />
+        <HeaderNavItem
+          label="會員專區"
+          subs={[
+            { label: '會員資料', onClick: () => router.push('/') },
+            { label: '修改密碼', onClick: () => router.push('/') },
+            { label: '儲值購點', onClick: () => router.push('/') },
+            { label: '儲值紀錄', onClick: () => router.push('/') },
+          ]}
+        />
+        <HeaderNavItem label="排行榜" onClick={() => router.push('#news')} />
+        <HeaderNavItem
+          label="客服中心"
+          subs={[
+            { label: '常見問題', onClick: () => router.push('/') },
+            { label: '聯繫客服', onClick: () => router.push('/') },
+            { label: '表單下載', onClick: () => router.push('/') },
+          ]}
+        />
       </div>
     </header>
   )

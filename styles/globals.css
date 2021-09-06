@@ -45,7 +45,7 @@ html {
 }
 
 .btn {
-  @apply text-white bg-gray-500 rounded-sm px-3 py-1 cursor-pointer hover:bg-gray-400;
+  @apply text-white bg-gray-500 rounded-sm px-3 py-1 cursor-pointer hover:bg-gray-400 text-center;
 }
 
 .btn.primary {
@@ -53,7 +53,15 @@ html {
 }
 
 .nav {
-  @apply text-lg text-gray-500 border-b-4 border-transparent hover:border-indigo-400 pb-1 cursor-pointer -mb-2;
+  @apply text-lg text-gray-500 border-b-4 border-transparent hover:border-indigo-400 pb-1 cursor-pointer text-center -mb-2;
+}
+
+.nav .sub-nav-list {
+  @apply invisible;
+}
+
+.nav:hover .sub-nav-list {
+  @apply visible;
 }
 
 section {
