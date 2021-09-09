@@ -1,7 +1,4 @@
-import AppDownloadSideFloat from '@/components/AppDownloadSideFloat'
-import FooterNav from '@/components/layout/FooterNav'
-import HeaderNav from '@/components/layout/HeaderNav'
-import RechargeFloat from '@/components/RechargeFloat'
+import Layout from '@/components/layout/Layout'
 import TabGroup from '@/components/TabGroup'
 import type { NextPage } from 'next'
 import { useState } from 'react'
@@ -16,8 +13,7 @@ const newsTabsMap = {
 const Home: NextPage = () => {
   const [currentNewsTab, setCurrentNewsTab] = useState('1')
   return (
-    <div className="min-h-full">
-      <HeaderNav />
+    <Layout>
       <section>
         <div className="w-[860px] h-[450px] mx-auto flex items-center justify-center bg-gray-300">
           Banner
@@ -94,12 +90,7 @@ const Home: NextPage = () => {
           </div>
         </div>
       </section>
-
-      <FooterNav />
-
-      <RechargeFloat />
-      <AppDownloadSideFloat />
-    </div>
+    </Layout>
   )
 }
 

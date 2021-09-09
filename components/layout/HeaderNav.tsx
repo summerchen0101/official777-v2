@@ -7,12 +7,17 @@ function HeaderNav() {
   return (
     <header className="bg-white shadow-md fixed top-0 w-full">
       <div className="w-[860px] h-[80px] mx-auto flex justify-evenly items-center">
-        <div className="text-3xl text-indigo-500 font-semibold">LOGO</div>
+        <div
+          className="text-3xl text-indigo-500 font-semibold cursor-pointer"
+          onClick={() => router.push('/')}
+        >
+          LOGO
+        </div>
         <HeaderNavItem label="最新消息" onClick={() => router.push('#news')} />
         <HeaderNavItem
           label="遊戲介紹"
           subs={[
-            { label: '基本介紹', onClick: () => router.push('/') },
+            { label: '基本介紹', onClick: () => router.push('/basic') },
             { label: '遊戲說明', onClick: () => router.push('/') },
             { label: '道具說明', onClick: () => router.push('/') },
             { label: '紅包說明', onClick: () => router.push('/') },

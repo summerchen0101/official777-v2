@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Metrics後台</title>
+        <title>FFGT官網</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
