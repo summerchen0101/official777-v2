@@ -41,10 +41,6 @@ function GameIntro() {
               </div>
             ))}
           </div>
-          <div className="bg-gray-100 p-5 text-gray-500 leading-8">
-            <div className="">標題xxxx: 123123</div>
-            <div className="">標題xxxx: 123123</div>
-          </div>
         </div>
       </section>
     </Layout>

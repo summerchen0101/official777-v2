@@ -5,7 +5,7 @@ import HeaderNavItem from '../HeaderNavItem'
 function HeaderNav() {
   const router = useRouter()
   return (
-    <header className="bg-white shadow-md fixed top-0 w-full">
+    <header className="bg-white shadow-md fixed top-0 w-full z-30">
       <div className="w-[860px] h-[80px] mx-auto flex justify-evenly items-center">
         <div
           className="text-3xl text-indigo-500 font-semibold cursor-pointer"
@@ -19,7 +19,7 @@ function HeaderNav() {
           subs={[
             { label: '基本介紹', onClick: () => router.push('/game-basic') },
             { label: '遊戲說明', onClick: () => router.push('/game-intro') },
-            { label: '道具說明', onClick: () => router.push('/') },
+            { label: '道具說明', onClick: () => router.push('/obj-intro') },
             { label: '紅包說明', onClick: () => router.push('/') },
             { label: 'VIP介紹', onClick: () => router.push('/') },
           ]}
