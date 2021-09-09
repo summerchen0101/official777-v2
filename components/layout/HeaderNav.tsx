@@ -17,8 +17,8 @@ function HeaderNav() {
         <HeaderNavItem
           label="遊戲介紹"
           subs={[
-            { label: '基本介紹', onClick: () => router.push('/basic') },
-            { label: '遊戲說明', onClick: () => router.push('/') },
+            { label: '基本介紹', onClick: () => router.push('/game-basic') },
+            { label: '遊戲說明', onClick: () => router.push('/game-intro') },
             { label: '道具說明', onClick: () => router.push('/') },
             { label: '紅包說明', onClick: () => router.push('/') },
             { label: 'VIP介紹', onClick: () => router.push('/') },
