@@ -1,7 +1,5 @@
-import React, { useState } from 'react'
 import Layout from '@/components/layout/Layout'
-import TabGroup from '@/components/TabGroup'
-import Image from 'next/image'
+import React, { useState } from 'react'
 
 function UserPw() {
   const [activeTab, setActiveTab] = useState('1')

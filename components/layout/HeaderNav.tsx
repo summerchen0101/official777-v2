@@ -1,5 +1,5 @@
 import { useRouter } from 'next/dist/client/router'
-import React from 'react'
+
 import HeaderNavItem from '../HeaderNavItem'
 
 function HeaderNav() {

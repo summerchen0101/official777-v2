@@ -1,5 +1,3 @@
-import React from 'react'
-
 type SubNavType = {
   label: string
   onClick?: () => void

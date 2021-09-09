@@ -1,5 +1,3 @@
-import React from 'react'
-
 function FooterNav() {
   return (
     <footer className="bg-gray-700">

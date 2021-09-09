@@ -1,4 +1,3 @@
-import React from 'react'
 import { BiDollar, BiUser } from 'react-icons/bi'
 
 function RechargeFloat() {

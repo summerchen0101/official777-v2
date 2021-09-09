@@ -1,5 +1,4 @@
 import cs from 'classnames'
-import React from 'react'
 
 function TabGroup({
   map,
