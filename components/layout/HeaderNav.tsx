@@ -39,7 +39,7 @@ function HeaderNav() {
           subs={[
             { label: '常見問題', onClick: () => router.push('/faq') },
             { label: '聯繫客服', onClick: () => router.push('/contact') },
-            { label: '表單下載', onClick: () => router.push('/') },
+            { label: '表單下載', onClick: () => router.push('/files') },
           ]}
         />
       </div>
