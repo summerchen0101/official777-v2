@@ -1,20 +1,17 @@
-import React, { useState } from 'react'
 import Layout from '@/components/layout/Layout'
-import TabGroup from '@/components/TabGroup'
-import Image from 'next/image'
 import PageBanner from '@/components/layout/PageBanner'
+import React from 'react'
 
-function ObjIntro() {
-  const [activeTab, setActiveTab] = useState('1')
+function GiftIntro() {
   return (
     <Layout>
       <PageBanner />
       <section className="bg-gray-200">
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest">
+          <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest mb-4">
             [ 紅包說明 ]
           </h1>
-          <div className="bg-gray-300 flex items-center justify-center min-h-[400px] mt-4">
+          <div className="bg-gray-300 flex items-center justify-center min-h-[400px]">
             IMAGE
             {/* <Image
               src="https://fakeimg.pl/500x300"
@@ -29,4 +26,4 @@ function ObjIntro() {
   )
 }
 
-export default ObjIntro
+export default GiftIntro

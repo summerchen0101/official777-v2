@@ -12,7 +12,7 @@ function UserPw() {
           <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest">
             [ 修改密碼 ]
           </h1>
-          <div className="bg-gray-300 mt-4 p-7">
+          <div className="bg-gray-300 p-7">
             <form>
               <div className="flex space-x-4 items-center mb-5">
                 <label htmlFor="" className="w-36 text-right text-gray-600">

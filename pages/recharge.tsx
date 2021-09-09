@@ -15,10 +15,10 @@ function RechargePage() {
       <PageBanner />
       <section className="bg-gray-200">
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest">
+          <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest mb-4">
             [ 儲值購點 ]
           </h1>
-          <div className="grid grid-cols-5 gap-4 mt-4 bg-gray-300 rounded-md p-5">
+          <div className="grid grid-cols-5 gap-4 bg-gray-300 rounded-md p-5">
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}

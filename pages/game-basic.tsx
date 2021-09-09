@@ -20,10 +20,10 @@ function GameBasic() {
           <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest">
             [ 基本介紹 ]
           </h1>
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-4">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
-          <div className="bg-gray-300 flex items-center justify-center min-h-[400px] mt-4">
+          <div className="bg-gray-300 flex items-center justify-center min-h-[400px]">
             IMAGE
             {/* <Image
               src="https://fakeimg.pl/500x300"
