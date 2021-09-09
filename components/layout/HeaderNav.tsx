@@ -29,7 +29,7 @@ function HeaderNav() {
           subs={[
             { label: '會員資料', onClick: () => router.push('/user-basic') },
             { label: '修改密碼', onClick: () => router.push('/user-pw') },
-            { label: '儲值購點', onClick: () => router.push('/') },
+            { label: '儲值購點', onClick: () => router.push('/recharge') },
             { label: '儲值紀錄', onClick: () => router.push('/') },
           ]}
         />
