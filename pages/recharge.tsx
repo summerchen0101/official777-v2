@@ -2,15 +2,14 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import React, { useState } from 'react'
 
-function UserPw() {
-  const [activeTab, setActiveTab] = useState('1')
+function RechargePage() {
   return (
     <Layout>
       <PageBanner />
       <section className="bg-gray-200">
         <div className="w-[860px] mx-auto py-10">
           <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest">
-            [ 修改密碼 ]
+            [ 儲值購點 ]
           </h1>
           <div className="bg-gray-300 mt-4 p-7">
             <form>
@@ -61,4 +60,4 @@ function UserPw() {
   )
 }
 
-export default UserPw
+export default RechargePage

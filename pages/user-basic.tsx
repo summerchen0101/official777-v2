@@ -1,13 +1,10 @@
 import Layout from '@/components/layout/Layout'
+import PageBanner from '@/components/layout/PageBanner'
 
 function UserBasic() {
   return (
     <Layout>
-      <section>
-        <div className="w-[860px] h-[200px] mx-auto flex items-center justify-center bg-gray-300">
-          Banner
-        </div>
-      </section>
+      <PageBanner />
       <section className="bg-gray-200">
         <div className="w-[860px] mx-auto py-10">
           <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest">
