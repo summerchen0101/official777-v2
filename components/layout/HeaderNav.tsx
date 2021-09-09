@@ -20,7 +20,7 @@ function HeaderNav() {
             { label: '基本介紹', onClick: () => router.push('/game-basic') },
             { label: '遊戲說明', onClick: () => router.push('/game-intro') },
             { label: '道具說明', onClick: () => router.push('/obj-intro') },
-            { label: '紅包說明', onClick: () => router.push('/') },
+            { label: '紅包說明', onClick: () => router.push('/gift-intro') },
             { label: 'VIP介紹', onClick: () => router.push('/') },
           ]}
         />
