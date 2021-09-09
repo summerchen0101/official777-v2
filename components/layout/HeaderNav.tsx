@@ -27,7 +27,7 @@ function HeaderNav() {
         <HeaderNavItem
           label="會員專區"
           subs={[
-            { label: '會員資料', onClick: () => router.push('/') },
+            { label: '會員資料', onClick: () => router.push('/user-basic') },
             { label: '修改密碼', onClick: () => router.push('/') },
             { label: '儲值購點', onClick: () => router.push('/') },
             { label: '儲值紀錄', onClick: () => router.push('/') },
