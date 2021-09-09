@@ -20,10 +20,10 @@ function GameIntro() {
           <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest">
             [ 遊戲說明 ]
           </h1>
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-4">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
-          <div className="grid grid-cols-4 gap-4 mt-4">
+          <div className="grid grid-cols-4 gap-4">
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}

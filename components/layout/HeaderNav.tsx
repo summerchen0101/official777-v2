@@ -33,7 +33,7 @@ function HeaderNav() {
             { label: '儲值紀錄', onClick: () => router.push('/recharge-rec') },
           ]}
         />
-        <HeaderNavItem label="排行榜" onClick={() => router.push('#news')} />
+        <HeaderNavItem label="排行榜" onClick={() => router.push('/rank')} />
         <HeaderNavItem
           label="客服中心"
           subs={[
