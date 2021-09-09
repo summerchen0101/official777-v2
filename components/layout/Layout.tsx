@@ -8,7 +8,7 @@ const Layout: NextPage = ({ children }) => {
   return (
     <div className="min-h-full">
       <HeaderNav />
-      <div className="mt-[80px]">{children}</div>
+      <div className="pt-[80px]">{children}</div>
 
       <FooterNav />
 
