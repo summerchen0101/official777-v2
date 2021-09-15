@@ -61,16 +61,19 @@ html {
 }
 
 .nav {
-  @apply text-lg text-gray-500 border-b-4 border-transparent hover:border-indigo-400 pb-1 cursor-pointer text-center -mb-2;
+  @apply text-lg text-gray-500 border-transparent cursor-pointer text-center w-36;
 }
-
+.nav-link {
+  @apply text-gray-300 hover:text-white text-center;
+}
+/*
 .nav .sub-nav-list {
   @apply invisible;
 }
 
 .nav:hover .sub-nav-list {
   @apply visible;
-}
+} */
 
 section {
   scroll-margin-top: 80px;
