@@ -9,7 +9,7 @@ function AppDownloadSideFloat() {
   return (
     <div
       className={cs(
-        'bg-gradient-to-br from-[#F0BE7E] vida-[#D39B4F] to-[#A96709] w-48 flex flex-col p-3 fixed top-0 right-0 mt-[120px] shadow-md transition-all rounded-2xl border-2 border-[#e9c28e]',
+        'w-48 flex flex-col p-3 fixed top-0 right-0 mt-[120px] shadow-md transition-all gold-box rounded-l-xl',
         isShowSidebar ? 'translate-x-0' : 'translate-x-[192px]',
       )}
     >
@@ -22,7 +22,7 @@ function AppDownloadSideFloat() {
         <img src="/win10.png" alt="" className="" />
       </div>
       <div
-        className="absolute top-0 left-0 mt-4 cursor-pointer w-12 h-44 -m-12 bg-gradient-to-br from-[#F0BE7E] vida-[#D39B4F] to-[#A96709] bg-no-repeat bg-center rounded-l-xl border-2 border-[#e9c28e] flex items-center justify-center"
+        className="absolute top-0 left-0 mt-4 cursor-pointer w-12 h-44 -m-12 gold-box flex items-center justify-center rounded-l-xl"
         onClick={toggleSidebar}
       >
         <img src="/float-drawer-text.png" alt="" />
