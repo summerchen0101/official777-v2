@@ -4,6 +4,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      zIndex: {
+        '-1': '-1',
+      },
       backgroundImage: {
         'main-pattern': "url('/bg.png')",
         'login-btn': "url('/login_btn.png')",
