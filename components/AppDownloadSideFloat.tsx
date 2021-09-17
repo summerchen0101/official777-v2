@@ -9,32 +9,28 @@ function AppDownloadSideFloat() {
   return (
     <div
       className={cs(
-        'bg-gray-200 w-48 flex flex-col p-3 fixed top-0 right-0 mt-[120px] space-y-3 shadow-md transition-all',
+        'bg-gradient-to-br from-[#F0BE7E] vida-[#D39B4F] to-[#A96709] w-48 flex flex-col p-3 fixed top-0 right-0 mt-[120px] shadow-md transition-all rounded-2xl border-2 border-[#e9c28e]',
         isShowSidebar ? 'translate-x-0' : 'translate-x-[192px]',
       )}
     >
-      <img src="https://fakeimg.pl/200?text=QRCode" alt="" />
-      <div className="text-gray-500 text-lg text-center">掃描下載</div>
-      <div className="space-y-2">
-        <button className="btn block w-full h-12">Google Play</button>
-        <button className="btn block w-full h-12">Apple Store</button>
-        <button className="btn block w-full h-12">APK下載</button>
-        <button className="btn block w-full h-12">PC下載</button>
-      </div>
-      <div className="flex justify-around space-x-4 text-3xl text-gray-700 py-2">
-        <FaFacebookF />
-        <FaYoutube />
-        <FaLine />
+      <img src="/qrcode.png" alt="" className="mb-3" />
+      <img src="/scan_download.png" alt="" />
+      <div className="space-y-1">
+        <img src="/google_play.png" alt="" className="" />
+        <img src="/app_store.png" alt="" className="" />
+        <img src="/apk.png" alt="" className="" />
+        <img src="/win10.png" alt="" className="" />
       </div>
       <div
-        className="bg-indigo-500 text-white w-8 h-8 flex items-center justify-center absolute top-0 left-0 -ml-8 cursor-pointer hover:bg-indigo-400"
+        className="absolute top-0 left-0 mt-4 cursor-pointer w-12 h-44 -m-12 bg-gradient-to-br from-[#F0BE7E] vida-[#D39B4F] to-[#A96709] bg-no-repeat bg-center rounded-l-xl border-2 border-[#e9c28e] flex items-center justify-center"
         onClick={toggleSidebar}
       >
-        {isShowSidebar ? (
+        <img src="/float-drawer-text.png" alt="" />
+        {/* {isShowSidebar ? (
           <BiX className="text-3xl" />
         ) : (
           <BiChevronsLeft className="text-3xl" />
-        )}
+        )} */}
       </div>
     </div>
   )

@@ -76,9 +76,7 @@ const Home: NextPage = () => {
 
       <section>
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-2xl mb-5 text-white text-center tracking-widest">
-            [ SLOT ]
-          </h1>
+          <img src="/title_tiger.png" alt="老虎機" className="h-10 mb-4" />
           <div className=" grid grid-cols-4 gap-4">
             <img src="/game/blackjack.png" className="col-span-2" alt="" />
             <img src="/game/blackjack.png" className="col-span-2" alt="" />
