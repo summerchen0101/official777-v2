@@ -4,13 +4,15 @@ function TabGroup({
   map,
   value,
   onChange,
+  className,
 }: {
   map: Record<string, string>
   value: string
   onChange: (val: string) => void
+  className?: string
 }) {
   return (
-    <div className="flex space-x-4">
+    <div className={cs('flex space-x-4', className)}>
       {Object.entries(map).map(([key, label]) => (
         <div
           key={key}

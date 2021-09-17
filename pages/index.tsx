@@ -2,6 +2,7 @@ import Layout from '@/components/layout/Layout'
 import TabGroup from '@/components/TabGroup'
 import type { NextPage } from 'next'
 import { useState } from 'react'
+import cs from 'classnames'
 
 const newsTabsMap = {
   1: '最新',
@@ -15,78 +16,76 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <section>
-        <div className="w-[860px] h-[450px] mx-auto flex items-center justify-center bg-gray-300">
-          Banner
-        </div>
+        <img src="/banner/banner_01.png" alt="" className="object-cover" />
       </section>
-      <section className="bg-gray-500" id="news">
-        <div className="w-[860px] h-[450px] mx-auto py-10">
-          <h1 className="text-2xl mb-5 text-white text-center tracking-widest">
-            [ 最新消息 ]
-          </h1>
-          <TabGroup
-            map={newsTabsMap}
-            value={currentNewsTab}
-            onChange={(val) => setCurrentNewsTab(val)}
-          />
-          <div className=" bg-gray-300 p-2 space-y-1 rounded mt-2">
-            {[...Array(6)].map((t, i) => (
-              <div key={i} className="flex bg-white text-gray-500 px-5 py-2">
-                <div className="w-20 text-indigo-500">[類別]</div>
-                <div className="flex-1">
-                  內容在這裡內容在這裡內容在這裡內容在這裡...
-                </div>
-                <div className="w-32">2021-08-31</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gray-200">
+      <section id="news">
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-2xl mb-5 text-gray-500 text-center tracking-widest">
-            [ 推薦遊戲 ]
-          </h1>
-          <div className=" grid grid-cols-4 gap-4">
-            <img
-              src="https://fakeimg.pl/500x300"
-              className="col-span-2"
-              alt=""
-            />
-            <img
-              src="https://fakeimg.pl/500x300"
-              className="col-span-2"
-              alt=""
-            />
-            <img src="https://fakeimg.pl/500x300" alt="" />
-            <img src="https://fakeimg.pl/500x300" alt="" />
-            <img src="https://fakeimg.pl/500x300" alt="" />
-            <img src="https://fakeimg.pl/500x300" alt="" />
+          <img src="/title_news.png" alt="最新消息" className="h-10 mb-4" />
+          <div className="bg-gradient-to-b from-[#B78863] via-[#C19C82] to-[#B78863] rounded-xl border-4 border-[#cfa182] shadow-xl">
+            <div className="flex pt-3 pb-1 tracking-wider">
+              {Object.entries(newsTabsMap).map(([key, label]) => (
+                <div
+                  key={key}
+                  className={cs(
+                    'text-light text-xl hover:text-white cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
+                    {
+                      active: key === currentNewsTab,
+                    },
+                  )}
+                  onClick={() => setCurrentNewsTab(key)}
+                >
+                  {label}
+                </div>
+              ))}
+              <div className="flex-1"></div>
+              <div className="px-4 font-medium cursor-pointer hover:text-white/80">
+                更多...
+              </div>
+            </div>
+            <div className="p-2 space-y-1">
+              {[...Array(6)].map((t, i) => (
+                <div
+                  key={i}
+                  className="flex odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-[#92735d] text-[#644d3d] cursor-pointer"
+                >
+                  <div className="w-20">[類別]</div>
+                  <div className="flex-1">
+                    內容在這裡內容在這裡內容在這裡內容在這裡...
+                  </div>
+                  <div className="w-32">2021-08-31</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="bg-indigo-400">
+      <section>
+        <div className="w-[860px] mx-auto py-10">
+          <img src="/title_games.png" alt="推薦遊戲" className="h-10 mb-4" />
+          <div className=" grid grid-cols-4 gap-4">
+            <img src="/game/blackjack.png" className="col-span-2" alt="" />
+            <img src="/game/blackjack.png" className="col-span-2" alt="" />
+            <img src="/game/blackjack.png" alt="" />
+            <img src="/game/blackjack.png" alt="" />
+            <img src="/game/blackjack.png" alt="" />
+            <img src="/game/blackjack.png" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section>
         <div className="w-[860px] mx-auto py-10">
           <h1 className="text-2xl mb-5 text-white text-center tracking-widest">
             [ SLOT ]
           </h1>
           <div className=" grid grid-cols-4 gap-4">
-            <img
-              src="https://fakeimg.pl/500x300"
-              className="col-span-2"
-              alt=""
-            />
-            <img
-              src="https://fakeimg.pl/500x300"
-              className="col-span-2"
-              alt=""
-            />
-            <img src="https://fakeimg.pl/500x300" alt="" />
-            <img src="https://fakeimg.pl/500x300" alt="" />
-            <img src="https://fakeimg.pl/500x300" alt="" />
-            <img src="https://fakeimg.pl/500x300" alt="" />
+            <img src="/game/blackjack.png" className="col-span-2" alt="" />
+            <img src="/game/blackjack.png" className="col-span-2" alt="" />
+            <img src="/game/blackjack.png" alt="" />
+            <img src="/game/blackjack.png" alt="" />
+            <img src="/game/blackjack.png" alt="" />
+            <img src="/game/blackjack.png" alt="" />
           </div>
         </div>
       </section>

@@ -1,6 +1,6 @@
 function FooterNav() {
   return (
-    <footer className="bg-gray-700">
+    <footer className="bg-black/60">
       <div className="w-[860px] mx-auto py-4">
         <div className="flex divide-x divide-gray-500 text-sm text-gray-200 justify-center">
           <div className="px-5 hover:text-gray-400 cursor-pointer">
