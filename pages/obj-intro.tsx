@@ -9,19 +9,17 @@ function ObjIntro() {
       <PageBanner />
       <section>
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-3xl mb-6 text-white text-center tracking-widest">
-            道具說明
-          </h1>
+          <h1 className="title text-light">道具說明</h1>
           <div className=" space-y-5">
             {[...Array(8)].map((t, i) => (
-              <div key={i} className="flex gold-box shadow-md rounded-xl">
+              <div key={i} className="flex bg-black/50 shadow-md rounded-xl">
                 <img
-                  src="/game/blackjack.png"
+                  src="/banner/banner_01.png"
                   className="h-40 w-40 object-cover rounded-l-xl"
                   alt=""
                 />
                 <div className="flex-1 p-4">
-                  <p className="text-lg font-semibold text-gold-800 mb-1 border-b border-gold-400">
+                  <p className="text-lg font-semibold text-gold-500 mb-1">
                     道具名稱
                   </p>
                   <div className="text-gold-100 leading-7">

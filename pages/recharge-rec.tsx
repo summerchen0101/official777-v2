@@ -8,9 +8,7 @@ function RechargeRec() {
       <PageBanner />
       <section>
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-3xl mb-6 text-white text-center tracking-widest">
-            儲值紀錄
-          </h1>
+          <h1 className="title text-light">儲值紀錄</h1>
           <table className="w-full text-gray-500 shadow">
             <thead>
               <tr>

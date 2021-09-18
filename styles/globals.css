@@ -57,7 +57,7 @@ html {
 }
 
 .btn.primary {
-  @apply bg-gold-900 hover:bg-gold-800;
+  @apply bg-gold-800 hover:bg-gold-700;
 }
 
 /*
@@ -86,4 +86,8 @@ section {
 }
 .slick-active .dot {
   @apply bg-slider-pager-active;
+}
+
+.title {
+  @apply text-3xl mb-6 text-gold-400 text-center tracking-widest;
 }

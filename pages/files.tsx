@@ -7,16 +7,14 @@ function FilesPage() {
   return (
     <Layout>
       <PageBanner />
-      <section className="bg-gray-200">
+      <section>
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-2xl text-indigo-600 text-center tracking-widest mb-4">
-            [ 表單下載 ]
-          </h1>
-          <div className="bg-gray-100 p-6 space-y-2 rounded-md">
+          <h1 className="title text-light">表單下載</h1>
+          <div className="bg-brown-500 p-6 space-y-2 rounded-xl">
             {[...Array(5)].map((t, i) => (
               <div
                 key={i}
-                className="text-base cursor-pointer flex space-x-2 text-gray-600 bg-white rounded-md p-2"
+                className="text-base cursor-pointer flex space-x-2 text-brown-900 even:bg-brown-400 odd:bg-brown-300 rounded-md p-2"
               >
                 <BiFile className="text-xl" />
                 <span>下載檔案名稱.pdf</span>

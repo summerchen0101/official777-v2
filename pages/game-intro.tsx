@@ -17,9 +17,7 @@ function GameIntro() {
       <PageBanner />
       <section>
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-3xl mb-6 text-white text-center tracking-widest">
-            遊戲說明
-          </h1>
+          <h1 className="title text-light">遊戲說明</h1>
           <div className="flex justify-center mb-4">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
