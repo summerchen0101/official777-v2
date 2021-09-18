@@ -15,7 +15,7 @@ function RechargeFloat() {
         <div className="text-lg text-gold-900 font-medium">100,000</div>
       </div>
       <div className="text-xl text-white text-center font-mono">VIP: Lv3</div>
-      <div className="self-center h-12 w-full bg-contain bg-center bg-no-repeat bg-login-btn hover:bg-login-btn-light absolute -bottom-6 cursor-pointer" />
+      <div className="self-center h-12 w-full bg-contain bg-center bg-no-repeat bg-login-btn hover:bg-login-btn-active absolute -bottom-6 cursor-pointer" />
     </div>
   )
 }

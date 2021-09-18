@@ -17,7 +17,19 @@ const Home: NextPage = () => {
     <Layout>
       <section>
         <img src="/banner/banner_01.png" alt="" className="object-cover" />
-        <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12"></div>
+        <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center">
+          <div className="flex space-x-1">
+            {[...Array(5)].map((t, i) => (
+              <div
+                key={i}
+                className={cs(
+                  'w-9 h-9 bg bg-center cursor-pointer',
+                  i === 0 ? 'bg-slider-pager-active' : 'bg-slider-pager',
+                )}
+              ></div>
+            ))}
+          </div>
+        </div>
       </section>
       <section id="news">
         <div className="w-[860px] mx-auto py-10">

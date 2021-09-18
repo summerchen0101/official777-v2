@@ -10,7 +10,9 @@ module.exports = {
       backgroundImage: {
         'main-pattern': "url('/bg.png')",
         'login-btn': "url('/login_btn.png')",
-        'login-btn-light': "url('/login_btn_hover.png')",
+        'login-btn-active': "url('/login_btn_active.png')",
+        'slider-pager': "url('/slider_pager.png')",
+        'slider-pager-active': "url('/slider_pager_active.png')",
       },
       colors: {
         gold: {
