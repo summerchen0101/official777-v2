@@ -1,3 +1,4 @@
+import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import cs from 'classnames'
@@ -14,26 +15,17 @@ const newsTabsMap = {
 const Home: NextPage = () => {
   const [currentNewsTab, setCurrentNewsTab] = useState('1')
 
-  const slides: Slide[] = Array(8).fill({
+  const sectionSlides: Slide[] = Array(8).fill({
     path: '/game/blackjack.png',
+  })
+  const homeSlides: Slide[] = Array(8).fill({
+    path: '/banner/banner_01.png',
   })
   return (
     <Layout>
       <section>
-        <img src="/banner/banner_01.png" alt="" className="object-cover" />
-        <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center">
-          <div className="flex space-x-1">
-            {[...Array(5)].map((t, i) => (
-              <div
-                key={i}
-                className={cs(
-                  'w-9 h-9 bg bg-center cursor-pointer',
-                  i === 0 ? 'bg-slider-pager-active' : 'bg-slider-pager',
-                )}
-              ></div>
-            ))}
-          </div>
-        </div>
+        <HomeSlider slides={homeSlides} />
+        <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center -mt-2"></div>
       </section>
       <section id="news">
         <div className="w-[860px] mx-auto py-10">
@@ -85,7 +77,7 @@ const Home: NextPage = () => {
             <img src="/game/blackjack.png" alt="" />
             <img src="/game/blackjack.png" alt="" />
           </div>
-          <SectionSlider slides={slides} />
+          <SectionSlider slides={sectionSlides} />
         </div>
       </section>
 
@@ -96,7 +88,7 @@ const Home: NextPage = () => {
             <img src="/game/blackjack.png" alt="" />
             <img src="/game/blackjack.png" alt="" />
           </div>
-          <SectionSlider slides={slides} />
+          <SectionSlider slides={sectionSlides} />
         </div>
       </section>
     </Layout>
