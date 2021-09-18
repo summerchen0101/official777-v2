@@ -1,7 +1,5 @@
 import cs from 'classnames'
 import { useState } from 'react'
-import { BiChevronsLeft, BiX } from 'react-icons/bi'
-import { FaFacebookF, FaLine, FaYoutube } from 'react-icons/fa'
 
 function AppDownloadSideFloat() {
   const [isShowSidebar, setIsShowSidebar] = useState(false)
@@ -9,7 +7,7 @@ function AppDownloadSideFloat() {
   return (
     <div
       className={cs(
-        'w-48 flex flex-col p-3 fixed top-0 right-0 mt-[120px] shadow-md transition-all gold-box rounded-l-xl',
+        'w-48 flex flex-col p-3 fixed top-0 right-0 mt-[120px] shadow-md transition-all gold-box rounded-l-xl z-30',
         isShowSidebar ? 'translate-x-0' : 'translate-x-[192px]',
       )}
     >

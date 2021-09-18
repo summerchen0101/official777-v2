@@ -13,6 +13,8 @@ module.exports = {
         'login-btn-active': "url('/login_btn_active.png')",
         'slider-pager': "url('/slider_pager.png')",
         'slider-pager-active': "url('/slider_pager_active.png')",
+        'slider-nav-next': "url('/slider_nav_next.png')",
+        'slider-nav-next-active': "url('/slider_nav_next_active.png')",
       },
       colors: {
         gold: {

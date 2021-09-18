@@ -1,8 +1,8 @@
 import Layout from '@/components/layout/Layout'
-import TabGroup from '@/components/TabGroup'
+import SectionSlider, { Slide } from '@/components/SectionSlider'
+import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useState } from 'react'
-import cs from 'classnames'
 
 const newsTabsMap = {
   1: '最新',
@@ -13,6 +13,10 @@ const newsTabsMap = {
 
 const Home: NextPage = () => {
   const [currentNewsTab, setCurrentNewsTab] = useState('1')
+
+  const slides: Slide[] = Array(8).fill({
+    path: '/game/blackjack.png',
+  })
   return (
     <Layout>
       <section>
@@ -76,28 +80,23 @@ const Home: NextPage = () => {
       <section>
         <div className="w-[860px] mx-auto py-10">
           <img src="/title_games.png" alt="推薦遊戲" className="h-10 mb-4" />
-          <div className=" grid grid-cols-4 gap-4">
-            <img src="/game/blackjack.png" className="col-span-2" alt="" />
-            <img src="/game/blackjack.png" className="col-span-2" alt="" />
-            <img src="/game/blackjack.png" alt="" />
-            <img src="/game/blackjack.png" alt="" />
+
+          <div className=" grid grid-cols-2 gap-4 mb-4">
             <img src="/game/blackjack.png" alt="" />
             <img src="/game/blackjack.png" alt="" />
           </div>
+          <SectionSlider slides={slides} />
         </div>
       </section>
 
-      <section>
+      <section className="mb-10">
         <div className="w-[860px] mx-auto py-10">
           <img src="/title_tiger.png" alt="老虎機" className="h-10 mb-4" />
-          <div className=" grid grid-cols-4 gap-4">
-            <img src="/game/blackjack.png" className="col-span-2" alt="" />
-            <img src="/game/blackjack.png" className="col-span-2" alt="" />
-            <img src="/game/blackjack.png" alt="" />
-            <img src="/game/blackjack.png" alt="" />
+          <div className=" grid grid-cols-2 gap-4 mb-4">
             <img src="/game/blackjack.png" alt="" />
             <img src="/game/blackjack.png" alt="" />
           </div>
+          <SectionSlider slides={slides} />
         </div>
       </section>
     </Layout>
