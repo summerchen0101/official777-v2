@@ -8,14 +8,14 @@ function HeaderNav() {
 
   return (
     <header className="group fixed top-0 w-full z-30">
-      <div className="bg-gradient-to-b from-purple-800 via-purple-700 relative h-[120px] flex items-center px-5 z-20">
+      <div className="bg-gradient-to-b from-purple-900 via-purple-700 relative h-[120px] flex items-center justify-center px-5 z-20">
         <img
           src="/logo.png"
           alt=""
-          className="cursor-pointer h-36 absolute top-0"
+          className="cursor-pointer w-48 -mb-2"
           onClick={() => router.push('/')}
         />
-        <div className="flex-1 flex flex-col items-center">
+        <div className="">
           <div className="flex px-5">
             {menu.map((m, i) => (
               <div
@@ -29,8 +29,9 @@ function HeaderNav() {
         </div>
       </div>
       {/* Hover展開的內容 */}
-      <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all">
-        <div className="pt-[120px] bg-black/75 opacity-95 py-2 px-5 flex space-x- justify-center h-[320px] -mt-3 relative z-10">
+      <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all -translate-y-12 duration-400 group-hover:translate-y-0">
+        <div className="pt-[120px] bg-black/75 opacity-95 py-2 px-5 flex space-x- justify-center h-[300px] relative z-10">
+          <div className="w-48"></div>
           {menu.map((m, m_i) => (
             <div key={m_i} className="space-y-2 w-36">
               {m.subs?.map((t, i) => (
@@ -46,10 +47,10 @@ function HeaderNav() {
           ))}
         </div>
       </div>
-      <div className="flex space-x-3 absolute top-0 right-0 m-3">
-        <img src="/fb.png" alt="" />
-        <img src="/line.png" alt="" />
-        <img src="/youtube.png" alt="" />
+      <div className="flex space-x-3 absolute top-0 right-0 m-3 z-30">
+        <img src="/fb.png" className="cursor-pointer" alt="" />
+        <img src="/line.png" className="cursor-pointer" alt="" />
+        <img src="/youtube.png" className="cursor-pointer" alt="" />
       </div>
     </header>
   )

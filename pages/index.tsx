@@ -17,6 +17,7 @@ const Home: NextPage = () => {
     <Layout>
       <section>
         <img src="/banner/banner_01.png" alt="" className="object-cover" />
+        <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12"></div>
       </section>
       <section id="news">
         <div className="w-[860px] mx-auto py-10">
@@ -46,7 +47,7 @@ const Home: NextPage = () => {
               {[...Array(6)].map((t, i) => (
                 <div
                   key={i}
-                  className="flex odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-[#92735d] text-[#644d3d] cursor-pointer"
+                  className="flex odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-[#92735d] text-[#644d3d] cursor-pointer hover:bg-gold-100 transition-all"
                 >
                   <div className="w-20">[類別]</div>
                   <div className="flex-1">
