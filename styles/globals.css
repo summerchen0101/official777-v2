@@ -5,7 +5,7 @@
 html,
 body,
 #__next {
-  height: 100%;
+  @apply h-full bg-main-pattern;
 }
 
 html {
@@ -49,15 +49,15 @@ html {
   @apply text-white bg-gray-500 rounded-sm px-3 py-1 cursor-pointer hover:bg-gray-400;
 }
 .tab.active {
-  @apply bg-indigo-500 hover:bg-indigo-400;
+  @apply bg-gold-600 hover:bg-gold-500;
 }
 
 .btn {
-  @apply text-white bg-gray-500 rounded-sm px-3 py-1 cursor-pointer hover:bg-gray-400 text-center;
+  @apply text-white bg-gray-600 rounded px-3 py-2 cursor-pointer hover:bg-gray-500 text-center;
 }
 
 .btn.primary {
-  @apply bg-indigo-500 hover:bg-indigo-400;
+  @apply bg-gold-900 hover:bg-gold-800;
 }
 
 /*

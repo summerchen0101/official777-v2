@@ -6,10 +6,10 @@ function GiftIntro() {
   return (
     <Layout>
       <PageBanner />
-      <section className="bg-gray-200">
+      <section>
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest mb-4">
-            [ 紅包說明 ]
+          <h1 className="text-3xl mb-6 text-white text-center tracking-widest">
+            紅包說明
           </h1>
           <div className="bg-gray-300 flex items-center justify-center min-h-[400px]">
             IMAGE

@@ -13,7 +13,7 @@ const newsTabsMap = {
 }
 
 const Home: NextPage = () => {
-  const [currentNewsTab, setCurrentNewsTab] = useState('1')
+  const [currentNewsTab, setCurrentNewsTab] = useState(1)
 
   const sectionSlides: Slide[] = Array(8).fill({
     path: '/game/blackjack.png',
@@ -30,20 +30,21 @@ const Home: NextPage = () => {
       <section id="news">
         <div className="w-[860px] mx-auto py-10">
           <img src="/title_news.png" alt="最新消息" className="h-10 mb-4" />
-          <div className="bg-gradient-to-b from-[#B78863] via-[#C19C82] to-[#B78863] rounded-xl border-4 border-[#cfa182] shadow-xl">
+          <div className="bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl">
             <div className="flex pt-3 pb-1 tracking-wider">
               {Object.entries(newsTabsMap).map(([key, label]) => (
                 <div
                   key={key}
                   className={cs(
-                    'text-light text-xl hover:text-white cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
+                    'text-light text-xl cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
                     {
-                      active: key === currentNewsTab,
+                      'text-white': +key === currentNewsTab,
                     },
                   )}
-                  onClick={() => setCurrentNewsTab(key)}
+                  onClick={() => setCurrentNewsTab(+key)}
                 >
-                  {label}
+                  <span>{label}</span>
+                  <img src="" alt="" />
                 </div>
               ))}
               <div className="flex-1"></div>
@@ -55,7 +56,7 @@ const Home: NextPage = () => {
               {[...Array(6)].map((t, i) => (
                 <div
                   key={i}
-                  className="flex odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-[#92735d] text-[#644d3d] cursor-pointer hover:bg-gold-100 transition-all"
+                  className="flex odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
                 >
                   <div className="w-20">[類別]</div>
                   <div className="flex-1">

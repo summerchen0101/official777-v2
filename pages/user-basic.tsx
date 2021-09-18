@@ -5,10 +5,10 @@ function UserBasic() {
   return (
     <Layout>
       <PageBanner />
-      <section className="bg-gray-200">
+      <section>
         <div className="w-[860px] mx-auto py-10">
-          <h1 className="text-2xl mb-6 text-indigo-600 text-center tracking-widest mb-4">
-            [ 會員資料 ]
+          <h1 className="text-3xl mb-6 text-white text-center tracking-widest">
+            會員資料
           </h1>
           <div className="bg-gray-300 p-7">
             <form className="space-y-5">
