@@ -18,22 +18,16 @@ html {
     @apply px-3 py-2 text-left;
   }
   thead tr {
-    @apply border-b border-white;
+    @apply text-gray-800 bg-gold-400;
   }
   tbody tr {
-    @apply border-b border-gray-200;
-  }
-  tbody tr:last-of-type {
-    @apply border-b-0;
+    @apply even:bg-gray-200;
   }
   tbody {
-    @apply bg-gray-100;
+    @apply bg-gray-100 text-gray-700;
   }
   table {
-    @apply w-full sm:w-auto bg-gray-300 text-gray-800 rounded-t;
-  }
-  table.desc tbody tr td:first-of-type {
-    @apply bg-gray-200;
+    @apply w-full sm:w-auto text-gray-800 rounded-t overflow-hidden;
   }
 
   /* label {

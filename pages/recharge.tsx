@@ -16,29 +16,40 @@ function RechargePage() {
       <section>
         <div className="w-[860px] mx-auto py-10">
           <h1 className="title text-light">儲值購點</h1>
-          <div className="grid grid-cols-5 gap-4 bg-gray-300 rounded-md p-5">
+          <div className="grid grid-cols-5 gap-4 rounded-md">
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}
-                className="flex items-center justify-center space-x-1 bg-white shadow-md h-12 rounded-md"
+                className="group flex items-center justify-center space-x-1 bg-black/20  hover:bg-black/50 shadow-md h-12 rounded-md cursor-pointer border border-white/30 hover:border-white/50 transition-all"
               >
-                <BiCreditCard className="text-2xl text-indigo-500" />
-                <span className="text-gray-500 text-lg">超商代碼</span>
+                <BiCreditCard className="text-2xl text-gold-500" />
+                <span className="text-gray-400 text-lg group-hover:text-gray-300 transition-all">
+                  超商代碼
+                </span>
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 gap-4 mt-6">
+          <div className="border-t-2 border-gold-500/30 my-6"></div>
+          <div className="grid grid-cols-2 gap-4">
             <div className="">
-              <p className="mb-2 text-indigo-500">1.請選擇預儲值的超商</p>
+              <p className="mb-2 text-gold-500 text-lg text-light">
+                1. 請選擇預儲值的超商
+              </p>
               <div className="grid grid-cols-2 gap-4">
-                <button className="bg-white rounded-lg h-16">OK</button>
-                <button className="bg-white rounded-lg h-16">萊爾富</button>
+                <button className="bg-black/50 text-gray-300 text-lg rounded h-16">
+                  OK
+                </button>
+                <button className="bg-black/50 text-gray-300 text-lg rounded h-16">
+                  萊爾富
+                </button>
               </div>
             </div>
             <div className="">
-              <p className="mb-2 text-indigo-500">2.請選擇儲值金額</p>
+              <p className="mb-2 text-gold-500 text-lg text-light">
+                2. 請選擇儲值金額
+              </p>
               <div className="w-full">
-                <table className="w-full text-gray-500">
+                <table className="w-full rounded-lg overflow-hidden">
                   <thead>
                     <tr>
                       <th></th>

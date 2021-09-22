@@ -8,10 +8,10 @@ function UserBasic() {
       <section>
         <div className="w-[860px] mx-auto py-10">
           <h1 className="title text-light">會員資料</h1>
-          <div className="bg-gray-300 p-7">
+          <div className="bg-black/50 rounded-xl p-7">
             <form className="space-y-5">
               <div className="flex space-x-4 items-center">
-                <label htmlFor="" className="w-36 text-right text-gray-600">
+                <label htmlFor="" className="w-36 text-right text-gray-200">
                   玩家暱稱
                 </label>
                 <input
@@ -23,7 +23,7 @@ function UserBasic() {
                 </div>
               </div>
               <div className="flex space-x-4 items-center">
-                <label htmlFor="" className="w-36 text-right text-gray-600">
+                <label htmlFor="" className="w-36 text-right text-gray-200">
                   手機號碼綁定
                 </label>
                 <input
@@ -36,7 +36,7 @@ function UserBasic() {
               </div>
 
               <div className="flex space-x-4 items-center">
-                <label htmlFor="" className="w-36 text-right text-gray-600">
+                <label htmlFor="" className="w-36 text-right text-gray-200">
                   電子信箱
                 </label>
                 <input
@@ -46,7 +46,7 @@ function UserBasic() {
                 <div className="w-24"></div>
               </div>
               <div className="flex space-x-4 items-center">
-                <label htmlFor="" className="w-36 text-right text-gray-600">
+                <label htmlFor="" className="w-36 text-right text-gray-200">
                   二次密碼
                 </label>
                 <input
