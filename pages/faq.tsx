@@ -9,9 +9,12 @@ function FaqPage() {
       <section>
         <div className="w-[860px] mx-auto py-10">
           <h1 className="title text-light">常見問題</h1>
-          <div className="bg-black/50 border-4 border-purple-900 p-6 space-y-5 rounded-xl">
+          <div className="bg-black/50 px-6 py-3 rounded-xl">
             {[...Array(5)].map((t, i) => (
-              <div key={i} className="text-lg">
+              <div
+                key={i}
+                className="text-lg border-b last-of-type:border-b-0 border-gray-700 py-4"
+              >
                 <p className="text-gold-500 font-semibold mb-1">
                   Q: 問題名稱問題名稱問題名稱問題名稱？
                 </p>
