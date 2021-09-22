@@ -8,15 +8,15 @@ function FilesPage() {
     <Layout>
       <PageBanner />
       <section>
-        <div className="w-[860px] mx-auto py-10">
+        <div className="w-[860px] min-h-[400px] mx-auto py-10">
           <h1 className="title text-light">表單下載</h1>
-          <div className="bg-brown-500 p-6 space-y-2 rounded-xl">
+          <div className="grid grid-cols-2 gap-y-3 gap-x-4">
             {[...Array(5)].map((t, i) => (
               <div
                 key={i}
-                className="text-base cursor-pointer flex space-x-2 text-brown-900 even:bg-brown-400 odd:bg-brown-300 rounded-md p-2"
+                className="cursor-pointer flex space-x-4 text-white/60 bg-black/50 rounded-md p-3 text-lg"
               >
-                <BiFile className="text-xl" />
+                <BiFile className="text-xl text-gold-500" />
                 <span>下載檔案名稱.pdf</span>
               </div>
             ))}
