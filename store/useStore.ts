@@ -5,6 +5,7 @@ interface IState {
   toggleSidebar: () => void
   isShowMbMenu: boolean
   toggleMbMenu: () => void
+  closeMbMenu: () => void
 }
 
 export const useStore = create<IState>((set) => ({
@@ -13,4 +14,5 @@ export const useStore = create<IState>((set) => ({
     set((state) => ({ isShowSidebar: !state.isShowSidebar })),
   isShowMbMenu: false,
   toggleMbMenu: () => set((state) => ({ isShowMbMenu: !state.isShowMbMenu })),
+  closeMbMenu: () => set((state) => ({ isShowMbMenu: false })),
 }))

@@ -16,12 +16,12 @@ function GameIntro() {
     <Layout>
       <PageBanner />
       <section>
-        <div className="w-[860px] mx-auto py-10">
+        <div className="lg:w-[860px] mx-auto py-10">
           <h1 className="title text-light">遊戲說明</h1>
           <div className="flex justify-center mb-4">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 px-4">
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}

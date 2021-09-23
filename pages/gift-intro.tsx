@@ -7,9 +7,9 @@ function GiftIntro() {
     <Layout>
       <PageBanner />
       <section>
-        <div className="w-[860px] mx-auto py-10">
+        <div className="lg:w-[860px] mx-auto py-10">
           <h1 className="title text-light">紅包說明</h1>
-          <div className="bg-gray-300 flex items-center justify-center min-h-[400px]">
+          <div className="bg-gray-300 flex items-center justify-center min-h-[400px] mx-4">
             IMAGE
             {/* <Image
               src="https://fakeimg.pl/500x300"

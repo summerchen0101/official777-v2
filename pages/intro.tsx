@@ -17,13 +17,13 @@ const Home: NextPage = () => {
     <div className="h-full">
       <HeaderNav />
       <section>
-        <div className="w-[860px] h-[450px] mx-auto flex items-center justify-center bg-gray-300">
+        <div className="lg:w-[860px] h-[450px] mx-auto flex items-center justify-center bg-gray-300">
           Banner
         </div>
       </section>
 
       <section className="bg-gray-500">
-        <div className="w-[860px] h-[450px] mx-auto py-10">
+        <div className="lg:w-[860px] h-[450px] mx-auto py-10">
           <h1 className="text-2xl mb-5 text-white text-center tracking-widest">
             [ 基本介紹 ]
           </h1>

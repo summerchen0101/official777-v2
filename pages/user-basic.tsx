@@ -6,37 +6,50 @@ function UserBasic() {
     <Layout>
       <PageBanner />
       <section>
-        <div className="w-[860px] mx-auto py-10">
+        <div className="lg:w-[860px] mx-auto py-10">
           <h1 className="title text-light">會員資料</h1>
-          <div className="bg-black/50 rounded-xl p-7">
+          <div className="bg-black/50 lg:rounded-xl py-12 px-7">
             <form className="space-y-5">
-              <div className="flex space-x-4 items-center">
-                <label htmlFor="" className="w-36 text-right text-gray-200">
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+                <label
+                  htmlFor=""
+                  className="mb-2 w-36 lg:text-right text-gray-200"
+                >
                   玩家暱稱
                 </label>
-                <input
-                  type="text"
-                  className="rounded-sm border-none bg-gray-100 flex-1 h-9"
-                />
-                <div className="w-24">
-                  <button className="btn w-full">復原</button>
+                <div className="flex space-x-2">
+                  <input
+                    type="text"
+                    className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
+                  />
+                  <div className="w-24">
+                    <button className="btn w-full">復原</button>
+                  </div>
                 </div>
               </div>
-              <div className="flex space-x-4 items-center">
-                <label htmlFor="" className="w-36 text-right text-gray-200">
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+                <label
+                  htmlFor=""
+                  className="mb-2 w-36 lg:text-right text-gray-200"
+                >
                   手機號碼綁定
                 </label>
-                <input
-                  type="text"
-                  className="rounded-sm border-none bg-gray-100 flex-1 h-9"
-                />
-                <div className="w-24">
-                  <span className="text-green-500 ">已綁定</span>
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="text"
+                    className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
+                  />
+                  <div className="w-24">
+                    <span className="text-green-500 ">已綁定</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex space-x-4 items-center">
-                <label htmlFor="" className="w-36 text-right text-gray-200">
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+                <label
+                  htmlFor=""
+                  className="mb-2 w-36 lg:text-right text-gray-200"
+                >
                   電子信箱
                 </label>
                 <input
@@ -45,8 +58,11 @@ function UserBasic() {
                 />
                 <div className="w-24"></div>
               </div>
-              <div className="flex space-x-4 items-center">
-                <label htmlFor="" className="w-36 text-right text-gray-200">
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+                <label
+                  htmlFor=""
+                  className="mb-2 w-36 lg:text-right text-gray-200"
+                >
                   二次密碼
                 </label>
                 <input
