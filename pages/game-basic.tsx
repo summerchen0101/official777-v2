@@ -1,11 +1,10 @@
-import React, { useState } from 'react'
 import Layout from '@/components/layout/Layout'
-import TabGroup from '@/components/TabGroup'
-import Image from 'next/image'
 import PageBanner from '@/components/layout/PageBanner'
+import TabGroup from '@/components/TabGroup'
+import React, { useState } from 'react'
 
 const tabsMap = {
-  1: '大廳',
+  1: '遊戲大廳',
   2: '選擇遊戲',
   3: '操作說明',
 }
@@ -15,8 +14,8 @@ function GameBasic() {
   return (
     <Layout>
       <PageBanner />
-      <section>
-        <div className="w-[860px] mx-auto py-10">
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto py-10">
           <h1 className="title text-light">基本介紹</h1>
           <div className="flex justify-center mb-4">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />

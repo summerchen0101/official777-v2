@@ -2,7 +2,7 @@ import { FaUser } from 'react-icons/fa'
 import { HiCurrencyDollar } from 'react-icons/hi'
 function RechargeFloat() {
   return (
-    <div className="gold-box rounded-xl w-48 ml-2 flex flex-col px-3 pt-0 pb-10 fixed top-0 left-0 mt-[160px] space-y-3 shadow-md z-30">
+    <div className="gold-box rounded-xl w-48 ml-2 hidden lg:flex flex-col px-3 pt-0 pb-10  fixed top-0 left-0 mt-[160px] space-y-3 shadow-md z-30">
       <img src="/recharge_pig.png" alt="" />
       <img src="/recharge_title.png" className="h-8 self-center" alt="" />
       <div className="flex justify-between bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 items-center px-2 py-1">

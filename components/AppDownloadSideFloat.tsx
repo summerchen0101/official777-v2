@@ -7,7 +7,7 @@ function AppDownloadSideFloat() {
   return (
     <div
       className={cs(
-        'w-48 flex flex-col p-3 fixed top-0 right-0 mt-[120px] shadow-md transition-all gold-box rounded-l-xl z-30',
+        'w-48 hidden lg:flex flex-col p-3 fixed top-0 right-0 mt-[120px] shadow-md transition-all gold-box rounded-l-xl z-30',
         isShowSidebar ? 'translate-x-0' : 'translate-x-[192px]',
       )}
     >

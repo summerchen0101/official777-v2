@@ -1,5 +1,5 @@
 import HomeSlider from '@/components/HomeSlider'
-import MobileLayout from '@/components/mb/Layout'
+import Layout from '@/components/layout/Layout'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import TabGroup from '@/components/TabGroup'
 import useDevicePage from '@/hooks/useDevicePage'
@@ -26,7 +26,7 @@ const MobileHome: NextPage = () => {
     path: '/banner/banner_01.png',
   })
   return (
-    <MobileLayout>
+    <Layout>
       <section className="mb-8">
         <HomeSlider slides={homeSlides} />
       </section>
@@ -111,7 +111,7 @@ const MobileHome: NextPage = () => {
         <img src="/line.png" className="cursor-pointer" alt="" />
         <img src="/youtube.png" className="cursor-pointer" alt="" />
       </div>
-    </MobileLayout>
+    </Layout>
   )
 }
 
