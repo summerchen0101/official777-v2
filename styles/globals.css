@@ -15,7 +15,7 @@ html {
 @layer components {
   td,
   th {
-    @apply px-3 py-2 text-left;
+    @apply px-3 py-2.5 text-left;
   }
   thead tr {
     @apply text-gray-800 bg-gold-400;
@@ -40,7 +40,7 @@ html {
 }
 
 .tab {
-  @apply text-white bg-gray-500 rounded-sm px-3 py-1 cursor-pointer hover:bg-gray-400;
+  @apply text-white bg-gray-500 rounded-sm px-4 py-1.5 cursor-pointer hover:bg-gray-400 text-lg;
 }
 .tab.active {
   @apply bg-gold-600 hover:bg-gold-500;

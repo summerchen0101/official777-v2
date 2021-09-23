@@ -5,6 +5,7 @@ export interface Slide {
 }
 interface Props {
   slides: Slide[]
+  slidesToShow: number
 }
 
 function SamplePrevArrow(
@@ -15,8 +16,10 @@ function SamplePrevArrow(
 ) {
   const { className, style, onClick } = props
   return (
-    <div
-      className="bg-slider-nav-next w-8 h-12 bg-contain bg-center absolute left-0 top-0 z-10 mt-12 -ml-10 rotate-180 cursor-pointer"
+    <img
+      src="/slider_nav_next.png"
+      alt=""
+      className="w-8 h-full object-contain absolute left-0 top-0 z-10 -ml-8 cursor-pointer rotate-180"
       onClick={onClick}
     />
   )
@@ -30,19 +33,21 @@ function SampleNextArrow(
 ) {
   const { className, style, onClick } = props
   return (
-    <div
-      className="bg-slider-nav-next w-8 h-12 bg-contain bg-center absolute right-0 top-0 z-10 mt-12 -mr-10 cursor-pointer"
+    <img
+      src="/slider_nav_next.png"
+      alt=""
+      className="w-8 h-full object-contain absolute right-0 top-0 z-10 -mr-8 cursor-pointer"
       onClick={onClick}
     />
   )
 }
 
-function SectionSlider({ slides }: Props) {
+function SectionSlider({ slides, slidesToShow }: Props) {
   var settings: Settings = {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,

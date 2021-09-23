@@ -1,6 +1,7 @@
 import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
+import useDevicePage from '@/hooks/useDevicePage'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useState } from 'react'
@@ -13,6 +14,8 @@ const newsTabsMap = {
 }
 
 const Home: NextPage = () => {
+  useDevicePage()
+
   const [currentNewsTab, setCurrentNewsTab] = useState(1)
 
   const sectionSlides: Slide[] = Array(8).fill({
@@ -21,10 +24,11 @@ const Home: NextPage = () => {
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
   })
+
   return (
     <Layout>
       <section>
-        <HomeSlider slides={homeSlides} />
+        <HomeSlider slides={homeSlides} dots />
         <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center -mt-2"></div>
       </section>
       <section id="news">
@@ -78,7 +82,7 @@ const Home: NextPage = () => {
             <img src="/game/blackjack.png" alt="" />
             <img src="/game/blackjack.png" alt="" />
           </div>
-          <SectionSlider slides={sectionSlides} />
+          <SectionSlider slides={sectionSlides} slidesToShow={4} />
         </div>
       </section>
 
@@ -89,7 +93,7 @@ const Home: NextPage = () => {
             <img src="/game/blackjack.png" alt="" />
             <img src="/game/blackjack.png" alt="" />
           </div>
-          <SectionSlider slides={sectionSlides} />
+          <SectionSlider slides={sectionSlides} slidesToShow={4} />
         </div>
       </section>
     </Layout>
