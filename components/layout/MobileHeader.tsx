@@ -1,19 +1,13 @@
 import { useStore } from '@/store/useStore'
+import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import { HiMenu } from 'react-icons/hi'
 import MobileMenu from './MobileMenu'
-import cs from 'classnames'
-import { useEffect } from 'react'
 
 function MobileHeader() {
   const router = useRouter()
   const toggleMbMenu = useStore((s) => s.toggleMbMenu)
-  const closeMbMenu = useStore((s) => s.closeMbMenu)
   const isShowMbMenu = useStore((s) => s.isShowMbMenu)
-
-  useEffect(() => {
-    closeMbMenu()
-  }, [closeMbMenu, router.asPath])
 
   return (
     <>
