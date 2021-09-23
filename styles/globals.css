@@ -50,8 +50,15 @@ html {
   @apply text-white bg-gray-600 rounded px-3 py-2 cursor-pointer hover:bg-gray-500 text-center;
 }
 
-.btn.primary {
+.btn.active {
   @apply bg-gold-800 hover:bg-gold-700;
+}
+
+.gold-btn {
+  @apply bg-gradient-to-br from-gold-500 to-gold-300 p-2.5 text-center rounded text-lg tracking-wider border-2 border-white/50;
+}
+.silver-btn {
+  @apply bg-gradient-to-br from-gray-500  to-gray-300 p-2.5 text-center rounded text-lg tracking-wider border-2 border-white/50;
 }
 
 /*

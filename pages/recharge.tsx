@@ -72,7 +72,7 @@ function RechargePage() {
                   </tbody>
                 </table>
                 <div className="mt-4 flex justify-end">
-                  <button className="btn primary flex space-x-3 items-center">
+                  <button className="btn active flex space-x-3 items-center">
                     前往結帳 <BiRightArrowAlt className="text-xl" />
                   </button>
                 </div>

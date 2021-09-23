@@ -48,7 +48,7 @@ function UserPw() {
               </div>
               <div className="pt-3 text-center space-x-5">
                 <button className="btn w-40">取消修改</button>
-                <button className="btn primary w-40">確認修改</button>
+                <button className="btn active w-40">確認修改</button>
               </div>
             </form>
           </div>

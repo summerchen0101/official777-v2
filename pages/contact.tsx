@@ -50,7 +50,7 @@ function ContactPage() {
               </div>
 
               <div className="pt-3 text-center">
-                <button className="btn primary w-40">確認送出</button>
+                <button className="btn active w-40">確認送出</button>
               </div>
             </form>
           </div>

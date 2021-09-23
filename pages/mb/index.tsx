@@ -6,6 +6,9 @@ import useDevicePage from '@/hooks/useDevicePage'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useState } from 'react'
+import { BiLogIn } from 'react-icons/bi'
+import { FaUber } from 'react-icons/fa'
+import { HiCurrencyDollar } from 'react-icons/hi'
 
 const newsTabsMap = {
   1: '最新',
@@ -30,14 +33,25 @@ const Home: NextPage = () => {
         <HomeSlider slides={homeSlides} />
       </section>
       <div className="px-4 space-y-2 mb-10">
-        <button className="bg-gradient-to-br from-gold-500  to-gold-300 py-2.5 text-center w-full rounded text-lg tracking-wider">
-          登入
-        </button>
-        <button className="bg-gradient-to-br from-gray-500  to-gray-300 py-2.5 text-center w-full rounded text-lg tracking-wider">
-          立刻儲值
-        </button>
+        <div className="grid grid-cols-2 gap-2 mb-4">
+          <div className="space-y-2">
+            <div className="flex justify-between bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 items-center px-2 py-1">
+              <FaUber className="text-xl text-gold-500" />
+              <div className="text-lg text-gold-900 font-medium">我是夏天</div>
+            </div>
+            <div className="flex justify-between bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 items-center px-2 py-1">
+              <HiCurrencyDollar className="text-3xl text-gold-500 -ml-1" />
+              <div className="text-lg text-gold-900 font-medium">100,000</div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center bg-black/50 rounded">
+            <div className="text-xl text-white font-mono">VIP: Lv3</div>
+          </div>
+        </div>
+        {/* <button className="gold-btn w-full">登入</button> */}
+        <button className="silver-btn w-full">立刻儲值</button>
       </div>
-      <div className="flex justify-evenly mb-10">
+      <div className="grid grid-cols-2 gap-2 mb-10 mx-4">
         <div className="space-y-1">
           <img src="/google_play.png" alt="" className="" />
           <img src="/app_store.png" alt="" className="" />
@@ -45,7 +59,7 @@ const Home: NextPage = () => {
         </div>
         <img
           src="/banner/banner_01.png"
-          className="object-cover w-[180px]"
+          className="object-cover w-full h-full"
           alt=""
         />
       </div>
