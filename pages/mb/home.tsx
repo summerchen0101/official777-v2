@@ -3,10 +3,8 @@ import MobileLayout from '@/components/mb/Layout'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import TabGroup from '@/components/TabGroup'
 import useDevicePage from '@/hooks/useDevicePage'
-import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useState } from 'react'
-import { BiLogIn } from 'react-icons/bi'
 import { FaUber } from 'react-icons/fa'
 import { HiCurrencyDollar } from 'react-icons/hi'
 
@@ -17,8 +15,8 @@ const newsTabsMap = {
   4: '客服',
 }
 
-const Home: NextPage = () => {
-  useDevicePage()
+const MobileHome: NextPage = () => {
+  useDevicePage('/home', '/mb/home')
   const [currentNewsTab, setCurrentNewsTab] = useState(1)
 
   const sectionSlides: Slide[] = Array(8).fill({
@@ -117,4 +115,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default MobileHome
