@@ -9,7 +9,7 @@ function UserPw() {
       <section>
         <div className="lg:w-[860px] mx-auto py-10">
           <h1 className="title text-light">修改密碼</h1>
-          <div className="bg-black/50 lg:rounded-xl py-12 px-7">
+          <div className="lg:bg-black/50 lg:rounded-xl py-8 px-7 mx-3">
             <form className="space-y-5">
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
@@ -51,7 +51,7 @@ function UserPw() {
                   className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
                 />
               </div>
-              <div className="pt-3 text-center space-x-5">
+              <div className="pt-3 text-center space-x-5 flex justify-center">
                 <button className="btn w-40">取消修改</button>
                 <button className="btn active w-40">確認修改</button>
               </div>

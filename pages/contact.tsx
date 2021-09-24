@@ -10,7 +10,7 @@ function ContactPage() {
       <section>
         <div className="lg:w-[860px] mx-auto py-10">
           <h1 className="title text-light">聯繫客服</h1>
-          <div className="bg-black/50 lg:rounded-xl py-12 px-7">
+          <div className="lg:bg-black/50 lg:rounded-xl py-8 px-7 mx-3">
             <form className="space-y-5">
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
@@ -19,7 +19,7 @@ function ContactPage() {
                 >
                   問題類型
                 </label>
-                <select className="rounded-sm border-none bg-gray-100 w-1/3 h-9">
+                <select className="rounded-sm border-none bg-gray-100 lg:w-1/3 h-9">
                   <option value="">預設</option>
                 </select>
               </div>
