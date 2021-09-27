@@ -1,8 +1,11 @@
 import Layout from '@/components/layout/Layout'
-import React from 'react'
+import React, { useState } from 'react'
 import { BiCreditCard, BiRightArrowAlt } from 'react-icons/bi'
-
+import cs from 'classnames'
 function RechargePage() {
+  const cvsList = ['OK', '萊爾富']
+  const [selectedCode, setSelectedCode] = useState(0)
+  const [selectedStore, setSelectedStore] = useState(0)
   return (
     <Layout>
       {/* <PageBanner /> */}
@@ -13,7 +16,11 @@ function RechargePage() {
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}
-                className="group flex items-center justify-center space-x-1 bg-black/50  hover:bg-black/70 shadow-md h-12 rounded-md cursor-pointer border border-white/30 hover:border-white/50 transition-all"
+                onClick={() => setSelectedCode(i)}
+                className={cs(
+                  'group flex items-center justify-center space-x-1 bg-black/70  hover:bg-black/90 shadow-md h-12 rounded-md cursor-pointer border border-white/30 hover:border-white/50 transition-all',
+                  selectedCode === i && 'bg-gold-800/90 hover:bg-gold-800/90',
+                )}
               >
                 <BiCreditCard className="text-2xl text-gold-500" />
                 <span className="text-gray-300 text-lg group-hover:text-gray-200 transition-all">
@@ -29,12 +36,19 @@ function RechargePage() {
                 1. 請選擇預儲值的超商
               </p>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                <button className="bg-black/50 text-gray-300 text-lg rounded h-16">
-                  OK
-                </button>
-                <button className="bg-black/50 text-gray-300 text-lg rounded h-16">
-                  萊爾富
-                </button>
+                {cvsList.map((label, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setSelectedStore(i)}
+                    className={cs(
+                      'bg-black/70 hover:bg-black/90 text-gray-300 text-lg rounded h-16 border border-white/30',
+                      selectedStore === i &&
+                        'bg-gold-800/90 hover:bg-gold-800/90',
+                    )}
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
             </div>
             <div className="">
