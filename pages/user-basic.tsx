@@ -6,7 +6,7 @@ function UserBasic() {
     <Layout>
       <PageBanner />
       <section>
-        <div className="lg:w-[860px] mx-auto py-10">
+        <div className="lg:w-[860px] mx-auto py-10 lg:py-20">
           <h1 className="title text-light">會員資料</h1>
           <div className="lg:bg-black/50 lg:rounded-xl py-8 px-7 mx-3">
             <form className="space-y-5">

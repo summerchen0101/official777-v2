@@ -7,8 +7,11 @@ module.exports = {
       zIndex: {
         '-1': '-1',
       },
+      backgroundPosition: {
+        // 'top-4': 'center top 1rem',
+      },
       backgroundImage: {
-        'main-pattern': "url('/bg.png')",
+        'main-pattern': "url('/bg.jpg')",
         'login-btn': "url('/login_btn.png')",
         'login-btn-active': "url('/login_btn_active.png')",
         'slider-pager': "url('/slider_pager.png')",

@@ -9,8 +9,12 @@ body,
 }
 
 html {
-  @apply bg-main-pattern bg-fixed;
+  @apply bg-main-pattern bg-fixed bg-cover bg-center;
 }
+
+/* .main-content {
+  @apply bg-main-pattern bg-fixed bg-cover bg-center;
+} */
 
 html {
   scroll-behavior: smooth;
@@ -78,8 +82,11 @@ section {
   scroll-margin-top: 80px;
 }
 
-.text-light {
+.news-tab-light {
   text-shadow: 0 0 4px #9c6b48;
+}
+.text-light {
+  text-shadow: 0 0 4px #3b2b1f;
 }
 
 .gold-box {

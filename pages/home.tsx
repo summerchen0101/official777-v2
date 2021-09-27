@@ -4,8 +4,7 @@ import SectionSlider, { Slide } from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
 import cs from 'classnames'
 import type { NextPage } from 'next'
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
 const newsTabsMap = {
   1: '最新',
   2: '營運',
@@ -24,13 +23,13 @@ const Home: NextPage = () => {
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
   })
-
   return (
     <Layout>
       <section>
         <HomeSlider slides={homeSlides} dots />
         <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center -mt-2"></div>
       </section>
+
       <section id="news">
         <div className="lg:w-[860px] mx-auto py-10">
           <img src="/title_news.png" alt="最新消息" className="h-10 mb-4" />
@@ -40,7 +39,7 @@ const Home: NextPage = () => {
                 <div
                   key={key}
                   className={cs(
-                    'text-light text-xl cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
+                    'news-tab-light text-xl cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
                     {
                       'text-white': +key === currentNewsTab,
                     },
