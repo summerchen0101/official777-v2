@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       </section>
 
       <section className="bg-gray-500">
-        <div className="lg:w-[860px] h-[450px] mx-auto py-10">
+        <div className="lg:w-[860px] h-[450px] mx-auto lg:py-20">
           <h1 className="text-2xl mb-5 text-white text-center tracking-widest">
             [ 基本介紹 ]
           </h1>

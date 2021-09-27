@@ -14,9 +14,9 @@ function GameIntro() {
   const [activeTab, setActiveTab] = useState('1')
   return (
     <Layout>
-      <PageBanner />
+      {/* <PageBanner /> */}
       <section>
-        <div className="lg:w-[860px] mx-auto py-10">
+        <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">遊戲說明</h1>
           <div className="flex justify-center mb-4">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />

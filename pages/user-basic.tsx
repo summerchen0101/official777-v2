@@ -4,11 +4,11 @@ import PageBanner from '@/components/layout/PageBanner'
 function UserBasic() {
   return (
     <Layout>
-      <PageBanner />
+      {/* <PageBanner /> */}
       <section>
-        <div className="lg:w-[860px] mx-auto py-10 lg:py-20">
+        <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">會員資料</h1>
-          <div className="lg:bg-black/50 lg:rounded-xl py-8 px-7 mx-3">
+          <div className="lg:bg-black/50 lg:rounded-xl pb-8 pt-0 lg:pt-8 px-7 mx-3">
             <form className="space-y-5">
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label

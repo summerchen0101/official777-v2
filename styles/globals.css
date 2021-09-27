@@ -85,9 +85,9 @@ section {
 .news-tab-light {
   text-shadow: 0 0 4px #9c6b48;
 }
-.text-light {
+/* .text-light {
   text-shadow: 0 0 4px #3b2b1f;
-}
+} */
 
 .gold-box {
   @apply bg-gradient-to-br from-gold-300 via-gold-500 to-gold-800 bg-no-repeat bg-center border-2 border-gold-300;
@@ -101,7 +101,8 @@ section {
 }
 
 .title {
-  @apply text-3xl mb-6 text-gold-400 text-center tracking-widest;
+  text-shadow: 0 0 4px #3b2b1f;
+  @apply text-3xl mb-8 text-gold-400 text-center tracking-widest;
 }
 
 .vlr {

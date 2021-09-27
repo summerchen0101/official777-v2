@@ -5,9 +5,9 @@ import React from 'react'
 function GiftIntro() {
   return (
     <Layout>
-      <PageBanner />
+      {/* <PageBanner /> */}
       <section>
-        <div className="lg:w-[860px] mx-auto py-10">
+        <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">紅包說明</h1>
           <div className="bg-gray-300 flex items-center justify-center min-h-[400px] mx-4">
             IMAGE

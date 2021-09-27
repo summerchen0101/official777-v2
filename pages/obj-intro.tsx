@@ -6,11 +6,11 @@ import React from 'react'
 function ObjIntro() {
   return (
     <Layout>
-      <PageBanner />
+      {/* <PageBanner /> */}
       <section>
-        <div className="lg:w-[860px] mx-auto py-10">
+        <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">道具說明</h1>
-          <div className="space-y-5 px-4">
+          <div className="space-y-8 px-8">
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}

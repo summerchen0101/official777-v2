@@ -1,29 +1,22 @@
 import Layout from '@/components/layout/Layout'
-import PageBanner from '@/components/layout/PageBanner'
-import React, { useState } from 'react'
-import {
-  BiArrowToRight,
-  BiCaretRight,
-  BiCartAlt,
-  BiCreditCard,
-  BiRightArrowAlt,
-} from 'react-icons/bi'
+import React from 'react'
+import { BiCreditCard, BiRightArrowAlt } from 'react-icons/bi'
 
 function RechargePage() {
   return (
     <Layout>
-      <PageBanner />
+      {/* <PageBanner /> */}
       <section>
-        <div className="lg:w-[860px] mx-auto py-10 px-4">
+        <div className="lg:w-[860px] mx-auto lg:py-20 px-4">
           <h1 className="title text-light">儲值購點</h1>
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 rounded-md">
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}
-                className="group flex items-center justify-center space-x-1 bg-black/20  hover:bg-black/50 shadow-md h-12 rounded-md cursor-pointer border border-white/30 hover:border-white/50 transition-all"
+                className="group flex items-center justify-center space-x-1 bg-black/50  hover:bg-black/70 shadow-md h-12 rounded-md cursor-pointer border border-white/30 hover:border-white/50 transition-all"
               >
                 <BiCreditCard className="text-2xl text-gold-500" />
-                <span className="text-gray-400 text-lg group-hover:text-gray-300 transition-all">
+                <span className="text-gray-300 text-lg group-hover:text-gray-200 transition-all">
                   超商代碼
                 </span>
               </div>

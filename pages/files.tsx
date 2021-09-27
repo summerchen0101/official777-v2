@@ -6,9 +6,9 @@ import { BiFile } from 'react-icons/bi'
 function FilesPage() {
   return (
     <Layout>
-      <PageBanner />
+      {/* <PageBanner /> */}
       <section>
-        <div className="lg:w-[860px] min-h-[400px] mx-auto py-10">
+        <div className="lg:w-[860px] min-h-[400px] mx-auto lg:py-20">
           <h1 className="title text-light">表單下載</h1>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-3 gap-x-4 px-4">
             {[...Array(5)].map((t, i) => (
