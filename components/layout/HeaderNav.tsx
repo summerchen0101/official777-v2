@@ -32,8 +32,8 @@ function HeaderNav() {
         </div>
         {/* Hover展開的內容 */}
         <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all -translate-y-12 duration-400 group-hover:translate-y-0 mt-[110px]">
-          <div className="bg-black/75 opacity-95 py-2 px-5 flex space-x- justify-center h-[300px] relative z-10 pt-5">
-            <div className="w-48"></div>
+          <div className="bg-black/75 opacity-95 p-5 pb-10 flex space-x- justify-center relative z-10">
+            <div className="w-36"></div>
             {menu.map((m, m_i) => (
               <div key={m_i} className="space-y-2 w-36">
                 {m.subs?.map((t, i) => (
