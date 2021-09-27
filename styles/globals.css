@@ -96,3 +96,7 @@ section {
 .title {
   @apply text-3xl mb-6 text-gold-400 text-center tracking-widest;
 }
+
+.vlr {
+  writing-mode: vertical-lr;
+}

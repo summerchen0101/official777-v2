@@ -47,7 +47,7 @@ function HeaderNav() {
             ))}
           </div>
         </div>
-        <div className="flex space-x-3 absolute top-0 right-0 m-3 z-30">
+        <div className="flex space-x-3 absolute top-0 right-0 xl:m-3 z-30 lg:scale-75">
           <img src="/fb.png" className="cursor-pointer" alt="" />
           <img src="/line.png" className="cursor-pointer" alt="" />
           <img src="/youtube.png" className="cursor-pointer" alt="" />
