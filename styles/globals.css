@@ -5,7 +5,11 @@
 html,
 body,
 #__next {
-  @apply h-full bg-main-pattern;
+  @apply h-full;
+}
+
+html {
+  @apply bg-main-pattern bg-fixed;
 }
 
 html {

@@ -10,24 +10,22 @@ function HeaderNav() {
   return (
     <>
       <header className="hidden lg:block group fixed top-0 w-full z-30">
-        <div className="bg-gradient-to-b from-purple-900 via-purple-700 relative h-[120px] flex items-center justify-center px-5 z-20">
+        <div className="bg-gradient-to-b from-purple-900 via-purple-700 relative flex items-center justify-center px-5 z-20">
           <img
             src="/logo.png"
             alt=""
-            className="cursor-pointer w-48 -mb-2"
+            className="cursor-pointer h-28 -mb-2"
             onClick={() => router.push('/')}
           />
-          <div className="">
-            <div className="flex px-5">
-              {menu.map((m, i) => (
-                <div
-                  key={i}
-                  className="text-xl text-white cursor-pointer text-center w-36"
-                >
-                  {m.label}
-                </div>
-              ))}
-            </div>
+          <div className="flex px-5">
+            {menu.map((m, i) => (
+              <div
+                key={i}
+                className="text-xl text-white cursor-pointer text-center w-36"
+              >
+                {m.label}
+              </div>
+            ))}
           </div>
         </div>
         {/* Hover展開的內容 */}
