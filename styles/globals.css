@@ -26,13 +26,13 @@ html {
     @apply px-3 py-2.5 text-left;
   }
   thead tr {
-    @apply text-gray-800 bg-gold-400;
+    @apply text-gray-900 bg-gradient-to-b from-gold-400 to-gold-600;
   }
   tbody tr {
-    @apply even:bg-gray-200;
+    @apply even:bg-gray-200/80 odd:bg-gray-300/80;
   }
   tbody {
-    @apply bg-gray-100 text-gray-700;
+    @apply text-gray-700;
   }
   table {
     @apply w-full sm:w-auto text-gray-800 rounded-t overflow-hidden;
