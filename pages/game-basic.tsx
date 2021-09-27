@@ -17,7 +17,7 @@ function GameBasic() {
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">基本介紹</h1>
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
           <div className="bg-gray-300 flex items-center justify-center min-h-[400px]">

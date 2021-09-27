@@ -18,7 +18,7 @@ function GameIntro() {
       <section>
         <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">遊戲說明</h1>
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 px-4">

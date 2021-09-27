@@ -1,10 +1,9 @@
 import GoldRankTable from '@/components/GoldRankTable'
 import Layout from '@/components/layout/Layout'
-import PageBanner from '@/components/layout/PageBanner'
 import SlotRankTable from '@/components/SlotRankTable'
 import TabGroup from '@/components/TabGroup'
 import { useRouter } from 'next/dist/client/router'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const tabsMap = {
   1: '金幣榜',
@@ -33,10 +32,12 @@ function RankPage() {
       <section>
         <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">排行榜</h1>
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
-          <TableComp />
+          <div className="px-4">
+            <TableComp />
+          </div>
         </div>
       </section>
     </Layout>

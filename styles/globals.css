@@ -48,7 +48,7 @@ html {
 }
 
 .tab {
-  @apply text-white bg-gray-500 rounded-sm px-4 py-1.5 cursor-pointer hover:bg-gray-400 text-lg;
+  @apply text-white bg-gray-500 rounded-sm px-4 py-1.5 cursor-pointer hover:bg-gray-400 text-lg w-32 text-center tracking-wider font-medium;
 }
 .tab.active {
   @apply bg-gold-600 hover:bg-gold-500;
