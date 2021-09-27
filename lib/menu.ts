@@ -32,8 +32,8 @@ export const menu: Menu[] = [
   {
     label: '排行榜',
     subs: [
-      { label: '金幣排行', path: '/' },
-      { label: 'SLOT賠率排行', path: '/' },
+      { label: '金幣排行', path: '/rank' },
+      { label: 'SLOT賠率排行', path: '/rank?tab=2' },
     ],
   },
   {

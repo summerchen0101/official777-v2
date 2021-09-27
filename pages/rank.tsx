@@ -3,7 +3,8 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import SlotRankTable from '@/components/SlotRankTable'
 import TabGroup from '@/components/TabGroup'
-import React, { useMemo, useState } from 'react'
+import { useRouter } from 'next/dist/client/router'
+import React, { useEffect, useMemo, useState } from 'react'
 
 const tabsMap = {
   1: '金幣榜',
@@ -16,8 +17,15 @@ const tableMap: Record<string, () => JSX.Element> = {
 }
 
 function RankPage() {
-  const [activeTab, setActiveTab] = useState('1')
+  const router = useRouter()
+  const [activeTab, setActiveTab] = useState(
+    (router.query.tab as string) || '1',
+  )
   const TableComp = tableMap[activeTab]
+
+  useEffect(() => {
+    setActiveTab((router.query.tab as string) || '1')
+  }, [router.query.tab])
 
   return (
     <Layout>
