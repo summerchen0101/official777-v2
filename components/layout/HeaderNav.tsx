@@ -10,27 +10,29 @@ function HeaderNav() {
   return (
     <>
       <header className="hidden lg:block group fixed top-0 w-full z-30">
-        <div className="bg-gradient-to-b from-purple-900 via-purple-700 relative flex items-center justify-center px-5 z-20">
-          <img
-            src="/logo.png"
-            alt=""
-            className="cursor-pointer h-28 -mb-2"
-            onClick={() => router.push('/')}
-          />
-          <div className="flex px-5">
-            {menu.map((m, i) => (
-              <div
-                key={i}
-                className="text-xl text-white cursor-pointer text-center w-36"
-              >
-                {m.label}
-              </div>
-            ))}
+        <div className="bg-gradient-to-b from-purple-900 via-purple-700 to-black/90 relative px-5 z-20">
+          <div className="flex items-center justify-center">
+            <img
+              src="/logo.png"
+              alt=""
+              className="cursor-pointer h-28"
+              onClick={() => router.push('/')}
+            />
+            <div className="flex px-5">
+              {menu.map((m, i) => (
+                <div
+                  key={i}
+                  className="text-xl text-white cursor-pointer text-center w-36"
+                >
+                  {m.label}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         {/* Hover展開的內容 */}
-        <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all -translate-y-12 duration-400 group-hover:translate-y-0">
-          <div className="pt-[120px] bg-black/75 opacity-95 py-2 px-5 flex space-x- justify-center h-[300px] relative z-10">
+        <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all -translate-y-12 duration-400 group-hover:translate-y-0 mt-[110px]">
+          <div className="bg-black/75 opacity-95 py-2 px-5 flex space-x- justify-center h-[300px] relative z-10 pt-5">
             <div className="w-48"></div>
             {menu.map((m, m_i) => (
               <div key={m_i} className="space-y-2 w-36">
