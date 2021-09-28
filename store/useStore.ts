@@ -5,6 +5,12 @@ interface News {
   date: string
   content: string
 }
+
+interface User {
+  name: string
+  level: number
+  points: number
+}
 interface IState {
   isShowSidebar: boolean
   toggleSidebar: () => void
@@ -17,6 +23,10 @@ interface IState {
   newsInfo: News | null
   showNews: (news: News) => void
   closeNews: () => void
+  user: User | null
+  setUser: (user: User) => void
+  isShowLoginPopup: boolean
+  toggleLoginPopup: () => void
 }
 
 export const useStore = create<IState>((set) => ({
@@ -33,4 +43,9 @@ export const useStore = create<IState>((set) => ({
   newsInfo: null,
   showNews: (newsInfo: News) => set({ isShowNewsPopup: true, newsInfo }),
   closeNews: () => set({ isShowNewsPopup: false }),
+  user: null,
+  setUser: (user) => set({ user }),
+  isShowLoginPopup: false,
+  toggleLoginPopup: () =>
+    set((state) => ({ isShowLoginPopup: !state.isShowLoginPopup })),
 }))

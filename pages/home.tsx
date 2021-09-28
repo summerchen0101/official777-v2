@@ -28,13 +28,13 @@ const Home: NextPage = () => {
   })
   return (
     <Layout>
-      <section>
+      <section className="mb-16">
         <HomeSlider slides={homeSlides} dots />
         <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center -mt-2"></div>
       </section>
 
-      <section id="news">
-        <div className="lg:w-[860px] mx-auto lg:py-20">
+      <section id="news" className="mb-16 px-4">
+        <div className="lg:w-[860px] mx-auto">
           <img src="/title_news.png" alt="最新消息" className="h-10 mb-4" />
           <div className="bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl">
             <div className="flex pt-3 pb-1 tracking-wider">
@@ -83,8 +83,8 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <section>
-        <div className="lg:w-[860px] mx-auto lg:py-20">
+      <section className="mb-16">
+        <div className="lg:w-[860px] mx-auto">
           <img src="/title_games.png" alt="推薦遊戲" className="h-10 mb-4" />
 
           <div className=" grid grid-cols-2 gap-4 mb-4">
@@ -96,7 +96,7 @@ const Home: NextPage = () => {
       </section>
 
       <section className="mb-10">
-        <div className="lg:w-[860px] mx-auto lg:py-20">
+        <div className="lg:w-[860px] mx-auto">
           <img src="/title_tiger.png" alt="老虎機" className="h-10 mb-4" />
           <div className=" grid grid-cols-2 gap-4 mb-4">
             <img src="/game/blackjack.png" alt="" />

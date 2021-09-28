@@ -14,6 +14,8 @@ module.exports = {
         'main-pattern': "url('/purple_bg.png')",
         'login-btn': "url('/login_btn.png')",
         'login-btn-active': "url('/login_btn_active.png')",
+        'logout-btn': "url('/logout_btn.png')",
+        'logout-btn-active': "url('/logout_btn_active.png')",
         'slider-pager': "url('/slider_pager.png')",
         'slider-pager-active': "url('/slider_pager_active.png')",
       },

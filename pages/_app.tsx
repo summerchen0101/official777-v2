@@ -1,9 +1,10 @@
-import 'tailwindcss/tailwind.css'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import '../styles/globals.css'
+import LoginPopup from '@/components/LoginPopup'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import 'slick-carousel/slick/slick-theme.css'
+import 'slick-carousel/slick/slick.css'
+import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
+      <LoginPopup />
     </>
   )
 }

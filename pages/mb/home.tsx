@@ -63,14 +63,14 @@ const MobileHome: NextPage = () => {
       </div>
 
       <section className="mb-10 mx-3">
-        <div className="flex justify-center mb-3">
-          <TabGroup
-            map={newsTabsMap}
-            value={currentNewsTab.toString()}
-            onChange={(val) => setCurrentNewsTab(+val)}
-          />
-        </div>
-        <div className="p-2 pt-3 space-y-1 gold-box rounded">
+        <select className="rounded-lg w-full mb-3 bg-brown-200 text-brown-800 font-medium border-2 border-brown-300">
+          {Object.entries(newsTabsMap).map(([key, label]) => (
+            <option key={key} value={key}>
+              {label}
+            </option>
+          ))}
+        </select>
+        <div className="p-2 pt-3 space-y-1 bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl">
           {[...Array(6)].map((t, i) => (
             <div
               key={i}
