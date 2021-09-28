@@ -3,29 +3,24 @@ import Layout from '@/components/layout/Layout'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
-import { newsType } from '@/lib/map'
+import { newsTypeMap } from '@/lib/map'
 import useNewsList from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
 import cs from 'classnames'
 import type { NextPage } from 'next'
+import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
-const newsTabsMap = {
-  1: '最新',
-  2: '營運',
-  3: '活動',
-  4: '客服',
-}
 
 const Home: NextPage = () => {
+  const router = useRouter()
+  const [currentNewsTab, setCurrentNewsTab] = useState(0)
   const { list, isLoading } = useNewsList({
-    category: 0,
+    category: currentNewsTab,
     page: 1,
     per_page: 10,
   })
   useDevicePage('/home', '/mb/home')
   const showNews = useStore((s) => s.showNews)
-
-  const [currentNewsTab, setCurrentNewsTab] = useState(1)
 
   const sectionSlides: Slide[] = Array(8).fill({
     path: '/game/blackjack.png',
@@ -45,7 +40,7 @@ const Home: NextPage = () => {
           <img src="/title_news.png" alt="最新消息" className="h-10 mb-4" />
           <div className="bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl">
             <div className="flex pt-3 pb-1 tracking-wider">
-              {Object.entries(newsTabsMap).map(([key, label]) => (
+              {Object.entries(newsTypeMap).map(([key, label]) => (
                 <div
                   key={key}
                   className={cs(
@@ -61,7 +56,10 @@ const Home: NextPage = () => {
                 </div>
               ))}
               <div className="flex-1"></div>
-              <div className="px-4 font-medium cursor-pointer hover:text-white/80">
+              <div
+                className="px-4 font-medium cursor-pointer hover:text-white/80"
+                onClick={() => router.push('/news')}
+              >
                 更多...
               </div>
             </div>
@@ -78,7 +76,7 @@ const Home: NextPage = () => {
                     })
                   }
                 >
-                  <div className="w-20">[{newsType[t.category]}]</div>
+                  <div className="w-20">[{newsTypeMap[t.category]}]</div>
                   <div className="flex-1">{t.title}</div>
                   <div className="w-32">2021-08-31</div>
                 </div>
