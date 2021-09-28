@@ -30,6 +30,7 @@
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
     "store2": "^2.12.0",
+    "swr": "^1.0.1",
     "tailwindcss": "^2.2.9",
     "zustand": "^3.5.10"
   },
