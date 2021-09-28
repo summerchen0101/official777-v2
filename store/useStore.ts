@@ -5,6 +5,10 @@ interface News {
   date: string
   content: string
 }
+interface Game {
+  title: string
+  content: string
+}
 
 interface User {
   name: string
@@ -19,10 +23,16 @@ interface IState {
   isShowMbMenu: boolean
   toggleMbMenu: () => void
   closeMbMenu: () => void
+
   isShowNewsPopup: boolean
   newsInfo: News | null
   showNews: (news: News) => void
   closeNews: () => void
+  isShowGamePopup: boolean
+  gameInfo: Game | null
+  showGamePopup: (gameInfo: Game) => void
+  closeGamePopup: () => void
+
   user: User | null
   setUser: (user: User) => void
   clearUser: () => void
@@ -40,10 +50,17 @@ export const useStore = create<IState>((set) => ({
   isShowMbMenu: false,
   toggleMbMenu: () => set((state) => ({ isShowMbMenu: !state.isShowMbMenu })),
   closeMbMenu: () => set({ isShowMbMenu: false }),
+
   isShowNewsPopup: false,
   newsInfo: null,
   showNews: (newsInfo: News) => set({ isShowNewsPopup: true, newsInfo }),
   closeNews: () => set({ isShowNewsPopup: false }),
+
+  isShowGamePopup: false,
+  gameInfo: null,
+  showGamePopup: (gameInfo: Game) => set({ isShowGamePopup: true, gameInfo }),
+  closeGamePopup: () => set({ isShowGamePopup: false }),
+
   user: null,
   setUser: (user) => set({ user }),
   clearUser: () => set({ user: null }),

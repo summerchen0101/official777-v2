@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import GameDetailPopup from '@/components/GameDetailPopup'
 import Layout from '@/components/layout/Layout'
-import TabGroup from '@/components/TabGroup'
-import Image from 'next/image'
 import PageBanner from '@/components/layout/PageBanner'
+import TabGroup from '@/components/TabGroup'
+import { useStore } from '@/store/useStore'
+import React, { useState } from 'react'
 
 const tabsMap = {
   1: '推薦遊戲',
@@ -12,6 +13,7 @@ const tabsMap = {
 
 function GameIntro() {
   const [activeTab, setActiveTab] = useState('1')
+  const showGamePopup = useStore((s) => s.showGamePopup)
   return (
     <Layout>
       <PageBanner />
@@ -28,6 +30,7 @@ function GameIntro() {
               <div
                 key={i}
                 className="group relative overflow-hidden cursor-pointer aspect-w-1 aspect-h-1 border border-brown-500"
+                onClick={() => showGamePopup({ title: '', content: '' })}
               >
                 <img
                   src="/game/blackjack.png"
@@ -42,6 +45,7 @@ function GameIntro() {
           </div>
         </div>
       </section>
+      <GameDetailPopup />
     </Layout>
   )
 }

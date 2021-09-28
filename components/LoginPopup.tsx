@@ -14,7 +14,7 @@ export default function LoginPopup() {
   return (
     <div
       className={cs(
-        'bg-black/20 fixed top-0 left-0 w-full h-full z-50 transition-all flex justify-center items-center',
+        'fixed top-0 left-0 w-full h-full z-50 transition-all flex justify-center items-center',
         isShowLoginPopup ? 'visible opacity-100' : 'invisible opacity-0',
       )}
       onClick={toggleLoginPopup}
