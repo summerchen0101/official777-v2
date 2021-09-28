@@ -1,5 +1,10 @@
 import create from 'zustand'
 
+interface News {
+  title: string
+  date: string
+  content: string
+}
 interface IState {
   isShowSidebar: boolean
   toggleSidebar: () => void
@@ -8,6 +13,10 @@ interface IState {
   isShowMbMenu: boolean
   toggleMbMenu: () => void
   closeMbMenu: () => void
+  isShowNewsPopup: boolean
+  newsInfo: News | null
+  showNews: (news: News) => void
+  closeNews: () => void
 }
 
 export const useStore = create<IState>((set) => ({
@@ -19,5 +28,9 @@ export const useStore = create<IState>((set) => ({
     set((state) => ({ isShowRechargeFloat: !state.isShowRechargeFloat })),
   isShowMbMenu: false,
   toggleMbMenu: () => set((state) => ({ isShowMbMenu: !state.isShowMbMenu })),
-  closeMbMenu: () => set((state) => ({ isShowMbMenu: false })),
+  closeMbMenu: () => set({ isShowMbMenu: false }),
+  isShowNewsPopup: false,
+  newsInfo: null,
+  showNews: (newsInfo: News) => set({ isShowNewsPopup: true, newsInfo }),
+  closeNews: () => set({ isShowNewsPopup: false }),
 }))

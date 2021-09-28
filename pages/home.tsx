@@ -1,7 +1,9 @@
 import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
+import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
+import { useStore } from '@/store/useStore'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useEffect, useState } from 'react'
@@ -14,6 +16,7 @@ const newsTabsMap = {
 
 const Home: NextPage = () => {
   useDevicePage('/home', '/mb/home')
+  const showNews = useStore((s) => s.showNews)
 
   const [currentNewsTab, setCurrentNewsTab] = useState(1)
 
@@ -60,6 +63,13 @@ const Home: NextPage = () => {
                 <div
                   key={i}
                   className="flex odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
+                  onClick={() =>
+                    showNews({
+                      title: '標題在這裡標題在這裡',
+                      content: '內容在這裡內容在這裡內容在這裡內容在這裡',
+                      date: '2021-09-23',
+                    })
+                  }
                 >
                   <div className="w-20">[類別]</div>
                   <div className="flex-1">
@@ -95,6 +105,7 @@ const Home: NextPage = () => {
           <SectionSlider slides={sectionSlides} slidesToShow={4} />
         </div>
       </section>
+      <NewsDetailPopup />
     </Layout>
   )
 }

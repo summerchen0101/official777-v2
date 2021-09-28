@@ -2,6 +2,9 @@ import Layout from '@/components/layout/Layout'
 import React, { useState } from 'react'
 import cs from 'classnames'
 import PageBanner from '@/components/layout/PageBanner'
+import { BiX } from 'react-icons/bi'
+import NewsDetailPopup from '@/components/NewsDetailPopup'
+import { useStore } from '@/store/useStore'
 
 const newsTabsMap = {
   1: '最新',
@@ -11,6 +14,7 @@ const newsTabsMap = {
 }
 function RechargeRec() {
   const [currentNewsTab, setCurrentNewsTab] = useState(1)
+  const showNews = useStore((s) => s.showNews)
   return (
     <Layout>
       <PageBanner />
@@ -43,6 +47,13 @@ function RechargeRec() {
                   <div
                     key={i}
                     className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
+                    onClick={() =>
+                      showNews({
+                        title: '標題在這裡標題在這裡',
+                        content: '內容在這裡內容在這裡內容在這裡內容在這裡',
+                        date: '2021-09-23',
+                      })
+                    }
                   >
                     <div className="w-20">[類別]</div>
                     <div className="flex-1">
@@ -65,6 +76,7 @@ function RechargeRec() {
           </div>
         </div>
       </section>
+      <NewsDetailPopup />
     </Layout>
   )
 }
