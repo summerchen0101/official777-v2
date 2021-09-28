@@ -13,10 +13,12 @@ function GameBasic() {
   const [activeTab, setActiveTab] = useState('1')
   return (
     <Layout>
-      {/* <PageBanner /> */}
-      <section className="px-4">
+      <PageBanner />
+      <section className="mt-5">
         <div className="lg:w-[860px] mx-auto lg:py-20">
-          <h1 className="title text-light">基本介紹</h1>
+          <div className="mb-3 mx-4 flex justify-center lg:justify-start">
+            <img src="/title_basic.png" alt="基本介紹" className="h-10" />
+          </div>
           <div className="flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>

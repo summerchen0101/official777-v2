@@ -5,7 +5,7 @@ import React from 'react'
 function UserPw() {
   return (
     <Layout>
-      {/* <PageBanner /> */}
+      <PageBanner />
       <section>
         <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">修改密碼</h1>

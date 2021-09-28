@@ -28,7 +28,7 @@ function RankPage() {
 
   return (
     <Layout>
-      {/* <PageBanner /> */}
+      <PageBanner />
       <section>
         <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">排行榜</h1>

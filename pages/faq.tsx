@@ -5,7 +5,7 @@ import React from 'react'
 function FaqPage() {
   return (
     <Layout>
-      {/* <PageBanner /> */}
+      <PageBanner />
       <section>
         <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">常見問題</h1>

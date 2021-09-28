@@ -1,15 +1,16 @@
 import React from 'react'
 import Slider, { Settings } from 'react-slick'
-
+import cs from 'classnames'
 export interface Slide {
   path: string
 }
 interface Props {
   slides: Slide[]
   dots?: boolean
+  isHomePage?: boolean
 }
 
-function HomeSlider({ slides, dots }: Props) {
+function HomeSlider({ slides, dots, isHomePage }: Props) {
   var settings: Settings = {
     dots,
     infinite: true,
@@ -22,13 +23,17 @@ function HomeSlider({ slides, dots }: Props) {
     customPaging: () => <div className="dot"></div>,
     dotsClass: 'slick-dots slick-thumb space-x-4',
   }
+
   return (
     <Slider {...settings}>
       {slides.map((t, i) => (
         <div key={i} className="px-2">
           <img
             src={t.path}
-            className="h-[300px] lg:h-[500px] w-full object-cover object-center"
+            className={cs(
+              'h-[300px] w-full object-cover object-center',
+              isHomePage ? 'lg:h-[500px]' : 'lg:h-[350px]',
+            )}
             alt=""
           />
         </div>

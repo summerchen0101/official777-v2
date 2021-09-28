@@ -14,25 +14,29 @@ function GameIntro() {
   const [activeTab, setActiveTab] = useState('1')
   return (
     <Layout>
-      {/* <PageBanner /> */}
-      <section>
+      <PageBanner />
+      <section className="mt-5">
         <div className="lg:w-[860px] mx-auto lg:py-20">
-          <h1 className="title text-light">遊戲說明</h1>
+          <div className="mb-3 mx-4 flex justify-center lg:justify-start">
+            <img src="/title_game_intro.png" alt="遊戲說明" className="h-10" />
+          </div>
           <div className="flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-4">
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}
-                className="object-cover hover:opacity-80 object-center"
+                className="group relative overflow-hidden cursor-pointer aspect-w-1 aspect-h-1 border border-brown-500"
               >
-                <Image
-                  src="https://fakeimg.pl/500x300"
+                <img
+                  src="/game/blackjack.png"
+                  className="object-cover object-center group-hover:scale-110 h-full w-full transition-all"
                   alt=""
-                  width="500"
-                  height="300"
                 />
+                <div className="bg-purple-900/80 text-white py-1 px-2 transition-all translate-y-4 opacity-0 group-hover:-translate-y-0 group-hover:opacity-100 absolute w-full top-2/3 h-10 flex items-center justify-center text-lg">
+                  標題
+                </div>
               </div>
             ))}
           </div>

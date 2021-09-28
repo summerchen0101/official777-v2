@@ -9,7 +9,7 @@ body,
 }
 
 html {
-  @apply bg-main-pattern bg-fixed bg-cover bg-center;
+  @apply bg-main-pattern bg-fixed bg-contain bg-center;
 }
 
 /* .main-content {
@@ -29,7 +29,7 @@ html {
     @apply text-gray-900 bg-gradient-to-b from-gold-400 to-gold-600;
   }
   tbody tr {
-    @apply even:bg-gray-200/80 odd:bg-gray-300/80;
+    @apply even:bg-white odd:bg-gray-200;
   }
   tbody {
     @apply text-gray-700;
@@ -48,10 +48,10 @@ html {
 }
 
 .tab {
-  @apply text-white bg-gray-500 rounded-sm px-4 py-1.5 cursor-pointer hover:bg-gray-400 text-lg w-32 text-center tracking-wider font-medium;
+  @apply text-white bg-purple-900 rounded px-4 py-1.5 cursor-pointer text-lg w-32 text-center tracking-wider font-medium border border-white/70;
 }
 .tab.active {
-  @apply bg-gold-600 hover:bg-gold-500;
+  @apply bg-yellow-500 text-black;
 }
 
 .btn {

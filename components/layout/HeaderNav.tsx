@@ -17,7 +17,7 @@ function HeaderNav() {
               className="cursor-pointer w-52"
               onClick={() => router.push('/')}
             />
-            <div className="flex px-5 -mt-20">
+            <div className="flex px-5 -mt-16">
               {menu.map((m, i) => (
                 <div
                   key={i}

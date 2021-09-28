@@ -8,7 +8,7 @@ function RechargeFloat() {
   const toggle = useStore((s) => s.toggleRechargeFloat)
   const isShow = useStore((s) => s.isShowRechargeFloat)
   return isShow ? (
-    <div className="gold-box rounded-xl w-48 ml-2 hidden lg:flex flex-col px-3 pt-0 pb-10 fixed top-0 left-0 mt-[120px] space-y-3 shadow-md z-30">
+    <div className="gold-box rounded-xl w-48 ml-2 hidden lg:flex flex-col px-3 pt-0 pb-10 fixed top-0 left-0 mt-[160px] space-y-3 shadow-md z-30">
       {/* <div
         className="gold-box rounded-full cursor-pointer absolute top-0 right-0 -mt-3 -mr-3"
         onClick={toggle}

@@ -4,7 +4,7 @@ import React from 'react'
 function RechargeRec() {
   return (
     <Layout>
-      {/* <PageBanner /> */}
+      <PageBanner />
       <section>
         <div className="lg:w-[860px] mx-auto lg:py-20">
           <h1 className="title text-light">儲值紀錄</h1>

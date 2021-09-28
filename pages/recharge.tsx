@@ -2,13 +2,19 @@ import Layout from '@/components/layout/Layout'
 import React, { useState } from 'react'
 import { BiCreditCard, BiRightArrowAlt } from 'react-icons/bi'
 import cs from 'classnames'
+import PageBanner from '@/components/layout/PageBanner'
 function RechargePage() {
-  const cvsList = ['OK', '萊爾富']
+  const cvsList = [
+    { label: '全家', img: '/recharge/logo_familyMart.png' },
+    { label: '萊爾富', img: '/recharge/logo_hiLife.png' },
+    { label: 'OK', img: '/recharge/logo_okMart.png' },
+    { label: '7-11', img: '/recharge/logo_sevenEleven.png' },
+  ]
   const [selectedCode, setSelectedCode] = useState(0)
   const [selectedStore, setSelectedStore] = useState(0)
   return (
     <Layout>
-      {/* <PageBanner /> */}
+      <PageBanner />
       <section>
         <div className="lg:w-[860px] mx-auto lg:py-20 px-4">
           <h1 className="title text-light">儲值購點</h1>
@@ -18,43 +24,35 @@ function RechargePage() {
                 key={i}
                 onClick={() => setSelectedCode(i)}
                 className={cs(
-                  'group flex items-center justify-center space-x-1 bg-black/70  hover:bg-black/90 shadow-md h-12 rounded-md cursor-pointer border border-white/30 hover:border-white/50 transition-all',
-                  selectedCode === i && 'bg-gold-800/90 hover:bg-gold-800/90',
+                  'group flex items-center justify-center space-x-1 bg-purple-900   shadow-md h-12 rounded cursor-pointer border border-white/50 transition-all text-white',
+                  selectedCode === i && 'bg-yellow-500/90 text-black',
                 )}
               >
-                <BiCreditCard className="text-2xl text-gold-500" />
-                <span className="text-gray-300 text-lg group-hover:text-gray-200 transition-all">
-                  超商代碼
-                </span>
+                <BiCreditCard className={cs('text-2xl mr-2')} />
+                <span className={cs('text-lg transition-all')}>超商代碼</span>
               </div>
             ))}
           </div>
           <div className="border-t-2 border-gold-500/30 my-6"></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div className="">
-              <p className="mb-2 text-gold-500 text-lg text-light">
-                1. 請選擇預儲值的超商
-              </p>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                {cvsList.map((label, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setSelectedStore(i)}
-                    className={cs(
-                      'bg-black/70 hover:bg-black/90 text-gray-300 text-lg rounded h-16 border border-white/30',
-                      selectedStore === i &&
-                        'bg-gold-800/90 hover:bg-gold-800/90',
-                    )}
-                  >
-                    {label}
-                  </button>
+              <img
+                src="/recharge/text_chooseStore.png"
+                className="h-7 mb-4"
+                alt=""
+              />
+              <div className="grid grid-cols-2 gap-6">
+                {cvsList.map((t, i) => (
+                  <img key={i} src={t.img} className="cursor-pointer" alt="" />
                 ))}
               </div>
             </div>
             <div className="">
-              <p className="mb-2 text-gold-500 text-lg text-light">
-                2. 請選擇儲值金額
-              </p>
+              <img
+                src="/recharge/text_chooseAmount.png"
+                className="h-7 mb-4"
+                alt=""
+              />
               <div className="w-full">
                 <table className="w-full rounded-lg overflow-hidden">
                   <thead>

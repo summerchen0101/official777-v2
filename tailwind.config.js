@@ -11,7 +11,7 @@ module.exports = {
         // 'top-4': 'center top 1rem',
       },
       backgroundImage: {
-        'main-pattern': "url('/bg.jpg')",
+        'main-pattern': "url('/purple_bg.png')",
         'login-btn': "url('/login_btn.png')",
         'login-btn-active': "url('/login_btn_active.png')",
         'slider-pager': "url('/slider_pager.png')",

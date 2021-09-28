@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import React, { useState } from 'react'
 import cs from 'classnames'
+import PageBanner from '@/components/layout/PageBanner'
 
 const newsTabsMap = {
   1: '最新',
@@ -12,11 +13,11 @@ function RechargeRec() {
   const [currentNewsTab, setCurrentNewsTab] = useState(1)
   return (
     <Layout>
-      {/* <PageBanner /> */}
-      <section>
+      <PageBanner />
+      <section className="mt-5">
         <div className="lg:w-[860px] mx-auto lg:py-20">
-          <div className="mb-6 mx-4 flex justify-center lg:justify-start">
-            <img src="/title_news.png" alt="最新消息" className="h-11" />
+          <div className="mb-3 mx-4 flex justify-center lg:justify-start">
+            <img src="/title_news.png" alt="最新消息" className="h-10" />
           </div>
           <div className="px-4">
             <div className="bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl">
