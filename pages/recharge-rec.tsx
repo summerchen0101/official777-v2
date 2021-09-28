@@ -1,4 +1,5 @@
 import Layout from '@/components/layout/Layout'
+import PageBanner from '@/components/layout/PageBanner'
 import React from 'react'
 
 function RechargeRec() {

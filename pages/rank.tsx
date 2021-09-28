@@ -1,5 +1,6 @@
 import GoldRankTable from '@/components/GoldRankTable'
 import Layout from '@/components/layout/Layout'
+import PageBanner from '@/components/layout/PageBanner'
 import SlotRankTable from '@/components/SlotRankTable'
 import TabGroup from '@/components/TabGroup'
 import { useRouter } from 'next/dist/client/router'
