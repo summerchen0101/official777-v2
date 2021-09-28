@@ -6,8 +6,8 @@ function RechargeRec() {
   return (
     <Layout>
       <PageBanner />
-      <section>
-        <div className="lg:w-[860px] mx-auto lg:py-20">
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto">
           <h1 className="title text-light">儲值紀錄</h1>
           <div className="px-4">
             <table className="w-full text-gray-500 shadow">

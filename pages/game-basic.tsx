@@ -14,8 +14,8 @@ function GameBasic() {
   return (
     <Layout>
       <PageBanner />
-      <section className="mt-5">
-        <div className="lg:w-[860px] mx-auto lg:py-20">
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto">
           <div className="mb-3 mx-4 flex justify-center lg:justify-start">
             <img src="/title_basic.png" alt="基本介紹" className="h-10" />
           </div>

@@ -7,9 +7,11 @@ function UserPw() {
     <Layout>
       <PageBanner />
       <section>
-        <div className="lg:w-[860px] mx-auto lg:py-20">
-          <h1 className="title text-light">修改密碼</h1>
-          <div className="lg:bg-black/50 lg:rounded-xl pb-8 pt-0 lg:pt-8 px-7 mx-3">
+        <div className="lg:w-[860px] mx-auto">
+          <div className="mb-6 mx-4 flex justify-center lg:justify-start">
+            <img src="/title_pw.png" alt="修改密碼" className="h-10" />
+          </div>
+          <div className="form-box">
             <form className="space-y-5">
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label

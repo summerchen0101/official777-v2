@@ -15,8 +15,8 @@ function GameIntro() {
   return (
     <Layout>
       <PageBanner />
-      <section className="mt-5">
-        <div className="lg:w-[860px] mx-auto lg:py-20">
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto">
           <div className="mb-3 mx-4 flex justify-center lg:justify-start">
             <img src="/title_game_intro.png" alt="遊戲說明" className="h-10" />
           </div>

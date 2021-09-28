@@ -15,9 +15,8 @@ function RechargePage() {
   return (
     <Layout>
       <PageBanner />
-      <section>
-        <div className="lg:w-[860px] mx-auto lg:py-20 px-4">
-          <h1 className="title text-light">儲值購點</h1>
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 rounded-md">
             {[...Array(8)].map((t, i) => (
               <div

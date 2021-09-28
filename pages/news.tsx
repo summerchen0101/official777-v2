@@ -18,12 +18,12 @@ function RechargeRec() {
   return (
     <Layout>
       <PageBanner />
-      <section className="mt-5">
-        <div className="lg:w-[860px] mx-auto lg:py-20">
-          <div className="mb-3 mx-4 flex justify-center lg:justify-start">
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto">
+          <div className="mb-3 flex justify-center lg:justify-start">
             <img src="/title_news.png" alt="最新消息" className="h-10" />
           </div>
-          <div className="px-4">
+          <div>
             <div className="bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl">
               <div className="flex pt-3 pb-1 tracking-wider">
                 {Object.entries(newsTabsMap).map(([key, label]) => (

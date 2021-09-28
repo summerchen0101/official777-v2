@@ -5,12 +5,12 @@ function UserBasic() {
   return (
     <Layout>
       <PageBanner />
-      <section className="mt-5">
-        <div className="lg:w-[860px] mx-auto lg:py-20">
+      <section>
+        <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 mx-4 flex justify-center lg:justify-start">
             <img src="/title_member.png" alt="會員資料" className="h-10" />
           </div>
-          <div className="lg:bg-black/50 lg:rounded-xl pb-8 pt-0 lg:pt-8 px-7 mx-3">
+          <div className="form-box">
             <form className="space-y-5">
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label

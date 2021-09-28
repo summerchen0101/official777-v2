@@ -30,13 +30,12 @@ function RankPage() {
   return (
     <Layout>
       <PageBanner />
-      <section>
-        <div className="lg:w-[860px] mx-auto lg:py-20">
-          <h1 className="title text-light">排行榜</h1>
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto">
           <div className="flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
-          <div className="px-4">
+          <div>
             <TableComp />
           </div>
         </div>

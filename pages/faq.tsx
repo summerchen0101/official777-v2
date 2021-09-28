@@ -6,14 +6,13 @@ function FaqPage() {
   return (
     <Layout>
       <PageBanner />
-      <section>
-        <div className="lg:w-[860px] mx-auto lg:py-20">
-          <h1 className="title text-light">常見問題</h1>
-          <div className="p-3">
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto">
+          <div className="space-y-4">
             {[...Array(5)].map((t, i) => (
               <div
                 key={i}
-                className="text-lg py-4 bg-black/30 p-4 mb-4 rounde-xl"
+                className="text-lg bg-black/30 p-4 border border-gold-500/30 rounded-lg "
               >
                 <p className="text-gold-500 font-semibold mb-1">
                   Q: 問題名稱問題名稱問題名稱問題名稱？

@@ -1,15 +1,13 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
-import Image from 'next/image'
 import React from 'react'
 
 function ObjIntro() {
   return (
     <Layout>
       <PageBanner />
-      <section>
-        <div className="lg:w-[860px] mx-auto lg:py-20">
-          <h1 className="title text-light">道具說明</h1>
+      <section className="px-4">
+        <div className="lg:w-[860px] mx-auto">
           <div className="space-y-8 px-8">
             {[...Array(8)].map((t, i) => (
               <div
