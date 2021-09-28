@@ -63,7 +63,7 @@ const MobileHome: NextPage = () => {
       </div>
 
       <section className="mb-10 mx-3">
-        <select className="rounded-lg w-full mb-3 bg-brown-200 text-brown-800 font-medium border-2 border-brown-300">
+        <select className="tab-selector mb-3">
           {Object.entries(newsTabsMap).map(([key, label]) => (
             <option key={key} value={key}>
               {label}

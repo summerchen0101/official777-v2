@@ -112,3 +112,7 @@ section {
 .form-box {
   @apply lg:bg-black/50 lg:rounded-xl pb-8 pt-0 lg:pt-8 px-7 mx-3 lg:border-2 border-gold-500/30;
 }
+
+.tab-selector {
+  @apply rounded w-full bg-purple-800/80 text-white font-medium border-2 border-white/20 text-lg;
+}

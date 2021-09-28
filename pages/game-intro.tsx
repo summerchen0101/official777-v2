@@ -19,13 +19,20 @@ function GameIntro() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="mb-3 mx-4 flex justify-center lg:justify-start">
+          <div className="mb-6 mx-4 flex justify-center lg:justify-start">
             <img src="/title_game_intro.png" alt="遊戲說明" className="h-10" />
           </div>
-          <div className="flex justify-center mb-6">
+          <div className="hidden lg:flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 px-4">
+          <select className="tab-selector block lg:hidden mb-3">
+            {Object.entries(tabsMap).map(([key, label]) => (
+              <option key={key} value={key}>
+                {label}
+              </option>
+            ))}
+          </select>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             {[...Array(8)].map((t, i) => (
               <div
                 key={i}

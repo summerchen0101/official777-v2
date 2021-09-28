@@ -16,12 +16,19 @@ function GameBasic() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="mb-3 mx-4 flex justify-center lg:justify-start">
+          <div className="mb-6 mx-4 flex justify-center lg:justify-start">
             <img src="/title_basic.png" alt="基本介紹" className="h-10" />
           </div>
-          <div className="flex justify-center mb-6">
+          <div className="hidden lg:flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
+          <select className="tab-selector block lg:hidden mb-3">
+            {Object.entries(tabsMap).map(([key, label]) => (
+              <option key={key} value={key}>
+                {label}
+              </option>
+            ))}
+          </select>
           <div className="bg-gray-300 flex items-center justify-center min-h-[400px]">
             IMAGE
             {/* <Image
