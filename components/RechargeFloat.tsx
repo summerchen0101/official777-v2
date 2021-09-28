@@ -1,13 +1,13 @@
 import { useStore } from '@/store/useStore'
+import { useUserStore } from '@/store/useUserStore'
 import { useRouter } from 'next/dist/client/router'
 import { FaUserCircle } from 'react-icons/fa'
-import cs from 'classnames'
 
 function RechargeFloat() {
   const router = useRouter()
-  const clearUser = useStore((s) => s.clearUser)
+  const clearUser = useUserStore((s) => s.clearUser)
   const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
-  const user = useStore((s) => s.user)
+  const user = useUserStore((s) => s.user)
   const handleLogout = () => {
     clearUser()
     alert('登出成功')
@@ -37,7 +37,7 @@ function RechargeFloat() {
           <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
             <img src="/icon_goldMoney.png" alt="" className="absolute -mt-1" />
             <div className="text-lg text-gold-900 font-medium text-right leading-9">
-              100,000
+              {user.points}
             </div>
           </div>
           <div className="flex items-center">

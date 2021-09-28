@@ -1,33 +1,62 @@
 import React from 'react'
 import cs from 'classnames'
 import { useStore } from '@/store/useStore'
+import useLogin from '@/services/useLogin'
+import { useForm } from 'react-hook-form'
+import { useUserStore } from '@/store/useUserStore'
+
+type Inputs = {
+  acc: string
+  pw: string
+}
 
 export default function LoginPopup() {
+  const { handler: login, isLoading } = useLogin()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>()
+
   const isShowLoginPopup = useStore((s) => s.isShowLoginPopup)
   const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
-  const setUser = useStore((s) => s.setUser)
-  const handleLogin = () => {
-    setUser({ name: 'Summer', level: 3, points: 32222 })
-    toggleLoginPopup()
-    alert('登入成功')
-  }
+
+  const setTokenInfo = useUserStore((s) => s.setTokenInfo)
+  const setUser = useUserStore((s) => s.setUser)
+  const onSubmit = handleSubmit(async (d) => {
+    const res = await login({
+      email: d.acc,
+      password: d.pw,
+      type: 1,
+    })
+    if (res && !res.code) {
+      setTokenInfo({
+        accessToken: res.accessToken,
+        refreshToken: res.refreshToken,
+        expiresIn: res.expiresIn,
+      })
+      setUser({ name: '我是夏天', level: 3, points: 12800 })
+      toggleLoginPopup()
+      alert('登入成功')
+    }
+  })
   return (
     <div
       className={cs(
         'fixed top-0 left-0 w-full h-full z-50 transition-all flex justify-center items-center',
         isShowLoginPopup ? 'visible opacity-100' : 'invisible opacity-0',
       )}
-      onClick={toggleLoginPopup}
+      onMouseDown={toggleLoginPopup}
     >
       <div
-        className="lg:w-[360px] bg-white/90 rounded-xl overflow-hidden border border-purple-800/90"
-        onClick={(e) => e.stopPropagation()}
+        className="w-full h-full lg:h-auto lg:w-[360px] bg-white lg:rounded-xl overflow-hidden border border-purple-800/90"
+        onMouseDown={(e) => e.stopPropagation()}
       >
-        <div className="text-white text-2xl bg-purple-800 text-center leading-10">
+        <div className="text-white text-2xl bg-purple-800 text-center py-2">
           登入
         </div>
         <div className="p-4 grid grid-cols-1 gap-4 items-center">
-          <div className="space-y-2 px-8">
+          <div className="space-y-2 p-6">
             <div className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200">
               <img src="/icon_loginGoogle.png" alt="" />
               <div className="flex-1 text-center">Google登入</div>
@@ -48,11 +77,31 @@ export default function LoginPopup() {
           <div className="space-y-2">
             <div className="flex flex-col">
               <label htmlFor="">會員帳號</label>
-              <input type="text" className="rounded py-1.5" />
+              <input
+                type="email"
+                className="rounded py-1.5"
+                defaultValue="summer@test.com"
+                {...register('acc', {
+                  required: { value: true, message: '不可為空' },
+                })}
+              />
+              {errors.acc && (
+                <div className="text-sm text-red-500">{errors.acc.message}</div>
+              )}
             </div>
             <div className="flex flex-col">
               <label htmlFor="">會員密碼</label>
-              <input type="text" className="rounded py-1.5" />
+              <input
+                type="password"
+                className="rounded py-1.5"
+                defaultValue="123456"
+                {...register('pw', {
+                  required: { value: true, message: '不可為空' },
+                })}
+              />
+              {errors.pw && (
+                <div className="text-sm text-red-500">{errors.pw.message}</div>
+              )}
             </div>
             <div className="flex justify-between">
               <label htmlFor="" className="flex items-center space-x-2">
@@ -64,7 +113,7 @@ export default function LoginPopup() {
               </div>
             </div>
             <div className="pt-5">
-              <div className="btn active" onClick={handleLogin}>
+              <div className="btn active" onClick={onSubmit}>
                 登入
               </div>
             </div>

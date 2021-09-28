@@ -10,11 +10,6 @@ interface Game {
   content: string
 }
 
-interface User {
-  name: string
-  level: number
-  points: number
-}
 interface IState {
   isShowSidebar: boolean
   toggleSidebar: () => void
@@ -33,9 +28,6 @@ interface IState {
   showGamePopup: (gameInfo: Game) => void
   closeGamePopup: () => void
 
-  user: User | null
-  setUser: (user: User) => void
-  clearUser: () => void
   isShowLoginPopup: boolean
   toggleLoginPopup: () => void
 }
@@ -61,9 +53,6 @@ export const useStore = create<IState>((set) => ({
   showGamePopup: (gameInfo: Game) => set({ isShowGamePopup: true, gameInfo }),
   closeGamePopup: () => set({ isShowGamePopup: false }),
 
-  user: null,
-  setUser: (user) => set({ user }),
-  clearUser: () => set({ user: null }),
   isShowLoginPopup: false,
   toggleLoginPopup: () =>
     set((state) => ({ isShowLoginPopup: !state.isShowLoginPopup })),
