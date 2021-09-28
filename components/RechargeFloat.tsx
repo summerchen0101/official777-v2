@@ -5,9 +5,13 @@ import cs from 'classnames'
 
 function RechargeFloat() {
   const router = useRouter()
-  const isShowLoginPopup = useStore((s) => s.isShowLoginPopup)
+  const clearUser = useStore((s) => s.clearUser)
   const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
   const user = useStore((s) => s.user)
+  const handleLogout = () => {
+    clearUser()
+    alert('登出成功')
+  }
   return (
     <div className="gold-box rounded-xl w-48 ml-2 hidden lg:flex flex-col px-4 pt-0 pb-10 fixed top-0 left-0 mt-[150px] space-y-3 shadow-md z-30">
       <img
@@ -43,7 +47,10 @@ function RechargeFloat() {
             </div>
           </div>
 
-          <div className="self-center h-12 w-full bg-contain bg-center bg-no-repeat bg-logout-btn hover:bg-logout-btn-active absolute -bottom-6 cursor-pointer" />
+          <div
+            className="self-center h-12 w-full bg-contain bg-center bg-no-repeat bg-logout-btn hover:bg-logout-btn-active absolute -bottom-6 cursor-pointer"
+            onClick={handleLogout}
+          />
         </>
       ) : (
         <div

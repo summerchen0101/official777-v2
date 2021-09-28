@@ -9,6 +9,7 @@ export default function LoginPopup() {
   const handleLogin = () => {
     setUser({ name: 'Summer', level: 3, points: 32222 })
     toggleLoginPopup()
+    alert('登入成功')
   }
   return (
     <div

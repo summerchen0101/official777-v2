@@ -25,6 +25,7 @@ interface IState {
   closeNews: () => void
   user: User | null
   setUser: (user: User) => void
+  clearUser: () => void
   isShowLoginPopup: boolean
   toggleLoginPopup: () => void
 }
@@ -45,6 +46,7 @@ export const useStore = create<IState>((set) => ({
   closeNews: () => set({ isShowNewsPopup: false }),
   user: null,
   setUser: (user) => set({ user }),
+  clearUser: () => set({ user: null }),
   isShowLoginPopup: false,
   toggleLoginPopup: () =>
     set((state) => ({ isShowLoginPopup: !state.isShowLoginPopup })),
