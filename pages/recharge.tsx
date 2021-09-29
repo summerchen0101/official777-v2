@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { BiCreditCard, BiRightArrowAlt } from 'react-icons/bi'
 import cs from 'classnames'
 import PageBanner from '@/components/layout/PageBanner'
+import useRecharge from '@/services/useRecharge'
 function RechargePage() {
   const cvsList = [
     { label: '全家', img: '/recharge/logo_familyMart.png' },
@@ -12,6 +13,7 @@ function RechargePage() {
   ]
   const [selectedCode, setSelectedCode] = useState(0)
   const [selectedStore, setSelectedStore] = useState(0)
+  const { handler: recharge, isLoading } = useRecharge()
   return (
     <Layout>
       <PageBanner />

@@ -4,7 +4,7 @@ import JSONbig from 'json-bigint'
 import { useCallback } from 'react'
 import useErrorHandler from './useErrorHandler'
 
-export const apiPath = 'api/v1'
+export const apiPath = 'apis/v1'
 export const publicApiPath = 'public/apis/v1'
 
 const useRequest = () => {

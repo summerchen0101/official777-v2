@@ -22,7 +22,7 @@ export default function useLogin() {
     setIsLoading(true)
     const res = await request<LoginRes, LoginReq>({
       method: 'post',
-      url: `${apiPath}/login`,
+      url: `api/v1/login`,
       data,
     })
     setIsLoading(false)
