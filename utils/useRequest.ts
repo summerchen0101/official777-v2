@@ -1,3 +1,4 @@
+import { ResBase } from '@/types'
 import { useUserStore } from '@/store/useUserStore'
 import Axios, { AxiosError, AxiosRequestConfig, Method } from 'axios'
 import JSONbig from 'json-bigint'
@@ -12,10 +13,7 @@ const useRequest = () => {
 
   const { apiErrHandler } = useErrorHandler()
   return useCallback(
-    async function <
-      Res extends { code?: string; message?: string },
-      Req extends {} = {},
-    >({
+    async function <Res extends ResBase, Req extends {} = {}>({
       method,
       url,
       data,
@@ -61,12 +59,12 @@ const useRequest = () => {
           throw Error(res.data?.message || '错误发生')
         }
         // console.log(JSONbig.parse(res.data))
-        return res.data
+        return { ok: true, ...res.data }
       } catch (err) {
         console.log(err)
         apiErrHandler(err as AxiosError<any>)
       }
-      return null
+      return { ok: false }
     },
     [apiErrHandler, token],
   )

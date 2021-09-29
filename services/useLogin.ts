@@ -1,5 +1,5 @@
 import { ResBase } from '@/types'
-import useRequest, { apiPath } from '@/utils/useRequest'
+import useRequest from '@/utils/useRequest'
 import { useState } from 'react'
 
 export interface LoginReq {

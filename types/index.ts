@@ -1,6 +1,10 @@
 import { IconType } from 'react-icons/lib'
 
-export type ResBase = { code?: string; message?: string }
+export type ResBase = {
+  code?: string
+  message?: string
+  ok?: boolean
+}
 export type StringMap = Record<string, string>
 
 export type ListReqBase = { page: number; perpage: number }
