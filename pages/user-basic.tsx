@@ -1,7 +1,9 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import useMe from '@/services/useMe'
 
 function UserBasic() {
+  const { data } = useMe()
   return (
     <Layout>
       <PageBanner />

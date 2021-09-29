@@ -24,7 +24,7 @@ function UserPw() {
         old_password: d.old_pw,
         new_password: d.new_pw,
       })
-      if (res.ok) {
+      if (res?.ok) {
         alert('密碼更新成功')
       }
       reset()
