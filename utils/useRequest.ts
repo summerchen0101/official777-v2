@@ -64,7 +64,7 @@ const useRequest = () => {
         console.log(err)
         apiErrHandler(err as AxiosError<any>)
       }
-      return { ok: false }
+      return null
     },
     [apiErrHandler, token],
   )
