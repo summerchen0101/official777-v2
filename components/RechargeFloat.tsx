@@ -1,3 +1,4 @@
+import useMe from '@/services/useMe'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { useRouter } from 'next/dist/client/router'
@@ -7,7 +8,7 @@ function RechargeFloat() {
   const router = useRouter()
   const clearUser = useUserStore((s) => s.clearUser)
   const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
-  const user = useUserStore((s) => s.user)
+  const { data: user, isLoading } = useMe()
   const handleLogout = () => {
     clearUser()
     alert('登出成功')
@@ -31,19 +32,19 @@ function RechargeFloat() {
           <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
             <img src="/icon_female.png" alt="" className="absolute" />
             <div className="text-lg text-gold-900 font-medium text-right leading-9">
-              {user.name}
+              {user.nickname}
             </div>
           </div>
           <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
             <img src="/icon_goldMoney.png" alt="" className="absolute -mt-1" />
             <div className="text-lg text-gold-900 font-medium text-right leading-9">
-              {user.points}
+              {user.coin}
             </div>
           </div>
           <div className="flex items-center">
             <img src="/img_vip3.png" className="w-14" alt="" />
             <div className="text-xl text-white font-mono flex-1 text-center">
-              VIP:Lv{user.level}
+              VIP:Lv?
             </div>
           </div>
 
