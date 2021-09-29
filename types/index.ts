@@ -20,3 +20,10 @@ export interface OptionType<T = number | string> {
   label: string
   value: T
 }
+
+export interface Pagination {
+  page: number
+  perPage: number
+  totalCount: number
+  totalPage: number
+}

@@ -1,4 +1,16 @@
+import { RankType } from '@/lib/enums'
+import useRankList from '@/services/useRankList'
+import Loading from './Loading'
+
 function SlotRankTable() {
+  const { list, isLoading, paginator } = useRankList({
+    rank_type: RankType.Slot,
+    page: 1,
+    per_page: 10,
+  })
+  if (isLoading) {
+    return <Loading />
+  }
   return (
     <table className="w-full text-gray-500 shadow">
       <thead>
@@ -9,11 +21,11 @@ function SlotRankTable() {
         </tr>
       </thead>
       <tbody>
-        {[...Array(5)].map((t, i) => (
+        {list?.map((t, i) => (
           <tr key={i}>
-            <td className="text-center">{i + 1}</td>
-            <td>Summer</td>
-            <td>10</td>
+            <td className="text-center">{t.rank}</td>
+            <td>{t.nickname}</td>
+            <td>{t.betting_odds}</td>
           </tr>
         ))}
       </tbody>

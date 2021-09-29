@@ -1,6 +1,7 @@
 import { OptionType } from '@/types/index'
 import { format } from 'date-fns'
-import { StringMap } from '@/lib/map'
+import { StringMap } from '@/types'
+import numeral from 'numeral'
 
 export const toDateTime = (time: number, isUnix?: boolean) =>
   time && format(isUnix ? time * 1000 : time, 'yyyy-MM-dd HH:mm:ss')
@@ -19,3 +20,8 @@ export const mapToOpts = function <T>(map: StringMap): OptionType<T>[] {
     value: (isNaN(+value) ? value : +value) as unknown as T,
   }))
 }
+
+export const toCurrency = (num: number, decimal: number = 2) =>
+  numeral(num).format(
+    decimal ? `0,0.${Array(decimal).fill('0').join('')}` : '0,0',
+  )

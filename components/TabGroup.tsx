@@ -1,16 +1,13 @@
 import cs from 'classnames'
 
-function TabGroup({
-  map,
-  value,
-  onChange,
-  className,
-}: {
+type Props = {
   map: Record<string, string>
   value: string
   onChange: (val: string) => void
   className?: string
-}) {
+}
+
+function TabGroup({ map, value, onChange, className }: Props) {
   return (
     <div className={cs('flex space-x-4', className)}>
       {Object.entries(map).map(([key, label]) => (

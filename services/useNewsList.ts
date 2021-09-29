@@ -1,5 +1,5 @@
 import { useUserStore } from '@/store/useUserStore'
-import { ResBase } from '@/types'
+import { Pagination, ResBase } from '@/types'
 import useRequest, { publicApiPath } from '@/utils/useRequest'
 import useSWR from 'swr'
 
@@ -16,16 +16,9 @@ export interface News {
   category: number
 }
 
-export interface Page {
-  page: number
-  perPage: number
-  totalCount: number
-  totalPage: number
-}
-
 export interface NewsListRes extends ResBase {
   news: News[]
-  page: Page
+  page: Pagination
 }
 
 function useNewsList({ category, page, per_page }: NewsListReq) {

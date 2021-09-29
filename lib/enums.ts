@@ -5,3 +5,8 @@ export enum GameType {
   Mahjong = 4,
   Fish = 5,
 }
+
+export enum RankType {
+  Gold = 1,
+  Slot = 2,
+}

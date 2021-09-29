@@ -1,4 +1,17 @@
+import { RankType } from '@/lib/enums'
+import useRankList from '@/services/useRankList'
+import { toCurrency } from '@/utils'
+import Loading from './Loading'
+
 function GoldRankTable() {
+  const { list, isLoading, paginator } = useRankList({
+    rank_type: RankType.Gold,
+    page: 1,
+    per_page: 10,
+  })
+  if (isLoading) {
+    return <Loading />
+  }
   return (
     <table className="w-full text-gray-500 shadow">
       <thead>
@@ -9,11 +22,11 @@ function GoldRankTable() {
         </tr>
       </thead>
       <tbody>
-        {[...Array(5)].map((t, i) => (
+        {list?.map((t, i) => (
           <tr key={i}>
-            <td className="text-center">{i + 1}</td>
-            <td>Summer</td>
-            <td>$4,500</td>
+            <td className="text-center">{t.rank}</td>
+            <td>{t.nickname}</td>
+            <td>${toCurrency(t.gold, 0)}</td>
           </tr>
         ))}
       </tbody>
