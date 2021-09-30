@@ -1,6 +1,7 @@
 import { useStore } from '@/store/useStore'
 import React from 'react'
 import Popup from './Popup'
+import cs from 'classnames'
 
 export default function GameDetailPopup() {
   const closeGamePopup = useStore((s) => s.closeGamePopup)
@@ -8,6 +9,17 @@ export default function GameDetailPopup() {
   const gameInfo = useStore((s) => s.gameInfo)
   return (
     <Popup onClose={closeGamePopup} isShow={isShowGamePopup}>
+      <div className="fixed top-1/4 right-0 space-y-2 flex flex-col mr-4">
+        <a href="#s1" className="tab">
+          基本說明
+        </a>
+        <a href="#s2" className="tab">
+          得分說明
+        </a>
+        <a href="#s3" className="tab">
+          賠率表
+        </a>
+      </div>
       <section className="border-b border-purple-600 py-14">
         <div className="lg:w-[860px] mx-auto px-4">
           <div className="border border-white/80 bg-blackmb-5 aspect-w-16 aspect-h-9">
@@ -18,11 +30,11 @@ export default function GameDetailPopup() {
         </div>
       </section>
       <section className="border-b border-purple-600 py-14">
-        <div className="lg:w-[860px] mx-auto px-4">
+        <div id="s1" className="lg:w-[860px] mx-auto px-4">
           <img
             src="/game_detail_title_1.png"
             className="h-8 mx-auto mb-8"
-            alt=""
+            alt="基本說明"
           />
           <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
             <div className="text-2xl">圖片說明 960 x 600</div>
@@ -30,11 +42,11 @@ export default function GameDetailPopup() {
         </div>
       </section>
       <section className="border-b border-purple-600 py-14">
-        <div className="lg:w-[860px] mx-auto px-4">
+        <div id="s2" className="lg:w-[860px] mx-auto px-4">
           <img
             src="/game_detail_title_2.png"
             className="h-8 mx-auto mb-8"
-            alt=""
+            alt="得分說明"
           />
           <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
             <div className="text-2xl">圖片說明 960 x 600</div>
@@ -42,11 +54,11 @@ export default function GameDetailPopup() {
         </div>
       </section>
       <section className="border-b border-purple-600 py-14">
-        <div className="lg:w-[860px] mx-auto px-4">
+        <div id="s3" className="lg:w-[860px] mx-auto px-4">
           <img
             src="/game_detail_title_3.png"
             className="h-8 mx-auto mb-8"
-            alt=""
+            alt="賠率表"
           />
           <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
             <div className="text-2xl">圖片說明 960 x 600</div>

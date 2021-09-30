@@ -16,7 +16,7 @@ html {
   @apply bg-main-pattern bg-fixed bg-cover bg-center;
 } */
 
-html {
+* {
   scroll-behavior: smooth;
 }
 
@@ -115,4 +115,8 @@ section {
 
 .tab-selector {
   @apply rounded w-full bg-purple-800/80 text-white font-medium border-2 border-white/20 text-lg;
+}
+
+.scroll-padding {
+  scroll-padding-top: 30px;
 }
