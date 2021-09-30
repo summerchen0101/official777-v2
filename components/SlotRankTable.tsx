@@ -25,7 +25,7 @@ function SlotRankTable() {
           <tr key={i}>
             <td className="text-center">{t.rank}</td>
             <td>{t.nickname}</td>
-            <td>{t.betting_odds}</td>
+            <td>{t.bettingOdds}</td>
           </tr>
         ))}
       </tbody>

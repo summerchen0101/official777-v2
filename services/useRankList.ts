@@ -21,7 +21,7 @@ export interface Ranking {
   nickname: string
   avatarID: AvatarURL
   gold: number
-  betting_odds: string
+  bettingOdds: string
 }
 
 export interface RankListRes extends ResBase {
