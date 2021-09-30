@@ -5,7 +5,7 @@ import Loading from './Loading'
 
 function GoldRankTable() {
   const { list, isLoading, paginator } = useRankList({
-    rank_type: RankType.Gold,
+    rankType: RankType.Gold,
     page: 1,
     perPage: 10,
   })

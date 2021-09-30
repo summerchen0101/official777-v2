@@ -4,7 +4,7 @@ import Loading from './Loading'
 
 function SlotRankTable() {
   const { list, isLoading, paginator } = useRankList({
-    rank_type: RankType.Slot,
+    rankType: RankType.Slot,
     page: 1,
     perPage: 10,
   })

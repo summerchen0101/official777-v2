@@ -4,7 +4,7 @@ import useRequest, { publicApiPath } from '@/utils/useRequest'
 import useSWR from 'swr'
 
 export interface RankListReq {
-  rank_type: number
+  rankType: number
   page: number
   perPage: number
 }
@@ -29,17 +29,17 @@ export interface RankListRes extends ResBase {
   page: Pagination
 }
 
-function useRankList({ rank_type, page, perPage }: RankListReq) {
+function useRankList({ rankType, page, perPage }: RankListReq) {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
-    [`${publicApiPath}/rank/list`, token, rank_type, page, perPage],
-    (url, token, rank_type, page, perPage) =>
+    [`${publicApiPath}/rank/list`, token, rankType, page, perPage],
+    (url, token, rankType, page, perPage) =>
       request<RankListRes>({
         url,
         method: 'get',
         config: {
-          params: { rank_type, page, perPage },
+          params: { rankType, page, perPage },
           headers: {
             Authorization: `Bearer ${token}`,
           },
