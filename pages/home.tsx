@@ -87,7 +87,7 @@ const Home: NextPage = () => {
           alt="多媒體"
           className="h-10 mb-6 mx-auto"
         />
-        <div className="px-12">
+        <div className="px-12 max-w-[1280px] mx-auto">
           <SectionSlider slides={sectionSlides} slidesToShow={3} />
         </div>
       </section>
