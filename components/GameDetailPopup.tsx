@@ -9,7 +9,7 @@ export default function GameDetailPopup() {
   const gameInfo = useStore((s) => s.gameInfo)
   return (
     <Popup onClose={closeGamePopup} isShow={isShowGamePopup}>
-      <div className="fixed top-1/4 right-0 space-y-2 flex flex-col mr-4">
+      <div className="fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col ml-4 lg:-mr-2">
         <a href="#s1" className="tab">
           基本說明
         </a>

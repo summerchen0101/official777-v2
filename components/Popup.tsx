@@ -23,10 +23,10 @@ export default function Popup({ onClose, isShow, children }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className="cursor-pointer absolute top-0 right-0 p-1 text-white text-4xl hover:text-white/70"
+          className="cursor-pointer absolute top-0 right-0 m-3"
           onClick={onClose}
         >
-          <BiX />
+          <img src="/btn_close.png" className="h-12 lg:h-16" alt="" />
         </div>
         {children}
       </div>

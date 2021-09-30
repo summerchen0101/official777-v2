@@ -14,6 +14,15 @@ function RechargePage() {
   const [selectedCode, setSelectedCode] = useState(0)
   const [selectedStore, setSelectedStore] = useState(0)
   const { handler: recharge, isLoading } = useRecharge()
+  const productsMap = {
+    17: '5K',
+    18: '13K',
+    19: '27K',
+    20: '55K',
+    21: '140K',
+    22: '329K',
+  }
+
   return (
     <Layout>
       <PageBanner />
@@ -65,7 +74,7 @@ function RechargePage() {
                     </tr>
                   </thead>
                   <tbody>
-                    {[...Array(5)].map((t, i) => (
+                    {Object.entries(productsMap).map(([key, label], i) => (
                       <tr key={i}>
                         <td>
                           <input type="radio" name="recharge" />
