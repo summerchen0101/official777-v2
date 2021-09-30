@@ -19,7 +19,7 @@ export default function Popup({ onClose, isShow, children }: Props) {
       onClick={onClose}
     >
       <div
-        className="fixed bottom-0 left-0 w-full h-full lg:h-[90%] bg-purple-900/90 py-8 text-white overflow-y-auto scroll-padding"
+        className="fixed bottom-0 left-0 w-full h-full bg-purple-900/90 py-8 text-white overflow-y-auto scroll-padding"
         onClick={(e) => e.stopPropagation()}
       >
         <div
