@@ -1,10 +1,6 @@
+import { News } from './../services/useNewsList'
 import create from 'zustand'
 
-interface News {
-  title: string
-  date: string
-  content: string
-}
 interface Game {
   title: string
   content: string
@@ -45,12 +41,12 @@ export const useStore = create<IState>((set) => ({
 
   isShowNewsPopup: false,
   newsInfo: null,
-  showNews: (newsInfo: News) => set({ isShowNewsPopup: true, newsInfo }),
+  showNews: (newsInfo) => set({ isShowNewsPopup: true, newsInfo }),
   closeNews: () => set({ isShowNewsPopup: false }),
 
   isShowGamePopup: false,
   gameInfo: null,
-  showGamePopup: (gameInfo: Game) => set({ isShowGamePopup: true, gameInfo }),
+  showGamePopup: (gameInfo) => set({ isShowGamePopup: true, gameInfo }),
   closeGamePopup: () => set({ isShowGamePopup: false }),
 
   isShowLoginPopup: false,

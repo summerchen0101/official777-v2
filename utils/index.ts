@@ -3,6 +3,9 @@ import { format } from 'date-fns'
 import { StringMap } from '@/types'
 import numeral from 'numeral'
 
+export const toDate = (time: number, isUnix?: boolean) =>
+  time && format(isUnix ? time * 1000 : time, 'yyyy-MM-dd')
+
 export const toDateTime = (time: number, isUnix?: boolean) =>
   time && format(isUnix ? time * 1000 : time, 'yyyy-MM-dd HH:mm:ss')
 

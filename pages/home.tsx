@@ -6,6 +6,7 @@ import useDevicePage from '@/hooks/useDevicePage'
 import { newsTypeMap } from '@/lib/map'
 import useNewsList from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
+import { toDateTime } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
@@ -68,17 +69,11 @@ const Home: NextPage = () => {
                 <div
                   key={i}
                   className="flex odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
-                  onClick={() =>
-                    showNews({
-                      title: t.title,
-                      content: t.content,
-                      date: '2021-09-23',
-                    })
-                  }
+                  onClick={() => showNews(t)}
                 >
                   <div className="w-20">[{newsTypeMap[t.category]}]</div>
                   <div className="flex-1">{t.title}</div>
-                  <div className="w-32">2021-08-31</div>
+                  <div>{toDateTime(t.createTimeMs)}</div>
                 </div>
               ))}
             </div>

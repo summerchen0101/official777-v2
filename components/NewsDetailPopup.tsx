@@ -1,4 +1,5 @@
 import { useStore } from '@/store/useStore'
+import { toDateTime } from '@/utils'
 import React from 'react'
 import Popup from './Popup'
 
@@ -9,7 +10,9 @@ export default function NewsDetailPopup() {
   return (
     <Popup onClose={closeNews} isShow={isShowNewsPopup}>
       <div className="lg:w-[860px] mx-auto px-4">
-        <div className="text-sm mb-1">{newsInfo?.date}</div>
+        <div className="text-sm mb-1">
+          {toDateTime(newsInfo?.createTimeMs || 0)}
+        </div>
         <div className="text-xl mb-3 text-yellow-200">{newsInfo?.title}</div>
         <div className="flex items-center space-x-3 lg:justify-end mb-3">
           <div>分享至</div>

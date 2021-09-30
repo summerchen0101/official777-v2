@@ -14,6 +14,7 @@ export interface News {
   title: string
   content: string
   category: number
+  createTimeMs: number
 }
 
 export interface NewsListRes extends ResBase {
