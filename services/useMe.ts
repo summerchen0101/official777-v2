@@ -6,8 +6,9 @@ import useSWR from 'swr'
 export interface MeRes extends ResBase {
   id: number
   nickname: string
-  avatar_url: string
+  avatarID: string
   coin: number
+  vipLevel: number
 }
 
 function useMe() {
@@ -15,12 +16,12 @@ function useMe() {
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
     token ? [`${apiPath}/member/me`, token] : null,
-    (url, token, category, page, per_page) =>
+    (url, token, category, page, perPage) =>
       request<MeRes>({
         url,
         method: 'get',
         config: {
-          params: { category, page, per_page },
+          params: { category, page, perPage },
           headers: {
             Authorization: `Bearer ${token}`,
           },

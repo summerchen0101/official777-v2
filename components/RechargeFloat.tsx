@@ -1,6 +1,7 @@
 import useMe from '@/services/useMe'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
+import { toCurrency } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import { FaUserCircle } from 'react-icons/fa'
 
@@ -22,7 +23,7 @@ function RechargeFloat() {
       />
       <img
         src="/recharge_title.png"
-        className="h-8 self-center"
+        className="h-8 self-center cursor-pointer"
         alt=""
         onClick={() => router.push('/recharge')}
       />
@@ -38,13 +39,13 @@ function RechargeFloat() {
           <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
             <img src="/icon_goldMoney.png" alt="" className="absolute -mt-1" />
             <div className="text-lg text-gold-900 font-medium text-right leading-9">
-              {user.coin}
+              {toCurrency(user.coin, 0)}
             </div>
           </div>
           <div className="flex items-center">
             <img src="/img_vip3.png" className="w-14" alt="" />
             <div className="text-xl text-white font-mono flex-1 text-center">
-              VIP:Lv?
+              VIP:Lv{user.vipLevel}
             </div>
           </div>
 

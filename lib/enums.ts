@@ -10,3 +10,19 @@ export enum RankType {
   Gold = 1,
   Slot = 2,
 }
+
+export enum PaymentGateway {
+  Google = 1,
+  Apple = 2,
+}
+
+export enum PaymentStatus {
+  Init = 1,
+  Success = 2,
+  Fail = 3,
+}
+
+export enum ProductCategory {
+  Gold = 1,
+  Object = 2,
+}

@@ -29,7 +29,7 @@ const useRequest = () => {
           method,
           url,
           data,
-          baseURL: '/api',
+          baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
           validateStatus: function (status) {
             return (status >= 200 && status < 300) || status === 422
           },

@@ -15,7 +15,7 @@ function RechargeRec() {
   const { list, isLoading, paginator } = useNewsList({
     category: currentNewsTab,
     page,
-    per_page: 10,
+    perPage: 10,
   })
   const showNews = useStore((s) => s.showNews)
   return (

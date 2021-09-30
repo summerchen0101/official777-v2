@@ -1,5 +1,7 @@
 import { menu } from '@/lib/menu'
+import useMe from '@/services/useMe'
 import { useStore } from '@/store/useStore'
+import { toCurrency } from '@/utils'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
@@ -9,6 +11,7 @@ import { HiCurrencyDollar } from 'react-icons/hi'
 function MobileMenu({ className }: { className?: string }) {
   const router = useRouter()
   const closeMbMenu = useStore((s) => s.closeMbMenu)
+  const { data: user, isLoading } = useMe()
   return (
     <div
       className={cs(
@@ -20,11 +23,13 @@ function MobileMenu({ className }: { className?: string }) {
         <div className="space-y-2">
           <div className="flex justify-between border border-gray-500 rounded items-center px-2 py-2">
             <FaUser className="text-xl text-purple-500" />
-            <div className="text-gray-300 font-medium">我是夏天</div>
+            <div className="text-gray-300 font-medium">{user?.nickname}</div>
           </div>
           <div className="flex justify-between border border-gray-500 rounded items-center px-2 py-2">
             <HiCurrencyDollar className="text-2xl text-gold-500 -ml-1" />
-            <div className="text-gray-300 font-medium">100,000</div>
+            <div className="text-gray-300 font-medium">
+              {toCurrency(user?.coin || 0, 0)}
+            </div>
           </div>
         </div>
         <div className="items-center flex justify-center ">

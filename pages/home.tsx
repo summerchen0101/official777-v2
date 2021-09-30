@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   const { list, isLoading } = useNewsList({
     category: currentNewsTab,
     page: 1,
-    per_page: 10,
+    perPage: 10,
   })
   useDevicePage('/home', '/mb/home')
   const showNews = useStore((s) => s.showNews)

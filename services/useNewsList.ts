@@ -6,7 +6,7 @@ import useSWR from 'swr'
 export interface NewsListReq {
   category: number
   page: number
-  per_page: number
+  perPage: number
 }
 
 export interface News {
@@ -21,17 +21,17 @@ export interface NewsListRes extends ResBase {
   page: Pagination
 }
 
-function useNewsList({ category, page, per_page }: NewsListReq) {
+function useNewsList({ category, page, perPage }: NewsListReq) {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
-    [`${publicApiPath}/news/list`, token, category, page, per_page],
-    (url, token, category, page, per_page) =>
+    [`${publicApiPath}/news/list`, token, category, page, perPage],
+    (url, token, category, page, perPage) =>
       request<NewsListRes>({
         url,
         method: 'get',
         config: {
-          params: { category, page, per_page },
+          params: { category, page, perPage },
           headers: {
             Authorization: `Bearer ${token}`,
           },

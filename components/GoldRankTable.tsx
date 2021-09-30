@@ -7,7 +7,7 @@ function GoldRankTable() {
   const { list, isLoading, paginator } = useRankList({
     rank_type: RankType.Gold,
     page: 1,
-    per_page: 10,
+    perPage: 10,
   })
   if (isLoading) {
     return <Loading />

@@ -6,7 +6,7 @@ function SlotRankTable() {
   const { list, isLoading, paginator } = useRankList({
     rank_type: RankType.Slot,
     page: 1,
-    per_page: 10,
+    perPage: 10,
   })
   if (isLoading) {
     return <Loading />
