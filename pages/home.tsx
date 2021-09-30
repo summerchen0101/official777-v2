@@ -32,7 +32,7 @@ const Home: NextPage = () => {
   return (
     <Layout>
       <section className="mb-16">
-        <HomeSlider slides={homeSlides} dots />
+        <HomeSlider slides={homeSlides} dots isHomePage />
         <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center -mt-2"></div>
       </section>
 
@@ -81,6 +81,16 @@ const Home: NextPage = () => {
         </div>
       </section>
 
+      <section className="mb-16">
+        <img
+          src="/title_media.png"
+          alt="多媒體"
+          className="h-10 mb-6 mx-auto"
+        />
+        <div className="px-12">
+          <SectionSlider slides={sectionSlides} slidesToShow={3} />
+        </div>
+      </section>
       <section className="mb-16">
         <div className="lg:w-[860px] mx-auto">
           <img src="/title_games.png" alt="推薦遊戲" className="h-10 mb-4" />
