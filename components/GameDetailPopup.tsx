@@ -9,14 +9,23 @@ export default function GameDetailPopup() {
   const gameInfo = useStore((s) => s.gameInfo)
   return (
     <Popup onClose={closeGamePopup} isShow={isShowGamePopup}>
-      <div className="fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col ml-4 lg:-mr-2">
-        <a href="#s1" className="tab">
+      <div className="fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
+        <a
+          href="#s1"
+          className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+        >
           基本說明
         </a>
-        <a href="#s2" className="tab">
+        <a
+          href="#s2"
+          className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+        >
           得分說明
         </a>
-        <a href="#s3" className="tab">
+        <a
+          href="#s3"
+          className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+        >
           賠率表
         </a>
       </div>
