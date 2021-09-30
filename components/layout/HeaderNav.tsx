@@ -15,7 +15,7 @@ function HeaderNav() {
             <img
               src="/logo.png"
               alt=""
-              className="cursor-pointer absolute h-48 z-50 left-0 top-0 -ml-28 -mt-5"
+              className="cursor-pointer absolute lg:h-40 xl:h-48 z-50 left-0 top-0 lg:-ml-20 xl:-ml-28 -mt-5"
               onClick={() => router.push('/')}
             />
             <div className="flex space-x-2 mt-5">
