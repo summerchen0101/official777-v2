@@ -19,7 +19,7 @@ function GameIntro() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="mb-6 mx-4 flex justify-center lg:justify-start">
+          <div className="mb-6 flex justify-center lg:justify-start">
             <img src="/title_game_intro.png" alt="遊戲說明" className="h-10" />
           </div>
           <div className="hidden lg:flex justify-center mb-6">

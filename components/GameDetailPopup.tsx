@@ -29,7 +29,14 @@ export default function GameDetailPopup() {
           賠率表
         </a>
       </div>
-      <section className="border-b border-purple-600 py-14">
+      <div className="flex justify-center">
+        <img
+          src="/game/title/text_AnimalPark.png"
+          alt="動物樂園"
+          className="h-10 mb-10"
+        />
+      </div>
+      <section className="border-b border-purple-600 pb-14">
         <div className="lg:w-[860px] mx-auto px-4">
           <div className="border border-white/80 bg-blackmb-5 aspect-w-16 aspect-h-9">
             <div className="h-full w-full flex justify-center items-center bg-black">

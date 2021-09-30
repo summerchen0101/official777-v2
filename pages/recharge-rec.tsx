@@ -19,7 +19,13 @@ function RechargeRec() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <h1 className="title text-light">儲值紀錄</h1>
+          <div className="mb-6 flex justify-center lg:justify-start">
+            <img
+              src="/title_recharge_rec.png"
+              alt="儲值紀錄"
+              className="h-10"
+            />
+          </div>
           <div className="px-4">
             {isLoading ? (
               <Loading />

@@ -8,6 +8,9 @@ function FaqPage() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
+          <div className="mb-6 flex justify-center lg:justify-start">
+            <img src="/title_faq.png" alt="常見問題" className="h-10" />
+          </div>
           <div className="space-y-4">
             {[...Array(5)].map((t, i) => (
               <div

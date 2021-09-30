@@ -31,7 +31,7 @@ function HeaderNav() {
           </div>
           {/* Hover展開的內容 */}
           <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all -translate-y-12 duration-400 group-hover:translate-y-0 mt-12 z-10">
-            <div className="bg-gradient-to-t from-black opacity-95 flex justify-center relative pl-32 space-x-2 py-8">
+            <div className="bg-gradient-to-t from-black opacity-95 flex justify-center relative pl-32 space-x-2 py-10">
               {/* <div className="w-52"></div> */}
               {menu.map((m, m_i) => (
                 <div key={m_i} className="space-y-2 w-36">

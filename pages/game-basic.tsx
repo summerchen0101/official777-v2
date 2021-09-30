@@ -16,7 +16,7 @@ function GameBasic() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="mb-6 mx-4 flex justify-center lg:justify-start">
+          <div className="mb-6 flex justify-center lg:justify-start">
             <img src="/title_basic.png" alt="基本介紹" className="h-10" />
           </div>
           <div className="hidden lg:flex justify-center mb-6">
