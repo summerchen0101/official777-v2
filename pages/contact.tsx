@@ -9,7 +9,7 @@ function ContactPage() {
       <PageBanner />
       <section>
         <div className="lg:w-[860px] mx-auto">
-          <div className="mb-6 mx-4 flex justify-center lg:justify-start">
+          <div className="mb-6 flex justify-center lg:justify-start">
             <img src="/title_service.png" alt="聯繫客服" className="h-10" />
           </div>
           <div className="form-box">

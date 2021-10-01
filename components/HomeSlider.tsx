@@ -27,12 +27,12 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
   return (
     <Slider {...settings}>
       {slides.map((t, i) => (
-        <div key={i} className="px-2">
+        <div key={i}>
           <img
             src={t.path}
             className={cs(
               'h-[300px] w-full object-cover object-center',
-              isHomePage ? 'lg:h-[500px]' : 'lg:h-[350px]',
+              isHomePage ? 'h-[550px] xl:h-[72vh]' : 'lg:h-[350px]',
             )}
             alt=""
           />

@@ -110,7 +110,7 @@ section {
 }
 
 .form-box {
-  @apply lg:bg-black/50 lg:rounded-xl pb-8 pt-0 lg:pt-8 px-7 mx-3 lg:border-2 border-gold-500/30;
+  @apply lg:bg-black/50 lg:rounded-xl pb-8 pt-0 lg:pt-8 px-7 lg:border-2 border-gold-500/30;
 }
 
 .tab-selector {

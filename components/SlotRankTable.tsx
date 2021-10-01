@@ -1,5 +1,6 @@
 import { RankType } from '@/lib/enums'
 import useRankList from '@/services/useRankList'
+import { toCurrency } from '@/utils'
 import Loading from './Loading'
 
 function SlotRankTable() {
@@ -25,7 +26,7 @@ function SlotRankTable() {
           <tr key={i}>
             <td className="text-center">{t.rank}</td>
             <td>{t.nickname}</td>
-            <td>{t.betting_odds}</td>
+            <td>{toCurrency(+t.bettingOdds)}</td>
           </tr>
         ))}
       </tbody>

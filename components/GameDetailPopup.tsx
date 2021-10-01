@@ -9,18 +9,34 @@ export default function GameDetailPopup() {
   const gameInfo = useStore((s) => s.gameInfo)
   return (
     <Popup onClose={closeGamePopup} isShow={isShowGamePopup}>
-      <div className="fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col ml-4 lg:-mr-2">
-        <a href="#s1" className="tab">
+      <div className="fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
+        <a
+          href="#s1"
+          className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+        >
           基本說明
         </a>
-        <a href="#s2" className="tab">
+        <a
+          href="#s2"
+          className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+        >
           得分說明
         </a>
-        <a href="#s3" className="tab">
+        <a
+          href="#s3"
+          className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+        >
           賠率表
         </a>
       </div>
-      <section className="border-b border-purple-600 py-14">
+      <div className="flex justify-center">
+        <img
+          src="/game/title/text_AnimalPark.png"
+          alt="動物樂園"
+          className="h-10 mb-10"
+        />
+      </div>
+      <section className="border-b border-purple-600 pb-14">
         <div className="lg:w-[860px] mx-auto px-4">
           <div className="border border-white/80 bg-blackmb-5 aspect-w-16 aspect-h-9">
             <div className="h-full w-full flex justify-center items-center bg-black">
