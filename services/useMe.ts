@@ -6,9 +6,13 @@ import useSWR from 'swr'
 export interface MeRes extends ResBase {
   id: number
   nickname: string
-  avatarID: string
+  avatarID: number
   coin: number
   vipLevel: number
+  email: string
+  countryCode: string
+  cellphone: string
+  phoneVerified: number
 }
 
 function useMe() {
