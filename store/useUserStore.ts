@@ -28,7 +28,7 @@ export const useUserStore = create<{
         }),
       user: null,
       setUser: (user) => set({ user }),
-      clearUser: () => set({ user: null }),
+      clearUser: () => set({ user: null, tokenInfo: null }),
     }),
     {
       name: 'user-storage', // unique name
