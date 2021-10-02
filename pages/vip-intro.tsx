@@ -4,40 +4,45 @@ import React from 'react'
 
 const list = [
   {
-    name: '幸運紅包',
+    name: 'VIP 0',
     desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
     img: '/gift/img_redEnvelopeLucky.png',
   },
   {
-    name: '口令紅包',
+    name: 'VIP 1',
     desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
     img: '/gift/img_redEnvelopePassword.png',
   },
   {
-    name: '圖片紅包',
+    name: 'VIP 2',
     desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
     img: '/gift/img_redEnvelopePicture.png',
   },
   {
-    name: '語音紅包',
+    name: 'VIP 3',
     desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
     img: '/gift/img_redEnvelopeVoice.png',
   },
   {
-    name: '影音紅包',
+    name: 'VIP 4',
+    desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
+    img: '/gift/img_redEnvelopeVideo.png',
+  },
+  {
+    name: 'VIP 5',
     desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
     img: '/gift/img_redEnvelopeVideo.png',
   },
 ]
 
-function GiftIntro() {
+function VipIntro() {
   return (
     <Layout>
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-8 flex justify-center lg:justify-start">
-            <img src="/title_gift.png" alt="紅包說明" className="h-10" />
+            <img src="/title_vip.png" alt="VIP說明" className="h-10" />
           </div>
           <div className="space-y-6">
             {list.map((t, i) => (
@@ -69,4 +74,4 @@ function GiftIntro() {
   )
 }
 
-export default GiftIntro
+export default VipIntro

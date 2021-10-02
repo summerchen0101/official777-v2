@@ -17,7 +17,7 @@ export const menu: Menu[] = [
       { label: '遊戲說明', path: '/game-intro' },
       { label: '道具說明', path: '/obj-intro' },
       { label: '紅包說明', path: '/gift-intro' },
-      { label: 'VIP介紹', path: '/' },
+      { label: 'VIP介紹', path: '/vip-intro' },
     ],
   },
   {

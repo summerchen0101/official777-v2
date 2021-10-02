@@ -47,7 +47,7 @@ function ObjIntro() {
               >
                 <div className="p-3 lg:h-auto flex justify-center items-center">
                   <img
-                    src="/gift/img_img_redEnvelopeVoice.png"
+                    src={t.img}
                     className="object-contain h-40 rounded-l-xl"
                     alt={t.name}
                   />
