@@ -2,29 +2,62 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import React from 'react'
 
+const objList = [
+  {
+    name: '免費遊戲注額卷 100',
+    desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
+    img: '/gift/img_redEnvelopeLucky.png',
+  },
+  {
+    name: '免費遊戲注額卷 1,000',
+    desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
+    img: '/gift/img_redEnvelopeLucky.png',
+  },
+  {
+    name: '免費遊戲注額卷 10,000',
+    desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
+    img: '/gift/img_redEnvelopeLucky.png',
+  },
+  {
+    name: '普通刮刮卡',
+    desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
+    img: '/gift/img_redEnvelopeLucky.png',
+  },
+  {
+    name: '高級刮刮卡',
+    desc: '道具說明道具說明道具說明，道具說明道具說明道具說明道具說明，道具說明道具說明道具說明道具說明道具說明道具說明道具說明。',
+    img: '/gift/img_redEnvelopeLucky.png',
+  },
+]
+
 function ObjIntro() {
   return (
     <Layout>
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="space-y-8 px-8">
-            {[...Array(8)].map((t, i) => (
+          <div className="mb-8 flex justify-center lg:justify-start">
+            <img src="/title_obj_intro.png" alt="道具說明" className="h-10" />
+          </div>
+          <div className="space-y-6">
+            {objList.map((t, i) => (
               <div
                 key={i}
-                className="flex flex-col lg:flex-row bg-black/50 shadow-md rounded-xl"
+                className="flex flex-col lg:flex-row bg-black/50 shadow-md rounded-lg overflow-hidden py-3 lg:py-0 border-2 border-purple-600/60"
               >
-                <img
-                  src="/banner/banner_01.png"
-                  className="h-60 lg:h-40 w-full lg:w-40 object-cover rounded-l-xl"
-                  alt=""
-                />
-                <div className="flex-1 p-4">
-                  <p className="text-lg font-semibold text-gold-500 mb-1">
-                    道具名稱
+                <div className="p-3 lg:h-auto flex justify-center items-center">
+                  <img
+                    src="/gift/img_img_redEnvelopeVoice.png"
+                    className="object-contain h-40 rounded-l-xl"
+                    alt={t.name}
+                  />
+                </div>
+                <div className="flex-1 p-5">
+                  <p className="text-2xl font-semibold text-gold-500 pt-1 pb-3 mb-4 border-b border-gold-500/30 tracking-wide">
+                    {t.name}
                   </p>
-                  <div className="text-gold-100 leading-7">
-                    道具的說明內文道具的說明內文道具的說明內文道具的說明內文，道具的說明內文道具的說明內文道具的說明內文道具的說明內文道具的說明內，說明內文道具的說明內文道具的說明內文...
+                  <div className="text-white/80 leading-8 whitespace-pre-line text-lg">
+                    {t.desc}
                   </div>
                 </div>
               </div>
