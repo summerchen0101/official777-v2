@@ -26,7 +26,7 @@ export interface Ranking {
 
 export interface RankListRes extends ResBase {
   rankings: Ranking[]
-  page: Pagination
+  pagination: Pagination
 }
 
 function useRankList({ rankType, page, perPage }: RankListReq) {
@@ -49,7 +49,7 @@ function useRankList({ rankType, page, perPage }: RankListReq) {
 
   return {
     list: data?.rankings,
-    paginator: data?.page,
+    paginator: data?.pagination,
     isLoading: isValidating,
   }
 }

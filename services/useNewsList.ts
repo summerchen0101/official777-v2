@@ -19,7 +19,7 @@ export interface News {
 
 export interface NewsListRes extends ResBase {
   news: News[]
-  page: Pagination
+  pagination: Pagination
 }
 
 function useNewsList({ category, page, perPage }: NewsListReq) {
@@ -40,7 +40,11 @@ function useNewsList({ category, page, perPage }: NewsListReq) {
       }),
   )
 
-  return { list: data?.news, paginator: data?.page, isLoading: isValidating }
+  return {
+    list: data?.news,
+    paginator: data?.pagination,
+    isLoading: isValidating,
+  }
 }
 
 export default useNewsList
