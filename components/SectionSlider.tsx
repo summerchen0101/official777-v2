@@ -56,7 +56,7 @@ function SectionSlider({ slides, slidesToShow }: Props) {
     <Slider {...settings} className="-mx-2">
       {slides.map((t, i) => (
         <div key={i} className="px-2">
-          <img src={t.path} alt="" />
+          <img src={t.path} className="frame" alt="" />
         </div>
       ))}
     </Slider>

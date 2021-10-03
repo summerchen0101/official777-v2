@@ -23,9 +23,32 @@ const Home: NextPage = () => {
   useDevicePage('/home', '/mb/home')
   const showNews = useStore((s) => s.showNews)
 
-  const sectionSlides: Slide[] = Array(8).fill({
-    path: '/game/blackjack.png',
-  })
+  const sectionSlides = [
+    {
+      name: '帝皇捕魚',
+      path: '/game/banner/lg/banner_KingFishing_480x320.png',
+    },
+    {
+      name: '大頭家麻將',
+      path: '/game/banner/lg/banner_Mahjong_480x320.png',
+    },
+    {
+      name: '鋼鐵超人',
+      path: '/game/banner/lg/banner_SuperRobot_480x320.png',
+    },
+    {
+      name: '決戰希臘',
+      path: '/game/banner/lg/banner_ZeusVsHades_480x320.png',
+    },
+    {
+      name: '帝皇捕魚',
+      path: '/game/banner/lg/banner_KingFishing_480x320.png',
+    },
+    {
+      name: '大頭家麻將',
+      path: '/game/banner/lg/banner_Mahjong_480x320.png',
+    },
+  ]
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
   })
@@ -96,8 +119,9 @@ const Home: NextPage = () => {
           <img src="/title_games.png" alt="推薦遊戲" className="h-10 mb-4" />
 
           <div className=" grid grid-cols-2 gap-4 mb-4">
-            <img src="/game/blackjack.png" alt="" />
-            <img src="/game/blackjack.png" alt="" />
+            {sectionSlides.slice(0, 2).map((t, i) => (
+              <img key={i} src={t.path} alt={t.name} className="frame" />
+            ))}
           </div>
           <SectionSlider slides={sectionSlides} slidesToShow={4} />
         </div>
@@ -107,8 +131,9 @@ const Home: NextPage = () => {
         <div className="lg:w-[860px] mx-auto">
           <img src="/title_tiger.png" alt="老虎機" className="h-10 mb-4" />
           <div className=" grid grid-cols-2 gap-4 mb-4">
-            <img src="/game/blackjack.png" alt="" />
-            <img src="/game/blackjack.png" alt="" />
+            {sectionSlides.slice(0, 2).map((t, i) => (
+              <img key={i} src={t.path} alt={t.name} className="frame" />
+            ))}
           </div>
           <SectionSlider slides={sectionSlides} slidesToShow={4} />
         </div>

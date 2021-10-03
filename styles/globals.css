@@ -120,3 +120,7 @@ section {
 .scroll-padding {
   scroll-padding-top: 30px;
 }
+
+.frame {
+  @apply border-2 border-gold-600/50 rounded-lg;
+}
