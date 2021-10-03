@@ -11,6 +11,12 @@ export default function GameDetailPopup() {
     <Popup onClose={closeGamePopup} isShow={isShowGamePopup}>
       <div className="fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
         <a
+          href="#s0"
+          className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+        >
+          影片
+        </a>
+        <a
           href="#s1"
           className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
         >
@@ -29,12 +35,15 @@ export default function GameDetailPopup() {
           賠率表
         </a>
       </div>
-      <div className="flex justify-center">
-        <img
+      <div id="s0" className="flex justify-center">
+        <h1 className="text-4xl text-gold-400 font-medium mb-4">
+          {gameInfo?.title}
+        </h1>
+        {/* <img
           src="/game/title/text_AnimalPark.png"
           alt="動物樂園"
           className="h-10 mb-10"
-        />
+        /> */}
       </div>
       <section className="border-b border-purple-600 pb-14">
         <div className="lg:w-[860px] mx-auto px-4">

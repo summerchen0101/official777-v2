@@ -14,6 +14,36 @@ const tabsMap = {
 function GameIntro() {
   const [activeTab, setActiveTab] = useState('1')
   const showGamePopup = useStore((s) => s.showGamePopup)
+
+  const list = [
+    { name: '沙灘派對', path: '/game/banner/sm/banner_BeachParty_200x200.png' },
+    { name: '皇家21點', path: '/game/banner/sm/banner_Blackjack_200x200.png' },
+    { name: '昆蟲寶貝', path: '/game/banner/sm/banner_BugsFamily_200x200.png' },
+    {
+      name: 'xxxx',
+      path: '/game/banner/sm/banner_CrystalSorceress_200x200.png',
+    },
+    { name: '巨龍家族', path: '/game/banner/sm/banner_DragonClan_200x200.png' },
+    {
+      name: '埃及傳說',
+      path: '/game/banner/sm/banner_EgyptLegends_200x200.png',
+    },
+    { name: '武聖關羽', path: '/game/banner/sm/banner_GuanYu_200x200.png' },
+    {
+      name: '帝皇捕魚',
+      path: '/game/banner/sm/banner_KingFishing_200x200.png',
+    },
+    { name: '大頭家麻將', path: '/game/banner/sm/banner_Mahjong_200x200.png' },
+    { name: '鋼鐵超人', path: '/game/banner/sm/banner_SuperRobot_200x200.png' },
+    {
+      name: '俏皮護士',
+      path: '/game/banner/sm/banner_SweetheartNurse_200x200.png',
+    },
+    {
+      name: '決戰希臘',
+      path: '/game/banner/sm/banner_ZeusVsHades_200x200.png',
+    },
+  ]
   return (
     <Layout>
       <PageBanner />
@@ -33,19 +63,19 @@ function GameIntro() {
             ))}
           </select>
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            {[...Array(8)].map((t, i) => (
+            {list.map((t, i) => (
               <div
                 key={i}
-                className="group relative overflow-hidden cursor-pointer aspect-w-1 aspect-h-1 border border-brown-500"
-                onClick={() => showGamePopup({ title: '', content: '' })}
+                className="group relative overflow-hidden cursor-pointer aspect-w-1 aspect-h-1 frame"
+                onClick={() => showGamePopup({ title: t.name, content: '' })}
               >
                 <img
-                  src="/game/blackjack.png"
+                  src={t.path}
                   className="object-cover object-center group-hover:scale-110 h-full w-full transition-all"
-                  alt=""
+                  alt={t.name}
                 />
                 <div className="bg-purple-900/80 text-white py-1 px-2 transition-all translate-y-4 opacity-0 group-hover:-translate-y-0 group-hover:opacity-100 absolute w-full top-2/3 h-10 flex items-center justify-center text-lg">
-                  標題
+                  {t.name}
                 </div>
               </div>
             ))}
