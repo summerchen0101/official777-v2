@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
+import { sectionSlides } from '@/lib/games'
 import { newsTypeMap } from '@/lib/map'
 import useNewsList from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
@@ -23,32 +24,6 @@ const Home: NextPage = () => {
   useDevicePage('/home', '/mb/home')
   const showNews = useStore((s) => s.showNews)
 
-  const sectionSlides = [
-    {
-      name: '帝皇捕魚',
-      path: '/game/banner/lg/banner_KingFishing_480x320.png',
-    },
-    {
-      name: '大頭家麻將',
-      path: '/game/banner/lg/banner_Mahjong_480x320.png',
-    },
-    {
-      name: '鋼鐵超人',
-      path: '/game/banner/lg/banner_SuperRobot_480x320.png',
-    },
-    {
-      name: '決戰希臘',
-      path: '/game/banner/lg/banner_ZeusVsHades_480x320.png',
-    },
-    {
-      name: '帝皇捕魚',
-      path: '/game/banner/lg/banner_KingFishing_480x320.png',
-    },
-    {
-      name: '大頭家麻將',
-      path: '/game/banner/lg/banner_Mahjong_480x320.png',
-    },
-  ]
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
   })
@@ -91,7 +66,7 @@ const Home: NextPage = () => {
               {list?.map((t, i) => (
                 <div
                   key={i}
-                  className="flex odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
+                  className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
                   onClick={() => showNews(t)}
                 >
                   <div className="w-20">[{newsTypeMap[t.category]}]</div>
