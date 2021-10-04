@@ -19,12 +19,11 @@ export default function NewsDetailPopup() {
           <img src="/fb.png" className="cursor-pointer h-6" alt="" />
           <img src="/line.png" className="cursor-pointer h-6" alt="" />
         </div>
-        <div className="border border-white/80 bg-black flex items-center justify-center h-96 mb-5">
-          活動圖片區 1100 x 400
-        </div>
-        <div className="text-xl mb-2">活動說明</div>
         <div className="border-t border-white/60 mb-3"></div>
-        <div className="leading-7">{newsInfo?.content}</div>
+        <div
+          className="leading-7"
+          dangerouslySetInnerHTML={{ __html: newsInfo?.content || '' }}
+        />
       </div>
     </Popup>
   )

@@ -15,6 +15,7 @@ export interface News {
   content: string
   category: number
   createTimeMs: number
+  is_redirect: boolean
 }
 
 export interface NewsListRes extends ResBase {
