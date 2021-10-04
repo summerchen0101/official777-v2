@@ -1,8 +1,5 @@
-import { useStore } from '@/store/useStore'
-import React, { ReactNode } from 'react'
-import { BiX } from 'react-icons/bi'
 import cs from 'classnames'
-import { NextPage } from 'next'
+import React, { ReactNode, useEffect } from 'react'
 
 interface Props {
   onClose: () => void
@@ -10,6 +7,14 @@ interface Props {
   children?: ReactNode
 }
 export default function Popup({ onClose, isShow, children }: Props) {
+  const targets = Array.from(document.querySelectorAll('html,body'))
+  useEffect(() => {
+    if (isShow) {
+      targets.forEach((t) => t.classList.add('lock'))
+    } else {
+      targets.forEach((t) => t.classList.remove('lock'))
+    }
+  }, [isShow, targets])
   return (
     <div
       className={cs(
@@ -23,7 +28,7 @@ export default function Popup({ onClose, isShow, children }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className="cursor-pointer absolute top-0 right-0 m-3"
+          className="cursor-pointer fixed top-0 right-0 m-3"
           onClick={onClose}
         >
           <img src="/btn_close.png" className="h-12 lg:h-16" alt="" />
