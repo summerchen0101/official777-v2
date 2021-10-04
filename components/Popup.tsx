@@ -1,5 +1,5 @@
 import cs from 'classnames'
-import React, { ReactNode, useEffect } from 'react'
+import React, { ReactNode, useEffect, useMemo, useRef } from 'react'
 
 interface Props {
   onClose: () => void
@@ -7,7 +7,12 @@ interface Props {
   children?: ReactNode
 }
 export default function Popup({ onClose, isShow, children }: Props) {
-  const targets = Array.from(document.querySelectorAll('html,body'))
+  let targets = useMemo(() => {
+    if (process.browser) {
+      return Array.from(document.querySelectorAll('html,body'))
+    }
+    return []
+  }, [])
   useEffect(() => {
     if (isShow) {
       targets.forEach((t) => t.classList.add('lock'))
