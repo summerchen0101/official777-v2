@@ -6,32 +6,32 @@ const list = [
   {
     name: 'VIP 0',
     desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/gift/img_redEnvelopeLucky.png',
+    img: '/vip/VIPcard0.png',
   },
   {
     name: 'VIP 1',
     desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/gift/img_redEnvelopePassword.png',
+    img: '/vip/VIPcard1.png',
   },
   {
     name: 'VIP 2',
     desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/gift/img_redEnvelopePicture.png',
+    img: '/vip/VIPcard2.png',
   },
   {
     name: 'VIP 3',
     desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/gift/img_redEnvelopeVoice.png',
+    img: '/vip/VIPcard3.png',
   },
   {
     name: 'VIP 4',
     desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/gift/img_redEnvelopeVideo.png',
+    img: '/vip/VIPcard4.png',
   },
   {
     name: 'VIP 5',
     desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/gift/img_redEnvelopeVideo.png',
+    img: '/vip/VIPcard5.png',
   },
 ]
 
@@ -53,7 +53,7 @@ function VipIntro() {
                 <div className="p-3 lg:h-auto flex justify-center items-center">
                   <img
                     src={t.img}
-                    className="object-contain h-40 rounded-l-xl"
+                    className="object-contain w-32 rounded-l-xl"
                     alt={t.name}
                   />
                 </div>
