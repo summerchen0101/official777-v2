@@ -20,7 +20,7 @@ function GameIntro() {
     { name: '皇家21點', path: '/game/banner/sm/banner_Blackjack_290x290.png' },
     { name: '昆蟲寶貝', path: '/game/banner/sm/banner_BugsFamily_290x290.png' },
     {
-      name: 'xxxx',
+      name: '魔法消消樂',
       path: '/game/banner/sm/banner_CrystalSorceress_290x290.png',
     },
     { name: '巨龍家族', path: '/game/banner/sm/banner_DragonClan_290x290.png' },

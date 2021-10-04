@@ -2,10 +2,12 @@ import React, { useRef } from 'react'
 import Slider, { Settings } from 'react-slick'
 export interface Slide {
   path: string
+  name: string
 }
 interface Props {
   slides: Slide[]
   slidesToShow: number
+  onClick?: (slide: Slide) => void
 }
 
 function SamplePrevArrow(
@@ -42,7 +44,7 @@ function SampleNextArrow(
   )
 }
 
-function SectionSlider({ slides, slidesToShow }: Props) {
+function SectionSlider({ slides, slidesToShow, onClick }: Props) {
   var settings: Settings = {
     dots: false,
     infinite: true,
@@ -55,8 +57,8 @@ function SectionSlider({ slides, slidesToShow }: Props) {
   return (
     <Slider {...settings} className="-mx-2">
       {slides.map((t, i) => (
-        <div key={i} className="px-2">
-          <img src={t.path} className="frame" alt="" />
+        <div key={i} className="px-2" onClick={() => onClick && onClick(t)}>
+          <img src={t.path} className="frame cursor-pointer" alt="" />
         </div>
       ))}
     </Slider>

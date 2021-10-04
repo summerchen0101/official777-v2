@@ -1,3 +1,4 @@
+import GameDetailPopup from '@/components/GameDetailPopup'
 import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
   })
   useDevicePage('/home', '/mb/home')
   const showNews = useStore((s) => s.showNews)
+  const showGamePopup = useStore((s) => s.showGamePopup)
 
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
@@ -86,7 +88,13 @@ const Home: NextPage = () => {
           className="h-10 mb-6 mx-auto"
         />
         <div className="px-12 max-w-[1400px] mx-auto">
-          <SectionSlider slides={sectionSlides} slidesToShow={3} />
+          <SectionSlider
+            slides={sectionSlides}
+            slidesToShow={3}
+            onClick={(slide) =>
+              showGamePopup({ title: slide.name, content: '' })
+            }
+          />
         </div>
       </section>
       <section className="mb-16">
@@ -95,10 +103,22 @@ const Home: NextPage = () => {
 
           <div className=" grid grid-cols-2 gap-4 mb-4">
             {sectionSlides.slice(0, 2).map((t, i) => (
-              <img key={i} src={t.path} alt={t.name} className="frame" />
+              <img
+                key={i}
+                src={t.path}
+                alt={t.name}
+                className="frame cursor-pointer"
+                onClick={() => showGamePopup({ title: t.name, content: '' })}
+              />
             ))}
           </div>
-          <SectionSlider slides={sectionSlides} slidesToShow={4} />
+          <SectionSlider
+            slides={sectionSlides}
+            slidesToShow={4}
+            onClick={(slide) =>
+              showGamePopup({ title: slide.name, content: '' })
+            }
+          />
         </div>
       </section>
 
@@ -107,13 +127,26 @@ const Home: NextPage = () => {
           <img src="/title_tiger.png" alt="老虎機" className="h-10 mb-4" />
           <div className=" grid grid-cols-2 gap-4 mb-4">
             {sectionSlides.slice(0, 2).map((t, i) => (
-              <img key={i} src={t.path} alt={t.name} className="frame" />
+              <img
+                key={i}
+                src={t.path}
+                alt={t.name}
+                className="frame cursor-pointer"
+                onClick={() => showGamePopup({ title: t.name, content: '' })}
+              />
             ))}
           </div>
-          <SectionSlider slides={sectionSlides} slidesToShow={4} />
+          <SectionSlider
+            slides={sectionSlides}
+            slidesToShow={4}
+            onClick={(slide) =>
+              showGamePopup({ title: slide.name, content: '' })
+            }
+          />
         </div>
       </section>
       <NewsDetailPopup />
+      <GameDetailPopup />
     </Layout>
   )
 }
