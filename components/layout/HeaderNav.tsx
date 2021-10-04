@@ -9,8 +9,8 @@ function HeaderNav() {
   return (
     <>
       <header className="hidden lg:block group fixed top-0 w-full z-30">
-        <div className="bg-purple-900 relative z-20 h-20 flex items-center justify-center">
-          <div className="bg-gradient-to-b from-purple-900 w-screen h-12 absolute bottom-0 -mb-12"></div>
+        <div className="bg-gradient-to-b from-purple-darkeset to-purple-dark relative z-20 h-20 flex items-center justify-center">
+          <div className="bg-gradient-to-b from-purple-dark to-purple-dark/0 w-screen h-12 absolute bottom-0 -mb-12"></div>
           <div className="flex items-center justify-center relative pl-32">
             <img
               src="/logo.png"
@@ -31,7 +31,7 @@ function HeaderNav() {
           </div>
           {/* Hover展開的內容 */}
           <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all -translate-y-12 duration-400 group-hover:translate-y-0 mt-12 z-10">
-            <div className="bg-gradient-to-t from-black opacity-95 flex justify-center relative pl-32 space-x-2 py-10">
+            <div className="bg-gradient-to-t from-black to-black/0 opacity-95 flex justify-center relative pl-32 space-x-2 py-10">
               {/* <div className="w-52"></div> */}
               {menu.map((m, m_i) => (
                 <div key={m_i} className="space-y-2 w-36">
