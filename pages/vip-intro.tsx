@@ -53,7 +53,7 @@ function VipIntro() {
                 <div className="p-3 lg:h-auto flex justify-center items-center">
                   <img
                     src={t.img}
-                    className="object-contain w-32 rounded-l-xl"
+                    className="object-contain h-36 rounded-l-xl"
                     alt={t.name}
                   />
                 </div>
