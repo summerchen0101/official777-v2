@@ -71,7 +71,7 @@ function UserBasic() {
                     })}
                   />
                   <div className="w-24">
-                    <button className="btn w-full">復原</button>
+                    <button className="btn btn-sm w-full">復原</button>
                   </div>
                 </div>
               </div>
@@ -94,7 +94,11 @@ function UserBasic() {
                     {data?.phoneVerified === 1 ? (
                       <span className="text-green-500">已綁定</span>
                     ) : (
-                      <button type="button" className="btn" onClick={onSendSms}>
+                      <button
+                        type="button"
+                        className="btn btn-sm"
+                        onClick={onSendSms}
+                      >
                         發送驗證碼
                       </button>
                     )}
