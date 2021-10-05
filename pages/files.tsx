@@ -16,7 +16,7 @@ function FilesPage() {
             {[...Array(5)].map((t, i) => (
               <div
                 key={i}
-                className="cursor-pointer flex items-center space-x-4 text-white/60 bg-black/50 rounded-md p-3 text-lg h-20"
+                className="cursor-pointer flex items-center space-x-4 text-gray-200 bg-black/50 rounded-md p-3 text-lg h-20"
               >
                 <BiFile className="text-3xl text-gold-500" />
                 <span>下載檔案名稱.pdf</span>

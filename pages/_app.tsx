@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
       </Head>
+      <div className="bg-cover" />
       <Component {...pageProps} />
       <LoginPopup />
     </>
