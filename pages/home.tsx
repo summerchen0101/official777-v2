@@ -4,9 +4,10 @@ import Layout from '@/components/layout/Layout'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
+import { YesNo } from '@/lib/enums'
 import { sectionSlides } from '@/lib/games'
 import { newsTypeMap } from '@/lib/map'
-import useNewsList from '@/services/useNewsList'
+import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
 import { toDateTime } from '@/utils'
 import cs from 'classnames'
@@ -29,6 +30,12 @@ const Home: NextPage = () => {
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
   })
+  const handleNewsClicked = (news: News) => {
+    if (news.isRedirect === YesNo.Yes) {
+      return window.open(news.content, 'news')
+    }
+    showNews(news)
+  }
   return (
     <Layout>
       <section className="mb-16 mt-20">
@@ -69,7 +76,7 @@ const Home: NextPage = () => {
                 <div
                   key={i}
                   className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
-                  onClick={() => showNews(t)}
+                  onClick={() => handleNewsClicked(t)}
                 >
                   <div className="w-20">[{newsTypeMap[t.category]}]</div>
                   <div className="flex-1">{t.title}</div>

@@ -26,3 +26,7 @@ export enum ProductCategory {
   Gold = 1,
   Object = 2,
 }
+export enum YesNo {
+  Yes = 1,
+  No = 2,
+}

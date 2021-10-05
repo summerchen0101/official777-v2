@@ -1,3 +1,4 @@
+import { YesNo } from '@/lib/enums'
 import { useUserStore } from '@/store/useUserStore'
 import { Pagination, ResBase } from '@/types'
 import useRequest, { publicApiPath } from '@/utils/useRequest'
@@ -15,7 +16,7 @@ export interface News {
   content: string
   category: number
   createTimeMs: number
-  is_redirect: boolean
+  isRedirect: YesNo
 }
 
 export interface NewsListRes extends ResBase {

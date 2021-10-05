@@ -5,10 +5,11 @@ import PageBanner from '@/components/layout/PageBanner'
 import { BiX } from 'react-icons/bi'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import { useStore } from '@/store/useStore'
-import useNewsList from '@/services/useNewsList'
+import useNewsList, { News } from '@/services/useNewsList'
 import { newsTypeMap } from '@/lib/map'
 import Loading from '@/components/Loading'
 import { toDateTime } from '@/utils'
+import { YesNo } from '@/lib/enums'
 
 function RechargeRec() {
   const [page, setPage] = useState(1)
@@ -19,6 +20,12 @@ function RechargeRec() {
     perPage: 10,
   })
   const showNews = useStore((s) => s.showNews)
+  const handleNewsClicked = (news: News) => {
+    if (news.isRedirect === YesNo.Yes) {
+      return window.open(news.content, 'news')
+    }
+    showNews(news)
+  }
   return (
     <Layout>
       <PageBanner />
@@ -54,7 +61,7 @@ function RechargeRec() {
                     <div
                       key={i}
                       className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
-                      onClick={() => showNews(t)}
+                      onClick={() => handleNewsClicked(t)}
                     >
                       <div className="w-20">[{newsTypeMap[t.category]}]</div>
                       <div className="flex-1">{t.title}</div>
