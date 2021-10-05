@@ -9,7 +9,7 @@ body,
 }
 
 html {
-  @apply bg-main-pattern bg-fixed bg-contain bg-center;
+  @apply bg-main-pattern bg-fixed;
 }
 
 .bg-cover {
