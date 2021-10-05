@@ -1,5 +1,7 @@
+import GameDetailPopup from '@/components/GameDetailPopup'
 import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
+import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import TabGroup from '@/components/TabGroup'
 import useDevicePage from '@/hooks/useDevicePage'
@@ -26,6 +28,7 @@ const MobileHome: NextPage = () => {
     perPage: 10,
   })
   const showNews = useStore((s) => s.showNews)
+  const showGamePopup = useStore((s) => s.showGamePopup)
 
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
@@ -123,7 +126,13 @@ const MobileHome: NextPage = () => {
             alt="推薦遊戲"
             className="h-10 object-contain w-full mb-4"
           />
-          <SectionSlider slides={sectionSlides} slidesToShow={1} />
+          <SectionSlider
+            slides={sectionSlides}
+            slidesToShow={1}
+            onClick={(slide) =>
+              showGamePopup({ title: slide.name, content: '' })
+            }
+          />
         </div>
       </section>
 
@@ -134,7 +143,13 @@ const MobileHome: NextPage = () => {
             alt="老虎機"
             className="h-10 object-contain w-full mb-4"
           />
-          <SectionSlider slides={sectionSlides} slidesToShow={1} />
+          <SectionSlider
+            slides={sectionSlides}
+            slidesToShow={1}
+            onClick={(slide) =>
+              showGamePopup({ title: slide.name, content: '' })
+            }
+          />
         </div>
       </section>
       <div className="flex space-x-3 justify-center">
@@ -142,6 +157,8 @@ const MobileHome: NextPage = () => {
         <img src="/line.png" className="cursor-pointer" alt="" />
         <img src="/youtube.png" className="cursor-pointer" alt="" />
       </div>
+      <NewsDetailPopup />
+      <GameDetailPopup />
     </Layout>
   )
 }

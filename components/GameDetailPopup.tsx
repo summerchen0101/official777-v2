@@ -9,7 +9,7 @@ export default function GameDetailPopup() {
   const gameInfo = useStore((s) => s.gameInfo)
   return (
     <Popup onClose={closeGamePopup} isShow={isShowGamePopup}>
-      <div className="fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
+      <div className="hidden md:block fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
         <a
           href="#s0"
           className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
