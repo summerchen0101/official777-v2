@@ -7,19 +7,13 @@ interface Props {
   children?: ReactNode
 }
 export default function Popup({ onClose, isShow, children }: Props) {
-  let targets = useMemo(() => {
-    if (process.browser) {
-      return Array.from(document.querySelectorAll('html,body'))
-    }
-    return []
-  }, [])
   useEffect(() => {
     if (isShow) {
-      targets.forEach((t) => t.classList.add('lock'))
+      document.querySelector('body')?.classList.add('lock')
     } else {
-      targets.forEach((t) => t.classList.remove('lock'))
+      document.querySelector('body')?.classList.remove('lock')
     }
-  }, [isShow, targets])
+  }, [isShow])
   return (
     <div
       className={cs(
