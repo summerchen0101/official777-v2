@@ -23,6 +23,7 @@ export interface RechargeRec {
   paymentGateway: number
   userID: number
   callBackURL: string
+  createdAtMs: number
 }
 
 export interface Meta {
@@ -45,16 +46,18 @@ function useRechargeRecList({
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
-    [
-      `${apiPath}/payment/list`,
-      token,
-      paymentStatus,
-      paymentGateway,
-      createdAtMsStart,
-      createdAtMsEnd,
-      page,
-      perPage,
-    ],
+    token
+      ? [
+          `${apiPath}/payment/list`,
+          token,
+          paymentStatus,
+          paymentGateway,
+          createdAtMsStart,
+          createdAtMsEnd,
+          page,
+          perPage,
+        ]
+      : null,
     (
       url,
       token,

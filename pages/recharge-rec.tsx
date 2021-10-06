@@ -4,7 +4,7 @@ import Loading from '@/components/Loading'
 import useAuth from '@/hooks/useAuth'
 import { paymentGatewayMap } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
-import { toDateTime } from '@/utils'
+import { toCurrency, toDateTime } from '@/utils'
 import React from 'react'
 
 function RechargeRec() {
@@ -29,18 +29,25 @@ function RechargeRec() {
               className="h-10"
             />
           </div>
-          <div className="px-4">
+          <div>
             {isLoading ? (
               <Loading />
             ) : (
               list?.map((t, i) => (
-                <div key={t.ID} className="flex">
+                <div
+                  key={t.ID}
+                  className="flex items-center text-gray-300 border-b border-gold-500/30 py-4 bg-black/50 p-4 last-of-type:border-b-0"
+                >
                   {/* <td>{productCategoryMap[t.productCategory]}</td> */}
                   <div className="flex-1">
-                    <div>{paymentGatewayMap[t.paymentGateway]}</div>
+                    <div className="text-yellow-300">
+                      {paymentGatewayMap[t.paymentGateway]}
+                    </div>
                     <div>{toDateTime(t.createdAtMs)}</div>
                   </div>
-                  <div className="text-2xl">${t.priceAmountMicros}</div>
+                  <div className="text-2xl text-white">
+                    ${toCurrency(t.priceAmountMicros, 0)}
+                  </div>
                 </div>
               ))
             )}
