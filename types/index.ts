@@ -11,7 +11,7 @@ export type ListReqBase = { page: number; perpage: number }
 export interface Menu {
   label: string
   icon?: IconType
-  path: string | null
+  path?: string
   subs?: Menu[]
   code?: string
 

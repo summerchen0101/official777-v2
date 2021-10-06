@@ -1,11 +1,20 @@
 import { menu } from '@/lib/menu'
+import { useStore } from '@/store/useStore'
+import { useUserStore } from '@/store/useUserStore'
+import { Menu } from '@/types'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import MobileHeader from './MobileHeader'
 
 function HeaderNav() {
   const router = useRouter()
+  const token = useUserStore((s) => s.tokenInfo?.accessToken)
+  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
 
+  const handleAuthLogin = (menu: Menu) => {
+    router.replace({ query: { to: menu.path } })
+    toggleLoginPopup()
+  }
   return (
     <>
       <header className="hidden lg:block group fixed top-0 w-full z-30">
@@ -41,7 +50,15 @@ function HeaderNav() {
                       className="text-gray-100 hover:text-yellow-200 text-center"
                       onClick={t.onClick}
                     >
-                      {t.path ? <Link href={t.path}>{t.label}</Link> : t.label}
+                      {t.path && t.needAuth && !token ? (
+                        <a onClick={() => handleAuthLogin(t)}>{t.label}</a>
+                      ) : t.path && t.needAuth && token ? (
+                        <Link href={t.path}>{t.label}</Link>
+                      ) : t.path && !t.needAuth ? (
+                        <Link href={t.path}>{t.label}</Link>
+                      ) : (
+                        t.label
+                      )}
                     </div>
                   ))}
                 </div>

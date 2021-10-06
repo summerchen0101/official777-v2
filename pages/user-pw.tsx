@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import useAuth from '@/hooks/useAuth'
 import usePwUpdate from '@/services/usePwUpdate'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -10,6 +11,7 @@ type Inputs = {
   new_pw_confirm: string
 }
 function UserPw() {
+  useAuth()
   const { handler: doUpdate, isLoading } = usePwUpdate()
   const {
     register,

@@ -15,13 +15,16 @@ function useErrorHandler() {
         let msg = '錯誤發生'
         const statusErrMsg = httpStatus[error.response.status] as string
 
+        if (error.response.status === 401) {
+          console.log('401')
+          router.push('/home')
+          clearUser()
+          return
+        }
+
         if (statusErrMsg) {
           msg = httpStatus[error.response.status] as string
           console.log(msg)
-        }
-        if (error.response.status === 401) {
-          router.push('/')
-          clearUser()
         }
         if (error.response.data.message) {
           msg = error.response.data.message

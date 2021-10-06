@@ -4,6 +4,7 @@ import { useStore } from '@/store/useStore'
 import useLogin from '@/services/useLogin'
 import { useForm } from 'react-hook-form'
 import { useUserStore } from '@/store/useUserStore'
+import { useRouter } from 'next/dist/client/router'
 
 type Inputs = {
   acc: string
@@ -17,7 +18,7 @@ export default function LoginPopup() {
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>()
-
+  const router = useRouter()
   const isShowLoginPopup = useStore((s) => s.isShowLoginPopup)
   const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
 
@@ -36,6 +37,9 @@ export default function LoginPopup() {
         expiresIn: res.expiresIn,
       })
       setUser({ name: '我是夏天', level: 3, points: 12800 })
+      if (router.query.to) {
+        router.push(router.query.to as string)
+      }
       toggleLoginPopup()
       alert('登入成功')
     }
@@ -113,9 +117,9 @@ export default function LoginPopup() {
               </div>
             </div>
             <div className="pt-5">
-              <div className="btn active" onClick={onSubmit}>
+              <button className="btn active w-full" onClick={onSubmit}>
                 登入
-              </div>
+              </button>
             </div>
           </div>
         </div>

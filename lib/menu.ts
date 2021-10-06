@@ -3,6 +3,7 @@ export interface Menu {
   onClick?: () => void
   subs?: Menu[]
   path?: string
+  needAuth?: boolean
 }
 
 export const menu: Menu[] = [
@@ -23,10 +24,10 @@ export const menu: Menu[] = [
   {
     label: '會員專區',
     subs: [
-      { label: '會員資料', path: '/user-basic' },
-      { label: '修改密碼', path: '/user-pw' },
-      { label: '儲值購點', path: '/recharge' },
-      { label: '儲值紀錄', path: '/recharge-rec' },
+      { label: '會員資料', path: '/user-basic', needAuth: true },
+      { label: '修改密碼', path: '/user-pw', needAuth: true },
+      { label: '儲值購點', path: '/recharge', needAuth: true },
+      { label: '儲值紀錄', path: '/recharge-rec', needAuth: true },
     ],
   },
   {

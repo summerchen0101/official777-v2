@@ -1,8 +1,10 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import Loading from '@/components/Loading'
-import { paymentGatewayMap, productCategoryMap } from '@/lib/map'
+import useAuth from '@/hooks/useAuth'
+import { paymentGatewayMap } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
+import { toDateTime } from '@/utils'
 import React from 'react'
 
 function RechargeRec() {
@@ -14,6 +16,7 @@ function RechargeRec() {
     page: 1,
     perPage: 10,
   })
+  useAuth()
   return (
     <Layout>
       <PageBanner />
@@ -30,25 +33,16 @@ function RechargeRec() {
             {isLoading ? (
               <Loading />
             ) : (
-              <table className="w-full text-gray-500 shadow">
-                <thead>
-                  <tr>
-                    <th className="w-1/3">平台</th>
-                    <th className="w-1/3">金額</th>
-                    <th className="w-1/3">日期</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {list?.map((t, i) => (
-                    <tr key={t.ID}>
-                      {/* <td>{productCategoryMap[t.productCategory]}</td> */}
-                      <td>{paymentGatewayMap[t.paymentGateway]}</td>
-                      <td>${t.priceAmountMicros}</td>
-                      <td>2021-09-01 11:22:00</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              list?.map((t, i) => (
+                <div key={t.ID} className="flex">
+                  {/* <td>{productCategoryMap[t.productCategory]}</td> */}
+                  <div className="flex-1">
+                    <div>{paymentGatewayMap[t.paymentGateway]}</div>
+                    <div>{toDateTime(t.createdAtMs)}</div>
+                  </div>
+                  <div className="text-2xl">${t.priceAmountMicros}</div>
+                </div>
+              ))
             )}
           </div>
         </div>

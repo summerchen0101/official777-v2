@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import useAuth from '@/hooks/useAuth'
 import useMe from '@/services/useMe'
 import useSms from '@/services/useSms'
 import { useEffect } from 'react'
@@ -12,6 +13,7 @@ type Inputs = {
 }
 
 function UserBasic() {
+  useAuth()
   const { data } = useMe()
   const { handler: sendSms, isLoading } = useSms()
   const {
