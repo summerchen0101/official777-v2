@@ -1,10 +1,10 @@
-import React from 'react'
-import cs from 'classnames'
-import { useStore } from '@/store/useStore'
 import useLogin from '@/services/useLogin'
-import { useForm } from 'react-hook-form'
+import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
+import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
+import React from 'react'
+import { useForm } from 'react-hook-form'
 
 type Inputs = {
   acc: string
@@ -23,7 +23,6 @@ export default function LoginPopup() {
   const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
-  const setUser = useUserStore((s) => s.setUser)
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
       email: d.acc,
@@ -36,7 +35,6 @@ export default function LoginPopup() {
         refreshToken: res.refreshToken,
         expiresIn: res.expiresIn,
       })
-      setUser({ name: '我是夏天', level: 3, points: 12800 })
       if (router.query.to) {
         router.push(router.query.to as string)
       }
@@ -84,7 +82,7 @@ export default function LoginPopup() {
               <input
                 type="email"
                 className="rounded py-1.5"
-                defaultValue="summer@test.com"
+                defaultValue="ben001@test.test"
                 {...register('acc', {
                   required: { value: true, message: '不可為空' },
                 })}
@@ -98,7 +96,7 @@ export default function LoginPopup() {
               <input
                 type="password"
                 className="rounded py-1.5"
-                defaultValue="123456"
+                defaultValue="12345678"
                 {...register('pw', {
                   required: { value: true, message: '不可為空' },
                 })}
