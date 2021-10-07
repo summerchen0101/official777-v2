@@ -49,23 +49,21 @@ const MobileHome: NextPage = () => {
       </section>
       <div hidden={!user} className="px-4 space-y-2 mb-8">
         <div className="grid grid-cols-2 gap-2 mb-4">
-          <div className="space-y-2">
-            <div className="flex justify-between bg-gradient-to-r from-gold-200 to-gold-300 rounded border-2 border-gold-100 items-center px-2 py-1">
-              <FaUser className="text-xl text-gold-900" />
-              <div className="text-lg text-gold-900 font-medium">
-                {user?.nickname}
-              </div>
+          <div className="space-y-2 flex flex-col h-24">
+            <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
+              <FaUser className="text-xl text-purple-500" />
+              <div className="text-gray-100 font-medium">{user?.nickname}</div>
             </div>
-            <div className="flex justify-between bg-gradient-to-r from-gold-200 to-gold-300 rounded border-2 border-gold-100 items-center px-2 py-1">
-              <HiCurrencyDollar className="text-3xl text-gold-900 -ml-1" />
-              <div className="text-lg text-gold-900 font-medium">
+            <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
+              <HiCurrencyDollar className="text-2xl text-gold-500 -ml-1" />
+              <div className="text-gray-100 font-medium">
                 {toCurrency(user?.coin || 0, 0)}
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center bg-gradient-to-r from-gray-200 to-gray-400 rounded border-2 border-gray-100">
+          <div className="flex items-center justify-center bg-gradient-to-r from-gold-200 to-gold-400 rounded border-2 border-gold-100">
             <div className="flex items-center space-x-4">
-              <div className="text-2xl text-gray-900 font-mono flex-1 text-center">
+              <div className="text-2xl text-gold-900 font-mono flex-1 text-center">
                 Lv<span className="text-3xl">{user?.vipLevel}</span>
               </div>
               <img src="/img_vip3.png" className="w-14" alt="" />
