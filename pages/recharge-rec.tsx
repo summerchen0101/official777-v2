@@ -29,14 +29,14 @@ function RechargeRec() {
               className="h-10"
             />
           </div>
-          <div>
+          <div className="bg-black/50 frame">
             {isLoading ? (
               <Loading />
             ) : (
               list?.map((t, i) => (
                 <div
                   key={t.ID}
-                  className="flex items-center text-gray-300 border-b border-gold-500/30 py-4 bg-black/50 p-4 last-of-type:border-b-0"
+                  className="flex items-center text-gray-300 border-b border-gold-500/30 p-4 last-of-type:border-b-0"
                 >
                   {/* <td>{productCategoryMap[t.productCategory]}</td> */}
                   <div className="flex-1">
