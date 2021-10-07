@@ -134,5 +134,5 @@ section {
 }
 
 .frame {
-  @apply border-2 border-gold-600/50 rounded-lg;
+  @apply border-2 border-gold-500/30 rounded-lg;
 }

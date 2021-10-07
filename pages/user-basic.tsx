@@ -128,19 +128,7 @@ function UserBasic() {
                 />
                 <div className="w-24"></div>
               </div>
-              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                <label
-                  htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
-                >
-                  二次密碼
-                </label>
-                <input
-                  type="password"
-                  className="rounded-sm border-none bg-gray-100 flex-1 h-9"
-                />
-                <div className="w-24"></div>
-              </div>
+
               <div className="pt-3 text-center space-x-5 flex justify-center">
                 <button className="btn w-40">取消修改</button>
                 <button className="btn active w-40" onClick={onSubmit}>
