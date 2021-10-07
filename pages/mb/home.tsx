@@ -30,6 +30,7 @@ const MobileHome: NextPage = () => {
   })
   const showNews = useStore((s) => s.showNews)
   const showGamePopup = useStore((s) => s.showGamePopup)
+  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
 
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
@@ -46,7 +47,12 @@ const MobileHome: NextPage = () => {
       <section className="mb-8">
         <HomeSlider slides={homeSlides} />
       </section>
-      <div className="px-4 space-y-2 mb-10">
+      <div className="px-4 mb-6">
+        <button className="gold-btn w-full" onClick={toggleLoginPopup}>
+          登入
+        </button>
+      </div>
+      <div hidden={!user} className="px-4 space-y-2 mb-10">
         <div className="grid grid-cols-2 gap-2 mb-4">
           <div className="space-y-2">
             <div className="flex justify-between bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 items-center px-2 py-1">
@@ -124,6 +130,23 @@ const MobileHome: NextPage = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="mb-16">
+        <img
+          src="/title_media.png"
+          alt="多媒體"
+          className="h-10 mb-6 mx-auto"
+        />
+        <div className="px-12 max-w-[1400px] mx-auto">
+          <SectionSlider
+            slides={sectionSlides}
+            slidesToShow={1}
+            onClick={(slide) =>
+              showGamePopup({ title: slide.name, content: '' })
+            }
+          />
         </div>
       </section>
 

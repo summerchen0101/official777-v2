@@ -1,6 +1,7 @@
 import { menu } from '@/lib/menu'
 import useMe from '@/services/useMe'
 import { useStore } from '@/store/useStore'
+import { useUserStore } from '@/store/useUserStore'
 import { toCurrency } from '@/utils'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
@@ -12,6 +13,13 @@ function MobileMenu({ className }: { className?: string }) {
   const router = useRouter()
   const closeMbMenu = useStore((s) => s.closeMbMenu)
   const { data: user, isLoading } = useMe()
+  const clearUser = useUserStore((s) => s.clearUser)
+  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
+  const handleLogout = () => {
+    clearUser()
+    alert('登出成功')
+    router.push('/mb/home')
+  }
   return (
     <div
       className={cs(
@@ -19,23 +27,34 @@ function MobileMenu({ className }: { className?: string }) {
         className,
       )}
     >
-      <div className="grid grid-cols-2 gap-2 mb-4 mx-4">
-        <div className="space-y-2">
-          <div className="flex justify-between border border-gray-500 rounded items-center px-2 py-2">
-            <FaUser className="text-xl text-purple-500" />
-            <div className="text-gray-300 font-medium">{user?.nickname}</div>
+      <div className="px-4 mb-6">
+        <button className="gold-btn w-full" onClick={toggleLoginPopup}>
+          登入
+        </button>
+      </div>
+      {user && (
+        <div className="grid grid-cols-2 gap-2 mb-4 mx-4">
+          <div className="space-y-2 flex flex-col">
+            <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
+              <FaUser className="text-xl text-purple-500" />
+              <div className="text-gray-300 font-medium">{user?.nickname}</div>
+            </div>
+            <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
+              <HiCurrencyDollar className="text-2xl text-gold-500 -ml-1" />
+              <div className="text-gray-300 font-medium">
+                {toCurrency(user?.coin || 0, 0)}
+              </div>
+            </div>
           </div>
-          <div className="flex justify-between border border-gray-500 rounded items-center px-2 py-2">
-            <HiCurrencyDollar className="text-2xl text-gold-500 -ml-1" />
-            <div className="text-gray-300 font-medium">
-              {toCurrency(user?.coin || 0, 0)}
+          <div className="flex flex-col space-y-2">
+            <div className="btn active">我要儲值</div>
+            <div className="btn" onClick={handleLogout}>
+              登 出
             </div>
           </div>
         </div>
-        <div className="items-center flex justify-center ">
-          <div className="gold-btn w-2/3">我要儲值</div>
-        </div>
-      </div>
+      )}
+
       <div className="">
         {menu.map((m, i) => (
           <div key={i}>

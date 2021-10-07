@@ -63,7 +63,7 @@ html {
 }
 
 .btn {
-  @apply text-white bg-gray-600 rounded px-3 h-11 cursor-pointer hover:bg-gray-500 text-center border border-white/30 min-w-[120px];
+  @apply text-white bg-gray-600 rounded px-3 h-11 cursor-pointer hover:bg-gray-500  border border-white/30 min-w-[120px] flex justify-center items-center;
 }
 
 .btn.btn-sm {

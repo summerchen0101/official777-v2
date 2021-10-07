@@ -13,6 +13,7 @@ function RechargeFloat() {
   const handleLogout = () => {
     clearUser()
     alert('登出成功')
+    router.push('/home')
   }
   return (
     <div className="gold-box rounded-xl w-48 ml-2 hidden lg:flex flex-col px-4 pt-0 pb-10 fixed top-0 left-0 mt-[150px] space-y-3 shadow-md z-30">

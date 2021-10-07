@@ -114,9 +114,15 @@ export default function LoginPopup() {
                 忘記密碼
               </div>
             </div>
-            <div className="pt-5">
+            <div className="pt-5 space-y-2 lg:space-y-0">
               <button className="btn active w-full" onClick={onSubmit}>
                 登入
+              </button>
+              <button
+                className="btn w-full lg:hidden"
+                onClick={toggleLoginPopup}
+              >
+                取消
               </button>
             </div>
           </div>
