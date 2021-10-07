@@ -6,12 +6,11 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 
 type Inputs = {
-  old_pw: string
+  code: string
   new_pw: string
   new_pw_confirm: string
-  code: string
 }
-function UserPw() {
+function UserPw2() {
   useAuth()
   const { handler: doUpdate, isLoading } = usePwUpdate()
   const {
@@ -23,13 +22,13 @@ function UserPw() {
   } = useForm<Inputs>()
   const onSubmit = handleSubmit(async (d) => {
     try {
-      const res = await doUpdate({
-        old_password: d.old_pw,
-        new_password: d.new_pw,
-      })
-      if (res?.ok) {
-        alert('二次密碼更新成功')
-      }
+      // const res = await doUpdate({
+      //   code: d.code,
+      //   new_password: d.new_pw,
+      // })
+      // if (res?.ok) {
+      //   alert('密碼更新成功')
+      // }
       reset()
     } catch (err) {
       console.log(err)
@@ -50,27 +49,7 @@ function UserPw() {
                   htmlFor=""
                   className="mb-2 w-36 lg:text-right text-gray-200"
                 >
-                  舊密碼
-                </label>
-                <input
-                  type="password"
-                  className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
-                  {...register('old_pw', {
-                    required: { value: true, message: '不可為空' },
-                  })}
-                />
-                {errors.old_pw && (
-                  <div className="text-sm text-red-500">
-                    {errors.old_pw.message}
-                  </div>
-                )}
-              </div>
-              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                <label
-                  htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
-                >
-                  新密碼
+                  新二次密碼
                 </label>
                 <input
                   type="password"
@@ -83,7 +62,7 @@ function UserPw() {
                     },
                   })}
                 />
-                <p className="text-gold-400 text-sm mt-2 lg:mt-0">
+                <p className="lg:w-36 text-gold-400 text-sm mt-2 lg:mt-0">
                   ＊中英文6~12位
                 </p>
                 {errors.new_pw && (
@@ -98,7 +77,7 @@ function UserPw() {
                   htmlFor=""
                   className="mb-2 w-36 lg:text-right text-gray-200"
                 >
-                  新密碼確認
+                  新二次密碼確認
                 </label>
                 <input
                   type="password"
@@ -111,6 +90,7 @@ function UserPw() {
                     },
                   })}
                 />
+                <div className="lg:w-36"></div>
                 {errors.new_pw_confirm && (
                   <div className="text-sm text-red-500">
                     {errors.new_pw_confirm.message}
@@ -145,7 +125,6 @@ function UserPw() {
                   </div>
                 </div>
               </div>
-
               <div className="pt-3 text-center space-x-5 flex justify-center">
                 <button className="btn w-40" onClick={() => reset()}>
                   取消修改
@@ -162,4 +141,4 @@ function UserPw() {
   )
 }
 
-export default UserPw
+export default UserPw2
