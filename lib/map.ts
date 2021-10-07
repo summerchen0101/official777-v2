@@ -3,6 +3,7 @@ import {
   PaymentStatus,
   ProductCategory,
   RankType,
+  RewardsType,
 } from './enums'
 import { StringMap } from '@/types'
 
@@ -13,6 +14,11 @@ export const newsTypeMap: StringMap = {
   3: '客服',
 }
 
+export const rewardsTypeMap: StringMap = {
+  [RewardsType.Physical]: '實體商店',
+  [RewardsType.Internet]: '電子票卷',
+  [RewardsType.Virtual]: '虛擬獎項',
+}
 export const rankTypeMap: StringMap = {
   [RankType.Gold]: '金幣榜',
   [RankType.Slot]: 'SLOT榜',

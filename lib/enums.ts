@@ -30,3 +30,9 @@ export enum YesNo {
   Yes = 1,
   No = 2,
 }
+
+export enum RewardsType {
+  Physical = 1,
+  Internet = 2,
+  Virtual = 3,
+}

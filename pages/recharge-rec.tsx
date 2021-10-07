@@ -45,7 +45,7 @@ function RechargeRec() {
                     </div>
                     <div>{toDateTime(t.createdAtMs)}</div>
                   </div>
-                  <div className="text-2xl text-white">
+                  <div className="text-xl text-green-500">
                     ${toCurrency(t.priceAmountMicros, 0)}
                   </div>
                 </div>
