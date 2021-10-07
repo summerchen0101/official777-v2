@@ -44,7 +44,7 @@ const MobileHome: NextPage = () => {
   }
   return (
     <Layout>
-      <section className="mb-8">
+      <section className="mb-8 mt-20">
         <HomeSlider slides={homeSlides} />
       </section>
       <div hidden={!user} className="px-4 space-y-2 mb-8">
@@ -61,12 +61,12 @@ const MobileHome: NextPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center bg-gradient-to-r from-gold-200 to-gold-400 rounded border-2 border-gold-100">
+          <div className="flex items-center justify-center bg-black/30 rounded border border-gray-700">
             <div className="flex items-center space-x-4">
-              <div className="text-2xl text-gold-900 font-mono flex-1 text-center">
+              <img src="/img_vip3.png" alt="" />
+              <div className="text-2xl text-gray-100 font-mono flex-1 text-center">
                 Lv<span className="text-3xl">{user?.vipLevel}</span>
               </div>
-              <img src="/img_vip3.png" className="w-14" alt="" />
             </div>
           </div>
         </div>

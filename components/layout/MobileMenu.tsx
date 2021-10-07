@@ -23,16 +23,11 @@ function MobileMenu({ className }: { className?: string }) {
   return (
     <div
       className={cs(
-        'block lg:hidden bg-black/90 h-screen w-screen fixed right-0 z-20 pt-28 overflow-y-auto',
+        'block lg:hidden bg-black/90 h-screen w-screen fixed right-0 z-20 pt-12 overflow-y-auto',
         className,
       )}
     >
-      <div className="px-4 mb-6">
-        <button className="gold-btn w-full" onClick={toggleLoginPopup}>
-          登入
-        </button>
-      </div>
-      {user && (
+      {user ? (
         <div className="grid grid-cols-2 gap-2 mb-4 mx-4">
           <div className="space-y-2 flex flex-col">
             <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
@@ -52,6 +47,12 @@ function MobileMenu({ className }: { className?: string }) {
               登 出
             </div>
           </div>
+        </div>
+      ) : (
+        <div className="px-4 mb-6">
+          <button className="gold-btn w-full" onClick={toggleLoginPopup}>
+            登入
+          </button>
         </div>
       )}
 

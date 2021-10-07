@@ -11,11 +11,12 @@ function MobileHeader() {
 
   return (
     <>
-      <header className="block lg:hidden group fixed top-0 w-full h-32 z-30 bg-gradient-to-b from-purple-dark via-purple-dark to-purple-dark/0">
+      <header className="block lg:hidden group fixed top-0 w-full h-20 z-30 bg-purple-dark">
+        <div className="bg-gradient-to-b from-purple-dark to-purple-dark/0 w-screen h-6 absolute bottom-0 -mb-6"></div>
         <img
           src="/logo.png"
           alt=""
-          className="cursor-pointer h-20 absolute m-2"
+          className="cursor-pointer h-16 absolute m-2"
           onClick={() => router.push('/')}
         />
         <div
