@@ -36,3 +36,18 @@ export enum RewardsType {
   Internet = 2,
   Virtual = 3,
 }
+
+export enum RewardReceiveType {
+  Normal = 1,
+  GameCoin = 2,
+}
+
+export enum RewardStatus {
+  Waiting = 1,
+  Processing = 2,
+  Received = 3,
+}
+export enum RemitStatus {
+  Pending = 1,
+  Paid = 2,
+}

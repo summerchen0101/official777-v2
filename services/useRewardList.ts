@@ -57,12 +57,12 @@ function useRewardList({
       page,
       perPage,
     ],
-    (url, token, category, page, perPage) =>
+    (url, token, userID, rewardStatus, remitStatus, page, perPage) =>
       request<RewardListRes>({
         url,
         method: 'get',
         config: {
-          params: { category, page, perPage },
+          params: { token, userID, rewardStatus, remitStatus, page, perPage },
           headers: {
             Authorization: `Bearer ${token}`,
           },

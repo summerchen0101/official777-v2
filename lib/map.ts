@@ -3,6 +3,8 @@ import {
   PaymentStatus,
   ProductCategory,
   RankType,
+  RemitStatus,
+  RewardStatus,
   RewardsType,
 } from './enums'
 import { StringMap } from '@/types'
@@ -38,4 +40,14 @@ export const paymentStatusMap: StringMap = {
 export const productCategoryMap: StringMap = {
   [ProductCategory.Gold]: '金幣',
   [ProductCategory.Object]: '虛擬寶物',
+}
+
+export const rewardStatusMap: StringMap = {
+  [RewardStatus.Waiting]: '待領取',
+  [RewardStatus.Processing]: '已受理',
+  [RewardStatus.Received]: '已領取',
+}
+export const remitStatusMap: StringMap = {
+  [RemitStatus.Pending]: '未匯款',
+  [RemitStatus.Paid]: '已匯款',
 }
