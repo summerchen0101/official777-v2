@@ -92,11 +92,13 @@ const MobileHome: NextPage = () => {
           <img src="/app_store.png" alt="" className="" />
           <img src="/apk.png" alt="" className="" />
         </div>
-        <img
-          src="/banner/banner_01.png"
-          className="object-cover w-full h-full"
-          alt=""
-        />
+        <div className="flex justify-center items-center">
+          <img
+            src="/banner/banner_01.png"
+            className="object-cover h-36 w-36 rounded-lg"
+            alt=""
+          />
+        </div>
       </div>
 
       <section className="mb-10 mx-3">
