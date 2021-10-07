@@ -15,7 +15,7 @@ import { toCurrency, toDateTime } from '@/utils'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
-import { FaUber } from 'react-icons/fa'
+import { FaUber, FaUser } from 'react-icons/fa'
 import { HiCurrencyDollar } from 'react-icons/hi'
 
 const MobileHome: NextPage = () => {
@@ -47,34 +47,40 @@ const MobileHome: NextPage = () => {
       <section className="mb-8">
         <HomeSlider slides={homeSlides} />
       </section>
-      <div className="px-4 mb-6">
-        <button className="gold-btn w-full" onClick={toggleLoginPopup}>
-          登入
-        </button>
-      </div>
-      <div hidden={!user} className="px-4 space-y-2 mb-10">
+      <div hidden={!user} className="px-4 space-y-2 mb-8">
         <div className="grid grid-cols-2 gap-2 mb-4">
           <div className="space-y-2">
-            <div className="flex justify-between bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 items-center px-2 py-1">
-              <FaUber className="text-xl text-gold-500" />
+            <div className="flex justify-between bg-gradient-to-r from-gold-200 to-gold-300 rounded border-2 border-gold-100 items-center px-2 py-1">
+              <FaUser className="text-xl text-gold-900" />
               <div className="text-lg text-gold-900 font-medium">
                 {user?.nickname}
               </div>
             </div>
-            <div className="flex justify-between bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 items-center px-2 py-1">
-              <HiCurrencyDollar className="text-3xl text-gold-500 -ml-1" />
+            <div className="flex justify-between bg-gradient-to-r from-gold-200 to-gold-300 rounded border-2 border-gold-100 items-center px-2 py-1">
+              <HiCurrencyDollar className="text-3xl text-gold-900 -ml-1" />
               <div className="text-lg text-gold-900 font-medium">
                 {toCurrency(user?.coin || 0, 0)}
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center bg-black/50 rounded">
-            <div className="text-xl text-white font-mono">
-              VIP: Lv{user?.vipLevel}
+          <div className="flex items-center justify-center bg-gradient-to-r from-gray-200 to-gray-400 rounded border-2 border-gray-100">
+            <div className="flex items-center space-x-4">
+              <div className="text-2xl text-gray-900 font-mono flex-1 text-center">
+                Lv<span className="text-3xl">{user?.vipLevel}</span>
+              </div>
+              <img src="/img_vip3.png" className="w-14" alt="" />
             </div>
           </div>
         </div>
-        {/* <button className="gold-btn w-full">登入</button> */}
+      </div>
+      <div className="px-4 mb-6 space-y-2">
+        <button
+          hidden={!!user}
+          className="gold-btn w-full"
+          onClick={toggleLoginPopup}
+        >
+          登入
+        </button>
         <button
           className="silver-btn w-full"
           onClick={() => router.push('/recharge')}

@@ -20,14 +20,14 @@ function HeaderNav() {
       <header className="hidden lg:block group fixed top-0 w-full z-30">
         <div className="bg-gradient-to-b from-purple-darkeset to-purple-dark relative z-20 h-20 flex items-center justify-center">
           <div className="bg-gradient-to-b from-purple-dark to-purple-dark/0 w-screen h-12 absolute bottom-0 -mb-12"></div>
-          <div className="flex items-center justify-center relative pl-32">
+          <div className="flex justify-center relative pl-32">
             <img
               src="/logo.png"
               alt=""
-              className="cursor-pointer absolute lg:h-40 xl:h-48 z-50 left-0 top-0 lg:-ml-20 xl:-ml-28 -mt-5"
+              className="cursor-pointer absolute lg:h-40 z-50 left-0 top-0 lg:-ml-20 xl:-ml-28 -mt-6 p-3"
               onClick={() => router.push('/')}
             />
-            <div className="flex space-x-2 mt-5">
+            <div className="flex space-x-2 relative -bottom-5">
               {menu.map((m, i) => (
                 <div
                   key={i}
