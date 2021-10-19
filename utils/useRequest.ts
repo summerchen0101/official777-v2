@@ -36,6 +36,10 @@ const useRequest = () => {
           transformResponse: [(data) => (data ? JSONbig.parse(data) : data)],
           transformRequest: [
             (data: any, headers: any) => {
+              if (data?.append && data?.values) {
+                // is FormData
+                return data
+              }
               headers['Content-Type'] = 'application/json'
               return JSONbig.stringify(data)
             },

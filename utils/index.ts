@@ -28,3 +28,26 @@ export const toCurrency = (num: number, decimal: number = 2) =>
   numeral(num).format(
     decimal ? `0,0.${Array(decimal).fill('0').join('')}` : '0,0',
   )
+export const fileToDataUrl = async (file: File): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    if (!file) {
+      return
+    }
+    const reader = new FileReader()
+    reader.onload = () => {
+      resolve(reader.result as string)
+    }
+    reader.onerror = () => {
+      reject(reader.error)
+    }
+    reader.readAsDataURL(file)
+  })
+}
+
+export const reviewBase64Img = (base64Str: string) => {
+  const img = new Image()
+  img.src = base64Str
+  const newWin = window.open('', '_blank')
+  newWin?.document.write(img.outerHTML)
+  newWin?.document.close()
+}
