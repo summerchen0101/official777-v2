@@ -11,7 +11,7 @@ module.exports = {
         // 'top-4': 'center top 1rem',
       },
       backgroundImage: {
-        'main-pattern': "url('/bg/purple_bg.png')",
+        'main-pattern': "url('/bg/main_bg.png')",
         'login-btn': "url('/login_btn.png')",
         'login-btn-active': "url('/login_btn_active.png')",
         'logout-btn': "url('/logout_btn.png')",

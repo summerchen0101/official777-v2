@@ -110,7 +110,7 @@ export default function LoginPopup() {
               <input
                 type="email"
                 className="rounded py-1.5"
-                defaultValue="ben001@test.test"
+                // defaultValue="ben001@test.test"
                 {...register('acc', {
                   required: { value: true, message: '不可為空' },
                 })}
@@ -124,7 +124,7 @@ export default function LoginPopup() {
               <input
                 type="password"
                 className="rounded py-1.5"
-                defaultValue="12345678"
+                // defaultValue="12345678"
                 {...register('pw', {
                   required: { value: true, message: '不可為空' },
                 })}
