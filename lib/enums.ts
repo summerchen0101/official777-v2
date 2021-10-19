@@ -22,6 +22,12 @@ export enum PaymentStatus {
   Fail = 3,
 }
 
+export enum OAuthChannel {
+  Google = 'google',
+  Facebook = 'fb',
+  Line = 'line',
+}
+
 export enum ProductCategory {
   Gold = 1,
   Object = 2,

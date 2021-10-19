@@ -1,10 +1,12 @@
+import useOAuthLogin from '@/services/useOAuthLogin'
 import useLogin from '@/services/useLogin'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { OAuthChannel } from '@/lib/enums'
 
 type Inputs = {
   acc: string
@@ -21,8 +23,22 @@ export default function LoginPopup() {
   const router = useRouter()
   const isShowLoginPopup = useStore((s) => s.isShowLoginPopup)
   const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
+  const { handler: doOAuthLogin } = useOAuthLogin()
+  const [redirectUrl, setRedirectUrl] = useState('')
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
+  const handleOAuthLogin = async (channel: OAuthChannel) => {
+    const res = await doOAuthLogin(channel)
+    if (res?.ok) {
+      location.href = res?.data
+    }
+    // setRedirectUrl(res?.data || '')
+  }
+  // useEffect(() => {
+  //   if (redirectUrl) {
+  //     const win = window.open(redirectUrl, 'oAuthIframe')
+  //   }
+  // }, [redirectUrl])
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
       email: d.acc,
@@ -59,19 +75,31 @@ export default function LoginPopup() {
         </div>
         <div className="p-4 grid grid-cols-1 gap-4 items-center">
           <div className="space-y-2 p-6">
-            <div className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200">
+            <div
+              className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
+              onClick={() => handleOAuthLogin(OAuthChannel.Google)}
+            >
               <img src="/icon_loginGoogle.png" alt="" />
               <div className="flex-1 text-center">Google登入</div>
             </div>
-            <div className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200">
+            <div
+              className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
+              // onClick={() => handleOAuthLogin(OAuthChannel.Google)}
+            >
               <img src="/icon_loginApple.png" alt="" />
               <div className="flex-1 text-center">Apple ID登入</div>
             </div>
-            <div className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200">
+            <div
+              className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
+              onClick={() => handleOAuthLogin(OAuthChannel.Facebook)}
+            >
               <img src="/icon_loginFacebook.png" alt="" />
               <div className="flex-1 text-center">facebook登入</div>
             </div>
-            <div className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200">
+            <div
+              className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
+              onClick={() => handleOAuthLogin(OAuthChannel.Line)}
+            >
               <img src="/icon_loginLine.png" alt="" />
               <div className="flex-1 text-center">Line登入</div>
             </div>
