@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>FFGT官網</title>
+        <title>Mega Game Global Tech</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
