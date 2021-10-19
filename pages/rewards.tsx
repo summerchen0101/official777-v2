@@ -97,7 +97,7 @@ function RewardsPage() {
                           </button>
                         </td>
                       ) : (
-                        <td className="space-x-2">
+                        <td className="flex space-x-2">
                           <button className="btn btn-sm">下載領獎單</button>
                           <button
                             className="btn btn-sm active"
