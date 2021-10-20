@@ -32,7 +32,16 @@ function FooterNav() {
             <p>
               ＊本遊戲情節涉及棋牌益智及娛樂，非現金交易賭博，使用者請勿進行非法遊戲幣交易。
             </p>
-            <p>例行維護時間 星期三 09：00 ~ 12：00</p>
+            <p className="text-yellow-200">
+              例行維護時間 星期三 09：00 ~ 12：00
+            </p>
+            <div className="">
+              <img
+                src="/company_logo.png"
+                className="bg-white h-14 p-2 rounded-sm mx-auto mt-3"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
