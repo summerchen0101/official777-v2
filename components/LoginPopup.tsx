@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { OAuthChannel } from '@/lib/enums'
 import { toCdnImgPath } from '@/utils'
+import useStorage from '@/utils/useStorage'
 
 type Inputs = {
   acc: string
@@ -20,12 +21,22 @@ export default function LoginPopup() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
+    setValue,
   } = useForm<Inputs>()
   const router = useRouter()
+  const [isRemember, setIsRemember] = useStorage('isRemember', false)
+  const [cacheAcc, setCacheAcc] = useStorage('cacheAcc', '')
+
   const isShowLoginPopup = useStore((s) => s.isShowLoginPopup)
   const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
   const { handler: doOAuthLogin } = useOAuthLogin()
-  const [redirectUrl, setRedirectUrl] = useState('')
+
+  useEffect(() => {
+    if (isShowLoginPopup) {
+      setValue('acc', cacheAcc)
+    }
+  }, [cacheAcc, setValue, isShowLoginPopup])
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
   const handleOAuthLogin = async (channel: OAuthChannel) => {
@@ -33,13 +44,7 @@ export default function LoginPopup() {
     if (res?.ok) {
       location.href = res?.data
     }
-    // setRedirectUrl(res?.data || '')
   }
-  // useEffect(() => {
-  //   if (redirectUrl) {
-  //     const win = window.open(redirectUrl, 'oAuthIframe')
-  //   }
-  // }, [redirectUrl])
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
       email: d.acc,
@@ -47,16 +52,18 @@ export default function LoginPopup() {
       type: 1,
     })
     if (res && !res.code) {
+      setCacheAcc(isRemember ? d.acc : '')
       setTokenInfo({
         accessToken: res.accessToken,
         refreshToken: res.refreshToken,
         expiresIn: res.expiresIn,
       })
+      reset({ acc: '', pw: '' })
+      toggleLoginPopup()
+      alert('登入成功')
       if (router.query.to) {
         router.push(router.query.to as string)
       }
-      toggleLoginPopup()
-      alert('登入成功')
     }
   })
   return (
@@ -111,7 +118,6 @@ export default function LoginPopup() {
               <input
                 type="email"
                 className="rounded py-1.5"
-                // defaultValue="ben001@test.test"
                 {...register('acc', {
                   required: { value: true, message: '不可為空' },
                 })}
@@ -125,7 +131,6 @@ export default function LoginPopup() {
               <input
                 type="password"
                 className="rounded py-1.5"
-                // defaultValue="12345678"
                 {...register('pw', {
                   required: { value: true, message: '不可為空' },
                 })}
@@ -136,7 +141,12 @@ export default function LoginPopup() {
             </div>
             <div className="flex justify-between">
               <label htmlFor="" className="flex items-center space-x-2">
-                <input type="checkbox" className="rounded" />
+                <input
+                  type="checkbox"
+                  className="rounded"
+                  checked={isRemember}
+                  onChange={(e) => setIsRemember(e.target.checked)}
+                />
                 <span className="text-sm">記住我的帳號</span>
               </label>
               <div className="underline cursor-pointer hover:no-underline">
