@@ -41,7 +41,7 @@ function UserBasic() {
         email: d.email,
       })
       if (res?.ok) {
-        alert('密碼更新成功')
+        alert('會員資料更新成功')
       }
       reset()
     } catch (err) {
