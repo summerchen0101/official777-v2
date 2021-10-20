@@ -29,19 +29,15 @@ function GameBasic() {
               </option>
             ))}
           </select>
-          <div className="bg-gray-300 flex items-center justify-center min-h-[400px]">
-            IMAGE
-            {/* <Image
-              src="https://fakeimg.pl/500x300"
-              alt=""
-              width="500"
-              height="300"
-            /> */}
+          <div className="bg-black flex items-center justify-center min-h-[500px] rounded-lg border border-gray-700">
+            <div className="text-4xl tracking-widest text-gray-500">
+              敬請期待
+            </div>
           </div>
-          <div className="bg-gray-100 p-5 text-gray-500 leading-8">
+          {/* <div className="bg-gray-100 p-5 text-gray-500 leading-8">
             <div className="">標題xxxx: 123123</div>
             <div className="">標題xxxx: 123123</div>
-          </div>
+          </div> */}
         </div>
       </section>
     </Layout>

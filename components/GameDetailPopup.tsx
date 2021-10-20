@@ -49,7 +49,10 @@ export default function GameDetailPopup() {
         <div className="lg:w-[860px] mx-auto px-4">
           <div className="border border-white/80 bg-blackmb-5 aspect-w-16 aspect-h-9">
             <div className="h-full w-full flex justify-center items-center bg-black">
-              <div className="text-2xl">影片 800 x 450</div>
+              <div className="text-4xl tracking-widest text-gray-500">
+                敬請期待
+              </div>
+              {/* <div className="text-2xl">影片 800 x 450</div> */}
             </div>
           </div>
         </div>
@@ -62,7 +65,10 @@ export default function GameDetailPopup() {
             alt="基本說明"
           />
           <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
-            <div className="text-2xl">圖片說明 960 x 600</div>
+            <div className="text-4xl tracking-widest text-gray-500">
+              敬請期待
+            </div>
+            {/* <div className="text-2xl">圖片說明 960 x 600</div> */}
           </div>
         </div>
       </section>
@@ -74,7 +80,10 @@ export default function GameDetailPopup() {
             alt="得分說明"
           />
           <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
-            <div className="text-2xl">圖片說明 960 x 600</div>
+            <div className="text-4xl tracking-widest text-gray-500">
+              敬請期待
+            </div>
+            {/* <div className="text-2xl">圖片說明 960 x 600</div> */}
           </div>
         </div>
       </section>
@@ -86,7 +95,10 @@ export default function GameDetailPopup() {
             alt="賠率表"
           />
           <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
-            <div className="text-2xl">圖片說明 960 x 600</div>
+            <div className="text-4xl tracking-widest text-gray-500">
+              敬請期待
+            </div>
+            {/* <div className="text-2xl">圖片說明 960 x 600</div> */}
           </div>
         </div>
       </section>
