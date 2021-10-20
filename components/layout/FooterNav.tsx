@@ -35,12 +35,10 @@ function FooterNav() {
             <p className="text-yellow-200">
               例行維護時間 星期三 09：00 ~ 12：00
             </p>
-            <div className="">
-              <img
-                src="/company_logo.png"
-                className="bg-white h-14 p-2 rounded-sm mx-auto mt-3"
-                alt=""
-              />
+            <div className="pt-3">
+              <div className="bg-white lg:w-48 h-14 p-2 rounded-sm flex items-center justify-center mx-auto">
+                <img src="/company_logo.png" className="h-full" alt="" />
+              </div>
             </div>
           </div>
         </div>
