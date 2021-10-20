@@ -33,7 +33,11 @@ function GameIntro() {
       name: '帝皇捕魚',
       path: '/game/banner/sm/banner_KingFishing_290x290.png',
     },
-    { name: '大頭家麻將', path: '/game/banner/sm/banner_Mahjong_290x290.png' },
+    // { name: '大頭家麻將', path: '/game/banner/sm/banner_Mahjong_290x290.png' },
+    {
+      name: '開心動物園',
+      path: '/game/banner/sm/banner_AnimalPark_290x290.png',
+    },
     { name: '鋼鐵超人', path: '/game/banner/sm/banner_SuperRobot_290x290.png' },
     {
       name: '俏皮護士',

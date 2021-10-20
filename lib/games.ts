@@ -4,8 +4,8 @@ export const sectionSlides = [
     path: '/game/banner/lg/banner_KingFishing_480x320.png',
   },
   {
-    name: '大頭家麻將',
-    path: '/game/banner/lg/banner_Mahjong_480x320.png',
+    name: '開心動物園',
+    path: '/game/banner/lg/banner_AnimalPark_480x320.png',
   },
   {
     name: '鋼鐵超人',
@@ -20,7 +20,7 @@ export const sectionSlides = [
     path: '/game/banner/lg/banner_KingFishing_480x320.png',
   },
   {
-    name: '大頭家麻將',
-    path: '/game/banner/lg/banner_Mahjong_480x320.png',
+    name: '開心動物園',
+    path: '/game/banner/lg/banner_AnimalPark_480x320.png',
   },
 ]
