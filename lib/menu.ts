@@ -21,17 +21,17 @@ export const menu: Menu[] = [
       { label: 'VIP介紹', path: '/vip-intro' },
     ],
   },
-  // {
-  //   label: '會員專區',
-  //   subs: [
-  //     { label: '會員資料', path: '/user-basic', needAuth: true },
-  //     { label: '修改密碼', path: '/user-pw', needAuth: true },
-  //     { label: '修改二次密碼', path: '/user-pw2', needAuth: true },
-  //     { label: '儲值購點', path: '/recharge', needAuth: true },
-  //     { label: '儲值紀錄', path: '/recharge-rec', needAuth: true },
-  //     { label: '個人領獎紀錄', path: '/rewards', needAuth: true },
-  //   ],
-  // },
+  {
+    label: '會員專區',
+    subs: [
+      { label: '會員資料', path: '/user-basic', needAuth: true },
+      { label: '修改密碼', path: '/user-pw', needAuth: true },
+      { label: '修改二次密碼', path: '/user-pw2', needAuth: true },
+      { label: '儲值購點', path: '/recharge', needAuth: true },
+      { label: '儲值紀錄', path: '/recharge-rec', needAuth: true },
+      { label: '個人領獎紀錄', path: '/rewards', needAuth: true },
+    ],
+  },
   {
     label: '排行榜',
     subs: [

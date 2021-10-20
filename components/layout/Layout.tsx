@@ -12,7 +12,7 @@ const Layout: NextPage = ({ children }) => {
 
       <FooterNav />
 
-      {/* <RechargeFloat /> */}
+      <RechargeFloat />
       <AppDownloadSideFloat />
     </div>
   )
