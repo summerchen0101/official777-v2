@@ -1,7 +1,9 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import useAuth from '@/hooks/useAuth'
+import useMe from '@/services/useMe'
 import usePwUpdate from '@/services/usePwUpdate'
+import useSms from '@/services/useSms'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -10,9 +12,11 @@ type Inputs = {
   new_pw: string
   new_pw_confirm: string
 }
-function UserPw2() {
+function UserPw() {
   useAuth()
   const { handler: doUpdate, isLoading } = usePwUpdate()
+  const { data } = useMe()
+  const { handler: sendSms, isLoading: isSmsLoading } = useSms()
   const {
     register,
     handleSubmit,
@@ -20,15 +24,23 @@ function UserPw2() {
     watch,
     reset,
   } = useForm<Inputs>()
+  const onSendSms = async () => {
+    const res = await sendSms({
+      userID: data?.id,
+    })
+    if (res?.sendSuccess) {
+      alert('簡訊已發送')
+    }
+  }
   const onSubmit = handleSubmit(async (d) => {
     try {
-      // const res = await doUpdate({
-      //   code: d.code,
-      //   new_password: d.new_pw,
-      // })
-      // if (res?.ok) {
-      //   alert('密碼更新成功')
-      // }
+      const res = await doUpdate({
+        answer: d.code,
+        newSecondPassword: d.new_pw,
+      })
+      if (res?.ok) {
+        alert('二次密碼更新成功')
+      }
       reset()
     } catch (err) {
       console.log(err)
@@ -40,14 +52,14 @@ function UserPw2() {
       <section>
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
-            <img src="/title_pw.png" alt="修改二次密碼" className="h-10" />
+            <img src="/title_pw2.png" alt="修改二次密碼" className="h-10" />
           </div>
           <div className="form-box">
             <form noValidate className="space-y-5">
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
                   htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
+                  className="w-36 mb-2 lg:text-right text-gray-200"
                 >
                   新二次密碼
                 </label>
@@ -65,6 +77,7 @@ function UserPw2() {
                 <p className="lg:w-36 text-gold-400 text-sm mt-2 lg:mt-0">
                   ＊中英文6~12位
                 </p>
+
                 {errors.new_pw && (
                   <div className="text-sm text-red-500">
                     {errors.new_pw.message}
@@ -86,7 +99,7 @@ function UserPw2() {
                     required: { value: true, message: '不可為空' },
                     validate: (val) => {
                       const ok = val === watch('new_pw')
-                      return ok ? ok : '與新密碼不同'
+                      return ok ? ok : '與新二次密碼不同'
                     },
                   })}
                 />
@@ -118,7 +131,7 @@ function UserPw2() {
                     <button
                       type="button"
                       className="btn btn-sm"
-                      // onClick={onSendSms}
+                      onClick={onSendSms}
                     >
                       發送驗證碼
                     </button>
@@ -141,4 +154,4 @@ function UserPw2() {
   )
 }
 
-export default UserPw2
+export default UserPw

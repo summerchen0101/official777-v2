@@ -3,8 +3,9 @@ import useRequest, { apiPath } from '@/utils/useRequest'
 import { useState } from 'react'
 
 export interface RechargeReq {
-  old_password: string
-  new_password: string
+  new_password?: string
+  newSecondPassword?: string
+  answer: string
 }
 
 export interface RechargeRes extends ResBase {}

@@ -3,9 +3,9 @@ import useRequest, { apiPath } from '@/utils/useRequest'
 import { useState } from 'react'
 
 export interface SmsReq {
-  userID: number
-  newCountryCode: string
-  newCellphone: string
+  userID?: number
+  newCountryCode?: string
+  newCellphone?: string
 }
 
 export interface SmsRes extends ResBase {

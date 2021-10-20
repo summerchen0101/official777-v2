@@ -1,7 +1,9 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import useAuth from '@/hooks/useAuth'
+import useMe from '@/services/useMe'
 import usePwUpdate from '@/services/usePwUpdate'
+import useSms from '@/services/useSms'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -13,6 +15,8 @@ type Inputs = {
 function UserPw() {
   useAuth()
   const { handler: doUpdate, isLoading } = usePwUpdate()
+  const { data } = useMe()
+  const { handler: sendSms, isLoading: isSmsLoading } = useSms()
   const {
     register,
     handleSubmit,
@@ -20,15 +24,23 @@ function UserPw() {
     watch,
     reset,
   } = useForm<Inputs>()
+  const onSendSms = async () => {
+    const res = await sendSms({
+      userID: data?.id,
+    })
+    if (res?.sendSuccess) {
+      alert('簡訊已發送')
+    }
+  }
   const onSubmit = handleSubmit(async (d) => {
     try {
-      // const res = await doUpdate({
-      //   code: d.code,
-      //   new_password: d.new_pw,
-      // })
-      // if (res?.ok) {
-      //   alert('密碼更新成功')
-      // }
+      const res = await doUpdate({
+        answer: d.code,
+        new_password: d.new_pw,
+      })
+      if (res?.ok) {
+        alert('密碼更新成功')
+      }
       reset()
     } catch (err) {
       console.log(err)
@@ -47,7 +59,7 @@ function UserPw() {
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
                   htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
+                  className="w-36 mb-2 lg:text-right text-gray-200"
                 >
                   新密碼
                 </label>
@@ -65,6 +77,7 @@ function UserPw() {
                 <p className="lg:w-36 text-gold-400 text-sm mt-2 lg:mt-0">
                   ＊中英文6~12位
                 </p>
+
                 {errors.new_pw && (
                   <div className="text-sm text-red-500">
                     {errors.new_pw.message}
@@ -118,7 +131,7 @@ function UserPw() {
                     <button
                       type="button"
                       className="btn btn-sm"
-                      // onClick={onSendSms}
+                      onClick={onSendSms}
                     >
                       發送驗證碼
                     </button>
