@@ -147,7 +147,20 @@ const MobileHome: NextPage = () => {
         />
         <div className="px-12 max-w-[1400px] mx-auto">
           <SectionSlider
-            slides={mediumGameSlides}
+            slides={[
+              {
+                name: '沙灘派對',
+                path: '/game/banner/md/banner_BeachParty_286x196.png',
+              },
+              {
+                name: '魔法消消樂',
+                path: '/game/banner/md/banner_CrystalSorceress_286x196.png',
+              },
+              {
+                name: '昆蟲樂園',
+                path: '/game/banner/md/banner_BugsFamily_286x196.png',
+              },
+            ]}
             slidesToShow={1}
             onClick={(slide) =>
               showGamePopup({ title: slide.name, content: '' })
@@ -164,7 +177,20 @@ const MobileHome: NextPage = () => {
             className="h-10 object-contain w-full mb-4"
           />
           <SectionSlider
-            slides={mediumGameSlides}
+            slides={[
+              {
+                name: '巨龍家族',
+                path: '/game/banner/md/banner_DragonClan_286x196.png',
+              },
+              {
+                name: '埃及艷后',
+                path: '/game/banner/md/banner_EgyptLegends_286x196.png',
+              },
+              {
+                name: '三國之義薄雲天',
+                path: '/game/banner/md/banner_GuanYu_286x196.png',
+              },
+            ]}
             slidesToShow={1}
             onClick={(slide) =>
               showGamePopup({ title: slide.name, content: '' })
@@ -181,7 +207,20 @@ const MobileHome: NextPage = () => {
             className="h-10 object-contain w-full mb-4"
           />
           <SectionSlider
-            slides={mediumGameSlides}
+            slides={[
+              {
+                name: '帝皇捕魚',
+                path: '/game/banner/lg/banner_KingFishing_480x320.png',
+              },
+              {
+                name: '開心動物園',
+                path: '/game/banner/lg/banner_AnimalPark_480x320.png',
+              },
+              {
+                name: '鋼鐵超人',
+                path: '/game/banner/lg/banner_SuperRobot_480x320.png',
+              },
+            ]}
             slidesToShow={1}
             onClick={(slide) =>
               showGamePopup({ title: slide.name, content: '' })
