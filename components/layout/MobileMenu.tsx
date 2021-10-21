@@ -27,7 +27,7 @@ function MobileMenu({ className }: { className?: string }) {
         className,
       )}
     >
-      {user ? (
+      {/* {user ? (
         <div className="grid grid-cols-2 gap-2 mb-4 mx-4">
           <div className="space-y-2 flex flex-col">
             <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
@@ -54,7 +54,7 @@ function MobileMenu({ className }: { className?: string }) {
             登入
           </button>
         </div>
-      )}
+      )} */}
 
       <div className="">
         {menu.map((m, i) => (

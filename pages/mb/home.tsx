@@ -71,7 +71,7 @@ const MobileHome: NextPage = () => {
           </div>
         </div>
       </div>
-      <div className="px-4 mb-6 space-y-2">
+      {/* <div className="px-4 mb-6 space-y-2">
         <button
           hidden={!!user}
           className="gold-btn w-full"
@@ -85,7 +85,7 @@ const MobileHome: NextPage = () => {
         >
           立刻儲值
         </button>
-      </div>
+      </div> */}
       <div className="grid grid-cols-2 gap-2 mb-10 mx-4">
         <div className="space-y-1">
           <img src="/google_play.png" alt="" className="" />
