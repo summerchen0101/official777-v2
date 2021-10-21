@@ -78,7 +78,7 @@ function GameIntro() {
                   className="object-cover object-center group-hover:scale-110 h-full w-full transition-all"
                   alt={t.name}
                 />
-                <div className="bg-gradient-to-b from-gold-700/0 via-gold-700 to-gold-700/0 text-white py-1 px-2 transition-all translate-y-4 opacity-0 group-hover:-translate-y-0 group-hover:opacity-100 absolute w-full top-2/3 h-14 flex items-center justify-center text-lg">
+                <div className="bg-gradient-to-b from-gold-700/0 via-gold-700 to-gold-700/0 text-white py-1 px-2 transition-all lg:translate-y-4 lg:opacity-0 group-hover:-translate-y-0 group-hover:opacity-100 absolute w-full top-2/3 h-16 flex items-center justify-center text-3xl lg:text-lg">
                   {t.name}
                 </div>
               </div>
