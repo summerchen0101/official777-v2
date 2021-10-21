@@ -6,7 +6,7 @@ import SectionSlider, { Slide } from '@/components/SectionSlider'
 import TabGroup from '@/components/TabGroup'
 import useDevicePage from '@/hooks/useDevicePage'
 import { YesNo } from '@/lib/enums'
-import { sectionSlides } from '@/lib/games'
+import { mediumGameSlides } from '@/lib/games'
 import { newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
@@ -147,7 +147,7 @@ const MobileHome: NextPage = () => {
         />
         <div className="px-12 max-w-[1400px] mx-auto">
           <SectionSlider
-            slides={sectionSlides}
+            slides={mediumGameSlides}
             slidesToShow={1}
             onClick={(slide) =>
               showGamePopup({ title: slide.name, content: '' })
@@ -164,7 +164,7 @@ const MobileHome: NextPage = () => {
             className="h-10 object-contain w-full mb-4"
           />
           <SectionSlider
-            slides={sectionSlides}
+            slides={mediumGameSlides}
             slidesToShow={1}
             onClick={(slide) =>
               showGamePopup({ title: slide.name, content: '' })
@@ -181,7 +181,7 @@ const MobileHome: NextPage = () => {
             className="h-10 object-contain w-full mb-4"
           />
           <SectionSlider
-            slides={sectionSlides}
+            slides={mediumGameSlides}
             slidesToShow={1}
             onClick={(slide) =>
               showGamePopup({ title: slide.name, content: '' })
