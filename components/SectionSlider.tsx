@@ -58,7 +58,7 @@ function SectionSlider({ slides, slidesToShow, onClick }: Props) {
     <Slider {...settings} className="-mx-2">
       {slides.map((t, i) => (
         <div key={i} className="px-2" onClick={() => onClick && onClick(t)}>
-          <img src={t.path} className="frame cursor-pointer" alt="" />
+          <img src={t.path} className="frame cursor-pointer mx-auto" alt="" />
         </div>
       ))}
     </Slider>

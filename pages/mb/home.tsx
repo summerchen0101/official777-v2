@@ -209,16 +209,16 @@ const MobileHome: NextPage = () => {
           <SectionSlider
             slides={[
               {
-                name: '帝皇捕魚',
-                path: '/game/banner/lg/banner_KingFishing_480x320.png',
+                name: '埃及艷后',
+                path: '/game/banner/md/banner_EgyptLegends_286x196.png',
               },
               {
-                name: '開心動物園',
-                path: '/game/banner/lg/banner_AnimalPark_480x320.png',
+                name: '三國之義薄雲天',
+                path: '/game/banner/md/banner_GuanYu_286x196.png',
               },
               {
-                name: '鋼鐵超人',
-                path: '/game/banner/lg/banner_SuperRobot_480x320.png',
+                name: '甜心護士',
+                path: '/game/banner/md/banner_SweetheartNurse_286x196.png',
               },
             ]}
             slidesToShow={1}
