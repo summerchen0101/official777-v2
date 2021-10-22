@@ -16,36 +16,36 @@ function GameIntro() {
   const showGamePopup = useStore((s) => s.showGamePopup)
 
   const list = [
-    { name: '沙灘派對', path: '/game/banner/sm/banner_BeachParty_290x290.png' },
-    { name: '皇家21點', path: '/game/banner/sm/banner_Blackjack_290x290.png' },
-    { name: '昆蟲寶貝', path: '/game/banner/sm/banner_BugsFamily_290x290.png' },
+    { name: '沙灘派對', path: '/game/banner/sm/banner_BeachParty_290x290.jpg' },
+    { name: '皇家21點', path: '/game/banner/sm/banner_Blackjack_290x290.jpg' },
+    { name: '昆蟲寶貝', path: '/game/banner/sm/banner_BugsFamily_290x290.jpg' },
     {
       name: '魔法消消樂',
-      path: '/game/banner/sm/banner_CrystalSorceress_290x290.png',
+      path: '/game/banner/sm/banner_CrystalSorceress_290x290.jpg',
     },
-    { name: '巨龍家族', path: '/game/banner/sm/banner_DragonClan_290x290.png' },
+    { name: '巨龍家族', path: '/game/banner/sm/banner_DragonClan_290x290.jpg' },
     {
       name: '埃及傳說',
-      path: '/game/banner/sm/banner_EgyptLegends_290x290.png',
+      path: '/game/banner/sm/banner_EgyptLegends_290x290.jpg',
     },
-    { name: '武聖關羽', path: '/game/banner/sm/banner_GuanYu_290x290.png' },
+    { name: '武聖關羽', path: '/game/banner/sm/banner_GuanYu_290x290.jpg' },
     {
       name: '帝皇捕魚',
-      path: '/game/banner/sm/banner_KingFishing_290x290.png',
+      path: '/game/banner/sm/banner_KingFishing_290x290.jpg',
     },
-    // { name: '大頭家麻將', path: '/game/banner/sm/banner_Mahjong_290x290.png' },
+    // { name: '大頭家麻將', path: '/game/banner/sm/banner_Mahjong_290x290.jpg' },
     {
       name: '開心動物園',
-      path: '/game/banner/sm/banner_AnimalPark_290x290.png',
+      path: '/game/banner/sm/banner_AnimalPark_290x290.jpg',
     },
-    { name: '鋼鐵超人', path: '/game/banner/sm/banner_SuperRobot_290x290.png' },
+    { name: '鋼鐵超人', path: '/game/banner/sm/banner_SuperRobot_290x290.jpg' },
     {
       name: '俏皮護士',
-      path: '/game/banner/sm/banner_SweetheartNurse_290x290.png',
+      path: '/game/banner/sm/banner_SweetheartNurse_290x290.jpg',
     },
     {
       name: '決戰希臘',
-      path: '/game/banner/sm/banner_ZeusVsHades_290x290.png',
+      path: '/game/banner/sm/banner_ZeusVsHades_290x290.jpg',
     },
   ]
   return (

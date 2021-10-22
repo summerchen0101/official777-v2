@@ -150,15 +150,15 @@ const MobileHome: NextPage = () => {
             slides={[
               {
                 name: '沙灘派對',
-                path: '/game/banner/md/banner_BeachParty_286x196.png',
+                path: '/game/banner/lg/banner_BeachParty_480x320.jpg',
               },
               {
                 name: '魔法消消樂',
-                path: '/game/banner/md/banner_CrystalSorceress_286x196.png',
+                path: '/game/banner/lg/banner_CrystalSorceress_480x320.jpg',
               },
               {
                 name: '昆蟲樂園',
-                path: '/game/banner/md/banner_BugsFamily_286x196.png',
+                path: '/game/banner/lg/banner_BugsFamily_480x320.jpg',
               },
             ]}
             slidesToShow={1}
@@ -180,15 +180,15 @@ const MobileHome: NextPage = () => {
             slides={[
               {
                 name: '巨龍家族',
-                path: '/game/banner/md/banner_DragonClan_286x196.png',
+                path: '/game/banner/lg/banner_DragonClan_480x320.jpg',
               },
               {
                 name: '埃及艷后',
-                path: '/game/banner/md/banner_EgyptLegends_286x196.png',
+                path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
                 name: '三國之義薄雲天',
-                path: '/game/banner/md/banner_GuanYu_286x196.png',
+                path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
             ]}
             slidesToShow={1}
@@ -210,15 +210,15 @@ const MobileHome: NextPage = () => {
             slides={[
               {
                 name: '埃及艷后',
-                path: '/game/banner/md/banner_EgyptLegends_286x196.png',
+                path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
                 name: '三國之義薄雲天',
-                path: '/game/banner/md/banner_GuanYu_286x196.png',
+                path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
               {
                 name: '甜心護士',
-                path: '/game/banner/md/banner_SweetheartNurse_286x196.png',
+                path: '/game/banner/lg/banner_SweetheartNurse_480x320.jpg',
               },
             ]}
             slidesToShow={1}
