@@ -1,7 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import useTicketCreate from '@/services/useTicketCreate'
-import { fileToDataUrl } from '@/utils'
+import { fileToDataUrl, toCdnImgPath } from '@/utils'
 import React, { useRef, useState } from 'react'
 import { BiCloudUpload } from 'react-icons/bi'
 import { CgSpinner } from 'react-icons/cg'
@@ -30,7 +30,11 @@ function ContactPage() {
       <section>
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
-            <img src="/title_service.png" alt="聯繫客服" className="h-10" />
+            <img
+              src={toCdnImgPath('/title_service.png')}
+              alt="聯繫客服"
+              className="h-10"
+            />
           </div>
           <div className="form-box">
             <form className="space-y-5" ref={formRef}>
@@ -80,7 +84,7 @@ function ContactPage() {
                   </div>
                   <img
                     hidden={!reviewImg}
-                    src={reviewImg}
+                    src={toCdnImgPath(reviewImg)}
                     alt=""
                     className="h-full w-full object-contain absolute"
                   />

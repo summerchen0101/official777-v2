@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import { toCdnImgPath } from '@/utils'
 import React from 'react'
 
 const list = [
@@ -41,7 +42,11 @@ function GiftIntro() {
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-8 flex justify-center lg:justify-start">
-            <img src="/title_gift.png" alt="紅包說明" className="h-10" />
+            <img
+              src={toCdnImgPath('/title_gift.png')}
+              alt="紅包說明"
+              className="h-10"
+            />
           </div>
           <div className="space-y-6">
             {list.map((t, i) => (
@@ -51,7 +56,7 @@ function GiftIntro() {
               >
                 <div className="p-3 lg:h-auto flex justify-center items-center">
                   <img
-                    src={t.img}
+                    src={toCdnImgPath(t.img)}
                     className="object-contain h-40 rounded-l-xl"
                     alt={t.name}
                   />

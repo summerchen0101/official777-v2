@@ -2,6 +2,7 @@ import { menu } from '@/lib/menu'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { Menu } from '@/types'
+import { toCdnImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import MobileHeader from './MobileHeader'
@@ -22,7 +23,7 @@ function HeaderNav() {
           <div className="bg-gradient-to-b from-purple-dark to-purple-dark/0 w-screen h-12 absolute bottom-0 -mb-12"></div>
           <div className="flex justify-center relative pl-32">
             <img
-              src="/logo.png"
+              src={toCdnImgPath('/logo.png')}
               alt=""
               className="cursor-pointer absolute lg:h-40 z-50 left-0 top-0 lg:-ml-20 xl:-ml-28 -mt-6 p-3"
               onClick={() => router.push('/')}
@@ -68,9 +69,21 @@ function HeaderNav() {
         </div>
 
         <div className="flex space-x-3 absolute top-0 right-0 xl:m-3 z-30 lg:scale-75">
-          <img src="/fb.png" className="cursor-pointer" alt="" />
-          <img src="/line.png" className="cursor-pointer" alt="" />
-          <img src="/youtube.png" className="cursor-pointer" alt="" />
+          <img
+            src={toCdnImgPath('/fb.png')}
+            className="cursor-pointer"
+            alt=""
+          />
+          <img
+            src={toCdnImgPath('/line.png')}
+            className="cursor-pointer"
+            alt=""
+          />
+          <img
+            src={toCdnImgPath('/youtube.png')}
+            className="cursor-pointer"
+            alt=""
+          />
         </div>
       </header>
       <MobileHeader />

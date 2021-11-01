@@ -3,6 +3,7 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import TabGroup from '@/components/TabGroup'
 import { useStore } from '@/store/useStore'
+import { toCdnImgPath } from '@/utils'
 import React, { useState } from 'react'
 
 const tabsMap = {
@@ -54,7 +55,11 @@ function GameIntro() {
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
-            <img src="/title_game_intro.png" alt="遊戲說明" className="h-10" />
+            <img
+              src={toCdnImgPath('/title_game_intro.png')}
+              alt="遊戲說明"
+              className="h-10"
+            />
           </div>
           <div className="hidden lg:flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
@@ -74,7 +79,7 @@ function GameIntro() {
                 onClick={() => showGamePopup({ title: t.name, content: '' })}
               >
                 <img
-                  src={t.path}
+                  src={toCdnImgPath(t.path)}
                   className="object-cover object-center group-hover:scale-110 h-full w-full transition-all"
                   alt={t.name}
                 />

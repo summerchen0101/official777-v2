@@ -7,6 +7,7 @@ import {
   HiOutlineQuestionMarkCircle,
   HiQuestionMarkCircle,
 } from 'react-icons/hi'
+import { toCdnImgPath } from '@/utils'
 
 enum FaqCategory {
   Game = 1,
@@ -141,7 +142,11 @@ function FaqPage() {
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-8 flex justify-center lg:justify-start">
-            <img src="/title_faq.png" alt="常見問題" className="h-10" />
+            <img
+              src={toCdnImgPath('/title_faq.png')}
+              alt="常見問題"
+              className="h-10"
+            />
           </div>
           {Object.entries(faqListByCategory).map(([category, list]) => (
             <div key={category} className="mb-8">

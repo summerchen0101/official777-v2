@@ -1,3 +1,4 @@
+import { toCdnImgPath } from '@/utils'
 import React, { useRef } from 'react'
 import Slider, { Settings } from 'react-slick'
 export interface Slide {
@@ -19,7 +20,7 @@ function SamplePrevArrow(
   const { className, style, onClick } = props
   return (
     <img
-      src="/slider_nav_next.png"
+      src={toCdnImgPath('/slider_nav_next.png')}
       alt=""
       className="w-8 h-full object-contain absolute left-0 top-0 z-10 -ml-8 cursor-pointer rotate-180"
       onClick={onClick}
@@ -36,7 +37,7 @@ function SampleNextArrow(
   const { className, style, onClick } = props
   return (
     <img
-      src="/slider_nav_next.png"
+      src={toCdnImgPath('/slider_nav_next.png')}
       alt=""
       className="w-8 h-full object-contain absolute right-0 top-0 z-10 -mr-8 cursor-pointer"
       onClick={onClick}
@@ -58,7 +59,11 @@ function SectionSlider({ slides, slidesToShow, onClick }: Props) {
     <Slider {...settings} className="-mx-2">
       {slides.map((t, i) => (
         <div key={i} className="px-2" onClick={() => onClick && onClick(t)}>
-          <img src={t.path} className="frame cursor-pointer mx-auto" alt="" />
+          <img
+            src={toCdnImgPath(t.path)}
+            className="frame cursor-pointer mx-auto"
+            alt=""
+          />
         </div>
       ))}
     </Slider>

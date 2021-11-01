@@ -1,6 +1,7 @@
 import React from 'react'
 import Slider, { Settings } from 'react-slick'
 import cs from 'classnames'
+import { toCdnImgPath } from '@/utils'
 export interface Slide {
   path: string
 }
@@ -29,7 +30,7 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
       {slides.map((t, i) => (
         <div key={i}>
           <img
-            src={t.path}
+            src={toCdnImgPath(t.path)}
             className={cs(
               'h-[300px] w-full object-cover object-center',
               isHomePage ? 'h-[550px] xl:h-[72vh]' : 'lg:h-[350px]',

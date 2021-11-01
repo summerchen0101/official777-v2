@@ -3,6 +3,7 @@ import PageBanner from '@/components/layout/PageBanner'
 import useAuth from '@/hooks/useAuth'
 import useMe from '@/services/useMe'
 import useSms from '@/services/useSms'
+import { toCdnImgPath } from '@/utils'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -53,7 +54,11 @@ function UserBasic() {
       <section>
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
-            <img src="/title_member.png" alt="會員資料" className="h-10" />
+            <img
+              src={toCdnImgPath('/title_member.png')}
+              alt="會員資料"
+              className="h-10"
+            />
           </div>
           <div className="form-box">
             <form className="space-y-5">

@@ -4,6 +4,7 @@ import useAuth from '@/hooks/useAuth'
 import useMe from '@/services/useMe'
 import usePwUpdate from '@/services/usePwUpdate'
 import useSms from '@/services/useSms'
+import { toCdnImgPath } from '@/utils'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -52,7 +53,11 @@ function UserPw() {
       <section>
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
-            <img src="/title_pw2.png" alt="修改二次密碼" className="h-10" />
+            <img
+              src={toCdnImgPath('/title_pw2.png')}
+              alt="修改二次密碼"
+              className="h-10"
+            />
           </div>
           <div className="form-box">
             <form noValidate className="space-y-5">

@@ -6,7 +6,8 @@
     "dev": "next dev -p 3388",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cdn": "gsutil cp -r resources/** gs://offiial-web/official"
   },
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.2.1",

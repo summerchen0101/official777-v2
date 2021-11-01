@@ -1,3 +1,4 @@
+import { toCdnImgPath } from '@/utils'
 import cs from 'classnames'
 import React, { ReactNode, useEffect, useMemo, useRef } from 'react'
 
@@ -30,7 +31,11 @@ export default function Popup({ onClose, isShow, children }: Props) {
           className="cursor-pointer fixed top-0 right-0 m-3"
           onClick={onClose}
         >
-          <img src="/btn_close.png" className="h-12 lg:h-16" alt="" />
+          <img
+            src={toCdnImgPath('/btn_close.png')}
+            className="h-12 lg:h-16"
+            alt=""
+          />
         </div>
         {children}
       </div>

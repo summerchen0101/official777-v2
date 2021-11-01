@@ -51,3 +51,7 @@ export const reviewBase64Img = (base64Str: string) => {
   newWin?.document.write(img.outerHTML)
   newWin?.document.close()
 }
+
+export const toCdnImgPath = (path: string) => {
+  return process.env.NEXT_PUBLIC_CDN_URL + path
+}

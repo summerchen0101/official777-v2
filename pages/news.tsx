@@ -8,7 +8,7 @@ import { useStore } from '@/store/useStore'
 import useNewsList, { News } from '@/services/useNewsList'
 import { newsTypeMap } from '@/lib/map'
 import Loading from '@/components/Loading'
-import { toDateTime } from '@/utils'
+import { toCdnImgPath, toDateTime } from '@/utils'
 import { YesNo } from '@/lib/enums'
 
 function RechargeRec() {
@@ -32,7 +32,11 @@ function RechargeRec() {
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
-            <img src="/title_news.png" alt="最新消息" className="h-10" />
+            <img
+              src={toCdnImgPath('/title_news.png')}
+              alt="最新消息"
+              className="h-10"
+            />
           </div>
           <div className="bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl">
             <div className="flex pt-3 pb-1 tracking-wider">
