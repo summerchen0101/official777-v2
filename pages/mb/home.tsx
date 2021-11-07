@@ -1,31 +1,32 @@
 import GameDetailPopup from '@/components/GameDetailPopup'
 import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
+import Loading from '@/components/Loading'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
-import TabGroup from '@/components/TabGroup'
 import useDevicePage from '@/hooks/useDevicePage'
 import { YesNo } from '@/lib/enums'
-import { mediumGameSlides } from '@/lib/games'
 import { newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
 import { toCdnImgPath, toCurrency, toDateTime } from '@/utils'
+import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
-import { FaUber, FaUser } from 'react-icons/fa'
+import { FaUser } from 'react-icons/fa'
 import { HiCurrencyDollar } from 'react-icons/hi'
 
 const MobileHome: NextPage = () => {
   useDevicePage('/home', '/mb/home')
   const router = useRouter()
   const { data: user } = useMe()
+  const [page, setPage] = useState(1)
   const [currentNewsTab, setCurrentNewsTab] = useState(0)
-  const { list, isLoading } = useNewsList({
+  const { list, isLoading, paginator } = useNewsList({
     category: currentNewsTab,
-    page: 1,
+    page,
     perPage: 10,
   })
   const showNews = useStore((s) => s.showNews)
@@ -101,41 +102,67 @@ const MobileHome: NextPage = () => {
         </div>
       </div>
 
-      <section className="mb-10 mx-3">
-        <div className="bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl p-2">
-          <div className="flex items-center mb-2">
-            <select
-              className="py-1 rounded"
-              onChange={(e) => setCurrentNewsTab(+e.target.value)}
-              value={currentNewsTab}
-            >
-              {Object.entries(newsTypeMap).map(([key, label]) => (
-                <option key={key} value={key}>
-                  {label}
-                </option>
-              ))}
-            </select>
-            <div className="flex-1"></div>
-            <div
-              className="px-4 font-medium cursor-pointer hover:text-white/80"
-              onClick={() => router.push('/news')}
-            >
-              更多...
-            </div>
-          </div>
-          <div className="space-y-1">
-            {list?.map((t, i) => (
+      <section className="px-4 mb-16">
+        <div className="bg-gradient-to-b from-brown-500 via-brown-400 to-brown-600 rounded-xl border-4 border-brown-400 shadow-xl">
+          <div className="flex pt-3 pb-1 tracking-wider">
+            {Object.entries(newsTypeMap).map(([key, label]) => (
               <div
-                key={i}
-                className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
-                onClick={() => handleNewsClicked(t)}
+                key={key}
+                className={cs(
+                  'news-tab-light text-xl cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
+                  {
+                    'text-white': +key === currentNewsTab,
+                  },
+                )}
+                onClick={() => setCurrentNewsTab(+key)}
               >
-                <div className="w-20">[{newsTypeMap[t.category]}]</div>
-                <div className="flex-1">{t.title}</div>
-                <div>{toDateTime(t.createTimeMs)}</div>
+                <span>{label}</span>
+                <img src="" alt="" />
               </div>
             ))}
           </div>
+          {isLoading ? (
+            <Loading />
+          ) : (
+            <>
+              <div className="p-2 space-y-1">
+                {list?.map((t, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
+                    onClick={() => handleNewsClicked(t)}
+                  >
+                    <div className="w-20">[{newsTypeMap[t.category]}]</div>
+                    <div className="flex-1">{t.title}</div>
+                    <div>{toDateTime(t.createTimeMs)}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex justify-center space-x-3 pb-3 text-white">
+                <button
+                  className="cursor-pointer hover:text-white/80 disabled:text-brown-500"
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={page === 1}
+                >
+                  上一頁
+                </button>
+                <div className="">
+                  <select className="h-8 border-brown-500 rounded text-brown-900 pt-0.5">
+                    {[...Array(paginator?.totalPage)].map((_, i) => (
+                      <option key={i}>{i + 1}</option>
+                    ))}
+                  </select>
+                </div>
+                <button
+                  className="cursor-pointer hover:text-white/80 disabled:text-brown-500"
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={paginator?.totalPage! <= page}
+                >
+                  下一頁
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </section>
 

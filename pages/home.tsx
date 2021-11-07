@@ -1,6 +1,7 @@
 import GameDetailPopup from '@/components/GameDetailPopup'
 import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
+import Loading from '@/components/Loading'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
@@ -17,10 +18,11 @@ import { useEffect, useState } from 'react'
 
 const Home: NextPage = () => {
   const router = useRouter()
+  const [page, setPage] = useState(1)
   const [currentNewsTab, setCurrentNewsTab] = useState(0)
-  const { list, isLoading } = useNewsList({
+  const { list, isLoading, paginator } = useNewsList({
     category: currentNewsTab,
-    page: 1,
+    page,
     perPage: 10,
   })
   useDevicePage('/home', '/mb/home')
@@ -67,27 +69,49 @@ const Home: NextPage = () => {
                   <img src="" alt="" />
                 </div>
               ))}
-              <div className="flex-1"></div>
-              <div
-                className="px-4 font-medium cursor-pointer hover:text-white/80"
-                onClick={() => router.push('/news')}
-              >
-                更多...
-              </div>
             </div>
-            <div className="p-2 space-y-1">
-              {list?.map((t, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
-                  onClick={() => handleNewsClicked(t)}
-                >
-                  <div className="w-20">[{newsTypeMap[t.category]}]</div>
-                  <div className="flex-1">{t.title}</div>
-                  <div>{toDateTime(t.createTimeMs)}</div>
+            {isLoading ? (
+              <Loading />
+            ) : (
+              <>
+                <div className="p-2 space-y-1">
+                  {list?.map((t, i) => (
+                    <div
+                      key={i}
+                      className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
+                      onClick={() => handleNewsClicked(t)}
+                    >
+                      <div className="w-20">[{newsTypeMap[t.category]}]</div>
+                      <div className="flex-1">{t.title}</div>
+                      <div>{toDateTime(t.createTimeMs)}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+                <div className="flex justify-center space-x-3 pb-3 text-white">
+                  <button
+                    className="cursor-pointer hover:text-white/80 disabled:text-brown-500"
+                    onClick={() => setPage((p) => p + 1)}
+                    disabled={page === 1}
+                  >
+                    上一頁
+                  </button>
+                  <div className="">
+                    <select className="h-8 border-brown-500 rounded text-brown-900 pt-0.5">
+                      {[...Array(paginator?.totalPage)].map((_, i) => (
+                        <option key={i}>{i + 1}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <button
+                    className="cursor-pointer hover:text-white/80 disabled:text-brown-500"
+                    onClick={() => setPage((p) => p + 1)}
+                    disabled={paginator?.totalPage! <= page}
+                  >
+                    下一頁
+                  </button>
+                </div>
+              </>
+            )}
           </div>
         </div>
       </section>
