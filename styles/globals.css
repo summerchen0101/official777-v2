@@ -9,11 +9,11 @@ body,
 }
 
 html {
-  @apply bg-main-pattern bg-fixed;
+  @apply bg-purple-900 bg-fixed;
 }
 
 .bg-cover {
-  @apply bg-gradient-to-r from-black/40 via-black/0 to-black/40 h-full w-full fixed top-0 left-0 -z-1;
+  @apply bg-gradient-to-br from-black/80 via-black/50 to-black/80 h-full w-full fixed top-0 left-0 -z-1;
 }
 
 .lock {
