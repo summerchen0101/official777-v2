@@ -44,8 +44,8 @@ module.exports = {
           900: '#592116',
         },
         purple: {
-          dark: '#391275',
-          darkeset: '#22074c',
+          dark: '#22074c',
+          darkeset: '#240e46',
         },
       },
     },
