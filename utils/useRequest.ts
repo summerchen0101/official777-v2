@@ -4,12 +4,14 @@ import Axios, { AxiosError, AxiosRequestConfig, Method } from 'axios'
 import JSONbig from 'json-bigint'
 import { useCallback } from 'react'
 import useErrorHandler from './useErrorHandler'
+import { useStore } from '@/store/useStore'
 
 export const apiPath = 'apis/v1'
 export const publicApiPath = 'public/apis/v1'
 
 const useRequest = () => {
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
+  const apiBaseUrl = useStore((s) => s.apiBaseUrl)
 
   const { apiErrHandler } = useErrorHandler()
   return useCallback(
@@ -29,7 +31,7 @@ const useRequest = () => {
           method,
           url,
           data,
-          baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
+          baseURL: apiBaseUrl,
           validateStatus: function (status) {
             return (status >= 200 && status < 300) || status === 422
           },

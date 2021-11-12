@@ -7,6 +7,8 @@ interface Game {
 }
 
 interface IState {
+  apiBaseUrl: string
+  setApiBaseUrl: (url: string) => void
   isShowSidebar: boolean
   toggleSidebar: () => void
   isShowRechargeFloat: boolean
@@ -29,6 +31,8 @@ interface IState {
 }
 
 export const useStore = create<IState>((set) => ({
+  apiBaseUrl: '',
+  setApiBaseUrl: (apiBaseUrl) => set({ apiBaseUrl }),
   isShowSidebar: false,
   toggleSidebar: () =>
     set((state) => ({ isShowSidebar: !state.isShowSidebar })),
