@@ -1,6 +1,6 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import React from 'react'
 
 const list = [
@@ -44,7 +44,7 @@ function VipIntro() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-8 flex justify-center lg:justify-start">
             <img
-              src={toCdnImgPath('/title_vip.png')}
+              src={toImgPath('/title_vip.png')}
               alt="VIP說明"
               className="h-10"
             />
@@ -57,7 +57,7 @@ function VipIntro() {
               >
                 <div className="p-3 lg:h-auto flex justify-center items-center">
                   <img
-                    src={toCdnImgPath(t.img)}
+                    src={toImgPath(t.img)}
                     className="object-contain h-36 rounded-l-xl"
                     alt={t.name}
                   />

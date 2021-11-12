@@ -4,7 +4,7 @@ import Loading from '@/components/Loading'
 import useAuth from '@/hooks/useAuth'
 import { paymentGatewayMap } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
-import { toCdnImgPath, toCurrency, toDateTime } from '@/utils'
+import { toImgPath, toCurrency, toDateTime } from '@/utils'
 import React from 'react'
 
 function RechargeRec() {
@@ -24,7 +24,7 @@ function RechargeRec() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toCdnImgPath('/title_recharge_rec.png')}
+              src={toImgPath('/title_recharge_rec.png')}
               alt="儲值紀錄"
               className="h-10"
             />

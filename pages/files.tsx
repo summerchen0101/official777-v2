@@ -1,6 +1,6 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import React from 'react'
 import { BiFile } from 'react-icons/bi'
 
@@ -12,7 +12,7 @@ function FilesPage() {
         <div className="lg:w-[860px] min-h-[400px] mx-auto lg:py-20">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toCdnImgPath('/title_download.png')}
+              src={toImgPath('/title_download.png')}
               alt="表單下載"
               className="h-10"
             />

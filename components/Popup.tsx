@@ -1,4 +1,4 @@
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import cs from 'classnames'
 import React, { ReactNode, useEffect, useMemo, useRef } from 'react'
 
@@ -32,7 +32,7 @@ export default function Popup({ onClose, isShow, children }: Props) {
           onClick={onClose}
         >
           <img
-            src={toCdnImgPath('/btn_close.png')}
+            src={toImgPath('/btn_close.png')}
             className="h-12 lg:h-16"
             alt=""
           />

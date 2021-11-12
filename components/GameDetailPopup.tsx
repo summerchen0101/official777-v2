@@ -2,7 +2,7 @@ import { useStore } from '@/store/useStore'
 import React from 'react'
 import Popup from './Popup'
 import cs from 'classnames'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 
 export default function GameDetailPopup() {
   const closeGamePopup = useStore((s) => s.closeGamePopup)
@@ -56,7 +56,7 @@ export default function GameDetailPopup() {
       <section className="border-b border-purple-600 py-14">
         <div id="s1" className="lg:w-[860px] mx-auto px-4">
           <img
-            src={toCdnImgPath('/game_detail_title_1.png')}
+            src={toImgPath('/game_detail_title_1.png')}
             className="h-8 mx-auto mb-8"
             alt="基本說明"
           />
@@ -71,7 +71,7 @@ export default function GameDetailPopup() {
       <section className="border-b border-purple-600 py-14">
         <div id="s2" className="lg:w-[860px] mx-auto px-4">
           <img
-            src={toCdnImgPath('/game_detail_title_2.png')}
+            src={toImgPath('/game_detail_title_2.png')}
             className="h-8 mx-auto mb-8"
             alt="得分說明"
           />
@@ -86,7 +86,7 @@ export default function GameDetailPopup() {
       <section className="border-b border-purple-600 py-14">
         <div id="s3" className="lg:w-[860px] mx-auto px-4">
           <img
-            src={toCdnImgPath('/game_detail_title_3.png')}
+            src={toImgPath('/game_detail_title_3.png')}
             className="h-8 mx-auto mb-8"
             alt="賠率表"
           />

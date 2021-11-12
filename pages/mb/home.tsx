@@ -10,7 +10,7 @@ import { newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
-import { toCdnImgPath, toCurrency, toDateTime } from '@/utils'
+import { toImgPath, toCurrency, toDateTime } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
@@ -64,7 +64,7 @@ const MobileHome: NextPage = () => {
           </div>
           <div className="flex items-center justify-center bg-black/30 rounded border border-gray-700">
             <div className="flex items-center space-x-4">
-              <img src={toCdnImgPath('/img_vip3.png')} alt="" />
+              <img src={toImgPath('/img_vip3.png')} alt="" />
               <div className="text-2xl text-gray-100 font-mono flex-1 text-center">
                 Lv<span className="text-3xl">{user?.vipLevel}</span>
               </div>
@@ -89,13 +89,13 @@ const MobileHome: NextPage = () => {
       </div> */}
       <div className="grid grid-cols-2 gap-2 mb-10 mx-4">
         <div className="space-y-1">
-          <img src={toCdnImgPath('/google_play.png')} alt="" className="" />
-          <img src={toCdnImgPath('/app_store.png')} alt="" className="" />
-          <img src={toCdnImgPath('/apk.png')} alt="" className="" />
+          <img src={toImgPath('/google_play.png')} alt="" className="" />
+          <img src={toImgPath('/app_store.png')} alt="" className="" />
+          <img src={toImgPath('/apk.png')} alt="" className="" />
         </div>
         <div className="flex justify-center items-center">
           <img
-            src={toCdnImgPath('/banner/banner_01.png')}
+            src={toImgPath('/banner/banner_01.png')}
             className="object-cover h-36 w-36 rounded-lg"
             alt=""
           />
@@ -168,7 +168,7 @@ const MobileHome: NextPage = () => {
 
       <section className="mb-16">
         <img
-          src={toCdnImgPath('/title_media.png')}
+          src={toImgPath('/title_media.png')}
           alt="多媒體"
           className="h-10 mb-6 mx-auto"
         />
@@ -199,7 +199,7 @@ const MobileHome: NextPage = () => {
       <section className="mb-10">
         <div className="px-10">
           <img
-            src={toCdnImgPath('/title_games.png')}
+            src={toImgPath('/title_games.png')}
             alt="推薦遊戲"
             className="h-10 object-contain w-full mb-4"
           />
@@ -229,7 +229,7 @@ const MobileHome: NextPage = () => {
       <section className="mb-10">
         <div className="px-10">
           <img
-            src={toCdnImgPath('/title_tiger.png')}
+            src={toImgPath('/title_tiger.png')}
             alt="老虎機"
             className="h-10 object-contain w-full mb-4"
           />
@@ -256,14 +256,10 @@ const MobileHome: NextPage = () => {
         </div>
       </section>
       <div className="flex space-x-3 justify-center">
-        <img src={toCdnImgPath('/fb.png')} className="cursor-pointer" alt="" />
+        <img src={toImgPath('/fb.png')} className="cursor-pointer" alt="" />
+        <img src={toImgPath('/line.png')} className="cursor-pointer" alt="" />
         <img
-          src={toCdnImgPath('/line.png')}
-          className="cursor-pointer"
-          alt=""
-        />
-        <img
-          src={toCdnImgPath('/youtube.png')}
+          src={toImgPath('/youtube.png')}
           className="cursor-pointer"
           alt=""
         />

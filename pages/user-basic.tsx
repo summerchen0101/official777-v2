@@ -5,7 +5,7 @@ import { YesNo } from '@/lib/enums'
 import useMe from '@/services/useMe'
 import useProfileUpdate from '@/services/useProfileUpdate'
 import useSms from '@/services/useSms'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -75,7 +75,7 @@ function UserBasic() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toCdnImgPath('/title_member.png')}
+              src={toImgPath('/title_member.png')}
               alt="會員資料"
               className="h-10"
             />

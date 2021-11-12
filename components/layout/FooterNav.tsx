@@ -1,4 +1,4 @@
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 
 function FooterNav() {
   return (
@@ -40,7 +40,7 @@ function FooterNav() {
             <div className="pt-3">
               <div className="h-20 p-2 rounded-sm flex items-center justify-center mx-auto">
                 <img
-                  src={toCdnImgPath('/company-logo.png')}
+                  src={toImgPath('/company-logo.png')}
                   className="h-full"
                   alt=""
                 />

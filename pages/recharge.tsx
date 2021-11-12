@@ -4,7 +4,7 @@ import { BiCreditCard, BiRightArrowAlt } from 'react-icons/bi'
 import cs from 'classnames'
 import PageBanner from '@/components/layout/PageBanner'
 import useRecharge from '@/services/useRecharge'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 function RechargePage() {
   const cvsList = [
     { label: '全家', img: '/recharge/logo_familyMart.png' },
@@ -48,7 +48,7 @@ function RechargePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div className="">
               <img
-                src={toCdnImgPath('/recharge/text_chooseStore.png')}
+                src={toImgPath('/recharge/text_chooseStore.png')}
                 className="h-7 mb-4"
                 alt=""
               />
@@ -56,7 +56,7 @@ function RechargePage() {
                 {cvsList.map((t, i) => (
                   <img
                     key={i}
-                    src={toCdnImgPath(t.img)}
+                    src={toImgPath(t.img)}
                     className="cursor-pointer"
                     alt=""
                   />
@@ -65,7 +65,7 @@ function RechargePage() {
             </div>
             <div className="">
               <img
-                src={toCdnImgPath('/recharge/text_chooseAmount.png')}
+                src={toImgPath('/recharge/text_chooseAmount.png')}
                 className="h-7 mb-4"
                 alt=""
               />

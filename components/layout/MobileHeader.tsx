@@ -1,5 +1,5 @@
 import { useStore } from '@/store/useStore'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import { HiMenu } from 'react-icons/hi'
@@ -15,7 +15,7 @@ function MobileHeader() {
       <header className="block lg:hidden group fixed top-0 w-full h-20 z-30 bg-purple-dark">
         <div className="bg-gradient-to-b from-purple-darkeset to-purple-dark/0 w-screen h-6 absolute bottom-0 -mb-6"></div>
         <img
-          src={toCdnImgPath('/logo.png')}
+          src={toImgPath('/logo.png')}
           alt=""
           className="cursor-pointer h-16 absolute m-2"
           onClick={() => router.push('/')}

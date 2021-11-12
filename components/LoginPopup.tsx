@@ -7,7 +7,7 @@ import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { OAuthChannel } from '@/lib/enums'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import useStorage from '@/utils/useStorage'
 
 type Inputs = {
@@ -87,28 +87,28 @@ export default function LoginPopup() {
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               onClick={() => handleOAuthLogin(OAuthChannel.Google)}
             >
-              <img src={toCdnImgPath('/icon_loginGoogle.png')} alt="" />
+              <img src={toImgPath('/icon_loginGoogle.png')} alt="" />
               <div className="flex-1 text-center">Google登入</div>
             </div>
             <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               // onClick={() => handleOAuthLogin(OAuthChannel.Google)}
             >
-              <img src={toCdnImgPath('/icon_loginApple.png')} alt="" />
+              <img src={toImgPath('/icon_loginApple.png')} alt="" />
               <div className="flex-1 text-center">Apple ID登入</div>
             </div>
             <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               onClick={() => handleOAuthLogin(OAuthChannel.Facebook)}
             >
-              <img src={toCdnImgPath('/icon_loginFacebook.png')} alt="" />
+              <img src={toImgPath('/icon_loginFacebook.png')} alt="" />
               <div className="flex-1 text-center">facebook登入</div>
             </div>
             <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               onClick={() => handleOAuthLogin(OAuthChannel.Line)}
             >
-              <img src={toCdnImgPath('/icon_loginLine.png')} alt="" />
+              <img src={toImgPath('/icon_loginLine.png')} alt="" />
               <div className="flex-1 text-center">Line登入</div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-const cdnUrl = process.env.NEXT_PUBLIC_CDN_URL
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
@@ -12,13 +11,12 @@ module.exports = {
         // 'top-4': 'center top 1rem',
       },
       backgroundImage: {
-        'main-pattern': `url(${cdnUrl + '/bg/main_bg.jpg'})`,
-        'login-btn': `url(${cdnUrl + '/login_btn.png'})`,
-        'login-btn-active': `url(${cdnUrl + '/login_btn_active.png'})`,
-        'logout-btn': `url(${cdnUrl + '/logout_btn.png'})`,
-        'logout-btn-active': `url(${cdnUrl + '/logout_btn_active.png'})`,
-        'slider-pager': `url(${cdnUrl + '/slider_pager.png'})`,
-        'slider-pager-active': `url(${cdnUrl + '/slider_pager_active.png'})`,
+        'login-btn': "url('/img/login_btn.png')",
+        'login-btn-active': "url('/img/login_btn_active.png')",
+        'logout-btn': "url('/img/logout_btn.png')",
+        'logout-btn-active': "url('/img/logout_btn_active.png')",
+        'slider-pager': "url('/img/slider_pager.png')",
+        'slider-pager-active': "url('/img/slider_pager_active.png')",
       },
       colors: {
         gold: {

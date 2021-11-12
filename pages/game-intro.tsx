@@ -3,7 +3,7 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import TabGroup from '@/components/TabGroup'
 import { useStore } from '@/store/useStore'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import { groupBy } from 'lodash'
 import React, { useMemo, useState } from 'react'
 
@@ -103,7 +103,7 @@ function GameIntro() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toCdnImgPath('/title_game_intro.png')}
+              src={toImgPath('/title_game_intro.png')}
               alt="遊戲說明"
               className="h-10"
             />
@@ -130,7 +130,7 @@ function GameIntro() {
                 onClick={() => showGamePopup({ title: t.name, content: '' })}
               >
                 <img
-                  src={toCdnImgPath(t.path)}
+                  src={toImgPath(t.path)}
                   className="object-cover object-center group-hover:scale-110 h-full w-full transition-all"
                   alt={t.name}
                 />

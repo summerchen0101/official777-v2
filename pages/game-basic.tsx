@@ -1,7 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import TabGroup from '@/components/TabGroup'
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import React, { useState } from 'react'
 
 const tabsMap = {
@@ -19,7 +19,7 @@ function GameBasic() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toCdnImgPath('/title_basic.png')}
+              src={toImgPath('/title_basic.png')}
               alt="基本介紹"
               className="h-10"
             />

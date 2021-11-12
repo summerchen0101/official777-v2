@@ -2,6 +2,7 @@ import { OptionType } from '@/types/index'
 import { format } from 'date-fns'
 import { StringMap } from '@/types'
 import numeral from 'numeral'
+import { imgBaseUrl } from '@/lib/config'
 
 export const toDate = (time: number, isUnix?: boolean) =>
   time && format(isUnix ? time * 1000 : time, 'yyyy-MM-dd')
@@ -52,6 +53,6 @@ export const reviewBase64Img = (base64Str: string) => {
   newWin?.document.close()
 }
 
-export const toCdnImgPath = (path: string) => {
-  return process.env.NEXT_PUBLIC_CDN_URL + path
+export const toImgPath = (path: string) => {
+  return imgBaseUrl + path
 }

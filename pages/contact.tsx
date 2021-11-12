@@ -1,7 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import useTicketCreate from '@/services/useTicketCreate'
-import { fileToDataUrl, toCdnImgPath } from '@/utils'
+import { fileToDataUrl, toImgPath } from '@/utils'
 import React, { useRef, useState } from 'react'
 import { BiCloudUpload } from 'react-icons/bi'
 import { CgSpinner } from 'react-icons/cg'
@@ -31,7 +31,7 @@ function ContactPage() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toCdnImgPath('/title_service.png')}
+              src={toImgPath('/title_service.png')}
               alt="聯繫客服"
               className="h-10"
             />

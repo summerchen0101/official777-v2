@@ -1,4 +1,4 @@
-import { toCdnImgPath } from '@/utils'
+import { toImgPath } from '@/utils'
 import cs from 'classnames'
 import { useState } from 'react'
 
@@ -12,19 +12,19 @@ function AppDownloadSideFloat() {
         isShowSidebar ? 'translate-x-0' : 'translate-x-[192px]',
       )}
     >
-      <img src={toCdnImgPath('/qrcode.png')} alt="" className="mb-3" />
-      <img src={toCdnImgPath('/scan_download.png')} alt="" />
+      <img src={toImgPath('/qrcode.png')} alt="" className="mb-3" />
+      <img src={toImgPath('/scan_download.png')} alt="" />
       <div className="space-y-1">
-        <img src={toCdnImgPath('/google_play.png')} alt="" className="" />
-        <img src={toCdnImgPath('/app_store.png')} alt="" className="" />
-        <img src={toCdnImgPath('/apk.png')} alt="" className="" />
-        <img src={toCdnImgPath('/win10.png')} alt="" className="" />
+        <img src={toImgPath('/google_play.png')} alt="" className="" />
+        <img src={toImgPath('/app_store.png')} alt="" className="" />
+        <img src={toImgPath('/apk.png')} alt="" className="" />
+        <img src={toImgPath('/win10.png')} alt="" className="" />
       </div>
       <div
         className="absolute top-0 left-0 mt-4 cursor-pointer w-12 h-44 -m-12 gold-box flex items-center justify-center rounded-l-xl"
         onClick={toggleSidebar}
       >
-        <img src={toCdnImgPath('/float-drawer-text.png')} alt="" />
+        <img src={toImgPath('/float-drawer-text.png')} alt="" />
         {/* {isShowSidebar ? (
           <BiX className="text-3xl" />
         ) : (
