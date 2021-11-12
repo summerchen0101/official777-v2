@@ -84,7 +84,7 @@ function ContactPage() {
                   </div>
                   <img
                     hidden={!reviewImg}
-                    src={toCdnImgPath(reviewImg)}
+                    src={reviewImg}
                     alt=""
                     className="h-full w-full object-contain absolute"
                   />
