@@ -15,7 +15,7 @@ function MobileHeader() {
       <header className="block lg:hidden group fixed top-0 w-full h-20 z-30 bg-purple-dark">
         <div className="bg-gradient-to-b from-purple-darkeset to-purple-dark/0 w-screen h-6 absolute bottom-0 -mb-6"></div>
         <img
-          src={toImgPath('/logo.png')}
+          src="/img/logo.png"
           alt=""
           className="cursor-pointer h-16 absolute m-2"
           onClick={() => router.push('/')}
