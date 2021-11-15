@@ -23,7 +23,7 @@ function HeaderNav() {
           <div className="bg-gradient-to-b from-purple-dark to-purple-dark/0 w-screen h-12 absolute bottom-0 -mb-12"></div>
           <div className="flex justify-center relative pl-32">
             <img
-              src="/logo.png"
+              src="/img/logo.png"
               alt=""
               className="cursor-pointer absolute lg:h-40 z-50 left-0 top-0 lg:-ml-20 xl:-ml-28 -mt-6 p-3"
               onClick={() => router.push('/')}
