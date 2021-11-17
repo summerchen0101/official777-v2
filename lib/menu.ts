@@ -9,7 +9,10 @@ export interface Menu {
 export const menu: Menu[] = [
   {
     label: '最新消息',
-    subs: [{ label: '公告', path: '/news' }],
+    subs: [
+      { label: '公告', path: '/news' },
+      { label: '懲罰名單', path: '/punishment' },
+    ],
   },
   {
     label: '遊戲介紹',
