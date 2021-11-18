@@ -6,7 +6,7 @@ import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { OAuthChannel } from '@/lib/enums'
+import { OAuthChannel, YesNo } from '@/lib/enums'
 import { toImgPath } from '@/utils'
 import useStorage from '@/utils/useStorage'
 
@@ -40,7 +40,7 @@ export default function LoginPopup() {
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
   const handleOAuthLogin = async (channel: OAuthChannel) => {
-    const res = await doOAuthLogin(channel)
+    const res = await doOAuthLogin(channel, { autoRedirect: YesNo.No })
     if (res?.ok) {
       location.href = res?.data
     }
