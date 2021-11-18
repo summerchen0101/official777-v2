@@ -7,7 +7,7 @@ import SlotRankTable from '@/components/SlotRankTable'
 import TabGroup from '@/components/TabGroup'
 import { rankTypeMap } from '@/lib/map'
 import usePunishmentList from '@/services/usePunishmentList'
-import { toDateTime } from '@/utils'
+import { toDateTime, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
 
@@ -31,7 +31,13 @@ function PunishmentPage() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          {/* <h1 className="text-2xl text-gray-200 mb-2">懲處名單</h1> */}
+          <div className="mb-6 flex justify-center lg:justify-start">
+            <img
+              src={toImgPath('/title_punishment.png')}
+              alt="懲罰名單"
+              className="h-10"
+            />
+          </div>
           <LoadingCover isLoading={isLoading}>
             <table className="w-full text-gray-500 shadow">
               <thead>
