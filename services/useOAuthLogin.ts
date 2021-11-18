@@ -1,12 +1,10 @@
-import { OAuthChannel } from '@/lib/enums'
+import { OAuthChannel, YesNo } from '@/lib/enums'
 import { ResBase } from '@/types'
 import useRequest from '@/utils/useRequest'
 import { useState } from 'react'
 
-export interface LoginReq {
-  // email: string
-  // password: string
-  // type: number
+export interface OAuthLoginReq {
+  autoRedirect: YesNo.No
 }
 
 export interface OAuthLoginRes extends ResBase {
@@ -16,11 +14,12 @@ export interface OAuthLoginRes extends ResBase {
 export default function useOAuthLogin() {
   const request = useRequest()
   const [isLoading, setIsLoading] = useState(false)
-  const handler = async (channel: OAuthChannel) => {
+  const handler = async (channel: OAuthChannel, data: OAuthLoginReq) => {
     setIsLoading(true)
     const res = await request<OAuthLoginRes>({
       method: 'get',
       url: `api/v1/${channel}/link`,
+      config: { params: data },
     })
     setIsLoading(false)
     return res
