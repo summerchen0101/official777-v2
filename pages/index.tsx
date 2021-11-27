@@ -12,20 +12,8 @@ const Index: NextPage = () => {
 
   useDevicePage('/home', '/mb/home')
   useEffect(() => {
-    if (router.query.accessToken) {
-      const res = router.query as unknown as LoginRes
-      setTokenInfo({
-        accessToken: res.accessToken,
-        refreshToken: res.refreshToken,
-        expiresIn: res.expiresIn,
-      })
-      if (router.query.to) {
-        router.push(router.query.to as string)
-      }
-    } else {
-      router.push('/home')
-    }
-  }, [router, setTokenInfo])
+    router.push('/home')
+  }, [router])
   return (
     <div className="flex justify-center items-center h-full">
       <CgSpinnerTwo className="text-white/30 animate-spin text-8xl" />
