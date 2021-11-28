@@ -10,6 +10,8 @@ interface PopupType {
 }
 interface IState {
   login: PopupType
+  transfer: PopupType
+  product: PopupType
 }
 
 const usePopupStore = create<IState>((set) => {
@@ -38,6 +40,8 @@ const usePopupStore = create<IState>((set) => {
   }
   return {
     login: createPopupGroup('login'),
+    transfer: createPopupGroup('transfer'),
+    product: createPopupGroup('product'),
   }
 })
 
