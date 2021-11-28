@@ -12,6 +12,7 @@ interface IState {
   login: PopupType
   transfer: PopupType
   product: PopupType
+  giftCard: PopupType
 }
 
 const usePopupStore = create<IState>((set) => {
@@ -42,6 +43,7 @@ const usePopupStore = create<IState>((set) => {
     login: createPopupGroup('login'),
     transfer: createPopupGroup('transfer'),
     product: createPopupGroup('product'),
+    giftCard: createPopupGroup('giftCard'),
   }
 })
 

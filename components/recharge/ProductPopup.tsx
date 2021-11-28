@@ -12,7 +12,7 @@ export default function RechargeProductPopup() {
         <table className="w-full rounded-lg overflow-hidden">
           <thead>
             <tr>
-              <th colSpan={2}>一、請選擇要購買的項目</th>
+              <th colSpan={2}>請選擇要購買的產包</th>
             </tr>
           </thead>
           <tbody>
