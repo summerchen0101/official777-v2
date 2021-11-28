@@ -139,3 +139,7 @@ section {
 .frame {
   @apply border-2 border-gold-500/30 rounded-lg;
 }
+
+.deposit-btn {
+  @apply bg-purple-900/50 hover:bg-purple-900 h-24 text-white/40 hover:text-white rounded flex items-center justify-center cursor-pointer text-xl;
+}

@@ -5,6 +5,7 @@ import cs from 'classnames'
 import PageBanner from '@/components/layout/PageBanner'
 import useRecharge from '@/services/useRecharge'
 import { toImgPath } from '@/utils'
+
 function RechargePage() {
   const cvsList = [
     { label: '全家', img: '/recharge/logo_familyMart.png' },
@@ -29,20 +30,14 @@ function RechargePage() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 rounded-md">
-            {[...Array(8)].map((t, i) => (
-              <div
-                key={i}
-                onClick={() => setSelectedCode(i)}
-                className={cs(
-                  'group flex items-center justify-center space-x-1 bg-purple-900   shadow-md h-12 rounded cursor-pointer border border-white/50 transition-all text-white',
-                  selectedCode === i && 'bg-yellow-500/90 text-black',
-                )}
-              >
-                <BiCreditCard className={cs('text-2xl mr-2')} />
-                <span className={cs('text-lg transition-all')}>超商代碼</span>
-              </div>
-            ))}
+          <div className="grid grid-cols-6 gap-4">
+            <div className="deposit-btn col-span-3">銀行轉帳</div>
+            <div className="deposit-btn col-span-3">超值產包</div>
+            <div className="deposit-btn col-span-2">實體產包</div>
+            <div className="deposit-btn col-span-2">電信支付</div>
+            <div className="deposit-btn col-span-2">信用卡支付</div>
+            <div className="deposit-btn col-span-3">MyCard免費抵扣</div>
+            <div className="deposit-btn col-span-3">MyCard線上轉點</div>
           </div>
           <div className="border-t-2 border-gold-500/30 my-6"></div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -76,7 +71,6 @@ function RechargePage() {
                       <th></th>
                       <th>金額</th>
                       <th>金幣數量</th>
-                      <th>VP</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -87,7 +81,6 @@ function RechargePage() {
                         </td>
                         <td>$2,000</td>
                         <td>1,200</td>
-                        <td>99</td>
                       </tr>
                     ))}
                   </tbody>

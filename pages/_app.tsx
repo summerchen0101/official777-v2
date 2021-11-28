@@ -37,6 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       if (router.query.to) {
         router.push(router.query.to as string)
       }
+      console.log('before clean')
       router.replace({ query: {} })
     }
   }, [router, setTokenInfo])

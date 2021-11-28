@@ -1,5 +1,6 @@
 import { menu } from '@/lib/menu'
 import useMe from '@/services/useMe'
+import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { toCurrency } from '@/utils'
@@ -14,7 +15,7 @@ function MobileMenu({ className }: { className?: string }) {
   const closeMbMenu = useStore((s) => s.closeMbMenu)
   const { data: user, isLoading } = useMe()
   const clearUser = useUserStore((s) => s.clearUser)
-  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
+  const onToggle = usePopupStore((s) => s.login.onToggle)
   const handleLogout = () => {
     clearUser()
     alert('登出成功')
@@ -50,7 +51,7 @@ function MobileMenu({ className }: { className?: string }) {
         </div>
       ) : (
         <div className="px-4 mb-6">
-          <button className="gold-btn w-full" onClick={toggleLoginPopup}>
+          <button className="gold-btn w-full" onClick={onToggle}>
             登入
           </button>
         </div>

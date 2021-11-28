@@ -9,6 +9,7 @@ import { YesNo } from '@/lib/enums'
 import { newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
+import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { toImgPath, toCurrency, toDateTime } from '@/utils'
 import cs from 'classnames'
@@ -31,7 +32,7 @@ const MobileHome: NextPage = () => {
   })
   const showNews = useStore((s) => s.showNews)
   const showGamePopup = useStore((s) => s.showGamePopup)
-  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
+  const onToggle = usePopupStore((s) => s.login.onToggle)
 
   const homeSlides: Slide[] = Array(8).fill({
     path: '/banner/banner_01.png',
@@ -76,7 +77,7 @@ const MobileHome: NextPage = () => {
         <button
           hidden={!!user}
           className="gold-btn w-full"
-          onClick={toggleLoginPopup}
+          onClick={onToggle}
         >
           登入
         </button>
