@@ -17,22 +17,43 @@ function RechargePage() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="grid grid-cols-6 gap-4">
-            <div className="deposit-btn col-span-3" onClick={onTransferShow}>
+          <div className="grid grid-cols-6 gap-6">
+            <div
+              className="deposit-btn col-span-6 md:col-span-3"
+              onClick={onTransferShow}
+            >
               銀行轉帳
             </div>
-            <div className="deposit-btn col-span-3" onClick={onProductShow}>
+            <div
+              className="deposit-btn col-span-6 md:col-span-3"
+              onClick={onProductShow}
+            >
               超值產包
             </div>
-            <div className="deposit-btn col-span-2" onClick={onGiftCardShow}>
+            <div
+              className="deposit-btn col-span-6 md:col-span-2"
+              onClick={onGiftCardShow}
+            >
               實體產包
             </div>
-            <div className="deposit-btn col-span-2" onClick={onTelephoneShow}>
+            <div
+              className="deposit-btn col-span-6 md:col-span-2"
+              onClick={onTelephoneShow}
+            >
               電信支付
             </div>
-            <div className="deposit-btn col-span-2">信用卡支付</div>
-            <div className="deposit-btn col-span-3">MyCard免費抵扣</div>
-            <div className="deposit-btn col-span-3">MyCard線上轉點</div>
+            <div className="deposit-btn col-span-6 md:col-span-2">
+              信用卡支付
+            </div>
+            <div className="deposit-btn col-span-6 md:col-span-2">
+              MyCard免費抵扣
+            </div>
+            <div className="deposit-btn col-span-6 md:col-span-2">
+              MyCard線上轉點
+            </div>
+            <div className="deposit-btn col-span-6 md:col-span-2">
+              MyCard序號
+            </div>
           </div>
         </div>
       </section>
