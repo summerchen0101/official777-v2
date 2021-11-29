@@ -153,3 +153,18 @@ section {
 .deposit-btn {
   @apply bg-purple-900/50 hover:bg-purple-900 h-24 text-white/40 hover:text-white rounded flex items-center justify-center cursor-pointer text-xl;
 }
+
+.rule {
+  @apply leading-relaxed text-gray-400;
+}
+
+.rule .title {
+  @apply font-bold text-3xl tracking-wider text-yellow-200 text-center mb-8;
+}
+
+.rule ol {
+  @apply ml-8 list-decimal list-outside;
+}
+.rule strong {
+  @apply font-bold text-white;
+}
