@@ -4,6 +4,11 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      listStyleType: {
+        square: 'square',
+        roman: 'upper-roman',
+        alpha: 'lower-alpha',
+      },
       zIndex: {
         '-1': '-1',
       },

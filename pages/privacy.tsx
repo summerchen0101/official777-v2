@@ -2,7 +2,7 @@ import React from 'react'
 
 function PrivacyPage() {
   return (
-    <section className="mt-16 rule">
+    <section className="rule">
       <div className="lg:w-[860px] mx-auto">
         <p className="title">隱私權政策</p>
         <p>

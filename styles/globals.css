@@ -155,7 +155,7 @@ section {
 }
 
 .rule {
-  @apply leading-relaxed text-gray-400;
+  @apply leading-relaxed text-gray-400 py-16 px-4;
 }
 
 .rule .title {
@@ -163,7 +163,13 @@ section {
 }
 
 .rule ol {
-  @apply ml-8 list-decimal list-outside;
+  @apply ml-4 sm:ml-6 list-decimal list-outside;
+}
+.rule ol ol {
+  @apply list-square;
+}
+.rule ol ol ol {
+  @apply list-alpha;
 }
 .rule strong {
   @apply font-bold text-white;
