@@ -178,14 +178,6 @@ function PrivacyPage() {
             </li>
           </ol>
         </ol>
-        <p>
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <br />
-        </p>
       </div>
     </section>
   )
