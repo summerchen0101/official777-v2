@@ -12,6 +12,10 @@ const Index: NextPage = () => {
 
   useDevicePage('/home', '/mb/home')
   useEffect(() => {
+    if (router.query.to) {
+      router.push(router.query.to as string)
+      return
+    }
     router.push('/home')
   }, [router])
   return (

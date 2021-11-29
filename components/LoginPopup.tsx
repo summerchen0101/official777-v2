@@ -9,6 +9,7 @@ import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import qs from 'query-string'
 
 type Inputs = {
   acc: string
@@ -40,7 +41,13 @@ export default function LoginPopup() {
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
   const handleOAuthLogin = async (channel: OAuthChannel) => {
-    const res = await doOAuthLogin(channel, { autoRedirect: YesNo.No })
+    const backTo = `${location.protocol}//${location.host}?${qs.stringify({
+      to: router.query.to,
+    })}`
+    const res = await doOAuthLogin(channel, {
+      autoRedirect: YesNo.No,
+      // backTo,
+    })
     if (res?.ok) {
       location.href = res?.data
     }
