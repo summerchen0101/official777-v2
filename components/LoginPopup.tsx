@@ -41,12 +41,14 @@ export default function LoginPopup() {
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
   const handleOAuthLogin = async (channel: OAuthChannel) => {
-    const backTo = `${location.protocol}//${location.host}?${qs.stringify({
+    // const backUrl = `${location.protocol}//${location.host}/${router.query.to}`
+    const backUrl = `${location.protocol}//${location.host}?${qs.stringify({
       to: router.query.to,
     })}`
+
     const res = await doOAuthLogin(channel, {
       autoRedirect: YesNo.No,
-      // backTo,
+      backUrl,
     })
     if (res?.ok) {
       location.href = res?.data
