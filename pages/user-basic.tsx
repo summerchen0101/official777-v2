@@ -85,32 +85,32 @@ function UserBasic() {
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
                   htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
+                  className="mb-2 w-44 lg:text-right text-gray-200"
                 >
                   玩家暱稱
                 </label>
-                <div className="flex flex-1 space-x-2">
-                  <input
-                    type="text"
-                    className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
-                    {...register('nickname', {
-                      required: { value: true, message: '不可為空' },
-                    })}
-                  />
-                  <div className="lg:w-36">
-                    <button className="btn btn-sm">復原</button>
+                <input
+                  type="text"
+                  className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
+                  {...register('nickname', {
+                    required: { value: true, message: '不可為空' },
+                  })}
+                />
+                {errors.nickname && (
+                  <div className="text-sm text-red-500">
+                    {errors.nickname.message}
                   </div>
-                </div>
+                )}
               </div>
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
                   htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
+                  className="mb-2 w-44 lg:text-right text-gray-200"
                 >
                   手機號碼綁定
                 </label>
-                <div className="flex flex-col lg:flex-row flex-1 flex-wrap">
-                  <div className="flex flex-1 space-x-2">
+                <div className="flex items-center space-x-2">
+                  <div className="flex space-x-2 flex-1 lg:w-96">
                     <select
                       className="rounded-sm border-none bg-gray-100 h-9 w-1/3"
                       {...register('phone_code', {
@@ -121,60 +121,69 @@ function UserBasic() {
                     </select>
                     <input
                       type="text"
-                      className="rounded-sm border-none bg-gray-100 flex-1 h-9"
+                      className="rounded-sm border-none bg-gray-100 h-9 flex-1"
                       {...register('phone', {
                         required: { value: true, message: '不可為空' },
                       })}
                     />
                   </div>
-                  <div className="lg:w-36 mt-2 lg:mt-0 lg:ml-2">
-                    {data?.phoneVerified === YesNo.Yes && (
-                      <p className="text-green-500">已綁定</p>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              {data?.phoneVerified === YesNo.Yes && (
-                <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                  <label
-                    htmlFor=""
-                    className="mb-2 w-36 lg:text-right text-gray-200"
+                  <p
+                    hidden={data?.phoneVerified === YesNo.No}
+                    className="bg-purple-600 rounded px-1 text-white"
                   >
-                    驗證碼
-                  </label>
-                  <div className="flex items-center space-x-2">
-                    <input
-                      type="text"
-                      className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
-                      {...register('code', {
-                        required: { value: true, message: '不可為空' },
-                      })}
-                      placeholder="請輸入驗證碼"
-                    />
-                    <div className="w-36">
-                      <button
-                        type="button"
-                        className="btn btn-sm"
-                        onClick={onSendSms}
-                      >
-                        發送驗證碼
-                      </button>
-                    </div>
-                  </div>
+                    已綁定
+                  </p>
                 </div>
-              )}
+                {errors.phone && (
+                  <div className="text-sm text-red-500">
+                    {errors.phone.message}
+                  </div>
+                )}
+              </div>
 
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
                   htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
+                  className="mb-2 w-44 lg:text-right text-gray-200"
+                >
+                  驗證碼
+                </label>
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="text"
+                    className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
+                    {...register('code', {
+                      required: { value: true, message: '不可為空' },
+                    })}
+                    placeholder="請輸入驗證碼"
+                  />
+                  <div>
+                    <button
+                      type="button"
+                      className="btn btn-sm"
+                      onClick={onSendSms}
+                    >
+                      發送驗證碼
+                    </button>
+                  </div>
+                </div>
+                {errors.code && (
+                  <div className="text-sm text-red-500">
+                    {errors.code.message}
+                  </div>
+                )}
+              </div>
+
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+                <label
+                  htmlFor=""
+                  className="mb-2 w-44 lg:text-right text-gray-200"
                 >
                   電子信箱
                 </label>
                 <input
                   type="text"
-                  className="rounded-sm border-none bg-gray-100 flex-1 h-9"
+                  className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
                   {...register('email', {
                     required: { value: true, message: '不可為空' },
                     pattern: {
@@ -183,7 +192,11 @@ function UserBasic() {
                     },
                   })}
                 />
-                {/* <div className="w-32"></div> */}
+                {errors.email && (
+                  <div className="text-sm text-red-500">
+                    {errors.email.message}
+                  </div>
+                )}
               </div>
 
               <div className="pt-3 text-center space-x-5 flex justify-center">

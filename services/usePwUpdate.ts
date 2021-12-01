@@ -3,7 +3,7 @@ import useRequest, { apiPath } from '@/utils/useRequest'
 import { useState } from 'react'
 
 export interface RechargeReq {
-  new_password?: string
+  newPassword?: string
   newSecondPassword?: string
   answer: string
 }
