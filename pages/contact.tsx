@@ -29,6 +29,9 @@ function ContactPage() {
   const [reviewImg, setReviewImg] = useState('')
   const onSubmit = handleSubmit(async (d) => {
     const formData = new FormData(formRef.current || undefined)
+    if (!d.attachment) {
+      formData.delete('attachment')
+    }
     const res = await doCreate(formData)
     if (res?.ok) {
       setReviewImg('')
