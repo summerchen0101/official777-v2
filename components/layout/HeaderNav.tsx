@@ -1,4 +1,5 @@
 import { menu } from '@/lib/menu'
+import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { Menu } from '@/types'
@@ -10,11 +11,11 @@ import MobileHeader from './MobileHeader'
 function HeaderNav() {
   const router = useRouter()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
-  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
+  const onToggle = usePopupStore((s) => s.login.onToggle)
 
   const handleAuthLogin = (menu: Menu) => {
     router.replace({ query: { to: menu.path } })
-    toggleLoginPopup()
+    onToggle()
   }
   return (
     <>

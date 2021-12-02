@@ -37,7 +37,7 @@ function UserPw() {
     try {
       const res = await doUpdate({
         answer: d.code,
-        new_password: d.new_pw,
+        newPassword: d.new_pw,
       })
       if (res?.ok) {
         alert('密碼更新成功')
@@ -64,13 +64,14 @@ function UserPw() {
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
                   htmlFor=""
-                  className="w-36 mb-2 lg:text-right text-gray-200"
+                  className="w-44 mb-2 lg:text-right text-gray-200"
                 >
                   新密碼
                 </label>
                 <input
                   type="password"
-                  className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
+                  className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
+                  placeholder="中英文6~12位"
                   {...register('new_pw', {
                     required: { value: true, message: '不可為空' },
                     pattern: {
@@ -79,9 +80,9 @@ function UserPw() {
                     },
                   })}
                 />
-                <p className="lg:w-36 text-gold-400 text-sm mt-2 lg:mt-0">
+                {/* <p className="lg:w-36 text-gold-400 text-sm mt-2 lg:mt-0">
                   ＊中英文6~12位
-                </p>
+                </p> */}
 
                 {errors.new_pw && (
                   <div className="text-sm text-red-500">
@@ -93,13 +94,13 @@ function UserPw() {
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
                   htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
+                  className="mb-2 w-44 lg:text-right text-gray-200"
                 >
                   新密碼確認
                 </label>
                 <input
                   type="password"
-                  className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
+                  className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
                   {...register('new_pw_confirm', {
                     required: { value: true, message: '不可為空' },
                     validate: (val) => {
@@ -108,7 +109,6 @@ function UserPw() {
                     },
                   })}
                 />
-                <div className="lg:w-36"></div>
                 {errors.new_pw_confirm && (
                   <div className="text-sm text-red-500">
                     {errors.new_pw_confirm.message}
@@ -119,20 +119,20 @@ function UserPw() {
               <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
                 <label
                   htmlFor=""
-                  className="mb-2 w-36 lg:text-right text-gray-200"
+                  className="mb-2 w-44 lg:text-right text-gray-200"
                 >
                   驗證碼
                 </label>
                 <div className="flex items-center space-x-2">
                   <input
                     type="text"
-                    className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-72"
+                    className="rounded-sm border-none bg-gray-100 flex-1 h-9 lg:w-96"
                     {...register('code', {
                       required: { value: true, message: '不可為空' },
                     })}
                     placeholder="請輸入驗證碼"
                   />
-                  <div className="w-36">
+                  <div>
                     <button
                       type="button"
                       className="btn btn-sm"
@@ -142,6 +142,11 @@ function UserPw() {
                     </button>
                   </div>
                 </div>
+                {errors.code && (
+                  <div className="text-sm text-red-500">
+                    {errors.code.message}
+                  </div>
+                )}
               </div>
               <div className="pt-3 text-center space-x-5 flex justify-center">
                 <button className="btn w-40" onClick={() => reset()}>

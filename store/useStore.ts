@@ -25,9 +25,6 @@ interface IState {
   gameInfo: Game | null
   showGamePopup: (gameInfo: Game) => void
   closeGamePopup: () => void
-
-  isShowLoginPopup: boolean
-  toggleLoginPopup: () => void
 }
 
 export const useStore = create<IState>((set) => ({
@@ -52,8 +49,4 @@ export const useStore = create<IState>((set) => ({
   gameInfo: null,
   showGamePopup: (gameInfo) => set({ isShowGamePopup: true, gameInfo }),
   closeGamePopup: () => set({ isShowGamePopup: false }),
-
-  isShowLoginPopup: false,
-  toggleLoginPopup: () =>
-    set((state) => ({ isShowLoginPopup: !state.isShowLoginPopup })),
 }))

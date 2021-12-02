@@ -46,7 +46,7 @@ export const menu: Menu[] = [
     label: '客服中心',
     subs: [
       { label: '常見問題', path: '/faq' },
-      { label: '聯繫客服', path: '/contact' },
+      { label: '聯繫客服', path: '/contact', needAuth: true },
       { label: '表單下載', path: '/files' },
     ],
   },
