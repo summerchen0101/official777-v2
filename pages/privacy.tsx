@@ -1,6 +1,9 @@
+import Layout from '@/components/layout/Layout'
+import PageBanner from '@/components/layout/PageBanner'
+import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 
-function PrivacyPage() {
+function Privacy() {
   return (
     <section className="rule">
       <div className="lg:w-[860px] mx-auto">
@@ -180,6 +183,19 @@ function PrivacyPage() {
       </div>
     </section>
   )
+}
+
+function PrivacyPage() {
+  const router = useRouter()
+  if (router.query.layout) {
+    return (
+      <Layout>
+        <PageBanner />
+        <Privacy />
+      </Layout>
+    )
+  }
+  return <Privacy />
 }
 
 export default PrivacyPage

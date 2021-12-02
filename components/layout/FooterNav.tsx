@@ -1,4 +1,5 @@
 import { toImgPath } from '@/utils'
+import Link from 'next/link'
 
 function FooterNav() {
   return (
@@ -9,9 +10,11 @@ function FooterNav() {
             <div className="cursor-pointer px-4 hover:text-gold-300">
               使用者合約
             </div>
-            <div className="cursor-pointer px-4 hover:text-gold-300">
-              隱私權保護
-            </div>
+            <Link href={{ pathname: '/privacy', query: { layout: 1 } }}>
+              <a className="cursor-pointer px-4 hover:text-gold-300">
+                隱私權政策
+              </a>
+            </Link>
             <div className="cursor-pointer px-4 hover:text-gold-300">
               需求配備
             </div>
