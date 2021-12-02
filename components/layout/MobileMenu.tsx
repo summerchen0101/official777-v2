@@ -1,5 +1,6 @@
 import { menu } from '@/lib/menu'
 import useMe from '@/services/useMe'
+import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { toCurrency } from '@/utils'
@@ -14,7 +15,7 @@ function MobileMenu({ className }: { className?: string }) {
   const closeMbMenu = useStore((s) => s.closeMbMenu)
   const { data: user, isLoading } = useMe()
   const clearUser = useUserStore((s) => s.clearUser)
-  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
+  const onToggle = usePopupStore((s) => s.login.onToggle)
   const handleLogout = () => {
     clearUser()
     alert('登出成功')
@@ -27,35 +28,6 @@ function MobileMenu({ className }: { className?: string }) {
         className,
       )}
     >
-      {/* {user ? (
-        <div className="grid grid-cols-2 gap-2 mb-4 mx-4">
-          <div className="space-y-2 flex flex-col">
-            <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
-              <FaUser className="text-xl text-purple-500" />
-              <div className="text-gray-300 font-medium">{user?.nickname}</div>
-            </div>
-            <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
-              <HiCurrencyDollar className="text-2xl text-gold-500 -ml-1" />
-              <div className="text-gray-300 font-medium">
-                {toCurrency(user?.coin || 0, 0)}
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col space-y-2">
-            <div className="btn active">我要儲值</div>
-            <div className="btn" onClick={handleLogout}>
-              登 出
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="px-4 mb-6">
-          <button className="gold-btn w-full" onClick={toggleLoginPopup}>
-            登入
-          </button>
-        </div>
-      )} */}
-
       <div className="">
         {menu.map((m, i) => (
           <div key={i}>

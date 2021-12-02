@@ -55,6 +55,16 @@ html {
   } */
 }
 
+.box {
+  @apply w-full sm:w-auto text-gray-800 rounded-lg overflow-hidden;
+}
+.box-title {
+  @apply text-gray-900 bg-gradient-to-b from-gold-400 to-gold-600 px-3 py-2.5 font-medium;
+}
+.box-content {
+  @apply p-5 text-gray-700 bg-gray-200;
+}
+
 .tab {
   @apply text-white bg-purple-900 rounded px-4 py-1.5 cursor-pointer text-lg w-32 text-center tracking-wider font-medium border border-white/70;
 }
@@ -77,8 +87,8 @@ html {
   @apply bg-gray-600 text-gray-400 border-gray-500 hover:bg-gray-600;
 }
 
-.gold-btn {
-  @apply bg-gradient-to-br from-gold-500 to-gold-300 p-2.5 text-center rounded text-lg tracking-wider border-2 border-white/50;
+.orange-btn {
+  @apply bg-gradient-to-br from-yellow-600 to-yellow-500 p-2.5 text-center rounded-lg text-lg tracking-wider border-2 border-white/30 cursor-pointer text-white;
 }
 .silver-btn {
   @apply bg-gradient-to-br from-gray-500  to-gray-300 p-2.5 text-center rounded text-lg tracking-wider border-2 border-white/50;
@@ -138,4 +148,29 @@ section {
 
 .frame {
   @apply border-2 border-gold-500/30 rounded-lg;
+}
+
+.deposit-btn {
+  @apply bg-purple-900/50 hover:bg-purple-900 h-24 text-white/40 hover:text-white rounded flex items-center justify-center cursor-pointer text-xl;
+}
+
+.rule {
+  @apply leading-relaxed text-gray-400 py-16 px-4;
+}
+
+.rule .title {
+  @apply font-bold text-3xl tracking-wider text-yellow-200 text-center mb-8;
+}
+
+.rule ol {
+  @apply ml-4 sm:ml-6 list-decimal list-outside;
+}
+.rule ol ol {
+  @apply list-square;
+}
+.rule ol ol ol {
+  @apply list-alpha;
+}
+.rule strong {
+  @apply font-bold text-white;
 }

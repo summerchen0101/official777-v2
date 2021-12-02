@@ -1,26 +1,28 @@
+import { useUserStore } from '@/store/useUserStore'
 import { toImgPath } from '@/utils'
+import Link from 'next/link'
 
 function FooterNav() {
+  const token = useUserStore((s) => s.tokenInfo?.accessToken)
   return (
     <footer>
       <div className="bg-black/50">
         <div className="lg:w-[860px] mx-auto">
           <div className="grid grid-cols-2 gap-y-3 lg:flex justify-center lg:divide-x divide-gray-500 text-gray-300 py-4 px-8">
-            <div className="cursor-pointer px-4 hover:text-gold-300">
-              使用者合約
-            </div>
-            <div className="cursor-pointer px-4 hover:text-gold-300">
-              隱私權保護
-            </div>
-            <div className="cursor-pointer px-4 hover:text-gold-300">
-              需求配備
-            </div>
-            <div className="cursor-pointer px-4 hover:text-gold-300">
-              合作提案
-            </div>
-            <div className="cursor-pointer px-4 hover:text-gold-300">
-              聯絡我們
-            </div>
+            <Link href={{ pathname: '/rules', query: { layout: 1 } }}>
+              <a className="px-4">服務條款</a>
+            </Link>
+            <Link href={{ pathname: '/privacy', query: { layout: 1 } }}>
+              <a className="px-4">隱私權政策</a>
+            </Link>
+            <Link href="/equipment">
+              <a className="px-4">需求配備</a>
+            </Link>
+            <Link href={{ pathname: '/contact', query: { layout: 1 } }}>
+              <a hidden={!token} className="px-4">
+                聯絡我們
+              </a>
+            </Link>
           </div>
         </div>
         <div className="bg-black/80">

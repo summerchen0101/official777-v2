@@ -5,6 +5,7 @@ import { useState } from 'react'
 
 export interface OAuthLoginReq {
   autoRedirect: YesNo.No
+  backUrl: string
 }
 
 export interface OAuthLoginRes extends ResBase {

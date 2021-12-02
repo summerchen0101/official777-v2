@@ -1,14 +1,15 @@
-import useOAuthLogin from '@/services/useOAuthLogin'
-import useLogin from '@/services/useLogin'
-import { useStore } from '@/store/useStore'
-import { useUserStore } from '@/store/useUserStore'
-import cs from 'classnames'
-import { useRouter } from 'next/dist/client/router'
-import React, { useEffect, useState } from 'react'
-import { useForm } from 'react-hook-form'
 import { OAuthChannel, YesNo } from '@/lib/enums'
+import useLogin from '@/services/useLogin'
+import useOAuthLogin from '@/services/useOAuthLogin'
+import usePopupStore from '@/store/usePopupStore'
+import { useUserStore } from '@/store/useUserStore'
 import { toImgPath } from '@/utils'
 import useStorage from '@/utils/useStorage'
+import cs from 'classnames'
+import { useRouter } from 'next/dist/client/router'
+import React, { useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import qs from 'query-string'
 
 type Inputs = {
   acc: string
@@ -28,19 +29,27 @@ export default function LoginPopup() {
   const [isRemember, setIsRemember] = useStorage('isRemember', false)
   const [cacheAcc, setCacheAcc] = useStorage('cacheAcc', '')
 
-  const isShowLoginPopup = useStore((s) => s.isShowLoginPopup)
-  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
+  const isShow = usePopupStore((s) => s.login.isShow)
+  const onToggle = usePopupStore((s) => s.login.onToggle)
   const { handler: doOAuthLogin } = useOAuthLogin()
 
   useEffect(() => {
-    if (isShowLoginPopup) {
+    if (isShow) {
       setValue('acc', cacheAcc)
     }
-  }, [cacheAcc, setValue, isShowLoginPopup])
+  }, [cacheAcc, setValue, isShow])
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
   const handleOAuthLogin = async (channel: OAuthChannel) => {
-    const res = await doOAuthLogin(channel, { autoRedirect: YesNo.No })
+    // const backUrl = `${location.protocol}//${location.host}/${router.query.to}`
+    const backUrl = `${location.protocol}//${location.host}?${qs.stringify({
+      to: router.query.to,
+    })}`
+
+    const res = await doOAuthLogin(channel, {
+      autoRedirect: YesNo.No,
+      backUrl,
+    })
     if (res?.ok) {
       location.href = res?.data
     }
@@ -59,7 +68,7 @@ export default function LoginPopup() {
         expiresIn: res.expiresIn,
       })
       reset({ acc: '', pw: '' })
-      toggleLoginPopup()
+      onToggle()
       alert('登入成功')
       if (router.query.to) {
         router.push(router.query.to as string)
@@ -70,9 +79,9 @@ export default function LoginPopup() {
     <div
       className={cs(
         'fixed top-0 left-0 w-full h-full z-50 transition-all flex justify-center items-center',
-        isShowLoginPopup ? 'visible opacity-100' : 'invisible opacity-0',
+        isShow ? 'visible opacity-100' : 'invisible opacity-0',
       )}
-      onMouseDown={toggleLoginPopup}
+      onMouseDown={onToggle}
     >
       <div
         className="w-full h-full lg:h-auto lg:w-[360px] bg-white lg:rounded-xl overflow-hidden border border-purple-800/90"
@@ -157,10 +166,7 @@ export default function LoginPopup() {
               <button className="btn active w-full" onClick={onSubmit}>
                 登入
               </button>
-              <button
-                className="btn w-full lg:hidden"
-                onClick={toggleLoginPopup}
-              >
+              <button className="btn w-full lg:hidden" onClick={onToggle}>
                 取消
               </button>
             </div>

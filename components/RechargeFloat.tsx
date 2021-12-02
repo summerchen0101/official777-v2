@@ -1,4 +1,5 @@
 import useMe from '@/services/useMe'
+import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { toImgPath, toCurrency } from '@/utils'
@@ -8,7 +9,7 @@ import { FaUserCircle } from 'react-icons/fa'
 function RechargeFloat() {
   const router = useRouter()
   const clearUser = useUserStore((s) => s.clearUser)
-  const toggleLoginPopup = useStore((s) => s.toggleLoginPopup)
+  const onToggle = usePopupStore((s) => s.login.onToggle)
   const { data: user, isLoading } = useMe()
   const handleLogout = () => {
     clearUser()
@@ -66,7 +67,7 @@ function RechargeFloat() {
       ) : (
         <div
           className="self-center h-12 w-full bg-contain bg-center bg-no-repeat bg-login-btn hover:bg-login-btn-active absolute -bottom-6 cursor-pointer"
-          onClick={toggleLoginPopup}
+          onClick={onToggle}
         />
       )}
     </div>
