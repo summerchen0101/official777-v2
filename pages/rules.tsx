@@ -1,6 +1,9 @@
+import Layout from '@/components/layout/Layout'
+import PageBanner from '@/components/layout/PageBanner'
+import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 
-function RulesPage() {
+function Rules() {
   return (
     <section className="rule">
       <div className="lg:w-[860px] mx-auto">
@@ -127,7 +130,7 @@ function RulesPage() {
         <p>二、進行本遊戲服務之最低軟硬體需求</p>
         <p>IOS系統：10以上</p>
         <p>
-          Android系統：&nbsp;8.0以上
+          Android系統：8.0以上
           <br /> CPU：雙核以上
         </p>
         <p>記憶體：2G以上</p>
@@ -860,6 +863,19 @@ function RulesPage() {
       </div>
     </section>
   )
+}
+
+function RulesPage() {
+  const router = useRouter()
+  if (router.query.layout) {
+    return (
+      <Layout>
+        <PageBanner />
+        <Rules />
+      </Layout>
+    )
+  }
+  return <Rules />
 }
 
 export default RulesPage
