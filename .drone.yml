@@ -1,0 +1,84 @@
+kind: pipeline
+type:
+name: official-web
+
+steps:
+  - name: docker_dev
+    image: reg.ffglobaltech.com/plugins/docker
+    privileged: true
+    environment:
+      ACCESS_TOKEN:
+        from_secret: git_token
+    settings:
+      repo: reg.ffglobaltech.com/official
+      use_cache: true
+      tags: latest
+      dockerfile: ./dockerfile
+      build_args_from_env:
+        - ACCESS_TOKEN
+      build_args:
+        - USER=drone.robot
+    when:
+      branch:
+        - dev
+
+  - name: configMap
+    image: reg.ffglobaltech.com/drone-plugin-kube:0.2.0
+    settings:
+      namespace: official-web
+      template: ./deployments/helm/cm.yaml
+      configmap_file: ./deployments/config/env.json
+      ca:
+        from_secret: k8s_cert
+      server:
+        from_secret: k8s_server
+      token:
+        from_secret: k8s_token
+    depends_on:
+      - docker_dev
+    when:
+      branch: dev
+
+  - name: docker_gcr
+    image: reg.ffglobaltech.com/plugins/gcr
+    privileged: true
+    environment:
+      ACCESS_TOKEN:
+        from_secret: git_token
+    settings:
+      registry: gcr.io
+      repo: megarich/official
+      tags: ${DRONE_TAG}
+      dockerfile: ./dockerfile
+      json_key:
+        from_secret: google_credentials
+      build_args_from_env:
+        - ACCESS_TOKEN
+      build_args:
+        - USER=drone.robot
+    when:
+      event: tag
+
+      
+  - name: deploy
+    image: reg.ffglobaltech.com/drone-helm3
+    settings:
+      add_repos: "megarich=https://helm.ffglobaltech.com/"
+      mode: upgrade
+      chart: megarich/official
+      release: official
+      skip_tls_verify: true
+      debug: true
+      values_files: "./deployments/helm/official-values.yaml"
+    environment:
+      wait_for_upgrade: true
+      KUBE_API_SERVER:
+        from_secret: k8s_server
+      KUBE_TOKEN:
+        from_secret: k8s_token
+      kube_certificate:
+        from_secret: k8s_cert
+    depends_on:
+      - configMap
+    when:
+      branch: dev
