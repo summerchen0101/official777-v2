@@ -23,14 +23,16 @@ function TableSelector({ isLoading, list = [], value, onChange }: Props) {
         </thead>
         <tbody>
           {list?.map((t) => (
-            <tr key={t.ItemId}>
+            <tr
+              key={t.ItemId}
+              onClick={(e) => onChange(t.ItemId)}
+              className="cursor-pointer"
+            >
               <td>
                 <input
                   type="radio"
-                  name="productID"
                   checked={value === t.ItemId}
-                  value={t.ItemId}
-                  onChange={(e) => onChange(+e.target.value)}
+                  onChange={() => {}}
                 />
               </td>
               <td>${toCurrency(t.Price)}</td>
