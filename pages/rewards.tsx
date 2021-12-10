@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import Loading from '@/components/Loading'
+import LoadingCover from '@/components/LoadingCover'
 import MySelect from '@/components/MySelect'
 import TabGroup from '@/components/TabGroup'
 import { RewardReceiveType, RewardStatus } from '@/lib/enums'
@@ -64,57 +65,51 @@ function RewardsPage() {
             value={activeTab}
             onChange={setActiveTab}
           />
-          <div>
-            {isLoading ? (
-              <Loading />
-            ) : (
-              <table className="w-full text-gray-500 shadow">
-                <thead>
-                  <tr>
-                    <th className="w-1/3 text-center">領獎期限</th>
-                    <th>中獎獎項</th>
-                    <th className="w-1/3">領獎方式</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currentList?.map((t, i) => (
-                    <tr key={i}>
-                      <td className="text-center">
-                        {toDateTime(t.receiveDate)}
+          <LoadingCover isLoading={isLoading}>
+            <table className="w-full text-gray-500 shadow">
+              <thead>
+                <tr>
+                  <th className="w-1/3 text-center">領獎期限</th>
+                  <th>中獎獎項</th>
+                  <th className="w-1/3">領獎方式</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentList?.map((t, i) => (
+                  <tr key={i}>
+                    <td className="text-center">{toDateTime(t.receiveDate)}</td>
+                    <td>{t.reward.name}</td>
+                    {t.rewardStatus === RewardStatus.Processing ? (
+                      <td>客服受理中</td>
+                    ) : t.rewardStatus === RewardStatus.Received ? (
+                      <td>
+                        <button
+                          className="btn btn-sm active"
+                          onClick={() =>
+                            handleReceive(t, RewardReceiveType.Normal)
+                          }
+                        >
+                          領取
+                        </button>
                       </td>
-                      <td>{t.reward.name}</td>
-                      {t.rewardStatus === RewardStatus.Processing ? (
-                        <td>客服受理中</td>
-                      ) : t.rewardStatus === RewardStatus.Received ? (
-                        <td>
-                          <button
-                            className="btn btn-sm active"
-                            onClick={() =>
-                              handleReceive(t, RewardReceiveType.Normal)
-                            }
-                          >
-                            領取
-                          </button>
-                        </td>
-                      ) : (
-                        <td className="flex space-x-2">
-                          <button className="btn btn-sm">下載領獎單</button>
-                          <button
-                            className="btn btn-sm active"
-                            onClick={() =>
-                              handleReceive(t, RewardReceiveType.GameCoin)
-                            }
-                          >
-                            換成遊戲幣
-                          </button>
-                        </td>
-                      )}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
-          </div>
+                    ) : (
+                      <td className="flex space-x-2">
+                        <button className="btn btn-sm">下載領獎單</button>
+                        <button
+                          className="btn btn-sm active"
+                          onClick={() =>
+                            handleReceive(t, RewardReceiveType.GameCoin)
+                          }
+                        >
+                          換成遊戲幣
+                        </button>
+                      </td>
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </LoadingCover>
         </div>
       </section>
     </Layout>
