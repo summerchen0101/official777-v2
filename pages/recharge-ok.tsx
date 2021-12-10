@@ -5,11 +5,14 @@ import { useInterval } from 'usehooks-ts'
 export default function RechargeOk() {
   const [count, setCount] = useState(5)
 
+  const handleClose = () => {
+    window.opener.location.href = '/recharge-rec'
+    self.close()
+  }
+
   useInterval(() => {
     if (count === 0) {
-      window.opener.location.href = '/recharge-rec'
-      self.close()
-      // window.close()
+      handleClose()
     } else {
       setCount((c) => c - 1)
     }
@@ -23,7 +26,7 @@ export default function RechargeOk() {
         <div className="flex gap-1">
           <div className="text-gray-300">{count}s</div>後自動跳轉到儲值頁
         </div>
-        <div className="btn btn-sm mt-8" onClick={() => window.close()}>
+        <div className="btn btn-sm mt-8" onClick={handleClose}>
           返回
         </div>
       </div>
