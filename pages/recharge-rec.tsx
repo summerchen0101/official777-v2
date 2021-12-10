@@ -2,7 +2,7 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import Loading from '@/components/Loading'
 import useAuth from '@/hooks/useAuth'
-import { paymentGatewayMap, paymentStatusMap } from '@/lib/map'
+import { paymentGatewayMap, paymentStatusMap, payTypeMap } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
 import { toImgPath, toCurrency, toDateTime } from '@/utils'
 import React from 'react'
@@ -42,19 +42,20 @@ function RechargeRec() {
               <tbody>
                 {list?.map((t) => (
                   <tr key={t.ID}>
-                    <td>{paymentGatewayMap[t.paymentGateway]}</td>
-                    <td>{toDateTime(t.createdAtMs)}</td>
+                    {/* <td>{paymentGatewayMap[t.PaymentGateway]}</td> */}
+                    <td>{payTypeMap[t.PayType]}</td>
+                    <td>{toDateTime(t.CreatedAtMs)}</td>
                     <td
                       className={cs({
-                        'text-red-500': t.paymentStatus === PaymentStatus.Fail,
+                        'text-red-500': t.PaymentStatus === PaymentStatus.Fail,
                         'text-green-500':
-                          t.paymentStatus === PaymentStatus.Success,
+                          t.PaymentStatus === PaymentStatus.Success,
                       })}
                     >
-                      {paymentStatusMap[t.paymentStatus]}
+                      {paymentStatusMap[t.PaymentStatus]}
                     </td>
                     <td className="text-lg text-purple-700">
-                      ${toCurrency(t.priceAmountMicros)}
+                      ${toCurrency(t.PriceAmountMicros)}
                     </td>
                   </tr>
                 ))}
