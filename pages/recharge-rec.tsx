@@ -43,7 +43,7 @@ function RechargeRec() {
                 {list?.map((t) => (
                   <tr key={t.ID}>
                     {/* <td>{paymentGatewayMap[t.PaymentGateway]}</td> */}
-                    <td>{payTypeMap[t.PayType]}</td>
+                    <td>{payTypeMap[t.PayType] || '-'}</td>
                     <td>{toDateTime(t.CreatedAtMs)}</td>
                     <td
                       className={cs({
