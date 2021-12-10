@@ -71,7 +71,7 @@ function useRewardList({
   )
 
   return {
-    list: data?.records,
+    list: data?.records || [],
     paginator: data?.pagination,
     isLoading: isValidating,
   }

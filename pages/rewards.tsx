@@ -47,7 +47,6 @@ function RewardsPage() {
   useEffect(() => {
     setActiveTab((router.query.tab as string) || '1')
   }, [router.query.tab])
-
   return (
     <Layout>
       <PageBanner />
@@ -74,40 +73,50 @@ function RewardsPage() {
                   <th className="w-1/3">領獎方式</th>
                 </tr>
               </thead>
-              <tbody>
-                {currentList?.map((t, i) => (
-                  <tr key={i}>
-                    <td className="text-center">{toDateTime(t.receiveDate)}</td>
-                    <td>{t.reward.name}</td>
-                    {t.rewardStatus === RewardStatus.Processing ? (
-                      <td>客服受理中</td>
-                    ) : t.rewardStatus === RewardStatus.Received ? (
-                      <td>
-                        <button
-                          className="btn btn-sm active"
-                          onClick={() =>
-                            handleReceive(t, RewardReceiveType.Normal)
-                          }
-                        >
-                          領取
-                        </button>
-                      </td>
-                    ) : (
-                      <td className="flex space-x-2">
-                        <button className="btn btn-sm">下載領獎單</button>
-                        <button
-                          className="btn btn-sm active"
-                          onClick={() =>
-                            handleReceive(t, RewardReceiveType.GameCoin)
-                          }
-                        >
-                          換成遊戲幣
-                        </button>
-                      </td>
-                    )}
+              {list?.length === 0 || currentList?.length === 0 ? (
+                <tbody>
+                  <tr>
+                    <td colSpan={3}>尚無資料</td>
                   </tr>
-                ))}
-              </tbody>
+                </tbody>
+              ) : (
+                <tbody>
+                  {currentList?.map((t, i) => (
+                    <tr key={i}>
+                      <td className="text-center">
+                        {toDateTime(t.receiveDate)}
+                      </td>
+                      <td>{t.reward.name}</td>
+                      {t.rewardStatus === RewardStatus.Processing ? (
+                        <td>客服受理中</td>
+                      ) : t.rewardStatus === RewardStatus.Received ? (
+                        <td>
+                          <button
+                            className="btn btn-sm active"
+                            onClick={() =>
+                              handleReceive(t, RewardReceiveType.Normal)
+                            }
+                          >
+                            領取
+                          </button>
+                        </td>
+                      ) : (
+                        <td className="flex space-x-2">
+                          <button className="btn btn-sm">下載領獎單</button>
+                          <button
+                            className="btn btn-sm active"
+                            onClick={() =>
+                              handleReceive(t, RewardReceiveType.GameCoin)
+                            }
+                          >
+                            換成遊戲幣
+                          </button>
+                        </td>
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              )}
             </table>
           </LoadingCover>
         </div>
