@@ -7,7 +7,9 @@ export default function RechargeOk() {
 
   useInterval(() => {
     if (count === 0) {
-      window.close()
+      window.opener.location.href = '/recharge-rec'
+      self.close()
+      // window.close()
     } else {
       setCount((c) => c - 1)
     }
