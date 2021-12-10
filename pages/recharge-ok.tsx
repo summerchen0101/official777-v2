@@ -1,15 +1,13 @@
-import { useRouter } from 'next/dist/client/router'
 import React, { useState } from 'react'
 import { CgCheckO } from 'react-icons/cg'
 import { useInterval } from 'usehooks-ts'
 
 export default function RechargeOk() {
-  const router = useRouter()
   const [count, setCount] = useState(5)
 
   useInterval(() => {
     if (count === 0) {
-      router.replace('/recharge')
+      window.close()
     } else {
       setCount((c) => c - 1)
     }
@@ -23,7 +21,9 @@ export default function RechargeOk() {
         <div className="flex gap-1">
           <div className="text-gray-300">{count}s</div>後自動跳轉到儲值頁
         </div>
-        <div className="btn btn-sm mt-8">返回</div>
+        <div className="btn btn-sm mt-8" onClick={() => window.close()}>
+          返回
+        </div>
       </div>
     </div>
   )

@@ -57,6 +57,7 @@ export default function RechargePopup({ payType }: Props) {
   const { handler: doCreate, isLoading } = useOrderCreate()
 
   const onSubmit = handleSubmit(async (d) => {
+    // setRedirectUrl('/recharge-ok')
     const res = await doCreate({
       productID: d.productID,
       gatewayCode: 3,
