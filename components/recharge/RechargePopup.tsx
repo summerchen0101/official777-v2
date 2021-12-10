@@ -33,17 +33,25 @@ export default function RechargePopup({ payType }: Props) {
     }
   }, [redirectUrl])
 
-  const { list } = useGoodsList({
+  const { list, isLoading: isListLoading } = useGoodsList({
     page: 1,
     perPage: 30,
     itemType: ItemType.All,
     payType,
   })
+
   const {
     handleSubmit,
     formState: { errors },
     control,
+    setValue,
   } = useForm<Inputs>()
+
+  useEffect(() => {
+    if (list?.length) {
+      setValue('productID', list?.[0].ItemId)
+    }
+  }, [list])
 
   const { data } = useMe()
   const { handler: doCreate, isLoading } = useOrderCreate()
@@ -67,7 +75,12 @@ export default function RechargePopup({ payType }: Props) {
             control={control}
             name="productID"
             render={({ field: { onChange, value } }) => (
-              <TableSelector list={list} onChange={onChange} value={value} />
+              <TableSelector
+                isLoading={isListLoading}
+                list={list}
+                onChange={onChange}
+                value={value}
+              />
             )}
             rules={{ required: '請選擇商品' }}
           />
@@ -75,7 +88,9 @@ export default function RechargePopup({ payType }: Props) {
             <div className="text-red-500">{errors.productID.message}</div>
           )}
           <div className="mt-12 flex justify-center gap-6">
-            <button className="btn w-40">取消</button>
+            <button className="btn w-40" onClick={onHide}>
+              取消
+            </button>
             <button className="btn active w-40" onClick={onSubmit}>
               立即購買
             </button>
