@@ -2,16 +2,23 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import RechargeGiftCardPopup from '@/components/recharge/GiftCardPopup'
 import RechargeProductPopup from '@/components/recharge/ProductPopup'
-import RechargeTelePopup from '@/components/recharge/TelePopup'
+import RechargePopup from '@/components/recharge/RechargePopup'
 import RechargeTransferPopup from '@/components/recharge/TransferPopup'
+import { PayType } from '@/lib/enums'
+import { payTypeMap } from '@/lib/map'
 import usePopupStore from '@/store/usePopupStore'
-import React from 'react'
+import React, { useState } from 'react'
 
 function RechargePage() {
+  const [payType, setPayType] = useState(PayType.All)
   const onTransferShow = usePopupStore((s) => s.transfer.onShow)
   const onProductShow = usePopupStore((s) => s.product.onShow)
   const onGiftCardShow = usePopupStore((s) => s.giftCard.onShow)
-  const onTelephoneShow = usePopupStore((s) => s.telephone.onShow)
+  const onRechargeShow = usePopupStore((s) => s.recharge.onShow)
+  const handlePayTypeSelected = (payType: PayType) => {
+    setPayType(payType)
+    onRechargeShow()
+  }
   return (
     <Layout>
       <PageBanner />
@@ -36,31 +43,24 @@ function RechargePage() {
             >
               實體產包
             </div>
-            <div
-              className="deposit-btn col-span-6 md:col-span-2"
-              onClick={onTelephoneShow}
-            >
-              電信支付
-            </div>
-            <div className="deposit-btn col-span-6 md:col-span-2">
-              信用卡支付
-            </div>
-            <div className="deposit-btn col-span-6 md:col-span-2">
-              MyCard免費抵扣
-            </div>
-            <div className="deposit-btn col-span-6 md:col-span-2">
-              MyCard線上轉點
-            </div>
-            <div className="deposit-btn col-span-6 md:col-span-2">
-              MyCard序號
-            </div>
+            {Object.entries(payTypeMap).map(([code, label]) => (
+              <div
+                key={code}
+                className="deposit-btn col-span-6 md:col-span-2"
+                onClick={() =>
+                  handlePayTypeSelected(code as unknown as PayType)
+                }
+              >
+                {label}
+              </div>
+            ))}
           </div>
         </div>
       </section>
       <RechargeTransferPopup />
       <RechargeProductPopup />
       <RechargeGiftCardPopup />
-      <RechargeTelePopup />
+      <RechargePopup payType={payType} />
     </Layout>
   )
 }

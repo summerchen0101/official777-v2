@@ -26,7 +26,7 @@ function GoldRankTable() {
           <tr key={i}>
             <td className="text-center">{t.rank}</td>
             <td>{t.nickname}</td>
-            <td>${toCurrency(t.gold, 0)}</td>
+            <td>${toCurrency(t.gold)}</td>
           </tr>
         ))}
       </tbody>

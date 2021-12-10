@@ -59,7 +59,7 @@ const MobileHome: NextPage = () => {
             <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
               <HiCurrencyDollar className="text-2xl text-gold-500 -ml-1" />
               <div className="text-gray-100 font-medium">
-                {toCurrency(user?.coin || 0, 0)}
+                {toCurrency(user?.coin || 0)}
               </div>
             </div>
           </div>

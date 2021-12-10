@@ -1,6 +1,8 @@
 import {
+  ItemType,
   PaymentGateway,
   PaymentStatus,
+  PayType,
   ProductCategory,
   RankType,
   RemitStatus,
@@ -15,6 +17,21 @@ export const newsTypeMap: StringMap = {
   2: '活動',
   3: '客服',
 }
+export const itemTypeMap: StringMap = {
+  [ItemType.All]: '全部',
+  [ItemType.Activity]: '活動商品',
+  [ItemType.Gold]: '金幣商品',
+  [ItemType.Cash]: '現金商品',
+}
+export const payTypeMap: StringMap = {
+  // [PayType.All]: '全部',
+  [PayType.MCGiftCard]: 'Mycard實體卡',
+  [PayType.MCTransfer]: 'Mycard線上轉點',
+  [PayType.MCTelephone]: 'Mycard電信',
+  [PayType.MCCreditCard]: 'Mycard信用卡',
+  [PayType.MCCoupon]: 'Mycard免費折抵',
+  // [PayType.ECPayATM]: '綠界ATM',
+}
 
 export const rewardsTypeMap: StringMap = {
   [RewardsType.Physical]: '實體商店',
@@ -27,8 +44,10 @@ export const rankTypeMap: StringMap = {
 }
 
 export const paymentGatewayMap: StringMap = {
-  [PaymentGateway.Google]: 'Google Pay',
-  [PaymentGateway.Apple]: 'Apple Pay',
+  [PaymentGateway.Google]: 'Google',
+  [PaymentGateway.Apple]: 'Apple',
+  [PaymentGateway.MyCard]: '智冠MyCard',
+  [PaymentGateway.ECPay]: '綠界',
 }
 
 export const paymentStatusMap: StringMap = {

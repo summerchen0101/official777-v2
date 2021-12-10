@@ -14,6 +14,8 @@ export enum RankType {
 export enum PaymentGateway {
   Google = 1,
   Apple = 2,
+  MyCard = 3,
+  ECPay = 4,
 }
 
 export enum PaymentStatus {
@@ -56,4 +58,21 @@ export enum RewardStatus {
 export enum RemitStatus {
   Pending = 1,
   Paid = 2,
+}
+
+export enum ItemType {
+  All = 0,
+  Activity = 1,
+  Gold = 2,
+  Cash = 3,
+}
+
+export enum PayType {
+  All = 0,
+  MCGiftCard = 1,
+  MCTransfer = 2,
+  MCTelephone = 3,
+  MCCreditCard = 4,
+  MCCoupon = 5,
+  ECPayATM = 6,
 }

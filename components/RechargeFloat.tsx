@@ -49,7 +49,7 @@ function RechargeFloat() {
               className="absolute -mt-1"
             />
             <div className="text-lg text-gold-900 font-medium text-right leading-9">
-              {toCurrency(user.coin, 0)}
+              {toCurrency(user.coin)}
             </div>
           </div>
           <div className="flex items-center">
