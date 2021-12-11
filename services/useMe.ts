@@ -13,6 +13,18 @@ export interface MeRes extends ResBase {
   countryCode: string
   cellphone: string
   phoneVerified: number
+  isSecondPasswordSet: number
+  realName: string
+  contactPhone: string
+  socialID: string
+  birthDay: string
+  zipCode: string
+  address: string
+  googleID: string
+  appleID: string
+  lineID: string
+  fbID: string
+  gender: number
 }
 
 function useMe() {

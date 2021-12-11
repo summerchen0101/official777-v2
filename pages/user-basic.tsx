@@ -2,6 +2,7 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import useAuth from '@/hooks/useAuth'
 import { YesNo } from '@/lib/enums'
+import { genderMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useProfileUpdate from '@/services/useProfileUpdate'
 import useSms from '@/services/useSms'
@@ -15,6 +16,7 @@ type Inputs = {
   phone_code: string
   email: string
   code: string
+  gender: string
 }
 
 function UserBasic() {
@@ -39,6 +41,7 @@ function UserBasic() {
         newCountryCode: d.phone_code,
         newCellphone: d.phone,
         email: d.email,
+        gender: +d.gender,
       })
       if (res?.ok) {
         alert('會員資料更新成功')
@@ -55,8 +58,9 @@ function UserBasic() {
       phone: data?.cellphone,
       phone_code: data?.countryCode,
       email: data?.email,
+      gender: data?.gender.toString(),
     })
-  }, [data, reset])
+  }, [data])
 
   const onSendSms = async () => {
     const res = await sendSms({
@@ -195,6 +199,39 @@ function UserBasic() {
                 {errors.email && (
                   <div className="text-sm text-red-500">
                     {errors.email.message}
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+                <label
+                  htmlFor=""
+                  className="mb-2 w-44 lg:text-right text-gray-200"
+                >
+                  性別
+                </label>
+                <div className="flex gap-3 mb-2">
+                  {Object.entries(genderMap).map(([code, label]) => (
+                    <label
+                      key={code}
+                      className="text-gray-200 flex items-center gap-1"
+                    >
+                      <input
+                        type="radio"
+                        value={code}
+                        {...register('gender', {
+                          required: { value: true, message: '不可為空' },
+                        })}
+                        disabled={code === '3'}
+                        className="disabled:bg-gray-400"
+                      />
+                      {label}
+                    </label>
+                  ))}
+                </div>
+
+                {errors.gender && (
+                  <div className="text-sm text-red-500">
+                    {errors.gender.message}
                   </div>
                 )}
               </div>

@@ -66,7 +66,14 @@ export const rewardStatusMap: StringMap = {
   [RewardStatus.Processing]: '已受理',
   [RewardStatus.Received]: '已領取',
 }
+
 export const remitStatusMap: StringMap = {
   [RemitStatus.Pending]: '未匯款',
   [RemitStatus.Paid]: '已匯款',
+}
+
+export const genderMap: StringMap = {
+  1: '男',
+  2: '女',
+  3: '未設定',
 }
