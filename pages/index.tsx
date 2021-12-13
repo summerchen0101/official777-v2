@@ -8,18 +8,20 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 
 const Index: NextPage = () => {
   const router = useRouter()
-  const setTokenInfo = useUserStore((s) => s.setTokenInfo)
+  const msg = router.query.msg
 
-  useDevicePage('/home', '/mb/home')
   useEffect(() => {
     if (router.query.to) {
       router.push(router.query.to as string)
       return
     }
-    router.push('/home')
+    router.push(window.innerWidth > 600 ? '/home' : '/mb/home')
   }, [router])
   return (
-    <div className="flex justify-center items-center h-full">
+    <div className="flex flex-col justify-center items-center  h-full">
+      <div hidden={!msg} className="text-gold-500 text-2xl mb-5">
+        {msg}
+      </div>
       <CgSpinnerTwo className="text-white/30 animate-spin text-8xl" />
     </div>
   )
