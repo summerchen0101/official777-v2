@@ -5,6 +5,7 @@ import useGoodsList from '@/services/useGoodsList'
 import useMe from '@/services/useMe'
 import useOrderCreate from '@/services/useOrderCreate'
 import usePopupStore from '@/store/usePopupStore'
+import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import { FaExclamationCircle } from 'react-icons/fa'
@@ -24,15 +25,7 @@ type Props = {
 export default function RechargePopup({ payType }: Props) {
   const isShow = usePopupStore((s) => s.recharge.isShow)
   const onHide = usePopupStore((s) => s.recharge.onHide)
-  const [redirectUrl, setRedirectUrl] = useState('')
-
-  useEffect(() => {
-    if (redirectUrl) {
-      window.open(redirectUrl, 'payment', 'width=500;height=500')
-      setRedirectUrl('')
-      onHide()
-    }
-  }, [redirectUrl])
+  // const [redirectUrl, setRedirectUrl] = useState('')
 
   const { list, isLoading: isListLoading } = useGoodsList({
     page: 1,
@@ -40,7 +33,7 @@ export default function RechargePopup({ payType }: Props) {
     itemType: ItemType.All,
     payType,
   })
-
+  const router = useRouter()
   const {
     handleSubmit,
     formState: { errors },
@@ -58,7 +51,6 @@ export default function RechargePopup({ payType }: Props) {
   const { handler: doCreate, isLoading } = useOrderCreate()
 
   const onSubmit = handleSubmit(async (d) => {
-    // setRedirectUrl('/recharge-ok')
     const product = list?.find((t) => t.ItemId === d.productID)
     if (
       confirm(`透過${payTypeMap[payType]} 消費 $${product?.Price}元是否確認?`)
@@ -69,7 +61,10 @@ export default function RechargePopup({ payType }: Props) {
         userID: data?.id!,
       })
       if (res?.data.requestURL) {
-        setRedirectUrl(res?.data.requestURL)
+        router.replace({
+          pathname: '/',
+          query: { to: res?.data.requestURL, msg: '跳轉中請稍候' },
+        })
       }
     }
   })
