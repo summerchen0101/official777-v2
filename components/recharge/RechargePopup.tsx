@@ -7,6 +7,7 @@ import useOrderCreate from '@/services/useOrderCreate'
 import usePopupStore from '@/store/usePopupStore'
 import React, { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
+import { FaExclamationCircle } from 'react-icons/fa'
 import LoadingCover from '../LoadingCover'
 import TableSelector from '../TableSelector'
 
@@ -58,13 +59,18 @@ export default function RechargePopup({ payType }: Props) {
 
   const onSubmit = handleSubmit(async (d) => {
     // setRedirectUrl('/recharge-ok')
-    const res = await doCreate({
-      productID: d.productID,
-      gatewayCode: 3,
-      userID: data?.id!,
-    })
-    if (res?.data.requestURL) {
-      setRedirectUrl(res?.data.requestURL)
+    const product = list?.find((t) => t.ItemId === d.productID)
+    if (
+      confirm(`透過${payTypeMap[payType]} 消費 $${product?.Price}元是否確認?`)
+    ) {
+      const res = await doCreate({
+        productID: d.productID,
+        gatewayCode: 3,
+        userID: data?.id!,
+      })
+      if (res?.data.requestURL) {
+        setRedirectUrl(res?.data.requestURL)
+      }
     }
   })
   return (
@@ -88,6 +94,10 @@ export default function RechargePopup({ payType }: Props) {
           {errors.productID && (
             <div className="text-red-500">{errors.productID.message}</div>
           )}
+          <div className="text-yellow-300 mt-3 flex gap-2 items-center justify-center">
+            <FaExclamationCircle />
+            請注意！系統處理時間約5分鐘 ~ 1小時才能完成遊戲入點，請耐心等候。
+          </div>
           <div className="mt-12 flex justify-center gap-6">
             <button className="btn w-40" onClick={onHide}>
               取消
