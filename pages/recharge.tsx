@@ -7,7 +7,19 @@ import RechargeTransferPopup from '@/components/recharge/TransferPopup'
 import { PayType } from '@/lib/enums'
 import { payTypeMap } from '@/lib/map'
 import usePopupStore from '@/store/usePopupStore'
+import { StringMap } from '@/types'
+import { toImgPath } from '@/utils'
 import React, { useState } from 'react'
+
+export const payTypeImgMap: StringMap = {
+  // [PayType.All]: '全部',
+  [PayType.MCGiftCard]: 'mc_giftcard',
+  [PayType.MCTransfer]: 'mc_transfer',
+  [PayType.MCTelephone]: 'mc_tele',
+  [PayType.MCCreditCard]: 'mc_credit',
+  [PayType.MCCoupon]: 'mc_coupon',
+  // [PayType.ECPayATM]: '綠界ATM',
+}
 
 function RechargePage() {
   const [payType, setPayType] = useState(PayType.All)
@@ -24,24 +36,30 @@ function RechargePage() {
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="grid grid-cols-6 gap-6">
+          <div className="grid grid-cols-6 gap-4">
             <div
               className="deposit-btn col-span-6 md:col-span-3"
               onClick={onTransferShow}
             >
-              銀行轉帳
+              <img
+                src={toImgPath('/recharge/ecpay_atm.png')}
+                alt="銀行轉帳-綠界"
+              />
             </div>
             <div
               className="deposit-btn col-span-6 md:col-span-3"
               onClick={onProductShow}
             >
-              超值產包
+              <img
+                src={toImgPath('/recharge/ecpay_pkg.png')}
+                alt="超值產包-綠界"
+              />
             </div>
             <div
               className="deposit-btn col-span-6 md:col-span-2"
               onClick={onGiftCardShow}
             >
-              實體產包
+              <img src={toImgPath('/recharge/giftcard.png')} alt="序號輸入" />
             </div>
             {Object.entries(payTypeMap).map(([code, label]) => (
               <div
@@ -51,7 +69,10 @@ function RechargePage() {
                   handlePayTypeSelected(code as unknown as PayType)
                 }
               >
-                {label}
+                <img
+                  src={toImgPath(`/recharge/${payTypeImgMap[code]}.png`)}
+                  alt={label}
+                />
               </div>
             ))}
           </div>
