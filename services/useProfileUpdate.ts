@@ -10,6 +10,7 @@ export interface RechargeReq {
   newCellphone: string
   newSecondPassword?: string
   answer?: string
+  gender?: number
 }
 
 export interface RechargeRes extends ResBase {}

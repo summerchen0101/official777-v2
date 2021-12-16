@@ -1,6 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import Loading from '@/components/Loading'
+import LoadingCover from '@/components/LoadingCover'
 import MySelect from '@/components/MySelect'
 import TabGroup from '@/components/TabGroup'
 import { RewardReceiveType, RewardStatus } from '@/lib/enums'
@@ -46,7 +47,6 @@ function RewardsPage() {
   useEffect(() => {
     setActiveTab((router.query.tab as string) || '1')
   }, [router.query.tab])
-
   return (
     <Layout>
       <PageBanner />
@@ -64,18 +64,22 @@ function RewardsPage() {
             value={activeTab}
             onChange={setActiveTab}
           />
-          <div>
-            {isLoading ? (
-              <Loading />
-            ) : (
-              <table className="w-full text-gray-500 shadow">
-                <thead>
+          <LoadingCover isLoading={isLoading}>
+            <table className="w-full text-gray-500 shadow">
+              <thead>
+                <tr>
+                  <th className="w-1/3 text-center">領獎期限</th>
+                  <th>中獎獎項</th>
+                  <th className="w-1/3">領獎方式</th>
+                </tr>
+              </thead>
+              {list?.length === 0 || currentList?.length === 0 ? (
+                <tbody>
                   <tr>
-                    <th className="w-1/3 text-center">領獎期限</th>
-                    <th>中獎獎項</th>
-                    <th className="w-1/3">領獎方式</th>
+                    <td colSpan={3}>尚無資料</td>
                   </tr>
-                </thead>
+                </tbody>
+              ) : (
                 <tbody>
                   {currentList?.map((t, i) => (
                     <tr key={i}>
@@ -112,9 +116,9 @@ function RewardsPage() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
-            )}
-          </div>
+              )}
+            </table>
+          </LoadingCover>
         </div>
       </section>
     </Layout>

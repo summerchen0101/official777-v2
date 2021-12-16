@@ -7,7 +7,7 @@ import NewsDetailPopup from '@/components/NewsDetailPopup'
 import { useStore } from '@/store/useStore'
 import useNewsList, { News } from '@/services/useNewsList'
 import { newsTypeMap } from '@/lib/map'
-import Loading from '@/components/Loading'
+import LoadingCover from '@/components/LoadingCover'
 import { toImgPath, toDateTime } from '@/utils'
 import { YesNo } from '@/lib/enums'
 
@@ -56,48 +56,44 @@ function RechargeRec() {
                 </div>
               ))}
             </div>
-            {isLoading ? (
-              <Loading />
-            ) : (
-              <>
-                <div className="p-2 space-y-1">
-                  {list?.map((t, i) => (
-                    <div
-                      key={i}
-                      className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
-                      onClick={() => handleNewsClicked(t)}
-                    >
-                      <div className="w-20">[{newsTypeMap[t.category]}]</div>
-                      <div className="flex-1">{t.title}</div>
-                      <div>{toDateTime(t.createTimeMs)}</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex justify-center space-x-3 pb-3 text-white">
-                  <button
-                    className="cursor-pointer hover:text-white/80 disabled:text-brown-500"
-                    onClick={() => setPage((p) => p + 1)}
-                    disabled={page === 1}
+            <LoadingCover isLoading={isLoading}>
+              <div className="p-2 space-y-1">
+                {list?.map((t, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
+                    onClick={() => handleNewsClicked(t)}
                   >
-                    上一頁
-                  </button>
-                  <div className="">
-                    <select className="h-8 border-brown-500 rounded text-brown-900 pt-0.5">
-                      {[...Array(paginator?.totalPage)].map((_, i) => (
-                        <option key={i}>{i + 1}</option>
-                      ))}
-                    </select>
+                    <div className="w-20">[{newsTypeMap[t.category]}]</div>
+                    <div className="flex-1">{t.title}</div>
+                    <div>{toDateTime(t.createTimeMs)}</div>
                   </div>
-                  <button
-                    className="cursor-pointer hover:text-white/80 disabled:text-brown-500"
-                    onClick={() => setPage((p) => p + 1)}
-                    disabled={paginator?.totalPage! <= page}
-                  >
-                    下一頁
-                  </button>
+                ))}
+              </div>
+              <div className="flex justify-center space-x-3 pb-3 text-white">
+                <button
+                  className="cursor-pointer hover:text-white/80 disabled:text-brown-500"
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={page === 1}
+                >
+                  上一頁
+                </button>
+                <div className="">
+                  <select className="h-8 border-brown-500 rounded text-brown-900 pt-0.5">
+                    {[...Array(paginator?.totalPage)].map((_, i) => (
+                      <option key={i}>{i + 1}</option>
+                    ))}
+                  </select>
                 </div>
-              </>
-            )}
+                <button
+                  className="cursor-pointer hover:text-white/80 disabled:text-brown-500"
+                  onClick={() => setPage((p) => p + 1)}
+                  disabled={paginator?.totalPage! <= page}
+                >
+                  下一頁
+                </button>
+              </div>
+            </LoadingCover>
           </div>
         </div>
       </section>

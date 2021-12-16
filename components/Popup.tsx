@@ -28,7 +28,7 @@ export default function Popup({ onClose, isShow, children }: Props) {
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className="cursor-pointer fixed top-0 right-0 m-3"
+          className="cursor-pointer fixed top-0 right-0 m-3 z-10"
           onClick={onClose}
         >
           <img

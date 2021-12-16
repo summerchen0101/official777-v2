@@ -2,65 +2,86 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import RechargeGiftCardPopup from '@/components/recharge/GiftCardPopup'
 import RechargeProductPopup from '@/components/recharge/ProductPopup'
-import RechargeTelePopup from '@/components/recharge/TelePopup'
+import RechargePopup from '@/components/recharge/RechargePopup'
 import RechargeTransferPopup from '@/components/recharge/TransferPopup'
+import { PayType } from '@/lib/enums'
+import { payTypeMap } from '@/lib/map'
 import usePopupStore from '@/store/usePopupStore'
-import React from 'react'
+import { StringMap } from '@/types'
+import { toImgPath } from '@/utils'
+import React, { useState } from 'react'
+
+export const payTypeImgMap: StringMap = {
+  // [PayType.All]: '全部',
+  [PayType.MCGiftCard]: 'mc_giftcard',
+  [PayType.MCTransfer]: 'mc_transfer',
+  [PayType.MCTelephone]: 'mc_tele',
+  [PayType.MCCreditCard]: 'mc_credit',
+  [PayType.MCCoupon]: 'mc_coupon',
+  // [PayType.ECPayATM]: '綠界ATM',
+}
 
 function RechargePage() {
+  const [payType, setPayType] = useState(PayType.All)
   const onTransferShow = usePopupStore((s) => s.transfer.onShow)
   const onProductShow = usePopupStore((s) => s.product.onShow)
   const onGiftCardShow = usePopupStore((s) => s.giftCard.onShow)
-  const onTelephoneShow = usePopupStore((s) => s.telephone.onShow)
+  const onRechargeShow = usePopupStore((s) => s.recharge.onShow)
+  const handlePayTypeSelected = (payType: PayType) => {
+    setPayType(payType)
+    onRechargeShow()
+  }
   return (
     <Layout>
       <PageBanner />
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
-          <div className="grid grid-cols-6 gap-6">
+          <div className="grid grid-cols-6 gap-4">
             <div
               className="deposit-btn col-span-6 md:col-span-3"
               onClick={onTransferShow}
             >
-              銀行轉帳
+              <img
+                src={toImgPath('/recharge/ecpay_atm.png')}
+                alt="銀行轉帳-綠界"
+              />
             </div>
             <div
               className="deposit-btn col-span-6 md:col-span-3"
               onClick={onProductShow}
             >
-              超值產包
+              <img
+                src={toImgPath('/recharge/ecpay_pkg.png')}
+                alt="超值產包-綠界"
+              />
             </div>
             <div
               className="deposit-btn col-span-6 md:col-span-2"
               onClick={onGiftCardShow}
             >
-              實體產包
+              <img src={toImgPath('/recharge/giftcard.png')} alt="序號輸入" />
             </div>
-            <div
-              className="deposit-btn col-span-6 md:col-span-2"
-              onClick={onTelephoneShow}
-            >
-              電信支付
-            </div>
-            <div className="deposit-btn col-span-6 md:col-span-2">
-              信用卡支付
-            </div>
-            <div className="deposit-btn col-span-6 md:col-span-2">
-              MyCard免費抵扣
-            </div>
-            <div className="deposit-btn col-span-6 md:col-span-2">
-              MyCard線上轉點
-            </div>
-            <div className="deposit-btn col-span-6 md:col-span-2">
-              MyCard序號
-            </div>
+            {Object.entries(payTypeMap).map(([code, label]) => (
+              <div
+                key={code}
+                className="deposit-btn col-span-6 md:col-span-2"
+                onClick={() =>
+                  handlePayTypeSelected(code as unknown as PayType)
+                }
+              >
+                <img
+                  src={toImgPath(`/recharge/${payTypeImgMap[code]}.png`)}
+                  alt={label}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
       <RechargeTransferPopup />
       <RechargeProductPopup />
       <RechargeGiftCardPopup />
-      <RechargeTelePopup />
+      <RechargePopup payType={payType} />
     </Layout>
   )
 }

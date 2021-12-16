@@ -151,7 +151,7 @@ section {
 }
 
 .deposit-btn {
-  @apply bg-purple-900/50 hover:bg-purple-900 h-24 text-white/40 hover:text-white rounded flex items-center justify-center cursor-pointer text-xl;
+  @apply cursor-pointer hover:scale-105 transition-all;
 }
 
 .rule {

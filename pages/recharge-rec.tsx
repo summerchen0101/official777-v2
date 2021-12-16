@@ -2,11 +2,12 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import Loading from '@/components/Loading'
 import useAuth from '@/hooks/useAuth'
-import { paymentGatewayMap } from '@/lib/map'
+import { paymentGatewayMap, paymentStatusMap, payTypeMap } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
 import { toImgPath, toCurrency, toDateTime } from '@/utils'
 import React from 'react'
-
+import cs from 'classnames'
+import { PaymentStatus } from '@/lib/enums'
 function RechargeRec() {
   const { list, isLoading } = useRechargeRecList({
     paymentStatus: 0,
@@ -30,27 +31,36 @@ function RechargeRec() {
             />
           </div>
           <div className="bg-black/50 frame">
-            {isLoading ? (
-              <Loading />
-            ) : (
-              list?.map((t, i) => (
-                <div
-                  key={t.ID}
-                  className="flex items-center text-gray-300 border-b border-gold-500/30 p-4 last-of-type:border-b-0"
-                >
-                  {/* <td>{productCategoryMap[t.productCategory]}</td> */}
-                  <div className="flex-1">
-                    <div className="text-yellow-300">
-                      {paymentGatewayMap[t.paymentGateway]}
-                    </div>
-                    <div>{toDateTime(t.createdAtMs)}</div>
-                  </div>
-                  <div className="text-xl text-green-500">
-                    ${toCurrency(t.priceAmountMicros, 0)}
-                  </div>
-                </div>
-              ))
-            )}
+            <table className="w-full rounded-lg overflow-hidden">
+              {/* <thead>
+                <tr>
+                  <th></th>
+                  <th>金額</th>
+                  <th>金幣數量</th>
+                </tr>
+              </thead> */}
+              <tbody>
+                {list?.map((t) => (
+                  <tr key={t.ID}>
+                    {/* <td>{paymentGatewayMap[t.PaymentGateway]}</td> */}
+                    <td>{payTypeMap[t.PayType] || '-'}</td>
+                    <td>{toDateTime(t.CreatedAtMs)}</td>
+                    <td
+                      className={cs({
+                        'text-red-500': t.PaymentStatus === PaymentStatus.Fail,
+                        'text-green-500':
+                          t.PaymentStatus === PaymentStatus.Success,
+                      })}
+                    >
+                      {paymentStatusMap[t.PaymentStatus]}
+                    </td>
+                    <td className="text-lg text-purple-700">
+                      ${toCurrency(t.PriceAmountMicros)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>

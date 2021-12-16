@@ -1,4 +1,3 @@
-import LoginPopup from '@/components/LoginPopup'
 import { LoginRes } from '@/services/useLogin'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
@@ -10,7 +9,6 @@ import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
-import Script from 'next/script'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const setApiBaseUrl = useStore((s) => s.setApiBaseUrl)
@@ -62,7 +60,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </Script> */}
       <div className="bg-cover" />
       {apiBaseUrl && <Component {...pageProps} />}
-      <LoginPopup />
     </>
   )
 }

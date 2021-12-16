@@ -15,15 +15,25 @@ export interface RechargeRecListReq {
 
 export interface RechargeRec {
   ID: number
-  productCategory: number
-  productID: number
-  priceAmountMicros: number
-  priceCurrencyCode: string
-  paymentStatus: number
-  paymentGateway: number
-  userID: number
-  callBackURL: string
-  createdAtMs: number
+  LinkedID: number
+  ThirdPartID: string
+  ProductCategory: number
+  ProductID: string
+  ItemID: number
+  GatewayToken: string
+  PriceAmountMicros: number
+  PriceCurrencyCode: string
+  PaymentStatus: number
+  RefundStatus: number
+  RevisePaidStatus: number
+  PaymentGateway: number
+  UserID: number
+  Note: string
+  NoteImageURLs: null
+  CallBackURL: string
+  CreatedAtMs: number
+  ExpiredAtMs: number
+  PayType: number
 }
 
 export interface Meta {
