@@ -1,3 +1,4 @@
+import { MCPaymentType } from '@/lib/enums'
 import { ResBase } from '@/types'
 import useRequest, { apiPath } from '@/utils/useRequest'
 import { useState } from 'react'
@@ -6,6 +7,7 @@ export interface OrderCreateReq {
   productID: number
   gatewayCode: number
   userID: number
+  paymentType: MCPaymentType
 }
 
 export interface OrderCreateRes extends ResBase {
