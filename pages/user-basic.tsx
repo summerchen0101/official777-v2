@@ -7,8 +7,9 @@ import useMe from '@/services/useMe'
 import useProfileUpdate from '@/services/useProfileUpdate'
 import useSms from '@/services/useSms'
 import { toImgPath } from '@/utils'
-import { useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useInterval } from 'usehooks-ts'
 
 type Inputs = {
   nickname: string
@@ -21,9 +22,26 @@ type Inputs = {
 
 function UserBasic() {
   useAuth()
-  const { data } = useMe()
+  const { data, mutate } = useMe()
+  const [count, setCount] = useState(0)
   const { handler: doUpdate, isLoading } = useProfileUpdate()
   const { handler: sendSms, isLoading: isSmsLoading } = useSms()
+
+  const initData = useMemo(
+    () => ({
+      nickname: data?.nickname,
+      phone: data?.cellphone.replace('886-', ''),
+      phone_code: data?.countryCode || '886',
+      email: data?.email,
+      gender: data?.gender.toString(),
+    }),
+    [data],
+  )
+  useInterval(() => {
+    if (count > 0) {
+      setCount((c) => c - 1)
+    }
+  }, 1000)
   const {
     register,
     handleSubmit,
@@ -31,7 +49,9 @@ function UserBasic() {
     watch,
     getValues,
     reset,
-  } = useForm<Inputs>()
+  } = useForm<Inputs>({
+    defaultValues: initData,
+  })
 
   const onSubmit = handleSubmit(async (d) => {
     try {
@@ -45,24 +65,22 @@ function UserBasic() {
       })
       if (res?.ok) {
         alert('會員資料更新成功')
+        mutate()
       }
-      reset()
     } catch (err) {
       console.log(err)
     }
   })
 
   useEffect(() => {
-    reset({
-      nickname: data?.nickname,
-      phone: data?.cellphone,
-      phone_code: data?.countryCode,
-      email: data?.email,
-      gender: data?.gender.toString(),
-    })
-  }, [data])
+    reset(initData)
+  }, [initData])
 
   const onSendSms = async () => {
+    if (!getValues('phone')) {
+      alert('請先輸入電話號碼')
+      return
+    }
     const res = await sendSms({
       // userID: 0,
       newCountryCode: '886',
@@ -70,6 +88,7 @@ function UserBasic() {
     })
     if (res?.sendSuccess) {
       alert('簡訊已發送')
+      setCount(60)
     }
   }
   return (
@@ -86,110 +105,90 @@ function UserBasic() {
           </div>
           <div className="form-box">
             <form className="space-y-5">
-              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                <label
-                  htmlFor=""
-                  className="mb-2 w-44 lg:text-right text-gray-200"
-                >
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-2">
+                <label htmlFor="" className="w-44 lg:text-right text-gray-200">
                   玩家暱稱
                 </label>
                 <input
                   type="text"
-                  className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
+                  className="rounded-sm border-none bg-gray-100 h-9 lg:w-96 disabled:text-gray-500"
                   {...register('nickname', {
                     required: { value: true, message: '不可為空' },
                   })}
+                  disabled={data?.nickNameRemainingTimes === 0}
                 />
+                <p
+                  hidden={data?.nickNameRemainingTimes! > 0}
+                  className="text-gray-400 text-sm"
+                >
+                  ＊已達修改上限
+                </p>
                 {errors.nickname && (
                   <div className="text-sm text-red-500">
                     {errors.nickname.message}
                   </div>
                 )}
               </div>
-              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                <label
-                  htmlFor=""
-                  className="mb-2 w-44 lg:text-right text-gray-200"
-                >
-                  手機號碼綁定
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-2">
+                <label htmlFor="" className="w-44 lg:text-right text-gray-200">
+                  手機號碼
                 </label>
-                <div className="flex items-center space-x-2">
-                  <div className="flex space-x-2 flex-1 lg:w-96">
-                    <select
-                      className="rounded-sm border-none bg-gray-100 h-9 w-1/3"
-                      {...register('phone_code', {
-                        required: { value: true, message: '不可為空' },
-                      })}
-                    >
-                      <option>886</option>
-                    </select>
-                    <input
-                      type="text"
-                      className="rounded-sm border-none bg-gray-100 h-9 flex-1"
-                      {...register('phone', {
-                        required: { value: true, message: '不可為空' },
-                      })}
-                    />
-                  </div>
-                  <p
-                    hidden={data?.phoneVerified === YesNo.No}
-                    className="bg-purple-600 rounded px-1 text-white"
-                  >
-                    已綁定
-                  </p>
-                </div>
+                <input
+                  type="text"
+                  className="rounded-sm border-none bg-gray-100 h-9 lg:w-96 disabled:text-gray-500"
+                  {...register('phone', {
+                    required: { value: true, message: '不可為空' },
+                  })}
+                />
+                <p
+                  hidden={data?.phoneVerified === YesNo.No}
+                  className="text-yellow-400 text-sm"
+                >
+                  (已綁定)
+                </p>
                 {errors.phone && (
                   <div className="text-sm text-red-500">
                     {errors.phone.message}
                   </div>
                 )}
               </div>
-
-              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                <label
-                  htmlFor=""
-                  className="mb-2 w-44 lg:text-right text-gray-200"
-                >
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-2">
+                <label htmlFor="" className="w-44 lg:text-right text-gray-200">
                   驗證碼
                 </label>
-                <div className="flex items-center space-x-2">
-                  <input
-                    type="text"
-                    className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
-                    {...register('code', {
-                      required: { value: true, message: '不可為空' },
-                    })}
-                    placeholder="請輸入驗證碼"
-                  />
-                  <div>
-                    <button
-                      type="button"
-                      className="btn btn-sm"
-                      onClick={onSendSms}
-                    >
-                      發送驗證碼
-                    </button>
-                  </div>
-                </div>
+                <input
+                  type="text"
+                  className="rounded-sm border-none bg-gray-100 h-9 lg:w-96 disabled:text-gray-500"
+                  {...register('code', {
+                    required: { value: true, message: '不可為空' },
+                  })}
+                />
+                <button
+                  type="button"
+                  className="btn btn-sm"
+                  onClick={onSendSms}
+                  disabled={count > 0}
+                >
+                  發送驗證碼
+                  <span className="ml-1" hidden={!count}>
+                    {count}s
+                  </span>
+                </button>
                 {errors.code && (
                   <div className="text-sm text-red-500">
                     {errors.code.message}
                   </div>
                 )}
               </div>
-
-              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                <label
-                  htmlFor=""
-                  className="mb-2 w-44 lg:text-right text-gray-200"
-                >
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-2">
+                <label htmlFor="" className="w-44 lg:text-right text-gray-200">
                   電子信箱
                 </label>
                 <input
                   type="text"
                   className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
                   {...register('email', {
-                    required: { value: true, message: '不可為空' },
+                    // required: { value: true, message: '不可為空' },
                     pattern: {
                       value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                       message: '格式有誤',
@@ -202,14 +201,11 @@ function UserBasic() {
                   </div>
                 )}
               </div>
-              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                <label
-                  htmlFor=""
-                  className="mb-2 w-44 lg:text-right text-gray-200"
-                >
+              <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-2">
+                <label htmlFor="" className="w-44 lg:text-right text-gray-200">
                   性別
                 </label>
-                <div className="flex gap-3 mb-2">
+                <div className="flex gap-3">
                   {Object.entries(genderMap).map(([code, label]) => (
                     <label
                       key={code}
@@ -228,7 +224,6 @@ function UserBasic() {
                     </label>
                   ))}
                 </div>
-
                 {errors.gender && (
                   <div className="text-sm text-red-500">
                     {errors.gender.message}
@@ -237,8 +232,18 @@ function UserBasic() {
               </div>
 
               <div className="pt-3 text-center space-x-5 flex justify-center">
-                <button className="btn w-40">取消修改</button>
-                <button className="btn active w-40" onClick={onSubmit}>
+                <button
+                  type="button"
+                  className="btn w-40"
+                  onClick={() => reset()}
+                >
+                  重整
+                </button>
+                <button
+                  type="button"
+                  className="btn active w-40"
+                  onClick={onSubmit}
+                >
                   確認修改
                 </button>
               </div>

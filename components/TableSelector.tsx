@@ -12,13 +12,14 @@ type Props = {
 
 function TableSelector({ isLoading, list = [], value, onChange }: Props) {
   return (
-    <LoadingCover isLoading={isLoading}>
+    <LoadingCover>
       <table className="w-full rounded-lg overflow-hidden">
         <thead>
           <tr>
             <th></th>
             <th>金額</th>
-            <th>金幣數量</th>
+            <th>頭家點</th>
+            <th>金幣</th>
           </tr>
         </thead>
         <tbody>
@@ -37,6 +38,10 @@ function TableSelector({ isLoading, list = [], value, onChange }: Props) {
               </td>
               <td>${toCurrency(t.Price)}</td>
               <td>{toCurrency(t.UseValue)}</td>
+              <td>
+                {toCurrency(t.UseValue * 100)}(
+                {Math.round(((t.UseValue - t.Price) / t.Price) * 100)}%)
+              </td>
             </tr>
           ))}
         </tbody>

@@ -1,7 +1,7 @@
 import AppDownloadSideFloat from '@/components/AppDownloadSideFloat'
 import FooterNav from '@/components/layout/FooterNav'
 import HeaderNav from '@/components/layout/HeaderNav'
-import RechargeFloat from '@/components/RechargeFloat'
+import SideBox from '@/components/SideBox'
 import type { NextPage } from 'next'
 import LoginPopup from '../LoginPopup'
 
@@ -13,7 +13,7 @@ const Layout: NextPage = ({ children }) => {
 
       <FooterNav />
 
-      <RechargeFloat />
+      <SideBox />
       <AppDownloadSideFloat />
 
       <LoginPopup />
