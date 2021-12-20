@@ -11,8 +11,8 @@ interface IState {
   setApiBaseUrl: (url: string) => void
   isShowSidebar: boolean
   toggleSidebar: () => void
-  isShowRechargeFloat: boolean
-  toggleRechargeFloat: () => void
+  isShowSideBox: boolean
+  toggleSideBox: () => void
   isShowMbMenu: boolean
   toggleMbMenu: () => void
   closeMbMenu: () => void
@@ -33,9 +33,9 @@ export const useStore = create<IState>((set) => ({
   isShowSidebar: false,
   toggleSidebar: () =>
     set((state) => ({ isShowSidebar: !state.isShowSidebar })),
-  isShowRechargeFloat: true,
-  toggleRechargeFloat: () =>
-    set((state) => ({ isShowRechargeFloat: !state.isShowRechargeFloat })),
+  isShowSideBox: true,
+  toggleSideBox: () =>
+    set((state) => ({ isShowSideBox: !state.isShowSideBox })),
   isShowMbMenu: false,
   toggleMbMenu: () => set((state) => ({ isShowMbMenu: !state.isShowMbMenu })),
   closeMbMenu: () => set({ isShowMbMenu: false }),
