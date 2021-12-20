@@ -76,3 +76,9 @@ export enum PayType {
   MCCoupon = 5,
   ECPayATM = 6,
 }
+
+export enum MCPaymentType {
+  UNKNOWN_PAYMENT_TYPE = 0,
+  IN_GAME = 1,
+  COST_POINT = 2,
+}

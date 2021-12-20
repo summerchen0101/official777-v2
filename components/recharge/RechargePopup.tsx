@@ -1,5 +1,5 @@
 import Popup from '@/components/Popup'
-import { ItemType, PayType } from '@/lib/enums'
+import { ItemType, PayType, MCPaymentType } from '@/lib/enums'
 import { payTypeMap } from '@/lib/map'
 import useGoodsList from '@/services/useGoodsList'
 import useMe from '@/services/useMe'
@@ -59,6 +59,10 @@ export default function RechargePopup({ payType }: Props) {
         productID: d.productID,
         gatewayCode: 3,
         userID: data?.id!,
+        paymentType:
+          payType === PayType.MCTransfer
+            ? MCPaymentType.IN_GAME
+            : MCPaymentType.COST_POINT,
       })
       if (res?.data.requestURL) {
         router.replace({
