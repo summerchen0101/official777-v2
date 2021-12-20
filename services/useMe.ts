@@ -25,6 +25,7 @@ export interface MeRes extends ResBase {
   lineID: string
   fbID: string
   gender: number
+  nickNameRemainingTimes: number
 }
 
 function useMe() {
