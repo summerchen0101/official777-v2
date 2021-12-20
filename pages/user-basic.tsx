@@ -21,7 +21,7 @@ type Inputs = {
 
 function UserBasic() {
   useAuth()
-  const { data } = useMe()
+  const { data, mutate } = useMe()
   const { handler: doUpdate, isLoading } = useProfileUpdate()
   const { handler: sendSms, isLoading: isSmsLoading } = useSms()
   const {
@@ -31,7 +31,11 @@ function UserBasic() {
     watch,
     getValues,
     reset,
-  } = useForm<Inputs>()
+  } = useForm<Inputs>({
+    defaultValues: {
+      phone_code: '886',
+    },
+  })
 
   const onSubmit = handleSubmit(async (d) => {
     try {
@@ -45,8 +49,8 @@ function UserBasic() {
       })
       if (res?.ok) {
         alert('會員資料更新成功')
+        mutate()
       }
-      reset()
     } catch (err) {
       console.log(err)
     }
@@ -55,14 +59,18 @@ function UserBasic() {
   useEffect(() => {
     reset({
       nickname: data?.nickname,
-      phone: data?.cellphone,
-      phone_code: data?.countryCode,
+      phone: data?.cellphone.replace('886-', ''),
+      phone_code: data?.countryCode || '886',
       email: data?.email,
       gender: data?.gender.toString(),
     })
   }, [data])
 
   const onSendSms = async () => {
+    if (!getValues('phone')) {
+      alert('請先輸入電話號碼')
+      return
+    }
     const res = await sendSms({
       // userID: 0,
       newCountryCode: '886',
@@ -121,7 +129,7 @@ function UserBasic() {
                         required: { value: true, message: '不可為空' },
                       })}
                     >
-                      <option>886</option>
+                      <option value="886">886</option>
                     </select>
                     <input
                       type="text"
@@ -189,7 +197,7 @@ function UserBasic() {
                   type="text"
                   className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
                   {...register('email', {
-                    required: { value: true, message: '不可為空' },
+                    // required: { value: true, message: '不可為空' },
                     pattern: {
                       value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
                       message: '格式有誤',

@@ -30,7 +30,7 @@ export interface MeRes extends ResBase {
 function useMe() {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
-  const { data, isValidating } = useSWR(
+  const { data, isValidating, mutate } = useSWR(
     token ? [`${apiPath}/member/me`, token] : null,
     (url, token, category, page, perPage) =>
       request<MeRes>({
@@ -45,7 +45,7 @@ function useMe() {
       }),
   )
 
-  return { data, isLoading: isValidating }
+  return { data, isLoading: isValidating, mutate }
 }
 
 export default useMe
