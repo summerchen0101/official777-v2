@@ -62,7 +62,7 @@ function useRewardList({
         url,
         method: 'get',
         config: {
-          params: { token, userID, rewardStatus, remitStatus, page, perPage },
+          params: { userID, rewardStatus, remitStatus, page, perPage },
           headers: {
             Authorization: `Bearer ${token}`,
           },
