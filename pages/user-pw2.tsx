@@ -5,8 +5,9 @@ import useMe from '@/services/useMe'
 import usePwUpdate from '@/services/usePwUpdate'
 import useSms from '@/services/useSms'
 import { toImgPath } from '@/utils'
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useInterval } from 'usehooks-ts'
 
 type Inputs = {
   code: string
@@ -14,6 +15,12 @@ type Inputs = {
   new_pw_confirm: string
 }
 function UserPw() {
+  const [count, setCount] = useState(0)
+  useInterval(() => {
+    if (count > 0) {
+      setCount((c) => c - 1)
+    }
+  }, 1000)
   useAuth()
   const { handler: doUpdate, isLoading } = usePwUpdate()
   const { data } = useMe()
@@ -31,6 +38,7 @@ function UserPw() {
     })
     if (res?.sendSuccess) {
       alert('簡訊已發送')
+      setCount(60)
     }
   }
   const onSubmit = handleSubmit(async (d) => {
@@ -137,8 +145,12 @@ function UserPw() {
                       type="button"
                       className="btn btn-sm"
                       onClick={onSendSms}
+                      disabled={count > 0}
                     >
                       發送驗證碼
+                      <span className="ml-1" hidden={!count}>
+                        {count}s
+                      </span>
                     </button>
                   </div>
                 </div>

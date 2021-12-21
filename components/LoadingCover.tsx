@@ -14,7 +14,6 @@ function LoadingCover({ children, isLoading }: Props) {
           isLoading ? 'visible opacity-100' : 'opacity-0 invisible',
         )}
       >
-        <i className="fas fa-spinner fa-spin text-gray-800/20 fa-4x"></i>
         <CgSpinnerTwo size="70px" className="text-yellow-700/30 animate-spin" />
       </div>
     </div>

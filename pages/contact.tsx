@@ -15,6 +15,8 @@ type Inputs = {
   subject: string
   comment: string
   category: string
+  email: string
+  phone: string
   attachment: File
 }
 
@@ -60,6 +62,7 @@ function Contact() {
             <input hidden name="requester_id" value={data?.id} />
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
               <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+                <span className="text-red-500">*</span>
                 問題類型
               </label>
               <select
@@ -79,6 +82,7 @@ function Contact() {
             </div>
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
               <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+                <span className="text-red-500">*</span>
                 意見標題
               </label>
               <input
@@ -92,17 +96,40 @@ function Contact() {
                 </div>
               )}
             </div>
-            {/* <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                <label htmlFor="" className="w-28 lg:text-right text-gray-200">
-                  意見標題
-                </label>
-                <input
-                  name="subject"
-                  className="rounded-sm border-none bg-gray-100 flex-1 h-9"
-                />
-              </div> */}
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
               <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+                <span className="text-red-500">*</span>
+                Email
+              </label>
+              <input
+                type="email"
+                className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
+                {...register('email', { required: '不可為空' })}
+              />
+              {errors.email && (
+                <div className="text-sm text-red-500">
+                  {errors.email.message}
+                </div>
+              )}
+            </div>
+            <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
+              <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+                手機
+              </label>
+              <input
+                type="text"
+                className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
+                {...register('phone')}
+              />
+              {errors.phone && (
+                <div className="text-sm text-red-500">
+                  {errors.phone.message}
+                </div>
+              )}
+            </div>
+            <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
+              <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+                <span className="text-red-500">*</span>
                 意見內容
               </label>
               <textarea
