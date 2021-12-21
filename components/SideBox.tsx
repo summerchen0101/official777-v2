@@ -38,6 +38,9 @@ function SideBox() {
           <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
             ${toCurrency(user.coin)}
           </div>
+          <div className="bg-gradient-to-r from-purple-200 via-purple-400 to-purple-200 rounded-lg purple-2 border-2 border-white p-2 text-purple-900 font-medium h-9 flex items-center justify-center">
+            ${toCurrency(user.paymentPoint)}
+          </div>
           {/* <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
             <img
               src={toImgPath('/icon_goldMoney.png')}
