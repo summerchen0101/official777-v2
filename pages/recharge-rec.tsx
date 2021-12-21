@@ -1,21 +1,25 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
-import Loading from '@/components/Loading'
-import useAuth from '@/hooks/useAuth'
-import { paymentGatewayMap, paymentStatusMap, payTypeMap } from '@/lib/map'
-import useRechargeRecList from '@/services/useRechargeRecList'
-import { toImgPath, toCurrency, toDateTime } from '@/utils'
-import React from 'react'
-import cs from 'classnames'
-import { PaymentStatus } from '@/lib/enums'
 import LoadingCover from '@/components/LoadingCover'
+import useAuth from '@/hooks/useAuth'
+import { PaymentStatus } from '@/lib/enums'
+import { paymentStatusMap, payTypeMap } from '@/lib/map'
+import useRechargeRecList from '@/services/useRechargeRecList'
+import { toCurrency, toDateTime, toImgPath } from '@/utils'
+import cs from 'classnames'
+import React, { useState } from 'react'
+import { BiArrowToRight } from 'react-icons/bi'
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
+import ReactPaginate from 'react-paginate'
+
 function RechargeRec() {
-  const { list, isLoading } = useRechargeRecList({
+  const [page, setPage] = useState(1)
+  const { list, isLoading, paginator } = useRechargeRecList({
     paymentStatus: 0,
     paymentGateway: 0,
     createdAtMsStart: 0,
     createdAtMsEnd: 0,
-    page: 1,
+    page,
     perPage: 10,
   })
   useAuth()
@@ -71,6 +75,16 @@ function RechargeRec() {
                   ))}
                 </tbody>
               </table>
+              <ReactPaginate
+                className="text-white flex justify-center items-center gap-6 text-lg mt-4"
+                breakLabel="..."
+                nextLabel={<FaAngleRight />}
+                onPageChange={({ selected }) => setPage(selected + 1)}
+                pageRangeDisplayed={paginator?.perPage}
+                pageCount={paginator?.totalPage || 1}
+                previousLabel={<FaAngleLeft />}
+                activeLinkClassName="text-gold-500 cursor-not-allowed"
+              />
             </LoadingCover>
           </div>
         </div>
