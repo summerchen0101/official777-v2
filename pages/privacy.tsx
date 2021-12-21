@@ -9,7 +9,7 @@ function Privacy() {
       <div className="lg:w-[860px] mx-auto">
         <p className="title">隱私權政策</p>
         <p>
-          香港商MEGA GAME GLOBAL TECH
+          MEGA GAME GLOBAL TECH
           LIMITED公司（以下統稱「本公司」）尊重遊戲用戶的隱私權，並了解為提供一個安全環境之重要性。本公司已採用隱私權政策（以下簡稱「本政策」），作為本公司蒐集、處理及利用您提供予本公司個人資料之準繩。您使用【大頭家娛樂城】（下簡稱本遊戲）或在線上提供您的資訊給本公司，視為您接受本公司在本政策中所述之相關規定。
         </p>
         <ol>

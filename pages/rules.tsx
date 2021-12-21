@@ -10,14 +10,14 @@ function Rules() {
         <div className="">
           <p className="title">服務條款</p>
           <p>
-            歡迎來到香港商MEGA GAME GLOBAL TECH
+            歡迎來到MEGA GAME GLOBAL TECH
             LIMITED公司【大頭家娛樂城】遊戲平台（以下簡稱本遊戲），為保障您的權益，請於註冊成為本遊戲會員並開始使用本遊戲之服務前，詳細閱讀本服務條款之所有內容。
           </p>
           <p>提醒您，務必先行審閱，再按下【我同意】鍵。</p>
           <p>當事人：</p>
           <p>消費者（以下簡稱「甲方」，請依會員註冊流程填寫）</p>
           <p>
-            企業經營者名稱：香港商MEGA GAME GLOBAL TECH
+            企業經營者名稱：MEGA GAME GLOBAL TECH
             LIMITED公司（以下簡稱「乙方」）
           </p>
           <p>電子郵件： support@online539.com</p>
