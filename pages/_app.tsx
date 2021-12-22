@@ -1,4 +1,5 @@
 import { LoginRes } from '@/services/useLogin'
+import useMaintenance from '@/services/useMaintenance'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import type { AppProps } from 'next/app'
@@ -11,6 +12,7 @@ import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const { data } = useMaintenance()
   const setApiBaseUrl = useStore((s) => s.setApiBaseUrl)
   const apiBaseUrl = useStore((s) => s.apiBaseUrl)
   const getConfig = useCallback(async () => {
