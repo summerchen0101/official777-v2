@@ -1,11 +1,9 @@
+import ActivityBtns from '@/components/activity/ActivityBtns'
+import ContentText from '@/components/activity/ContentText'
+import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import ContentText from '@/components/activity/ContentText'
-import { activityList } from '@/lib/activity'
-import { toImgPath } from '@/utils'
-import cs from 'classnames'
-import React, { useState } from 'react'
-import ActivityBtns from '@/components/activity/ActivityBtns'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 
 type Inputs = {
@@ -20,9 +18,8 @@ export default function Activity_02() {
     watch,
     reset,
   } = useForm<Inputs>()
-  const [tab, setTab] = useState(0)
   return (
-    <div className="p-6 sm:px-10">
+    <PageWrapper>
       <ActivityBtns id={2} />
       <ActivitySection title="新年送紅包">
         <div>
@@ -116,6 +113,6 @@ export default function Activity_02() {
           </div>
         </div>
       </ActivitySection>
-    </div>
+    </PageWrapper>
   )
 }
