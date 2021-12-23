@@ -120,6 +120,7 @@ function Contact() {
                 type="text"
                 className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
                 {...register('phone')}
+                placeholder="填寫有機會較快收到客服回饋"
               />
               {errors.phone && (
                 <div className="text-sm text-red-500">
