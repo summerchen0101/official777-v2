@@ -107,75 +107,70 @@ export default function Activity_01() {
           </div>
         </div>
       </ActivitySection>
-
-      <div className="">
-        <div className="bg-black border-2 rounded-full text-white text-3xl text-center w-[560px] max-w-[calc(100%-30px)] mx-auto py-5 relative z-10">
-          直播抽獎
+      <ActivitySection title="直播抽獎">
+        <div>
+          <SubTitle>活動時間</SubTitle>
+          <ContentText>
+            2022/1/14(三) 中午12:00 – 2022/2/8(二) 晚上11:59
+          </ContentText>
         </div>
-        <div className="-mt-8 bg-black border-2 rounded-3xl text-white min-h-[500px] max-w-[960px] mx-auto p-8 pt-12 space-y-8">
-          <div>
-            <div className="text-yellow-400 text-2xl mb-2">活動時間</div>
-            <div className="text-gray-300">
-              2022/1/14(三) 中午12:00 – 2022/2/8(二) 晚上11:59
+        <div>
+          <SubTitle>直播平台</SubTitle>
+          <ContentText>大頭家娛樂城官方粉絲專頁</ContentText>
+        </div>
+        <div>
+          <SubTitle>名單公告時間</SubTitle>
+          <ContentText>2022/2/14(一) 18:00</ContentText>
+        </div>
+
+        <div>
+          <SubTitle>活動獎項</SubTitle>
+          <div className="flex gap-4 justify-center mt-6">
+            {[...Array(3)].map((t, i) => (
+              <div
+                key={i}
+                className={cs(
+                  'text-white bg-gray-600 rounded-full p-3 w-32 text-xl text-center cursor-pointer shadow-md',
+                  { 'bg-gold-600': tab === i },
+                )}
+                onClick={(e) => setTab(i)}
+              >
+                金券
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-4 mt-6 max-w-[700px] mx-auto">
+            <div className="col-span-2 flex flex-col sm:flex-row gap-4 sm:gap-8 items-center p-8 rounded-lg justify-center  bg-gray-800">
+              <img
+                src={toImgPath('/vip/VIPcard1.png')}
+                className="w-28"
+                alt=""
+              />
+              <div className="text-gray-300 text-lg sm:text-xl text-center leading-7 sm:leading-9">
+                賓士名車卡 共2名 <br />
+                價值 <span className="text-yellow-400">158,000,000</span> 金幣
+              </div>
             </div>
-          </div>
-          <div>
-            <div className="text-yellow-400 text-2xl mb-2">直播平台</div>
-            <div className="text-gray-300">大頭家娛樂城官方粉絲專頁</div>
-          </div>
-          <div>
-            <div className="text-yellow-400 text-2xl mb-2">名單公告時間</div>
-            <div className="text-gray-300">2022/2/14(一) 18:00</div>
-          </div>
-          <div>
-            <div className="text-yellow-400 text-2xl mb-3">活動獎項</div>
-            <div className="flex gap-4 justify-center">
-              {[...Array(3)].map((t, i) => (
-                <div
-                  key={i}
-                  className={cs(
-                    'text-white bg-gray-600 rounded-full p-3 w-32 text-xl text-center cursor-pointer',
-                    { 'bg-gold-600': tab === i },
-                  )}
-                  onClick={(e) => setTab(i)}
-                >
-                  金券
-                </div>
-              ))}
-            </div>
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              <div className="col-span-2 flex flex-col sm:flex-row gap-4 sm:gap-8 items-center border-2 border-gold-600 p-8 rounded-lg justify-center">
+            {[...Array(6)].map((t, i) => (
+              <div
+                key={i}
+                className="gap-3 bg-gray-800 p-4 rounded-lg space-y-4 text-center"
+              >
                 <img
                   src={toImgPath('/vip/VIPcard1.png')}
-                  className="w-32"
+                  className="w-16 sm:w-28 mx-auto"
                   alt=""
                 />
-                <div className="text-gray-300 text-base sm:text-xl text-center leading-7 sm:leading-9">
-                  賓士名車卡共2名 <br />
-                  價值 158,000,000金幣
+                <div className="text-gray-300 text-xs sm:text-xl leading-5">
+                  勞力士卡 共1名
+                  <br />
+                  價值 <span className="text-yellow-400">23,300,000</span> 金幣
                 </div>
               </div>
-              {[...Array(6)].map((t, i) => (
-                <div
-                  key={i}
-                  className="gap-3 border-2 border-gray-700 p-4 rounded-lg space-y-4 text-center col-span-2 sm:col-span-1"
-                >
-                  <img
-                    src={toImgPath('/vip/VIPcard1.png')}
-                    className="w-32 mx-auto"
-                    alt=""
-                  />
-                  <div className="text-gray-300 text-base sm:text-xl">
-                    勞力士卡共1名
-                    <br />
-                    價值23,300,000金幣
-                  </div>
-                </div>
-              ))}
-            </div>
+            ))}
           </div>
         </div>
-      </div>
+      </ActivitySection>
     </PageWrapper>
   )
 }

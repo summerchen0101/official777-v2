@@ -10,7 +10,7 @@ import React from 'react'
 export default function Activity_05() {
   return (
     <PageWrapper>
-      <ActivityBtns id={4} />
+      <ActivityBtns id={5} />
       <ActivitySection title="衝等大挑戰">
         <div>
           <SubTitle>活動時間</SubTitle>

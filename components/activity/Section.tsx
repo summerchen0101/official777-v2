@@ -10,7 +10,7 @@ function ActivitySection({ title, children }: Props) {
       <div className="bg-black border-4 border-purple-900  rounded-full text-white text-3xl text-center w-[560px] max-w-[calc(100%-30px)] mx-auto py-5 relative z-10">
         {title}
       </div>
-      <div className="-mt-8 bg-purple-900 rounded-3xl text-white min-h-[500px] max-w-[960px] mx-auto p-6 pt-12 space-y-8">
+      <div className="-mt-8 bg-purple-900 rounded-3xl text-white min-h-[500px] max-w-[960px] mx-auto p-6 sm:p-14 pt-12 space-y-8">
         {children}
       </div>
     </div>
