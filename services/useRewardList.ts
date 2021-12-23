@@ -19,6 +19,17 @@ export interface Reward {
   gold: number
   needForm: number
 }
+export interface Reward {
+  id: number
+  name: string
+  type: number
+  price: number
+  unit: string
+  gold: number
+  needForm: number
+  itemID: number
+  amount: number
+}
 
 export interface Record {
   id: number
@@ -27,7 +38,6 @@ export interface Record {
   socialID: string
   receiveDate: number
   rewardID: number
-  rewardName: string
   rewardStatus: number
   remitStatus: number
   reward: Reward
