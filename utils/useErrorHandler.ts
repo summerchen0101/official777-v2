@@ -1,3 +1,4 @@
+import useMaintenance from '@/services/useMaintenance'
 import { useUserStore } from '@/store/useUserStore'
 import { AxiosError } from 'axios'
 import httpStatus from 'http-status'
@@ -6,10 +7,14 @@ import { useCallback } from 'react'
 
 function useErrorHandler() {
   const router = useRouter()
+  const { data: maintainInfo } = useMaintenance()
   const clearUser = useUserStore((s) => s.clearUser)
   const apiErrHandler = useCallback(
     (error: AxiosError<any>) => {
       console.log(error.message)
+      if (maintainInfo?.isOpen) {
+        router.push('/maintainance')
+      }
       if (error.response) {
         // 错误来自回传参数
         let msg = '錯誤發生'

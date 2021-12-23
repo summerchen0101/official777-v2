@@ -15,14 +15,8 @@ function useMaintenance() {
   const { data, isValidating, mutate } = useSWR<MaintenanceRes>(
     '/api/maintain',
     (url) => fetch(url).then((res) => res.json()),
-    { revalidateOnFocus: true },
+    { revalidateOnFocus: true, refreshInterval: 30 * 1000 },
   )
-
-  useEffect(() => {
-    if (data?.isOpen) {
-      router.push('/maintainance')
-    }
-  }, [data])
 
   return { data, isLoading: isValidating, mutate }
 }

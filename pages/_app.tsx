@@ -12,7 +12,14 @@ import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter()
   const { data } = useMaintenance()
+
+  useEffect(() => {
+    if (data?.isOpen) {
+      router.push('/maintainance')
+    }
+  }, [data, router])
   const setApiBaseUrl = useStore((s) => s.setApiBaseUrl)
   const apiBaseUrl = useStore((s) => s.apiBaseUrl)
   const getConfig = useCallback(async () => {
@@ -24,7 +31,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     getConfig()
   }, [getConfig])
 
-  const router = useRouter()
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
 
   useEffect(() => {
