@@ -14,7 +14,7 @@ function ActivityBtns({ id }: Props) {
             key={i}
             className={cs(
               'bg-gray-600 text-gray-300 h-28 rounded-3xl text-xl sm:text-2xl flex flex-col justify-center items-center border-4 border-black/40  cursor-pointer',
-              { 'bg-gold-600': t.id === id },
+              { 'bg-gold-700': t.id === id },
             )}
           >
             {t.name}

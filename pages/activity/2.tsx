@@ -1,5 +1,6 @@
 import ActivityBtns from '@/components/activity/ActivityBtns'
 import ContentText from '@/components/activity/ContentText'
+import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
@@ -31,7 +32,7 @@ export default function Activity_02() {
         <div>
           <SubTitle>活動說明一</SubTitle>
           <ContentText>
-            <ul className="list-decimal list-inside">
+            <ListWrapper>
               <li>
                 活動期間內，到肯德基購買XXX多人分享餐(舉例)，即可獲得大頭家娛樂城實體紅包袋。
               </li>
@@ -43,7 +44,7 @@ export default function Activity_02() {
                 遊戲中輸入序號方式：遊戲大廳 → 點擊左下方「公告」→
                 點擊序號廣告，即可輸入序號喔！
               </li> */}
-            </ul>
+            </ListWrapper>
             <div className="form-box my-5 sm:mx-12">
               <form noValidate className="space-y-5">
                 <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">

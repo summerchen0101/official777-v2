@@ -6,7 +6,7 @@ import SubTitle from '@/components/activity/SubTitle'
 import { toImgPath } from '@/utils'
 import React from 'react'
 
-export default function Activity_03() {
+export default function Activity_04() {
   return (
     <PageWrapper>
       <ActivityBtns id={4} />
@@ -40,7 +40,7 @@ export default function Activity_03() {
                 <td className="text-center text-xl text-gold-700 font-medium">
                   5
                 </td>
-                <td className="flex items-center gap-3 justify-center">
+                <td className="flex items-center gap-3 justify-center font-medium">
                   <img
                     src={toImgPath('/gift/img_redEnvelopeLucky.png')}
                     alt=""

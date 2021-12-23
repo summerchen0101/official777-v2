@@ -1,5 +1,6 @@
 import ActivityBtns from '@/components/activity/ActivityBtns'
 import ContentText from '@/components/activity/ContentText'
+import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
@@ -23,10 +24,10 @@ export default function Activity_03() {
         <div>
           <SubTitle>活動說明</SubTitle>
           <ContentText>
-            <ul className="list-decimal list-inside">
+            <ListWrapper>
               <li>活動期間每日從押注寶箱開出的道具碎片數量加倍</li>
               <li>押注越高越容易拿到稀有押注寶箱</li>
-            </ul>
+            </ListWrapper>
           </ContentText>
         </div>
       </ActivitySection>
