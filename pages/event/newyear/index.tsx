@@ -1,4 +1,4 @@
-import { GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 import React from 'react'
 
 function EventNewYear() {
@@ -7,8 +7,8 @@ function EventNewYear() {
 
 export default EventNewYear
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
-    props: { redirect: { permanent: false, destination: 'newyear/1' } },
+    redirect: { permanent: false, destination: 'newyear/1' },
   }
 }
