@@ -1,10 +1,11 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import { reportCategory } from '@/lib/report'
 import useMe from '@/services/useMe'
 import useTicketCreate from '@/services/useTicketCreate'
 import { fileToDataUrl, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { BiCloudUpload } from 'react-icons/bi'
 import { CgSpinner } from 'react-icons/cg'
@@ -21,12 +22,31 @@ type Inputs = {
 }
 
 function Contact() {
+  const router = useRouter()
+
   const formRef = useRef<HTMLFormElement>(null)
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm<Inputs>()
+  useEffect(() => {
+    const query = router.query
+    let str = ''
+    if (query.content) {
+      setValue('category', '檢舉')
+      setValue(
+        'comment',
+        str +
+          `＊檢舉${
+            +(query.private as unknown as string) ? '玩家' : '群組'
+          }: ID ${query.id}\n＊原因: ${
+            reportCategory[query.content as string]
+          }\n＊補充說明: -`,
+      )
+    }
+  }, [router.query])
   const { handler: doCreate, isLoading } = useTicketCreate()
   const { data } = useMe()
   const [reviewImg, setReviewImg] = useState('')
