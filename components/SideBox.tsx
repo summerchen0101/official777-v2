@@ -8,9 +8,21 @@ import { FaUserCircle } from 'react-icons/fa'
 
 function SideBox() {
   const router = useRouter()
+
   const clearUser = useUserStore((s) => s.clearUser)
   const onToggle = usePopupStore((s) => s.login.onToggle)
+
   const { data: user, isLoading } = useMe()
+
+  const handleClickRecharge = () => {
+    if (user) {
+      router.push('/recharge')
+    } else {
+      router.replace({ query: { to: '/recharge' } })
+      onToggle()
+    }
+  }
+
   const handleLogout = () => {
     clearUser()
     alert('登出成功')
@@ -20,7 +32,7 @@ function SideBox() {
     <div className="gold-box rounded-3xl w-48 ml-2 hidden lg:flex flex-col gap-2 px-3 pt-0 pb-10 fixed top-0 left-0 mt-[180px] shadow-md z-30">
       <div
         className="flex flex-col gap-2 cursor-pointer mb-2 -mt-10"
-        onClick={() => router.push('/recharge')}
+        onClick={handleClickRecharge}
       >
         <img src={toImgPath('/recharge_pig.png')} alt="" />
         <img

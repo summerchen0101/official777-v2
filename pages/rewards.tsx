@@ -40,7 +40,7 @@ function RewardsPage() {
       recordId: d.id,
     })
     if (res?.isSuccess) {
-      alert(`${res.record.rewardName}已發至您的遊戲帳號`)
+      alert(`${d.reward.name}已發至您的遊戲帳號`)
     }
   }
 
