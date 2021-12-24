@@ -9,7 +9,7 @@ import { useForm } from 'react-hook-form'
 import { BiCloudUpload } from 'react-icons/bi'
 import { CgSpinner } from 'react-icons/cg'
 
-const categorys = ['帳號', '儲值', '遊戲', '活動', '意見', '其他']
+const categorys = ['帳號', '儲值', '遊戲', '活動', '意見', '其他', '檢舉']
 
 type Inputs = {
   subject: string

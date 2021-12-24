@@ -9,6 +9,6 @@ export default EventNewYear
 
 export const getStaticProps: GetStaticProps = async () => {
   return {
-    props: { redirect: { permanent: false, destination: 'newyear/1' } }, // will be passed to the page component as props
+    props: { redirect: { permanent: false, destination: 'newyear/1' } },
   }
 }
