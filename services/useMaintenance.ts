@@ -1,21 +1,38 @@
-import { useUserStore } from '@/store/useUserStore'
+import { useStore } from '@/store/useStore'
 import { ResBase } from '@/types'
-import useRequest, { apiPath } from '@/utils/useRequest'
-import { useRouter } from 'next/dist/client/router'
-import { useEffect, useState } from 'react'
 import useSWR from 'swr'
 
-export interface MaintenanceRes {
-  isOpen: boolean
-  content: string
+export interface MeRes extends ResBase {
+  id: number
+  nickname: string
+  avatarID: number
+  coin: number
+  vipLevel: number
+  email: string
+  countryCode: string
+  cellphone: string
+  phoneVerified: number
+  isSecondPasswordSet: number
+  realName: string
+  contactPhone: string
+  socialID: string
+  birthDay: string
+  zipCode: string
+  address: string
+  googleID: string
+  appleID: string
+  lineID: string
+  fbID: string
+  gender: number
+  nickNameRemainingTimes: number
+  paymentPoint: number
 }
 
 function useMaintenance() {
-  const router = useRouter()
-  const { data, isValidating, mutate } = useSWR<MaintenanceRes>(
-    '/api/maintain',
+  const apiBaseUrl = useStore((s) => s.apiBaseUrl)
+  const { data, isValidating, mutate } = useSWR(
+    [`${apiBaseUrl}/json/billboard.json`],
     (url) => fetch(url).then((res) => res.json()),
-    { revalidateOnFocus: true, refreshInterval: 30 * 1000 },
   )
 
   return { data, isLoading: isValidating, mutate }
