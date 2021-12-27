@@ -4,6 +4,7 @@ import React, { ReactNode } from 'react'
 import { BiDollar, BiDownload, BiHome } from 'react-icons/bi'
 import { CgFacebook } from 'react-icons/cg'
 import AppDownloadSideFloat from '../AppDownloadSideFloat'
+import FooterNav from '../layout/FooterNav'
 import LoginPopup from '../LoginPopup'
 import SideBox from '../SideBox'
 
@@ -11,7 +12,7 @@ function PageWrapper({ children }: { children: ReactNode }) {
   const router = useRouter()
   return (
     <div
-      className="px-4 pt-[55%] pb-16 sm:px-10 bg-top bg-no-repeat bg-contain"
+      className="pt-[55%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat"
       style={{ backgroundImage: `url(${toImgPath('/event/event_bg.png')})` }}
     >
       <img
@@ -21,7 +22,7 @@ function PageWrapper({ children }: { children: ReactNode }) {
         onClick={() => router.push('/')}
       />
       {/* <PageBanner /> */}
-      <div>{children}</div>
+      <div className="px-4 sm:px-10">{children}</div>
       <SideBox />
       <AppDownloadSideFloat />
 
@@ -43,6 +44,9 @@ function PageWrapper({ children }: { children: ReactNode }) {
           <BiDollar className="text-2xl" />
           <span className="text-xs">立即儲值</span>
         </div>
+      </div>
+      <div className="hidden sm:block">
+        <FooterNav />
       </div>
     </div>
   )
