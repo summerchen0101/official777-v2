@@ -12,7 +12,7 @@ export default async function handler(
   res: NextApiResponse<Data>,
 ) {
   const response = await fetch(
-    'https://web-alpha.ffglobaltech.com/json/billboard.json',
+    process.env.NEXT_PUBLIC_API_BASE_URL + '/json/billboard.json',
   )
   const data = (await response.json()) as Data
   res.status(200).json(data)

@@ -13,6 +13,7 @@ import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
+
   const { data } = useMaintenance()
 
   useEffect(() => {
@@ -45,7 +46,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         router.push(router.query.to as string)
       }
       console.log('before clean')
-      router.replace({ query: {} })
+      delete router.query.accessToken
+      delete router.query.refreshToken
+      delete router.query.expiresIn
+      delete router.query.to
+      router.replace({ query: router.query })
     }
   }, [router, setTokenInfo])
   return (
