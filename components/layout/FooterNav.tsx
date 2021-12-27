@@ -40,10 +40,15 @@ function FooterNav() {
               例行維護時間 星期三 09：00 ~ 12：00
             </p>
             <div className="pt-3">
-              <div className="h-20 p-2 rounded-sm flex items-center justify-center mx-auto">
+              <div className="h-20 p-2 rounded-sm flex gap-8 items-center justify-center mx-auto">
                 <img
                   src={toImgPath('/company-logo.png')}
-                  className="h-full"
+                  className="h-16"
+                  alt=""
+                />
+                <img
+                  src={toImgPath('/sponsor/三聯logo_橫.png')}
+                  className="h-16"
                   alt=""
                 />
               </div>
