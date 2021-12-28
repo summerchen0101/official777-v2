@@ -4,21 +4,51 @@ import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import React from 'react'
+import LoginPopup from '@/components/LoginPopup'
+import useMe from '@/services/useMe'
+import useSnExchange from '@/services/useSnExchange'
+import usePopupStore from '@/store/usePopupStore'
+import { useRouter } from 'next/dist/client/router'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
 type Inputs = {
-  nickname: string
-  sn: string
+  userID: string
+  serial: string
 }
 export default function Activity_02() {
+  const { data } = useMe()
+  const onLoginToggle = usePopupStore((s) => s.login.onToggle)
   const {
     register,
     handleSubmit,
     formState: { errors },
     watch,
+    setValue,
     reset,
   } = useForm<Inputs>()
+
+  useEffect(() => {
+    if (data) {
+      setValue('userID', data.id.toString())
+    }
+  }, [data])
+
+  const { handler: doSnExchange, isLoading } = useSnExchange()
+
+  const router = useRouter()
+
+  const handleLoginFirst = () => {
+    router.replace({ query: { to: router.asPath } })
+    onLoginToggle()
+  }
+
+  const onSubmit = handleSubmit(async (d) => {
+    const res = await doSnExchange({
+      userID: BigInt(d.userID),
+      serial: d.serial,
+    })
+  })
   return (
     <PageWrapper>
       <ActivityBtns id={2} />
@@ -45,45 +75,52 @@ export default function Activity_02() {
                 點擊序號廣告，即可輸入序號喔！
               </li> */}
             </ListWrapper>
-            <div className="form-box my-5 sm:mx-12">
-              <form noValidate className="space-y-5">
-                <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                  <label
-                    htmlFor=""
-                    className="w-44 mb-2 lg:text-right text-gray-200"
-                  >
-                    暱稱
-                  </label>
-                  <input
-                    className="rounded-sm border-none bg-gray-100 h-9 lg:w-[400px] px-2"
-                    placeholder="請輸入暱稱"
-                    {...register('nickname', {
-                      required: { value: true, message: '不可為空' },
-                    })}
-                  />
-                </div>
-                <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                  <label
-                    htmlFor=""
-                    className="w-44 mb-2 lg:text-right text-gray-200"
-                  >
-                    序號
-                  </label>
-                  <input
-                    className="rounded-sm border-none bg-gray-100 h-9 lg:w-[400px] px-2"
-                    placeholder="請輸入序號"
-                    {...register('nickname', {
-                      required: { value: true, message: '不可為空' },
-                    })}
-                  />
-                </div>
-                <div className="pt-3 text-center space-x-5 flex justify-center">
-                  <button className="btn w-40" onClick={() => reset()}>
-                    取消修改
-                  </button>
-                  <button className="btn active w-40">確認修改</button>
-                </div>
-              </form>
+            <div className="form-box my-5 -mx-4 sm:mx-12">
+              {data ? (
+                <form noValidate className="space-y-5">
+                  <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+                    <label
+                      htmlFor=""
+                      className="w-44 mb-2 lg:text-right text-gray-200"
+                    >
+                      會員資訊
+                    </label>
+                    <p className="text-yellow-200 bg-black/20 p-2 rounded-sm">
+                      {data?.id.toString()} ({data?.nickname})
+                    </p>
+                  </div>
+                  <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
+                    <label
+                      htmlFor=""
+                      className="w-44 mb-2 lg:text-right text-gray-200"
+                    >
+                      序號
+                    </label>
+                    <input
+                      className="rounded-sm border-none bg-gray-100 h-9 lg:w-[400px] px-2 text-gray-800"
+                      placeholder="請輸入序號"
+                      {...register('serial', {
+                        required: { value: true, message: '不可為空' },
+                      })}
+                    />
+                  </div>
+                  <div className="pt-3 text-center space-x-5 flex justify-center">
+                    <button className="btn w-40" onClick={() => reset()}>
+                      取消修改
+                    </button>
+                    <button className="btn active w-40" onClick={onSubmit}>
+                      確認修改
+                    </button>
+                  </div>
+                </form>
+              ) : (
+                <button
+                  className="btn active mx-auto"
+                  onClick={handleLoginFirst}
+                >
+                  兌換序號請先登入會員
+                </button>
+              )}
             </div>
           </ContentText>
         </div>
@@ -114,6 +151,7 @@ export default function Activity_02() {
           </div>
         </div>
       </ActivitySection>
+      <LoginPopup />
     </PageWrapper>
   )
 }
