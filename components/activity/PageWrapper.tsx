@@ -12,13 +12,13 @@ function PageWrapper({ children }: { children: ReactNode }) {
   const router = useRouter()
   return (
     <div
-      className="pt-[55%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat"
-      style={{ backgroundImage: `url(${toImgPath('/event/event_bg.png')})` }}
+      className="pt-[40%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat bg-[#281944]"
+      style={{ backgroundImage: `url(${toImgPath('/event/newsyear_bg.jpg')})` }}
     >
       <img
         src="/img/logo.png"
         alt=""
-        className="hidden sm:block cursor-pointer w-56 -ml-10 fixed top-0"
+        className="hidden sm:block cursor-pointer w-56 mt-2 fixed top-0"
         onClick={() => router.push('/')}
       />
       {/* <PageBanner /> */}
