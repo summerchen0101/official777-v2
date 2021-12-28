@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       delete router.query.accessToken
       delete router.query.refreshToken
       delete router.query.expiresIn
-      delete router.query.to
+      // delete router.query.to
       router.replace({ query: router.query })
     }
   }, [router, setTokenInfo])
