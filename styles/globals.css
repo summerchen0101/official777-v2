@@ -81,7 +81,7 @@ html {
 }
 
 .btn.active {
-  @apply bg-yellow-500 hover:bg-yellow-400 text-black;
+  @apply bg-yellow-500 hover:bg-yellow-400 text-black font-medium;
 }
 .btn:disabled {
   @apply bg-gray-600 text-gray-400 border-gray-500 hover:bg-gray-600;
@@ -135,7 +135,7 @@ section {
 }
 
 .form-box {
-  @apply lg:bg-black/50 lg:rounded-xl pb-8 pt-0 lg:pt-8 px-7 lg:border-2 border-gold-500/30;
+  @apply lg:bg-black/50 lg:rounded-xl pb-8 pt-0 lg:pt-8 px-5 lg:border-2 border-gold-500/30;
 }
 
 .tab-selector {

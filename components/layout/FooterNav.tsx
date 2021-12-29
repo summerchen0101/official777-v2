@@ -36,16 +36,23 @@ function FooterNav() {
             <p>
               ＊本遊戲情節涉及棋牌益智及娛樂，非現金交易賭博，使用者請勿進行非法遊戲幣交易。
             </p>
+            <p>電子信箱：support@online539.com</p>
             <p className="text-yellow-200">
               例行維護時間 星期三 09：00 ~ 12：00
             </p>
             <div className="pt-3">
-              <div className="h-20 p-2 rounded-sm flex items-center justify-center mx-auto">
+              <div className="hidden sm:flex h-20 p-2 rounded-sm gap-8 items-center justify-center mx-auto">
                 <img
                   src={toImgPath('/company-logo.png')}
-                  className="h-full"
+                  className="h-16"
                   alt=""
                 />
+                <img
+                  src={toImgPath('/sponsor/三聯logo_橫.png')}
+                  className="h-16"
+                  alt=""
+                />
+                <img src={toImgPath('/15+.png')} className="h-14 ml-5" alt="" />
               </div>
             </div>
           </div>

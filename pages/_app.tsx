@@ -1,5 +1,4 @@
 import { LoginRes } from '@/services/useLogin'
-import useMaintenance from '@/services/useMaintenance'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import type { AppProps } from 'next/app'
@@ -14,13 +13,6 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
-  const { data } = useMaintenance()
-
-  useEffect(() => {
-    if (data?.isOpen) {
-      router.push('/maintainance')
-    }
-  }, [data, router])
   const setApiBaseUrl = useStore((s) => s.setApiBaseUrl)
   const apiBaseUrl = useStore((s) => s.apiBaseUrl)
   const getConfig = useCallback(async () => {
@@ -49,7 +41,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       delete router.query.accessToken
       delete router.query.refreshToken
       delete router.query.expiresIn
-      delete router.query.to
+      // delete router.query.to
       router.replace({ query: router.query })
     }
   }, [router, setTokenInfo])

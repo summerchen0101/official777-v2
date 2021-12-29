@@ -1,5 +1,5 @@
 import Popup from '@/components/Popup'
-import { ItemType, PayType, MCPaymentType } from '@/lib/enums'
+import { ItemType, PayType, MCPaymentType, PaymentGateway } from '@/lib/enums'
 import { payTypeMap } from '@/lib/map'
 import useGoodsList from '@/services/useGoodsList'
 import useMe from '@/services/useMe'
@@ -57,7 +57,7 @@ export default function RechargePopup({ payType }: Props) {
     ) {
       const res = await doCreate({
         productID: d.productID,
-        gatewayCode: 3,
+        gatewayCode: PaymentGateway.MyCard,
         userID: data?.id!,
         paymentType:
           payType === PayType.MCTransfer

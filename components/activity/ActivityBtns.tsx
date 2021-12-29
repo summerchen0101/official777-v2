@@ -1,9 +1,8 @@
 import { activityList } from '@/lib/activity'
-import React from 'react'
-import cs from 'classnames'
+import { toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
-import { toImgPath } from '@/utils'
+import React from 'react'
 
 type Props = {
   id: number
@@ -24,7 +23,7 @@ function ActivityBtns({ id }: Props) {
               <img
                 src={toImgPath(`/event/title_btn/${t.name}.png`)}
                 alt=""
-                className="cursor-pointer transition-all hover:scale-105"
+                className="cursor-pointer transition-all hover:scale-110"
               />
             )}
             {/* <div
