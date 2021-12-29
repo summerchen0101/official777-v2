@@ -1,8 +1,10 @@
 import Popup from '@/components/Popup'
-import { ItemType, PayType } from '@/lib/enums'
+import { ItemType, MCPaymentType, PaymentGateway, PayType } from '@/lib/enums'
 import useGoodsList from '@/services/useGoodsList'
+import useMe from '@/services/useMe'
+import useOrderCreate from '@/services/useOrderCreate'
 import usePopupStore from '@/store/usePopupStore'
-import { toCurrency } from '@/utils'
+import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import TableSelector from '../TableSelector'
@@ -12,9 +14,10 @@ interface Inputs {
 }
 
 export default function RechargeTransferPopup() {
+  const router = useRouter()
   const isShow = usePopupStore((s) => s.transfer.isShow)
   const onHide = usePopupStore((s) => s.transfer.onHide)
-  const { list, isLoading } = useGoodsList({
+  const { list } = useGoodsList({
     page: 1,
     perPage: 30,
     itemType: ItemType.All,
@@ -30,8 +33,25 @@ export default function RechargeTransferPopup() {
     control,
   } = useForm<Inputs>()
 
-  const onSubmit = handleSubmit((d) => {
-    console.log(d)
+  const { handler: doCreate, isLoading } = useOrderCreate()
+  const { data } = useMe()
+
+  const onSubmit = handleSubmit(async (d) => {
+    const product = list?.find((t) => t.ItemId === d.productID)
+    if (confirm(`透過銀行轉帳消費 $${product?.Price}元是否確認?`)) {
+      const res = await doCreate({
+        productID: d.productID,
+        gatewayCode: PaymentGateway.ECPay,
+        userID: data?.id!,
+        paymentType: MCPaymentType.COST_POINT,
+      })
+      if (res?.data.requestURL) {
+        router.replace({
+          pathname: '/',
+          query: { to: res?.data.requestURL, msg: '跳轉中請稍候' },
+        })
+      }
+    }
   })
 
   return (
