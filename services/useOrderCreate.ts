@@ -11,7 +11,7 @@ export interface OrderCreateReq {
 }
 
 export interface OrderCreateRes extends ResBase {
-  data: { requestURL: string; orderID: number; token: string }
+  data: { requestURL: string; orderID: number; token: string; data?: string }
   meta: {}
 }
 

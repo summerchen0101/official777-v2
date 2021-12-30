@@ -5,12 +5,14 @@ import useMe from '@/services/useMe'
 import useOrderCreate from '@/services/useOrderCreate'
 import usePopupStore from '@/store/usePopupStore'
 import { useRouter } from 'next/dist/client/router'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import TableSelector from '../TableSelector'
 
 interface Inputs {
   productID: number
+  email: string
+  phone: string
 }
 
 export default function RechargeTransferPopup() {
@@ -23,6 +25,7 @@ export default function RechargeTransferPopup() {
     itemType: ItemType.All,
     payType: PayType.ECPayATM,
   })
+
   const {
     register,
     handleSubmit,
@@ -30,14 +33,32 @@ export default function RechargeTransferPopup() {
     watch,
     getValues,
     reset,
+    setValue,
     control,
   } = useForm<Inputs>()
+
+  useEffect(() => {
+    if (list?.length) {
+      setValue('productID', list?.[0].ItemId)
+    }
+  }, [list])
 
   const { handler: doCreate, isLoading } = useOrderCreate()
   const { data } = useMe()
 
+  const handleUseUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setValue('email', data?.email!)
+      setValue('phone', data?.cellphone!)
+    } else {
+      setValue('email', '')
+      setValue('phone', '')
+    }
+  }
+
   const onSubmit = handleSubmit(async (d) => {
     const product = list?.find((t) => t.ItemId === d.productID)
+
     if (confirm(`透過銀行轉帳消費 $${product?.Price}元是否確認?`)) {
       const res = await doCreate({
         productID: d.productID,
@@ -45,11 +66,20 @@ export default function RechargeTransferPopup() {
         userID: data?.id!,
         paymentType: MCPaymentType.COST_POINT,
       })
-      if (res?.data.requestURL) {
-        router.replace({
-          pathname: '/',
-          query: { to: res?.data.requestURL, msg: '跳轉中請稍候' },
-        })
+
+      if (res?.data.data) {
+        const win = window.open(
+          'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5',
+          'payment',
+        )
+
+        const doc = res.data.data.replace(
+          '<head>',
+          `<head>\n<base href="${res.data.requestURL}">`,
+        )
+        win?.document.write(doc)
+
+        win?.document.close()
       }
     }
   })
@@ -96,7 +126,17 @@ export default function RechargeTransferPopup() {
           </div>
         </div>
         <div className="box">
-          <div className="box-title">手機號碼或Email，請至少填一項</div>
+          <div className="box-title">
+            手機號碼或Email，請至少填一項
+            <label className="float-right">
+              <input
+                type="checkbox"
+                className="rounded-sm text-gold-800 w-4 h-4 mr-1"
+                onChange={handleUseUser}
+              />
+              使用會員資料
+            </label>
+          </div>
           <div className="box-content grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="">
               <div className="mb-1">Email</div>
@@ -104,6 +144,7 @@ export default function RechargeTransferPopup() {
                 type="text"
                 placeholder="請填寫Email"
                 className="w-full rounded"
+                {...register('email')}
               />
             </div>
             <div className="">
@@ -112,6 +153,7 @@ export default function RechargeTransferPopup() {
                 type="text"
                 placeholder="請填寫手機號碼"
                 className="w-full rounded"
+                {...register('phone')}
               />
             </div>
           </div>

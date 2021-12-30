@@ -12,7 +12,7 @@ function useErrorHandler() {
   const apiErrHandler = useCallback(
     (error: AxiosError<any>) => {
       console.log(error.message)
-      if (maintainInfo?.isOpen) {
+      if (maintainInfo?.isMaintenanceInProgress) {
         router.push('/maintainance')
       }
       if (error.response) {
