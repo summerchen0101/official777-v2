@@ -9,7 +9,7 @@ const Index: NextPage = () => {
   const { data } = useMaintenance()
   console.log(data)
   useEffect(() => {
-    if (!data?.isOpen) {
+    if (!data?.isMaintenanceInProgress) {
       router.push('/')
     }
   }, [data])

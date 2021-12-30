@@ -2,35 +2,15 @@ import { useStore } from '@/store/useStore'
 import { ResBase } from '@/types'
 import useSWR from 'swr'
 
-export interface MeRes extends ResBase {
-  id: number
-  nickname: string
-  avatarID: number
-  coin: number
-  vipLevel: number
-  email: string
-  countryCode: string
-  cellphone: string
-  phoneVerified: number
-  isSecondPasswordSet: number
-  realName: string
-  contactPhone: string
-  socialID: string
-  birthDay: string
-  zipCode: string
-  address: string
-  googleID: string
-  appleID: string
-  lineID: string
-  fbID: string
-  gender: number
-  nickNameRemainingTimes: number
-  paymentPoint: number
+export interface MaintenanceRes extends ResBase {
+  content: string
+  isOpen: boolean
+  isMaintenanceInProgress: boolean
 }
 
 function useMaintenance() {
   const apiBaseUrl = useStore((s) => s.apiBaseUrl)
-  const { data, isValidating, mutate } = useSWR(
+  const { data, isValidating, mutate } = useSWR<MaintenanceRes>(
     [`${apiBaseUrl}/json/billboard.json`],
     (url) => fetch(url).then((res) => res.json()),
   )
