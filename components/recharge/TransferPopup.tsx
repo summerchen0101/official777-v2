@@ -68,16 +68,18 @@ export default function RechargeTransferPopup() {
       })
 
       if (res?.data.data) {
-        var form = document.createElement('form')
-        form.setAttribute('method', 'post')
-        form.setAttribute('action', res?.data.requestURL)
+        const win = window.open(
+          'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5',
+          'payment',
+        )
 
-        document.body.appendChild(form)
+        const doc = res.data.data.replace(
+          '<head>',
+          `<head>\n<base href="${res.data.requestURL}">`,
+        )
+        win?.document.write(doc)
 
-        var w = window.open('', 'form-target')
-        form.target = 'form-target'
-        // w?.document.write(res?.data.data)
-        form.submit()
+        win?.document.close()
       }
     }
   })
