@@ -269,7 +269,8 @@ export default function RechargeTransferPopup() {
                     type="checkbox"
                     className="rounded-sm text-gold-800 w-4 h-4 mr-1"
                     {...register('agree', {
-                      required: invoiceType === InvoiceType.CLOUD && '此為必填',
+                      required:
+                        invoiceType === InvoiceType.CLOUD && '請勾選同意',
                     })}
                   />
                   <span className="ml-1 text-sm font-medium">
@@ -304,7 +305,9 @@ export default function RechargeTransferPopup() {
                 type="text"
                 placeholder="請填寫Email"
                 className="w-full rounded"
-                {...register('email')}
+                {...register('email', {
+                  required: !watch('phone'),
+                })}
               />
             </div>
             <div className="">
@@ -313,9 +316,14 @@ export default function RechargeTransferPopup() {
                 type="text"
                 placeholder="請填寫手機號碼"
                 className="w-full rounded"
-                {...register('phone')}
+                {...register('phone', { required: !watch('email') })}
               />
             </div>
+            {(errors.email || errors.phone) && (
+              <div className="text-sm text-red-500">
+                手機號碼或Email，請至少填一項
+              </div>
+            )}
           </div>
         </div>
         <div className="mt-12 flex justify-center gap-6">
