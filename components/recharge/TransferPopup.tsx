@@ -1,11 +1,17 @@
 import Popup from '@/components/Popup'
-import { ItemType, MCPaymentType, PaymentGateway, PayType } from '@/lib/enums'
+import {
+  ECPayPaymentType,
+  ItemType,
+  PaymentGateway,
+  PayType,
+} from '@/lib/enums'
+import { ecpayPaymentTypeMap } from '@/lib/map'
 import useGoodsList from '@/services/useGoodsList'
 import useMe from '@/services/useMe'
 import useOrderCreate from '@/services/useOrderCreate'
 import usePopupStore from '@/store/usePopupStore'
 import { useRouter } from 'next/dist/client/router'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Controller, useForm } from 'react-hook-form'
 import TableSelector from '../TableSelector'
 
@@ -13,10 +19,12 @@ interface Inputs {
   productID: number
   email: string
   phone: string
+  // paymentType: ECPayPaymentType
 }
 
 export default function RechargeTransferPopup() {
   const router = useRouter()
+  const [paymentType, setPaymentType] = useState(ECPayPaymentType.ATM)
   const isShow = usePopupStore((s) => s.transfer.isShow)
   const onHide = usePopupStore((s) => s.transfer.onHide)
   const { list } = useGoodsList({
@@ -64,7 +72,7 @@ export default function RechargeTransferPopup() {
         productID: d.productID,
         gatewayCode: PaymentGateway.ECPay,
         userID: data?.id!,
-        paymentType: MCPaymentType.COST_POINT,
+        paymentType: ECPayPaymentType.ATM,
       })
 
       if (res?.data.data) {
@@ -98,14 +106,16 @@ export default function RechargeTransferPopup() {
         <div className="box">
           <div className="box-title">請選擇付款類型</div>
           <div className="box-content flex gap-3">
-            <label>
-              <input type="radio" name="atmType" />
-              <span className="ml-1">實體ATM及網銀</span>
-            </label>
-            <label>
-              <input type="radio" name="atmType" />
-              <span className="ml-1">晶片讀卡機轉帳</span>
-            </label>
+            {Object.entries(ecpayPaymentTypeMap).map(([code, label]) => (
+              <label key={code}>
+                <input
+                  type="radio"
+                  onChange={() => setPaymentType(+code)}
+                  checked={+code === paymentType}
+                />
+                <span className="ml-1">{label}</span>
+              </label>
+            ))}
           </div>
         </div>
         <div className="box">

@@ -81,4 +81,16 @@ export enum MCPaymentType {
   UNKNOWN_PAYMENT_TYPE = 0,
   IN_GAME = 1,
   COST_POINT = 2,
+  CREDIT_CARD = 3,
+  FREE_POINT = 4,
+  ASIA_PACIFIC_MOBILE = 5,
+  TAIWAN_MOBILE = 6,
+  TAIWAN_START_MOBILE = 7,
+  FET_MOBILE = 8,
+}
+
+export enum ECPayPaymentType {
+  UNKNOWN_PAYMENT_TYPE = 0,
+  ATM = 1,
+  WEB_ATM = 2,
 }

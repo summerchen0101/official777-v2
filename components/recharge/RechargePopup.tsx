@@ -1,6 +1,6 @@
 import Popup from '@/components/Popup'
 import { ItemType, PayType, MCPaymentType, PaymentGateway } from '@/lib/enums'
-import { payTypeMap } from '@/lib/map'
+import { payTypeMap, payTypePaymentMap, telePaymentMap } from '@/lib/map'
 import useGoodsList from '@/services/useGoodsList'
 import useMe from '@/services/useMe'
 import useOrderCreate from '@/services/useOrderCreate'
@@ -11,6 +11,7 @@ import { Controller, useForm } from 'react-hook-form'
 import { FaExclamationCircle } from 'react-icons/fa'
 import LoadingCover from '../LoadingCover'
 import TableSelector from '../TableSelector'
+import cs from 'classnames'
 
 interface Inputs {
   productID: number
@@ -26,6 +27,11 @@ export default function RechargePopup({ payType }: Props) {
   const isShow = usePopupStore((s) => s.recharge.isShow)
   const onHide = usePopupStore((s) => s.recharge.onHide)
   // const [redirectUrl, setRedirectUrl] = useState('')
+  const [paymentType, setPaymentType] = useState(payTypePaymentMap[payType])
+
+  useEffect(() => {
+    setPaymentType(payTypePaymentMap[payType])
+  }, [payType])
 
   const { list, isLoading: isListLoading } = useGoodsList({
     page: 1,
@@ -53,16 +59,17 @@ export default function RechargePopup({ payType }: Props) {
   const onSubmit = handleSubmit(async (d) => {
     const product = list?.find((t) => t.ItemId === d.productID)
     if (
-      confirm(`透過${payTypeMap[payType]} 消費 $${product?.Price}元是否確認?`)
+      confirm(
+        `透過${telePaymentMap[paymentType] || payTypeMap[payType]}消費 $${
+          product?.Price
+        }元是否確認?`,
+      )
     ) {
       const res = await doCreate({
         productID: d.productID,
         gatewayCode: PaymentGateway.MyCard,
         userID: data?.id!,
-        paymentType:
-          payType === PayType.MCTransfer
-            ? MCPaymentType.IN_GAME
-            : MCPaymentType.COST_POINT,
+        paymentType,
       })
       if (res?.data.requestURL) {
         router.replace({
@@ -93,6 +100,22 @@ export default function RechargePopup({ payType }: Props) {
           {errors.productID && (
             <div className="text-red-500">{errors.productID.message}</div>
           )}
+
+          <div hidden={!telePaymentMap[paymentType]} className="box mt-4">
+            <div className="box-title">請選擇電信</div>
+            <div className="box-content grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {Object.entries(telePaymentMap).map(([code, label]) => (
+                <div
+                  key={code}
+                  className={cs('btn', { active: +code === paymentType })}
+                  onClick={() => setPaymentType(+code as MCPaymentType)}
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
+          </div>
+
           <div className="text-yellow-300 mt-3 flex gap-2 items-center justify-center">
             <FaExclamationCircle />
             請注意！系統處理時間約5分鐘 ~ 1小時才能完成遊戲入點，請耐心等候。
