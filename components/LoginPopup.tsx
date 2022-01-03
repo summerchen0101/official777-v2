@@ -7,9 +7,11 @@ import { toImgPath } from '@/utils'
 import useStorage from '@/utils/useStorage'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import qs from 'query-string'
+import useAppleState from '@/services/useAppleState'
+import AppleLogin from 'react-apple-login'
 
 type Inputs = {
   acc: string
@@ -17,6 +19,7 @@ type Inputs = {
 }
 
 export default function LoginPopup() {
+  const [appleState, setAppleState] = useState('')
   const { handler: login, isLoading } = useLogin()
   const {
     register,
@@ -32,6 +35,7 @@ export default function LoginPopup() {
   const isShow = usePopupStore((s) => s.login.isShow)
   const onToggle = usePopupStore((s) => s.login.onToggle)
   const { handler: doOAuthLogin } = useOAuthLogin()
+  const { handler: doGetAppleState } = useAppleState()
 
   useEffect(() => {
     if (isShow) {
@@ -40,6 +44,16 @@ export default function LoginPopup() {
   }, [cacheAcc, setValue, isShow])
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
+  const handleAppleLogin = async () => {
+    const res = await doGetAppleState()
+    if (res?.data) {
+      setAppleState(res.data)
+      setTimeout(() => {
+        const btn = document.querySelector('#appleid-signin') as HTMLDivElement
+        btn.click()
+      })
+    }
+  }
   const handleOAuthLogin = async (channel: OAuthChannel) => {
     // const backUrl = `${location.protocol}//${location.host}/${router.query.to}`
     const backUrl = `${location.protocol}//${location.host}?${qs.stringify({
@@ -104,7 +118,20 @@ export default function LoginPopup() {
               // onClick={() => handleOAuthLogin(OAuthChannel.Google)}
             >
               <img src={toImgPath('/icon_loginApple.png')} alt="" />
-              <div className="flex-1 text-center">Apple ID登入</div>
+              <div className="flex-1 text-center" onClick={handleAppleLogin}>
+                Apple ID登入
+              </div>
+              <div hidden>
+                <AppleLogin
+                  clientId={'com.Rich.MegaRich.Service'}
+                  redirectURI={
+                    'https://app-alpha.ffglobaltech.com/api/v1/apple/auth'
+                  }
+                  scope="email name"
+                  state={appleState}
+                  usePopup={false}
+                />
+              </div>
             </div>
             <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
