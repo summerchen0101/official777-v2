@@ -69,7 +69,7 @@ export default function RechargeTransferPopup() {
   const handleUseUser = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
       setValue('email', data?.email!)
-      setValue('phone', data?.cellphone!)
+      setValue('phone', data?.cellphone?.replace('886-', '')!)
     } else {
       setValue('email', '')
       setValue('phone', '')
@@ -88,6 +88,10 @@ export default function RechargeTransferPopup() {
         [ECPayInvoiceType.PHONE_CARRIER]: d.phoneCarrierNum,
         [ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE]: d.citizenCarrrierNum,
       }
+      let loveCode = ''
+      if (invoiceType === InvoiceType.DONATE) {
+        loveCode = donateType === 'other' ? d.loveCode : '978'
+      }
       const res = await doCreate({
         productID: d.productID,
         gatewayCode: PaymentGateway.ECPay,
@@ -98,11 +102,11 @@ export default function RechargeTransferPopup() {
             invoiceType === InvoiceType.DONATE
               ? ECPayInvoiceType.DONATE_INVOICE
               : carrierType,
-          citizenDigitalCertificateNum: d.citizenCarrrierNum,
-          carrierNum: carrierNumMap[carrierType],
-          loveCode: d.loveCode,
-          notifyMail: d.email,
-          phone: d.phone,
+          citizenDigitalCertificateNum: d.citizenCarrrierNum || undefined,
+          carrierNum: carrierNumMap[carrierType] || undefined,
+          loveCode,
+          notifyMail: d.email || undefined,
+          phone: d.phone || undefined,
         },
       })
 
@@ -183,6 +187,7 @@ export default function RechargeTransferPopup() {
                   <div className="mb-1">捐贈碼</div>
                   <input
                     type="text"
+                    key="loveCode"
                     className="w-full rounded"
                     {...register('loveCode', {
                       required:
@@ -221,6 +226,7 @@ export default function RechargeTransferPopup() {
                   <div className="mb-1">手機載具 (ex: /xxxx)</div>
                   <input
                     type="text"
+                    key="phoneCarrierNum"
                     className="w-full rounded"
                     {...register('phoneCarrierNum', {
                       required:
@@ -243,6 +249,7 @@ export default function RechargeTransferPopup() {
                   <div className="mb-1">憑證載具</div>
                   <input
                     type="text"
+                    key="citizenCarrrierNum"
                     className="w-full rounded"
                     {...register('citizenCarrrierNum', {
                       required:

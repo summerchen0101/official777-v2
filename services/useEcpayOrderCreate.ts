@@ -5,11 +5,11 @@ import { useState } from 'react'
 
 export interface Invoice {
   eCPayInvoiceType: number
-  citizenDigitalCertificateNum: string
-  carrierNum: string
-  loveCode: string
-  notifyMail: string
-  phone: string
+  citizenDigitalCertificateNum?: string
+  carrierNum?: string
+  loveCode?: string
+  notifyMail?: string
+  phone?: string
 }
 
 export interface OrderCreateReq {
