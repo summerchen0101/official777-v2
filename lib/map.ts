@@ -1,5 +1,7 @@
 import {
+  ECPayInvoiceType,
   ECPayPaymentType,
+  InvoiceType,
   ItemType,
   MCPaymentType,
   PaymentGateway,
@@ -70,6 +72,17 @@ export const paymentGatewayMap: StringMap = {
   [PaymentGateway.Apple]: 'Apple',
   [PaymentGateway.MyCard]: '智冠MyCard',
   [PaymentGateway.ECPay]: '綠界',
+}
+
+export const invoiceTypeMap: StringMap = {
+  [InvoiceType.DONATE]: '捐贈發票',
+  [InvoiceType.CLOUD]: '電子發票',
+}
+
+export const ecpayInvoiceMap: StringMap = {
+  [ECPayInvoiceType.EC_PAY_INVOICE]: '綠界載具',
+  [ECPayInvoiceType.PHONE_CARRIER]: '手機載具',
+  [ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE]: '自然人憑證載具',
 }
 
 export const paymentStatusMap: StringMap = {

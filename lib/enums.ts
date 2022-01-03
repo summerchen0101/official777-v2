@@ -94,3 +94,16 @@ export enum ECPayPaymentType {
   ATM = 1,
   WEB_ATM = 2,
 }
+
+export enum InvoiceType {
+  DONATE = 'DONATE',
+  CLOUD = 'CLOUD',
+}
+
+export enum ECPayInvoiceType {
+  UNKNOWN_ECPay_INVOICE_TYPE = 0,
+  DONATE_INVOICE = 1, //捐贈
+  EC_PAY_INVOICE = 2, //綠界載具
+  CITIZEN_DIGITAL_CERTIFICATE = 3, //自然人憑證
+  PHONE_CARRIER = 4, //載具碼載具
+}
