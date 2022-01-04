@@ -130,6 +130,7 @@ export default function LoginPopup() {
                   scope="email name"
                   state={appleState}
                   usePopup={false}
+                  responseMode={'form_post'}
                 />
               </div>
             </div>
