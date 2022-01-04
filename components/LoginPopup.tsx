@@ -123,14 +123,12 @@ export default function LoginPopup() {
               </div>
               <div hidden>
                 <AppleLogin
-                  clientId={'com.Rich.MegaRich.Service'}
-                  redirectURI={
-                    'https://app-alpha.ffglobaltech.com/api/v1/apple/auth'
-                  }
+                  clientId="com.Rich.MegaRich.Service"
+                  redirectURI="https://app-alpha.ffglobaltech.com/api/v1/apple/auth"
                   scope="email name"
                   state={appleState}
                   usePopup={false}
-                  responseMode={'form_post'}
+                  responseMode="form_post"
                 />
               </div>
             </div>
