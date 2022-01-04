@@ -37,6 +37,10 @@ export default function LoginPopup() {
   const { handler: doOAuthLogin } = useOAuthLogin()
   const { handler: doGetAppleState } = useAppleState()
 
+  const backUrl = `${location.protocol}//${location.host}?${qs.stringify({
+    to: router.query.to,
+  })}`
+
   useEffect(() => {
     if (isShow) {
       setValue('acc', cacheAcc)
@@ -45,7 +49,9 @@ export default function LoginPopup() {
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
   const handleAppleLogin = async () => {
-    const res = await doGetAppleState()
+    const res = await doGetAppleState({
+      backUrl,
+    })
     if (res?.data) {
       setAppleState(res.data)
       setTimeout(() => {
@@ -56,9 +62,6 @@ export default function LoginPopup() {
   }
   const handleOAuthLogin = async (channel: OAuthChannel) => {
     // const backUrl = `${location.protocol}//${location.host}/${router.query.to}`
-    const backUrl = `${location.protocol}//${location.host}?${qs.stringify({
-      to: router.query.to,
-    })}`
 
     const res = await doOAuthLogin(channel, {
       autoRedirect: YesNo.No,
