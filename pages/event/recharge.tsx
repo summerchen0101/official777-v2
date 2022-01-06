@@ -1,6 +1,4 @@
-import ActivityBtns from '@/components/activity/ActivityBtns'
 import ContentText from '@/components/activity/ContentText'
-import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
@@ -77,7 +75,12 @@ export default function RechargeActivity() {
           </div>
         </div>
         <div className="flex justify-center">
-          <div className="btn active">查看抽獎券數量</div>
+          <div
+            className="btn active"
+            onClick={() => router.push('/event/newyear')}
+          >
+            查看抽獎券數量
+          </div>
         </div>
         <table className="max-w-[700px] mx-auto sm:w-full rounded-lg overflow-hidden">
           <thead>
@@ -109,9 +112,9 @@ export default function RechargeActivity() {
           </tbody>
         </table>
 
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <div className="btn active">查看抽獎券數量</div>
-        </div>
+        </div> */}
         <ContentText>
           ※注意事項
           <br />
