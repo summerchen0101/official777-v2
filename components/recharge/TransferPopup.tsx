@@ -115,7 +115,6 @@ export default function RechargeTransferPopup() {
           'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5',
           'payment',
         )
-
         const doc = res.data.data.replace(
           '<head>',
           `<head>\n<base href="${res.data.requestURL}">`,
@@ -229,6 +228,8 @@ export default function RechargeTransferPopup() {
                     key="phoneCarrierNum"
                     className="w-full rounded"
                     {...register('phoneCarrierNum', {
+                      onChange: (e) =>
+                        (e.target.value = e.target.value.toUpperCase()),
                       required:
                         carrierType === ECPayInvoiceType.PHONE_CARRIER &&
                         '不可為空',
