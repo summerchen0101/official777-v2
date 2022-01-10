@@ -7,6 +7,69 @@ import SubTitle from '@/components/activity/SubTitle'
 import { toImgPath } from '@/utils'
 import React from 'react'
 
+const ticketGiftStages = [
+  {
+    ticket: '金',
+    stages: [
+      {
+        stage: 3,
+        count: 500,
+        gifts: [{ name: '5星超級卡', icon: 'FG_LV3_5.png', amount: 1 }],
+      },
+      {
+        stage: 2,
+        count: 300,
+        gifts: [{ name: '5星威力卡', icon: 'FG_LV2_5.png', amount: 1 }],
+      },
+      {
+        stage: 1,
+        count: 200,
+        gifts: [{ name: '5星獎勵卡', icon: 'FG_LV1_5.png', amount: 1 }],
+      },
+    ],
+  },
+  {
+    ticket: '銀',
+    stages: [
+      {
+        stage: 3,
+        count: 280,
+        gifts: [{ name: '3星超級卡', icon: 'FG_LV3_3.png', amount: 1 }],
+      },
+      {
+        stage: 2,
+        count: 230,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        stage: 1,
+        count: 180,
+        gifts: [{ name: '3星獎勵卡', icon: 'FG_LV1_3.png', amount: 1 }],
+      },
+    ],
+  },
+  {
+    ticket: '銅',
+    stages: [
+      {
+        stage: 3,
+        count: 200,
+        gifts: [{ name: '1星超級卡', icon: 'FG_LV3_1.png', amount: 1 }],
+      },
+      {
+        stage: 2,
+        count: 150,
+        gifts: [{ name: '1星威力卡', icon: 'FG_LV2_1.png', amount: 1 }],
+      },
+      {
+        stage: 1,
+        count: 100,
+        gifts: [{ name: '1星威力卡', icon: 'FG_LV1_1.png', amount: 1 }],
+      },
+    ],
+  },
+]
+
 export default function Activity_06() {
   return (
     <PageWrapper>
@@ -33,29 +96,36 @@ export default function Activity_06() {
             2/9 - 2/12 期間內所獲得的獎券張數
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[...Array(3)].map((t, i) => (
+            {ticketGiftStages.map((t, i) => (
               <div
                 key={i}
                 className="flex flex-col items-center bg-gray-800 p-3 rounded-lg"
               >
                 <div className="mb-2 text-xl font-medium text-yellow-400">
-                  金獎券
+                  {t.ticket}獎券
                 </div>
-                <div className="mb-2 text-xl text-yellow-600">XXX 張</div>
+                <div className="mb-2 text-xl text-yellow-600">??? 張</div>
               </div>
             ))}
           </div>
         </div>
         <div className="space-y-8">
-          {[...Array(3)].map((g, g_i) => (
+          {ticketGiftStages.map((group, group_i) => (
             <table
-              key={g_i}
+              key={group_i}
               className="rounded-lg overflow-hidden w-full max-w-[800px] mx-auto"
             >
               <thead>
                 <tr>
-                  <th colSpan={3} className="text-center text-xl">
-                    金獎券門檻
+                  <th colSpan={3} className="text-xl">
+                    <div className="flex gap-3 items-center justify-center">
+                      <img
+                        src={toImgPath(`/event/tickets/${group.ticket}.jpg`)}
+                        alt=""
+                        className="w-16"
+                      />
+                      {group.ticket}獎券門檻
+                    </div>
                   </th>
                 </tr>
                 <tr>
@@ -65,21 +135,28 @@ export default function Activity_06() {
                 </tr>
               </thead>
               <tbody>
-                {[...Array(3)].map((t, i) => (
-                  <tr key={i} className="">
+                {group.stages.map((s, s_i) => (
+                  <tr key={s_i} className="">
                     <td className="text-center text-xl text-gold-700 font-medium hidden sm:block">
-                      3
+                      {s.stage}
                     </td>
                     <td className="text-center text-xl text-gold-700 font-medium">
-                      500張
+                      {s.count}張
                     </td>
                     <td className="flex items-center gap-3 justify-center font-medium">
-                      <img
-                        src={toImgPath('/gift/img_redEnvelopeLucky.png')}
-                        alt=""
-                        className="w-12 hidden sm:block"
-                      />
-                      五星超級卡x1
+                      {s.gifts.map((g, g_i) => (
+                        <div
+                          key={g_i}
+                          className="flex items-center gap-3 justify-center font-medium"
+                        >
+                          <img
+                            src={toImgPath(`/event/items/${g.icon}`)}
+                            alt=""
+                            className="w-12 hidden sm:block"
+                          />
+                          {g.name}x{g.amount}
+                        </div>
+                      ))}
                     </td>
                   </tr>
                 ))}
