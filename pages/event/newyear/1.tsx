@@ -8,12 +8,12 @@ import cs from 'classnames'
 import React, { useState } from 'react'
 
 const vipsTickets = [
-  { vip: '鑽石會員', amount: 1, icon: '/event/tickets/金.jpg' },
-  { vip: '紅鑽會員', amount: 1, icon: '/event/tickets/銀.jpg' },
-  { vip: '黃金會員', amount: 1, icon: '/event/tickets/銀.jpg' },
-  { vip: '白銀會員', amount: 1, icon: '/event/tickets/銀.jpg' },
-  { vip: '青銅會員', amount: 1, icon: '/event/tickets/一般.jpg' },
-  { vip: '正式會員', amount: 1, icon: '/event/tickets/一般.jpg' },
+  { vip: '鑽石會員', amount: 1, icon: '金' },
+  { vip: '紅鑽會員', amount: 1, icon: '銀' },
+  { vip: '黃金會員', amount: 1, icon: '銀' },
+  { vip: '白銀會員', amount: 1, icon: '銀' },
+  { vip: '青銅會員', amount: 1, icon: '銅' },
+  { vip: '正式會員', amount: 1, icon: '銅' },
 ]
 
 interface Rule {
@@ -45,7 +45,7 @@ const ticketsRule: TicketRule[] = [
     ],
   },
   {
-    icon: '一般',
+    icon: '銅',
     score: 40000,
     rules: [
       { game: '老虎機', min: 1000, max: 3000 },
@@ -79,7 +79,7 @@ const ticketWinnerList: TicketWinner[] = [
   },
   {
     ticket: '銅',
-    icon: '一般',
+    icon: '銅',
     current: 1000,
     max: 20000,
     winners: ['1112-2333-3444', '1112-2333-3444'],
@@ -188,7 +188,11 @@ export default function Activity_01() {
                     className="flex flex-col items-center bg-gray-800 p-1.5 rounded-lg"
                   >
                     <div className="mb-2 text-lg font-medium">{t.vip}</div>
-                    <img src={toImgPath(t.icon)} className="w-20" alt="" />
+                    <img
+                      src={toImgPath(`/event/tickets/${t.icon}.jpg`)}
+                      className="w-20"
+                      alt=""
+                    />
                     <div className="text-xl">x {t.amount}</div>
                   </div>
                 ))}

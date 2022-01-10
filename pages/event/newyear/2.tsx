@@ -8,6 +8,7 @@ import LoginPopup from '@/components/LoginPopup'
 import useMe from '@/services/useMe'
 import useSnExchange from '@/services/useSnExchange'
 import usePopupStore from '@/store/usePopupStore'
+import { toCurrency, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -16,6 +17,12 @@ type Inputs = {
   userID: string
   serial: string
 }
+
+const ticketRules = [
+  { ticket: '銅', amount: 1, score: 20000 },
+  { ticket: '銀', amount: 1, score: 100000 },
+  { ticket: '金', amount: 1, score: 400000 },
+]
 export default function Activity_02() {
   const { data } = useMe()
   const onLoginToggle = usePopupStore((s) => s.login.onToggle)
@@ -136,15 +143,22 @@ export default function Activity_02() {
               抽獎券條件
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[...Array(3)].map((t, i) => (
+              {ticketRules.map((t, i) => (
                 <div
                   key={i}
                   className="flex flex-col items-center bg-gray-800 p-3 rounded-lg"
                 >
                   <div className="mb-2 text-xl font-medium text-yellow-400">
-                    贏分20,000
+                    贏分 {toCurrency(t.score)}
                   </div>
-                  <div className="mb-2 text-xl text-yellow-600">銅獎券 x 1</div>
+                  <div className="mb-2 text-xl text-yellow-600 flex gap-2">
+                    <img
+                      src={toImgPath(`/event/tickets/${t.ticket}.jpg`)}
+                      alt=""
+                      className="w-16"
+                    />
+                    {t.ticket}獎券 x {t.amount}
+                  </div>
                 </div>
               ))}
             </div>
