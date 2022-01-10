@@ -89,16 +89,16 @@ export default function RechargeActivity() {
             <thead>
               <tr>
                 <th className="text-center">累積儲值</th>
-                <th className="text-center">活動獎勵</th>
+                <th>活動獎勵</th>
               </tr>
             </thead>
             <tbody>
               {giftList.map((t, i) => (
                 <tr key={i} className="">
-                  <td className="text-center text-lg sm:text-xl text-gold-700 font-medium">
+                  <td className="text-center sm:text-lg text-gold-700 font-medium">
                     {toCurrency(t.recharge)}元
                   </td>
-                  <td className="flex flex-col sm:flex-row sm:items-center gap-y-1 gap-x-3 justify-center font-medium text-sm sm:text-base">
+                  <td className="flex flex-col sm:flex-row sm:items-center gap-y-1 gap-x-3 font-medium text-sm sm:text-base">
                     {t.gifts.map((g, g_i) => (
                       <div key={g_i} className="flex gap-1 items-center">
                         <img
