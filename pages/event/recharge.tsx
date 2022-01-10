@@ -1,53 +1,48 @@
 import ContentText from '@/components/activity/ContentText'
-import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
 import LoginPopup from '@/components/LoginPopup'
-import useMe from '@/services/useMe'
-import useSnExchange from '@/services/useSnExchange'
-import usePopupStore from '@/store/usePopupStore'
-import { toImgPath } from '@/utils'
+import { toCurrency, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import React, { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
+import React from 'react'
 
-type Inputs = {
-  userID: string
-  serial: string
+interface GiftItem {
+  name: string
+  amount?: number
+  min?: number
+  max?: number
+  icon: string
 }
+interface Gift {
+  recharge: number
+  gifts: GiftItem[]
+}
+const giftList: Gift[] = [
+  {
+    recharge: 150,
+    gifts: [{ name: '金幣', amount: 200, icon: '/event/items/金幣.png' }],
+  },
+  {
+    recharge: 600,
+    gifts: [
+      { name: '金幣', amount: 1000, icon: '/event/items/金幣.png' },
+      { name: '銅獎券', amount: 1, icon: '/event/tickets/一般.jpg' },
+    ],
+  },
+  {
+    recharge: 40000,
+    gifts: [
+      {
+        name: '隨機金幣',
+        min: 18888,
+        max: 100000,
+        icon: '/event/items/金幣.png',
+      },
+    ],
+  },
+]
 export default function RechargeActivity() {
-  const { data } = useMe()
-  const onLoginToggle = usePopupStore((s) => s.login.onToggle)
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    watch,
-    setValue,
-    reset,
-  } = useForm<Inputs>()
-
-  useEffect(() => {
-    if (data) {
-      setValue('userID', data.id.toString())
-    }
-  }, [data])
-
-  const { handler: doSnExchange, isLoading } = useSnExchange()
-
   const router = useRouter()
-
-  const handleLoginFirst = () => {
-    router.replace({ query: { to: router.asPath } })
-    onLoginToggle()
-  }
-
-  const onSubmit = handleSubmit(async (d) => {
-    const res = await doSnExchange({
-      userID: BigInt(d.userID),
-      serial: d.serial,
-    })
-  })
 
   return (
     <div>
@@ -98,20 +93,29 @@ export default function RechargeActivity() {
               </tr>
             </thead>
             <tbody>
-              {[...Array(10)].map((t, i) => (
+              {giftList.map((t, i) => (
                 <tr key={i} className="">
                   <td className="text-center text-lg sm:text-xl text-gold-700 font-medium">
-                    2000元
+                    {toCurrency(t.recharge)}元
                   </td>
-                  <td className="flex flex-col sm:flex-row items-center gap-y-1 gap-x-3 justify-center font-medium text-sm sm:text-base">
-                    {[...Array(2)].map((g, g_i) => (
+                  <td className="flex flex-col sm:flex-row sm:items-center gap-y-1 gap-x-3 justify-center font-medium text-sm sm:text-base">
+                    {t.gifts.map((g, g_i) => (
                       <div key={g_i} className="flex gap-1 items-center">
                         <img
-                          src={toImgPath('/gift/img_redEnvelopeLucky.png')}
+                          src={toImgPath(g.icon)}
                           alt=""
                           className="w-10 hidden sm:block"
                         />
-                        金幣 × 1,000
+                        {g.amount && (
+                          <span>
+                            {g.name} × {toCurrency(g.amount)}
+                          </span>
+                        )}
+                        {g.min && g.max && (
+                          <span>
+                            {g.name} {toCurrency(g.min)}~{toCurrency(g.max)}
+                          </span>
+                        )}
                       </div>
                     ))}
                   </td>
