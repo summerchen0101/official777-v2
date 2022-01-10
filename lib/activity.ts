@@ -1,6 +1,7 @@
 interface Activity {
   id: number
   name: string
+  disable?: boolean
 }
 
 export const activityList: Activity[] = [
