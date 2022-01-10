@@ -155,7 +155,7 @@ section {
 }
 
 .rule {
-  @apply leading-relaxed text-gray-400 py-16 px-4;
+  @apply leading-relaxed text-gray-400 py-8 px-4;
 }
 
 .rule .title {
