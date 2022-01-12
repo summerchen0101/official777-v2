@@ -2,7 +2,7 @@ import useMe from '@/services/useMe'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toImgPath, toCurrency } from '@/utils'
+import { toCurrency, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import { FaUserCircle } from 'react-icons/fa'
 
@@ -10,11 +10,13 @@ function SideBox() {
   const router = useRouter()
 
   const clearUser = useUserStore((s) => s.clearUser)
+  const canRecharge = useStore((s) => s.canRecharge)
   const onToggle = usePopupStore((s) => s.login.onToggle)
 
   const { data: user, isLoading } = useMe()
 
   const handleClickRecharge = () => {
+    if (!canRecharge) return
     if (user) {
       router.push('/recharge')
     } else {
@@ -35,11 +37,11 @@ function SideBox() {
         onClick={handleClickRecharge}
       >
         <img src={toImgPath('/recharge_pig.png')} alt="" />
-        <img
+        {/* <img
           src={toImgPath('/recharge_title.png')}
           className="h-8 self-center cursor-pointer"
           alt=""
-        />
+        /> */}
       </div>
       {user ? (
         <>

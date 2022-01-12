@@ -12,6 +12,14 @@ function HeaderNav() {
   const router = useRouter()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const onToggle = usePopupStore((s) => s.login.onToggle)
+  const canRecharge = useStore((s) => s.canRecharge)
+
+  const fixedMenu = menu.map((m) => {
+    if (!canRecharge && m.subs) {
+      m.subs = m.subs.filter((t) => !t.isRecharge)
+    }
+    return m
+  })
 
   const handleAuthLogin = (menu: Menu) => {
     router.replace({ query: { to: menu.path } })
@@ -30,7 +38,7 @@ function HeaderNav() {
               onClick={() => router.push('/')}
             />
             <div className="flex space-x-2 relative -bottom-5">
-              {menu.map((m, i) => (
+              {fixedMenu.map((m, i) => (
                 <div
                   key={i}
                   className="text-2xl font-mono text-white cursor-pointer text-center w-36"
@@ -44,7 +52,7 @@ function HeaderNav() {
           <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all -translate-y-12 duration-400 group-hover:translate-y-0 mt-12 z-10">
             <div className="bg-gradient-to-t from-black to-black/0 opacity-95 flex justify-center relative pl-32 space-x-2 py-10">
               {/* <div className="w-52"></div> */}
-              {menu.map((m, m_i) => (
+              {fixedMenu.map((m, m_i) => (
                 <div key={m_i} className="space-y-2 w-36">
                   {m.subs?.map((t, i) => (
                     <div
