@@ -6,7 +6,6 @@ import { GameCode } from '@/lib/enums'
 import { gameMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
 import { toImgPath } from '@/utils'
-import { groupBy } from 'lodash'
 import React, { useMemo, useState } from 'react'
 
 const tabsMap = {
@@ -28,14 +27,29 @@ const list: Game[] = [
     category: [1, 2],
   },
   {
-    gameID: 2,
-    path: '/game/banner/290x290/banner_BugsFamily_290x290.jpg',
-    category: [1, 3],
+    gameID: 1,
+    path: '/game/banner/290x290/banner_PirateKing_290x290.jpg',
+    category: [2],
   },
   {
-    gameID: 13,
-    path: '/game/banner/290x290/banner_CrystalSorceress_290x290.jpg',
-    category: [1, 3],
+    gameID: 2,
+    path: '/game/banner/290x290/banner_BugsFamily_290x290.jpg',
+    category: [2],
+  },
+  {
+    gameID: 3,
+    path: '/game/banner/290x290/banner_AnimalPark_290x290.jpg',
+    category: [2],
+  },
+  {
+    gameID: 5,
+    path: '/game/banner/290x290/banner_SuperRobot_290x290.jpg',
+    category: [2],
+  },
+  {
+    gameID: 6,
+    path: '/game/banner/290x290/banner_Aladdin_290x290.jpg',
+    category: [2],
   },
   {
     gameID: 8,
@@ -48,29 +62,40 @@ const list: Game[] = [
     category: [1, 2],
   },
   {
+    gameID: 11,
+    path: '/game/banner/290x290/banner_WildCowgirl_290x290.jpg',
+    category: [2],
+  },
+
+  {
+    gameID: 12,
+    path: '/game/banner/290x290/banner_SweetheartNurse_290x290.jpg',
+    category: [1, 2],
+  },
+  {
+    gameID: 13,
+    path: '/game/banner/290x290/banner_CrystalSorceress_290x290.jpg',
+    category: [1, 3],
+  },
+  {
+    gameID: 16,
+    path: '/game/banner/290x290/banner_Luxury777_290x290.jpg',
+    category: [2],
+  },
+  {
     gameID: 17,
     path: '/game/banner/290x290/banner_GuanYu_290x290.jpg',
     category: [2],
   },
   {
+    gameID: 21,
+    path: '/game/banner/290x290/banner_MahjongSlot_290x290.jpg',
+    category: [2],
+  },
+
+  {
     gameID: GameCode.Fish,
     path: '/game/banner/290x290/banner_KingFishing_290x290.jpg',
-    category: [1, 2],
-  },
-  // { gameID: '大頭家麻將', path: '/game/banner/290x290/banner_Mahjong_290x290.jpg' },
-  {
-    gameID: 3,
-    path: '/game/banner/290x290/banner_AnimalPark_290x290.jpg',
-    category: [2],
-  },
-  {
-    gameID: 5,
-    path: '/game/banner/290x290/banner_SuperRobot_290x290.jpg',
-    category: [2],
-  },
-  {
-    gameID: 12,
-    path: '/game/banner/290x290/banner_SweetheartNurse_290x290.jpg',
     category: [1, 2],
   },
 ]
