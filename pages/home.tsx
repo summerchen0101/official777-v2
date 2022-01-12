@@ -123,9 +123,7 @@ const Home: NextPage = () => {
           <SectionSlider
             slides={largeGameSlides.slice(2, 5)}
             slidesToShow={3}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>
@@ -144,7 +142,7 @@ const Home: NextPage = () => {
                 src={toImgPath(t.path)}
                 alt={gameMap[t.gameID]}
                 className="frame cursor-pointer"
-                onClick={() => showGamePopup({ title: t.gameID, content: '' })}
+                onClick={() => showGamePopup(t.gameID)}
               />
             ))}
           </div>
@@ -168,9 +166,7 @@ const Home: NextPage = () => {
               },
             ]}
             slidesToShow={4}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>
@@ -187,9 +183,9 @@ const Home: NextPage = () => {
               <img
                 key={i}
                 src={toImgPath(t.path)}
-                alt={t.name}
+                alt={gameMap[t.gameID]}
                 className="frame cursor-pointer"
-                onClick={() => showGamePopup({ title: t.name, content: '' })}
+                onClick={() => showGamePopup(t.gameID)}
               />
             ))}
           </div>
@@ -213,9 +209,7 @@ const Home: NextPage = () => {
               },
             ]}
             slidesToShow={4}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>

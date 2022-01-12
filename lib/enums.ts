@@ -118,3 +118,10 @@ export enum GameCode {
   Lottery_Mahjong = 5003,
   Lottery_Jackpot = 5004,
 }
+
+export enum GameIntro {
+  Basic,
+  Score,
+  Win,
+  Odds,
+}

@@ -169,7 +169,7 @@ const MobileHome: NextPage = () => {
             ]}
             slidesToShow={1}
             onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
+              showGamePopup({ title: slide.name})
             }
           />
         </div>
@@ -199,7 +199,7 @@ const MobileHome: NextPage = () => {
             ]}
             slidesToShow={1}
             onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
+              showGamePopup({ title: slide.name})
             }
           />
         </div>
@@ -229,7 +229,7 @@ const MobileHome: NextPage = () => {
             ]}
             slidesToShow={1}
             onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
+              showGamePopup({ title: slide.name})
             }
           />
         </div>

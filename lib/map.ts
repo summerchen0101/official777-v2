@@ -2,6 +2,7 @@ import {
   ECPayInvoiceType,
   ECPayPaymentType,
   GameCode,
+  GameIntro,
   InvoiceType,
   ItemType,
   MCPaymentType,
@@ -115,6 +116,7 @@ export const genderMap: StringMap = {
 }
 
 export const gameMap: StringMap = {
+  0: '',
   1: '海盜傳奇',
   2: '昆蟲樂園',
   3: '開心動物園',
@@ -153,4 +155,11 @@ export const gameMap: StringMap = {
   [GameCode.Lottery_777]: '幸運777',
   [GameCode.Lottery_Mahjong]: '摸麻將',
   [GameCode.Lottery_Jackpot]: '大頭家超級紅包',
+}
+
+export const gameIntroMap: StringMap = {
+  [GameIntro.Basic]: '基本說明',
+  [GameIntro.Score]: '得分方式',
+  [GameIntro.Win]: '贏分走線',
+  [GameIntro.Odds]: '賠率表',
 }

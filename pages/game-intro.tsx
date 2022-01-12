@@ -119,9 +119,7 @@ function GameIntro() {
               <div
                 key={i}
                 className="group relative overflow-hidden cursor-pointer aspect-w-1 aspect-h-1 frame"
-                onClick={() =>
-                  showGamePopup({ title: gameMap[t.gameID], content: '' })
-                }
+                onClick={() => showGamePopup(t.gameID)}
               >
                 <img
                   src={toImgPath(t.path)}
