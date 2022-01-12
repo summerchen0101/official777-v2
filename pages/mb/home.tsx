@@ -159,10 +159,6 @@ const MobileHome: NextPage = () => {
           <SectionSlider
             slides={[
               {
-                name: '沙灘派對',
-                path: '/game/banner/lg/banner_BeachParty_480x320.jpg',
-              },
-              {
                 name: '魔法消消樂',
                 path: '/game/banner/lg/banner_CrystalSorceress_480x320.jpg',
               },
