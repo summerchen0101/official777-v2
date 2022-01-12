@@ -8,7 +8,6 @@ import { FaUserCircle } from 'react-icons/fa'
 
 function SideBox() {
   const router = useRouter()
-
   const clearUser = useUserStore((s) => s.clearUser)
   const canRecharge = useStore((s) => s.canRecharge)
   const onToggle = usePopupStore((s) => s.login.onToggle)
@@ -32,17 +31,24 @@ function SideBox() {
   }
   return (
     <div className="gold-box rounded-3xl w-48 ml-2 hidden lg:flex flex-col gap-2 px-3 pt-0 pb-10 fixed top-0 left-0 mt-[180px] shadow-md z-30">
-      <div
-        className="flex flex-col gap-2 cursor-pointer mb-2 -mt-10"
-        onClick={handleClickRecharge}
-      >
-        <img src={toImgPath('/recharge_pig.png')} alt="" />
-        {/* <img
-          src={toImgPath('/recharge_title.png')}
-          className="h-8 self-center cursor-pointer"
-          alt=""
-        /> */}
-      </div>
+      {canRecharge ? (
+        <div
+          className="flex flex-col gap-2 cursor-pointer mb-2"
+          onClick={handleClickRecharge}
+        >
+          <img src={toImgPath('/recharge_pig.png')} alt="" />
+          <img
+            src={toImgPath('/recharge_title.png')}
+            className="h-8 self-center cursor-pointer"
+            alt=""
+          />
+        </div>
+      ) : (
+        <div hidden={canRecharge} className="flex flex-col gap-2 mb-2">
+          <img src={toImgPath('/norecharge.png')} alt="" />
+        </div>
+      )}
+
       {user ? (
         <>
           <FaUserCircle className="w-20 h-20 mx-auto text-gold-400 lg:hidden xl:block" />

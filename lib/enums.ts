@@ -107,3 +107,21 @@ export enum ECPayInvoiceType {
   CITIZEN_DIGITAL_CERTIFICATE = 3, //自然人憑證
   PHONE_CARRIER = 4, //載具碼載具
 }
+
+export enum GameCode {
+  Poker = 1001,
+  Fish = 2001,
+  Mahjong = 3001,
+  Niuniu = 4001,
+  Lottery = 5001,
+  Lottery_777 = 5002,
+  Lottery_Mahjong = 5003,
+  Lottery_Jackpot = 5004,
+}
+
+export enum GameIntro {
+  Basic,
+  Score,
+  Win,
+  Odds,
+}

@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import Slider, { Settings } from 'react-slick'
 export interface Slide {
   path: string
-  name: string
+  gameID: number
 }
 interface Props {
   slides: Slide[]

@@ -3,7 +3,7 @@ import create from 'zustand'
 
 interface Game {
   title: string
-  content: string
+  intros: number[]
 }
 
 interface IState {
@@ -24,8 +24,8 @@ interface IState {
   showNews: (news: News) => void
   closeNews: () => void
   isShowGamePopup: boolean
-  gameInfo: Game | null
-  showGamePopup: (gameInfo: Game) => void
+  popupGameID: number
+  showGamePopup: (gameID: number) => void
   closeGamePopup: () => void
 }
 
@@ -50,7 +50,7 @@ export const useStore = create<IState>((set) => ({
   closeNews: () => set({ isShowNewsPopup: false }),
 
   isShowGamePopup: false,
-  gameInfo: null,
-  showGamePopup: (gameInfo) => set({ isShowGamePopup: true, gameInfo }),
+  popupGameID: 0,
+  showGamePopup: (popupGameID) => set({ isShowGamePopup: true, popupGameID }),
   closeGamePopup: () => set({ isShowGamePopup: false }),
 }))

@@ -6,9 +6,9 @@ import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider, { Slide } from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
-import { YesNo } from '@/lib/enums'
+import { GameCode, YesNo } from '@/lib/enums'
 import { largeGameSlides, mediumGameSlides } from '@/lib/games'
-import { newsTypeMap } from '@/lib/map'
+import { gameMap, newsTypeMap } from '@/lib/map'
 import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
 import { toImgPath, toDateTime } from '@/utils'
@@ -123,9 +123,7 @@ const Home: NextPage = () => {
           <SectionSlider
             slides={largeGameSlides.slice(2, 5)}
             slidesToShow={3}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>
@@ -142,35 +140,33 @@ const Home: NextPage = () => {
               <img
                 key={i}
                 src={toImgPath(t.path)}
-                alt={t.name}
+                alt={gameMap[t.gameID]}
                 className="frame cursor-pointer"
-                onClick={() => showGamePopup({ title: t.name, content: '' })}
+                onClick={() => showGamePopup(t.gameID)}
               />
             ))}
           </div>
           <SectionSlider
             slides={[
               {
-                name: '巨龍家族',
+                gameID: 8,
                 path: '/game/banner/lg/banner_DragonClan_480x320.jpg',
               },
               {
-                name: '埃及艷后',
+                gameID: 9,
                 path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
-                name: '三國之義薄雲天',
+                gameID: 17,
                 path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
               {
-                name: '甜心護士',
+                gameID: 12,
                 path: '/game/banner/lg/banner_SweetheartNurse_480x320.jpg',
               },
             ]}
             slidesToShow={4}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>
@@ -187,35 +183,33 @@ const Home: NextPage = () => {
               <img
                 key={i}
                 src={toImgPath(t.path)}
-                alt={t.name}
+                alt={gameMap[t.gameID]}
                 className="frame cursor-pointer"
-                onClick={() => showGamePopup({ title: t.name, content: '' })}
+                onClick={() => showGamePopup(t.gameID)}
               />
             ))}
           </div>
           <SectionSlider
             slides={[
               {
-                name: '3D高倍21點',
+                gameID: GameCode.Poker,
                 path: '/game/banner/lg/banner_Blackjack_480x320.jpg',
               },
               {
-                name: '昆蟲樂園',
+                gameID: 2,
                 path: '/game/banner/lg/banner_BugsFamily_480x320.jpg',
               },
               {
-                name: '魔法消消樂',
+                gameID: 13,
                 path: '/game/banner/lg/banner_CrystalSorceress_480x320.jpg',
               },
               {
-                name: '巨龍家族',
+                gameID: 8,
                 path: '/game/banner/lg/banner_DragonClan_480x320.jpg',
               },
             ]}
             slidesToShow={4}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name, content: '' })
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>
