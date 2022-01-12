@@ -4,7 +4,7 @@ import { useUserStore } from '@/store/useUserStore'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
-import { useCallback, useEffect } from 'react'
+import { useEffect } from 'react'
 import 'slick-carousel/slick/slick-theme.css'
 import 'slick-carousel/slick/slick.css'
 import 'tailwindcss/tailwind.css'
@@ -14,15 +14,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
   const setApiBaseUrl = useStore((s) => s.setApiBaseUrl)
+  const setCanRecharge = useStore((s) => s.setCanRecharge)
   const apiBaseUrl = useStore((s) => s.apiBaseUrl)
-  const getConfig = useCallback(async () => {
+  const getConfig = async () => {
     const config = await fetch('/config/env.json').then((res) => res.json())
     setApiBaseUrl(config.apiBaseUrl)
-  }, [setApiBaseUrl])
+    setCanRecharge(config.canRecharge)
+  }
 
   useEffect(() => {
     getConfig()
-  }, [getConfig])
+  }, [])
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
 
