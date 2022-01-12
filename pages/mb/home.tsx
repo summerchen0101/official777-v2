@@ -159,18 +159,16 @@ const MobileHome: NextPage = () => {
           <SectionSlider
             slides={[
               {
-                name: 13,
+                gameID: 13,
                 path: '/game/banner/lg/banner_CrystalSorceress_480x320.jpg',
               },
               {
-                name: 2,
+                gameID: 2,
                 path: '/game/banner/lg/banner_BugsFamily_480x320.jpg',
               },
             ]}
             slidesToShow={1}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name})
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>
@@ -185,22 +183,20 @@ const MobileHome: NextPage = () => {
           <SectionSlider
             slides={[
               {
-                name: 8,
+                gameID: 8,
                 path: '/game/banner/lg/banner_DragonClan_480x320.jpg',
               },
               {
-                name: 9,
+                gameID: 9,
                 path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
-                name: 17,
+                gameID: 17,
                 path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
             ]}
             slidesToShow={1}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name})
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>
@@ -215,22 +211,20 @@ const MobileHome: NextPage = () => {
           <SectionSlider
             slides={[
               {
-                name: 9,
+                gameID: 9,
                 path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
-                name: 17,
+                gameID: 17,
                 path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
               {
-                name: 12,
+                gameID: 12,
                 path: '/game/banner/lg/banner_SweetheartNurse_480x320.jpg',
               },
             ]}
             slidesToShow={1}
-            onClick={(slide) =>
-              showGamePopup({ title: slide.name})
-            }
+            onClick={(slide) => showGamePopup(slide.gameID)}
           />
         </div>
       </section>
