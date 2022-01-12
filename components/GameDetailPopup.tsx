@@ -11,12 +11,12 @@ export default function GameDetailPopup() {
   return (
     <Popup onClose={closeGamePopup} isShow={isShowGamePopup}>
       <div className="hidden md:block fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
-        <a
+        {/* <a
           href="#s0"
           className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
         >
           影片
-        </a>
+        </a> */}
         <a
           href="#s1"
           className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
@@ -37,65 +37,19 @@ export default function GameDetailPopup() {
         </a>
       </div>
       <div id="s0" className="flex justify-center">
-        <h1 className="text-4xl text-gold-400 font-medium mb-4">
+        <h1 className="text-4xl text-gold-400 font-medium mb-8">
           {gameInfo?.title}
         </h1>
       </div>
-      <section className="border-b border-purple-600 pb-14">
-        <div className="lg:w-[860px] mx-auto px-4">
-          <div className="border border-white/80 bg-blackmb-5 aspect-w-16 aspect-h-9">
-            <div className="h-full w-full flex justify-center items-center bg-black">
-              <div className="text-4xl tracking-widest text-gray-500">
-                敬請期待
-              </div>
-              {/* <div className="text-2xl">影片 800 x 450</div> */}
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="border-b border-purple-600 py-14">
-        <div id="s1" className="lg:w-[860px] mx-auto px-4">
-          <img
-            src={toImgPath('/game_detail_title_1.png')}
-            className="h-8 mx-auto mb-8"
-            alt="基本說明"
-          />
-          <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
-            <div className="text-4xl tracking-widest text-gray-500">
-              敬請期待
-            </div>
-            {/* <div className="text-2xl">圖片說明 960 x 600</div> */}
-          </div>
-        </div>
-      </section>
-      <section className="border-b border-purple-600 py-14">
-        <div id="s2" className="lg:w-[860px] mx-auto px-4">
-          <img
-            src={toImgPath('/game_detail_title_2.png')}
-            className="h-8 mx-auto mb-8"
-            alt="得分說明"
-          />
-          <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
-            <div className="text-4xl tracking-widest text-gray-500">
-              敬請期待
-            </div>
-            {/* <div className="text-2xl">圖片說明 960 x 600</div> */}
-          </div>
-        </div>
-      </section>
-      <section className="border-b border-purple-600 py-14">
-        <div id="s3" className="lg:w-[860px] mx-auto px-4">
-          <img
-            src={toImgPath('/game_detail_title_3.png')}
-            className="h-8 mx-auto mb-8"
-            alt="賠率表"
-          />
-          <div className="border border-white/80 bg-gray-400 flex items-center justify-center h-[360px] lg:h-[420px] mb-5">
-            <div className="text-4xl tracking-widest text-gray-500">
-              敬請期待
-            </div>
-            {/* <div className="text-2xl">圖片說明 960 x 600</div> */}
-          </div>
+      <section className="lg:w-[860px] mx-auto sm:px-4">
+        <div
+          id="s3"
+          className="bg-[#10111d] py-10 sm:rounded-lg flex flex-col gap-12"
+        >
+          <img src={toImgPath('/game/intro/1/GameInfo_1_1.png')} alt="" />
+          <img src={toImgPath('/game/intro/1/GameInfo_1_2.png')} alt="" />
+          <img src={toImgPath('/game/intro/1/GameInfo_1_3.png')} alt="" />
+          <img src={toImgPath('/game/intro/1/GameInfo_1_4.png')} alt="" />
         </div>
       </section>
     </Popup>
