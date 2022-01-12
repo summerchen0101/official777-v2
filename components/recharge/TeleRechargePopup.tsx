@@ -23,7 +23,7 @@ type Props = {
   payType: PayType
 }
 
-export default function RechargePopup({ payType }: Props) {
+export default function TeleRechargePopup({ payType }: Props) {
   const isShow = usePopupStore((s) => s.recharge.isShow)
   const onHide = usePopupStore((s) => s.recharge.onHide)
   // const [redirectUrl, setRedirectUrl] = useState('')
@@ -60,9 +60,7 @@ export default function RechargePopup({ payType }: Props) {
     const product = list?.find((t) => t.ItemId === d.productID)
     if (
       confirm(
-        `透過${telePaymentMap[paymentType] || payTypeMap[payType]}消費 $${
-          product?.Price
-        }元是否確認?`,
+        `透過${telePaymentMap[paymentType]}電信消費 $${product?.Price}元是否確認?`,
       )
     ) {
       const res = await doCreate({
@@ -101,7 +99,7 @@ export default function RechargePopup({ payType }: Props) {
             <div className="text-red-500">{errors.productID.message}</div>
           )}
 
-          <div hidden={!telePaymentMap[paymentType]} className="box mt-4">
+          <div className="box mt-4">
             <div className="box-title">請選擇電信</div>
             <div className="box-content grid grid-cols-2 sm:grid-cols-4 gap-4">
               {Object.entries(telePaymentMap).map(([code, label]) => (

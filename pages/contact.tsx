@@ -29,6 +29,7 @@ function Contact() {
     register,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors },
   } = useForm<Inputs>()
   useEffect(() => {
@@ -58,7 +59,8 @@ function Contact() {
     const res = await doCreate(formData)
     if (res?.ok) {
       setReviewImg('')
-      formRef.current?.reset()
+      // formRef.current?.reset()
+      reset()
       alert('您的問題已送出')
     }
   })

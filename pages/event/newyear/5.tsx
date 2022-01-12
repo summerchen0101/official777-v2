@@ -6,6 +6,98 @@ import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
 import { toImgPath } from '@/utils'
 import React from 'react'
+interface Gift {
+  name: string
+  icon: string
+  amount: number
+}
+
+interface LevelGift {
+  level: number
+  gifts: Gift[]
+}
+
+interface Group {
+  name: string
+  data: LevelGift[]
+}
+
+const groupList: Group[] = [
+  {
+    name: '1000級以上玩家',
+    data: [
+      {
+        level: 500,
+        gifts: [{ name: '5星超級卡', icon: 'FG_LV3_5.png', amount: 1 }],
+      },
+      {
+        level: 300,
+        gifts: [{ name: '5星威力卡', icon: 'FG_LV2_5.png', amount: 1 }],
+      },
+      {
+        level: 200,
+        gifts: [{ name: '5星威力卡', icon: 'FG_LV2_5.png', amount: 1 }],
+      },
+      {
+        level: 100,
+        gifts: [{ name: '5星獎勵卡', icon: 'FG_LV1_5.png', amount: 1 }],
+      },
+      {
+        level: 50,
+        gifts: [{ name: '3星超級卡', icon: 'FG_LV3_3.png', amount: 1 }],
+      },
+      {
+        level: 20,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        level: 10,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        level: 5,
+        gifts: [{ name: '3星獎勵卡', icon: 'FG_LV1_3.png', amount: 1 }],
+      },
+    ],
+  },
+  {
+    name: '1000級以下玩家',
+    data: [
+      {
+        level: 900,
+        gifts: [{ name: '3星超級卡', icon: 'FG_LV3_3.png', amount: 1 }],
+      },
+      {
+        level: 600,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        level: 400,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        level: 200,
+        gifts: [{ name: '3星獎勵卡', icon: 'FG_LV1_3.png', amount: 1 }],
+      },
+      {
+        level: 100,
+        gifts: [{ name: '1星超級卡', icon: 'FG_LV3_1.png', amount: 1 }],
+      },
+      {
+        level: 50,
+        gifts: [{ name: '1星威力卡', icon: 'FG_LV2_1.png', amount: 1 }],
+      },
+      {
+        level: 30,
+        gifts: [{ name: '1星威力卡', icon: 'FG_LV2_1.png', amount: 1 }],
+      },
+      {
+        level: 10,
+        gifts: [{ name: '1星獎勵卡', icon: 'FG_LV1_1.png', amount: 1 }],
+      },
+    ],
+  },
+]
 
 export default function Activity_05() {
   return (
@@ -41,12 +133,12 @@ export default function Activity_05() {
           </ContentText>
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
-          {[...Array(2)].map((g, g_i) => (
-            <table key={g_i} className="rounded-lg overflow-hidden">
+          {groupList.map((group, group_i) => (
+            <table key={group_i} className="rounded-lg overflow-hidden">
               <thead>
                 <tr>
                   <th colSpan={2} className="text-center text-xl">
-                    1000級以上玩家
+                    {group.name}
                   </th>
                 </tr>
                 <tr>
@@ -55,18 +147,25 @@ export default function Activity_05() {
                 </tr>
               </thead>
               <tbody>
-                {[...Array(7)].map((t, i) => (
+                {group.data.map((t, i) => (
                   <tr key={i} className="">
                     <td className="text-center text-xl text-gold-700 font-medium">
-                      500級
+                      {t.level}級
                     </td>
-                    <td className="flex items-center gap-3 justify-center font-medium">
-                      <img
-                        src={toImgPath('/gift/img_redEnvelopeLucky.png')}
-                        alt=""
-                        className="w-12 hidden sm:block"
-                      />
-                      五星超級卡x1
+                    <td>
+                      {t.gifts.map((g, g_i) => (
+                        <div
+                          key={g_i}
+                          className="flex items-center gap-3 justify-center font-medium"
+                        >
+                          <img
+                            src={toImgPath(`/event/items/${g.icon}`)}
+                            alt=""
+                            className="w-12 hidden sm:block"
+                          />
+                          {g.name}x{g.amount}
+                        </div>
+                      ))}
                     </td>
                   </tr>
                 ))}

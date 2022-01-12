@@ -166,10 +166,6 @@ const Home: NextPage = () => {
                 name: '甜心護士',
                 path: '/game/banner/lg/banner_SweetheartNurse_480x320.jpg',
               },
-              {
-                name: '沙灘派對',
-                path: '/game/banner/lg/banner_BeachParty_480x320.jpg',
-              },
             ]}
             slidesToShow={4}
             onClick={(slide) =>
@@ -199,10 +195,6 @@ const Home: NextPage = () => {
           </div>
           <SectionSlider
             slides={[
-              {
-                name: '沙灘派對',
-                path: '/game/banner/lg/banner_BeachParty_480x320.jpg',
-              },
               {
                 name: '3D高倍21點',
                 path: '/game/banner/lg/banner_Blackjack_480x320.jpg',

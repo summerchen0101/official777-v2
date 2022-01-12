@@ -81,4 +81,29 @@ export enum MCPaymentType {
   UNKNOWN_PAYMENT_TYPE = 0,
   IN_GAME = 1,
   COST_POINT = 2,
+  CREDIT_CARD = 3,
+  FREE_POINT = 4,
+  ASIA_PACIFIC_MOBILE = 5,
+  TAIWAN_MOBILE = 6,
+  TAIWAN_START_MOBILE = 7,
+  FET_MOBILE = 8,
+}
+
+export enum ECPayPaymentType {
+  UNKNOWN_PAYMENT_TYPE = 0,
+  ATM = 1,
+  WEB_ATM = 2,
+}
+
+export enum InvoiceType {
+  DONATE = 'DONATE',
+  CLOUD = 'CLOUD',
+}
+
+export enum ECPayInvoiceType {
+  UNKNOWN_ECPay_INVOICE_TYPE = 0,
+  DONATE_INVOICE = 1, //捐贈
+  EC_PAY_INVOICE = 2, //綠界載具
+  CITIZEN_DIGITAL_CERTIFICATE = 3, //自然人憑證
+  PHONE_CARRIER = 4, //載具碼載具
 }

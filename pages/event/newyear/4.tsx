@@ -3,8 +3,16 @@ import ContentText from '@/components/activity/ContentText'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import { toImgPath } from '@/utils'
+import { toCurrency, toImgPath } from '@/utils'
 import React from 'react'
+
+const awardList = [
+  { times: 5, gifts: [{ name: '金幣', amount: 1000, icon: '金幣.png' }] },
+  {
+    times: 10,
+    gifts: [{ name: '一星獎勵卡', amount: 1, icon: 'FG_LV1_1.png' }],
+  },
+]
 
 export default function Activity_04() {
   return (
@@ -35,18 +43,25 @@ export default function Activity_04() {
             </tr>
           </thead>
           <tbody>
-            {[...Array(7)].map((t, i) => (
+            {awardList.map((t, i) => (
               <tr key={i} className="">
                 <td className="text-center text-xl text-gold-700 font-medium">
-                  5
+                  {t.times} 次
                 </td>
-                <td className="flex items-center gap-3 justify-center font-medium">
-                  <img
-                    src={toImgPath('/gift/img_redEnvelopeLucky.png')}
-                    alt=""
-                    className="w-12 hidden sm:block"
-                  />
-                  金幣 × 1,000
+                <td>
+                  {t.gifts.map((g, g_i) => (
+                    <div
+                      key={g_i}
+                      className="flex items-center gap-3 justify-center font-medium"
+                    >
+                      <img
+                        src={toImgPath(`/event/items/${g.icon}`)}
+                        alt=""
+                        className="w-12 hidden sm:block"
+                      />
+                      {g.name} × {toCurrency(g.amount)}
+                    </div>
+                  ))}
                 </td>
               </tr>
             ))}
