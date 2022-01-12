@@ -21,7 +21,12 @@ function useErrorHandler() {
         const statusErrMsg = httpStatus[error.response.status] as string
 
         if (error.response.status === 401) {
-          console.log('401')
+          // console.log('401')
+          // console.log(router.pathname)
+          if (router.pathname === '/contact') {
+            alert('請先登入')
+            return
+          }
           router.push('/home')
           clearUser()
           return
