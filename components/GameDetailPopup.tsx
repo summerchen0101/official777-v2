@@ -1,8 +1,7 @@
 import { useStore } from '@/store/useStore'
+import { toImgPath } from '@/utils'
 import React from 'react'
 import Popup from './Popup'
-import cs from 'classnames'
-import { toImgPath } from '@/utils'
 
 export default function GameDetailPopup() {
   const closeGamePopup = useStore((s) => s.closeGamePopup)
@@ -42,14 +41,27 @@ export default function GameDetailPopup() {
         </h1>
       </div>
       <section className="lg:w-[860px] mx-auto sm:px-4">
-        <div
-          id="s3"
-          className="bg-[#10111d] py-10 sm:rounded-lg flex flex-col gap-12"
-        >
-          <img src={toImgPath('/game/intro/1/GameInfo_1_1.png')} alt="" />
-          <img src={toImgPath('/game/intro/1/GameInfo_1_2.png')} alt="" />
-          <img src={toImgPath('/game/intro/1/GameInfo_1_3.png')} alt="" />
-          <img src={toImgPath('/game/intro/1/GameInfo_1_4.png')} alt="" />
+        <div className="bg-[#10111d] py-10 sm:rounded-lg flex flex-col gap-12">
+          <img
+            id="s1"
+            src={toImgPath('/game/intro/1/GameInfo_1_1.png')}
+            alt=""
+          />
+          <img
+            id="s2"
+            src={toImgPath('/game/intro/1/GameInfo_1_2.png')}
+            alt=""
+          />
+          <img
+            id="s3"
+            src={toImgPath('/game/intro/1/GameInfo_1_3.png')}
+            alt=""
+          />
+          <img
+            id="s4"
+            src={toImgPath('/game/intro/1/GameInfo_1_4.png')}
+            alt=""
+          />
         </div>
       </section>
     </Popup>

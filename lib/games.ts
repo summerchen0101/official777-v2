@@ -1,53 +1,56 @@
-export const mediumGameSlides = [
+import { Slide } from '@/components/SectionSlider'
+import { GameCode } from './enums'
+
+export const mediumGameSlides: Slide[] = [
   {
-    name: '3D高倍21點',
+    gameID: GameCode.Poker,
     path: '/game/banner/480x320/banner_Blackjack_480x320.jpg',
   },
   {
-    name: '昆蟲樂園',
+    gameID: 2,
     path: '/game/banner/480x320/banner_BugsFamily_480x320.jpg',
   },
   {
-    name: '魔法消消樂',
+    gameID: 13,
     path: '/game/banner/480x320/banner_CrystalSorceress_480x320.jpg',
   },
   {
-    name: '巨龍家族',
+    gameID: 8,
     path: '/game/banner/480x320/banner_DragonClan_480x320.jpg',
   },
   {
-    name: '埃及艷后',
+    gameID: 9,
     path: '/game/banner/480x320/banner_EgyptLegends_480x320.jpg',
   },
   {
-    name: '三國之義薄雲天',
+    gameID: 17,
     path: '/game/banner/480x320/banner_GuanYu_480x320.jpg',
   },
   {
-    name: '甜心護士',
+    gameID: 12,
     path: '/game/banner/480x320/banner_SweetheartNurse_480x320.jpg',
   },
 ]
 
-export const largeGameSlides = [
+export const largeGameSlides: Slide[] = [
   {
-    name: '帝皇捕魚',
+    gameID: GameCode.Fish,
     path: '/game/banner/480x320/banner_KingFishing_480x320.jpg',
   },
   {
-    name: '開心動物園',
+    gameID: 3,
     path: '/game/banner/480x320/banner_AnimalPark_480x320.jpg',
   },
   {
-    name: '鋼鐵超人',
+    gameID: 5,
     path: '/game/banner/480x320/banner_SuperRobot_480x320.jpg',
   },
   {
-    name: '帝皇捕魚',
+    gameID: GameCode.Fish,
     path: '/game/banner/480x320/banner_KingFishing_480x320.jpg',
   },
   {
-    name: '開心動物園',
+    gameID: 3,
     path: '/game/banner/480x320/banner_AnimalPark_480x320.jpg',
   },
 ]

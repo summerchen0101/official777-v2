@@ -159,11 +159,11 @@ const MobileHome: NextPage = () => {
           <SectionSlider
             slides={[
               {
-                name: '魔法消消樂',
+                name: 13,
                 path: '/game/banner/lg/banner_CrystalSorceress_480x320.jpg',
               },
               {
-                name: '昆蟲樂園',
+                name: 2,
                 path: '/game/banner/lg/banner_BugsFamily_480x320.jpg',
               },
             ]}
@@ -185,15 +185,15 @@ const MobileHome: NextPage = () => {
           <SectionSlider
             slides={[
               {
-                name: '巨龍家族',
+                name: 8,
                 path: '/game/banner/lg/banner_DragonClan_480x320.jpg',
               },
               {
-                name: '埃及艷后',
+                name: 9,
                 path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
-                name: '三國之義薄雲天',
+                name: 17,
                 path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
             ]}
@@ -215,15 +215,15 @@ const MobileHome: NextPage = () => {
           <SectionSlider
             slides={[
               {
-                name: '埃及艷后',
+                name: 9,
                 path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
-                name: '三國之義薄雲天',
+                name: 17,
                 path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
               {
-                name: '甜心護士',
+                name: 12,
                 path: '/game/banner/lg/banner_SweetheartNurse_480x320.jpg',
               },
             ]}
