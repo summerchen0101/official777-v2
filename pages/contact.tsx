@@ -3,14 +3,13 @@ import PageBanner from '@/components/layout/PageBanner'
 import { reportCategory } from '@/lib/report'
 import useMe from '@/services/useMe'
 import useTicketCreate from '@/services/useTicketCreate'
-import { fileToDataUrl, toImgPath } from '@/utils'
+import useTicketOpts from '@/services/useTicketOpts'
+import { getFileInfo, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { BiCloudUpload } from 'react-icons/bi'
 import { CgSpinner } from 'react-icons/cg'
-
-const categorys = ['帳號', '儲值', '遊戲', '活動', '意見', '其他', '檢舉']
 
 type Inputs = {
   subject: string
@@ -18,11 +17,12 @@ type Inputs = {
   category: string
   email: string
   phone: string
-  attachment: File
+  attachment: File | null
 }
 
 function Contact() {
   const router = useRouter()
+  const { list: ticketOpts } = useTicketOpts()
 
   const formRef = useRef<HTMLFormElement>(null)
   const {
@@ -47,7 +47,7 @@ function Contact() {
           }\n＊補充說明: -`,
       )
     }
-  }, [router.query])
+  }, [router.query, ticketOpts])
   const { handler: doCreate, isLoading } = useTicketCreate()
   const { data } = useMe()
   const [reviewImg, setReviewImg] = useState('')
@@ -66,8 +66,14 @@ function Contact() {
   })
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files?.[0]) return
-    const dataStr = await fileToDataUrl(e.target.files[0])
-    setReviewImg(dataStr)
+    const { dataUrl, size } = await getFileInfo(e.target.files[0])
+    if (size / 1024 / 1024 > 2) {
+      alert('圖片大小請勿超過2M')
+      setValue('attachment', null)
+      setReviewImg('')
+      return
+    }
+    setReviewImg(dataUrl)
   }
   return (
     <section className="mt-16">
@@ -81,9 +87,9 @@ function Contact() {
         </div>
         <div className="form-box">
           <form className="space-y-5" ref={formRef}>
-            <input hidden name="requester_id" value={data?.id} />
+            {/* <input hidden name="requester_id" value={data?.id} /> */}
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
                 <span className="text-red-500">*</span>
                 問題類型
               </label>
@@ -92,7 +98,7 @@ function Contact() {
                 {...register('category', { required: '不可為空' })}
               >
                 <option value="">請選擇問題類型</option>
-                {categorys.map((c) => (
+                {ticketOpts.map((c) => (
                   <option key={c}>{c}</option>
                 ))}
               </select>
@@ -103,7 +109,7 @@ function Contact() {
               )}
             </div>
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
                 <span className="text-red-500">*</span>
                 意見標題
               </label>
@@ -119,7 +125,7 @@ function Contact() {
               )}
             </div>
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
                 <span className="text-red-500">*</span>
                 Email
               </label>
@@ -135,7 +141,7 @@ function Contact() {
               )}
             </div>
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
                 手機
               </label>
               <input
@@ -151,7 +157,7 @@ function Contact() {
               )}
             </div>
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="w-28 lg:text-right text-gray-200">
+              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
                 <span className="text-red-500">*</span>
                 意見內容
               </label>
@@ -166,10 +172,10 @@ function Contact() {
               )}
             </div>
             <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="w-28 lg:text-right text-gray-200">
-                相關截圖
+              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
+                相關截圖 <span className="sm:block">(上限2M)</span>
               </label>
-              <div className="relative h-40 rounded bg-gray-400 flex justify-center items-center hover:cursor-pointer flex-1">
+              <div className="relative h-40 rounded bg-white/10 flex justify-center items-center hover:cursor-pointer flex-1">
                 <div className="absolute">
                   <div className="flex flex-col items-center ">
                     {/* <i className="fa fa-cloud-upload fa-3x text-gray-200" /> */}
@@ -184,7 +190,8 @@ function Contact() {
                 />
                 <input
                   type="file"
-                  name="attachment"
+                  {...register('attachment')}
+                  accept="image/*"
                   className="h-48 lg:h-full w-full opacity-0 cursor-pointer"
                   onChange={handleFileUpload}
                 />

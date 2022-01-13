@@ -1,21 +1,20 @@
 import GameDetailPopup from '@/components/GameDetailPopup'
-import HomeSlider from '@/components/HomeSlider'
+import HomeSlider, { HomeSlide } from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
-import Loading from '@/components/Loading'
 import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
-import SectionSlider, { Slide } from '@/components/SectionSlider'
+import SectionSlider from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
 import { GameCode, YesNo } from '@/lib/enums'
-import { largeGameSlides, mediumGameSlides } from '@/lib/games'
+import { largeGameSlides } from '@/lib/games'
 import { gameMap, newsTypeMap } from '@/lib/map'
 import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
-import { toImgPath, toDateTime } from '@/utils'
+import { toDateTime, toImgPath } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -30,7 +29,7 @@ const Home: NextPage = () => {
   const showNews = useStore((s) => s.showNews)
   const showGamePopup = useStore((s) => s.showGamePopup)
 
-  const homeSlides: Slide[] = Array(8).fill({
+  const homeSlides: HomeSlide[] = Array(8).fill({
     path: '/banner/banner_01.png',
   })
   const handleNewsClicked = (news: News) => {
@@ -139,7 +138,7 @@ const Home: NextPage = () => {
             {largeGameSlides.slice(0, 2).map((t, i) => (
               <img
                 key={i}
-                src={toImgPath(t.path)}
+                src={toImgPath(`/game/banner/480x320/${t.gameID}.jpg`)}
                 alt={gameMap[t.gameID]}
                 className="frame cursor-pointer"
                 onClick={() => showGamePopup(t.gameID)}
@@ -150,19 +149,15 @@ const Home: NextPage = () => {
             slides={[
               {
                 gameID: 8,
-                path: '/game/banner/lg/banner_DragonClan_480x320.jpg',
               },
               {
                 gameID: 9,
-                path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
                 gameID: 17,
-                path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
               {
                 gameID: 12,
-                path: '/game/banner/lg/banner_SweetheartNurse_480x320.jpg',
               },
             ]}
             slidesToShow={4}
@@ -182,7 +177,7 @@ const Home: NextPage = () => {
             {largeGameSlides.slice(2, 4).map((t, i) => (
               <img
                 key={i}
-                src={toImgPath(t.path)}
+                src={toImgPath(`/game/banner/480x320/${t.gameID}.jpg`)}
                 alt={gameMap[t.gameID]}
                 className="frame cursor-pointer"
                 onClick={() => showGamePopup(t.gameID)}
@@ -193,19 +188,15 @@ const Home: NextPage = () => {
             slides={[
               {
                 gameID: GameCode.Poker,
-                path: '/game/banner/lg/banner_Blackjack_480x320.jpg',
               },
               {
                 gameID: 2,
-                path: '/game/banner/lg/banner_BugsFamily_480x320.jpg',
               },
               {
                 gameID: 13,
-                path: '/game/banner/lg/banner_CrystalSorceress_480x320.jpg',
               },
               {
                 gameID: 8,
-                path: '/game/banner/lg/banner_DragonClan_480x320.jpg',
               },
             ]}
             slidesToShow={4}

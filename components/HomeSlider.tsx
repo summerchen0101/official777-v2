@@ -2,11 +2,11 @@ import React from 'react'
 import Slider, { Settings } from 'react-slick'
 import cs from 'classnames'
 import { toImgPath } from '@/utils'
-export interface Slide {
+export interface HomeSlide {
   path: string
 }
 interface Props {
-  slides: Slide[]
+  slides: HomeSlide[]
   dots?: boolean
   isHomePage?: boolean
 }

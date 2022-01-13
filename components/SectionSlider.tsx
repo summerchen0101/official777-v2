@@ -1,14 +1,13 @@
 import { toImgPath } from '@/utils'
-import React, { useRef } from 'react'
+import React from 'react'
 import Slider, { Settings } from 'react-slick'
-export interface Slide {
-  path: string
+export interface GameSlide {
   gameID: number
 }
 interface Props {
-  slides: Slide[]
+  slides: GameSlide[]
   slidesToShow: number
-  onClick?: (slide: Slide) => void
+  onClick?: (slide: GameSlide) => void
 }
 
 function SamplePrevArrow(
@@ -60,7 +59,7 @@ function SectionSlider({ slides, slidesToShow, onClick }: Props) {
       {slides.map((t, i) => (
         <div key={i} className="px-2" onClick={() => onClick && onClick(t)}>
           <img
-            src={toImgPath(t.path)}
+            src={toImgPath(`/game/banner/480x320/${t.gameID}.jpg`)}
             className="frame cursor-pointer mx-auto"
             alt=""
           />

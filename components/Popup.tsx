@@ -8,11 +8,13 @@ interface Props {
   children?: ReactNode
 }
 export default function Popup({ onClose, isShow, children }: Props) {
+  const popupBody = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (isShow) {
       document.querySelector('body')?.classList.add('lock')
     } else {
       document.querySelector('body')?.classList.remove('lock')
+      popupBody.current?.scrollTo({ top: 0 })
     }
   }, [isShow])
   return (
@@ -26,6 +28,7 @@ export default function Popup({ onClose, isShow, children }: Props) {
       <div
         className="fixed bottom-0 left-0 w-full h-full bg-purple-900/90 py-4 sm:py-8 text-white overflow-y-auto scroll-padding sm:px-4"
         onClick={(e) => e.stopPropagation()}
+        ref={popupBody}
       >
         <div
           className="cursor-pointer fixed top-0 right-0 m-3 z-10"
