@@ -1,7 +1,7 @@
-import HomeSlider, { Slide } from '../HomeSlider'
+import HomeSlider, { HomeSlide } from '../HomeSlider'
 
 function PageBanner() {
-  const homeSlides: Slide[] = Array(8).fill({
+  const homeSlides: HomeSlide[] = Array(8).fill({
     path: '/banner/banner_01.png',
   })
   return (

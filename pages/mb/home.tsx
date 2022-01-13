@@ -1,10 +1,10 @@
 import GameDetailPopup from '@/components/GameDetailPopup'
-import HomeSlider from '@/components/HomeSlider'
+import HomeSlider, { HomeSlide } from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
 import Loading from '@/components/Loading'
 import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
-import SectionSlider, { Slide } from '@/components/SectionSlider'
+import SectionSlider from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
 import { YesNo } from '@/lib/enums'
 import { newsTypeMap } from '@/lib/map'
@@ -35,7 +35,7 @@ const MobileHome: NextPage = () => {
   const showGamePopup = useStore((s) => s.showGamePopup)
   const onToggle = usePopupStore((s) => s.login.onToggle)
 
-  const homeSlides: Slide[] = Array(8).fill({
+  const homeSlides: HomeSlide[] = Array(8).fill({
     path: '/banner/banner_01.png',
   })
 
@@ -160,11 +160,9 @@ const MobileHome: NextPage = () => {
             slides={[
               {
                 gameID: 13,
-                path: '/game/banner/lg/banner_CrystalSorceress_480x320.jpg',
               },
               {
                 gameID: 2,
-                path: '/game/banner/lg/banner_BugsFamily_480x320.jpg',
               },
             ]}
             slidesToShow={1}
@@ -184,15 +182,12 @@ const MobileHome: NextPage = () => {
             slides={[
               {
                 gameID: 8,
-                path: '/game/banner/lg/banner_DragonClan_480x320.jpg',
               },
               {
                 gameID: 9,
-                path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
                 gameID: 17,
-                path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
             ]}
             slidesToShow={1}
@@ -212,15 +207,12 @@ const MobileHome: NextPage = () => {
             slides={[
               {
                 gameID: 9,
-                path: '/game/banner/lg/banner_EgyptLegends_480x320.jpg',
               },
               {
                 gameID: 17,
-                path: '/game/banner/lg/banner_GuanYu_480x320.jpg',
               },
               {
                 gameID: 12,
-                path: '/game/banner/lg/banner_SweetheartNurse_480x320.jpg',
               },
             ]}
             slidesToShow={1}

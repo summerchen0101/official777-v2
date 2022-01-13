@@ -2,7 +2,6 @@ import GameDetailPopup from '@/components/GameDetailPopup'
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import TabGroup from '@/components/TabGroup'
-import { GameCode } from '@/lib/enums'
 import { gameMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
 import { toImgPath } from '@/utils'
@@ -16,87 +15,86 @@ const tabsMap = {
 
 interface Game {
   gameID: number
-  path: string
   category: number[]
 }
 
 const list: Game[] = [
   {
-    gameID: GameCode.Poker,
-    path: '/game/banner/290x290/banner_Blackjack_290x290.jpg',
+    gameID: 1,
     category: [1, 2],
   },
   {
-    gameID: 1,
-    path: '/game/banner/290x290/banner_PirateKing_290x290.jpg',
-    category: [2],
-  },
-  {
     gameID: 2,
-    path: '/game/banner/290x290/banner_BugsFamily_290x290.jpg',
     category: [2],
   },
   {
     gameID: 3,
-    path: '/game/banner/290x290/banner_AnimalPark_290x290.jpg',
     category: [2],
   },
   {
     gameID: 5,
-    path: '/game/banner/290x290/banner_SuperRobot_290x290.jpg',
     category: [2],
   },
   {
     gameID: 6,
-    path: '/game/banner/290x290/banner_Aladdin_290x290.jpg',
     category: [2],
   },
   {
     gameID: 8,
-    path: '/game/banner/290x290/banner_DragonClan_290x290.jpg',
     category: [2],
   },
   {
     gameID: 9,
-    path: '/game/banner/290x290/banner_EgyptLegends_290x290.jpg',
     category: [1, 2],
   },
   {
     gameID: 11,
-    path: '/game/banner/290x290/banner_WildCowgirl_290x290.jpg',
     category: [2],
   },
 
   {
     gameID: 12,
-    path: '/game/banner/290x290/banner_SweetheartNurse_290x290.jpg',
     category: [1, 2],
   },
   {
     gameID: 13,
-    path: '/game/banner/290x290/banner_CrystalSorceress_290x290.jpg',
-    category: [1, 3],
-  },
-  {
-    gameID: 16,
-    path: '/game/banner/290x290/banner_Luxury777_290x290.jpg',
-    category: [2],
+    category: [1, 2],
   },
   {
     gameID: 17,
-    path: '/game/banner/290x290/banner_GuanYu_290x290.jpg',
     category: [2],
   },
   {
     gameID: 21,
-    path: '/game/banner/290x290/banner_MahjongSlot_290x290.jpg',
     category: [2],
   },
-
   {
-    gameID: GameCode.Fish,
-    path: '/game/banner/290x290/banner_KingFishing_290x290.jpg',
-    category: [1, 2],
+    gameID: 27,
+    category: [2],
+  },
+  {
+    gameID: 1001,
+    category: [1, 3],
+  },
+  {
+    gameID: 2001,
+    category: [1, 3],
+  },
+  {
+    gameID: 3001,
+    category: [1, 3],
+  },
+  {
+    gameID: 4001,
+    category: [1, 3],
+  },
+  {
+    gameID: 5001,
+    category: [1, 3],
+  },
+  {
+    gameID: 5002,
+    category: [1, 3],
   },
 ]
 
@@ -147,7 +145,7 @@ function GameIntro() {
                 onClick={() => showGamePopup(t.gameID)}
               >
                 <img
-                  src={toImgPath(t.path)}
+                  src={toImgPath(`/game/banner/290x290/${t.gameID}.jpg`)}
                   className="object-cover object-center group-hover:scale-110 h-full w-full transition-all"
                   alt={gameMap[t.gameID]}
                 />
