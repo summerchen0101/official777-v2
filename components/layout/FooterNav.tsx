@@ -1,9 +1,11 @@
+import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { toImgPath } from '@/utils'
 import Link from 'next/link'
 
 function FooterNav() {
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
+  const canRecharge = useStore((s) => s.canRecharge)
   return (
     <footer>
       <div className="bg-black/50">
@@ -39,7 +41,7 @@ function FooterNav() {
             <p>
               ＊本遊戲情節涉及棋牌益智及娛樂，非現金交易賭博，使用者請勿進行非法遊戲幣交易。
             </p>
-            <p>電子信箱：support@online539.com</p>
+            {canRecharge && <p>電子信箱：support@online539.com</p>}
             <p className="text-yellow-200">
               例行維護時間 星期三 09：00 ~ 12：00
             </p>
