@@ -47,13 +47,12 @@ function Contact() {
           }\n＊補充說明: -`,
       )
     }
-  }, [router.query])
+  }, [router.query, ticketOpts])
   const { handler: doCreate, isLoading } = useTicketCreate()
   const { data } = useMe()
   const [reviewImg, setReviewImg] = useState('')
   const onSubmit = handleSubmit(async (d) => {
     const formData = new FormData(formRef.current || undefined)
-    console.log(d)
     if (!d.attachment) {
       formData.delete('attachment')
     }
