@@ -61,6 +61,10 @@ const list: Game[] = [
     category: [1, 2],
   },
   {
+    gameID: 16,
+    category: [1, 2],
+  },
+  {
     gameID: 17,
     category: [2],
   },
@@ -90,10 +94,6 @@ const list: Game[] = [
   },
   {
     gameID: 5001,
-    category: [1, 3],
-  },
-  {
-    gameID: 5002,
     category: [1, 3],
   },
 ]
