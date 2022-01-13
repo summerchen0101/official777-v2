@@ -29,14 +29,16 @@ export const toCurrency = (num: number, decimal: number = 0) =>
   numeral(num).format(
     decimal ? `0,0.${Array(decimal).fill('0').join('')}` : '0,0',
   )
-export const fileToDataUrl = async (file: File): Promise<string> => {
+export const getFileInfo = async (
+  file: File,
+): Promise<{ dataUrl: string; size: number }> => {
   return new Promise((resolve, reject) => {
     if (!file) {
       return
     }
     const reader = new FileReader()
     reader.onload = () => {
-      resolve(reader.result as string)
+      resolve({ dataUrl: reader.result as string, size: file.size })
     }
     reader.onerror = () => {
       reject(reader.error)
