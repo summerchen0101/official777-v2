@@ -1,10 +1,9 @@
 import { gameIntroImgsMap } from '@/lib/games'
-import { gameIntroMap, gameMap } from '@/lib/map'
+import { gameMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
 import { toImgPath } from '@/utils'
 import React, { useState } from 'react'
 import Popup from './Popup'
-import cs from 'classnames'
 
 interface MajongInto {
   type: string
@@ -256,50 +255,32 @@ export default function GameDetailPopup() {
   const popupGameID = useStore((s) => s.popupGameID)
   return (
     <Popup onClose={closeGamePopup} isShow={isShowGamePopup}>
-      <div id="s0" className="flex justify-center">
+      <div className="flex justify-center">
         <h1 className="text-4xl text-gold-400 font-medium mb-8">
           {gameMap[popupGameID]}
         </h1>
       </div>
-      <div hidden={popupGameID !== 3001} className="sm:w-[800px] mx-auto p-4">
-        <select
-          onChange={(e) => setActiveTab(+e.target.value)}
-          className="rounded h-12 text-lg bg-black w-full sm:w-48 mb-2 border-0"
-        >
-          {majongIntros.map((t, i) => (
-            <option key={t.type} value={i}>
-              {t.type}
-            </option>
-          ))}
-        </select>
-        <div className="bg-black p-6 rounded-md text-lg min-h-[200px]">
-          <div className="text-xl mb-1 text-gray-400">
-            [ {majongIntros[activeTab].tai} 台 ]
-          </div>
-          <div className=" whitespace-pre-wrap">
-            {majongIntros[activeTab].desc}
-          </div>
-          <div className="text-yellow-400 mt-3 text-base">
-            {majongIntros[activeTab].note}
-          </div>
-        </div>
-      </div>
+
       {gameIntroImgsMap[popupGameID] && (
         <>
           <div className="hidden md:block fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
-            {Object.entries(gameIntroMap)
-              .filter(([code, label]) =>
-                Object.keys(gameIntroImgsMap[popupGameID]).includes(code),
-              )
-              .map(([code, label]) => (
-                <a
-                  key={code}
-                  href={`#${code}`}
-                  className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
-                >
-                  {label}
-                </a>
-              ))}
+            {Object.keys(gameIntroImgsMap[popupGameID]).map((label) => (
+              <a
+                key={label}
+                href={`#${label}`}
+                className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+              >
+                {label}
+              </a>
+            ))}
+            {popupGameID === 3001 && (
+              <a
+                href="#台數計算"
+                className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+              >
+                台數計算
+              </a>
+            )}
           </div>
           <section className="lg:w-[860px] mx-auto sm:px-4">
             <div className="bg-[#10111d] py-10 sm:rounded-lg flex flex-col gap-12">
@@ -322,6 +303,40 @@ export default function GameDetailPopup() {
               )}
             </div>
           </section>
+          {popupGameID === 3001 && (
+            <section className="lg:w-[860px] mx-auto sm:px-4 mt-5">
+              <div className="bg-[#10111d] sm:rounded-lg flex flex-col p-6">
+                <div
+                  className="text-yellow-600 font-medium text-3xl text-center mb-5"
+                  id="台數計算"
+                >
+                  台數計算
+                </div>
+                <select
+                  onChange={(e) => setActiveTab(+e.target.value)}
+                  className="rounded text-gray-800 text-lg w-full sm:w-48 border-0 mb-4"
+                >
+                  {majongIntros.map((t, i) => (
+                    <option key={t.type} value={i}>
+                      {t.type}({t.tai}台)
+                    </option>
+                  ))}
+                </select>
+                <div className=" text-lg min-h-[200px]">
+                  <div className="text-xl mb-3 text-gray-400 font-medium">
+                    {majongIntros[activeTab].type} [{' '}
+                    {majongIntros[activeTab].tai} 台 ]
+                  </div>
+                  <div className=" whitespace-pre-wrap">
+                    {majongIntros[activeTab].desc}
+                  </div>
+                  <div className="text-yellow-400 mt-3 text-base">
+                    {majongIntros[activeTab].note}
+                  </div>
+                </div>
+              </div>
+            </section>
+          )}
         </>
       )}
     </Popup>
