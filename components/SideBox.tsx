@@ -4,7 +4,6 @@ import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { toCurrency, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import { FaUserCircle } from 'react-icons/fa'
 
 function SideBox() {
   const router = useRouter()
@@ -30,7 +29,7 @@ function SideBox() {
     router.push('/home')
   }
   return (
-    <div className="gold-box rounded-3xl w-48 ml-2 hidden lg:flex flex-col gap-2 px-3 pt-0 pb-10 fixed top-0 left-0 mt-[150px] shadow-md z-30">
+    <div className="gold-box rounded-3xl w-48 ml-2 hidden lg:flex flex-col gap-2 px-3 pt-0 pb-10 fixed top-0 left-0 mt-[135px] shadow-md z-30">
       {canRecharge ? (
         <div
           className="flex flex-col gap-2 cursor-pointer mb-2"
@@ -51,7 +50,12 @@ function SideBox() {
 
       {user ? (
         <>
-          <FaUserCircle className="w-20 h-20 mx-auto text-gold-400 lg:hidden xl:block" />
+          <img
+            hidden={!user.avatarID}
+            className="rounded-full w-28 mx-auto bg-gold-600"
+            src={toImgPath(`/avatar/${user.avatarID}.png`)}
+            alt=""
+          />
           <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
             {user.nickname}
           </div>

@@ -18,7 +18,7 @@ function PageWrapper({ children }: { children: ReactNode }) {
       <img
         src="/img/logo.png"
         alt=""
-        className="hidden sm:block cursor-pointer w-56 mt-2 fixed top-0"
+        className="hidden sm:block cursor-pointer h-32 mt-2 fixed top-0 drop-shadow-lg"
         onClick={() => router.push('/')}
       />
       {/* <PageBanner /> */}
