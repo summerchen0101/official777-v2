@@ -158,13 +158,6 @@ export const gameMap: StringMap = {
   [GameCode.Lottery_Jackpot]: '大頭家超級紅包',
 }
 
-export const gameIntroMap: StringMap = {
-  [GameIntro.Basic]: '基本說明',
-  [GameIntro.Score]: '得分方式',
-  [GameIntro.Win]: '贏分走線',
-  [GameIntro.Odds]: '賠率表',
-}
-
 export const appUrlMap: StringMap = {
   [Platform.IOS]:
     'https://apps.apple.com/tw/app/%E5%A4%A7%E9%A0%AD%E5%AE%B6%E5%A8%9B%E6%A8%82%E5%9F%8E/id1595039719',

@@ -1,10 +1,9 @@
 import { gameIntroImgsMap } from '@/lib/games'
-import { gameIntroMap, gameMap } from '@/lib/map'
+import { gameMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
 import { toImgPath } from '@/utils'
 import React, { useState } from 'react'
 import Popup from './Popup'
-import cs from 'classnames'
 
 interface MajongInto {
   type: string
@@ -287,19 +286,15 @@ export default function GameDetailPopup() {
       {gameIntroImgsMap[popupGameID] && (
         <>
           <div className="hidden md:block fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
-            {Object.entries(gameIntroMap)
-              .filter(([code, label]) =>
-                Object.keys(gameIntroImgsMap[popupGameID]).includes(code),
-              )
-              .map(([code, label]) => (
-                <a
-                  key={code}
-                  href={`#${code}`}
-                  className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
-                >
-                  {label}
-                </a>
-              ))}
+            {Object.keys(gameIntroImgsMap[popupGameID]).map((label) => (
+              <a
+                key={label}
+                href={`#${label}`}
+                className="w-40 border border-white rounded p-2 text-xl transition-all translate-x-5 hover:translate-x-3"
+              >
+                {label}
+              </a>
+            ))}
           </div>
           <section className="lg:w-[860px] mx-auto sm:px-4">
             <div className="bg-[#10111d] py-10 sm:rounded-lg flex flex-col gap-12">
