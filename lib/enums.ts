@@ -125,3 +125,8 @@ export enum GameIntro {
   Win,
   Odds,
 }
+
+export enum Platform {
+  IOS = 'IOS',
+  Android = 'Android',
+}

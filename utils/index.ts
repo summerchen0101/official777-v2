@@ -1,3 +1,5 @@
+import { appUrlMap } from './../lib/map'
+import { Platform } from './../lib/enums'
 import { OptionType } from '@/types/index'
 import { format } from 'date-fns'
 import { StringMap } from '@/types'
@@ -57,4 +59,27 @@ export const reviewBase64Img = (base64Str: string) => {
 
 export const toImgPath = (path: string) => {
   return imgBaseUrl + path
+}
+
+export function checkPlatform() {
+  const isIOS =
+    [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod',
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+  return isIOS ? Platform.IOS : Platform.Android
+}
+
+export function localOpen(appUrl: string) {
+  window.location.replace(appUrl)
+  const appDownloadUrl = appUrlMap[checkPlatform()]
+  setTimeout(function () {
+    window.location.replace(appDownloadUrl)
+  }, 25)
 }
