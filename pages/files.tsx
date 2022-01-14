@@ -4,6 +4,23 @@ import { toImgPath } from '@/utils'
 import React from 'react'
 import { BiFile } from 'react-icons/bi'
 
+const downloads = [
+  {
+    name: '領獎單',
+    path: toImgPath('/download/兆豐遊戲全球科技_領獎單.pdf'),
+  },
+  {
+    name: '手機號碼暨玩家名稱修改申請單',
+    path: toImgPath(
+      '/download/兆豐遊戲全球科技_手機號碼暨玩家名稱修改申請單.pdf',
+    ),
+  },
+  {
+    name: '帳號證明暨遊戲歷程申請單',
+    path: toImgPath('/download/兆豐遊戲全球科技_帳號證明暨遊戲歷程申請單.pdf'),
+  },
+]
+
 function FilesPage() {
   return (
     <Layout>
@@ -18,14 +35,18 @@ function FilesPage() {
             />
           </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-3 gap-x-4 px-4">
-            {[...Array(5)].map((t, i) => (
-              <div
+            {downloads.map((t, i) => (
+              <a
                 key={i}
                 className="cursor-pointer flex items-center space-x-4 text-gray-200 bg-black/50 rounded-md p-3 text-lg h-20"
+                href={t.path}
+                target="_blank"
+                download={t.name}
+                rel="noreferrer"
               >
                 <BiFile className="text-3xl text-gold-500" />
-                <span>下載檔案名稱.pdf</span>
-              </div>
+                <span>{t.name}</span>
+              </a>
             ))}
           </div>
         </div>

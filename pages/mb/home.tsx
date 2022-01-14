@@ -1,18 +1,17 @@
 import GameDetailPopup from '@/components/GameDetailPopup'
 import HomeSlider, { HomeSlide } from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
-import Loading from '@/components/Loading'
 import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
-import { YesNo } from '@/lib/enums'
-import { newsTypeMap } from '@/lib/map'
+import { Platform, YesNo } from '@/lib/enums'
+import { appUrlMap, newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
-import { toImgPath, toCurrency, toDateTime } from '@/utils'
+import { toCurrency, toDateTime, toImgPath } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
@@ -76,8 +75,22 @@ const MobileHome: NextPage = () => {
       </div>
       <div className="grid grid-cols-2 gap-2 mb-10 mx-4">
         <div className="space-y-1">
-          <img src={toImgPath('/google_play.png')} alt="" className="" />
-          <img src={toImgPath('/app_store.png')} alt="" className="" />
+          <a
+            className="block"
+            target="_blank"
+            href={appUrlMap[Platform.IOS]}
+            rel="noreferrer"
+          >
+            <img src={toImgPath('/app_store.png')} alt="" className="" />
+          </a>
+          <a
+            className="block"
+            target="_blank"
+            href={appUrlMap[Platform.Android]}
+            rel="noreferrer"
+          >
+            <img src={toImgPath('/google_play.png')} alt="" className="" />
+          </a>
           <img src={toImgPath('/apk.png')} alt="" className="" />
         </div>
         <div className="flex justify-center items-center">

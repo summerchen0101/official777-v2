@@ -30,7 +30,7 @@ function SideBox() {
     router.push('/home')
   }
   return (
-    <div className="gold-box rounded-3xl w-48 ml-2 hidden lg:flex flex-col gap-2 px-3 pt-0 pb-10 fixed top-0 left-0 mt-[180px] shadow-md z-30">
+    <div className="gold-box rounded-3xl w-48 ml-2 hidden lg:flex flex-col gap-2 px-3 pt-0 pb-10 fixed top-0 left-0 mt-[150px] shadow-md z-30">
       {canRecharge ? (
         <div
           className="flex flex-col gap-2 cursor-pointer mb-2"
