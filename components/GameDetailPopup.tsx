@@ -318,13 +318,14 @@ export default function GameDetailPopup() {
                 >
                   {majongIntros.map((t, i) => (
                     <option key={t.type} value={i}>
-                      {t.type}
+                      {t.type}({t.tai}台)
                     </option>
                   ))}
                 </select>
                 <div className=" text-lg min-h-[200px]">
-                  <div className="text-xl mb-1 text-gray-400">
-                    [ {majongIntros[activeTab].tai} 台 ]
+                  <div className="text-xl mb-3 text-gray-400 font-medium">
+                    {majongIntros[activeTab].type} [{' '}
+                    {majongIntros[activeTab].tai} 台 ]
                   </div>
                   <div className=" whitespace-pre-wrap">
                     {majongIntros[activeTab].desc}
