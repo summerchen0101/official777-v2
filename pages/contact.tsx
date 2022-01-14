@@ -8,17 +8,7 @@ import { getFileInfo, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { BiCloudUpload } from 'react-icons/bi'
 import { CgSpinner } from 'react-icons/cg'
-
-type Inputs = {
-  subject: string
-  comment: string
-  category: string
-  email: string
-  phone: string
-  attachment: File | null
-}
 
 function Contact() {
   const router = useRouter()
@@ -123,7 +113,11 @@ function Contact() {
                       {...register(t.itemID.toString(), {
                         required: t.required ? '不可為空' : undefined,
                         pattern: {
-                          value: new RegExp(t.regexp_for_validation),
+                          value: new RegExp(
+                            t.regexp_for_validation
+                              .replace(`\\A`, '^')
+                              .replace(`\\z`, '$'),
+                          ),
                           message: '請填寫正確格式',
                         },
                       })}
