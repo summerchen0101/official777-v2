@@ -29,7 +29,7 @@ function AppDownloadSideFloat() {
         isShowSidebar ? 'translate-x-0' : 'translate-x-[192px]',
       )}
     >
-      <img src={qrcodeImgSrc.current} alt="" className="mb-3" />
+      <img src={qrcodeImgSrc.current} alt="" className="mb-3 rounded-lg" />
       <img src={toImgPath('/scan_download.png')} alt="" />
       <div className="space-y-1">
         <a
@@ -49,7 +49,7 @@ function AppDownloadSideFloat() {
           <img src={toImgPath('/google_play.png')} alt="" className="" />
         </a>
         {/* <img src={toImgPath('/apk.png')} alt="" className="" /> */}
-        <img src={toImgPath('/win10.png')} alt="" className="" />
+        {/* <img src={toImgPath('/win10.png')} alt="" className="" /> */}
       </div>
       <div
         className="absolute top-0 left-0 mt-4 cursor-pointer w-12 h-44 -m-12 gold-box flex items-center justify-center rounded-l-xl"

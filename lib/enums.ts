@@ -1,3 +1,8 @@
+export enum Platform {
+  IOS = 'IOS',
+  Android = 'Android',
+}
+
 export enum GameType {
   Tiger = 1,
   FiveSixSeven = 2,
@@ -124,9 +129,4 @@ export enum GameIntro {
   Score,
   Win,
   Odds,
-}
-
-export enum Platform {
-  IOS = 'IOS',
-  Android = 'Android',
 }

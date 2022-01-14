@@ -34,7 +34,7 @@ function HeaderNav() {
             <img
               src="/img/logo.png"
               alt=""
-              className="cursor-pointer absolute h-36 xl:h-40 z-50 left-0 top-0 lg:-ml-24 xl:-ml-36 -mt-6 p-3"
+              className="cursor-pointer absolute h-36 z-50 left-0 top-0 lg:-ml-24 xl:-ml-36 -mt-6 p-3"
               onClick={() => router.push('/')}
             />
             <div className="flex space-x-2 relative -bottom-5">
@@ -77,14 +77,22 @@ function HeaderNav() {
           </div>
         </div>
 
-        <div className="flex space-x-3 absolute top-0 right-0 xl:m-3 z-30 lg:scale-75">
-          <img src={toImgPath('/fb.png')} className="cursor-pointer" alt="" />
-          <img src={toImgPath('/line.png')} className="cursor-pointer" alt="" />
+        <div className="flex space-x-3 absolute top-0 right-0 lg:m-3 z-30">
+          <a
+            href="https://www.facebook.com/Online539"
+            target="_blank"
+            className="block"
+            rel="noreferrer"
+          >
+            <img src={toImgPath('/fb.png')} className="cursor-pointer" alt="" />
+          </a>
+
+          {/* <img src={toImgPath('/line.png')} className="cursor-pointer" alt="" />
           <img
             src={toImgPath('/youtube.png')}
             className="cursor-pointer"
             alt=""
-          />
+          /> */}
         </div>
       </header>
       <MobileHeader />
