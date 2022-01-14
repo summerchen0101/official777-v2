@@ -3,7 +3,7 @@ import PageBanner from '@/components/layout/PageBanner'
 import { reportCategory } from '@/lib/report'
 import useMe from '@/services/useMe'
 import useTicketCreate from '@/services/useTicketCreate'
-import useTicketOpts from '@/services/useTicketOpts'
+import useTicketFields from '@/services/useTicketFields'
 import { getFileInfo, toImgPath } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useRef, useState } from 'react'
@@ -22,8 +22,8 @@ type Inputs = {
 
 function Contact() {
   const router = useRouter()
-  const { list: ticketOpts } = useTicketOpts()
-
+  // const { list: ticketOpts } = useTicketOpts()
+  const { list: formFields } = useTicketFields()
   const formRef = useRef<HTMLFormElement>(null)
   const {
     register,
@@ -31,7 +31,8 @@ function Contact() {
     setValue,
     reset,
     formState: { errors },
-  } = useForm<Inputs>()
+  } = useForm()
+  console.log(errors)
   useEffect(() => {
     const query = router.query
     let str = ''
@@ -47,7 +48,7 @@ function Contact() {
           }\n＊補充說明: -`,
       )
     }
-  }, [router.query, ticketOpts])
+  }, [router.query])
   const { handler: doCreate, isLoading } = useTicketCreate()
   const { data } = useMe()
   const [reviewImg, setReviewImg] = useState('')
@@ -87,98 +88,90 @@ function Contact() {
         </div>
         <div className="form-box">
           <form className="space-y-5" ref={formRef}>
+            {formFields
+              .sort((a, b) => a.position - b.position)
+              .map((t, i) => (
+                <div
+                  key={i}
+                  className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2"
+                >
+                  <label
+                    htmlFor=""
+                    className="sm:w-28 lg:text-right text-gray-200"
+                  >
+                    {t.required && <span className="text-red-500">*</span>}
+                    {t.name}
+                  </label>
+                  {t.type === 'select' && (
+                    <select
+                      className="rounded-sm border-none bg-gray-100 lg:w-96 h-9"
+                      {...register(t.itemID.toString(), {
+                        required: t.required ? '不可為空' : undefined,
+                        value: t.options?.find((t) => t.default)?.name,
+                      })}
+                    >
+                      <option value="">{t.description}</option>
+                      {t.options?.map((opt) => (
+                        <option key={opt.name}>{opt.name}</option>
+                      ))}
+                    </select>
+                  )}
+                  {t.type === 'text' && (
+                    <input
+                      type="text"
+                      className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
+                      {...register(t.itemID.toString(), {
+                        required: t.required ? '不可為空' : undefined,
+                        pattern: {
+                          value: new RegExp(t.regexp_for_validation),
+                          message: '請填寫正確格式',
+                        },
+                      })}
+                      placeholder={t.description}
+                    />
+                  )}
+                  {t.type === 'file' && (
+                    <>
+                      <input
+                        type="file"
+                        {...register(t.itemID.toString(), {
+                          required: t.required ? '不可為空' : undefined,
+                        })}
+                        accept="image/*"
+                        multiple={t.dataType === 'multiple'}
+                        className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
+                      />
+                      <div hidden={!t.description} className="text-gray-400">
+                        {t.description}
+                      </div>
+                    </>
+                  )}
+                  {t.type === 'textarea' && (
+                    <textarea
+                      className="rounded-sm border-none bg-gray-100 flex-1 h-28"
+                      {...register(t.itemID.toString(), {
+                        required: t.required ? '不可為空' : undefined,
+                      })}
+                      placeholder={t.description}
+                    />
+                  )}
+
+                  {errors[t.itemID] && (
+                    <div className="text-sm text-red-500">
+                      {errors[t.itemID].message}
+                    </div>
+                  )}
+                </div>
+              ))}
             {/* <input hidden name="requester_id" value={data?.id} /> */}
-            <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
-                <span className="text-red-500">*</span>
-                問題類型
-              </label>
-              <select
-                className="rounded-sm border-none bg-gray-100 lg:w-96 h-9"
-                {...register('category', { required: '不可為空' })}
-              >
-                <option value="">請選擇問題類型</option>
-                {ticketOpts.map((c) => (
-                  <option key={c}>{c}</option>
-                ))}
-              </select>
-              {errors.category && (
-                <div className="text-sm text-red-500">
-                  {errors.category.message}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
-                <span className="text-red-500">*</span>
-                意見標題
-              </label>
-              <input
-                type="text"
-                className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
-                {...register('subject', { required: '不可為空' })}
-              />
-              {errors.subject && (
-                <div className="text-sm text-red-500">
-                  {errors.subject.message}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
-                <span className="text-red-500">*</span>
-                Email
-              </label>
-              <input
-                type="email"
-                className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
-                {...register('email', { required: '不可為空' })}
-              />
-              {errors.email && (
-                <div className="text-sm text-red-500">
-                  {errors.email.message}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
-                手機
-              </label>
-              <input
-                type="text"
-                className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
-                {...register('phone')}
-                placeholder="填寫有機會較快收到客服回饋"
-              />
-              {errors.phone && (
-                <div className="text-sm text-red-500">
-                  {errors.phone.message}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
-                <span className="text-red-500">*</span>
-                意見內容
-              </label>
-              <textarea
-                className="rounded-sm border-none bg-gray-100 flex-1 h-28"
-                {...register('comment', { required: '不可為空' })}
-              />
-              {errors.comment && (
-                <div className="text-sm text-red-500">
-                  {errors.comment.message}
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
+
+            {/* <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
               <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
                 相關截圖 <span className="sm:block">(上限2M)</span>
               </label>
               <div className="relative h-40 rounded bg-white/10 flex justify-center items-center hover:cursor-pointer flex-1">
                 <div className="absolute">
                   <div className="flex flex-col items-center ">
-                    {/* <i className="fa fa-cloud-upload fa-3x text-gray-200" /> */}
                     <BiCloudUpload size="100px" className="text-gray-300" />
                   </div>
                 </div>
@@ -196,7 +189,7 @@ function Contact() {
                   onChange={handleFileUpload}
                 />
               </div>
-            </div>
+            </div> */}
 
             <div className="pt-3 flex justify-center">
               <button
