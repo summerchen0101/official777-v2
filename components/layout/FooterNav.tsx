@@ -1,6 +1,6 @@
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import Link from 'next/link'
 
 function FooterNav() {
@@ -55,16 +55,16 @@ function FooterNav() {
             <div className="pt-3">
               <div className="hidden sm:flex h-20 p-2 rounded-sm gap-8 items-center justify-center mx-auto">
                 <img
-                  src={toImgPath('/company-logo.png')}
+                  src={toCdnUrl('/company-logo.png')}
                   className="h-16"
                   alt=""
                 />
                 <img
-                  src={toImgPath('/sponsor/三聯logo_橫.png')}
+                  src={toCdnUrl('/sponsor/三聯logo_橫.png')}
                   className="h-16"
                   alt=""
                 />
-                <img src={toImgPath('/15+.png')} className="h-14 ml-5" alt="" />
+                <img src={toCdnUrl('/15+.png')} className="h-14 ml-5" alt="" />
               </div>
             </div>
           </div>

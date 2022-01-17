@@ -10,7 +10,7 @@ import { largeGameSlides } from '@/lib/games'
 import { gameMap, newsTypeMap } from '@/lib/map'
 import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
-import { toDateTime, toImgPath } from '@/utils'
+import { toDateTime, toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
@@ -48,7 +48,7 @@ const Home: NextPage = () => {
       <section id="news" className="mb-16 px-4">
         <div className="lg:w-[860px] mx-auto">
           <img
-            src={toImgPath('/title_news.png')}
+            src={toCdnUrl('/title_news.png')}
             alt="最新消息"
             className="h-10 mb-4"
           />
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
 
       <section className="mb-16">
         <img
-          src={toImgPath('/title_media.png')}
+          src={toCdnUrl('/title_media.png')}
           alt="多媒體"
           className="h-10 mb-6 mx-auto"
         />
@@ -129,7 +129,7 @@ const Home: NextPage = () => {
       <section className="mb-16">
         <div className="lg:w-[860px] mx-auto">
           <img
-            src={toImgPath('/title_games.png')}
+            src={toCdnUrl('/title_games.png')}
             alt="推薦遊戲"
             className="h-10 mb-4"
           />
@@ -138,7 +138,7 @@ const Home: NextPage = () => {
             {largeGameSlides.slice(0, 2).map((t, i) => (
               <img
                 key={i}
-                src={toImgPath(`/game/banner/480x320/${t.gameID}.jpg`)}
+                src={toCdnUrl(`/game/banner/480x320/${t.gameID}.jpg`)}
                 alt={gameMap[t.gameID]}
                 className="frame cursor-pointer"
                 onClick={() => showGamePopup(t.gameID)}
@@ -169,7 +169,7 @@ const Home: NextPage = () => {
       <section className="mb-10">
         <div className="lg:w-[860px] mx-auto">
           <img
-            src={toImgPath('/title_tiger.png')}
+            src={toCdnUrl('/title_tiger.png')}
             alt="老虎機"
             className="h-10 mb-4"
           />
@@ -177,7 +177,7 @@ const Home: NextPage = () => {
             {largeGameSlides.slice(2, 4).map((t, i) => (
               <img
                 key={i}
-                src={toImgPath(`/game/banner/480x320/${t.gameID}.jpg`)}
+                src={toCdnUrl(`/game/banner/480x320/${t.gameID}.jpg`)}
                 alt={gameMap[t.gameID]}
                 className="frame cursor-pointer"
                 onClick={() => showGamePopup(t.gameID)}

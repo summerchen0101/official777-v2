@@ -1,5 +1,5 @@
 import { useStore } from '@/store/useStore'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect } from 'react'

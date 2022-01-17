@@ -3,7 +3,7 @@ import useLogin from '@/services/useLogin'
 import useOAuthLogin from '@/services/useOAuthLogin'
 import usePopupStore from '@/store/usePopupStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import useStorage from '@/utils/useStorage'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
@@ -113,14 +113,14 @@ export default function LoginPopup() {
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               onClick={() => handleOAuthLogin(OAuthChannel.Google)}
             >
-              <img src={toImgPath('/icon_loginGoogle.png')} alt="" />
+              <img src={toCdnUrl('/icon_loginGoogle.png')} alt="" />
               <div className="flex-1 text-center">Google登入</div>
             </div>
             <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               // onClick={() => handleOAuthLogin(OAuthChannel.Google)}
             >
-              <img src={toImgPath('/icon_loginApple.png')} alt="" />
+              <img src={toCdnUrl('/icon_loginApple.png')} alt="" />
               <div className="flex-1 text-center" onClick={handleAppleLogin}>
                 Apple ID登入
               </div>
@@ -139,14 +139,14 @@ export default function LoginPopup() {
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               onClick={() => handleOAuthLogin(OAuthChannel.Facebook)}
             >
-              <img src={toImgPath('/icon_loginFacebook.png')} alt="" />
+              <img src={toCdnUrl('/icon_loginFacebook.png')} alt="" />
               <div className="flex-1 text-center">facebook登入</div>
             </div>
             <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               onClick={() => handleOAuthLogin(OAuthChannel.Line)}
             >
-              <img src={toImgPath('/icon_loginLine.png')} alt="" />
+              <img src={toCdnUrl('/icon_loginLine.png')} alt="" />
               <div className="flex-1 text-center">Line登入</div>
             </div>
           </div>

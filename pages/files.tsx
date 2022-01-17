@@ -1,23 +1,23 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import React from 'react'
 import { BiFile } from 'react-icons/bi'
 
 const downloads = [
   {
     name: '領獎單',
-    path: toImgPath('/download/兆豐遊戲全球科技_領獎單.pdf'),
+    path: toCdnUrl('/download/兆豐遊戲全球科技_領獎單.pdf'),
   },
   {
     name: '手機號碼暨玩家名稱修改申請單',
-    path: toImgPath(
+    path: toCdnUrl(
       '/download/兆豐遊戲全球科技_手機號碼暨玩家名稱修改申請單.pdf',
     ),
   },
   {
     name: '帳號證明暨遊戲歷程申請單',
-    path: toImgPath('/download/兆豐遊戲全球科技_帳號證明暨遊戲歷程申請單.pdf'),
+    path: toCdnUrl('/download/兆豐遊戲全球科技_帳號證明暨遊戲歷程申請單.pdf'),
   },
 ]
 
@@ -29,7 +29,7 @@ function FilesPage() {
         <div className="lg:w-[860px] min-h-[400px] mx-auto lg:py-20">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toImgPath('/title_download.png')}
+              src={toCdnUrl('/title_download.png')}
               alt="表單下載"
               className="h-10"
             />

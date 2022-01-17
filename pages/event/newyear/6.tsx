@@ -4,7 +4,7 @@ import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import React from 'react'
 
 const ticketGiftStages = [
@@ -120,7 +120,7 @@ export default function Activity_06() {
                   <th colSpan={3} className="text-xl">
                     <div className="flex gap-3 items-center justify-center">
                       <img
-                        src={toImgPath(`/event/tickets/${group.ticket}.jpg`)}
+                        src={toCdnUrl(`/event/tickets/${group.ticket}.jpg`)}
                         alt=""
                         className="w-16"
                       />
@@ -150,7 +150,7 @@ export default function Activity_06() {
                           className="flex items-center gap-3 justify-center font-medium"
                         >
                           <img
-                            src={toImgPath(`/event/items/${g.icon}`)}
+                            src={toCdnUrl(`/event/items/${g.icon}`)}
                             alt=""
                             className="w-12 hidden sm:block"
                           />

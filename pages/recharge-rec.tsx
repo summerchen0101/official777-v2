@@ -5,7 +5,7 @@ import useAuth from '@/hooks/useAuth'
 import { PaymentStatus } from '@/lib/enums'
 import { paymentStatusMap, payTypeMap } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
-import { toCurrency, toDateTime, toImgPath } from '@/utils'
+import { toCurrency, toDateTime, toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import React, { useState } from 'react'
 import { BiArrowToRight } from 'react-icons/bi'
@@ -30,7 +30,7 @@ function RechargeRec() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toImgPath('/title_recharge_rec.png')}
+              src={toCdnUrl('/title_recharge_rec.png')}
               alt="儲值紀錄"
               className="h-10"
             />

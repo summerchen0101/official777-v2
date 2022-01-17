@@ -8,7 +8,7 @@ import LoginPopup from '@/components/LoginPopup'
 import useMe from '@/services/useMe'
 import useSnExchange from '@/services/useSnExchange'
 import usePopupStore from '@/store/usePopupStore'
-import { toCurrency, toImgPath } from '@/utils'
+import { toCurrency, toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -153,7 +153,7 @@ export default function Activity_02() {
                   </div>
                   <div className="mb-2 text-xl text-yellow-600 flex gap-2">
                     <img
-                      src={toImgPath(`/event/tickets/${t.ticket}.jpg`)}
+                      src={toCdnUrl(`/event/tickets/${t.ticket}.jpg`)}
                       alt=""
                       className="w-16"
                     />

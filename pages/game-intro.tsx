@@ -4,7 +4,7 @@ import PageBanner from '@/components/layout/PageBanner'
 import TabGroup from '@/components/TabGroup'
 import { gameMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import React, { useMemo, useState } from 'react'
 
 const tabsMap = {
@@ -118,7 +118,7 @@ function GameIntro() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toImgPath('/title_game_intro.png')}
+              src={toCdnUrl('/title_game_intro.png')}
               alt="遊戲說明"
               className="h-10"
             />
@@ -145,7 +145,7 @@ function GameIntro() {
                 onClick={() => showGamePopup(t.gameID)}
               >
                 <img
-                  src={toImgPath(`/game/banner/290x290/${t.gameID}.jpg`)}
+                  src={toCdnUrl(`/game/banner/290x290/${t.gameID}.jpg`)}
                   className="object-cover object-center group-hover:scale-110 h-full w-full transition-all"
                   alt={gameMap[t.gameID]}
                 />

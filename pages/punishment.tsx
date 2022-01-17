@@ -7,7 +7,7 @@ import SlotRankTable from '@/components/SlotRankTable'
 import TabGroup from '@/components/TabGroup'
 import { rankTypeMap } from '@/lib/map'
 import usePunishmentList from '@/services/usePunishmentList'
-import { toDateTime, toImgPath } from '@/utils'
+import { toDateTime, toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
 
@@ -33,7 +33,7 @@ function PunishmentPage() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toImgPath('/title_punishment.png')}
+              src={toCdnUrl('/title_punishment.png')}
               alt="懲罰名單"
               className="h-10"
             />

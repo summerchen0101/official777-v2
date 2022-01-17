@@ -1,5 +1,5 @@
 import { useStore } from '@/store/useStore'
-import { toImgPath, toDateTime } from '@/utils'
+import { toCdnUrl, toDateTime } from '@/utils'
 import React from 'react'
 import Popup from './Popup'
 
@@ -15,12 +15,12 @@ export default function NewsDetailPopup() {
         {/* <div className="flex items-center space-x-3 lg:justify-end mb-3">
           <div>分享至</div>
           <img
-            src={toImgPath('/fb.png')}
+            src={toCdnUrl('/fb.png')}
             className="cursor-pointer h-6"
             alt=""
           />
           <img
-            src={toImgPath('/line.png')}
+            src={toCdnUrl('/line.png')}
             className="cursor-pointer h-6"
             alt=""
           />

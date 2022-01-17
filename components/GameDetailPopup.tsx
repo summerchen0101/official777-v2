@@ -1,7 +1,7 @@
 import { gameIntroImgsMap } from '@/lib/games'
 import { gameMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import React, { useState } from 'react'
 import Popup from './Popup'
 
@@ -294,7 +294,7 @@ export default function GameDetailPopup() {
                     {imgs.map((img, img_i) => (
                       <img
                         key={img_i}
-                        src={toImgPath(`/game/intro/${popupGameID}/${img}`)}
+                        src={toCdnUrl(`/game/intro/${popupGameID}/${img}`)}
                         alt=""
                       />
                     ))}

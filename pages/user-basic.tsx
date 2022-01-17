@@ -6,7 +6,7 @@ import { genderMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useProfileUpdate from '@/services/useProfileUpdate'
 import useSms from '@/services/useSms'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
@@ -98,7 +98,7 @@ function UserBasic() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toImgPath('/title_member.png')}
+              src={toCdnUrl('/title_member.png')}
               alt="會員資料"
               className="h-10"
             />

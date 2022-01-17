@@ -4,7 +4,7 @@ import { reportCategory } from '@/lib/report'
 import useMe from '@/services/useMe'
 import useTicketCreate from '@/services/useTicketCreate'
 import useTicketFields from '@/services/useTicketFields'
-import { getFileInfo, toImgPath } from '@/utils'
+import { getFileInfo, toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -71,7 +71,7 @@ function Contact() {
       <div className="lg:w-[860px] mx-auto">
         <div className="mb-6 flex justify-center lg:justify-start">
           <img
-            src={toImgPath('/title_service.png')}
+            src={toCdnUrl('/title_service.png')}
             alt="聯繫客服"
             className="h-10"
           />

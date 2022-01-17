@@ -3,7 +3,7 @@ import ContentText from '@/components/activity/ContentText'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import { toCurrency, toImgPath } from '@/utils'
+import { toCurrency, toCdnUrl } from '@/utils'
 import React from 'react'
 
 const awardList = [
@@ -55,7 +55,7 @@ export default function Activity_04() {
                       className="flex items-center gap-3 justify-center font-medium"
                     >
                       <img
-                        src={toImgPath(`/event/items/${g.icon}`)}
+                        src={toCdnUrl(`/event/items/${g.icon}`)}
                         alt=""
                         className="w-12 hidden sm:block"
                       />

@@ -3,7 +3,7 @@ import ContentText from '@/components/activity/ContentText'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import { toCurrency, toImgPath } from '@/utils'
+import { toCurrency, toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import React, { useState } from 'react'
 
@@ -189,7 +189,7 @@ export default function Activity_01() {
                   >
                     <div className="mb-2 text-lg font-medium">{t.vip}</div>
                     <img
-                      src={toImgPath(`/event/tickets/${t.icon}.jpg`)}
+                      src={toCdnUrl(`/event/tickets/${t.icon}.jpg`)}
                       className="w-20"
                       alt=""
                     />
@@ -210,7 +210,7 @@ export default function Activity_01() {
                   >
                     <div className="mb-2 text-xl font-medium text-yellow-600 flex gap-3">
                       <img
-                        src={toImgPath(`/event/tickets/${t.icon}.jpg`)}
+                        src={toCdnUrl(`/event/tickets/${t.icon}.jpg`)}
                         alt=""
                         className="w-10"
                       />
@@ -253,7 +253,7 @@ export default function Activity_01() {
               >
                 <div className="mb-2 text-xl font-medium text-yellow-400 flex gap-2">
                   <img
-                    src={toImgPath(`/event/tickets/${t.icon}.jpg`)}
+                    src={toCdnUrl(`/event/tickets/${t.icon}.jpg`)}
                     alt=""
                     className="w-10"
                   />
@@ -323,7 +323,7 @@ export default function Activity_01() {
                 )}
               >
                 <img
-                  src={toImgPath(`/event/items/${g.icon}`)}
+                  src={toCdnUrl(`/event/items/${g.icon}`)}
                   className="w-28"
                   alt=""
                 />

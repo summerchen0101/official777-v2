@@ -1,6 +1,6 @@
 import { Platform } from '@/lib/enums'
 import { appUrlMap } from '@/lib/map'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import QRCode from 'qrcode'
 import { useEffect, useRef, useState } from 'react'
@@ -30,7 +30,7 @@ function AppDownloadSideFloat() {
       )}
     >
       <img src={qrcodeImgSrc.current} alt="" className="mb-3 rounded-lg" />
-      <img src={toImgPath('/scan_download.png')} alt="" />
+      <img src={toCdnUrl('/scan_download.png')} alt="" />
       <div className="space-y-1">
         <a
           className="block"
@@ -38,7 +38,7 @@ function AppDownloadSideFloat() {
           href={appUrlMap[Platform.IOS]}
           rel="noreferrer"
         >
-          <img src={toImgPath('/app_store.png')} alt="" className="" />
+          <img src={toCdnUrl('/app_store.png')} alt="" className="" />
         </a>
         <a
           className="block"
@@ -46,16 +46,16 @@ function AppDownloadSideFloat() {
           href={appUrlMap[Platform.Android]}
           rel="noreferrer"
         >
-          <img src={toImgPath('/google_play.png')} alt="" className="" />
+          <img src={toCdnUrl('/google_play.png')} alt="" className="" />
         </a>
-        {/* <img src={toImgPath('/apk.png')} alt="" className="" /> */}
-        {/* <img src={toImgPath('/win10.png')} alt="" className="" /> */}
+        {/* <img src={toCdnUrl('/apk.png')} alt="" className="" /> */}
+        {/* <img src={toCdnUrl('/win10.png')} alt="" className="" /> */}
       </div>
       <div
         className="absolute top-0 left-0 mt-4 cursor-pointer w-12 h-44 -m-12 gold-box flex items-center justify-center rounded-l-xl"
         onClick={toggleSidebar}
       >
-        <img src={toImgPath('/float-drawer-text.png')} alt="" />
+        <img src={toCdnUrl('/float-drawer-text.png')} alt="" />
         {/* {isShowSidebar ? (
           <BiX className="text-3xl" />
         ) : (

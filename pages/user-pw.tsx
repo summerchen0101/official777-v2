@@ -4,7 +4,7 @@ import useAuth from '@/hooks/useAuth'
 import useMe from '@/services/useMe'
 import usePwUpdate from '@/services/usePwUpdate'
 import useSms from '@/services/useSms'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
@@ -62,7 +62,7 @@ function UserPw() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toImgPath('/title_pw.png')}
+              src={toCdnUrl('/title_pw.png')}
               alt="修改密碼"
               className="h-10"
             />
