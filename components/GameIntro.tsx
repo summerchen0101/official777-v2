@@ -262,7 +262,7 @@ export default function GameIntro({ gameId }: Props) {
 
       {gameIntroImgsMap[gameId] && (
         <>
-          <div className="hidden md:block fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
+          <div className="hidden fixed lg:top-1/3 lg:right-0 space-x-2 lg:space-x-0 lg:space-y-2 lg:flex lg:flex-col">
             {Object.keys(gameIntroImgsMap[gameId]).map((label) => (
               <a
                 key={label}
