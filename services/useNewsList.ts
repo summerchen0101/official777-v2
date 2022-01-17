@@ -22,6 +22,7 @@ export interface News {
   startAt: string
   endAt: string
   isRedirect: Boolean
+  isKeep?: boolean
 }
 
 export interface NewsListRes extends ResBase {
@@ -41,13 +42,12 @@ function useNewsList({ category, page, perPage }: NewsListReq) {
         isAfter(new Date(), new Date(t.startAt)) &&
         isBefore(new Date(), new Date(t.endAt)),
     )
+    // 置頂 -> 日期
+    const orderedData = orderBy(periodData, (t) => t.startAt)
     if (category === 0) {
-      return take(
-        orderBy(periodData, (t) => t.createdAt),
-        5,
-      )
+      return take(orderedData, 5)
     }
-    return periodData?.filter((t) => t.category === category)
+    return orderedData?.filter((t) => t.category === category)
   }, [category, data])
 
   return {
