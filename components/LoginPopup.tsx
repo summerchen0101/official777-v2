@@ -13,6 +13,7 @@ import qs from 'query-string'
 import useAppleState from '@/services/useAppleState'
 import AppleLogin from 'react-apple-login'
 import { useStore } from '@/store/useStore'
+import Link from 'next/link'
 
 type Inputs = {
   phone: string
@@ -200,9 +201,9 @@ export default function LoginPopup() {
                 />
                 <span className="text-sm">記住我的帳號</span>
               </label>
-              <div className="underline cursor-pointer hover:no-underline">
-                忘記密碼
-              </div>
+              <Link href="/forget-pw">
+                <a className="underline hover:no-underline">忘記密碼</a>
+              </Link>
             </div>
             <div className="pt-5 space-y-2 lg:space-y-0">
               <button className="btn active w-full" onClick={onSubmit}>
