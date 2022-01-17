@@ -22,7 +22,7 @@ export interface News {
   startAt: string
   endAt: string
   isRedirect: Boolean
-  isKeep?: boolean
+  sort: number
 }
 
 export interface NewsListRes extends ResBase {
@@ -43,7 +43,7 @@ function useNewsList({ category, page, perPage }: NewsListReq) {
         isBefore(new Date(), new Date(t.endAt)),
     )
     // 置頂 -> 日期
-    const orderedData = orderBy(periodData, (t) => t.startAt)
+    const orderedData = orderBy(periodData, ['startAt', 'sort'])
     if (category === 0) {
       return take(orderedData, 5)
     }
