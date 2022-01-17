@@ -33,7 +33,7 @@ const Home: NextPage = () => {
     path: '/banner/banner_01.png',
   })
   const handleNewsClicked = (news: News) => {
-    if (news.isRedirect === YesNo.Yes) {
+    if (news.isRedirect) {
       return window.open(news.content, 'news')
     }
     showNews(news)
@@ -80,7 +80,7 @@ const Home: NextPage = () => {
                   >
                     <div className="w-20">[{newsTypeMap[t.category]}]</div>
                     <div className="flex-1">{t.title}</div>
-                    <div>{toDateTime(t.createTimeMs)}</div>
+                    <div>{t.createAt}</div>
                   </div>
                 ))}
               </div>

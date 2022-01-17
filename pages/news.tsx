@@ -21,7 +21,7 @@ function RechargeRec() {
   })
   const showNews = useStore((s) => s.showNews)
   const handleNewsClicked = (news: News) => {
-    if (news.isRedirect === YesNo.Yes) {
+    if (news.isRedirect) {
       return window.open(news.content, 'news')
     }
     showNews(news)
@@ -66,7 +66,7 @@ function RechargeRec() {
                   >
                     <div className="w-20">[{newsTypeMap[t.category]}]</div>
                     <div className="flex-1">{t.title}</div>
-                    <div>{toDateTime(t.createTimeMs)}</div>
+                    <div>{t.createAt}</div>
                   </div>
                 ))}
               </div>
