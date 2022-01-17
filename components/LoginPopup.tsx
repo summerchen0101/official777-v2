@@ -111,13 +111,13 @@ export default function LoginPopup() {
         </div>
         <div className="p-4 grid grid-cols-1 gap-4 items-center">
           <div className="space-y-2 p-6">
-            <div
+            {/* <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               onClick={() => handleOAuthLogin(OAuthChannel.Google)}
             >
               <img src={toCdnUrl('/icon_loginGoogle.png')} alt="" />
               <div className="flex-1 text-center">Google登入</div>
-            </div>
+            </div> */}
             <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               // onClick={() => handleOAuthLogin(OAuthChannel.Google)}
