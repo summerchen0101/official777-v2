@@ -1,1 +1,1 @@
-export const imgBaseUrl = 'https://resource-cdn.online539.com/official'
+export const cdnBaseUrl = 'https://resource-cdn.online539.com/official'

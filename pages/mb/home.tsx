@@ -11,7 +11,7 @@ import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
-import { toCurrency, toDateTime, toImgPath } from '@/utils'
+import { toCurrency, toDateTime, toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
@@ -39,7 +39,7 @@ const MobileHome: NextPage = () => {
   })
 
   const handleNewsClicked = (news: News) => {
-    if (news.isRedirect === YesNo.Yes) {
+    if (news.isRedirect) {
       return window.open(news.content, 'news')
     }
     showNews(news)
@@ -65,7 +65,7 @@ const MobileHome: NextPage = () => {
           </div>
           <div className="flex items-center justify-center bg-black/30 rounded border border-gray-700">
             <div className="flex items-center space-x-4">
-              <img src={toImgPath('/img_vip3.png')} alt="" />
+              <img src={toCdnUrl('/img_vip3.png')} alt="" />
               <div className="text-2xl text-gray-100 font-mono flex-1 text-center">
                 Lv<span className="text-3xl">{user?.vipLevel}</span>
               </div>
@@ -81,7 +81,7 @@ const MobileHome: NextPage = () => {
             href={appUrlMap[Platform.IOS]}
             rel="noreferrer"
           >
-            <img src={toImgPath('/app_store.png')} alt="" className="" />
+            <img src={toCdnUrl('/app_store.png')} alt="" className="" />
           </a>
           <a
             className="block"
@@ -89,13 +89,13 @@ const MobileHome: NextPage = () => {
             href={appUrlMap[Platform.Android]}
             rel="noreferrer"
           >
-            <img src={toImgPath('/google_play.png')} alt="" className="" />
+            <img src={toCdnUrl('/google_play.png')} alt="" className="" />
           </a>
-          <img src={toImgPath('/apk.png')} alt="" className="" />
+          <img src={toCdnUrl('/apk.png')} alt="" className="" />
         </div>
         <div className="flex justify-center items-center">
           <img
-            src={toImgPath('/banner/banner_01.png')}
+            src={toCdnUrl('/banner/banner_01.png')}
             className="object-cover h-36 w-36 rounded-lg"
             alt=""
           />
@@ -131,7 +131,7 @@ const MobileHome: NextPage = () => {
                 >
                   <div className="w-20">[{newsTypeMap[t.category]}]</div>
                   <div className="flex-1">{t.title}</div>
-                  <div>{toDateTime(t.createTimeMs)}</div>
+                  <div>{t.createdAt}</div>
                 </div>
               ))}
             </div>
@@ -164,7 +164,7 @@ const MobileHome: NextPage = () => {
 
       <section className="mb-16">
         <img
-          src={toImgPath('/title_media.png')}
+          src={toCdnUrl('/title_media.png')}
           alt="多媒體"
           className="h-10 mb-6 mx-auto"
         />
@@ -187,7 +187,7 @@ const MobileHome: NextPage = () => {
       <section className="mb-10">
         <div className="px-10">
           <img
-            src={toImgPath('/title_games.png')}
+            src={toCdnUrl('/title_games.png')}
             alt="推薦遊戲"
             className="h-10 object-contain w-full mb-4"
           />
@@ -212,7 +212,7 @@ const MobileHome: NextPage = () => {
       <section className="mb-10">
         <div className="px-10">
           <img
-            src={toImgPath('/title_tiger.png')}
+            src={toCdnUrl('/title_tiger.png')}
             alt="老虎機"
             className="h-10 object-contain w-full mb-4"
           />
@@ -234,13 +234,9 @@ const MobileHome: NextPage = () => {
         </div>
       </section>
       <div className="flex space-x-3 justify-center">
-        <img src={toImgPath('/fb.png')} className="cursor-pointer" alt="" />
-        <img src={toImgPath('/line.png')} className="cursor-pointer" alt="" />
-        <img
-          src={toImgPath('/youtube.png')}
-          className="cursor-pointer"
-          alt=""
-        />
+        <img src={toCdnUrl('/fb.png')} className="cursor-pointer" alt="" />
+        <img src={toCdnUrl('/line.png')} className="cursor-pointer" alt="" />
+        <img src={toCdnUrl('/youtube.png')} className="cursor-pointer" alt="" />
       </div>
       <NewsDetailPopup />
       <GameDetailPopup />

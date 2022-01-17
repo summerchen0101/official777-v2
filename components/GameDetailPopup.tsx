@@ -1,7 +1,7 @@
 import { gameIntroImgsMap } from '@/lib/games'
 import { gameMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import React, { useState } from 'react'
 import Popup from './Popup'
 
@@ -128,7 +128,7 @@ const majongIntros: MajongInto[] = [
     type: '門清自摸',
     tai: '3',
     desc: '門清又自摸，不計自摸台和門清台 【門清一摸三】',
-    note: '門清兩台、自摸一台，合計三台。算一個type',
+    note: '門清兩台、自摸一台，合計三台。算一個牌型',
   },
   {
     type: '碰碰胡',
@@ -140,13 +140,13 @@ const majongIntros: MajongInto[] = [
     type: '混一色',
     tai: '4',
     desc: '牌中只有字牌【東南西北】 + 一種花色【萬、筒、條則一】',
-    note: '可與其他type並存',
+    note: '可與其他牌型並存',
   },
   {
     type: '小三元',
     tai: '4',
     desc: '牌中有，中、發、白所組合的刻子，但其中一組為對子',
-    note: '1. tai不計:三元台',
+    note: '1. 台不計:三元台',
   },
   {
     type: '配牌花胡',
@@ -160,31 +160,31 @@ const majongIntros: MajongInto[] = [
     type: '地聽',
     tai: '4',
     desc: '第一輪無發生吃、碰、槓並選擇聽牌即為地聽',
-    note: '1. tai不計:門清、自摸、聽牌\n 2. 不管過幾輪都算是地聽成功',
+    note: '1. 台不計:門清、自摸、聽牌\n 2. 不管過幾輪都算是地聽成功',
   },
   {
     type: '四暗坎',
     tai: '5',
     desc: '牌中有四組刻子【暗槓】，沒碰出去，全在自已的牌內',
-    note: '可以跟碰碰胡、暗槓、門風、圈風累計tai',
+    note: '可以跟碰碰胡、暗槓、門風、圈風累計台數',
   },
   {
     type: '五暗坎',
     tai: '8',
     desc: '牌中有五組刻子【暗槓】，沒碰出去，全在自已的牌內',
-    note: '可以跟碰碰胡、門風、圈風、暗槓累計tai',
+    note: '可以跟碰碰胡、門風、圈風、暗槓累計台數',
   },
   {
     type: '清一色',
     tai: '8',
     desc: '牌中只由一種花色所組合',
-    note: '花牌不影響清一色的type',
+    note: '花牌不影響清一色的牌型',
   },
   {
     type: '字一色',
     tai: '8',
     desc: '牌中由「東南西北中發白」字牌所組成。',
-    note: '1. tai不計:碰碰胡\n 2. 可累計圈風台、門風台、三元台、小三元、大三元、小四喜、大四喜',
+    note: '1. 台不計:碰碰胡\n 2. 可累計圈風台、門風台、三元台、小三元、大三元、小四喜、大四喜',
   },
   {
     type: '大三元',
@@ -196,55 +196,55 @@ const majongIntros: MajongInto[] = [
     type: '小四喜',
     tai: '8',
     desc: '牌中一樣由東、南、西、北所組成，但其中一組只有對子',
-    note: '1. tai不計:圈風、門風',
+    note: '1. 台不計:圈風、門風',
   },
   {
     type: '七搶一',
     tai: '8',
     desc: '拿齊7張花牌，當其中一家，拿到另一張花牌時，即可胡那一家',
-    note: '1. tai不計:花牌【已包含】、門清\n2. 莊連拉照算\n3. 不算宣告聽牌\n4. 如果起手中七花，其餘牌也聽牌，可以選擇宣告聽牌，如玩家胡下家是花，就是七搶一不計宣告聽牌；胡一般牌就是照一般type算。',
+    note: '1. 台不計:花牌【已包含】、門清\n2. 莊連拉照算\n3. 不算宣告聽牌\n4. 如果起手中七花，其餘牌也聽牌，可以選擇宣告聽牌，如玩家胡下家是花，就是七搶一不計宣告聽牌；胡一般牌就是照一般牌型算。',
   },
   {
     type: '八對半',
     tai: '8',
     desc: '將7個將與1個坎組成，必須門清，不能暗槓',
-    note: 'tai不計:門清、自摸、暗槓',
+    note: '台不計:門清、自摸、暗槓',
   },
   {
     type: '八仙過海',
     tai: '8',
     desc: '拿齊8張花牌【春、夏、秋、冬、梅、蘭、竹、菊】即可胡牌。',
-    note: '1. tai不計:花牌 【已包含】、門清 \n2. 莊連拉照算\n3. 可累計 : 補牌是槓上開花、自摸',
+    note: '1. 台不計:花牌 【已包含】、門清 \n2. 莊連拉照算\n3. 可累計 : 補牌是槓上開花、自摸',
   },
   {
     type: '四槓子',
     tai: '8',
     desc: '一人有4個槓，明暗皆可，算自摸8台，不計自摸台',
-    note: '1. tai不計:自摸【已包含】\n2. 必定與對對胡複合',
+    note: '1. 台不計:自摸【已包含】\n2. 必定與對對胡複合',
   },
   {
     type: '天聽',
     tai: '8',
     desc: '起手尚未補牌前選擇聽牌即為天聽。不計門清和門清自摸',
-    note: 'tai不計:自摸、門清、門清自摸',
+    note: '台:自摸、門清、門清自摸',
   },
   {
     type: '大四喜',
     tai: '16',
     desc: '牌中有東、南、西、北4組刻子。',
-    note: 'tai不計:圈風、門風【已包含】',
+    note: '台不計:圈風、門風【已包含】',
   },
   {
     type: '地胡',
     tai: '16',
     desc: '子家的特權，配完牌後第一次自摸就胡牌，稱為地胡',
-    note: 'tai不計:自摸、門清',
+    note: '台不計:自摸、門清',
   },
   {
     type: '天胡',
     tai: '24',
-    desc: '莊家的特權，配完牌後莊家尚未打出第一張牌時，手內的牌已經完成胡牌type，稱為天胡',
-    note: 'tai不計:自摸、門清、門清自摸',
+    desc: '莊家的特權，配完牌後莊家尚未打出第一張牌時，手內的牌已經完成胡牌牌型，稱為天胡',
+    note: '台不計:自摸、門清、門清自摸',
   },
 ]
 
@@ -294,7 +294,7 @@ export default function GameDetailPopup() {
                     {imgs.map((img, img_i) => (
                       <img
                         key={img_i}
-                        src={toImgPath(`/game/intro/${popupGameID}/${img}`)}
+                        src={toCdnUrl(`/game/intro/${popupGameID}/${img}`)}
                         alt=""
                       />
                     ))}

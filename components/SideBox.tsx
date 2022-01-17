@@ -2,7 +2,7 @@ import useMe from '@/services/useMe'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toCurrency, toImgPath } from '@/utils'
+import { toCurrency, toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 
 function SideBox() {
@@ -35,16 +35,16 @@ function SideBox() {
           className="flex flex-col gap-2 cursor-pointer mb-2"
           onClick={handleClickRecharge}
         >
-          <img src={toImgPath('/recharge_pig.png')} alt="" />
+          <img src={toCdnUrl('/recharge_pig.png')} alt="" />
           <img
-            src={toImgPath('/recharge_title.png')}
+            src={toCdnUrl('/recharge_title.png')}
             className="h-8 self-center cursor-pointer"
             alt=""
           />
         </div>
       ) : (
         <div hidden={canRecharge} className="flex flex-col gap-2 mb-2">
-          <img src={toImgPath('/norecharge.png')} alt="" />
+          <img src={toCdnUrl('/norecharge.png')} alt="" />
         </div>
       )}
 
@@ -53,7 +53,7 @@ function SideBox() {
           <img
             hidden={!user.avatarID}
             className="rounded-full w-28 mx-auto bg-gold-600"
-            src={toImgPath(`/avatar/${user.avatarID}.png`)}
+            src={toCdnUrl(`/avatar/${user.avatarID}.png`)}
             alt=""
           />
           <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
@@ -67,7 +67,7 @@ function SideBox() {
           </div>
           {/* <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
             <img
-              src={toImgPath('/icon_goldMoney.png')}
+              src={toCdnUrl('/icon_goldMoney.png')}
               alt=""
               className="absolute -mt-1"
             />

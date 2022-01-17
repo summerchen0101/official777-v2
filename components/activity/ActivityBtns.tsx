@@ -1,5 +1,5 @@
 import { activityList } from '@/lib/activity'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import React from 'react'
@@ -16,7 +16,7 @@ function ActivityBtns({ id }: Props) {
           if (t.disable) {
             return (
               <img
-                src={toImgPath(`/event/tabs/disable/${t.name}.png`)}
+                src={toCdnUrl(`/event/tabs/disable/${t.name}.png`)}
                 alt=""
                 className="cursor-not-allowed"
               />
@@ -24,7 +24,7 @@ function ActivityBtns({ id }: Props) {
           } else if (t.id === id) {
             return (
               <img
-                src={toImgPath(`/event/tabs/selected/${t.name}.png`)}
+                src={toCdnUrl(`/event/tabs/selected/${t.name}.png`)}
                 alt=""
               />
             )
@@ -32,7 +32,7 @@ function ActivityBtns({ id }: Props) {
           return (
             <Link key={t.id} passHref href={t.id.toString()}>
               <img
-                src={toImgPath(`/event/tabs/default/${t.name}.png`)}
+                src={toCdnUrl(`/event/tabs/default/${t.name}.png`)}
                 alt=""
                 className="cursor-pointer transition-all hover:scale-110"
               />

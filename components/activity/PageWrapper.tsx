@@ -1,4 +1,4 @@
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { ReactNode } from 'react'
 import { BiDollar, BiDownload, BiHome } from 'react-icons/bi'
@@ -13,7 +13,7 @@ function PageWrapper({ children }: { children: ReactNode }) {
   return (
     <div
       className="pt-[40%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat bg-[#281944]"
-      style={{ backgroundImage: `url(${toImgPath('/event/newsyear_bg.jpg')})` }}
+      style={{ backgroundImage: `url(${toCdnUrl('/event/newsyear_bg.jpg')})` }}
     >
       <img
         src="/img/logo.png"

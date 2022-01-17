@@ -3,7 +3,7 @@ import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { Menu } from '@/types'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import MobileHeader from './MobileHeader'
@@ -84,12 +84,12 @@ function HeaderNav() {
             className="block"
             rel="noreferrer"
           >
-            <img src={toImgPath('/fb.png')} className="cursor-pointer" alt="" />
+            <img src={toCdnUrl('/fb.png')} className="cursor-pointer" alt="" />
           </a>
 
-          {/* <img src={toImgPath('/line.png')} className="cursor-pointer" alt="" />
+          {/* <img src={toCdnUrl('/line.png')} className="cursor-pointer" alt="" />
           <img
-            src={toImgPath('/youtube.png')}
+            src={toCdnUrl('/youtube.png')}
             className="cursor-pointer"
             alt=""
           /> */}

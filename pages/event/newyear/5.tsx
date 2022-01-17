@@ -4,7 +4,7 @@ import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import React from 'react'
 interface Gift {
   name: string
@@ -159,7 +159,7 @@ export default function Activity_05() {
                           className="flex items-center gap-3 justify-center font-medium"
                         >
                           <img
-                            src={toImgPath(`/event/items/${g.icon}`)}
+                            src={toCdnUrl(`/event/items/${g.icon}`)}
                             alt=""
                             className="w-12 hidden sm:block"
                           />

@@ -2,7 +2,7 @@ import ContentText from '@/components/activity/ContentText'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
 import LoginPopup from '@/components/LoginPopup'
-import { toCurrency, toImgPath } from '@/utils'
+import { toCurrency, toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 
@@ -48,7 +48,7 @@ export default function RechargeActivity() {
     <div>
       <div className="mb-4 sm:mb-10 w-full">
         <img
-          src={toImgPath('/event/recharge_banner.jpg')}
+          src={toCdnUrl('/event/recharge_banner.jpg')}
           alt=""
           className="object-contain w-full object-top"
         />
@@ -102,7 +102,7 @@ export default function RechargeActivity() {
                     {t.gifts.map((g, g_i) => (
                       <div key={g_i} className="flex gap-1 items-center">
                         <img
-                          src={toImgPath(g.icon)}
+                          src={toCdnUrl(g.icon)}
                           alt=""
                           className="w-10 hidden sm:block"
                         />

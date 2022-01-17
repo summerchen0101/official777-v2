@@ -8,7 +8,7 @@ import { PayType } from '@/lib/enums'
 import { payTypeMap } from '@/lib/map'
 import usePopupStore from '@/store/usePopupStore'
 import { StringMap } from '@/types'
-import { toImgPath } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import React, { useState } from 'react'
 
 export const payTypeImgMap: StringMap = {
@@ -42,7 +42,7 @@ function RechargePage() {
               onClick={onTransferShow}
             >
               <img
-                src={toImgPath('/recharge/ecpay_atm.png')}
+                src={toCdnUrl('/recharge/ecpay_atm.png')}
                 alt="銀行轉帳-綠界"
               />
             </div>
@@ -51,7 +51,7 @@ function RechargePage() {
               onClick={onProductShow}
             >
               <img
-                src={toImgPath('/recharge/ecpay_pkg.png')}
+                src={toCdnUrl('/recharge/ecpay_pkg.png')}
                 alt="超值產包-綠界"
               />
             </div>
@@ -59,7 +59,7 @@ function RechargePage() {
               className="deposit-btn col-span-6 md:col-span-2"
               onClick={onGiftCardShow}
             >
-              <img src={toImgPath('/recharge/giftcard.png')} alt="序號輸入" />
+              <img src={toCdnUrl('/recharge/giftcard.png')} alt="序號輸入" />
             </div>
             {Object.entries(payTypeMap).map(([code, label]) => (
               <div
@@ -70,7 +70,7 @@ function RechargePage() {
                 }
               >
                 <img
-                  src={toImgPath(`/recharge/${payTypeImgMap[code]}.png`)}
+                  src={toCdnUrl(`/recharge/${payTypeImgMap[code]}.png`)}
                   alt={label}
                 />
               </div>

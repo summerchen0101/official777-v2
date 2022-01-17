@@ -121,7 +121,7 @@ export const gameIntroImgsMap: Record<number, Record<string, string[]>> = {
   2001: {
     魚的倍率: ['GameInfo_2001_1.png', 'GameInfo_2001_2.png'],
     特殊魚種: ['GameInfo_2001_3.png', 'GameInfo_2001_4.png'],
-    操作說明: ['GameInfo_2001_6.png'],
+    操作說明: ['GameInfo_2001_5', 'GameInfo_2001_6.png'],
   },
   3001: {
     基本介紹: ['GameInfo_3001_1.png'],

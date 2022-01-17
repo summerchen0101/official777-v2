@@ -8,7 +8,7 @@ import { useStore } from '@/store/useStore'
 import useNewsList, { News } from '@/services/useNewsList'
 import { newsTypeMap } from '@/lib/map'
 import LoadingCover from '@/components/LoadingCover'
-import { toImgPath, toDateTime } from '@/utils'
+import { toCdnUrl, toDateTime } from '@/utils'
 import { YesNo } from '@/lib/enums'
 
 function RechargeRec() {
@@ -21,7 +21,7 @@ function RechargeRec() {
   })
   const showNews = useStore((s) => s.showNews)
   const handleNewsClicked = (news: News) => {
-    if (news.isRedirect === YesNo.Yes) {
+    if (news.isRedirect) {
       return window.open(news.content, 'news')
     }
     showNews(news)
@@ -33,7 +33,7 @@ function RechargeRec() {
         <div className="lg:w-[860px] mx-auto">
           <div className="mb-6 flex justify-center lg:justify-start">
             <img
-              src={toImgPath('/title_news.png')}
+              src={toCdnUrl('/title_news.png')}
               alt="最新消息"
               className="h-10"
             />
@@ -66,7 +66,7 @@ function RechargeRec() {
                   >
                     <div className="w-20">[{newsTypeMap[t.category]}]</div>
                     <div className="flex-1">{t.title}</div>
-                    <div>{toDateTime(t.createTimeMs)}</div>
+                    <div>{t.createdAt}</div>
                   </div>
                 ))}
               </div>
