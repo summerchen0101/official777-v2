@@ -2,6 +2,7 @@ import { YesNo } from '@/lib/enums'
 import { useUserStore } from '@/store/useUserStore'
 import { Pagination, ResBase } from '@/types'
 import useRequest, { publicApiPath } from '@/utils/useRequest'
+import { isAfter, isBefore } from 'date-fns'
 import { groupBy, orderBy, take } from 'lodash'
 import { useMemo } from 'react'
 import useSWR from 'swr'
@@ -17,7 +18,9 @@ export interface News {
   title: string
   content: string
   category: number
-  createAt: string
+  createdAt: string
+  startAt: string
+  endAt: string
   isRedirect: Boolean
 }
 
@@ -33,13 +36,18 @@ function useNewsList({ category, page, perPage }: NewsListReq) {
     fetch(url).then((res) => res.json()),
   )
   const list = useMemo(() => {
+    const periodData = data?.filter(
+      (t) =>
+        isAfter(new Date(), new Date(t.startAt)) &&
+        isBefore(new Date(), new Date(t.endAt)),
+    )
     if (category === 0) {
       return take(
-        orderBy(data, (t) => t.createAt),
+        orderBy(periodData, (t) => t.createdAt),
         5,
       )
     }
-    return data?.filter((t) => t.category === category)
+    return periodData?.filter((t) => t.category === category)
   }, [category, data])
 
   return {

@@ -66,7 +66,7 @@ function RechargeRec() {
                   >
                     <div className="w-20">[{newsTypeMap[t.category]}]</div>
                     <div className="flex-1">{t.title}</div>
-                    <div>{t.createAt}</div>
+                    <div>{t.createdAt}</div>
                   </div>
                 ))}
               </div>

@@ -10,7 +10,7 @@ export default function NewsDetailPopup() {
   return (
     <Popup onClose={closeNews} isShow={isShowNewsPopup}>
       <div className="lg:w-[860px] mx-auto px-4">
-        <div className="text-sm mb-1">{newsInfo?.createAt}</div>
+        <div className="text-sm mb-1">{newsInfo?.createdAt}</div>
         <div className="text-xl mb-3 text-yellow-200">{newsInfo?.title}</div>
         {/* <div className="flex items-center space-x-3 lg:justify-end mb-3">
           <div>分享至</div>
