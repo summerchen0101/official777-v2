@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form'
 import qs from 'query-string'
 import useAppleState from '@/services/useAppleState'
 import AppleLogin from 'react-apple-login'
+import { useStore } from '@/store/useStore'
 
 type Inputs = {
   acc: string
@@ -21,6 +22,7 @@ type Inputs = {
 export default function LoginPopup() {
   const [appleState, setAppleState] = useState('')
   const { handler: login, isLoading } = useLogin()
+  const apiBaseUrl = useStore((s) => s.apiBaseUrl)
   const {
     register,
     handleSubmit,
@@ -127,7 +129,7 @@ export default function LoginPopup() {
               <div hidden>
                 <AppleLogin
                   clientId="com.Rich.MegaRich.Service"
-                  redirectURI="https://app-alpha.ffglobaltech.com/api/v1/apple/auth"
+                  redirectURI={`${apiBaseUrl}/api/v1/apple/auth`}
                   scope="email name"
                   state={appleState}
                   usePopup={false}
