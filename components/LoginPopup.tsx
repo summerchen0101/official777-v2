@@ -15,7 +15,7 @@ import AppleLogin from 'react-apple-login'
 import { useStore } from '@/store/useStore'
 
 type Inputs = {
-  acc: string
+  phone: string
   pw: string
 }
 
@@ -45,7 +45,7 @@ export default function LoginPopup() {
 
   useEffect(() => {
     if (isShow) {
-      setValue('acc', cacheAcc)
+      setValue('phone', cacheAcc)
     }
   }, [cacheAcc, setValue, isShow])
 
@@ -75,18 +75,18 @@ export default function LoginPopup() {
   }
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
-      email: d.acc,
+      cellphone: `886-${d.phone.substring(1)}`,
       password: d.pw,
       type: 1,
     })
     if (res && !res.code) {
-      setCacheAcc(isRemember ? d.acc : '')
+      setCacheAcc(isRemember ? d.phone : '')
       setTokenInfo({
         accessToken: res.accessToken,
         refreshToken: res.refreshToken,
         expiresIn: res.expiresIn,
       })
-      reset({ acc: '', pw: '' })
+      reset({ phone: '', pw: '' })
       onToggle()
       alert('登入成功')
       if (router.query.to) {
@@ -154,16 +154,27 @@ export default function LoginPopup() {
           </div>
           <div className="space-y-2">
             <div className="flex flex-col">
-              <label htmlFor="">會員帳號</label>
-              <input
-                type="email"
-                className="rounded py-1.5"
-                {...register('acc', {
-                  required: { value: true, message: '不可為空' },
-                })}
-              />
-              {errors.acc && (
-                <div className="text-sm text-red-500">{errors.acc.message}</div>
+              <label htmlFor="">手機號碼</label>
+              <div className="flex gap-2">
+                <select className="rounded py-1.5">
+                  <option>886</option>
+                </select>
+                <input
+                  type="text"
+                  className="rounded py-1.5 flex-1"
+                  {...register('phone', {
+                    required: { value: true, message: '不可為空' },
+                    pattern: {
+                      value: /^09\d{2}(\d{6}|-\d{3}-\d{3})$/,
+                      message: '格式不符, ex: 0921222333',
+                    },
+                  })}
+                />
+              </div>
+              {errors.phone && (
+                <div className="text-sm text-red-500">
+                  {errors.phone.message}
+                </div>
               )}
             </div>
             <div className="flex flex-col">

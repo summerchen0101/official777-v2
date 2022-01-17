@@ -3,7 +3,7 @@ import useRequest from '@/utils/useRequest'
 import { useState } from 'react'
 
 export interface LoginReq {
-  email: string
+  cellphone: string
   password: string
   type: number
 }
