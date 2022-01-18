@@ -3,7 +3,7 @@ import PageBanner from '@/components/layout/PageBanner'
 import LoadingCover from '@/components/LoadingCover'
 import useAuth from '@/hooks/useAuth'
 import { PaymentStatus } from '@/lib/enums'
-import { paymentStatusMap, payTypeMap } from '@/lib/map'
+import { paymentStatusMap, mcPaymentTypeMap } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
 import { toCdnUrl, toCurrency, toDateTime } from '@/utils'
 import cs from 'classnames'
@@ -61,7 +61,7 @@ function RechargeRec() {
                         <div>
                           儲值類型：
                           <span className="text-white">
-                            {payTypeMap[t.PayType] || '-'}
+                            {mcPaymentTypeMap[t.PayType] || '-'}
                           </span>
                         </div>
                         <div>
@@ -100,7 +100,7 @@ function RechargeRec() {
                         {list?.map((t) => (
                           <tr key={t.ID}>
                             {/* <td>{paymentGatewayMap[t.PaymentGateway]}</td> */}
-                            <td>{payTypeMap[t.PayType] || '-'}</td>
+                            <td>{mcPaymentTypeMap[t.PayType] || '-'}</td>
                             <td>{toDateTime(t.CreatedAtMs)}</td>
                             <td
                               className={cs({

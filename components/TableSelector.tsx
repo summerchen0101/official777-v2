@@ -12,7 +12,7 @@ type Props = {
 
 function TableSelector({ isLoading, list = [], value, onChange }: Props) {
   return (
-    <LoadingCover>
+    <LoadingCover isLoading={isLoading}>
       <table className="w-full rounded-lg overflow-hidden">
         <thead>
           <tr>

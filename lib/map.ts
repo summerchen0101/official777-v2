@@ -8,7 +8,6 @@ import {
   MCPaymentType,
   PaymentGateway,
   PaymentStatus,
-  PayType,
   Platform,
   ProductCategory,
   RankType,
@@ -30,27 +29,11 @@ export const itemTypeMap: StringMap = {
   [ItemType.Gold]: '金幣商品',
   [ItemType.Cash]: '現金商品',
 }
-export const payTypeMap: StringMap = {
-  // [PayType.All]: '全部',
-  [PayType.MCGiftCard]: 'MyCard實體卡',
-  [PayType.MCTransfer]: 'MyCard線上轉點',
-  [PayType.MCTelephone]: 'MyCard電信',
-  [PayType.MCCreditCard]: 'MyCard信用卡',
-  [PayType.MCCoupon]: 'MyCard免費折抵',
-  // [PayType.ECPayATM]: '綠界ATM',
-}
-
-export const ecpayPaymentTypeMap: StringMap = {
-  [ECPayPaymentType.ATM]: 'ATM',
-  [ECPayPaymentType.WEB_ATM]: 'WebATM',
-}
-
-export const payTypePaymentMap: Record<string, MCPaymentType> = {
-  [PayType.MCGiftCard]: MCPaymentType.IN_GAME,
-  [PayType.MCTransfer]: MCPaymentType.COST_POINT,
-  [PayType.MCTelephone]: MCPaymentType.ASIA_PACIFIC_MOBILE,
-  [PayType.MCCreditCard]: MCPaymentType.CREDIT_CARD,
-  [PayType.MCCoupon]: MCPaymentType.FREE_POINT,
+export const mcPaymentTypeMap: StringMap = {
+  [MCPaymentType.IN_GAME]: '序號儲值',
+  [MCPaymentType.COST_POINT]: '線上轉點',
+  [MCPaymentType.CREDIT_CARD]: '信用卡',
+  [MCPaymentType.FREE_POINT]: '免費折抵',
 }
 
 export const telePaymentMap: StringMap = {
@@ -59,6 +42,15 @@ export const telePaymentMap: StringMap = {
   [MCPaymentType.FET_MOBILE]: '遠傳電信',
   [MCPaymentType.TAIWAN_MOBILE]: '台灣大哥大',
   [MCPaymentType.CHT_MOBILE]: '中華電信',
+}
+
+export const mcPaymentWithTeleMap: StringMap = {
+  ...mcPaymentTypeMap,
+  ...telePaymentMap,
+}
+export const ecpayPaymentTypeMap: StringMap = {
+  [ECPayPaymentType.ATM]: 'ATM',
+  [ECPayPaymentType.WEB_ATM]: 'WebATM',
 }
 
 export const rewardsTypeMap: StringMap = {

@@ -72,16 +72,6 @@ export enum ItemType {
   Cash = 3,
 }
 
-export enum PayType {
-  All = 0,
-  MCGiftCard = 1,
-  MCTransfer = 2,
-  MCTelephone = 3,
-  MCCreditCard = 4,
-  MCCoupon = 5,
-  ECPayATM = 6,
-}
-
 export enum MCPaymentType {
   UNKNOWN_PAYMENT_TYPE = 0,
   IN_GAME = 1,

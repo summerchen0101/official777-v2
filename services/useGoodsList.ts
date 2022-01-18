@@ -1,4 +1,3 @@
-import { PaymentGateway } from './../lib/enums'
 import { useUserStore } from '@/store/useUserStore'
 import { Pagination, ResBase } from '@/types'
 import useRequest, { publicApiPath } from '@/utils/useRequest'
@@ -6,11 +5,11 @@ import useSWR from 'swr'
 
 export interface GoodsListReq {
   itemType: number
-  payType: number
   paymentType: number
   paymentGateway: number
   page: number
   perPage: number
+  isShow?: boolean
 }
 
 export interface Goods {
@@ -32,7 +31,7 @@ export interface Goods {
   GpPayId: string
   MyPayId: string
   PayId: string
-  PayType: number
+  PayType?: number
 }
 
 export interface GoodsListRes extends ResBase {
@@ -42,44 +41,33 @@ export interface GoodsListRes extends ResBase {
 
 function useGoodsList({
   itemType,
-  payType,
   paymentType,
   paymentGateway,
   page,
   perPage,
+  isShow,
 }: GoodsListReq) {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
-    payType
+    isShow && paymentType
       ? [
           `${publicApiPath}/payment/storeItems`,
           token,
           itemType,
-          payType,
           paymentType,
           paymentGateway,
           page,
           perPage,
         ]
       : null,
-    (
-      url,
-      token,
-      itemType,
-      payType,
-      paymentType,
-      paymentGateway,
-      page,
-      perPage,
-    ) =>
+    (url, token, itemType, paymentType, paymentGateway, page, perPage) =>
       request<GoodsListRes>({
         url,
         method: 'get',
         config: {
           params: {
             itemType,
-            payType,
             paymentType,
             paymentGateway,
             page,
@@ -91,7 +79,6 @@ function useGoodsList({
         },
       }),
   )
-
   return {
     list: data?.data,
     paginator: data?.pagination,

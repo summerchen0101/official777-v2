@@ -5,7 +5,6 @@ import {
   InvoiceType,
   ItemType,
   PaymentGateway,
-  PayType,
 } from '@/lib/enums'
 import { ecpayInvoiceMap, ecpayPaymentTypeMap, invoiceTypeMap } from '@/lib/map'
 import useGoodsList from '@/services/useGoodsList'
@@ -43,9 +42,9 @@ export default function RechargeTransferPopup() {
     page: 1,
     perPage: 30,
     itemType: ItemType.All,
-    payType: PayType.ECPayATM,
     paymentType,
     paymentGateway: PaymentGateway.ECPay,
+    isShow,
   })
 
   const {
