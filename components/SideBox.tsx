@@ -59,20 +59,30 @@ function SideBox() {
           <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
             {user.nickname}
           </div>
-          <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
-            ${toCurrency(user.coin)}
-          </div>
-          <div className="bg-gradient-to-r from-purple-200 via-purple-400 to-purple-200 rounded-lg purple-2 border-2 border-white p-2 text-purple-900 font-medium h-9 flex items-center justify-center">
-            ${toCurrency(user.paymentPoint)}
-          </div>
-          {/* <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+          <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
             <img
-              src={toCdnUrl('/icon_goldMoney.png')}
+              src={toCdnUrl('/coin.png')}
               alt=""
-              className="absolute -mt-1"
+              className="absolute ml-1 mt-0.5 h-8"
             />
             <div className="text-gold-900 font-medium text-right leading-9">
               {toCurrency(user.coin)}
+            </div>
+          </div>
+          <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+            <img
+              src={toCdnUrl('/point.png')}
+              alt=""
+              className="absolute ml-1 mt-0.5 h-8"
+            />
+            <div className="text-gold-900 font-medium text-right leading-9">
+              {toCurrency(user.paymentPoint)}
+            </div>
+          </div>
+          {/* <div className="bg-gradient-to-r from-purple-200 via-purple-300 to-purple-100 rounded-lg border-2 border-purple-100 pr-2">
+            <img src="/img/point.png" alt="" className="absolute -mt-1" />
+            <div className="text-purple-900 font-medium text-right leading-9">
+              {toCurrency(user.paymentPoint)}
             </div>
           </div> */}
           <div className="flex items-center">

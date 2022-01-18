@@ -13,9 +13,10 @@ import qs from 'query-string'
 import useAppleState from '@/services/useAppleState'
 import AppleLogin from 'react-apple-login'
 import { useStore } from '@/store/useStore'
+import Link from 'next/link'
 
 type Inputs = {
-  acc: string
+  phone: string
   pw: string
 }
 
@@ -45,7 +46,7 @@ export default function LoginPopup() {
 
   useEffect(() => {
     if (isShow) {
-      setValue('acc', cacheAcc)
+      setValue('phone', cacheAcc)
     }
   }, [cacheAcc, setValue, isShow])
 
@@ -75,18 +76,18 @@ export default function LoginPopup() {
   }
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
-      email: d.acc,
+      cellphone: `886-${d.phone.substring(1)}`,
       password: d.pw,
       type: 1,
     })
     if (res && !res.code) {
-      setCacheAcc(isRemember ? d.acc : '')
+      setCacheAcc(isRemember ? d.phone : '')
       setTokenInfo({
         accessToken: res.accessToken,
         refreshToken: res.refreshToken,
         expiresIn: res.expiresIn,
       })
-      reset({ acc: '', pw: '' })
+      reset({ phone: '', pw: '' })
       onToggle()
       alert('登入成功')
       if (router.query.to) {
@@ -111,13 +112,13 @@ export default function LoginPopup() {
         </div>
         <div className="p-4 grid grid-cols-1 gap-4 items-center">
           <div className="space-y-2 p-6">
-            <div
+            {/* <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               onClick={() => handleOAuthLogin(OAuthChannel.Google)}
             >
               <img src={toCdnUrl('/icon_loginGoogle.png')} alt="" />
               <div className="flex-1 text-center">Google登入</div>
-            </div>
+            </div> */}
             <div
               className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
               // onClick={() => handleOAuthLogin(OAuthChannel.Google)}
@@ -154,16 +155,27 @@ export default function LoginPopup() {
           </div>
           <div className="space-y-2">
             <div className="flex flex-col">
-              <label htmlFor="">會員帳號</label>
-              <input
-                type="email"
-                className="rounded py-1.5"
-                {...register('acc', {
-                  required: { value: true, message: '不可為空' },
-                })}
-              />
-              {errors.acc && (
-                <div className="text-sm text-red-500">{errors.acc.message}</div>
+              <label htmlFor="">手機號碼</label>
+              <div className="flex gap-2">
+                <select className="rounded py-1.5">
+                  <option>886</option>
+                </select>
+                <input
+                  type="text"
+                  className="rounded py-1.5 flex-1"
+                  {...register('phone', {
+                    required: { value: true, message: '不可為空' },
+                    pattern: {
+                      value: /^09\d{2}(\d{6}|-\d{3}-\d{3})$/,
+                      message: '格式不符, ex: 0921222333',
+                    },
+                  })}
+                />
+              </div>
+              {errors.phone && (
+                <div className="text-sm text-red-500">
+                  {errors.phone.message}
+                </div>
               )}
             </div>
             <div className="flex flex-col">
@@ -189,9 +201,9 @@ export default function LoginPopup() {
                 />
                 <span className="text-sm">記住我的帳號</span>
               </label>
-              <div className="underline cursor-pointer hover:no-underline">
-                忘記密碼
-              </div>
+              <Link href="/forget-pw">
+                <a className="underline hover:no-underline">忘記密碼</a>
+              </Link>
             </div>
             <div className="pt-5 space-y-2 lg:space-y-0">
               <button className="btn active w-full" onClick={onSubmit}>
