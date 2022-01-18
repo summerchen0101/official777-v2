@@ -91,7 +91,7 @@ const MobileHome: NextPage = () => {
           >
             <img src={toCdnUrl('/google_play.png')} alt="" className="" />
           </a>
-          <img src={toCdnUrl('/apk.png')} alt="" className="" />
+          {/* <img src={toCdnUrl('/apk.png')} alt="" className="" /> */}
         </div>
         <div className="flex justify-center items-center">
           <img
