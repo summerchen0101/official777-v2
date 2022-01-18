@@ -1,3 +1,4 @@
+import { PaymentGateway } from './../lib/enums'
 import { useUserStore } from '@/store/useUserStore'
 import { Pagination, ResBase } from '@/types'
 import useRequest, { publicApiPath } from '@/utils/useRequest'
@@ -6,6 +7,8 @@ import useSWR from 'swr'
 export interface GoodsListReq {
   itemType: number
   payType: number
+  paymentType: number
+  paymentGateway: number
   page: number
   perPage: number
 }
@@ -37,7 +40,14 @@ export interface GoodsListRes extends ResBase {
   pagination: Pagination
 }
 
-function useGoodsList({ itemType, payType, page, perPage }: GoodsListReq) {
+function useGoodsList({
+  itemType,
+  payType,
+  paymentType,
+  paymentGateway,
+  page,
+  perPage,
+}: GoodsListReq) {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
@@ -47,16 +57,34 @@ function useGoodsList({ itemType, payType, page, perPage }: GoodsListReq) {
           token,
           itemType,
           payType,
+          paymentType,
+          paymentGateway,
           page,
           perPage,
         ]
       : null,
-    (url, token, itemType, payType, page, perPage) =>
+    (
+      url,
+      token,
+      itemType,
+      payType,
+      paymentType,
+      paymentGateway,
+      page,
+      perPage,
+    ) =>
       request<GoodsListRes>({
         url,
         method: 'get',
         config: {
-          params: { itemType, payType, page, perPage },
+          params: {
+            itemType,
+            payType,
+            paymentType,
+            paymentGateway,
+            page,
+            perPage,
+          },
           headers: {
             Authorization: `Bearer ${token}`,
           },

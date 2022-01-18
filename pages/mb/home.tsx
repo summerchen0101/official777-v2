@@ -11,6 +11,7 @@ import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
+import { useUserStore } from '@/store/useUserStore'
 import { toCurrency, toDateTime, toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
@@ -33,6 +34,7 @@ const MobileHome: NextPage = () => {
   const showNews = useStore((s) => s.showNews)
   const showGamePopup = useStore((s) => s.showGamePopup)
   const onToggle = usePopupStore((s) => s.login.onToggle)
+  const clearUser = useUserStore((s) => s.clearUser)
 
   const homeSlides: HomeSlide[] = Array(8).fill({
     path: '/banner/banner_01.png',
@@ -44,36 +46,59 @@ const MobileHome: NextPage = () => {
     }
     showNews(news)
   }
+
+  const handleLogout = () => {
+    clearUser()
+    alert('登出成功')
+  }
   return (
     <Layout>
       <section className="mb-8 mt-20">
         <HomeSlider slides={homeSlides} />
       </section>
-      <div hidden={!user} className="px-4 space-y-2 mb-8">
-        <div className="grid grid-cols-2 gap-2 mb-4">
-          <div className="space-y-2 flex flex-col h-24">
-            <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
-              <FaUser className="text-xl text-purple-500" />
-              <div className="text-gray-100 font-medium">{user?.nickname}</div>
+      {user ? (
+        <div hidden={!user} className="px-4 space-y-2 mb-8">
+          <div className="grid grid-cols-2 gap-2 mb-4">
+            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
+              {user.nickname}
             </div>
-            <div className="flex justify-between border border-gray-500 rounded items-center px-2 flex-1">
-              <HiCurrencyDollar className="text-2xl text-gold-500 -ml-1" />
-              <div className="text-gray-100 font-medium">
-                {toCurrency(user?.coin || 0)}
+            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
+              VIP: LV{user.vipLevel}
+            </div>
+            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+              <img
+                src={toCdnUrl('/coin.png')}
+                alt=""
+                className="absolute ml-1 mt-0.5 h-8"
+              />
+              <div className="text-gold-900 font-medium text-right leading-9">
+                {toCurrency(user.coin)}
+              </div>
+            </div>
+            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+              <img
+                src={toCdnUrl('/point.png')}
+                alt=""
+                className="absolute ml-1 mt-0.5 h-8"
+              />
+              <div className="text-gold-900 font-medium text-right leading-9">
+                {toCurrency(user.paymentPoint)}
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center bg-black/30 rounded border border-gray-700">
-            <div className="flex items-center space-x-4">
-              <img src={toCdnUrl('/img_vip3.png')} alt="" />
-              <div className="text-2xl text-gray-100 font-mono flex-1 text-center">
-                Lv<span className="text-3xl">{user?.vipLevel}</span>
-              </div>
-            </div>
+          <div className="btn block" onClick={handleLogout}>
+            登出
           </div>
         </div>
-      </div>
-      <div className="grid grid-cols-2 gap-2 mb-10 mx-4">
+      ) : (
+        <div className="mb-10 mx-4">
+          <div className="btn block active" onClick={onToggle}>
+            登入
+          </div>
+        </div>
+      )}
+
+      <div className="grid grid-cols-2 gap-2 mb-6 mx-4">
         <div className="space-y-1">
           <a
             className="block"
@@ -96,7 +121,7 @@ const MobileHome: NextPage = () => {
         <div className="flex justify-center items-center">
           <img
             src={toCdnUrl('/banner/banner_01.png')}
-            className="object-cover h-36 w-36 rounded-lg"
+            className="object-cover h-24 w-36 rounded-lg"
             alt=""
           />
         </div>

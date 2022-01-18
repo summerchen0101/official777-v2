@@ -10,7 +10,7 @@ function MobileMenu({ className }: { className?: string }) {
   return (
     <div
       className={cs(
-        'block lg:hidden bg-black/90 h-screen w-screen fixed right-0 z-20 pt-20 overflow-y-auto',
+        'block lg:hidden bg-black/90 h-screen w-screen fixed right-0 z-20 overflow-y-auto top-0 pt-20',
         className,
       )}
     >

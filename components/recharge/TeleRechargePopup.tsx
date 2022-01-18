@@ -38,6 +38,8 @@ export default function TeleRechargePopup({ payType }: Props) {
     perPage: 30,
     itemType: ItemType.All,
     payType,
+    paymentType,
+    paymentGateway: PaymentGateway.MyCard,
   })
   const router = useRouter()
   const {

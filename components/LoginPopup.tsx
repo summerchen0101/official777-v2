@@ -14,6 +14,8 @@ import useAppleState from '@/services/useAppleState'
 import AppleLogin from 'react-apple-login'
 import { useStore } from '@/store/useStore'
 import Link from 'next/link'
+import LoadingCover from './LoadingCover'
+import { CgSpinnerTwo } from 'react-icons/cg'
 
 type Inputs = {
   phone: string
@@ -206,9 +208,16 @@ export default function LoginPopup() {
               </Link>
             </div>
             <div className="pt-5 space-y-2 lg:space-y-0">
-              <button className="btn active w-full" onClick={onSubmit}>
-                登入
-              </button>
+              {isLoading ? (
+                <button className="btn active w-full" disabled>
+                  登入中 <CgSpinnerTwo className="animate-spin ml-2" />
+                </button>
+              ) : (
+                <button className="btn active w-full" onClick={onSubmit}>
+                  登入
+                </button>
+              )}
+
               <button className="btn w-full lg:hidden" onClick={onToggle}>
                 取消
               </button>

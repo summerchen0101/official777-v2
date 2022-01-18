@@ -44,6 +44,8 @@ export default function RechargeTransferPopup() {
     perPage: 30,
     itemType: ItemType.All,
     payType: PayType.ECPayATM,
+    paymentType,
+    paymentGateway: PaymentGateway.ECPay,
   })
 
   const {

@@ -27,7 +27,7 @@ export const mapToOpts = function <T>(map: StringMap): OptionType<T>[] {
   }))
 }
 
-export const toCurrency = (num: number, decimal: number = 0) =>
+export const toCurrency = (num: number = 0, decimal: number = 0) =>
   numeral(num).format(
     decimal ? `0,0.${Array(decimal).fill('0').join('')}` : '0,0',
   )
