@@ -58,6 +58,7 @@ export const telePaymentMap: StringMap = {
   [MCPaymentType.TAIWAN_START_MOBILE]: '台灣之星',
   [MCPaymentType.FET_MOBILE]: '遠傳電信',
   [MCPaymentType.TAIWAN_MOBILE]: '台灣大哥大',
+  [MCPaymentType.CHT_MOBILE]: '中華電信',
 }
 
 export const rewardsTypeMap: StringMap = {

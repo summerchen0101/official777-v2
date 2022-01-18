@@ -92,6 +92,7 @@ export enum MCPaymentType {
   TAIWAN_MOBILE = 6,
   TAIWAN_START_MOBILE = 7,
   FET_MOBILE = 8,
+  CHT_MOBILE = 9,
 }
 
 export enum ECPayPaymentType {

@@ -105,7 +105,7 @@ export default function RechargePopup({ payType }: Props) {
 
           <div hidden={!telePaymentMap[paymentType]} className="box mt-4">
             <div className="box-title">請選擇電信</div>
-            <div className="box-content grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="box-content grid grid-cols-2 sm:grid-cols-5 gap-4">
               {Object.entries(telePaymentMap).map(([code, label]) => (
                 <div
                   key={code}
