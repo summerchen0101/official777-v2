@@ -26,11 +26,10 @@ function UserBasic() {
   const [count, setCount] = useState(0)
   const { handler: doUpdate, isLoading } = useProfileUpdate()
   const { handler: sendSms, isLoading: isSmsLoading } = useSms()
-
   const initData = useMemo(
     () => ({
       nickname: data?.nickname,
-      phone: data?.cellphone.replace('886-', ''),
+      phone: data?.cellphone && '0' + data?.cellphone.replace('886-', ''),
       phone_code: data?.countryCode || '886',
       email: data?.email,
       gender: data?.gender.toString(),
@@ -84,7 +83,7 @@ function UserBasic() {
     const res = await sendSms({
       // userID: 0,
       newCountryCode: '886',
-      newCellphone: getValues('phone'),
+      newCellphone: getValues('phone').substring(1),
     })
     if (res?.sendSuccess) {
       alert('簡訊已發送')
