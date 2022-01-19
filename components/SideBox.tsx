@@ -29,7 +29,7 @@ function SideBox() {
     router.push('/home')
   }
   return (
-    <div className="gold-box rounded-3xl w-48 ml-2 hidden lg:flex flex-col gap-2 px-3 pt-0 pb-10 fixed top-0 left-0 mt-[135px] shadow-md z-30">
+    <div className="gold-box rounded-xl w-36 ml-2 hidden lg:flex flex-col gap-2 px-2 pt-0 pb-6 fixed top-0 left-0 mt-[110px] shadow-md z-30">
       {canRecharge ? (
         <div
           className="flex flex-col gap-2 cursor-pointer mb-2"
@@ -38,13 +38,13 @@ function SideBox() {
           <img src={toCdnUrl('/recharge_pig.png')} alt="" />
           <img
             src={toCdnUrl('/recharge_title.png')}
-            className="h-8 self-center cursor-pointer"
+            className="self-center cursor-pointer w-24"
             alt=""
           />
         </div>
       ) : (
         <div hidden={canRecharge} className="flex flex-col gap-2 mb-2">
-          <img src={toCdnUrl('/norecharge.png')} alt="" />
+          <img src={toCdnUrl('/norecharge.png')} alt="" className="w-28" />
         </div>
       )}
 
@@ -52,53 +52,41 @@ function SideBox() {
         <>
           <img
             hidden={!user.avatarID}
-            className="rounded-full w-28 mx-auto bg-gold-600"
+            className="rounded-full w-20 mx-auto bg-gold-600"
             src={toCdnUrl(`/avatar/${user.avatarID}.png`)}
             alt=""
           />
-          <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
-            {user.nickname}
-          </div>
-          <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+          <div className="label-box">{user.nickname}</div>
+          <div className="label-box">
             <img
               src={toCdnUrl('/coin.png')}
               alt=""
-              className="absolute ml-1 mt-0.5 h-8"
+              className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
             />
-            <div className="text-gold-900 font-medium text-right leading-9">
-              {toCurrency(user.coin)}
-            </div>
+            {toCurrency(user.coin)}
           </div>
-          <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+          <div className="label-box">
             <img
               src={toCdnUrl('/point.png')}
               alt=""
-              className="absolute ml-1 mt-0.5 h-8"
+              className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
             />
-            <div className="text-gold-900 font-medium text-right leading-9">
-              {toCurrency(user.paymentPoint)}
-            </div>
+            {toCurrency(user.paymentPoint)}
           </div>
-          {/* <div className="bg-gradient-to-r from-purple-200 via-purple-300 to-purple-100 rounded-lg border-2 border-purple-100 pr-2">
-            <img src="/img/point.png" alt="" className="absolute -mt-1" />
-            <div className="text-purple-900 font-medium text-right leading-9">
-              {toCurrency(user.paymentPoint)}
-            </div>
-          </div> */}
           <div className="flex items-center">
-            <div className=" text-white font-mono flex-1 text-center">
+            <div className=" text-white font-mono flex-1 text-center text-sm">
               VIP: LV{user.vipLevel}
             </div>
           </div>
 
           <div
-            className="self-center h-12 w-full bg-contain bg-center bg-no-repeat bg-logout-btn hover:bg-logout-btn-active absolute -bottom-6 cursor-pointer"
+            className="self-center h-8 w-full bg-contain bg-center bg-no-repeat bg-logout-btn hover:bg-logout-btn-active absolute -bottom-3 cursor-pointer"
             onClick={handleLogout}
           />
         </>
       ) : (
         <div
-          className="self-center h-12 w-full bg-contain bg-center bg-no-repeat bg-login-btn hover:bg-login-btn-active absolute -bottom-6 cursor-pointer"
+          className="self-center h-8 w-full bg-contain bg-center bg-no-repeat bg-login-btn hover:bg-login-btn-active absolute -bottom-3 cursor-pointer"
           onClick={onToggle}
         />
       )}

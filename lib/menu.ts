@@ -28,7 +28,7 @@ export const menu: Menu[] = [
   {
     label: '會員專區',
     subs: [
-      { label: '會員資料', path: '/user-basic', needAuth: true },
+      // { label: '會員資料', path: '/user-basic', needAuth: true },
       { label: '修改密碼', path: '/user-pw', needAuth: true },
       { label: '修改二次密碼', path: '/user-pw2', needAuth: true },
       {

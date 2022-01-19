@@ -34,14 +34,14 @@ function HeaderNav() {
             <img
               src="/img/logo.png"
               alt=""
-              className="cursor-pointer absolute h-36 z-50 left-0 top-0 lg:-ml-24 xl:-ml-36 -mt-6 p-3"
+              className="cursor-pointer absolute h-24 z-50 left-0 top-0 lg:-ml-24 xl:-ml-20 -mt-5 p-3"
               onClick={() => router.push('/')}
             />
-            <div className="flex space-x-2 relative -bottom-5">
+            <div className="flex relative -bottom-3">
               {fixedMenu.map((m, i) => (
                 <div
                   key={i}
-                  className="text-2xl font-mono text-white cursor-pointer text-center w-32 xl:w-36"
+                  className="text-xl font-mono text-gold-400 cursor-pointer text-center w-32 xl:w-36"
                 >
                   {m.label}
                 </div>
@@ -50,7 +50,7 @@ function HeaderNav() {
           </div>
           {/* Hover展開的內容 */}
           <div className="invisible opacity-0 group-hover:visible group-hover:opacity-100 w-full absolute top-0 cursor-pointer transition-all -translate-y-12 duration-400 group-hover:translate-y-0 mt-12 z-10">
-            <div className="bg-gradient-to-t from-black to-black/0 opacity-95 flex justify-center relative pl-32 space-x-2 py-10">
+            <div className="bg-gradient-to-t from-black to-black/0 opacity-95 flex justify-center relative pl-32 py-10">
               {/* <div className="w-52"></div> */}
               {fixedMenu.map((m, m_i) => (
                 <div key={m_i} className="space-y-2 w-32 xl:w-36">

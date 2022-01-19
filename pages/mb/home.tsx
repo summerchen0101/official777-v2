@@ -59,31 +59,23 @@ const MobileHome: NextPage = () => {
       {user ? (
         <div hidden={!user} className="px-4 space-y-2 mb-8">
           <div className="grid grid-cols-2 gap-2 mb-4">
-            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
-              {user.nickname}
-            </div>
-            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
-              VIP: LV{user.vipLevel}
-            </div>
-            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+            <div className="label-box">{user.nickname}</div>
+            <div className="label-box">VIP: LV{user.vipLevel}</div>
+            <div className="label-box">
               <img
                 src={toCdnUrl('/coin.png')}
                 alt=""
-                className="absolute ml-1 mt-0.5 h-8"
+                className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
               />
-              <div className="text-gold-900 font-medium text-right leading-9">
-                {toCurrency(user.coin)}
-              </div>
+              {toCurrency(user.coin)}
             </div>
-            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+            <div className="label-box">
               <img
                 src={toCdnUrl('/point.png')}
                 alt=""
-                className="absolute ml-1 mt-0.5 h-8"
+                className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
               />
-              <div className="text-gold-900 font-medium text-right leading-9">
-                {toCurrency(user.paymentPoint)}
-              </div>
+              {toCurrency(user.paymentPoint)}
             </div>
           </div>
           <div className="btn block" onClick={handleLogout}>
