@@ -44,7 +44,7 @@ function SideBox() {
         </div>
       ) : (
         <div hidden={canRecharge} className="flex flex-col gap-2 mb-2">
-          <img src={toCdnUrl('/norecharge.png')} alt="" className="w-28" />
+          <img src={toCdnUrl('/norecharge.png')} alt="" />
         </div>
       )}
 
