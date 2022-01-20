@@ -1,24 +1,23 @@
 import GameDetailPopup from '@/components/GameDetailPopup'
-import HomeSlider, { HomeSlide } from '@/components/HomeSlider'
+import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
 import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
-import { Platform, YesNo } from '@/lib/enums'
+import { Platform } from '@/lib/enums'
 import { appUrlMap, newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toCurrency, toDateTime, toCdnUrl } from '@/utils'
+import { toCdnUrl, toCurrency } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
-import { FaUser } from 'react-icons/fa'
-import { HiCurrencyDollar } from 'react-icons/hi'
+import { homeSlides } from '../home'
 
 const MobileHome: NextPage = () => {
   useDevicePage('/home', '/mb/home')
@@ -35,10 +34,6 @@ const MobileHome: NextPage = () => {
   const showGamePopup = useStore((s) => s.showGamePopup)
   const onToggle = usePopupStore((s) => s.login.onToggle)
   const clearUser = useUserStore((s) => s.clearUser)
-
-  const homeSlides: HomeSlide[] = Array(8).fill({
-    path: '/banner/banner_01.png',
-  })
 
   const handleNewsClicked = (news: News) => {
     if (news.isRedirect) {

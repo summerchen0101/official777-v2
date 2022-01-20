@@ -5,16 +5,21 @@ import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
-import { GameCode, YesNo } from '@/lib/enums'
+import { GameCode } from '@/lib/enums'
 import { largeGameSlides } from '@/lib/games'
 import { gameMap, newsTypeMap } from '@/lib/map'
 import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
-import { toDateTime, toCdnUrl } from '@/utils'
+import { toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
+
+export const homeSlides: HomeSlide[] = [
+  { path: '/banner/banner_02.jpg' },
+  { path: '/banner/banner_01.png' },
+]
 
 const Home: NextPage = () => {
   const router = useRouter()
@@ -29,9 +34,6 @@ const Home: NextPage = () => {
   const showNews = useStore((s) => s.showNews)
   const showGamePopup = useStore((s) => s.showGamePopup)
 
-  const homeSlides: HomeSlide[] = Array(8).fill({
-    path: '/banner/banner_01.png',
-  })
   const handleNewsClicked = (news: News) => {
     if (news.isRedirect) {
       return window.open(news.content, 'news')
