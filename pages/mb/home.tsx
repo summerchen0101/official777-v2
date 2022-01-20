@@ -54,7 +54,7 @@ const MobileHome: NextPage = () => {
   return (
     <Layout>
       <section className="mb-8 mt-20">
-        <HomeSlider slides={homeSlides} />
+        <HomeSlider isHomePage slides={homeSlides} />
       </section>
       {user ? (
         <div hidden={!user} className="px-4 space-y-2 mb-8">

@@ -33,7 +33,7 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
             src={toCdnUrl(t.path)}
             className={cs(
               'h-[300px] w-full object-cover object-center',
-              isHomePage ? 'h-[550px] xl:h-[72vh]' : 'lg:h-[350px]',
+              isHomePage ? 'h-[30%] max-h-[500px]' : 'lg:h-[350px]',
             )}
             alt=""
           />
