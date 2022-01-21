@@ -42,7 +42,7 @@ function RechargePage() {
       <section className="px-4">
         <div className="lg:w-[860px] mx-auto">
           <div className="grid grid-cols-6 gap-4">
-            <div
+            {/* <div
               className="deposit-btn col-span-6 md:col-span-3"
               onClick={onTransferShow}
             >
@@ -65,7 +65,7 @@ function RechargePage() {
               onClick={onGiftCardShow}
             >
               <img src={toCdnUrl('/recharge/giftcard.png')} alt="序號輸入" />
-            </div>
+            </div> */}
             {paymentTypeOrder.map(({ paymentType, img }) => (
               <div
                 key={paymentType}
