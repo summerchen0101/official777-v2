@@ -58,7 +58,7 @@ export default function Activity_02() {
   })
   return (
     <PageWrapper>
-      <ActivityBtns id={2} />
+      <ActivityBtns id={3} />
       <ActivitySection title="新年送紅包">
         <div>
           <SubTitle>活動時間</SubTitle>

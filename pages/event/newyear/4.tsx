@@ -73,7 +73,7 @@ const ticketGiftStages = [
 export default function Activity_06() {
   return (
     <PageWrapper>
-      <ActivityBtns id={6} />
+      <ActivityBtns id={4} />
       <ActivitySection title="集獎券送好禮">
         <div>
           <SubTitle>活動時間</SubTitle>

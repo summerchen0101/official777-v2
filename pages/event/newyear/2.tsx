@@ -102,7 +102,7 @@ const groupList: Group[] = [
 export default function Activity_05() {
   return (
     <PageWrapper>
-      <ActivityBtns id={5} />
+      <ActivityBtns id={2} />
       <ActivitySection title="衝等大挑戰">
         <div>
           <SubTitle>活動時間</SubTitle>
