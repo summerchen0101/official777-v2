@@ -21,7 +21,7 @@ import { homeSlides } from '../home'
 
 const MobileHome: NextPage = () => {
   useDevicePage('/home', '/mb/home')
-  const router = useRouter()
+  const canRecharge = useStore((s) => s.canRecharge)
   const { data: user } = useMe()
   const [page, setPage] = useState(1)
   const [currentNewsTab, setCurrentNewsTab] = useState(0)
@@ -103,12 +103,25 @@ const MobileHome: NextPage = () => {
           >
             <img src={toCdnUrl('/google_play.png')} alt="" className="" />
           </a>
-          {/* <img src={toCdnUrl('/apk.png')} alt="" className="" /> */}
+          {canRecharge && (
+            <a
+              className="block"
+              target="_blank"
+              href={toCdnUrl('/game.apk')}
+              rel="noreferrer"
+              download
+            >
+              <img src={toCdnUrl('/apk.png')} alt="" className="" />
+            </a>
+          )}
         </div>
         <div className="flex justify-center items-center">
           <img
             src={toCdnUrl('/banner/banner_01.png')}
-            className="object-cover h-24 w-36 rounded-lg"
+            className={cs(
+              'object-cover w-36 rounded-lg',
+              canRecharge ? 'h-36' : 'h-24',
+            )}
             alt=""
           />
         </div>
