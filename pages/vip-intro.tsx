@@ -1,8 +1,157 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import { VipLevel } from '@/lib/enums'
+import { vipLevelMap } from '@/lib/map'
 import { toCdnUrl } from '@/utils'
-import React from 'react'
+import React, { useState } from 'react'
+import cs from 'classnames'
 
+const vipIntro = [
+  {
+    項目: 'VIP點數需求',
+    [VipLevel.LV1]: '60',
+    [VipLevel.LV2]: '1,000',
+    [VipLevel.LV3]: '5,000',
+    [VipLevel.LV4]: '20,000',
+    [VipLevel.LV5]: '100,000',
+    [VipLevel.LV6]: '-',
+  },
+  {
+    項目: '累積押注',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '5,000,000',
+    [VipLevel.LV3]: '25,000,000',
+    [VipLevel.LV4]: '100,000,000',
+    [VipLevel.LV5]: '500,000,000',
+    [VipLevel.LV6]: '-',
+  },
+  {
+    項目: '聊天名字顏色',
+    [VipLevel.LV1]: '無色',
+    [VipLevel.LV2]: '無色',
+    [VipLevel.LV3]: '無色',
+    [VipLevel.LV4]: '無色',
+    [VipLevel.LV5]: '紅色',
+    [VipLevel.LV6]: '彩色',
+  },
+  {
+    項目: '房間保留時間/分',
+    [VipLevel.LV1]: '30',
+    [VipLevel.LV2]: '180',
+    [VipLevel.LV3]: '360',
+    [VipLevel.LV4]: '720',
+    [VipLevel.LV5]: '1,440',
+    [VipLevel.LV6]: '2,880',
+  },
+  {
+    項目: '頭相框',
+    [VipLevel.LV1]: '黑色',
+    [VipLevel.LV2]: '銅色',
+    [VipLevel.LV3]: '銀色',
+    [VipLevel.LV4]: '金色',
+    [VipLevel.LV5]: '紅色',
+    [VipLevel.LV6]: '彩色',
+  },
+  {
+    項目: 'SLOT注額上限',
+    [VipLevel.LV1]: '100',
+    [VipLevel.LV2]: '10,000',
+    [VipLevel.LV3]: '20,000',
+    [VipLevel.LV4]: '30,000',
+    [VipLevel.LV5]: '50,000',
+    [VipLevel.LV6]: '100,000',
+  },
+  {
+    項目: '發紅包',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '有',
+    [VipLevel.LV3]: '有',
+    [VipLevel.LV4]: '有',
+    [VipLevel.LV5]: '有',
+    [VipLevel.LV6]: '有',
+  },
+  {
+    項目: '紅包服務費',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '1%',
+    [VipLevel.LV3]: '0.50%',
+    [VipLevel.LV4]: '免費',
+    [VipLevel.LV5]: '免費',
+    [VipLevel.LV6]: '免費',
+  },
+  {
+    項目: '各遊戲高注額',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '有',
+    [VipLevel.LV3]: '有',
+    [VipLevel.LV4]: '有',
+    [VipLevel.LV5]: '有',
+    [VipLevel.LV6]: '有',
+  },
+  {
+    項目: '私人房',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '有',
+    [VipLevel.LV3]: '有',
+    [VipLevel.LV4]: '有',
+    [VipLevel.LV5]: '有',
+    [VipLevel.LV6]: '有',
+  },
+  {
+    項目: '保險箱',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '有',
+    [VipLevel.LV3]: '有',
+    [VipLevel.LV4]: '有',
+    [VipLevel.LV5]: '有',
+    [VipLevel.LV6]: '有',
+  },
+  {
+    項目: '機率表',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '-',
+    [VipLevel.LV3]: '有',
+    [VipLevel.LV4]: '有',
+    [VipLevel.LV5]: '有',
+    [VipLevel.LV6]: '有',
+  },
+  {
+    項目: '購買免費遊戲',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '-',
+    [VipLevel.LV3]: '-',
+    [VipLevel.LV4]: '有',
+    [VipLevel.LV5]: '有',
+    [VipLevel.LV6]: '有',
+  },
+  {
+    項目: '專屬客服',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '-',
+    [VipLevel.LV3]: '-',
+    [VipLevel.LV4]: '-',
+    [VipLevel.LV5]: '有',
+    [VipLevel.LV6]: '有',
+  },
+  {
+    項目: '專屬經理',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '-',
+    [VipLevel.LV3]: '-',
+    [VipLevel.LV4]: '-',
+    [VipLevel.LV5]: '-',
+    [VipLevel.LV6]: '有',
+  },
+  {
+    項目: '會員卡期限',
+    [VipLevel.LV1]: '永久',
+    [VipLevel.LV2]: '永久',
+    [VipLevel.LV3]: '60天',
+    [VipLevel.LV4]: '60天',
+    [VipLevel.LV5]: '60天',
+    [VipLevel.LV6]: '60天',
+  },
+]
 const list = [
   {
     name: 'VIP 0',
@@ -37,6 +186,7 @@ const list = [
 ]
 
 function VipIntro() {
+  const [activeVip, setActiveVip] = useState(VipLevel.LV1)
   return (
     <Layout>
       <PageBanner />
@@ -49,27 +199,61 @@ function VipIntro() {
               className="h-10"
             />
           </div>
-          <div className="space-y-6">
-            {list.map((t, i) => (
+          {/* <div className="mb-10">
+            <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative">
+              <img
+                src={toCdnUrl('/appintro/main_02.png')}
+                alt=""
+                className="w-full h-full object-fill rounded-lg"
+              />
+            </div>
+            <div className="p-2 bg-yellow-500 rounded text-lg my-3">
+              儲值和押注都可以提升會員等級，
+              會員等級提高可以提升注額並且享受更尊爵的服務！
+            </div>
+          </div> */}
+          <select
+            onChange={(e) => setActiveVip(+e.target.value)}
+            className="lg:hidden rounded text-gray-800 text-lg w-full sm:w-48 border-0 mb-4"
+          >
+            {Object.entries(vipLevelMap).map(([code, label]) => (
+              <option key={code} value={code}>
+                {label}
+              </option>
+            ))}
+          </select>
+          <div className="flex lg:hidden justify-center items-center py-8">
+            <img src={toCdnUrl(`/vip/${vipLevelMap[activeVip]}.png`)} alt="" />
+          </div>
+          <div className="flex text-white rounded-md overflow-hidden">
+            <div className="bg-black w-40">
+              <div className="p-2 text-gray-400 h-32 hidden lg:block"></div>
+              {vipIntro.map((t, i) => (
+                <div key={i} className="p-2 text-gray-400">
+                  {t.項目}
+                </div>
+              ))}
+            </div>
+            {Object.entries(vipLevelMap).map(([code, label]) => (
               <div
-                key={i}
-                className="flex flex-col lg:flex-row bg-black/50 shadow-md rounded-lg overflow-hidden py-3 lg:py-0 border-2 border-purple-600/60"
+                key={code}
+                className={cs('flex-1 lg:block', {
+                  hidden: activeVip !== +code,
+                })}
               >
-                <div className="p-3 lg:h-auto flex justify-center items-center">
+                <div className="bg-black text-gray-200 text-center p-2 h-32 hidden lg:block">
+                  <div className="">{label}</div>
                   <img
-                    src={toCdnUrl(t.img)}
-                    className="object-contain h-36 rounded-l-xl"
-                    alt={t.name}
+                    src={toCdnUrl(`/vip/${label}.png`)}
+                    alt=""
+                    className="object-center w-24 mt-3"
                   />
                 </div>
-                <div className="flex-1 p-5">
-                  <p className="text-2xl font-semibold text-gold-500 pt-1 pb-3 mb-4 border-b border-gold-500/30 tracking-wide">
-                    {t.name}
-                  </p>
-                  <div className="text-white/80 leading-8 whitespace-pre-line text-lg">
-                    {t.desc}
+                {vipIntro.map((t, i) => (
+                  <div key={i} className="bg-purple-900 p-2">
+                    {t[+code as unknown as VipLevel]}
                   </div>
-                </div>
+                ))}
               </div>
             ))}
           </div>

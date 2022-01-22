@@ -1,15 +1,13 @@
 import ActivityBtns from '@/components/activity/ActivityBtns'
-import ContentText from '@/components/activity/ContentText'
 import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
-import SubTitle from '@/components/activity/SubTitle'
 import React from 'react'
 
 export default function Activity_03() {
   return (
     <PageWrapper>
-      <ActivityBtns id={3} />
+      <ActivityBtns id="info" />
       <ActivitySection title="注意事項">
         <ListWrapper>
           <li>

@@ -167,7 +167,7 @@ export default function Activity_01() {
         <div>
           <SubTitle>活動時間</SubTitle>
           <ContentText>
-            2022/1/22(六) 中午12:00 – 2022/2/13(日) 晚上11:59
+            2022/1/24(一) 中午12:00 – 2022/2/13(日) 晚上11:59
           </ContentText>
         </div>
         <div>
@@ -284,9 +284,7 @@ export default function Activity_01() {
       <ActivitySection title="直播抽獎">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>
-            2022/1/22(六) 中午12:00 – 2022/2/13(日) 晚上11:59
-          </ContentText>
+          <ContentText>2022/2/20(日) 19:00</ContentText>
         </div>
         <div>
           <SubTitle>直播平台</SubTitle>
@@ -294,7 +292,7 @@ export default function Activity_01() {
         </div>
         <div>
           <SubTitle>名單公告時間</SubTitle>
-          <ContentText>2022/2/14(一) 18:00</ContentText>
+          <ContentText>2022/2/22(二) 18:00</ContentText>
         </div>
 
         <div>

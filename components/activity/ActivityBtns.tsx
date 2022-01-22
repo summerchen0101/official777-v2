@@ -5,7 +5,7 @@ import Link from 'next/link'
 import React from 'react'
 
 type Props = {
-  id: number
+  id: number | string
 }
 function ActivityBtns({ id }: Props) {
   const router = useRouter()

@@ -53,7 +53,7 @@ function RechargePage() {
             </div>
             <div
               className="deposit-btn disabled col-span-6 md:col-span-3"
-              onClick={onProductShow}
+              // onClick={onProductShow}
             >
               <img
                 src={toCdnUrl('/recharge/ecpay_pkg.png')}
@@ -62,7 +62,7 @@ function RechargePage() {
             </div>
             <div
               className="deposit-btn disabled col-span-6 md:col-span-2"
-              onClick={onGiftCardShow}
+              // onClick={onGiftCardShow}
             >
               <img src={toCdnUrl('/recharge/giftcard.png')} alt="序號輸入" />
             </div>
