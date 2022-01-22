@@ -32,7 +32,7 @@
     "createdAt": "2022-01-25",
     "startAt": "2022-01-22 12:00",
     "endAt": "2023-01-20 12:00",
-    "enable": true,
+    "enable": false,
     "isRedirect": false,
     "sort": 1
   },
