@@ -14,6 +14,7 @@ import {
   RemitStatus,
   RewardStatus,
   RewardsType,
+  VipLevel,
 } from './enums'
 import { StringMap } from '@/types'
 
@@ -156,4 +157,13 @@ export const appUrlMap: StringMap = {
     'https://apps.apple.com/tw/app/%E5%A4%A7%E9%A0%AD%E5%AE%B6%E5%A8%9B%E6%A8%82%E5%9F%8E/id1595039719',
   [Platform.Android]:
     'https://play.google.com/store/apps/details?id=com.Rich.MegaRich&hl=zh_TW',
+}
+
+export const vipLevelMap: StringMap = {
+  [VipLevel.LV1]: '正式會員',
+  [VipLevel.LV2]: '青銅會員',
+  [VipLevel.LV3]: '白銀會員',
+  [VipLevel.LV4]: '黃金會員',
+  [VipLevel.LV5]: '紅鑽會員',
+  [VipLevel.LV6]: '鑽石會員',
 }
