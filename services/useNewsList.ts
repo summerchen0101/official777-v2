@@ -14,13 +14,14 @@ export interface NewsListReq {
 }
 
 export interface News {
-  id: string
+  id: number
   title: string
   content: string
   category: number
   createdAt: string
   startAt: string
   endAt: string
+  enable: boolean
   isRedirect: Boolean
   sort: number
 }
@@ -37,11 +38,7 @@ function useNewsList({ category, page, perPage }: NewsListReq) {
     fetch(url).then((res) => res.json()),
   )
   const list = useMemo(() => {
-    const periodData = data?.filter(
-      (t) =>
-        isAfter(new Date(), new Date(t.startAt)) &&
-        isBefore(new Date(), new Date(t.endAt)),
-    )
+    const periodData = data?.filter((t) => t.enable)
     // 置頂 -> 日期
     const orderedData = orderBy(periodData, ['startAt', 'sort'])
     if (category === 0) {
