@@ -9,11 +9,11 @@ import LoginPopup from '../LoginPopup'
 const Layout: NextPage = ({ children }) => {
   const { data } = useMaintenance()
   return (
-    <div className="min-h-full">
+    <div className="overflow-hidden">
       <HeaderNav />
-      <div className="pb-14 min-h-[calc(100vh-200px)]">{children}</div>
+      <div className="pb-14">{children}</div>
 
-      <FooterNav />
+      {/* <FooterNav /> */}
 
       <SideBox />
       <AppDownloadSideFloat />

@@ -69,12 +69,20 @@ const list: Game[] = [
     category: [2],
   },
   {
+    gameID: 18,
+    category: [1, 2],
+  },
+  {
     gameID: 21,
     category: [2],
   },
   {
     gameID: 27,
     category: [2],
+  },
+  {
+    gameID: 28,
+    category: [1, 2],
   },
   {
     gameID: 1001,

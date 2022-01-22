@@ -4,168 +4,176 @@ import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import LoginPopup from '@/components/LoginPopup'
-import useMe from '@/services/useMe'
-import useSnExchange from '@/services/useSnExchange'
-import usePopupStore from '@/store/usePopupStore'
-import { toCurrency, toCdnUrl } from '@/utils'
-import { useRouter } from 'next/dist/client/router'
-import React, { useEffect } from 'react'
-import { useForm } from 'react-hook-form'
-
-type Inputs = {
-  userID: string
-  serial: string
+import { toCdnUrl } from '@/utils'
+import React from 'react'
+interface Gift {
+  name: string
+  icon: string
+  amount: number
 }
 
-const ticketRules = [
-  { ticket: '銅', amount: 1, score: 20000 },
-  { ticket: '銀', amount: 1, score: 100000 },
-  { ticket: '金', amount: 1, score: 400000 },
+interface LevelGift {
+  level: number
+  gifts: Gift[]
+}
+
+interface Group {
+  name: string
+  data: LevelGift[]
+}
+
+const groupList: Group[] = [
+  {
+    name: '1000級以上玩家',
+    data: [
+      {
+        level: 500,
+        gifts: [{ name: '5星超級卡', icon: 'FG_LV3_5.png', amount: 1 }],
+      },
+      {
+        level: 300,
+        gifts: [{ name: '5星威力卡', icon: 'FG_LV2_5.png', amount: 1 }],
+      },
+      {
+        level: 200,
+        gifts: [{ name: '5星威力卡', icon: 'FG_LV2_5.png', amount: 1 }],
+      },
+      {
+        level: 100,
+        gifts: [{ name: '5星獎勵卡', icon: 'FG_LV1_5.png', amount: 1 }],
+      },
+      {
+        level: 50,
+        gifts: [{ name: '3星超級卡', icon: 'FG_LV3_3.png', amount: 1 }],
+      },
+      {
+        level: 20,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        level: 10,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        level: 5,
+        gifts: [{ name: '3星獎勵卡', icon: 'FG_LV1_3.png', amount: 1 }],
+      },
+    ],
+  },
+  {
+    name: '1000級以下玩家',
+    data: [
+      {
+        level: 900,
+        gifts: [{ name: '3星超級卡', icon: 'FG_LV3_3.png', amount: 1 }],
+      },
+      {
+        level: 600,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        level: 400,
+        gifts: [{ name: '3星威力卡', icon: 'FG_LV2_3.png', amount: 1 }],
+      },
+      {
+        level: 200,
+        gifts: [{ name: '3星獎勵卡', icon: 'FG_LV1_3.png', amount: 1 }],
+      },
+      {
+        level: 100,
+        gifts: [{ name: '1星超級卡', icon: 'FG_LV3_1.png', amount: 1 }],
+      },
+      {
+        level: 50,
+        gifts: [{ name: '1星威力卡', icon: 'FG_LV2_1.png', amount: 1 }],
+      },
+      {
+        level: 30,
+        gifts: [{ name: '1星威力卡', icon: 'FG_LV2_1.png', amount: 1 }],
+      },
+      {
+        level: 10,
+        gifts: [{ name: '1星獎勵卡', icon: 'FG_LV1_1.png', amount: 1 }],
+      },
+    ],
+  },
 ]
-export default function Activity_02() {
-  const { data } = useMe()
-  const onLoginToggle = usePopupStore((s) => s.login.onToggle)
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    watch,
-    setValue,
-    reset,
-  } = useForm<Inputs>()
 
-  useEffect(() => {
-    if (data) {
-      setValue('userID', data.id.toString())
-    }
-  }, [data])
-
-  const { handler: doSnExchange, isLoading } = useSnExchange()
-
-  const router = useRouter()
-
-  const handleLoginFirst = () => {
-    router.replace({ query: { to: router.asPath } })
-    onLoginToggle()
-  }
-
-  const onSubmit = handleSubmit(async (d) => {
-    const res = await doSnExchange({
-      userID: BigInt(d.userID),
-      serial: d.serial,
-    })
-  })
+export default function Activity_05() {
   return (
     <PageWrapper>
       <ActivityBtns id={2} />
-      <ActivitySection title="新年送紅包">
+      <ActivitySection title="衝等大挑戰">
         <div>
           <SubTitle>活動時間</SubTitle>
           <ContentText>
-            2022/1/14(三) 中午12:00 – 2022/2/12(二) 晚上11:59
+            2022/1/29(五) 中午12:00 – 2022/2/8(二) 晚上11:59
           </ContentText>
         </div>
         <div>
-          <SubTitle>活動說明一</SubTitle>
+          <SubTitle>活動對象</SubTitle>
+          <ContentText>大頭家娛樂城-限15級以上玩家</ContentText>
+        </div>
+        <div>
+          <SubTitle>活動說明</SubTitle>
           <ContentText>
             <ListWrapper>
+              <li>活動期間內，累積提升等級數達對應門檻，可獲得指定道具卡。</li>
+              <li>獎勵依累積提升等級數，擇優發送卡片獎勵一張。</li>
+              <li>獎勵將統一於2022/2/9 (三)晚上6：00前發送。</li>
               <li>
-                活動期間內，到肯德基購買XXX多人分享餐(舉例)，即可獲得大頭家娛樂城實體紅包袋。
+                1000級以上及1000級以下不重複累計
+                <p>
+                  範例1.小明從1000級提升至1265級，共累積提升265級，因此可領取5星威力卡1張。
+                  <br />
+                  範例2.小明從900級提升至1200級，共累積提升300級，因中間有跨到1000級必須分開計算，1000級以下累積提升100級，1000級以上累積提升200級，因此可領取1星超級卡1張及5星威力卡1張。
+                </p>
               </li>
-              <li>
-                於下方輸入遊戲暱稱和紅包袋背面序號，即可獲得一張「銅獎券」，並有機會抽中iPhone
-                13。
-              </li>
-              {/* <li>
-                遊戲中輸入序號方式：遊戲大廳 → 點擊左下方「公告」→
-                點擊序號廣告，即可輸入序號喔！
-              </li> */}
             </ListWrapper>
-            <div className="form-box my-5 -mx-4 sm:mx-12">
-              {data ? (
-                <form noValidate className="space-y-5">
-                  <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                    <label
-                      htmlFor=""
-                      className="w-44 mb-2 lg:text-right text-gray-200"
-                    >
-                      會員資訊
-                    </label>
-                    <p className="text-yellow-200 bg-black/20 p-2 rounded-sm">
-                      {data?.id.toString()} ({data?.nickname})
-                    </p>
-                  </div>
-                  <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center">
-                    <label
-                      htmlFor=""
-                      className="w-44 mb-2 lg:text-right text-gray-200"
-                    >
-                      序號
-                    </label>
-                    <input
-                      className="rounded-sm border-none bg-gray-100 h-9 lg:w-[400px] px-2 text-gray-800"
-                      placeholder="請輸入序號"
-                      {...register('serial', {
-                        required: { value: true, message: '不可為空' },
-                      })}
-                    />
-                  </div>
-                  <div className="pt-3 text-center space-x-5 flex justify-center">
-                    <button className="btn w-40" onClick={() => reset()}>
-                      取消修改
-                    </button>
-                    <button className="btn active w-40" onClick={onSubmit}>
-                      確認修改
-                    </button>
-                  </div>
-                </form>
-              ) : (
-                <button
-                  className="btn active mx-auto"
-                  onClick={handleLoginFirst}
-                >
-                  兌換序號請先登入會員
-                </button>
-              )}
-            </div>
           </ContentText>
         </div>
-        <div>
-          <SubTitle>活動說明二</SubTitle>
-          <ContentText>
-            遊玩老虎機或魚機遊戲，達成指定贏分門檻，再加碼贈送更多抽獎券，有機會抽中更多大獎喔！
-            <br />
-            (獎品詳請可見 → 名車抽起來活動頁內)
-          </ContentText>
-          <div className="mt-5 sm:mx-12">
-            <div className="text-2xl bg-gray-600 rounded-xl py-2 text-center mb-4">
-              抽獎券條件
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {ticketRules.map((t, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col items-center bg-gray-800 p-3 rounded-lg"
-                >
-                  <div className="mb-2 text-xl font-medium text-yellow-400">
-                    贏分 {toCurrency(t.score)}
-                  </div>
-                  <div className="mb-2 text-xl text-yellow-600 flex gap-2">
-                    <img
-                      src={toCdnUrl(`/event/tickets/${t.ticket}.jpg`)}
-                      alt=""
-                      className="w-16"
-                    />
-                    {t.ticket}獎券 x {t.amount}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="grid sm:grid-cols-2 gap-4">
+          {groupList.map((group, group_i) => (
+            <table key={group_i} className="rounded-lg overflow-hidden">
+              <thead>
+                <tr>
+                  <th colSpan={2} className="text-center text-xl">
+                    {group.name}
+                  </th>
+                </tr>
+                <tr>
+                  <th className="text-center">累積提升等級數</th>
+                  <th className="text-center">獎勵內容</th>
+                </tr>
+              </thead>
+              <tbody>
+                {group.data.map((t, i) => (
+                  <tr key={i} className="">
+                    <td className="text-center text-xl text-gold-700 font-medium">
+                      {t.level}級
+                    </td>
+                    <td>
+                      {t.gifts.map((g, g_i) => (
+                        <div
+                          key={g_i}
+                          className="flex items-center gap-3 justify-center font-medium"
+                        >
+                          <img
+                            src={toCdnUrl(`/event/items/${g.icon}`)}
+                            alt=""
+                            className="w-12 hidden sm:block"
+                          />
+                          {g.name}x{g.amount}
+                        </div>
+                      ))}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ))}
         </div>
       </ActivitySection>
-      <LoginPopup />
     </PageWrapper>
   )
 }

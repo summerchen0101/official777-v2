@@ -167,7 +167,7 @@ export default function Activity_01() {
         <div>
           <SubTitle>活動時間</SubTitle>
           <ContentText>
-            2022/1/14(三) 中午12:00 – 2022/2/8(二) 晚上11:59
+            2022/1/22(六) 中午12:00 – 2022/2/13(日) 晚上11:59
           </ContentText>
         </div>
         <div>
@@ -285,7 +285,7 @@ export default function Activity_01() {
         <div>
           <SubTitle>活動時間</SubTitle>
           <ContentText>
-            2022/1/14(三) 中午12:00 – 2022/2/8(二) 晚上11:59
+            2022/1/22(六) 中午12:00 – 2022/2/13(日) 晚上11:59
           </ContentText>
         </div>
         <div>

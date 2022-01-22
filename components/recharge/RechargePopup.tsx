@@ -1,6 +1,5 @@
 import Popup from '@/components/Popup'
-import { ItemType, PayType, MCPaymentType, PaymentGateway } from '@/lib/enums'
-import { payTypeMap, payTypePaymentMap, telePaymentMap } from '@/lib/map'
+import { ItemType, MCPaymentType, PaymentGateway } from '@/lib/enums'
 import useGoodsList from '@/services/useGoodsList'
 import useMe from '@/services/useMe'
 import useOrderCreate from '@/services/useOrderCreate'
@@ -12,6 +11,11 @@ import { FaExclamationCircle } from 'react-icons/fa'
 import LoadingCover from '../LoadingCover'
 import TableSelector from '../TableSelector'
 import cs from 'classnames'
+import {
+  mcPaymentTypeMap,
+  mcPaymentWithTeleMap,
+  telePaymentMap,
+} from '@/lib/map'
 
 interface Inputs {
   productID: number
@@ -20,26 +24,24 @@ interface Inputs {
 }
 
 type Props = {
-  payType: PayType
+  paymentType: MCPaymentType
 }
 
-export default function RechargePopup({ payType }: Props) {
+export default function RechargePopup({ paymentType }: Props) {
   const isShow = usePopupStore((s) => s.recharge.isShow)
   const onHide = usePopupStore((s) => s.recharge.onHide)
   // const [redirectUrl, setRedirectUrl] = useState('')
-  const [paymentType, setPaymentType] = useState(payTypePaymentMap[payType])
-
+  const [telePaymentType, setTelePaymentType] = useState(paymentType)
   useEffect(() => {
-    setPaymentType(payTypePaymentMap[payType])
-  }, [payType])
-
+    setTelePaymentType(paymentType)
+  }, [paymentType])
   const { list, isLoading: isListLoading } = useGoodsList({
     page: 1,
     perPage: 30,
     itemType: ItemType.All,
-    payType,
-    paymentType,
+    paymentType: telePaymentType,
     paymentGateway: PaymentGateway.MyCard,
+    isShow,
   })
   const router = useRouter()
   const {
@@ -62,9 +64,7 @@ export default function RechargePopup({ payType }: Props) {
     const product = list?.find((t) => t.ItemId === d.productID)
     if (
       confirm(
-        `透過${telePaymentMap[paymentType] || payTypeMap[payType]}消費 $${
-          product?.Price
-        }元是否確認?`,
+        `透過「${mcPaymentWithTeleMap[telePaymentType]}」消費 $${product?.Price}元是否確認?`,
       )
     ) {
       const res = await doCreate({
@@ -83,7 +83,9 @@ export default function RechargePopup({ payType }: Props) {
   })
   return (
     <Popup onClose={onHide} isShow={isShow}>
-      <div className="text-3xl text-center">{payTypeMap[payType]}</div>
+      <div className="text-3xl text-center">
+        {mcPaymentTypeMap[telePaymentType] || '電信支付'}
+      </div>
       <LoadingCover isLoading={isLoading}>
         <div className="max-w-[800px] mt-10 mx-auto">
           <Controller
@@ -91,7 +93,7 @@ export default function RechargePopup({ payType }: Props) {
             name="productID"
             render={({ field: { onChange, value } }) => (
               <TableSelector
-                isLoading={isListLoading}
+                isLoading={!isLoading && isListLoading}
                 list={list}
                 onChange={onChange}
                 value={value}
@@ -103,14 +105,14 @@ export default function RechargePopup({ payType }: Props) {
             <div className="text-red-500">{errors.productID.message}</div>
           )}
 
-          <div hidden={!telePaymentMap[paymentType]} className="box mt-4">
+          <div hidden={!telePaymentMap[telePaymentType]} className="box mt-4">
             <div className="box-title">請選擇電信</div>
             <div className="box-content grid grid-cols-2 sm:grid-cols-5 gap-4">
               {Object.entries(telePaymentMap).map(([code, label]) => (
                 <div
                   key={code}
-                  className={cs('btn', { active: +code === paymentType })}
-                  onClick={() => setPaymentType(+code as MCPaymentType)}
+                  className={cs('btn', { active: +code === telePaymentType })}
+                  onClick={() => setTelePaymentType(+code as MCPaymentType)}
                 >
                   {label}
                 </div>

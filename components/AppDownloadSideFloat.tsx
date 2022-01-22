@@ -1,5 +1,6 @@
 import { Platform } from '@/lib/enums'
 import { appUrlMap } from '@/lib/map'
+import { useStore } from '@/store/useStore'
 import { toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import QRCode from 'qrcode'
@@ -10,6 +11,7 @@ import { useEffect, useRef, useState } from 'react'
 //   Android: '/google_play.png',
 // }
 function AppDownloadSideFloat() {
+  const canRecharge = useStore((s) => s.canRecharge)
   const [isShowSidebar, setIsShowSidebar] = useState(false)
   const toggleSidebar = () => setIsShowSidebar((val) => !val)
   const qrcodeImgSrc = useRef('')
@@ -48,7 +50,18 @@ function AppDownloadSideFloat() {
         >
           <img src={toCdnUrl('/google_play.png')} alt="" className="" />
         </a>
-        {/* <img src={toCdnUrl('/apk.png')} alt="" className="" /> */}
+        {canRecharge && (
+          <a
+            className="block"
+            target="_blank"
+            href={toCdnUrl('/game.apk')}
+            rel="noreferrer"
+            download
+          >
+            <img src={toCdnUrl('/apk.png')} alt="" className="" />
+          </a>
+        )}
+
         {/* <img src={toCdnUrl('/win10.png')} alt="" className="" /> */}
       </div>
       <div

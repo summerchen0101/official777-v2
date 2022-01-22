@@ -1,28 +1,27 @@
 import GameDetailPopup from '@/components/GameDetailPopup'
-import HomeSlider, { HomeSlide } from '@/components/HomeSlider'
+import HomeSlider from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
 import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
-import { Platform, YesNo } from '@/lib/enums'
+import { Platform } from '@/lib/enums'
 import { appUrlMap, newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toCurrency, toDateTime, toCdnUrl } from '@/utils'
+import { toCdnUrl, toCurrency } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
-import { FaUser } from 'react-icons/fa'
-import { HiCurrencyDollar } from 'react-icons/hi'
+import { homeSlides } from '../home'
 
 const MobileHome: NextPage = () => {
   useDevicePage('/home', '/mb/home')
-  const router = useRouter()
+  const canRecharge = useStore((s) => s.canRecharge)
   const { data: user } = useMe()
   const [page, setPage] = useState(1)
   const [currentNewsTab, setCurrentNewsTab] = useState(0)
@@ -35,10 +34,6 @@ const MobileHome: NextPage = () => {
   const showGamePopup = useStore((s) => s.showGamePopup)
   const onToggle = usePopupStore((s) => s.login.onToggle)
   const clearUser = useUserStore((s) => s.clearUser)
-
-  const homeSlides: HomeSlide[] = Array(8).fill({
-    path: '/banner/banner_01.png',
-  })
 
   const handleNewsClicked = (news: News) => {
     if (news.isRedirect) {
@@ -54,36 +49,28 @@ const MobileHome: NextPage = () => {
   return (
     <Layout>
       <section className="mb-8 mt-20">
-        <HomeSlider slides={homeSlides} />
+        <HomeSlider isHomePage slides={homeSlides} />
       </section>
       {user ? (
         <div hidden={!user} className="px-4 space-y-2 mb-8">
           <div className="grid grid-cols-2 gap-2 mb-4">
-            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
-              {user.nickname}
-            </div>
-            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 p-2 text-gold-900 font-medium h-9 flex items-center justify-center">
-              VIP: LV{user.vipLevel}
-            </div>
-            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+            <div className="label-box">{user.nickname}</div>
+            <div className="label-box">VIP: LV{user.vipLevel}</div>
+            <div className="label-box">
               <img
                 src={toCdnUrl('/coin.png')}
                 alt=""
-                className="absolute ml-1 mt-0.5 h-8"
+                className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
               />
-              <div className="text-gold-900 font-medium text-right leading-9">
-                {toCurrency(user.coin)}
-              </div>
+              {toCurrency(user.coin)}
             </div>
-            <div className="bg-gradient-to-r from-gold-200 via-gold-400 to-gold-200 rounded-lg border-2 border-gold-100 pr-2">
+            <div className="label-box">
               <img
                 src={toCdnUrl('/point.png')}
                 alt=""
-                className="absolute ml-1 mt-0.5 h-8"
+                className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
               />
-              <div className="text-gold-900 font-medium text-right leading-9">
-                {toCurrency(user.paymentPoint)}
-              </div>
+              {toCurrency(user.paymentPoint)}
             </div>
           </div>
           <div className="btn block" onClick={handleLogout}>
@@ -116,12 +103,25 @@ const MobileHome: NextPage = () => {
           >
             <img src={toCdnUrl('/google_play.png')} alt="" className="" />
           </a>
-          {/* <img src={toCdnUrl('/apk.png')} alt="" className="" /> */}
+          {canRecharge && (
+            <a
+              className="block"
+              target="_blank"
+              href={toCdnUrl('/game.apk')}
+              rel="noreferrer"
+              download
+            >
+              <img src={toCdnUrl('/apk.png')} alt="" className="" />
+            </a>
+          )}
         </div>
         <div className="flex justify-center items-center">
           <img
             src={toCdnUrl('/banner/banner_01.png')}
-            className="object-cover h-24 w-36 rounded-lg"
+            className={cs(
+              'object-cover w-36 rounded-lg',
+              canRecharge ? 'h-36' : 'h-24',
+            )}
             alt=""
           />
         </div>

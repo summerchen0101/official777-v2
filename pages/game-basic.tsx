@@ -1,8 +1,11 @@
+import IntroGameDashboard from '@/components/appIntro/GameDashboard'
+import IntroGameSelect from '@/components/appIntro/GameSelect'
+import IntroLobby from '@/components/appIntro/Lobby'
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import TabGroup from '@/components/TabGroup'
 import { toCdnUrl } from '@/utils'
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 
 const tabsMap = {
   1: '遊戲大廳',
@@ -12,6 +15,11 @@ const tabsMap = {
 
 function GameBasic() {
   const [activeTab, setActiveTab] = useState('1')
+  const compMap: Record<string, ReactNode> = {
+    1: <IntroLobby />,
+    2: <IntroGameSelect />,
+    3: <IntroGameDashboard />,
+  }
   return (
     <Layout>
       <PageBanner />
@@ -27,22 +35,17 @@ function GameBasic() {
           <div className="hidden lg:flex justify-center mb-6">
             <TabGroup map={tabsMap} value={activeTab} onChange={setActiveTab} />
           </div>
-          <select className="tab-selector block lg:hidden mb-3">
+          <select
+            className="tab-selector block lg:hidden mb-3"
+            onChange={(e) => setActiveTab(e.target.value)}
+          >
             {Object.entries(tabsMap).map(([key, label]) => (
               <option key={key} value={key}>
                 {label}
               </option>
             ))}
           </select>
-          <div className="bg-black flex items-center justify-center min-h-[500px] rounded-lg border border-gray-700">
-            <div className="text-4xl tracking-widest text-gray-500">
-              敬請期待
-            </div>
-          </div>
-          {/* <div className="bg-gray-100 p-5 text-gray-500 leading-8">
-            <div className="">標題xxxx: 123123</div>
-            <div className="">標題xxxx: 123123</div>
-          </div> */}
+          {compMap[activeTab]}
         </div>
       </section>
     </Layout>

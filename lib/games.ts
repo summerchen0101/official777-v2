@@ -105,6 +105,11 @@ export const gameIntroImgsMap: Record<number, Record<string, string[]>> = {
     得分方式: ['GameInfo_17_2.png'],
     賠率表: ['GameInfo_17_3.png', 'GameInfo_17_4.png'],
   },
+  18: {
+    基本介紹: ['GameInfo_18_1.png'],
+    得分方式: ['GameInfo_18_2.png'],
+    賠率表: ['GameInfo_18_3.png', 'GameInfo_18_4.png'],
+  },
   21: {
     基本介紹: ['GameInfo_21_1.png'],
     得分方式: ['GameInfo_21_2.png'],
@@ -114,6 +119,11 @@ export const gameIntroImgsMap: Record<number, Record<string, string[]>> = {
     基本介紹: ['GameInfo_27_1.png'],
     得分方式: ['GameInfo_27_2.png'],
     賠率表: ['GameInfo_27_3.png', 'GameInfo_27_4.png'],
+  },
+  28: {
+    基本介紹: ['GameInfo_28_1.png'],
+    得分方式: ['GameInfo_28_2.png'],
+    賠率表: ['GameInfo_28_3.png', 'GameInfo_28_4.png'],
   },
   1001: {
     基本介紹: ['GameInfo_1001_1.png'],

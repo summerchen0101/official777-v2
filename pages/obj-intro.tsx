@@ -46,7 +46,7 @@ const objList = [
   },
   {
     name: '金幣卷 10,000(碎片)',
-    desc: `收集10張張，使用後可以直接獲得10000金幣`,
+    desc: `收集10張，使用後可以直接獲得10000金幣`,
     img: '/obj/item_piecesGold10000.png',
   },
   {

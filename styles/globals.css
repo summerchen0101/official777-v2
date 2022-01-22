@@ -154,6 +154,14 @@ section {
   @apply cursor-pointer hover:scale-105 transition-all;
 }
 
+.deposit-btn.disabled {
+  @apply hover:scale-100 cursor-not-allowed;
+}
+
+.deposit-btn.disabled img {
+  @apply grayscale;
+}
+
 .rule {
   @apply leading-relaxed text-gray-400 py-8 px-4;
 }
@@ -173,4 +181,8 @@ section {
 }
 .rule strong {
   @apply font-bold text-white;
+}
+
+.label-box {
+  @apply bg-gradient-to-br from-gold-500 to-gold-200 rounded text-gold-800 px-2 py-1 lg:text-sm text-right font-medium relative border border-gold-200;
 }

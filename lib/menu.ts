@@ -22,13 +22,13 @@ export const menu: Menu[] = [
       { label: '遊戲說明', path: '/game-intro' },
       { label: '道具說明', path: '/obj-intro' },
       { label: '紅包說明', path: '/gift-intro' },
-      { label: '會員介紹', path: '/vip-intro' },
+      // { label: '會員介紹', path: '/vip-intro' },
     ],
   },
   {
     label: '會員專區',
     subs: [
-      { label: '會員資料', path: '/user-basic', needAuth: true },
+      // { label: '會員資料', path: '/user-basic', needAuth: true },
       { label: '修改密碼', path: '/user-pw', needAuth: true },
       { label: '修改二次密碼', path: '/user-pw2', needAuth: true },
       {
