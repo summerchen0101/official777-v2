@@ -42,7 +42,7 @@ function useNewsList({ category, page, perPage }: NewsListReq) {
     // 置頂 -> 日期
     const orderedData = orderBy(periodData, ['startAt', 'sort'])
     if (category === 0) {
-      return take(orderedData, 5)
+      return take(orderedData, 10)
     }
     return orderedData?.filter((t) => t.category === category)
   }, [category, data])
