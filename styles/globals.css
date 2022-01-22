@@ -154,6 +154,14 @@ section {
   @apply cursor-pointer hover:scale-105 transition-all;
 }
 
+.deposit-btn.disabled {
+  @apply hover:scale-100 cursor-not-allowed;
+}
+
+.deposit-btn.disabled img {
+  @apply grayscale;
+}
+
 .rule {
   @apply leading-relaxed text-gray-400 py-8 px-4;
 }

@@ -18,6 +18,7 @@ import { useState } from 'react'
 
 export const homeSlides: HomeSlide[] = [
   { path: '/banner/banner_02.jpg' },
+  { path: '/banner/banner_02.jpg' },
   // { path: '/banner/banner_01.png' },
 ]
 
