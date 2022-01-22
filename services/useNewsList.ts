@@ -40,8 +40,8 @@ function useNewsList({ category, page, perPage }: NewsListReq) {
     // 置頂 -> 日期
     const orderedData = orderBy(
       periodData,
-      ['sort', 'createAt'],
-      ['asc', 'asc'],
+      ['sort', 'createdAt'],
+      ['asc', 'desc'],
     )
     if (category === 0) {
       return take(orderedData, 10)
