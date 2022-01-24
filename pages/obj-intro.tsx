@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import PicIntro from '@/components/PicIntro'
 import { toCdnUrl } from '@/utils'
 import React from 'react'
 
@@ -74,6 +75,19 @@ function ObjIntro() {
               className="h-10"
             />
           </div>
+          <PicIntro
+            img="/appintro/item_01.png"
+            intro="步驟1、從大廳的背包按鈕開啟背包"
+          />
+          <PicIntro
+            img="/appintro/item_02.png"
+            intro="步驟2、選擇要使用的道具，要特別注意使用期限"
+          />
+          <PicIntro
+            img="/appintro/item_03.png"
+            intro="步驟3、點擊使用就可以進行獎勵遊戲或者直接獲得金幣！
+"
+          />
           <div className="space-y-6">
             {objList.map((t, i) => (
               <div

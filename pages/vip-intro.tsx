@@ -5,6 +5,7 @@ import { vipLevelMap } from '@/lib/map'
 import { toCdnUrl } from '@/utils'
 import React, { useState } from 'react'
 import cs from 'classnames'
+import PicIntro from '@/components/PicIntro'
 
 const vipIntro = [
   {
@@ -203,42 +204,19 @@ function VipIntro() {
             儲值和押注都可以提升會員等級，
             會員等級提高可以提升注額並且享受更尊爵的服務！
           </div>
-          <div className="mb-10">
-            <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative">
-              <img
-                src={toCdnUrl('/appintro/vip_01.png')}
-                alt=""
-                className="w-full h-full object-fill rounded-lg"
-              />
-            </div>
-            <div className="p-2 bg-yellow-500 rounded text-lg my-3">
-              步驟1、從大廳的點擊購買按鈕
-            </div>
-          </div>
-          <div className="mb-10">
-            <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative">
-              <img
-                src={toCdnUrl('/appintro/vip_02.png')}
-                alt=""
-                className="w-full h-full object-fill rounded-lg"
-              />
-            </div>
-            <div className="p-2 bg-yellow-500 rounded text-lg my-3">
-              步驟2、查看會員進度和特權
-            </div>
-          </div>
-          <div className="mb-10">
-            <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative">
-              <img
-                src={toCdnUrl('/appintro/vip_03.png')}
-                alt=""
-                className="w-full h-full object-fill rounded-lg"
-              />
-            </div>
-            <div className="p-2 bg-yellow-500 rounded text-lg my-3">
-              步驟3、對比會員特權和查看會員階級
-            </div>
-          </div>
+          <PicIntro
+            img="/appintro/vip_01.png"
+            intro="步驟1、從大廳的點擊購買按鈕"
+          />
+          <PicIntro
+            img="/appintro/vip_02.png"
+            intro="步驟2、查看會員進度和特權"
+          />
+          <PicIntro
+            img="/appintro/vip_03.png"
+            intro="步驟3、對比會員特權和查看會員階級"
+          />
+
           <select
             onChange={(e) => setActiveVip(+e.target.value)}
             className="lg:hidden rounded text-gray-800 text-lg w-full sm:w-48 border-0 mb-4"

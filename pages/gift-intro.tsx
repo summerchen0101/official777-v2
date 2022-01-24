@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import PicIntro from '@/components/PicIntro'
 import { toCdnUrl } from '@/utils'
 import React from 'react'
 
@@ -48,6 +49,30 @@ function GiftIntro() {
               className="h-10"
             />
           </div>
+          <PicIntro
+            img="/appintro/redpack_01.png"
+            intro="步驟1、從大廳點擊聊天按鈕"
+          />
+          <PicIntro
+            img="/appintro/redpack_02.png"
+            intro="步驟2、點擊發紅包的按鈕"
+          />
+          <PicIntro
+            img="/appintro/redpack_03.png"
+            intro="步驟3、點擊發送紅包"
+          />
+          <PicIntro
+            img="/appintro/redpack_04.png"
+            intro="步驟4、選擇直接發送或是玩個小遊戲！"
+          />
+          <PicIntro
+            img="/appintro/redpack_05.png"
+            intro="步驟5、輸入金額、人數和祝福的話！"
+          />
+          <PicIntro
+            img="/appintro/redpack_06.png"
+            intro="大家都會看到您發的紅包！！"
+          />
           <div className="space-y-6">
             {list.map((t, i) => (
               <div

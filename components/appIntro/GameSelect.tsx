@@ -1,6 +1,7 @@
 import { toCdnUrl } from '@/utils'
 import React from 'react'
 import PicFloatIntro from '../PicFloatIntro'
+import PicIntro from '../PicIntro'
 
 const floatIntro = [
   {
@@ -44,19 +45,11 @@ const floatIntro = [
 function IntroGameSelect() {
   return (
     <>
-      <div className="mb-10">
-        <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative">
-          <img
-            src={toCdnUrl('/appintro/main_02.png')}
-            alt=""
-            className="w-full h-full object-fill rounded-lg"
-          />
-        </div>
-        <div className="p-2 bg-yellow-500 rounded text-lg my-3">
-          在大廳可以進行遊戲選擇，像左滑可以選擇更多遊戲
-        </div>
-      </div>
-      <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative lg:mb-20">
+      <PicIntro
+        img="/appintro/main_02.png"
+        intro="在大廳可以進行遊戲選擇，像左滑可以選擇更多遊戲"
+      />
+      <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative lg:mb-10">
         <img
           src={toCdnUrl('/appintro/main_03.png')}
           alt=""
@@ -66,7 +59,7 @@ function IntroGameSelect() {
           <PicFloatIntro key={t.no} {...t} />
         ))}
       </div>
-      <div className="lg:hidden space-y-4 mt-4 h-60 overflow-y-auto bg-black p-3 rounded-lg">
+      <div className="space-y-4 mt-10 h-60 lg:h-auto overflow-y-auto bg-black p-3 rounded-lg">
         {floatIntro.map((t) => (
           <div
             id={t.no.toString()}
