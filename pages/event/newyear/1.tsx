@@ -3,7 +3,7 @@ import ContentText from '@/components/activity/ContentText'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import { toCurrency, toCdnUrl } from '@/utils'
+import { toCdnUrl, toCurrency } from '@/utils'
 import cs from 'classnames'
 import React, { useState } from 'react'
 
@@ -115,16 +115,34 @@ const ticketGifts: TicketGift[] = [
         gold: 158000000,
       },
       {
-        name: '勞力士卡',
+        name: 'iPhone 13 Pro Max卡',
         icon: '禮品卡片-watch.png',
-        amount: 2,
-        gold: 158000000,
+        amount: 10,
+        gold: 3690000,
       },
       {
-        name: '勞力士卡',
+        name: '金幣100,000',
         icon: '禮品卡片-watch.png',
-        amount: 2,
-        gold: 158000000,
+        amount: 10,
+        gold: 0,
+      },
+      {
+        name: '金幣50,000',
+        icon: '禮品卡片-watch.png',
+        amount: 30,
+        gold: 0,
+      },
+      {
+        name: '金幣10,000',
+        icon: '禮品卡片-watch.png',
+        amount: 50,
+        gold: 0,
+      },
+      {
+        name: '金幣5,000',
+        icon: '禮品卡片-watch.png',
+        amount: 100,
+        gold: 0,
       },
     ],
   },
@@ -132,16 +150,22 @@ const ticketGifts: TicketGift[] = [
     ticket: '銀',
     gifts: [
       {
-        name: '賓士名車卡',
+        name: 'Yamaha R3卡',
         icon: '禮品卡片-car.png',
-        amount: 2,
-        gold: 158000000,
+        amount: 1,
+        gold: 24700000,
       },
       {
-        name: '勞力士卡',
+        name: '一台兩黃金卡',
         icon: '禮品卡片-watch.png',
-        amount: 2,
-        gold: 158000000,
+        amount: 1,
+        gold: 7020000,
+      },
+      {
+        name: 'iPhone 13卡',
+        icon: '禮品卡片-watch.png',
+        amount: 1,
+        gold: 7020000,
       },
     ],
   },
@@ -160,6 +184,7 @@ const ticketGifts: TicketGift[] = [
 
 export default function Activity_01() {
   const [tab, setTab] = useState(0)
+  // const { data } = useMe()
   return (
     <PageWrapper>
       <ActivityBtns id={1} />
@@ -167,7 +192,7 @@ export default function Activity_01() {
         <div>
           <SubTitle>活動時間</SubTitle>
           <ContentText>
-            2022/1/24(一) 中午12:00 – 2022/2/13(日) 晚上11:59
+            2022/1/26(三) 中午12:00 – 2022/2/19(三) 晚上11:59
           </ContentText>
         </div>
         <div>
