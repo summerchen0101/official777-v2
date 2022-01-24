@@ -91,7 +91,7 @@ export default function Activity_06() {
             活動時間內，收集的獎券張數，達到指定門檻，可再獲得加碼獎勵！
           </ContentText>
         </div>
-        <div className="mt-5 sm:mx-12">
+        {/* <div className="mt-5 sm:mx-12">
           <div className="text-2xl bg-gray-600 rounded-xl py-2 text-center mb-4">
             2/9 - 2/12 期間內所獲得的獎券張數
           </div>
@@ -108,7 +108,7 @@ export default function Activity_06() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
         <div className="space-y-8">
           {ticketGiftStages.map((group, group_i) => (
             <table
@@ -119,11 +119,11 @@ export default function Activity_06() {
                 <tr>
                   <th colSpan={3} className="text-xl">
                     <div className="flex gap-3 items-center justify-center">
-                      <img
+                      {/* <img
                         src={toCdnUrl(`/event/tickets/${group.ticket}.jpg`)}
                         alt=""
                         className="w-16"
-                      />
+                      /> */}
                       {group.ticket}獎券門檻
                     </div>
                   </th>
