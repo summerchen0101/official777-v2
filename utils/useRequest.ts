@@ -67,8 +67,14 @@ const useRequest = () => {
         // }
         if (res.data.code) {
           console.log(res.data)
+          if (+res.data.code === 401003) {
+            return
+          }
           throw Error(
-            errCodes[res.data?.code!] || res.data?.message || '错误发生',
+            errCodes[res.data?.code!] ||
+              res.data?.code ||
+              res.data?.message ||
+              '错误发生',
           )
         }
         // console.log(JSONbig.parse(res.data))
