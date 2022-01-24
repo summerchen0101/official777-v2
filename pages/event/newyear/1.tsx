@@ -121,8 +121,8 @@ const ticketGifts: TicketGift[] = [
       {
         name: '勞力士卡',
         icon: '禮品卡片-watch.png',
-        amount: 2,
-        gold: 158000000,
+        amount: 1,
+        gold: 23300000,
       },
       {
         name: 'iPhone 13 Pro Max卡',
@@ -267,9 +267,7 @@ export default function Activity_01() {
       <ActivitySection title="名車抽起來">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>
-            2022/1/26(三) 中午12:00 – 2022/2/19(三) 晚上11:59
-          </ContentText>
+          <ContentText>2022/1/26(三) 12:00 - 2022/2/19(六) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>
@@ -301,7 +299,8 @@ export default function Activity_01() {
             </div>
             <div className="mb-6">
               <p className="mb-3">
-                2.使用指定押注獲得的贏分即為積分，積分達指定門檻可獲得對應抽獎券
+                2.使用指定押注獲得的贏分即為積分，積分累積達指定門檻可獲得對應抽獎券，購買Free
+                Game及道具卡所獲得之贏分不列入計算
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {ticketsRule.map((t, i) => (

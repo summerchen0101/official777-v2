@@ -77,9 +77,7 @@ export default function Activity_06() {
       <ActivitySection title="集獎券送好禮">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>
-            2022/02/09(三) 中午12:00 – 2022/02/13(日) 晚上11:59
-          </ContentText>
+          <ContentText>2022/02/09(三) 12:00 – 2022/02/13(日) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>
@@ -178,7 +176,7 @@ export default function Activity_06() {
           <p className="mt-3">
             ※ 注意事項
             <br />
-            加碼獎勵將於活動結束後3個工作日內，發送至玩家背包，屆時請登入遊戲查看。
+            加碼獎勵將於2/15 12:00發送，屆時請登入活動頁面查看。
           </p>
         </ContentText>
       </ActivitySection>

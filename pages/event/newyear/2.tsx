@@ -106,9 +106,7 @@ export default function Activity_05() {
       <ActivitySection title="衝等大挑戰">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>
-            2022/1/29(五) 中午12:00 – 2022/2/8(二) 晚上11:59
-          </ContentText>
+          <ContentText>2022/1/29(六) 12:00 – 2022/2/8(二) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>
@@ -120,7 +118,7 @@ export default function Activity_05() {
             <ListWrapper>
               <li>活動期間內，累積提升等級數達對應門檻，可獲得指定道具卡。</li>
               <li>獎勵依累積提升等級數，擇優發送卡片獎勵一張。</li>
-              <li>獎勵將統一於2022/2/9 (三)晚上6：00前發送。</li>
+              <li>獎勵將統一於2022/2/10(四) 18:00前發送。</li>
               <li>
                 1000級以上及1000級以下不重複累計
                 <p>
