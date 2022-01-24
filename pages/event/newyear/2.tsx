@@ -106,7 +106,7 @@ export default function Activity_05() {
       <ActivitySection title="衝等大挑戰">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>2022/1/29(六) 12:00 – 2022/2/8(二) 23:59</ContentText>
+          <ContentText>2022/1/29(六) 00:00 – 2022/2/8(二) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>

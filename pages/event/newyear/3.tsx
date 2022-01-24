@@ -57,7 +57,7 @@ export default function Activity_02() {
           <ContentText>2022/1/29(六) 12:00 – 2022/2/13(日) 23:59</ContentText>
         </div>
         <div>
-          <SubTitle>活動說明一</SubTitle>
+          <SubTitle>活動說明</SubTitle>
           <ContentText>
             活動期間內，若有拿到實體紅包袋，於下方輸入遊戲暱稱和紅包袋背面序號，即可獲得一張「銅獎券」，並有機會抽中iPhone
             13！
