@@ -3,9 +3,18 @@ import ContentText from '@/components/activity/ContentText'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import { toCdnUrl, toCurrency } from '@/utils'
+import VoucherAwardsPopup from '@/components/VoucherAwardsPopup'
+import { VoucherType } from '@/lib/enums'
+import { voucherTypeMap } from '@/lib/map'
+import useEventList, { Event } from '@/services/useEventList'
+import useEventOverview from '@/services/useEventOverview'
+import useMe from '@/services/useMe'
+import usePopupStore from '@/store/usePopupStore'
+import { toCurrency, toCdnUrl } from '@/utils'
+import useBodyLock from '@/utils/useBodyLock'
 import cs from 'classnames'
-import React, { useState } from 'react'
+import { keyBy } from 'lodash'
+import React, { useMemo, useState } from 'react'
 
 const vipsTickets = [
   { vip: '鑽石會員', amount: 1, icon: '金' },
@@ -23,12 +32,14 @@ interface Rule {
 }
 
 interface TicketRule {
+  voucher: VoucherType
   icon: string
   score: number
   rules: Rule[]
 }
 const ticketsRule: TicketRule[] = [
   {
+    voucher: VoucherType.Golden,
     icon: '金',
     score: 800000,
     rules: [
@@ -37,6 +48,7 @@ const ticketsRule: TicketRule[] = [
     ],
   },
   {
+    voucher: VoucherType.Silver,
     icon: '銀',
     score: 200000,
     rules: [
@@ -45,6 +57,7 @@ const ticketsRule: TicketRule[] = [
     ],
   },
   {
+    voucher: VoucherType.Copper,
     icon: '銅',
     score: 40000,
     rules: [
@@ -55,6 +68,7 @@ const ticketsRule: TicketRule[] = [
 ]
 
 interface TicketWinner {
+  voucher: VoucherType
   ticket: string
   icon: string
   current: number
@@ -64,6 +78,7 @@ interface TicketWinner {
 
 const ticketWinnerList: TicketWinner[] = [
   {
+    voucher: VoucherType.Golden,
     ticket: '金',
     icon: '金',
     current: 1000,
@@ -71,6 +86,7 @@ const ticketWinnerList: TicketWinner[] = [
     winners: ['1112-2333-3444', '1112-2333-3444'],
   },
   {
+    voucher: VoucherType.Silver,
     ticket: '銀',
     icon: '銀',
     current: 1000,
@@ -78,6 +94,7 @@ const ticketWinnerList: TicketWinner[] = [
     winners: ['1112-2333-3444', '1112-2333-3444'],
   },
   {
+    voucher: VoucherType.Golden,
     ticket: '銅',
     icon: '銅',
     current: 1000,
@@ -184,7 +201,23 @@ const ticketGifts: TicketGift[] = [
 
 export default function Activity_01() {
   const [tab, setTab] = useState(0)
-  // const { data } = useMe()
+  const { data } = useMe()
+  const { list, isLoading } = useEventList()
+  const eventData = useMemo<Event | null>(() => list?.[0] || null, [list])
+  const { data: eventOverview } = useEventOverview({ eventId: eventData?.id })
+  const voucherAmountMap = keyBy(
+    eventOverview?.voucherInfo.infos,
+    (t) => t.item_id,
+  )
+
+  const { onShow } = usePopupStore((s) => s.voucherAwards)
+  const [activeVoucher, setActiveVoucher] = useState<VoucherType>()
+
+  const handleVoucherClicked = (voucher: VoucherType) => {
+    setActiveVoucher(voucher)
+    onShow()
+  }
+
   return (
     <PageWrapper>
       <ActivityBtns id={1} />
@@ -239,7 +272,8 @@ export default function Activity_01() {
                         alt=""
                         className="w-10"
                       />
-                      {toCurrency(t.score)}分/張
+                      {toCurrency(voucherAmountMap[t.voucher]?.threshold_score)}
+                      分/張
                     </div>
 
                     <div className="text-center space-y-1 text-lg">
@@ -288,18 +322,11 @@ export default function Activity_01() {
                   {toCurrency(t.current)} / {toCurrency(t.max)}
                 </div>
 
-                <div className="text-gray-400 font-medium mb-2">
-                  獲得的獎券號碼
-                </div>
-                <div className="text-center space-y-1 text-lg w-4/6">
-                  {t.winners.map((winner, n_i) => (
-                    <div
-                      key={n_i}
-                      className="border-b last-of-type:border-b-0 border-gray-600"
-                    >
-                      {winner}
-                    </div>
-                  ))}
+                <div
+                  className="text-gray-400 font-medium mb-2 cursor-pointer underline hover:no-underline"
+                  onClick={() => handleVoucherClicked(t.voucher)}
+                >
+                  獲得獎券號碼
                 </div>
               </div>
             ))}
@@ -351,18 +378,21 @@ export default function Activity_01() {
                   alt=""
                 />
                 <div className="text-gray-300 text-lg sm:text-xl text-center leading-7 sm:leading-9">
-                  {g.name} 共{g.amount}名 <br />
-                  價值{' '}
-                  <span className="text-yellow-400">
-                    {toCurrency(g.gold)}
-                  </span>{' '}
-                  金幣
+                  {g.name} 共{g.amount}名
+                  <div hidden={!g.gold} className="">
+                    價值{' '}
+                    <span className="text-yellow-400">
+                      {toCurrency(g.gold)}
+                    </span>{' '}
+                    金幣
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
       </ActivitySection>
+      <VoucherAwardsPopup voucher={activeVoucher} eventId={eventData?.id} />
     </PageWrapper>
   )
 }

@@ -14,6 +14,7 @@ interface IState {
   product: PopupType
   giftCard: PopupType
   recharge: PopupType
+  voucherAwards: PopupType
 }
 
 const usePopupStore = create<IState>((set) => {
@@ -46,6 +47,7 @@ const usePopupStore = create<IState>((set) => {
     product: createPopupGroup('product'),
     giftCard: createPopupGroup('giftCard'),
     recharge: createPopupGroup('recharge'),
+    voucherAwards: createPopupGroup('voucherAwards'),
   }
 })
 

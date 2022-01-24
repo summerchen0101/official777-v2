@@ -3,6 +3,12 @@ export enum Platform {
   Android = 'Android',
 }
 
+export enum VoucherType {
+  Golden = 100001,
+  Silver = 100002,
+  Copper = 100003,
+}
+
 export enum GameType {
   Tiger = 1,
   FiveSixSeven = 2,

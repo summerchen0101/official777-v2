@@ -15,6 +15,7 @@ import {
   RewardStatus,
   RewardsType,
   VipLevel,
+  VoucherType,
 } from './enums'
 import { StringMap } from '@/types'
 
@@ -166,4 +167,10 @@ export const vipLevelMap: StringMap = {
   [VipLevel.LV4]: '黃金會員',
   [VipLevel.LV5]: '紅鑽會員',
   [VipLevel.LV6]: '鑽石會員',
+}
+
+export const voucherTypeMap: StringMap = {
+  [VoucherType.Golden]: '金',
+  [VoucherType.Silver]: '銀',
+  [VoucherType.Copper]: '銅',
 }
