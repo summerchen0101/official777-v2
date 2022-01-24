@@ -315,7 +315,7 @@ export default function Activity_01() {
                         alt=""
                         className="w-10"
                       />
-                      {toCurrency(voucherAmountMap[t.voucher]?.threshold_score)}
+                      {toCurrency(t.score)}
                       分/張
                     </div>
 
@@ -343,42 +343,49 @@ export default function Activity_01() {
           </ContentText>
         </div>
         <div className="">
-          <div className="text-2xl bg-gold-600/90 rounded-md py-2 text-center mb-4">
+          <div className="text-2xl bg-gold-600/90 rounded-t-md py-2 text-center">
             持有彩券
           </div>
-          {data?.id ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {ticketWinnerList.map((t, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col items-center bg-gray-900 p-3 rounded-md"
-                >
-                  <div className="mb-2 text-xl font-medium text-yellow-400 flex gap-2">
-                    <img
-                      src={toCdnUrl(`/event/tickets/${t.icon}.jpg`)}
-                      alt=""
-                      className="w-10"
-                    />
-                    {voucherTypeMap[t.voucher]}抽獎券
-                  </div>
-                  <div className="mb-2 text-xl font-medium text-yellow-600">
-                    {toCurrency(t.current)} / {toCurrency(t.max)}
-                  </div>
-
+          <div className="bg-gray-900 rounded-b-md">
+            {data?.id ? (
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {ticketWinnerList.map((t, i) => (
                   <div
-                    className="text-gray-400 font-medium mb-2 cursor-pointer underline hover:no-underline"
-                    onClick={() => handleVoucherClicked(t.voucher)}
+                    key={i}
+                    className="flex flex-col items-center p-3 rounded-md"
                   >
-                    獲得獎券號碼
+                    <div className="mb-2 text-xl font-medium text-yellow-400 flex gap-2">
+                      <img
+                        src={toCdnUrl(`/event/tickets/${t.icon}.jpg`)}
+                        alt=""
+                        className="w-10"
+                      />
+                      {voucherTypeMap[t.voucher]}抽獎券
+                    </div>
+                    <div className="mb-2 text-xl font-medium text-yellow-600">
+                      {toCurrency(t.current)} / {toCurrency(t.max)}
+                    </div>
+
+                    <div
+                      className="text-gray-400 font-medium mb-2 cursor-pointer underline hover:no-underline"
+                      onClick={() => handleVoucherClicked(t.voucher)}
+                    >
+                      獲得獎券號碼
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <button className="btn active mx-auto" onClick={handleLoginFirst}>
-              請先登入會員
-            </button>
-          )}
+                ))}
+              </div>
+            ) : (
+              <div className="py-4">
+                <button
+                  className="btn active mx-auto"
+                  onClick={handleLoginFirst}
+                >
+                  請先登入會員
+                </button>
+              </div>
+            )}
+          </div>
         </div>
       </ActivitySection>
       <ActivitySection title="直播抽獎">
