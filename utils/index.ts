@@ -81,5 +81,5 @@ export function localOpen(appUrl: string) {
   const appDownloadUrl = appUrlMap[checkPlatform()]
   setTimeout(function () {
     window.location.replace(appDownloadUrl)
-  }, 25)
+  }, 2000)
 }
