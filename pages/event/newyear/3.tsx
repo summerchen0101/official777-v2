@@ -7,8 +7,7 @@ import SubTitle from '@/components/activity/SubTitle'
 import LoginPopup from '@/components/LoginPopup'
 import useMe from '@/services/useMe'
 import useSnExchange from '@/services/useSnExchange'
-import usePopupStore from '@/store/usePopupStore'
-import { toCurrency, toCdnUrl } from '@/utils'
+import useLoginFirst from '@/utils/useLoginFirst'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
@@ -25,7 +24,6 @@ const ticketRules = [
 ]
 export default function Activity_02() {
   const { data } = useMe()
-  const onLoginToggle = usePopupStore((s) => s.login.onToggle)
   const {
     register,
     handleSubmit,
@@ -42,13 +40,7 @@ export default function Activity_02() {
   }, [data])
 
   const { handler: doSnExchange, isLoading } = useSnExchange()
-
-  const router = useRouter()
-
-  const handleLoginFirst = () => {
-    router.replace({ query: { to: router.asPath } })
-    onLoginToggle()
-  }
+  const handleLoginFirst = useLoginFirst()
 
   const onSubmit = handleSubmit(async (d) => {
     const res = await doSnExchange({

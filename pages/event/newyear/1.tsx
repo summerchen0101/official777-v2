@@ -12,6 +12,7 @@ import useMe from '@/services/useMe'
 import usePopupStore from '@/store/usePopupStore'
 import { toCurrency, toCdnUrl } from '@/utils'
 import useBodyLock from '@/utils/useBodyLock'
+import useLoginFirst from '@/utils/useLoginFirst'
 import cs from 'classnames'
 import { keyBy } from 'lodash'
 import React, { useMemo, useState } from 'react'
@@ -69,37 +70,29 @@ const ticketsRule: TicketRule[] = [
 
 interface TicketWinner {
   voucher: VoucherType
-  ticket: string
   icon: string
   current: number
   max: number
-  winners: string[]
 }
 
 const ticketWinnerList: TicketWinner[] = [
   {
     voucher: VoucherType.Golden,
-    ticket: '金',
     icon: '金',
     current: 1000,
     max: 20000,
-    winners: ['1112-2333-3444', '1112-2333-3444'],
   },
   {
     voucher: VoucherType.Silver,
-    ticket: '銀',
     icon: '銀',
     current: 1000,
     max: 20000,
-    winners: ['1112-2333-3444', '1112-2333-3444'],
   },
   {
-    voucher: VoucherType.Golden,
-    ticket: '銅',
+    voucher: VoucherType.Copper,
     icon: '銅',
     current: 1000,
     max: 20000,
-    winners: ['1112-2333-3444', '1112-2333-3444'],
   },
 ]
 
@@ -133,31 +126,31 @@ const ticketGifts: TicketGift[] = [
       },
       {
         name: 'iPhone 13 Pro Max卡',
-        icon: '禮品卡片-watch.png',
+        icon: '禮品卡片-iphone13Pro.png',
         amount: 10,
         gold: 3690000,
       },
       {
         name: '金幣100,000',
-        icon: '禮品卡片-watch.png',
+        icon: '金幣100k.png',
         amount: 10,
         gold: 0,
       },
       {
         name: '金幣50,000',
-        icon: '禮品卡片-watch.png',
+        icon: '金幣50k.png',
         amount: 30,
         gold: 0,
       },
       {
         name: '金幣10,000',
-        icon: '禮品卡片-watch.png',
+        icon: '金幣10k.png',
         amount: 50,
         gold: 0,
       },
       {
         name: '金幣5,000',
-        icon: '禮品卡片-watch.png',
+        icon: '金幣5000.png',
         amount: 100,
         gold: 0,
       },
@@ -168,21 +161,45 @@ const ticketGifts: TicketGift[] = [
     gifts: [
       {
         name: 'Yamaha R3卡',
-        icon: '禮品卡片-car.png',
+        icon: '禮品卡片-yamaha.png',
         amount: 1,
         gold: 24700000,
       },
       {
         name: '一台兩黃金卡',
-        icon: '禮品卡片-watch.png',
+        icon: '禮品卡片-golden.png',
         amount: 1,
         gold: 7020000,
       },
       {
         name: 'iPhone 13卡',
-        icon: '禮品卡片-watch.png',
-        amount: 1,
-        gold: 7020000,
+        icon: '禮品卡片-iphone13.png',
+        amount: 10,
+        gold: 2590000,
+      },
+      {
+        name: '金幣5,000',
+        icon: '金幣5000.png',
+        amount: 20,
+        gold: 0,
+      },
+      {
+        name: '金幣3,000',
+        icon: '金幣3000.png',
+        amount: 40,
+        gold: 0,
+      },
+      {
+        name: '金幣1,000',
+        icon: '金幣1000.png',
+        amount: 70,
+        gold: 0,
+      },
+      {
+        name: '金幣800',
+        icon: '金幣800.png',
+        amount: 100,
+        gold: 0,
       },
     ],
   },
@@ -190,10 +207,34 @@ const ticketGifts: TicketGift[] = [
     ticket: '銅',
     gifts: [
       {
-        name: '賓士名車卡',
-        icon: '禮品卡片-car.png',
-        amount: 2,
-        gold: 158000000,
+        name: 'iPhone 13卡',
+        icon: '禮品卡片-iphone13.png',
+        amount: 20,
+        gold: 2590000,
+      },
+      {
+        name: '金幣1,000',
+        icon: '金幣1000.png',
+        amount: 30,
+        gold: 0,
+      },
+      {
+        name: '金幣800',
+        icon: '金幣800.png',
+        amount: 50,
+        gold: 0,
+      },
+      {
+        name: '金幣500',
+        icon: '金幣500.png',
+        amount: 80,
+        gold: 0,
+      },
+      {
+        name: '金幣300',
+        icon: '金幣300.png',
+        amount: 120,
+        gold: 0,
       },
     ],
   },
@@ -217,6 +258,8 @@ export default function Activity_01() {
     setActiveVoucher(voucher)
     onShow()
   }
+
+  const handleLoginFirst = useLoginFirst()
 
   return (
     <PageWrapper>
@@ -243,7 +286,7 @@ export default function Activity_01() {
                 {vipsTickets.map((t, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center bg-gray-800 p-1.5 rounded-lg"
+                    className="flex flex-col items-center bg-gray-900 p-1.5 rounded-md"
                   >
                     <div className="mb-2 text-lg font-medium">{t.vip}</div>
                     <img
@@ -264,7 +307,7 @@ export default function Activity_01() {
                 {ticketsRule.map((t, i) => (
                   <div
                     key={i}
-                    className="flex flex-col items-center bg-gray-800 p-3 rounded-lg"
+                    className="flex flex-col items-center bg-gray-900 p-3 rounded-md"
                   >
                     <div className="mb-2 text-xl font-medium text-yellow-600 flex gap-3">
                       <img
@@ -299,38 +342,43 @@ export default function Activity_01() {
             </div>
           </ContentText>
         </div>
-
         <div className="">
-          <div className="text-2xl bg-gray-600 rounded-xl py-2 text-center mb-4">
+          <div className="text-2xl bg-gold-600/90 rounded-md py-2 text-center mb-4">
             持有彩券
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {ticketWinnerList.map((t, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center bg-gray-800 p-3 rounded-lg"
-              >
-                <div className="mb-2 text-xl font-medium text-yellow-400 flex gap-2">
-                  <img
-                    src={toCdnUrl(`/event/tickets/${t.icon}.jpg`)}
-                    alt=""
-                    className="w-10"
-                  />
-                  {t.ticket}抽獎券
-                </div>
-                <div className="mb-2 text-xl font-medium text-yellow-600">
-                  {toCurrency(t.current)} / {toCurrency(t.max)}
-                </div>
-
+          {data?.id ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {ticketWinnerList.map((t, i) => (
                 <div
-                  className="text-gray-400 font-medium mb-2 cursor-pointer underline hover:no-underline"
-                  onClick={() => handleVoucherClicked(t.voucher)}
+                  key={i}
+                  className="flex flex-col items-center bg-gray-900 p-3 rounded-md"
                 >
-                  獲得獎券號碼
+                  <div className="mb-2 text-xl font-medium text-yellow-400 flex gap-2">
+                    <img
+                      src={toCdnUrl(`/event/tickets/${t.icon}.jpg`)}
+                      alt=""
+                      className="w-10"
+                    />
+                    {voucherTypeMap[t.voucher]}抽獎券
+                  </div>
+                  <div className="mb-2 text-xl font-medium text-yellow-600">
+                    {toCurrency(t.current)} / {toCurrency(t.max)}
+                  </div>
+
+                  <div
+                    className="text-gray-400 font-medium mb-2 cursor-pointer underline hover:no-underline"
+                    onClick={() => handleVoucherClicked(t.voucher)}
+                  >
+                    獲得獎券號碼
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <button className="btn active mx-auto" onClick={handleLoginFirst}>
+              請先登入會員
+            </button>
+          )}
         </div>
       </ActivitySection>
       <ActivitySection title="直播抽獎">
@@ -354,8 +402,8 @@ export default function Activity_01() {
               <div
                 key={i}
                 className={cs(
-                  'text-white bg-gray-600 rounded-full p-3 w-32 text-xl text-center cursor-pointer shadow-md',
-                  { 'bg-gold-600': tab === i },
+                  'text-white bg-gray-600 rounded-full p-3 w-32 text-xl text-center cursor-pointer shadow-md border-4 border-black/30',
+                  { 'bg-gold-600 -translate-y-2 scale-105': tab === i },
                 )}
                 onClick={(e) => setTab(i)}
               >
@@ -368,8 +416,8 @@ export default function Activity_01() {
               <div
                 key={i}
                 className={cs(
-                  'flex flex-col flex-wrap sm:flex-row gap-4 sm:gap-8 items-center p-8 rounded-lg justify-center  bg-gray-800',
-                  i === 0 && 'col-span-2',
+                  'col-span-2 lg:col-span-1 flex flex-col flex-wrap sm:flex-row gap-4 sm:gap-8 items-center p-8 rounded-md justify-center bg-black/50 border-2 border-gold-600/80',
+                  i === 0 && 'lg:col-span-2',
                 )}
               >
                 <img

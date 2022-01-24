@@ -51,7 +51,7 @@ function useEventList() {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
-    [`${apiPath}/campaignEvents`, token],
+    token ? [`${apiPath}/campaignEvents`, token] : null,
     (url, token) =>
       request<EventListRes>({
         url,
