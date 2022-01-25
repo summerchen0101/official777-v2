@@ -45,7 +45,7 @@ const ticketsRule: TicketRule[] = [
     score: 800000,
     rules: [
       { game: '老虎機', min: 20000 },
-      { game: '魚機', min: 2000 },
+      // { game: '魚機', min: 2000 },
     ],
   },
   {
@@ -54,7 +54,7 @@ const ticketsRule: TicketRule[] = [
     score: 200000,
     rules: [
       { game: '老虎機', min: 4000, max: 10000 },
-      { game: '魚機', min: 400, max: 1000 },
+      // { game: '魚機', min: 400, max: 1000 },
     ],
   },
   {
@@ -63,7 +63,7 @@ const ticketsRule: TicketRule[] = [
     score: 40000,
     rules: [
       { game: '老虎機', min: 1000, max: 3000 },
-      { game: '魚機', min: 100, max: 300 },
+      // { game: '魚機', min: 100, max: 300 },
     ],
   },
 ]
