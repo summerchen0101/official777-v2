@@ -30,16 +30,22 @@ function VoucherAwardsPopup({ eventId, voucher }: Props) {
       )}
       onClick={onHide}
     >
-      <div className="bg-purple-900 border-gold-500 border-2 h-full lg:h-auto lg:min-h-[400px] lg:max-h-[800px] w-full lg:w-[350px] rounded-lg p-3 flex flex-col">
-        <div className="text-center text-xl font-mono text-gold-400">
+      <div
+        className="bg-purple-900 border-gold-500 border-2 h-full lg:h-auto lg:min-h-[500px] lg:max-h-[800px] w-full lg:w-[350px] rounded-lg p-3 flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="text-center text-2xl font-mono text-gold-400 py-2">
           獲得的{voucherTypeMap[voucher!]}獎券
         </div>
         <div className="lg:hidden absolute top-0 right-0 p-4" onClick={onHide}>
           <CgClose size="20px" className="text-gold-500" />
         </div>
-        <div className="mt-3 overflow-y-auto flex-1">
+        <div className="mt-3 overflow-y-auto flex-1 flex flex-col items-center gap-2">
           {list?.map((sn) => (
-            <div key={sn} className="text-center text-gray-200 text-lg">
+            <div
+              key={sn}
+              className="text-center text-gray-300 text-lg bg-black/20 px-10"
+            >
               {sn}
             </div>
           ))}

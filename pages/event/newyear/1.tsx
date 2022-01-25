@@ -75,26 +75,26 @@ interface TicketWinner {
   max: number
 }
 
-const ticketWinnerList: TicketWinner[] = [
-  {
-    voucher: VoucherType.Golden,
-    icon: '金',
-    current: 1000,
-    max: 20000,
-  },
-  {
-    voucher: VoucherType.Silver,
-    icon: '銀',
-    current: 1000,
-    max: 20000,
-  },
-  {
-    voucher: VoucherType.Copper,
-    icon: '銅',
-    current: 1000,
-    max: 20000,
-  },
-]
+// const ticketWinnerList: TicketWinner[] = [
+//   {
+//     voucher: VoucherType.Golden,
+//     icon: '金',
+//     current: 1000,
+//     max: 20000,
+//   },
+//   {
+//     voucher: VoucherType.Silver,
+//     icon: '銀',
+//     current: 1000,
+//     max: 20000,
+//   },
+//   {
+//     voucher: VoucherType.Copper,
+//     icon: '銅',
+//     current: 1000,
+//     max: 20000,
+//   },
+// ]
 
 interface Gift {
   name: string
@@ -245,11 +245,7 @@ export default function Activity_01() {
   const { data } = useMe()
   const { list, isLoading } = useEventList()
   const eventData = useMemo<Event | null>(() => list?.[0] || null, [list])
-  const { data: eventOverview } = useEventOverview({ eventId: eventData?.id })
-  const voucherAmountMap = keyBy(
-    eventOverview?.voucherInfo.infos,
-    (t) => t.item_id,
-  )
+  const { data: eventOverview } = useEventOverview({ eventCode: 'newyear' })
 
   const { onShow } = usePopupStore((s) => s.voucherAwards)
   const [activeVoucher, setActiveVoucher] = useState<VoucherType>()
@@ -348,28 +344,31 @@ export default function Activity_01() {
           <div className="bg-gray-900 rounded-b-md">
             {data?.id ? (
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {ticketWinnerList.map((t, i) => (
+                {eventOverview?.voucherInfo.map((t, i) => (
                   <div
                     key={i}
                     className="flex flex-col items-center p-3 rounded-md"
                   >
                     <div className="mb-2 text-xl font-medium text-yellow-400 flex gap-2">
                       <img
-                        src={toCdnUrl(`/event/tickets/${t.icon}.jpg`)}
+                        src={toCdnUrl(
+                          `/event/tickets/${voucherTypeMap[t.item_id]}.jpg`,
+                        )}
                         alt=""
                         className="w-10"
                       />
-                      {voucherTypeMap[t.voucher]}抽獎券
+                      {voucherTypeMap[t.item_id]}抽獎券
                     </div>
                     <div className="mb-2 text-xl font-medium text-yellow-600">
-                      {toCurrency(t.current)} / {toCurrency(t.max)}
+                      {toCurrency(t.current_score)} /{' '}
+                      {toCurrency(t.threshold_score)}
                     </div>
 
                     <div
                       className="text-gray-400 font-medium mb-2 cursor-pointer underline hover:no-underline"
-                      onClick={() => handleVoucherClicked(t.voucher)}
+                      onClick={() => handleVoucherClicked(t.item_id)}
                     >
-                      獲得獎券號碼
+                      已獲得 {t.total_count} 張獎券
                     </div>
                   </div>
                 ))}

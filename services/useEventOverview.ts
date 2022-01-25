@@ -4,7 +4,7 @@ import useRequest, { apiPath, publicApiPath } from '@/hooks/useRequest'
 import useSWR from 'swr'
 
 export interface EventOverviewReq {
-  eventId?: number
+  eventCode?: string
 }
 
 export interface ItmeInfo {
@@ -13,23 +13,16 @@ export interface ItmeInfo {
   itemID: number
 }
 
-export interface Info {
+export interface VoucherInfo {
   item_id: number
   threshold_score: number
-}
-
-export interface VoucherInfo {
-  name: string
-  start_time: number
-  end_time: number
-  infos: Info[]
-  event_link: string
-  banner_links: string[]
+  current_score: number
+  total_count: number
 }
 
 export interface Data {
   itmeInfo: ItmeInfo[]
-  voucherInfo: VoucherInfo
+  voucherInfo: VoucherInfo[]
 }
 
 export interface EventOverviewRes extends ResBase {
@@ -37,20 +30,20 @@ export interface EventOverviewRes extends ResBase {
   data: Data
 }
 
-function useEventOverview({ eventId }: EventOverviewReq) {
+function useEventOverview({ eventCode }: EventOverviewReq) {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
-    eventId
-      ? [`${apiPath}/campaignEvents/${eventId}/overview`, token, eventId]
+    eventCode
+      ? [`${apiPath}/campaignEvents/${eventCode}/overview`, token, eventCode]
       : null,
-    (url, token, eventId) =>
+    (url, token, eventCode) =>
       request<EventOverviewRes>({
         url,
         method: 'get',
         config: {
           params: {
-            eventId,
+            eventCode,
           },
           headers: {
             Authorization: `Bearer ${token}`,
