@@ -6,60 +6,112 @@ import React from 'react'
 
 const objList = [
   {
-    name: '免費遊戲注額卷 100(碎片)',
-    desc: `收集10張可以獲得一次SLOT GAME，注額100的免費遊戲`,
-    img: '/obj/item_FG_piecesLV1.png',
+    name: '一星超級卡',
+    desc: `獲得一次老虎機，押注100的免費遊戲`,
+    img: '/event/items/FG_LV3_1.png',
   },
   {
-    name: '免費遊戲注額卷 1,000(碎片)',
-    desc: `收集10張可以獲得一次SLOT GAME，注額1000的免費遊戲`,
-    img: '/obj/item_FG_piecesLV2.png',
+    name: '三星超級卡',
+    desc: `獲得一次老虎機，押注1000的免費遊戲`,
+    img: '/event/items/FG_LV3_3.png',
   },
   {
-    name: '免費遊戲注額卷 10,000(碎片)',
-    desc: `收集10張可以獲得一次SLOT GAME，注額10000的免費遊戲`,
-    img: '/obj/item_FG_piecesLV3.png',
+    name: '五星超級卡',
+    desc: `獲得一次老虎機，押注10000的免費遊戲`,
+    img: '/event/items/FG_LV3_5.png',
   },
   {
-    name: '免費遊戲注額卷 100',
-    desc: `獲得一次SLOT GAME，注額100的免費遊戲`,
-    img: '/obj/item_FG_LV1.png',
+    name: '一星威力卡',
+    desc: `獲得一次老虎機，押注100的免費遊戲`,
+    img: '/event/items/FG_LV2_1.png',
   },
   {
-    name: '免費遊戲注額卷 1,000',
-    desc: `獲得一次SLOT GAME，注額1000的免費遊戲`,
-    img: '/obj/item_FG_LV2.png',
+    name: '三星威力卡',
+    desc: `獲得一次老虎機，押注1000的免費遊戲`,
+    img: '/event/items/FG_LV2_3.png',
   },
   {
-    name: '免費遊戲注額卷 10,000',
-    desc: `獲得一次SLOT GAME，注額10000的免費遊戲`,
-    img: '/obj/item_FG_LV3.png',
+    name: '五星威力卡',
+    desc: `獲得一次老虎機，押注10000的免費遊戲`,
+    img: '/event/items/FG_LV2_5.png',
   },
   {
-    name: '金幣卷 100(碎片)',
-    desc: `收集10張，使用後可以直接獲得100金幣`,
-    img: '/obj/item_piecesGold100.png',
+    name: '一星獎勵卡',
+    desc: `獲得一次老虎機，押注100的免費遊戲`,
+    img: '/event/items/FG_LV1_1.png',
   },
   {
-    name: '金幣卷 1,000(碎片)',
-    desc: `收集10張，使用後可以直接獲得1000金幣`,
-    img: '/obj/item_piecesGold1000.png',
+    name: '三星獎勵卡',
+    desc: `獲得一次老虎機，押注1000的免費遊戲`,
+    img: '/event/items/FG_LV1_3.png',
   },
   {
-    name: '金幣卷 10,000(碎片)',
-    desc: `收集10張，使用後可以直接獲得10000金幣`,
-    img: '/obj/item_piecesGold10000.png',
+    name: '五星獎勵卡',
+    desc: `獲得一次老虎機，押注10000的免費遊戲`,
+    img: '/event/items/FG_LV1_5.png',
   },
-  {
-    name: '普通刮刮卡',
-    desc: `使用後可以進行普通刮刮樂遊戲一次`,
-    img: '/obj/item_item_Scratch_LV1.png',
-  },
-  {
-    name: '高級刮刮卡',
-    desc: `使用後可以進行高級刮刮樂遊戲一次`,
-    img: '/obj/item_item_Scratch_LV2.png',
-  },
+
+  // {
+  //   name: '一星超級卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注100的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV1.png',
+  // },
+  // {
+  //   name: '三星超級卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注1000的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
+  // {
+  //   name: '五星超級卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注10000的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
+  // {
+  //   name: '一星威力卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注100的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV1.png',
+  // },
+  // {
+  //   name: '三星威力卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注1000的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
+  // {
+  //   name: '五星威力卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注10000的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
+  // {
+  //   name: '一星獎勵卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注100的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV1.png',
+  // },
+  // {
+  //   name: '三星獎勵卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注1000的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
+  // {
+  //   name: '五星獎勵卡碎片',
+  //   desc: `收集10張可以獲得一次老虎機，押注10000的免費遊戲`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
+
+  // {
+  //   name: '1000金幣券碎片',
+  //   desc: `收集10張，使用後可以直接獲得1000金幣`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
+  // {
+  //   name: '10000金幣券碎片',
+  //   desc: `收集10張，使用後可以直接獲得10000金幣`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
+  // {
+  //   name: '100000金幣券碎片',
+  //   desc: `收集10張，使用後可以直接獲得100000金幣`,
+  //   img: '/obj/item_item_Scratch_LV2.png',
+  // },
 ]
 
 function ObjIntro() {
