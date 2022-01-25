@@ -52,8 +52,8 @@ function RechargePage() {
               />
             </div>
             <div
-              className="deposit-btn col-span-6 md:col-span-3"
-              onClick={onProductShow}
+              className="deposit-btn disabled col-span-6 md:col-span-3"
+              // onClick={onProductShow}
             >
               <img
                 src={toCdnUrl('/recharge/ecpay_pkg.png')}
