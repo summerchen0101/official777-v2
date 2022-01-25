@@ -2,7 +2,7 @@ import { ResBase } from '@/types'
 import useRequest, { apiPath } from '@/hooks/useRequest'
 import { useState } from 'react'
 
-export interface TicketListReq {
+export interface TicketCreateReq {
   requester_id: string
   subject: string
   description: string
@@ -10,7 +10,7 @@ export interface TicketListReq {
   attachment: File
 }
 
-export interface TicketListRes extends ResBase {}
+export interface TicketCreateRes extends ResBase {}
 
 function useTicketCreate() {
   const request = useRequest()
