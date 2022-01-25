@@ -75,27 +75,6 @@ interface TicketWinner {
   max: number
 }
 
-// const ticketWinnerList: TicketWinner[] = [
-//   {
-//     voucher: VoucherType.Golden,
-//     icon: '金',
-//     current: 1000,
-//     max: 20000,
-//   },
-//   {
-//     voucher: VoucherType.Silver,
-//     icon: '銀',
-//     current: 1000,
-//     max: 20000,
-//   },
-//   {
-//     voucher: VoucherType.Copper,
-//     icon: '銅',
-//     current: 1000,
-//     max: 20000,
-//   },
-// ]
-
 interface Gift {
   name: string
   icon: string
@@ -243,8 +222,8 @@ const ticketGifts: TicketGift[] = [
 export default function Activity_01() {
   const [tab, setTab] = useState(0)
   const { data } = useMe()
-  const { list, isLoading } = useEventList()
-  const eventData = useMemo<Event | null>(() => list?.[0] || null, [list])
+  // const { list, isLoading } = useEventList()
+  // const eventData = useMemo<Event | null>(() => list?.[0] || null, [list])
   const { data: eventOverview } = useEventOverview({ eventCode: 'newyear' })
 
   const { onShow } = usePopupStore((s) => s.voucherAwards)
@@ -445,7 +424,10 @@ export default function Activity_01() {
           </div>
         </div>
       </ActivitySection>
-      <VoucherAwardsPopup voucher={activeVoucher} eventId={eventData?.id} />
+      <VoucherAwardsPopup
+        voucher={activeVoucher}
+        eventId={eventOverview?.eventID}
+      />
     </PageWrapper>
   )
 }

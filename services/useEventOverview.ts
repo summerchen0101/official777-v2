@@ -21,6 +21,8 @@ export interface VoucherInfo {
 }
 
 export interface Data {
+  eventID: number
+  eventCode: string
   itmeInfo: ItmeInfo[]
   voucherInfo: VoucherInfo[]
 }
