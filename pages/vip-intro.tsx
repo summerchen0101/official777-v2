@@ -10,21 +10,21 @@ import PicIntro from '@/components/PicIntro'
 const vipIntro = [
   {
     項目: 'VIP點數需求',
-    [VipLevel.LV1]: '60',
-    [VipLevel.LV2]: '1,000',
-    [VipLevel.LV3]: '5,000',
-    [VipLevel.LV4]: '20,000',
-    [VipLevel.LV5]: '100,000',
-    [VipLevel.LV6]: '-',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '60',
+    [VipLevel.LV3]: '1,000',
+    [VipLevel.LV4]: '5,000',
+    [VipLevel.LV5]: '20,000',
+    [VipLevel.LV6]: '100,000',
   },
   {
     項目: '累積押注',
     [VipLevel.LV1]: '-',
-    [VipLevel.LV2]: '5,000,000',
-    [VipLevel.LV3]: '25,000,000',
-    [VipLevel.LV4]: '100,000,000',
-    [VipLevel.LV5]: '500,000,000',
-    [VipLevel.LV6]: '-',
+    [VipLevel.LV2]: '-',
+    [VipLevel.LV3]: '5,000,000',
+    [VipLevel.LV4]: '25,000,000',
+    [VipLevel.LV5]: '100,000,000',
+    [VipLevel.LV6]: '500,000,000',
   },
   {
     項目: '聊天名字顏色',
@@ -151,38 +151,6 @@ const vipIntro = [
     [VipLevel.LV4]: '60天',
     [VipLevel.LV5]: '60天',
     [VipLevel.LV6]: '60天',
-  },
-]
-const list = [
-  {
-    name: 'VIP 0',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard0.png',
-  },
-  {
-    name: 'VIP 1',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard1.png',
-  },
-  {
-    name: 'VIP 2',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard2.png',
-  },
-  {
-    name: 'VIP 3',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard3.png',
-  },
-  {
-    name: 'VIP 4',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard4.png',
-  },
-  {
-    name: 'VIP 5',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard5.png',
   },
 ]
 
