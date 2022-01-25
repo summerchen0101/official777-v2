@@ -22,18 +22,18 @@ const list = [
     可以根據回答得好像決定要不要將紅包發放出去！`,
     img: '/gift/img_redEnvelopePicture.png',
   },
-  {
-    name: '語音紅包',
-    desc: `想玩點小遊戲的您，可以跟搶紅包的玩家玩玩清唱和說笑話的遊戲！
-    可以根據回答得好像決定要不要將紅包發放出去！`,
-    img: '/gift/img_redEnvelopeVoice.png',
-  },
-  {
-    name: '影音紅包',
-    desc: `想玩點小遊戲的您，可以跟搶紅包的玩家玩玩跳舞和搞笑動作的遊戲！
-    可以根據回答得好像決定要不要將紅包發放出去！`,
-    img: '/gift/img_redEnvelopeVideo.png',
-  },
+  // {
+  //   name: '語音紅包',
+  //   desc: `想玩點小遊戲的您，可以跟搶紅包的玩家玩玩清唱和說笑話的遊戲！
+  //   可以根據回答得好像決定要不要將紅包發放出去！`,
+  //   img: '/gift/img_redEnvelopeVoice.png',
+  // },
+  // {
+  //   name: '影音紅包',
+  //   desc: `想玩點小遊戲的您，可以跟搶紅包的玩家玩玩跳舞和搞笑動作的遊戲！
+  //   可以根據回答得好像決定要不要將紅包發放出去！`,
+  //   img: '/gift/img_redEnvelopeVideo.png',
+  // },
 ]
 
 function GiftIntro() {
