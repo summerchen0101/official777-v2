@@ -1,5 +1,5 @@
 import usePopupStore from '@/store/usePopupStore'
-import useBodyLock from '@/utils/useBodyLock'
+import useBodyLock from '@/hooks/useBodyLock'
 import React, { useState } from 'react'
 import cs from 'classnames'
 import { VoucherType } from '@/lib/enums'

@@ -1,6 +1,6 @@
 import { useUserStore } from '@/store/useUserStore'
 import { Pagination, ResBase } from '@/types'
-import useRequest, { publicApiPath } from '@/utils/useRequest'
+import useRequest, { publicApiPath } from '@/hooks/useRequest'
 import useSWR from 'swr'
 
 export interface GoodsListReq {

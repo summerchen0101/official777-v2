@@ -1,5 +1,5 @@
 import { toCdnUrl } from '@/utils'
-import useBodyLock from '@/utils/useBodyLock'
+import useBodyLock from '@/hooks/useBodyLock'
 import cs from 'classnames'
 import React, { ReactNode, useEffect, useMemo, useRef } from 'react'
 
