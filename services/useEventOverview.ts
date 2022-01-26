@@ -36,7 +36,7 @@ function useEventOverview({ eventCode }: EventOverviewReq) {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
-    eventCode
+    token && eventCode
       ? [`${apiPath}/campaignEvents/${eventCode}/overview`, token, eventCode]
       : null,
     (url, token, eventCode) =>
