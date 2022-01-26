@@ -375,7 +375,7 @@ export default function Activity_01() {
   return (
     <PageWrapper>
       <ActivityBtns id={1} />
-      <ActivitySection title="名車抽起來">
+      <ActivitySection title={canRecharge ? '名車抽起來' : '拿券抽金幣'}>
         <div>
           <SubTitle>活動時間</SubTitle>
           <ContentText>2022/1/26(三) 18:00 ~ 2022/2/20(日) 23:59</ContentText>
