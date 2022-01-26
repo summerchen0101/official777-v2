@@ -22,6 +22,10 @@ function SideBox() {
       onToggle()
     }
   }
+  const handleClickLogin = () => {
+    router.replace({ query: { to: router.asPath } })
+    onToggle()
+  }
 
   const handleLogout = () => {
     clearUser()
@@ -87,7 +91,7 @@ function SideBox() {
       ) : (
         <div
           className="self-center h-8 w-full bg-contain bg-center bg-no-repeat bg-login-btn hover:bg-login-btn-active absolute -bottom-3 cursor-pointer"
-          onClick={onToggle}
+          onClick={handleClickLogin}
         />
       )}
     </div>
