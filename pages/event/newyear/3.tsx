@@ -11,6 +11,7 @@ import useLoginFirst from '@/hooks/useLoginFirst'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { useStore } from '@/store/useStore'
 
 type Inputs = {
   userID: string
@@ -23,6 +24,7 @@ const ticketRules = [
   { ticket: '金', amount: 1, score: 400000 },
 ]
 export default function Activity_02() {
+  const cnaRecharge = useStore((s) => s.canRecharge)
   const { data } = useMe()
   const {
     register,
@@ -58,10 +60,16 @@ export default function Activity_02() {
         </div>
         <div>
           <SubTitle>活動說明</SubTitle>
-          <ContentText>
-            活動期間內，若有拿到實體紅包袋，於下方輸入遊戲暱稱和紅包袋背面序號，即可獲得一張「銅獎券」，並有機會抽中iPhone
-            13！
-          </ContentText>
+          {cnaRecharge ? (
+            <ContentText>
+              活動期間內，若有拿到實體紅包袋，於下方輸入遊戲暱稱和紅包袋背面序號，即可獲得一張「銅獎券」，並有機會抽中iPhone
+              13！
+            </ContentText>
+          ) : (
+            <ContentText>
+              活動期間內，若有拿到實體紅包袋，於下方輸入遊戲暱稱和紅包袋背面序號，即可獲得一張「銅獎券」
+            </ContentText>
+          )}
 
           <div className="form-box my-5 -mx-4 sm:mx-12">
             {data ? (
