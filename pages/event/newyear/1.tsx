@@ -16,6 +16,7 @@ import useLoginFirst from '@/hooks/useLoginFirst'
 import cs from 'classnames'
 import { keyBy } from 'lodash'
 import React, { useMemo, useState } from 'react'
+import { useStore } from '@/store/useStore'
 
 const vipsTickets = [
   { vip: '鑽石會員', amount: 1, icon: '金' },
@@ -87,7 +88,139 @@ interface TicketGift {
   gifts: Gift[]
 }
 
-const ticketGifts: TicketGift[] = [
+const ticketGifts_boss: TicketGift[] = [
+  {
+    ticket: '金',
+    gifts: [
+      {
+        name: '金幣158,000,000',
+        icon: '金幣.png',
+        amount: 2,
+        gold: 0,
+      },
+      {
+        name: '金幣23,300,000',
+        icon: '金幣.png',
+        amount: 1,
+        gold: 0,
+      },
+      {
+        name: '金幣3,690,000',
+        icon: '金幣.png',
+        amount: 10,
+        gold: 0,
+      },
+      {
+        name: '金幣100,000',
+        icon: '金幣.png',
+        amount: 10,
+        gold: 0,
+      },
+      {
+        name: '金幣50,000',
+        icon: '金幣.png',
+        amount: 30,
+        gold: 0,
+      },
+      {
+        name: '金幣10,000',
+        icon: '金幣.png',
+        amount: 50,
+        gold: 0,
+      },
+      {
+        name: '金幣5,000',
+        icon: '金幣.png',
+        amount: 100,
+        gold: 0,
+      },
+    ],
+  },
+  {
+    ticket: '銀',
+    gifts: [
+      {
+        name: '金幣24,700,000',
+        icon: '金幣.png',
+        amount: 1,
+        gold: 0,
+      },
+      {
+        name: '金幣7,020,000',
+        icon: '金幣.png',
+        amount: 1,
+        gold: 0,
+      },
+      {
+        name: '金幣2,590,000',
+        icon: '金幣.png',
+        amount: 10,
+        gold: 0,
+      },
+      {
+        name: '金幣5,000',
+        icon: '金幣.png',
+        amount: 20,
+        gold: 0,
+      },
+      {
+        name: '金幣3,000',
+        icon: '金幣.png',
+        amount: 40,
+        gold: 0,
+      },
+      {
+        name: '金幣1,000',
+        icon: '金幣.png',
+        amount: 70,
+        gold: 0,
+      },
+      {
+        name: '金幣800',
+        icon: '金幣.png',
+        amount: 100,
+        gold: 0,
+      },
+    ],
+  },
+  {
+    ticket: '銅',
+    gifts: [
+      {
+        name: '金幣2,590,000',
+        icon: '金幣.png',
+        amount: 20,
+        gold: 0,
+      },
+      {
+        name: '金幣1,000',
+        icon: '金幣.png',
+        amount: 30,
+        gold: 0,
+      },
+      {
+        name: '金幣800',
+        icon: '金幣.png',
+        amount: 50,
+        gold: 0,
+      },
+      {
+        name: '金幣500',
+        icon: '金幣.png',
+        amount: 80,
+        gold: 0,
+      },
+      {
+        name: '金幣300',
+        icon: '金幣.png',
+        amount: 120,
+        gold: 0,
+      },
+    ],
+  },
+]
+
+const ticketGifts_online: TicketGift[] = [
   {
     ticket: '金',
     gifts: [
@@ -222,9 +355,12 @@ const ticketGifts: TicketGift[] = [
 export default function Activity_01() {
   const [tab, setTab] = useState(0)
   const { data } = useMe()
+  const canRecharge = useStore((s) => s.canRecharge)
   // const { list, isLoading } = useEventList()
   // const eventData = useMemo<Event | null>(() => list?.[0] || null, [list])
   const { data: eventOverview } = useEventOverview({ eventCode: 'newyear' })
+
+  const ticketGifts = canRecharge ? ticketGifts_online : ticketGifts_boss
 
   const { onShow } = usePopupStore((s) => s.voucherAwards)
   const [activeVoucher, setActiveVoucher] = useState<VoucherType>()
@@ -242,7 +378,7 @@ export default function Activity_01() {
       <ActivitySection title="名車抽起來">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>2022/1/26(三) 12:00 - 2022/2/19(六) 23:59</ContentText>
+          <ContentText>2022/1/26(三) 18:00 ~ 2022/2/20(日) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>
@@ -368,7 +504,7 @@ export default function Activity_01() {
       <ActivitySection title="直播抽獎">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>2022/2/20(日) 19:00</ContentText>
+          <ContentText>2022/2/23(日) 18:30</ContentText>
         </div>
         <div>
           <SubTitle>直播平台</SubTitle>
@@ -376,7 +512,7 @@ export default function Activity_01() {
         </div>
         <div>
           <SubTitle>名單公告時間</SubTitle>
-          <ContentText>2022/2/22(二) 18:00</ContentText>
+          <ContentText>2022/2/25(五) 18:00</ContentText>
         </div>
 
         <div>

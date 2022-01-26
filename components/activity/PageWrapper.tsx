@@ -1,3 +1,4 @@
+import { useStore } from '@/store/useStore'
 import { toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { ReactNode } from 'react'
@@ -9,11 +10,18 @@ import LoginPopup from '../LoginPopup'
 import SideBox from '../SideBox'
 
 function PageWrapper({ children }: { children: ReactNode }) {
+  const canRecharge = useStore((s) => s.canRecharge)
   const router = useRouter()
   return (
     <div
-      className="pt-[40%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat bg-[#281944]"
-      style={{ backgroundImage: `url(${toCdnUrl('/event/newsyear_bg.jpg')})` }}
+      className="pt-[40%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat bg-[#1f0c3c]"
+      style={{
+        backgroundImage: `url(${toCdnUrl(
+          canRecharge
+            ? '/event/newsyear_bg.jpg'
+            : '/event/boss08_newsyear_bg.jpg',
+        )})`,
+      }}
     >
       <img
         src="/img/logo.png"
