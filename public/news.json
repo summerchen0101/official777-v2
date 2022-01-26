@@ -31,7 +31,7 @@
     "endAt": "2023/01/20 12:00",
     "isRedirect": false,
     "sort": 1,
-    "platform": 0
+    "platform": 1
   },
   {
     "title": "MyCard指定通路儲值回饋送",
@@ -42,7 +42,7 @@
     "endAt": "2023/01/20 12:00",
     "isRedirect": false,
     "sort": 1,
-    "platform": 0
+    "platform": 1
   },
   {
     "title": "大頭家賀虎年！送百萬賓士名車！",
@@ -86,7 +86,7 @@
     "endAt": "2099",
     "isRedirect": false,
     "sort": 1,
-    "platform": 0
+    "platform": 1
   },
   {
     "title": "VIP等級調整公告",
@@ -108,6 +108,17 @@
     "endAt": "2099",
     "isRedirect": false,
     "sort": 1,
-    "platform": 0
+    "platform": 1
+  },
+  {
+    "title": "大頭家賀虎年！億萬金幣大放送！",
+    "content": "https://boss08.com/event/newyear",
+    "category": 2,
+    "createdAt": "2022/01/26",
+    "startAt": "2022/01/26 19:00",
+    "endAt": "2023/01/15 12:00",
+    "isRedirect": true,
+    "sort": 1,
+    "platform": 2
   }
 ]

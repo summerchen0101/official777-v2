@@ -1,3 +1,4 @@
+import { useStore } from '@/store/useStore'
 import { Pagination, ResBase } from '@/types'
 import { isAfter, isBefore } from 'date-fns'
 import { orderBy, take } from 'lodash'
@@ -11,7 +12,6 @@ export interface NewsListReq {
 }
 
 export interface News {
-  id: string
   title: string
   content: string
   category: number
@@ -20,6 +20,7 @@ export interface News {
   endAt: string
   isRedirect: Boolean
   sort: number
+  platform: number
 }
 
 export interface NewsListRes extends ResBase {
@@ -28,15 +29,24 @@ export interface NewsListRes extends ResBase {
 }
 
 function useNewsList({ category, page, perPage }: NewsListReq) {
+  const canRecharge = useStore((s) => s.canRecharge)
   const { data, isValidating } = useSWR<News[]>('/news.json', (url) =>
     fetch(url).then((res) => res.json()),
   )
   const list = useMemo(() => {
-    const periodData = data?.filter(
-      (t) =>
-        isAfter(new Date(), new Date(t.startAt)) &&
-        isBefore(new Date(), new Date(t.endAt)),
-    )
+    const periodData = data
+      ?.filter(
+        (t) =>
+          isAfter(new Date(), new Date(t.startAt)) &&
+          isBefore(new Date(), new Date(t.endAt)),
+      )
+      .filter((t) =>
+        t.platform > 0
+          ? canRecharge
+            ? t.platform === 1
+            : t.platform === 2
+          : true,
+      )
     // 置頂 -> 日期
     const orderedData = orderBy(
       periodData,
