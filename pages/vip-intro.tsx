@@ -5,25 +5,26 @@ import { vipLevelMap } from '@/lib/map'
 import { toCdnUrl } from '@/utils'
 import React, { useState } from 'react'
 import cs from 'classnames'
+import PicIntro from '@/components/PicIntro'
 
 const vipIntro = [
   {
     項目: 'VIP點數需求',
-    [VipLevel.LV1]: '60',
-    [VipLevel.LV2]: '1,000',
-    [VipLevel.LV3]: '5,000',
-    [VipLevel.LV4]: '20,000',
-    [VipLevel.LV5]: '100,000',
-    [VipLevel.LV6]: '-',
+    [VipLevel.LV1]: '-',
+    [VipLevel.LV2]: '60',
+    [VipLevel.LV3]: '1,000',
+    [VipLevel.LV4]: '5,000',
+    [VipLevel.LV5]: '20,000',
+    [VipLevel.LV6]: '100,000',
   },
   {
     項目: '累積押注',
     [VipLevel.LV1]: '-',
-    [VipLevel.LV2]: '5,000,000',
-    [VipLevel.LV3]: '25,000,000',
-    [VipLevel.LV4]: '100,000,000',
-    [VipLevel.LV5]: '500,000,000',
-    [VipLevel.LV6]: '-',
+    [VipLevel.LV2]: '-',
+    [VipLevel.LV3]: '5,000,000',
+    [VipLevel.LV4]: '25,000,000',
+    [VipLevel.LV5]: '100,000,000',
+    [VipLevel.LV6]: '500,000,000',
   },
   {
     項目: '聊天名字顏色',
@@ -152,38 +153,6 @@ const vipIntro = [
     [VipLevel.LV6]: '60天',
   },
 ]
-const list = [
-  {
-    name: 'VIP 0',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard0.png',
-  },
-  {
-    name: 'VIP 1',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard1.png',
-  },
-  {
-    name: 'VIP 2',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard2.png',
-  },
-  {
-    name: 'VIP 3',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard3.png',
-  },
-  {
-    name: 'VIP 4',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard4.png',
-  },
-  {
-    name: 'VIP 5',
-    desc: '說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字，說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字說明的文字。',
-    img: '/vip/VIPcard5.png',
-  },
-]
 
 function VipIntro() {
   const [activeVip, setActiveVip] = useState(VipLevel.LV1)
@@ -199,19 +168,23 @@ function VipIntro() {
               className="h-10"
             />
           </div>
-          {/* <div className="mb-10">
-            <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative">
-              <img
-                src={toCdnUrl('/appintro/main_02.png')}
-                alt=""
-                className="w-full h-full object-fill rounded-lg"
-              />
-            </div>
-            <div className="p-2 bg-yellow-500 rounded text-lg my-3">
-              儲值和押注都可以提升會員等級，
-              會員等級提高可以提升注額並且享受更尊爵的服務！
-            </div>
-          </div> */}
+          <div className="py-5 text-white rounded text-lg my-3">
+            儲值和押注都可以提升會員等級，
+            會員等級提高可以提升注額並且享受更尊爵的服務！
+          </div>
+          <PicIntro
+            img="/appintro/vip_01.png"
+            intro="步驟1、從大廳的點擊購買按鈕"
+          />
+          <PicIntro
+            img="/appintro/vip_02.png"
+            intro="步驟2、查看會員進度和特權"
+          />
+          <PicIntro
+            img="/appintro/vip_03.png"
+            intro="步驟3、對比會員特權和查看會員階級"
+          />
+
           <select
             onChange={(e) => setActiveVip(+e.target.value)}
             className="lg:hidden rounded text-gray-800 text-lg w-full sm:w-48 border-0 mb-4"

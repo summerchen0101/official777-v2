@@ -4,7 +4,7 @@ import useOAuthLogin from '@/services/useOAuthLogin'
 import usePopupStore from '@/store/usePopupStore'
 import { useUserStore } from '@/store/useUserStore'
 import { toCdnUrl } from '@/utils'
-import useStorage from '@/utils/useStorage'
+import useStorage from '@/hooks/useStorage'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
@@ -15,7 +15,7 @@ import AppleLogin from 'react-apple-login'
 import { useStore } from '@/store/useStore'
 import Link from 'next/link'
 import LoadingCover from './LoadingCover'
-import { CgSpinnerTwo } from 'react-icons/cg'
+import { CgSpinner, CgSpinnerTwo, CgSpinnerTwoAlt } from 'react-icons/cg'
 
 type Inputs = {
   phone: string
@@ -39,8 +39,9 @@ export default function LoginPopup() {
 
   const isShow = usePopupStore((s) => s.login.isShow)
   const onToggle = usePopupStore((s) => s.login.onToggle)
-  const { handler: doOAuthLogin } = useOAuthLogin()
-  const { handler: doGetAppleState } = useAppleState()
+  const { handler: doOAuthLogin, isLoading: isOAuthLoading } = useOAuthLogin()
+  const { handler: doGetAppleState, isLoading: isAppleStateLoading } =
+    useAppleState()
 
   const backUrl = `${location.protocol}//${location.host}?${qs.stringify({
     to: router.query.to,

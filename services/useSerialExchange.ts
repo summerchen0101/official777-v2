@@ -1,20 +1,20 @@
-import { ResBase } from '@/types'
 import useRequest, { apiPath } from '@/hooks/useRequest'
+import { ResBase } from '@/types'
 import { useState } from 'react'
 
-export interface SnExchangeReq {
-  userID: BigInt
-  serial: string
+export interface SerialExchangeReq {
+  serialNum: string
+  // password: string
 }
 
-export interface SnExchangeRes extends ResBase {}
+export interface SerialExchangeRes extends ResBase {}
 
-export default function useSnExchange() {
+function useSerialExchange() {
   const request = useRequest()
   const [isLoading, setIsLoading] = useState(false)
-  const handler = async (data: SnExchangeReq) => {
+  const handler = async (data: SerialExchangeReq) => {
     setIsLoading(true)
-    const res = await request<SnExchangeRes, SnExchangeReq>({
+    const res = await request<SerialExchangeRes>({
       method: 'post',
       url: `${apiPath}/serial/exchange`,
       data,
@@ -27,3 +27,5 @@ export default function useSnExchange() {
     handler,
   }
 }
+
+export default useSerialExchange

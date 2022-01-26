@@ -61,8 +61,8 @@ function RechargePage() {
               />
             </div>
             <div
-              className="deposit-btn disabled col-span-6 md:col-span-2"
-              // onClick={onGiftCardShow}
+              className="deposit-btn col-span-6 md:col-span-2"
+              onClick={onGiftCardShow}
             >
               <img src={toCdnUrl('/recharge/giftcard.png')} alt="序號輸入" />
             </div>

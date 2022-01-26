@@ -1,6 +1,6 @@
 import { useUserStore } from '@/store/useUserStore'
 import { ResBase } from '@/types'
-import useRequest, { apiPath } from '@/utils/useRequest'
+import useRequest, { apiPath } from '@/hooks/useRequest'
 import useSWR from 'swr'
 
 export interface Option {

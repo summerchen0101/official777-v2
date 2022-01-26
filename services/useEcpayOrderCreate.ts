@@ -1,6 +1,6 @@
 import { ECPayPaymentType, MCPaymentType } from '@/lib/enums'
 import { ResBase } from '@/types'
-import useRequest, { apiPath } from '@/utils/useRequest'
+import useRequest, { apiPath } from '@/hooks/useRequest'
 import { useState } from 'react'
 
 export interface Invoice {

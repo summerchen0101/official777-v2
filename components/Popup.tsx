@@ -1,4 +1,5 @@
 import { toCdnUrl } from '@/utils'
+import useBodyLock from '@/hooks/useBodyLock'
 import cs from 'classnames'
 import React, { ReactNode, useEffect, useMemo, useRef } from 'react'
 
@@ -9,11 +10,10 @@ interface Props {
 }
 export default function Popup({ onClose, isShow, children }: Props) {
   const popupBody = useRef<HTMLDivElement>(null)
+
+  useBodyLock(isShow)
   useEffect(() => {
-    if (isShow) {
-      document.querySelector('body')?.classList.add('lock')
-    } else {
-      document.querySelector('body')?.classList.remove('lock')
+    if (!isShow) {
       popupBody.current?.scrollTo({ top: 0 })
     }
   }, [isShow])

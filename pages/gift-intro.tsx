@@ -1,5 +1,6 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import PicIntro from '@/components/PicIntro'
 import { toCdnUrl } from '@/utils'
 import React from 'react'
 
@@ -21,18 +22,18 @@ const list = [
     可以根據回答得好像決定要不要將紅包發放出去！`,
     img: '/gift/img_redEnvelopePicture.png',
   },
-  {
-    name: '語音紅包',
-    desc: `想玩點小遊戲的您，可以跟搶紅包的玩家玩玩清唱和說笑話的遊戲！
-    可以根據回答得好像決定要不要將紅包發放出去！`,
-    img: '/gift/img_redEnvelopeVoice.png',
-  },
-  {
-    name: '影音紅包',
-    desc: `想玩點小遊戲的您，可以跟搶紅包的玩家玩玩跳舞和搞笑動作的遊戲！
-    可以根據回答得好像決定要不要將紅包發放出去！`,
-    img: '/gift/img_redEnvelopeVideo.png',
-  },
+  // {
+  //   name: '語音紅包',
+  //   desc: `想玩點小遊戲的您，可以跟搶紅包的玩家玩玩清唱和說笑話的遊戲！
+  //   可以根據回答得好像決定要不要將紅包發放出去！`,
+  //   img: '/gift/img_redEnvelopeVoice.png',
+  // },
+  // {
+  //   name: '影音紅包',
+  //   desc: `想玩點小遊戲的您，可以跟搶紅包的玩家玩玩跳舞和搞笑動作的遊戲！
+  //   可以根據回答得好像決定要不要將紅包發放出去！`,
+  //   img: '/gift/img_redEnvelopeVideo.png',
+  // },
 ]
 
 function GiftIntro() {
@@ -48,6 +49,30 @@ function GiftIntro() {
               className="h-10"
             />
           </div>
+          <PicIntro
+            img="/appintro/redpack_01.png"
+            intro="步驟1、從大廳點擊聊天按鈕"
+          />
+          <PicIntro
+            img="/appintro/redpack_02.png"
+            intro="步驟2、點擊發紅包的按鈕"
+          />
+          <PicIntro
+            img="/appintro/redpack_03.png"
+            intro="步驟3、點擊發送紅包"
+          />
+          <PicIntro
+            img="/appintro/redpack_04.png"
+            intro="步驟4、選擇直接發送或是玩個小遊戲！"
+          />
+          <PicIntro
+            img="/appintro/redpack_05.png"
+            intro="步驟5、輸入金額、人數和祝福的話！"
+          />
+          <PicIntro
+            img="/appintro/redpack_06.png"
+            intro="大家都會看到您發的紅包！！"
+          />
           <div className="space-y-6">
             {list.map((t, i) => (
               <div

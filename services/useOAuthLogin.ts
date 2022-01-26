@@ -1,6 +1,6 @@
 import { OAuthChannel, YesNo } from '@/lib/enums'
 import { ResBase } from '@/types'
-import useRequest from '@/utils/useRequest'
+import useRequest from '@/hooks/useRequest'
 import { useState } from 'react'
 
 export interface OAuthLoginReq {
