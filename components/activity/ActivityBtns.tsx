@@ -1,4 +1,5 @@
 import { activityList } from '@/lib/activity'
+import { useStore } from '@/store/useStore'
 import { toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
@@ -8,7 +9,7 @@ type Props = {
   id: number | string
 }
 function ActivityBtns({ id }: Props) {
-  const router = useRouter()
+  const canRecharge = useStore((s) => s.canRecharge)
   return (
     <div className="mb-10 py-4">
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-5 gap-x-3 max-w-[800px] mx-auto justify-center">
@@ -16,7 +17,11 @@ function ActivityBtns({ id }: Props) {
           if (t.disable) {
             return (
               <img
-                src={toCdnUrl(`/event/tabs/disable/${t.name}.png`)}
+                src={toCdnUrl(
+                  `/event/tabs/disable/${
+                    canRecharge ? t.name : t.bossName
+                  }.png`,
+                )}
                 alt=""
                 className="cursor-not-allowed"
               />
@@ -24,7 +29,11 @@ function ActivityBtns({ id }: Props) {
           } else if (t.id === id) {
             return (
               <img
-                src={toCdnUrl(`/event/tabs/selected/${t.name}.png`)}
+                src={toCdnUrl(
+                  `/event/tabs/selected/${
+                    canRecharge ? t.name : t.bossName
+                  }.png`,
+                )}
                 alt=""
               />
             )
@@ -32,7 +41,11 @@ function ActivityBtns({ id }: Props) {
           return (
             <Link key={t.id} passHref href={t.id.toString()}>
               <img
-                src={toCdnUrl(`/event/tabs/default/${t.name}.png`)}
+                src={toCdnUrl(
+                  `/event/tabs/default/${
+                    canRecharge ? t.name : t.bossName
+                  }.png`,
+                )}
                 alt=""
                 className="cursor-pointer transition-all hover:scale-110"
               />
