@@ -14,7 +14,7 @@ function PageWrapper({ children }: { children: ReactNode }) {
   const router = useRouter()
   return (
     <div
-      className="pt-[40%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat bg-[#281944]"
+      className="pt-[40%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat bg-[#1f0c3c]"
       style={{
         backgroundImage: `url(${toCdnUrl(
           canRecharge
