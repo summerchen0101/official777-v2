@@ -40,7 +40,9 @@ function useErrorHandler() {
           msg = error.response.data.message
           console.log(msg)
         }
-        alert(msg)
+        if (msg !== 'One of the request inputs is not valid.') {
+          alert(msg)
+        }
       } else if (error.request) {
         // 错误来自请求参数
         console.log(error.request)
