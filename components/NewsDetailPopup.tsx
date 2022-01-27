@@ -8,8 +8,8 @@ export default function NewsDetailPopup() {
   const isShowNewsPopup = useStore((s) => s.isShowNewsPopup)
   const newsInfo = useStore((s) => s.newsInfo)
   return (
-    <Popup onClose={closeNews} isShow={isShowNewsPopup}>
-      <div className="lg:w-[860px] mx-auto px-4">
+    <Popup className="px-4" onClose={closeNews} isShow={isShowNewsPopup}>
+      <div className="lg:w-[860px] mx-auto pt-8">
         <div className="text-sm mb-1">{newsInfo?.createdAt}</div>
         <div className="text-xl mb-3 text-yellow-200">{newsInfo?.title}</div>
         {/* <div className="flex items-center space-x-3 lg:justify-end mb-3">

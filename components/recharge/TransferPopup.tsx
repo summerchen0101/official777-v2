@@ -128,7 +128,7 @@ export default function RechargeTransferPopup() {
   })
 
   return (
-    <Popup onClose={onHide} isShow={isShow}>
+    <Popup className="px-4" onClose={onHide} isShow={isShow}>
       <div className="text-3xl text-center">銀行轉帳</div>
       <div className="max-w-[800px] mt-10 mx-auto space-y-8">
         <Controller

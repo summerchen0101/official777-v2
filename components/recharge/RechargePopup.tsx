@@ -82,7 +82,7 @@ export default function RechargePopup({ paymentType }: Props) {
     }
   })
   return (
-    <Popup onClose={onHide} isShow={isShow}>
+    <Popup className="px-4" onClose={onHide} isShow={isShow}>
       <div className="text-3xl text-center">
         {mcPaymentTypeMap[telePaymentType] || '電信支付'}
       </div>

@@ -65,7 +65,7 @@ export default function RechargeGiftCardPopup() {
     }
   })
   return (
-    <Popup onClose={onHide} isShow={isShow}>
+    <Popup className="px-4" onClose={onHide} isShow={isShow}>
       <div className="text-3xl text-center">序號開通</div>
       <div className="max-w-[600px] mt-10 mx-auto">
         <div className="flex flex-col gap-6">
