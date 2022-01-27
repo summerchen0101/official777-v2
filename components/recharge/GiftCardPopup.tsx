@@ -44,7 +44,9 @@ export default function RechargeGiftCardPopup() {
           password: d.password,
         })
         if (res?.ok) {
-          alert('智冠產包序號兌換成功')
+          alert('智冠序號兌換成功')
+        } else {
+          alert('兌換失敗')
         }
       } else {
         const res = await doExchange({
@@ -52,6 +54,8 @@ export default function RechargeGiftCardPopup() {
         })
         if (res?.ok) {
           alert('序號兌換成功')
+        } else {
+          alert('兌換失敗')
         }
       }
 
