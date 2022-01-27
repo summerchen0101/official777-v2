@@ -4,8 +4,9 @@ import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
+import { useStore } from '@/store/useStore'
 import { toCdnUrl } from '@/utils'
-import React from 'react'
+import React, { useState } from 'react'
 
 const ticketGiftStages = [
   {
@@ -71,6 +72,7 @@ const ticketGiftStages = [
 ]
 
 export default function Activity_06() {
+  const canRecharge = useStore((s) => s.canRecharge)
   return (
     <PageWrapper>
       <ActivityBtns id={4} />
@@ -176,7 +178,9 @@ export default function Activity_06() {
           <p className="mt-3">
             ※ 注意事項
             <br />
-            加碼獎勵將於2/15 12:00發送，屆時請登入活動頁面查看。
+            加碼獎勵將於2/15 12:00發送，屆時請登入「
+            {canRecharge ? '名車抽起來' : '拿券抽金幣'}
+            」活動頁面查看獎券及號碼。
           </p>
         </ContentText>
       </ActivitySection>

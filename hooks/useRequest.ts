@@ -34,11 +34,7 @@ const useRequest = () => {
           data,
           baseURL: apiBaseUrl,
           validateStatus: function (status) {
-            return (
-              (status >= 200 && status < 300) ||
-              status === 422 ||
-              status === 401
-            )
+            return (status >= 200 && status < 300) || status === 422
           },
           transformResponse: [(data) => (data ? JSONbig.parse(data) : data)],
           transformRequest: [
@@ -70,6 +66,7 @@ const useRequest = () => {
           if (+res.data.code === 401003) {
             return
           }
+
           throw Error(
             errCodes[res.data?.code!] ||
               res.data?.code ||

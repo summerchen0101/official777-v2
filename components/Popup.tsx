@@ -7,8 +7,9 @@ interface Props {
   onClose: () => void
   isShow: boolean
   children?: ReactNode
+  className?: string
 }
-export default function Popup({ onClose, isShow, children }: Props) {
+export default function Popup({ onClose, isShow, children, className }: Props) {
   const popupBody = useRef<HTMLDivElement>(null)
 
   useBodyLock(isShow)
@@ -26,7 +27,10 @@ export default function Popup({ onClose, isShow, children }: Props) {
       onClick={onClose}
     >
       <div
-        className="fixed bottom-0 left-0 w-full h-full bg-purple-900/90 py-4 sm:py-8 text-white overflow-y-auto scroll-padding sm:px-4"
+        className={cs(
+          'fixed bottom-0 left-0 w-full h-full bg-purple-900/90 py-4 sm:py-8 text-white overflow-y-auto scroll-padding',
+          className,
+        )}
         onClick={(e) => e.stopPropagation()}
         ref={popupBody}
       >
