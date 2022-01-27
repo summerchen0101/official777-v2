@@ -25,7 +25,6 @@ function useErrorHandler() {
           // console.log(router.pathname)
           if (router.pathname === '/contact') {
             alert('請先登入')
-            return
           }
           router.push('/home')
           clearUser()
