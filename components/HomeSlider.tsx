@@ -2,8 +2,10 @@ import React from 'react'
 import Slider, { Settings } from 'react-slick'
 import cs from 'classnames'
 import { toCdnUrl } from '@/utils'
+import { useStore } from '@/store/useStore'
 export interface HomeSlide {
   path: string
+  bossPath?: string
 }
 interface Props {
   slides: HomeSlide[]
@@ -12,6 +14,7 @@ interface Props {
 }
 
 function HomeSlider({ slides, dots, isHomePage }: Props) {
+  const canRecharge = useStore((s) => s.canRecharge)
   var settings: Settings = {
     dots,
     infinite: true,
@@ -30,7 +33,7 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
       {slides.map((t, i) => (
         <div key={i}>
           <img
-            src={toCdnUrl(t.path)}
+            src={toCdnUrl(canRecharge ? t.path : t.bossPath || t.path)}
             className={cs(
               'h-[30%] w-full object-cover object-center',
               isHomePage ? 'max-h-[550px]' : 'lg:h-[350px]',
