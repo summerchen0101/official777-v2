@@ -3,9 +3,13 @@ import Slider, { Settings } from 'react-slick'
 import cs from 'classnames'
 import { toCdnUrl } from '@/utils'
 import { useStore } from '@/store/useStore'
+import Link from 'next/link'
+
 export interface HomeSlide {
-  path: string
-  bossPath?: string
+  img: string
+  bossImg?: string
+  link?: string
+  newWin?: boolean
 }
 interface Props {
   slides: HomeSlide[]
@@ -30,18 +34,26 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
 
   return (
     <Slider {...settings}>
-      {slides.map((t, i) => (
-        <div key={i}>
+      {slides.map((t, i) => {
+        const imgComp = (
           <img
-            src={toCdnUrl(canRecharge ? t.path : t.bossPath || t.path)}
+            src={toCdnUrl(canRecharge ? t.img : t.bossImg || t.img)}
             className={cs(
               'h-[30%] w-full object-cover object-center',
               isHomePage ? 'max-h-[550px]' : 'lg:h-[350px]',
             )}
             alt=""
           />
-        </div>
-      ))}
+        )
+        if (t.link) {
+          return (
+            <Link href={t.link} passHref key={i}>
+              <a target={t.newWin ? '_blank' : '_self'}>{imgComp}</a>
+            </Link>
+          )
+        }
+        return imgComp
+      })}
     </Slider>
   )
 }

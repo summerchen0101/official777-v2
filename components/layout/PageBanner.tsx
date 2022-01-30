@@ -1,8 +1,8 @@
 import HomeSlider, { HomeSlide } from '../HomeSlider'
 
 function PageBanner() {
-  const homeSlides: HomeSlide[] = Array(8).fill({
-    path: '/banner/banner_01.png',
+  const homeSlides: HomeSlide[] = Array(1).fill({
+    img: '/banner/banner_01.png',
   })
   return (
     <section className="mb-10">

@@ -9,6 +9,6 @@ export default EventNewYear
 
 export const getServerSideProps: GetServerSideProps = async () => {
   return {
-    redirect: { permanent: false, destination: 'newyear/1' },
+    redirect: { permanent: false, destination: '/event/newyear/1' },
   }
 }

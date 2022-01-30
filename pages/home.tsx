@@ -17,9 +17,12 @@ import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 
 export const homeSlides: HomeSlide[] = [
-  { path: '/banner/banner_02.jpg' },
-  { path: '/banner/banner_03.jpg', bossPath: '/banner/banner_03_boss.jpg' },
-  // { path: '/banner/banner_01.png' },
+  { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
+  {
+    img: '/banner/banner_03.jpg',
+    bossImg: '/banner/banner_03_boss.jpg',
+    link: '/event/newyear',
+  },
 ]
 
 const Home: NextPage = () => {
