@@ -51,6 +51,35 @@ const MobileHome: NextPage = () => {
       <section className="mb-8 mt-20">
         <HomeSlider isHomePage slides={homeSlides} />
       </section>
+      <section className="mb-8">
+        <div className="text-yellow-500 font-medium text-2xl mb-4 text-center">
+          台北電玩展2022
+        </div>
+        <video
+          className="w-full"
+          controls
+          preload="auto"
+          data-setup="{}"
+          autoPlay
+        >
+          <source
+            src={toCdnUrl('/video/電玩展紀錄片.mp4')}
+            type="video/mp4"
+          ></source>
+
+          <p className="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that
+            <a
+              href="https://videojs.com/html5-video-support/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              supports HTML5 video
+            </a>
+          </p>
+        </video>
+      </section>
       {user ? (
         <div hidden={!user} className="px-4 space-y-2 mb-8">
           <div className="grid grid-cols-2 gap-2 mb-4">

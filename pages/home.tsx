@@ -52,7 +52,6 @@ const Home: NextPage = () => {
           台北電玩展2022
         </div>
         <video
-          id="my-player"
           className="w-full"
           controls
           preload="auto"
