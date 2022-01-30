@@ -4,19 +4,16 @@ import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
 import VoucherAwardsPopup from '@/components/VoucherAwardsPopup'
+import useLoginFirst from '@/hooks/useLoginFirst'
 import { VoucherType } from '@/lib/enums'
 import { voucherTypeMap } from '@/lib/map'
-import useEventList, { Event } from '@/services/useEventList'
 import useEventOverview from '@/services/useEventOverview'
 import useMe from '@/services/useMe'
 import usePopupStore from '@/store/usePopupStore'
-import { toCurrency, toCdnUrl } from '@/utils'
-import useBodyLock from '@/hooks/useBodyLock'
-import useLoginFirst from '@/hooks/useLoginFirst'
-import cs from 'classnames'
-import { keyBy } from 'lodash'
-import React, { useMemo, useState } from 'react'
 import { useStore } from '@/store/useStore'
+import { toCdnUrl, toCurrency } from '@/utils'
+import cs from 'classnames'
+import React, { useState } from 'react'
 
 const vipsTickets = [
   { vip: '鑽石會員', amount: 1, icon: '金' },
@@ -378,7 +375,7 @@ export default function Activity_01() {
       <ActivitySection title={canRecharge ? '名車抽起來' : '拿券抽金幣'}>
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>2022/1/26(三) 18:00 ~ 2022/2/20(日) 23:59</ContentText>
+          <ContentText>2022/1/26(三) 18:00 ~ 2022/3/27(日) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>
@@ -504,16 +501,16 @@ export default function Activity_01() {
       <ActivitySection title="直播抽獎">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>2022/2/23(日) 18:30</ContentText>
+          <ContentText>3月底（詳細日期待公布）</ContentText>
         </div>
         <div>
           <SubTitle>直播平台</SubTitle>
           <ContentText>大頭家娛樂城官方粉絲專頁</ContentText>
         </div>
-        <div>
+        {/* <div>
           <SubTitle>名單公告時間</SubTitle>
           <ContentText>2022/2/25(五) 18:00</ContentText>
-        </div>
+        </div> */}
 
         <div>
           <SubTitle>活動獎項</SubTitle>
