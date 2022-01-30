@@ -13,13 +13,13 @@ function ActivityBtns({ id }: Props) {
   const canRecharge = useStore((s) => s.canRecharge)
   return (
     <div className="mb-10 py-4">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-5 gap-x-10 max-w-[800px] mx-auto justify-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-7 gap-x-10 max-w-[800px] mx-auto justify-center">
         {activityList.map((t, i) => (
           <Link key={t.id} passHref href={t.id.toString()}>
             <div
               key={i}
               className={cs(
-                'text-white h-28 rounded-3xl text-3xl flex flex-col justify-center items-center border-4 border-black/20 transition-all  hover:relative hover:z-10 -rotate-6 font-medium shadow-md',
+                'text-white h-28 rounded-3xl text-xl md:text-3xl flex flex-col justify-center items-center border-4 border-black/20 transition-all  hover:relative hover:z-10 -rotate-6 font-medium shadow-md',
                 t.id === id
                   ? 'bg-yellow-700 cursor-default'
                   : 'bg-purple-900 hover:scale-110 cursor-pointer',
