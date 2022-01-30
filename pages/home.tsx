@@ -47,6 +47,36 @@ const Home: NextPage = () => {
         <HomeSlider slides={homeSlides} dots isHomePage />
         <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center -mt-2"></div>
       </section>
+      <section className="lg:w-[860px] mx-auto mb-16">
+        <div className="text-yellow-500 font-medium text-2xl mb-4 text-center">
+          台北電玩展2022
+        </div>
+        <video
+          id="my-player"
+          className="w-full"
+          controls
+          preload="auto"
+          data-setup="{}"
+          autoPlay
+        >
+          <source
+            src={toCdnUrl('/video/電玩展紀錄片.mp4')}
+            type="video/mp4"
+          ></source>
+
+          <p className="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that
+            <a
+              href="https://videojs.com/html5-video-support/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              supports HTML5 video
+            </a>
+          </p>
+        </video>
+      </section>
 
       <section id="news" className="mb-16 px-4">
         <div className="lg:w-[860px] mx-auto">
