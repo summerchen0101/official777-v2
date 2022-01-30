@@ -1,13 +1,11 @@
+import { homeSlides } from '@/pages/home'
 import HomeSlider, { HomeSlide } from '../HomeSlider'
 
 function PageBanner() {
-  const homeSlides: HomeSlide[] = Array(8).fill({
-    path: '/banner/banner_01.png',
-  })
   return (
-    <section className="mb-10">
+    <section className="mb-16 mt-20">
       <HomeSlider slides={homeSlides} dots />
-      <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center -mt-2"></div>
+      <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-10 flex justify-center items-center -mt-2"></div>
     </section>
   )
 }

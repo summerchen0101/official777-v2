@@ -5,6 +5,7 @@ import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
+import useLoginFirst from '@/hooks/useLoginFirst'
 import { Platform } from '@/lib/enums'
 import { appUrlMap, newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
@@ -46,6 +47,8 @@ const MobileHome: NextPage = () => {
     clearUser()
     alert('登出成功')
   }
+
+  const handleRechargeClicked = useLoginFirst('/recharge')
   return (
     <Layout>
       <section className="mb-8 mt-20">
@@ -81,7 +84,7 @@ const MobileHome: NextPage = () => {
         </video>
       </section>
       {user ? (
-        <div hidden={!user} className="px-4 space-y-2 mb-8">
+        <div hidden={!user} className="px-4 space-y-2 mb-4">
           <div className="grid grid-cols-2 gap-2 mb-4">
             <div className="label-box">{user.nickname}</div>
             <div className="label-box">VIP: LV{user.vipLevel}</div>
@@ -102,20 +105,20 @@ const MobileHome: NextPage = () => {
               {toCurrency(user.paymentPoint)}
             </div>
           </div>
-          <div className="btn block" onClick={handleLogout}>
+          <div className="silver-btn" onClick={handleLogout}>
             登出
           </div>
         </div>
       ) : (
-        <div className="mb-10 mx-4">
-          <div className="btn block active" onClick={onToggle}>
+        <div className="mb-4 mx-4">
+          <div className="gold-btn" onClick={onToggle}>
             登入
           </div>
         </div>
       )}
 
-      <div className="grid grid-cols-2 gap-2 mb-6 mx-4">
-        <div className="space-y-1">
+      <div className="grid grid-cols-2 mb-6 mx-4">
+        <div className="flex flex-col gap-1 justify-center">
           <a
             className="block"
             target="_blank"
@@ -145,14 +148,20 @@ const MobileHome: NextPage = () => {
           )}
         </div>
         <div className="flex justify-center items-center">
-          <img
-            src={toCdnUrl('/banner/banner_01.png')}
-            className={cs(
-              'object-cover w-36 rounded-lg',
-              canRecharge ? 'h-36' : 'h-24',
-            )}
-            alt=""
-          />
+          {canRecharge ? (
+            <img
+              src={toCdnUrl('/recharge_pig.png')}
+              className={cs('object-cover w-32 -mt-2 rounded-lg')}
+              alt=""
+              onClick={handleRechargeClicked}
+            />
+          ) : (
+            <img
+              src={toCdnUrl('/norecharge.png')}
+              className={cs('object-cover w-32 -mt-2 rounded-lg')}
+              alt=""
+            />
+          )}
         </div>
       </div>
 
