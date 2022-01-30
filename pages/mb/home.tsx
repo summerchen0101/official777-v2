@@ -118,7 +118,12 @@ const MobileHome: NextPage = () => {
       )}
 
       <div className="grid grid-cols-2 mb-6 mx-4">
-        <div className="flex flex-col gap-1 justify-center">
+        <div
+          className={cs(
+            'flex flex-col justify-center',
+            canRecharge ? 'gap-1' : 'gap-3',
+          )}
+        >
           <a
             className="block"
             target="_blank"
@@ -147,18 +152,24 @@ const MobileHome: NextPage = () => {
             </a>
           )}
         </div>
-        <div className="flex justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
           {canRecharge ? (
-            <img
-              src={toCdnUrl('/recharge_pig.png')}
-              className={cs('object-cover w-32 -mt-2 rounded-lg')}
-              alt=""
-              onClick={handleRechargeClicked}
-            />
+            <div onClick={handleRechargeClicked} className="relative -top-2">
+              <img
+                src={toCdnUrl('/recharge_pig.png')}
+                className={cs('object-cover w-32 rounded-lg')}
+                alt=""
+              />
+              <img
+                src={toCdnUrl('/recharge_title.png')}
+                className="cursor-pointer mx-auto w-24 mt-2"
+                alt=""
+              />
+            </div>
           ) : (
             <img
               src={toCdnUrl('/norecharge.png')}
-              className={cs('object-cover w-32 -mt-2 rounded-lg')}
+              className={cs('object-cover w-32 relative -top-2 rounded-lg')}
               alt=""
             />
           )}
