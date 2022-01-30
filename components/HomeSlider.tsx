@@ -39,8 +39,8 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
           <img
             src={toCdnUrl(canRecharge ? t.img : t.bossImg || t.img)}
             className={cs(
-              'h-[30%] w-full object-cover object-center',
-              isHomePage ? 'max-h-[550px]' : 'lg:h-[350px]',
+              'h-[200px] md:h-[60%] object-cover object-center mx-auto',
+              isHomePage ? 'max-h-[600px]' : 'lg:h-[350px]',
             )}
             alt=""
           />
