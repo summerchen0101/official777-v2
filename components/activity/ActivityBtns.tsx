@@ -25,7 +25,7 @@ function ActivityBtns({ id }: Props) {
                   : 'bg-purple-900 hover:scale-110 cursor-pointer',
               )}
             >
-              {t.name}
+              {canRecharge ? t.name : t.bossName}
               <div className="text-yellow-300/80 text-2xl mt-1">{t.date}</div>
             </div>
           </Link>
