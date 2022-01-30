@@ -1,6 +1,7 @@
 import GameDetailPopup from '@/components/GameDetailPopup'
 import HomeSlider, { HomeSlide } from '@/components/HomeSlider'
 import Layout from '@/components/layout/Layout'
+import PageBanner from '@/components/layout/PageBanner'
 import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider from '@/components/SectionSlider'
@@ -46,10 +47,7 @@ const Home: NextPage = () => {
   }
   return (
     <Layout>
-      <section className="mb-16 mt-20">
-        <HomeSlider slides={homeSlides} dots isHomePage />
-        <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-12 flex justify-center items-center -mt-2"></div>
-      </section>
+      <PageBanner />
       <section className="lg:w-[860px] mx-auto mb-16">
         <div className="text-yellow-500 font-medium text-2xl mb-4 text-center">
           台北電玩展2022
