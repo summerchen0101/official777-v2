@@ -18,7 +18,7 @@ function PageWrapper({ children }: { children: ReactNode }) {
   const handleRechargeClicked = useLoginFirst('/recharge')
   return (
     <div
-      className="pt-[40%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat bg-[#1f0c3c]"
+      className="pt-[40%] pb-16 sm:pb-0 bg-contain lg:bg-top bg-no-repeat bg-[#2a1c44]"
       style={{
         backgroundImage: `url(${toCdnUrl(
           canRecharge
