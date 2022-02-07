@@ -1,15 +1,14 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import LoadingCover from '@/components/LoadingCover'
+import Paginator from '@/components/Paginator'
 import useAuth from '@/hooks/useAuth'
 import { PaymentStatus } from '@/lib/enums'
-import { paymentStatusMap, mcPaymentTypeMap } from '@/lib/map'
+import { mcPaymentTypeMap, paymentStatusMap } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
 import { toCdnUrl, toCurrency, toDateTime } from '@/utils'
 import cs from 'classnames'
 import React, { useState } from 'react'
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa'
-import ReactPaginate from 'react-paginate'
 
 function RechargeRec() {
   const [page, setPage] = useState(1)
@@ -19,7 +18,7 @@ function RechargeRec() {
     createdAtMsStart: 0,
     createdAtMsEnd: 0,
     page,
-    perPage: 10,
+    perPage: 30,
   })
   useAuth()
   return (
@@ -120,16 +119,7 @@ function RechargeRec() {
                       </tbody>
                     </table>
                   </div>
-                  <ReactPaginate
-                    className="text-white flex justify-center items-center gap-6 text-lg mt-4"
-                    breakLabel="..."
-                    nextLabel={<FaAngleRight />}
-                    onPageChange={({ selected }) => setPage(selected + 1)}
-                    pageRangeDisplayed={paginator?.perPage}
-                    pageCount={paginator?.totalPage || 1}
-                    previousLabel={<FaAngleLeft />}
-                    activeLinkClassName="text-gold-500 cursor-not-allowed"
-                  />
+                  <Paginator onPageChange={setPage} paginator={paginator} />
                 </>
               )}
             </LoadingCover>
