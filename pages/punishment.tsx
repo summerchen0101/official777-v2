@@ -5,23 +5,16 @@ import Paginator from '@/components/Paginator'
 import usePunishmentList from '@/services/usePunishmentList'
 import { toCdnUrl, toDateTime } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 function PunishmentPage() {
   const router = useRouter()
   const [page, setPage] = useState(1)
-  const [activeTab, setActiveTab] = useState(
-    (router.query.tab as string) || '1',
-  )
 
   const { list, isLoading, paginator } = usePunishmentList({
     page,
-    perPage: 30,
+    perPage: 15,
   })
-
-  useEffect(() => {
-    setActiveTab((router.query.tab as string) || '1')
-  }, [router.query.tab])
 
   return (
     <Layout>

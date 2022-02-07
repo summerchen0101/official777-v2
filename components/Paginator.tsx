@@ -14,7 +14,10 @@ function Paginator({ paginator, onPageChange }: Props) {
       breakLabel="..."
       // initialPage={paginator?.page}
       nextLabel={<FaAngleRight />}
-      onPageChange={({ selected }) => onPageChange(selected + 1)}
+      onPageChange={({ selected }) => {
+        onPageChange(selected + 1)
+        window.scrollTo({ top: 0 })
+      }}
       pageRangeDisplayed={paginator?.perPage}
       pageCount={paginator?.totalPage || 1}
       previousLabel={<FaAngleLeft />}

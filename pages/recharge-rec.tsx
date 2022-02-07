@@ -23,7 +23,7 @@ function RechargeRec() {
     createdAtMsStart: 0,
     createdAtMsEnd: 0,
     page,
-    perPage: 30,
+    perPage: 15,
   })
   useAuth()
   return (
