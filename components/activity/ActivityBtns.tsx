@@ -13,7 +13,7 @@ function ActivityBtns({ id }: Props) {
   const canRecharge = useStore((s) => s.canRecharge)
   return (
     <div className="mb-10 py-4">
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-7 gap-x-10 max-w-[800px] mx-auto justify-center">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-7 max-w-[800px] mx-auto justify-center">
         {activityList.map((t, i) => (
           <Link key={t.id} passHref href={t.id.toString()}>
             <div
