@@ -72,6 +72,11 @@ export const paymentGatewayMap: StringMap = {
   [PaymentGateway.ECPay]: '綠界',
 }
 
+export const gatewayPaymentMap: Record<number, StringMap> = {
+  [PaymentGateway.MyCard]: mcPaymentTypeMap,
+  [PaymentGateway.ECPay]: ecpayPaymentTypeMap,
+}
+
 export const invoiceTypeMap: StringMap = {
   [InvoiceType.DONATE]: '捐贈發票',
   [InvoiceType.CLOUD]: '電子發票',

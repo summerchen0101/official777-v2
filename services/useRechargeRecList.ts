@@ -27,13 +27,13 @@ export interface RechargeRec {
   RefundStatus: number
   RevisePaidStatus: number
   PaymentGateway: number
+  PaymentType: number
   UserID: number
   Note: string
   NoteImageURLs: null
   CallBackURL: string
   CreatedAtMs: number
   ExpiredAtMs: number
-  PayType: number
 }
 
 export interface Meta {
