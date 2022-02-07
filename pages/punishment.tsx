@@ -1,25 +1,22 @@
-import GoldRankTable from '@/components/GoldRankTable'
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import LoadingCover from '@/components/LoadingCover'
-import MySelect from '@/components/MySelect'
-import SlotRankTable from '@/components/SlotRankTable'
-import TabGroup from '@/components/TabGroup'
-import { rankTypeMap } from '@/lib/map'
+import Paginator from '@/components/Paginator'
 import usePunishmentList from '@/services/usePunishmentList'
-import { toDateTime, toCdnUrl } from '@/utils'
+import { toCdnUrl, toDateTime } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useState } from 'react'
 
 function PunishmentPage() {
   const router = useRouter()
+  const [page, setPage] = useState(1)
   const [activeTab, setActiveTab] = useState(
     (router.query.tab as string) || '1',
   )
 
   const { list, isLoading, paginator } = usePunishmentList({
-    page: 1,
-    perPage: 10,
+    page,
+    perPage: 30,
   })
 
   useEffect(() => {
@@ -63,6 +60,7 @@ function PunishmentPage() {
                 ))}
               </tbody>
             </table>
+            <Paginator paginator={paginator} onPageChange={setPage} />
           </LoadingCover>
         </div>
       </section>
