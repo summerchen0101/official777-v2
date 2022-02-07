@@ -14,7 +14,46 @@ function ActivityBtns({ id }: Props) {
   return (
     <div className="mb-10 py-4">
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-7 max-w-[800px] mx-auto justify-center">
-        {activityList.map((t, i) => (
+        {activityList.map((t, i) => {
+          if (t.disable) {
+            return (
+              <img
+                src={toCdnUrl(
+                  `/event/tabs/disable/${
+                    canRecharge ? t.name : t.bossName
+                  }.png`,
+                )}
+                alt=""
+                className="cursor-not-allowed"
+              />
+            )
+          } else if (t.id === id) {
+            return (
+              <img
+                src={toCdnUrl(
+                  `/event/tabs/selected/${
+                    canRecharge ? t.name : t.bossName
+                  }.png`,
+                )}
+                alt=""
+              />
+            )
+          }
+          return (
+            <Link key={t.id} passHref href={t.id.toString()}>
+              <img
+                src={toCdnUrl(
+                  `/event/tabs/default/${
+                    canRecharge ? t.name : t.bossName
+                  }.png`,
+                )}
+                alt=""
+                className="cursor-pointer transition-all hover:scale-110"
+              />
+            </Link>
+          )
+        })}
+        {/* {activityList.map((t, i) => (
           <Link key={t.id} passHref href={t.id.toString()}>
             <div
               key={i}
@@ -29,7 +68,7 @@ function ActivityBtns({ id }: Props) {
               <div className="text-yellow-300/80 text-2xl mt-1">{t.date}</div>
             </div>
           </Link>
-        ))}
+        ))} */}
       </div>
     </div>
   )
