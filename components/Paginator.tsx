@@ -12,7 +12,7 @@ function Paginator({ paginator, onPageChange }: Props) {
     <ReactPaginate
       className="text-white flex justify-center items-center gap-6 text-lg mt-4"
       breakLabel="..."
-      initialPage={paginator?.page}
+      // initialPage={paginator?.page}
       nextLabel={<FaAngleRight />}
       onPageChange={({ selected }) => onPageChange(selected + 1)}
       pageRangeDisplayed={paginator?.perPage}
