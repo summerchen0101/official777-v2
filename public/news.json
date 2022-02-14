@@ -120,5 +120,16 @@
     "isRedirect": false,
     "sort": 0,
     "platform": 0
+  },
+  {
+    "title": "2/14 臨時維護公告",
+    "content": "親愛的頭家：<br/><br/>因新進玩家數眾多，爲了讓各位玩家享受優良的遊戲品質，系統將於2月14日上午11：30至下午14：30進行臨時關機維護，造成諸多不便，還請見諒。",
+    "category": 1,
+    "createdAt": "2022/02/14",
+    "startAt": "2022/02/14 10:30",
+    "endAt": "2022/02/14 23:59",
+    "isRedirect": false,
+    "sort": 0,
+    "platform": 0
   }
 ]
