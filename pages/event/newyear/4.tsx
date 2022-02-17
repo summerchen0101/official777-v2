@@ -79,7 +79,7 @@ export default function Activity_06() {
       <ActivitySection title="集獎券送好禮">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>2022/02/09(三) 12:00 – 2022/02/13(日) 23:59</ContentText>
+          <ContentText>2022/2/9(三) 12:00 – 2022/2/19(六) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>
@@ -178,7 +178,7 @@ export default function Activity_06() {
           <p className="mt-3">
             ※ 注意事項
             <br />
-            加碼獎勵將於2/15 12:00發送，屆時請登入「
+            加碼獎勵將統一於2022/2/25(五) 18:00前發送，屆時請登入「
             {canRecharge ? '名車抽起來' : '拿券抽金幣'}
             」活動頁面查看獎券及號碼。
           </p>
