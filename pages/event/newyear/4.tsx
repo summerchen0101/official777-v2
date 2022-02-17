@@ -79,7 +79,7 @@ export default function Activity_06() {
       <ActivitySection title="集獎券送好禮">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>2022/2/9(三) 12:00 – 2022/2/19(六) 23:59</ContentText>
+          <ContentText>2022/2/9(三) 12:00 – 2022/2/23(三) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>
