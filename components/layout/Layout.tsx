@@ -2,7 +2,9 @@ import AppDownloadSideFloat from '@/components/AppDownloadSideFloat'
 import HeaderNav from '@/components/layout/HeaderNav'
 import SideBox from '@/components/SideBox'
 import type { NextPage } from 'next'
+import { memo } from 'react'
 import LoginPopup from '../LoginPopup'
+import FooterNav from './FooterNav'
 
 const Layout: NextPage = ({ children }) => {
   return (
@@ -10,7 +12,7 @@ const Layout: NextPage = ({ children }) => {
       <HeaderNav />
       <div className="pb-14">{children}</div>
 
-      {/* <FooterNav /> */}
+      <FooterNav />
 
       <SideBox />
       <AppDownloadSideFloat />
@@ -20,4 +22,4 @@ const Layout: NextPage = ({ children }) => {
   )
 }
 
-export default Layout
+export default memo(Layout)

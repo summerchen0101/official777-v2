@@ -2,7 +2,7 @@ import useLoginFirst from '@/hooks/useLoginFirst'
 import { useStore } from '@/store/useStore'
 import { toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import React, { ReactNode } from 'react'
+import React, { memo, ReactNode } from 'react'
 import { BiDollar, BiDownload, BiHome } from 'react-icons/bi'
 import { CgFacebook } from 'react-icons/cg'
 import AppDownloadSideFloat from '../AppDownloadSideFloat'
@@ -75,4 +75,4 @@ function PageWrapper({ children }: { children: ReactNode }) {
   )
 }
 
-export default PageWrapper
+export default memo(PageWrapper)
