@@ -2,6 +2,7 @@ import AppDownloadSideFloat from '@/components/AppDownloadSideFloat'
 import HeaderNav from '@/components/layout/HeaderNav'
 import SideBox from '@/components/SideBox'
 import type { NextPage } from 'next'
+import { memo } from 'react'
 import LoginPopup from '../LoginPopup'
 import FooterNav from './FooterNav'
 
@@ -21,4 +22,4 @@ const Layout: NextPage = ({ children }) => {
   )
 }
 
-export default Layout
+export default memo(Layout)
