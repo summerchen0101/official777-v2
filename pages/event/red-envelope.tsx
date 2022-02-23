@@ -33,7 +33,7 @@ export default function RechargeActivity() {
           </div>
           <div className="rounded-3xl text-white min-h-[500px] max-w-[960px] mx-auto p-2 bg-red-900">
             <div className="border-yellow-600 border-2 rounded-2xl p-4 sm:p-10">
-              <div className="flex gap-4 mb-8 mt-5">
+              <div className="flex justify-center gap-4 mb-8 mt-5">
                 {Object.entries(tabMap).map(([code, label]) => (
                   <div
                     key={code}
