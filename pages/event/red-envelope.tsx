@@ -1,50 +1,22 @@
 import ContentText from '@/components/activity/ContentText'
 import ListWrapper from '@/components/activity/ListWrapper'
-import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
 import LoginPopup from '@/components/LoginPopup'
-import { toCurrency, toCdnUrl } from '@/utils'
+import TabGroup from '@/components/TabGroup'
+import { StringMap } from '@/types'
+import { toCdnUrl } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import React from 'react'
+import React, { useState } from 'react'
 import cs from 'classnames'
-interface GiftItem {
-  name: string
-  amount?: number
-  min?: number
-  max?: number
-  icon: string
+
+const tabMap: StringMap = {
+  intro: '活動介紹',
+  tips: '注意事項',
 }
-interface Gift {
-  recharge: number
-  gifts: GiftItem[]
-}
-const giftList: Gift[] = [
-  {
-    recharge: 150,
-    gifts: [{ name: '金幣', amount: 200, icon: '/event/items/金幣.png' }],
-  },
-  {
-    recharge: 600,
-    gifts: [
-      { name: '金幣', amount: 1000, icon: '/event/items/金幣.png' },
-      { name: '銅獎券', amount: 1, icon: '/event/tickets/一般.jpg' },
-    ],
-  },
-  {
-    recharge: 40000,
-    gifts: [
-      {
-        name: '隨機金幣',
-        min: 18888,
-        max: 100000,
-        icon: '/event/items/金幣.png',
-      },
-    ],
-  },
-]
+
 export default function RechargeActivity() {
   const router = useRouter()
-
+  const [activeTab, setActiveTab] = useState('intro')
   return (
     <div>
       <div className="mb-4 sm:mb-10 w-full">
@@ -56,68 +28,87 @@ export default function RechargeActivity() {
       </div>
       <div className="p-4">
         <div className="mb-10">
-          <div className="bg-[#3f0f0f] rounded-full font-medium text-4xl tracking-wider text-center w-[560px] max-w-[calc(100%-30px)] mx-auto py-5 relative z-10 shadow-xl -mb-8 p-2 border-4 border-red-800 text-yellow-400">
+          <div className="bg-[#3f0f0f] rounded-full font-medium text-3xl sm:text-4xl tracking-wider text-center w-[560px] max-w-[calc(100%-30px)] mx-auto py-3 sm:py-5 relative z-10 shadow-xl -mb-6 sm:-mb-8 p-2 border-4 border-red-800 text-yellow-400">
             全民發紅包
           </div>
-          <div className="rounded-3xl text-white min-h-[500px] max-w-[960px] mx-auto p-2 space-y-8 bg-red-900">
-            <div className="border-yellow-600 border-2 rounded-2xl p-10 space-y-8">
-              <div>
-                <SubTitle>活動時間</SubTitle>
-                <ContentText>
-                  2022/2/25(五) 18:00 ~ 2022/3/24(四) 23:59
-                </ContentText>
-              </div>
-              <div>
-                <SubTitle>活動對象</SubTitle>
-                <ContentText>大頭家娛樂城玩家</ContentText>
-              </div>
-              <div>
-                <SubTitle>活動說明</SubTitle>
-                <ContentText>
-                  <ListWrapper>
-                    <li>每發一次祝福紅包即具抽獎資格，發越多抽獎機會越多</li>
-                    <li>每次紅包金額最少發10,000金幣</li>
-                    <li>
-                      每週五抽前一週有符合資格的玩家，未抽中的玩家抽獎資格即失效，需重新取得抽獎資格
-                      <div className="mt-2">
-                        例1：華安於2/26發了2次10,000金幣的紅包，3/4的第一週抽獎未中獎，且3/4到3/10間華安都沒發紅包，3/11抽獎時華安就不具抽獎資格
-                        <br />
-                        例1：石榴於2/26發了3次10,000金幣的紅包，3/4的第一週抽獎未中獎，且3/8石榴又發了1次10,000金幣的紅包，3/11抽獎時石榴就有抽獎資格
-                        <br />
-                      </div>
-                    </li>
-                  </ListWrapper>
-                </ContentText>
-              </div>
-              <div>
-                <SubTitle>獎項內容</SubTitle>
-                <div className="text-center bg-black/50 sm:w-96 mx-auto rounded-xl py-4 border-4 border-red-800 shadow-lg">
-                  <div className="text-red-300 text-2xl mb-3 tracking-wider">
-                    週週抽
+          <div className="rounded-3xl text-white min-h-[500px] max-w-[960px] mx-auto p-2 bg-red-900">
+            <div className="border-yellow-600 border-2 rounded-2xl p-4 sm:p-10">
+              <div className="flex gap-4 mb-8 mt-5">
+                {Object.entries(tabMap).map(([code, label]) => (
+                  <div
+                    key={code}
+                    className={cs(
+                      'rounded-full h-12 w-36 flex items-center justify-center text-xl text-gray-200 cursor-pointer',
+                      code === activeTab
+                        ? 'bg-yellow-500 text-black font-medium'
+                        : 'bg-[#3f0f0f]',
+                    )}
+                    onClick={() => setActiveTab(code)}
+                  >
+                    {label}
                   </div>
-                  <div className="text-yellow-500 text-4xl font-medium pb-2">
-                    西堤餐券卡 10名
-                    <div className="text-xl text-gray-300 mt-2">
-                      價值131,600金幣
+                ))}
+              </div>
+
+              <div className="space-y-8" hidden={activeTab !== 'intro'}>
+                <div>
+                  <SubTitle>活動時間</SubTitle>
+                  <ContentText>
+                    2022/2/25(五) 18:00 ~ 2022/3/24(四) 23:59
+                  </ContentText>
+                </div>
+                <div>
+                  <SubTitle>活動對象</SubTitle>
+                  <ContentText>大頭家娛樂城玩家</ContentText>
+                </div>
+                <div>
+                  <SubTitle>活動說明</SubTitle>
+                  <ContentText>
+                    <ListWrapper>
+                      <li>每發一次祝福紅包即具抽獎資格，發越多抽獎機會越多</li>
+                      <li>每次紅包金額最少發10,000金幣</li>
+                      <li>
+                        每週五抽前一週有符合資格的玩家，未抽中的玩家抽獎資格即失效，需重新取得抽獎資格
+                        <div className="mt-2">
+                          例1：華安於2/26發了2次10,000金幣的紅包，3/4的第一週抽獎未中獎，且3/4到3/10間華安都沒發紅包，3/11抽獎時華安就不具抽獎資格
+                          <br />
+                          例1：石榴於2/26發了3次10,000金幣的紅包，3/4的第一週抽獎未中獎，且3/8石榴又發了1次10,000金幣的紅包，3/11抽獎時石榴就有抽獎資格
+                          <br />
+                        </div>
+                      </li>
+                    </ListWrapper>
+                  </ContentText>
+                </div>
+                <div>
+                  <SubTitle>獎項內容</SubTitle>
+                  <div className="text-center bg-black/50 sm:w-96 mx-auto rounded-xl py-4 border-4 border-red-800 shadow-lg">
+                    <div className="text-red-300 text-2xl mb-3 tracking-wider">
+                      週週抽
+                    </div>
+                    <div className="text-yellow-500 text-3xl sm:text-4xl font-medium pb-2">
+                      西堤餐券卡 10名
+                      <div className="text-xl text-gray-300 mt-2">
+                        價值131,600金幣
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <SubTitle>抽獎日期</SubTitle>
-                <ContentText>
-                  <div className="space-y-2">
-                    <div className="">第一週：2022/3/4</div>
-                    <div className="">第二週：2022/3/11</div>
-                    <div className="">第三週：2022/3/18</div>
-                    <div className="">第四週：2022/3/25</div>
-                  </div>
-                  <br />
-                  ※各週抽獎日當天18:00前會於大頭家官網、大頭家粉絲專頁公布中獎名單
-                </ContentText>
+                <div>
+                  <SubTitle>抽獎日期</SubTitle>
+                  <ContentText>
+                    <div className="space-y-2">
+                      <div className="">第一週：2022/3/4</div>
+                      <div className="">第二週：2022/3/11</div>
+                      <div className="">第三週：2022/3/18</div>
+                      <div className="">第四週：2022/3/25</div>
+                    </div>
+                    <br />
+                    ※各週抽獎日當天18:00前會於大頭家官網、大頭家粉絲專頁公布中獎名單
+                  </ContentText>
+                </div>
               </div>
-              <div>
+              <div hidden={activeTab !== 'tips'}>
                 <SubTitle>注意事項</SubTitle>
                 <ContentText>
                   <ListWrapper>
