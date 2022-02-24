@@ -2,12 +2,11 @@ import ContentText from '@/components/activity/ContentText'
 import ListWrapper from '@/components/activity/ListWrapper'
 import SubTitle from '@/components/activity/SubTitle'
 import LoginPopup from '@/components/LoginPopup'
-import TabGroup from '@/components/TabGroup'
 import { StringMap } from '@/types'
 import { toCdnUrl } from '@/utils'
+import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import React, { useState } from 'react'
-import cs from 'classnames'
 
 const tabMap: StringMap = {
   intro: '活動介紹',
@@ -21,9 +20,9 @@ export default function RechargeActivity() {
     <div>
       <div className="mb-4 sm:mb-10 w-full">
         <img
-          src={toCdnUrl('/event/recharge_banner.jpg')}
+          src={toCdnUrl('/event/全民發紅包_1400x800.jpg')}
           alt=""
-          className="object-contain w-full object-top"
+          className="mx-auto"
         />
       </div>
       <div className="p-4">
@@ -85,6 +84,13 @@ export default function RechargeActivity() {
                     <div className="text-red-300 text-2xl mb-3 tracking-wider">
                       週週抽
                     </div>
+                    <div className="text-center">
+                      <img
+                        src={toCdnUrl(`/event/items/禮品卡片-tasty.png`)}
+                        className="w-60 mx-auto my-5"
+                        alt=""
+                      />
+                    </div>
                     <div className="text-yellow-500 text-3xl sm:text-4xl font-medium pb-2">
                       西堤餐券卡 10名
                       <div className="text-xl text-gray-300 mt-2">
@@ -98,10 +104,26 @@ export default function RechargeActivity() {
                   <SubTitle>抽獎日期</SubTitle>
                   <ContentText>
                     <div className="space-y-2">
-                      <div className="">第一週：2022/3/4</div>
-                      <div className="">第二週：2022/3/11</div>
-                      <div className="">第三週：2022/3/18</div>
-                      <div className="">第四週：2022/3/25</div>
+                      <div className="">
+                        第一週：2022/3/4
+                        <span className="ml-2">(抽2/25~3/3符合資格的玩家)</span>
+                      </div>
+                      <div className="">
+                        第二週：2022/3/11
+                        <span className="ml-2">(抽3/4~3/10符合資格的玩家)</span>
+                      </div>
+                      <div className="">
+                        第三週：2022/3/18
+                        <span className="ml-2">
+                          (抽3/11~3/17符合資格的玩家)
+                        </span>
+                      </div>
+                      <div className="">
+                        第四週：2022/3/25
+                        <span className="ml-2">
+                          (抽3/18~3/25符合資格的玩家)
+                        </span>
+                      </div>
                     </div>
                     <br />
                     ※各週抽獎日當天18:00前會於大頭家官網、大頭家粉絲專頁公布中獎名單
@@ -113,7 +135,7 @@ export default function RechargeActivity() {
                 <ContentText>
                   <ListWrapper>
                     <li>
-                      各週中獎玩家請於該週中獎名單公布後7天內至大頭家粉絲專頁私訊小編領獎，並填寫領獎單回傳，如未於該指定期間完成前述事項則視同放棄。
+                      各週中獎玩家請於該週中獎名單公布後7天內(含假日)至大頭家粉絲專頁私訊小編領獎，並填寫領獎單回傳，如未於該指定期間完成前述事項則視同放棄。
                     </li>
                     <li>
                       獎品寄送以台灣地區為限定範圍；如得獎人為離島玩家（如：澎湖、金門、馬祖等地區），請於實體獎項線上建單時，提供台灣友人的寄送地址。
