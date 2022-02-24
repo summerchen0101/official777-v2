@@ -31,7 +31,7 @@ export default function RechargeActivity() {
             全民發紅包
           </div>
           <div className="rounded-3xl text-white min-h-[500px] max-w-[960px] mx-auto p-2 bg-red-900">
-            <div className="border-yellow-600 border-2 rounded-2xl p-4 sm:p-10">
+            <div className="border-yellow-600 border-2 rounded-2xl p-4 pb-10 sm:p-10">
               <div className="flex justify-center gap-4 mb-8 mt-5">
                 {Object.entries(tabMap).map(([code, label]) => (
                   <div
@@ -104,25 +104,21 @@ export default function RechargeActivity() {
                   <SubTitle>抽獎日期</SubTitle>
                   <ContentText>
                     <div className="space-y-2">
-                      <div className="">
-                        第一週：2022/3/4
-                        <span className="ml-2">(抽2/25~3/3符合資格的玩家)</span>
+                      <div className="flex flex-col sm:flex-row gap-x-2">
+                        <div className="text-white">第一週：2022/3/4</div>
+                        <div>(抽2/25~3/3符合資格的玩家)</div>
                       </div>
-                      <div className="">
-                        第二週：2022/3/11
-                        <span className="ml-2">(抽3/4~3/10符合資格的玩家)</span>
+                      <div className="flex flex-col sm:flex-row gap-x-2">
+                        <div className="text-white">第二週：2022/3/11</div>
+                        <div>(抽3/4~3/10符合資格的玩家)</div>
                       </div>
-                      <div className="">
-                        第三週：2022/3/18
-                        <span className="ml-2">
-                          (抽3/11~3/17符合資格的玩家)
-                        </span>
+                      <div className="flex flex-col sm:flex-row gap-x-2">
+                        <div className="text-white">第三週：2022/3/18</div>
+                        <div>(抽3/11~3/17符合資格的玩家)</div>
                       </div>
-                      <div className="">
-                        第四週：2022/3/25
-                        <span className="ml-2">
-                          (抽3/18~3/25符合資格的玩家)
-                        </span>
+                      <div className="flex flex-col sm:flex-row gap-x-2">
+                        <div className="text-white">第四週：2022/3/25</div>
+                        <div>(抽3/18~3/25符合資格的玩家)</div>
                       </div>
                     </div>
                     <br />
