@@ -22,7 +22,7 @@ export default function RechargeActivity() {
         <img
           src={toCdnUrl('/event/全民發紅包_1400x800.jpg')}
           alt=""
-          className="object-contain w-full object-top"
+          className="mx-auto"
         />
       </div>
       <div className="p-4">
