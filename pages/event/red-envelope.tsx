@@ -22,7 +22,7 @@ export default function RechargeActivity() {
         <img
           src={toCdnUrl('/event/全民發紅包_1400x800.jpg')}
           alt=""
-          className="mx-auto"
+          className="object-contain w-full object-top"
         />
       </div>
       <div className="p-4">
@@ -118,7 +118,7 @@ export default function RechargeActivity() {
                       </div>
                       <div className="flex flex-col sm:flex-row gap-x-2">
                         <div className="text-white">第四週：2022/3/25</div>
-                        <div>(抽3/18~3/25符合資格的玩家)</div>
+                        <div>(抽3/18~3/24符合資格的玩家)</div>
                       </div>
                     </div>
                     <br />
