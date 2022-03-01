@@ -175,5 +175,28 @@
     "isRedirect": false,
     "sort": 0,
     "platform": 0
+  },
+  {
+    "title": "MyCard系統3月份例行維護時間",
+    "content": "親愛的玩家您好，<br/> MyCard系統2月份例行性維護時間如下<br/> 2022/3/7 08:00~09:30(GMT+8)<br/>2022/3/14 08:00~09:30(GMT+8)<br/>2022/3/21 08:00~09:30(GMT+8)<br/><br/>大頭家娛樂城 營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/02/25",
+    "startAt": "2022/02/25 16:00",
+    "endAt": "2023/02/25 23:59",
+    "isRedirect": false,
+    "sort": 1,
+    "platform": 1
+  },
+   {
+    "title": "全民發紅包 週週抽西堤餐券卡",
+    "content": "https://online539.com/event/red-envelope",
+    "category": 1,
+    "createdAt": "2022/02/25",
+    "startAt": "2022/02/25 16:00",
+    "endAt": "2023/02/25 23:59",
+    "isRedirect": true,
+    "sort": 1,
+    "platform": 1
   }
 ]
+
