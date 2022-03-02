@@ -6,7 +6,7 @@ import React from 'react'
 
 const list = [
   {
-    name: '幸運紅包',
+    name: '開運紅包',
     desc: `大方的您直接將紅包分送給搶紅包的玩家`,
     img: '/gift/img_redEnvelopeLucky.png',
   },
