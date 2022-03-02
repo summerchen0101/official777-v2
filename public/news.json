@@ -6,7 +6,7 @@
     "category": 1,
     "createdAt": "2022/01/17",
     "startAt": "2022/01/17 12:00",
-    "endAt": "2023/01/20 12:00",
+    "endAt": "2022/03/02 16:00",
     "isRedirect": false,
     "sort": 0,
     "platform": 0
@@ -17,7 +17,7 @@
     "category": 1,
     "createdAt": "2022/01/17",
     "startAt": "2022/01/17 12:00",
-    "endAt": "2023/01/20 12:00",
+    "endAt": "2022/03/02 16:00",
     "isRedirect": false,
     "sort": 0,
     "platform": 0
@@ -178,7 +178,7 @@
   },
   {
     "title": "MyCard系統3月份例行維護時間",
-    "content": "親愛的玩家您好，<br/> MyCard系統2月份例行性維護時間如下<br/> 2022/3/7 08:00~09:30(GMT+8)<br/>2022/3/14 08:00~09:30(GMT+8)<br/>2022/3/21 08:00~09:30(GMT+8)<br/><br/>大頭家娛樂城 營運團隊 敬上",
+    "content": "親愛的玩家您好，<br/> MyCard系統3月份例行性維護時間如下<br/> 2022/3/7 08:00~09:30(GMT+8)<br/>2022/3/14 08:00~09:30(GMT+8)<br/>2022/3/21 08:00~09:30(GMT+8)<br/><br/>大頭家娛樂城 營運團隊 敬上",
     "category": 1,
     "createdAt": "2022/02/25",
     "startAt": "2022/02/25 16:00",
@@ -187,7 +187,7 @@
     "sort": 1,
     "platform": 1
   },
-   {
+  {
     "title": "全民發紅包 週週抽西堤餐券卡",
     "content": "https://online539.com/event/red-envelope",
     "category": 1,
@@ -196,6 +196,17 @@
     "endAt": "2023/02/25 23:59",
     "isRedirect": true,
     "sort": 1,
+    "platform": 1
+  },
+  {
+    "title": "2/25獎勵發送異常公告",
+    "content": "親愛的頭家<br/><br/>茲針對2/25上週五活動獎勵發送異常一事特此說明，因系統異常致誤植錯誤獎勵，系統已於2/25回收錯誤獎勵並補發正確獎勵，造成不便敬請見諒<br/><br/>大頭家娛樂城 營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/03/02",
+    "startAt": "2022/03/02 16:00",
+    "endAt": "2023/03/02 23:59",
+    "isRedirect": false,
+    "sort": 0,
     "platform": 1
   }
 ]
