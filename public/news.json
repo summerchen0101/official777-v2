@@ -208,6 +208,28 @@
     "isRedirect": false,
     "sort": 0,
     "platform": 1
+  },
+  {
+    "title": "單一裝置註冊新帳號限制公告",
+    "content": "親愛的頭家<br/><br/>即日起將限制單一裝置可註冊新帳號的數量，每個裝置僅能註冊3個新帳號，造成不便敬請見諒！<br/><br/>大頭家娛樂城 營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/03/03",
+    "startAt": "2022/03/03 16:30",
+    "endAt": "2023/03/03 16:30",
+    "isRedirect": false,
+    "sort": 1,
+    "platform": 1
+  },
+  {
+    "title": "iOS版本上線公告",
+    "content": "親愛的頭家<br/><br/>現在iOS的正式版本也上了喔！立馬下載搶先體驗！於官網首頁點擊「立刻下載」並點擊App Store圖標或到App Store搜尋大頭家娛樂城就能下載嘍！<br/><br/>大頭家娛樂城 營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/03/03",
+    "startAt": "2022/03/03 16:30",
+    "endAt": "2023/03/03 16:30",
+    "isRedirect": false,
+    "sort": 0,
+    "platform": 1
   }
 ]
 
