@@ -168,10 +168,10 @@ export default function LoginPopup() {
                   className="rounded py-1.5 flex-1"
                   {...register('phone', {
                     required: { value: true, message: '不可為空' },
-                    pattern: {
-                      value: /^09\d{2}(\d{6}|-\d{3}-\d{3})$/,
-                      message: '格式不符, ex: 0921222333',
-                    },
+                    // pattern: {
+                    //   value: /^09\d{2}(\d{6}|-\d{3}-\d{3})$/,
+                    //   message: '格式不符, ex: 0921222333',
+                    // },
                   })}
                 />
               </div>
