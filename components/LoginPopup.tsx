@@ -18,6 +18,7 @@ import LoadingCover from './LoadingCover'
 import { CgSpinner, CgSpinnerTwo, CgSpinnerTwoAlt } from 'react-icons/cg'
 
 type Inputs = {
+  phoneCode: string
   phone: string
   pw: string
 }
@@ -79,7 +80,7 @@ export default function LoginPopup() {
   }
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
-      cellphone: `886-${d.phone.substring(1)}`,
+      cellphone: `${d.phoneCode}-${d.phone}`,
       password: d.pw,
       type: 1,
     })
@@ -160,7 +161,12 @@ export default function LoginPopup() {
             <div className="flex flex-col">
               <label htmlFor="">手機號碼</label>
               <div className="flex gap-2">
-                <select className="rounded py-1.5">
+                <select
+                  className="rounded py-1.5"
+                  {...register('phoneCode', {
+                    required: { value: true, message: '不可為空' },
+                  })}
+                >
                   <option>886</option>
                 </select>
                 <input
