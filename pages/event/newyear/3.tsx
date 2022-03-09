@@ -24,7 +24,7 @@ const ticketRules = [
   { ticket: '金', amount: 1, score: 400000 },
 ]
 export default function Activity_02() {
-  const cnaRecharge = useStore((s) => s.canRecharge)
+  const cnaRecharge = useStore((s) => s.clientEnv.canRecharge)
   const { data } = useMe()
   const {
     register,

@@ -11,7 +11,8 @@ import useEventOverview from '@/services/useEventOverview'
 import useMe from '@/services/useMe'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
-import { toCdnUrl, toCurrency } from '@/utils'
+import { toCurrency } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import cs from 'classnames'
 import React, { useState } from 'react'
 
@@ -350,9 +351,10 @@ const ticketGifts_online: TicketGift[] = [
 ]
 
 export default function Activity_01() {
+  const toCdnUrl = useCdnUrl()
   const [tab, setTab] = useState(0)
   const { data } = useMe()
-  const canRecharge = useStore((s) => s.canRecharge)
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   // const { list, isLoading } = useEventList()
   // const eventData = useMemo<Event | null>(() => list?.[0] || null, [list])
   const { data: eventOverview } = useEventOverview({ eventCode: 'newyear' })

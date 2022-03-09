@@ -1,17 +1,16 @@
 import Layout from '@/components/layout/Layout'
-import React, { useState } from 'react'
-import cs from 'classnames'
 import PageBanner from '@/components/layout/PageBanner'
-import { BiX } from 'react-icons/bi'
-import NewsDetailPopup from '@/components/NewsDetailPopup'
-import { useStore } from '@/store/useStore'
-import useNewsList, { News } from '@/services/useNewsList'
-import { newsTypeMap } from '@/lib/map'
 import LoadingCover from '@/components/LoadingCover'
-import { toCdnUrl, toDateTime } from '@/utils'
-import { YesNo } from '@/lib/enums'
+import NewsDetailPopup from '@/components/NewsDetailPopup'
+import useCdnUrl from '@/hooks/useCdnUrl'
+import { newsTypeMap } from '@/lib/map'
+import useNewsList, { News } from '@/services/useNewsList'
+import { useStore } from '@/store/useStore'
+import cs from 'classnames'
+import React, { useState } from 'react'
 
 function RechargeRec() {
+  const toCdnUrl = useCdnUrl()
   const [page, setPage] = useState(1)
   const [currentNewsTab, setCurrentNewsTab] = useState(0)
   const { list, isLoading, paginator } = useNewsList({

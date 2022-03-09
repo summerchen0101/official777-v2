@@ -6,7 +6,7 @@ import { genderMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useProfileUpdate from '@/services/useProfileUpdate'
 import useSms from '@/services/useSms'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
@@ -22,6 +22,7 @@ type Inputs = {
 
 function UserBasic() {
   useAuth()
+  const toCdnUrl = useCdnUrl()
   const { data, mutate } = useMe()
   const [count, setCount] = useState(0)
   const { handler: doUpdate, isLoading } = useProfileUpdate()

@@ -1,7 +1,7 @@
+import useCdnUrl from '@/hooks/useCdnUrl'
 import { Platform } from '@/lib/enums'
 import { appUrlMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
-import { toCdnUrl } from '@/utils'
 import cs from 'classnames'
 import QRCode from 'qrcode'
 import { useEffect, useRef, useState } from 'react'
@@ -11,7 +11,8 @@ import { useEffect, useRef, useState } from 'react'
 //   Android: '/google_play.png',
 // }
 function AppDownloadSideFloat() {
-  const canRecharge = useStore((s) => s.canRecharge)
+  const toCdnUrl = useCdnUrl()
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   const [isShowSidebar, setIsShowSidebar] = useState(false)
   const toggleSidebar = () => setIsShowSidebar((val) => !val)
   const qrcodeImgSrc = useRef('')

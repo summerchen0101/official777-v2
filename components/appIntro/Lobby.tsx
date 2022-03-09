@@ -1,4 +1,4 @@
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React from 'react'
 import PicFloatIntro from '../PicFloatIntro'
 
@@ -120,6 +120,7 @@ const floatIntro = [
 ]
 
 function IntroLobby() {
+  const toCdnUrl = useCdnUrl()
   return (
     <>
       <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative lg:mb-10">

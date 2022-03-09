@@ -1,4 +1,4 @@
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React from 'react'
 
 type Props = {
@@ -6,6 +6,7 @@ type Props = {
   img: string
 }
 function PicIntro({ intro, img }: Props) {
+  const toCdnUrl = useCdnUrl()
   return (
     <div className="mb-10">
       <div className="bg-black flex items-center justify-center rounded-lg border border-gray-700 relative">

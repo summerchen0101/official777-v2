@@ -2,7 +2,7 @@ import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import { VipLevel } from '@/lib/enums'
 import { vipLevelMap } from '@/lib/map'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React, { useState } from 'react'
 import cs from 'classnames'
 import PicIntro from '@/components/PicIntro'
@@ -155,6 +155,7 @@ const vipIntro = [
 ]
 
 function VipIntro() {
+  const toCdnUrl = useCdnUrl()
   const [activeVip, setActiveVip] = useState(VipLevel.LV1)
   return (
     <Layout>

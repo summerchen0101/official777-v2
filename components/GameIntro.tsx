@@ -1,6 +1,6 @@
 import { gameIntroImgsMap } from '@/lib/games'
 import { gameMap } from '@/lib/map'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React, { useState } from 'react'
 
 interface MajongInto {
@@ -251,6 +251,7 @@ type Props = {
 }
 
 export default function GameIntro({ gameId }: Props) {
+  const toCdnUrl = useCdnUrl()
   const [activeTab, setActiveTab] = useState(0)
   return (
     <div className="text-white py-10">

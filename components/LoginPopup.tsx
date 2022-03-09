@@ -3,7 +3,7 @@ import useLogin from '@/services/useLogin'
 import useOAuthLogin from '@/services/useOAuthLogin'
 import usePopupStore from '@/store/usePopupStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import useStorage from '@/hooks/useStorage'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
@@ -24,9 +24,10 @@ type Inputs = {
 }
 
 export default function LoginPopup() {
+  const toCdnUrl = useCdnUrl()
   const [appleState, setAppleState] = useState('')
   const { handler: login, isLoading } = useLogin()
-  const apiBaseUrl = useStore((s) => s.apiBaseUrl)
+  const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
   const {
     register,
     handleSubmit,

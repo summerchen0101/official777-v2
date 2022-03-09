@@ -9,7 +9,7 @@ export interface MaintenanceRes extends ResBase {
 }
 
 function useMaintenance() {
-  const apiBaseUrl = useStore((s) => s.apiBaseUrl)
+  const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
   const { data, isValidating, mutate } = useSWR<MaintenanceRes>(
     [`${apiBaseUrl}/json/billboard.json`],
     (url) => fetch(url).then((res) => res.json()),

@@ -5,7 +5,7 @@ import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
 import { useStore } from '@/store/useStore'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React, { useState } from 'react'
 
 const ticketGiftStages = [
@@ -72,7 +72,8 @@ const ticketGiftStages = [
 ]
 
 export default function Activity_06() {
-  const canRecharge = useStore((s) => s.canRecharge)
+  const toCdnUrl = useCdnUrl()
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   return (
     <PageWrapper>
       <ActivityBtns id={4} />

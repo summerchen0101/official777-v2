@@ -7,7 +7,7 @@ import {
   HiOutlineQuestionMarkCircle,
   HiQuestionMarkCircle,
 } from 'react-icons/hi'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 
 enum FaqCategory {
   Game = 1,
@@ -199,6 +199,7 @@ const faqListByCategory = _(faqList)
   .groupBy((t) => t.category)
   .value()
 function FaqPage() {
+  const toCdnUrl = useCdnUrl()
   return (
     <Layout>
       <PageBanner />

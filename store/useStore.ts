@@ -1,16 +1,15 @@
 import { News } from './../services/useNewsList'
 import create from 'zustand'
 
-interface Game {
-  title: string
-  intros: number[]
+interface ClientEnv {
+  apiBaseUrl: string
+  cdnBaseUrl: string
+  canRecharge: boolean
 }
 
 interface IState {
-  apiBaseUrl: string
-  setApiBaseUrl: (url: string) => void
-  canRecharge: boolean
-  setCanRecharge: (val: boolean) => void
+  clientEnv: ClientEnv
+  setClientEnv: (config: ClientEnv) => void
   isShowSidebar: boolean
   toggleSidebar: () => void
   isShowSideBox: boolean
@@ -30,10 +29,12 @@ interface IState {
 }
 
 export const useStore = create<IState>((set) => ({
-  apiBaseUrl: '',
-  setApiBaseUrl: (apiBaseUrl) => set({ apiBaseUrl }),
-  canRecharge: true,
-  setCanRecharge: (canRecharge) => set({ canRecharge }),
+  clientEnv: {
+    apiBaseUrl: '',
+    cdnBaseUrl: '',
+    canRecharge: true,
+  },
+  setClientEnv: (clientEnv) => set({ clientEnv }),
   isShowSidebar: false,
   toggleSidebar: () =>
     set((state) => ({ isShowSidebar: !state.isShowSidebar })),

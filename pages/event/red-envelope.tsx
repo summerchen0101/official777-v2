@@ -3,7 +3,7 @@ import ListWrapper from '@/components/activity/ListWrapper'
 import SubTitle from '@/components/activity/SubTitle'
 import LoginPopup from '@/components/LoginPopup'
 import { StringMap } from '@/types'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import React, { useState } from 'react'
@@ -14,6 +14,7 @@ const tabMap: StringMap = {
 }
 
 export default function RechargeActivity() {
+  const toCdnUrl = useCdnUrl()
   const router = useRouter()
   const [activeTab, setActiveTab] = useState('intro')
   return (

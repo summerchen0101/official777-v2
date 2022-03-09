@@ -1,7 +1,7 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import PicIntro from '@/components/PicIntro'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React from 'react'
 
 const list = [
@@ -37,6 +37,7 @@ const list = [
 ]
 
 function GiftIntro() {
+  const toCdnUrl = useCdnUrl()
   return (
     <Layout>
       <PageBanner />

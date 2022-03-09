@@ -1,14 +1,16 @@
+import useCdnUrl from '@/hooks/useCdnUrl'
 import useMe from '@/services/useMe'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toCurrency, toCdnUrl } from '@/utils'
+import { toCurrency } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 
 function SideBox() {
+  const toCdnUrl = useCdnUrl()
   const router = useRouter()
   const clearUser = useUserStore((s) => s.clearUser)
-  const canRecharge = useStore((s) => s.canRecharge)
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   const onToggle = usePopupStore((s) => s.login.onToggle)
 
   const { data: user, isLoading } = useMe()

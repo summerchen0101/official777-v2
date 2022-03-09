@@ -4,7 +4,6 @@ import { OptionType } from '@/types/index'
 import { format } from 'date-fns'
 import { StringMap } from '@/types'
 import numeral from 'numeral'
-import { cdnBaseUrl } from '@/lib/config'
 
 export const toDate = (time: number, isUnix?: boolean) =>
   time && format(isUnix ? time * 1000 : time, 'yyyy-MM-dd')
@@ -55,10 +54,6 @@ export const reviewBase64Img = (base64Str: string) => {
   const newWin = window.open('', '_blank')
   newWin?.document.write(img.outerHTML)
   newWin?.document.close()
-}
-
-export const toCdnUrl = (path: string) => {
-  return cdnBaseUrl + path
 }
 
 export function checkPlatform() {
