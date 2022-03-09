@@ -71,7 +71,7 @@ export default function RechargePopup({ paymentType }: Props) {
         productID: d.productID,
         gatewayCode: PaymentGateway.MyCard,
         userID: data?.id!,
-        paymentType,
+        paymentType: telePaymentType,
       })
       if (res?.data.requestURL) {
         router.replace({
