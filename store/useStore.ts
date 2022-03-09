@@ -1,11 +1,6 @@
 import { News } from './../services/useNewsList'
 import create from 'zustand'
 
-interface Game {
-  title: string
-  intros: number[]
-}
-
 interface ClientEnv {
   apiBaseUrl: string
   cdnBaseUrl: string
@@ -14,7 +9,7 @@ interface ClientEnv {
 
 interface IState {
   clientEnv: ClientEnv
-  setClientEnv: (env: ClientEnv) => void
+  setClientEnv: (config: ClientEnv) => void
   isShowSidebar: boolean
   toggleSidebar: () => void
   isShowSideBox: boolean
