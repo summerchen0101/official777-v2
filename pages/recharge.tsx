@@ -8,7 +8,7 @@ import { MCPaymentType } from '@/lib/enums'
 import { mcPaymentTypeMap } from '@/lib/map'
 import usePopupStore from '@/store/usePopupStore'
 import { StringMap } from '@/types'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React, { useState } from 'react'
 
 // export const paymentTypeImgMap: StringMap = {
@@ -27,6 +27,7 @@ export const paymentTypeOrder = [
 ]
 
 function RechargePage() {
+  const toCdnUrl = useCdnUrl()
   const [paymentType, setPaymentType] = useState(0)
   const onTransferShow = usePopupStore((s) => s.transfer.onShow)
   const onProductShow = usePopupStore((s) => s.product.onShow)

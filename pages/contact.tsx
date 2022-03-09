@@ -1,16 +1,18 @@
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import { reportCategory } from '@/lib/report'
 import useMe from '@/services/useMe'
 import useTicketCreate from '@/services/useTicketCreate'
 import useTicketFields from '@/services/useTicketFields'
-import { getFileInfo, toCdnUrl } from '@/utils'
+import { getFileInfo } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React, { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { CgSpinner } from 'react-icons/cg'
 
 function Contact() {
+  const toCdnUrl = useCdnUrl()
   const router = useRouter()
   // const { list: ticketOpts } = useTicketOpts()
   const { list: formFields } = useTicketFields()

@@ -2,7 +2,8 @@ import ContentText from '@/components/activity/ContentText'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
 import LoginPopup from '@/components/LoginPopup'
-import { toCurrency, toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
+import { toCurrency } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import React from 'react'
 
@@ -42,6 +43,7 @@ const giftList: Gift[] = [
   },
 ]
 export default function RechargeActivity() {
+  const toCdnUrl = useCdnUrl()
   const router = useRouter()
 
   return (

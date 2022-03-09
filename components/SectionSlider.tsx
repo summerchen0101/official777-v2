@@ -1,4 +1,4 @@
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React from 'react'
 import Slider, { Settings } from 'react-slick'
 export interface GameSlide {
@@ -16,6 +16,7 @@ function SamplePrevArrow(
     HTMLDivElement
   >,
 ) {
+  const toCdnUrl = useCdnUrl()
   const { className, style, onClick } = props
   return (
     <img
@@ -33,6 +34,7 @@ function SampleNextArrow(
     HTMLDivElement
   >,
 ) {
+  const toCdnUrl = useCdnUrl()
   const { className, style, onClick } = props
   return (
     <img
@@ -45,6 +47,7 @@ function SampleNextArrow(
 }
 
 function SectionSlider({ slides, slidesToShow, onClick }: Props) {
+  const toCdnUrl = useCdnUrl()
   var settings: Settings = {
     dots: false,
     infinite: true,

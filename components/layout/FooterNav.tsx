@@ -1,11 +1,12 @@
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import Link from 'next/link'
 
 function FooterNav() {
+  const toCdnUrl = useCdnUrl()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
-  const canRecharge = useStore((s) => s.canRecharge)
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   return (
     <footer>
       <div className="bg-black/50">

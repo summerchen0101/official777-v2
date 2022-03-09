@@ -1,4 +1,4 @@
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React from 'react'
 import PicFloatIntro from '../PicFloatIntro'
 import PicIntro from '../PicIntro'
@@ -43,6 +43,7 @@ const floatIntro = [
 ]
 
 function IntroGameSelect() {
+  const toCdnUrl = useCdnUrl()
   return (
     <>
       <PicIntro

@@ -1,7 +1,7 @@
 import React from 'react'
 import Slider, { Settings } from 'react-slick'
 import cs from 'classnames'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import { useStore } from '@/store/useStore'
 import Link from 'next/link'
 
@@ -18,7 +18,8 @@ interface Props {
 }
 
 function HomeSlider({ slides, dots, isHomePage }: Props) {
-  const canRecharge = useStore((s) => s.canRecharge)
+  const toCdnUrl = useCdnUrl()
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   var settings: Settings = {
     dots,
     infinite: true,

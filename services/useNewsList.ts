@@ -29,7 +29,7 @@ export interface NewsListRes extends ResBase {
 }
 
 function useNewsList({ category, page, perPage }: NewsListReq) {
-  const canRecharge = useStore((s) => s.canRecharge)
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   const { data, isValidating } = useSWR<News[]>('/news.json', (url) =>
     fetch(url).then((res) => res.json()),
   )

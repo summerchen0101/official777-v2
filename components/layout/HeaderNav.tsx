@@ -3,16 +3,17 @@ import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { Menu } from '@/types'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import MobileHeader from './MobileHeader'
 
 function HeaderNav() {
+  const toCdnUrl = useCdnUrl()
   const router = useRouter()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const onToggle = usePopupStore((s) => s.login.onToggle)
-  const canRecharge = useStore((s) => s.canRecharge)
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
 
   const fixedMenu = menu.map((m) => {
     if (!canRecharge && m.subs) {

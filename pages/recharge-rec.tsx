@@ -11,11 +11,14 @@ import {
   paymentStatusMap,
 } from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
-import { toCdnUrl, toCurrency, toDateTime } from '@/utils'
+import { toCurrency, toDateTime } from '@/utils'
+
+import useCdnUrl from '@/hooks/useCdnUrl'
 import cs from 'classnames'
 import React, { useState } from 'react'
 
 function RechargeRec() {
+  const toCdnUrl = useCdnUrl()
   const [page, setPage] = useState(1)
   const { list, isLoading, paginator } = useRechargeRecList({
     paymentStatus: 0,

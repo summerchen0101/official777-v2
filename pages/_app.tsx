@@ -13,13 +13,11 @@ import '../styles/globals.scss'
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
-  const setApiBaseUrl = useStore((s) => s.setApiBaseUrl)
-  const setCanRecharge = useStore((s) => s.setCanRecharge)
-  const apiBaseUrl = useStore((s) => s.apiBaseUrl)
+  const setClientEnv = useStore((s) => s.setClientEnv)
+  const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
   const getConfig = async () => {
     const config = await fetch('/config/env.json').then((res) => res.json())
-    setApiBaseUrl(config.apiBaseUrl)
-    setCanRecharge(config.canRecharge)
+    setClientEnv(config)
   }
 
   useEffect(() => {

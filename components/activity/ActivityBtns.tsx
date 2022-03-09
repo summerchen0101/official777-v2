@@ -1,6 +1,6 @@
 import { activityList } from '@/lib/activity'
 import { useStore } from '@/store/useStore'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import React from 'react'
@@ -10,7 +10,8 @@ type Props = {
   id: number | string
 }
 function ActivityBtns({ id }: Props) {
-  const canRecharge = useStore((s) => s.canRecharge)
+  const toCdnUrl = useCdnUrl()
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   return (
     <div className="mb-10 py-4">
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-7 max-w-[800px] mx-auto justify-center">

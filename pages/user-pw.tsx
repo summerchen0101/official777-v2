@@ -4,7 +4,7 @@ import useAuth from '@/hooks/useAuth'
 import useMe from '@/services/useMe'
 import usePwUpdate from '@/services/usePwUpdate'
 import useSms from '@/services/useSms'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
@@ -15,6 +15,7 @@ type Inputs = {
   new_pw_confirm: string
 }
 function UserPw() {
+  const toCdnUrl = useCdnUrl()
   const [count, setCount] = useState(0)
   useInterval(() => {
     if (count > 0) {

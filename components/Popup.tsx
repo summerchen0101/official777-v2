@@ -1,4 +1,4 @@
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import useBodyLock from '@/hooks/useBodyLock'
 import cs from 'classnames'
 import React, { ReactNode, useEffect, useMemo, useRef } from 'react'
@@ -11,7 +11,7 @@ interface Props {
 }
 export default function Popup({ onClose, isShow, children, className }: Props) {
   const popupBody = useRef<HTMLDivElement>(null)
-
+  const toCdnUrl = useCdnUrl()
   useBodyLock(isShow)
   useEffect(() => {
     if (!isShow) {

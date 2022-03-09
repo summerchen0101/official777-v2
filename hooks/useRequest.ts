@@ -12,7 +12,7 @@ export const publicApiPath = 'public/apis/v1'
 
 const useRequest = () => {
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
-  const apiBaseUrl = useStore((s) => s.apiBaseUrl)
+  const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
 
   const { apiErrHandler } = useErrorHandler()
   return useCallback(

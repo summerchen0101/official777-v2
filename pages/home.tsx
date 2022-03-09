@@ -11,7 +11,7 @@ import { largeGameSlides } from '@/lib/games'
 import { gameMap, newsTypeMap } from '@/lib/map'
 import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
@@ -27,6 +27,7 @@ export const homeSlides: HomeSlide[] = [
 ]
 
 const Home: NextPage = () => {
+  const toCdnUrl = useCdnUrl()
   const router = useRouter()
   const [page, setPage] = useState(1)
   const [currentNewsTab, setCurrentNewsTab] = useState(0)

@@ -3,11 +3,14 @@ import PageBanner from '@/components/layout/PageBanner'
 import LoadingCover from '@/components/LoadingCover'
 import Paginator from '@/components/Paginator'
 import usePunishmentList from '@/services/usePunishmentList'
-import { toCdnUrl, toDateTime } from '@/utils'
+import { toDateTime } from '@/utils'
+
+import useCdnUrl from '@/hooks/useCdnUrl'
 import { useRouter } from 'next/dist/client/router'
 import React, { useState } from 'react'
 
 function PunishmentPage() {
+  const toCdnUrl = useCdnUrl()
   const router = useRouter()
   const [page, setPage] = useState(1)
 

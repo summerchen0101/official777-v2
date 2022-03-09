@@ -4,7 +4,7 @@ import PageBanner from '@/components/layout/PageBanner'
 import TabGroup from '@/components/TabGroup'
 import { gameMap } from '@/lib/map'
 import { useStore } from '@/store/useStore'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React, { useMemo, useState } from 'react'
 
 const tabsMap = {
@@ -107,6 +107,7 @@ const list: Game[] = [
 ]
 
 function GameIntro() {
+  const toCdnUrl = useCdnUrl()
   const [activeTab, setActiveTab] = useState(1)
   const showGamePopup = useStore((s) => s.showGamePopup)
 

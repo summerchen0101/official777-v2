@@ -4,6 +4,7 @@ import Layout from '@/components/layout/Layout'
 import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider from '@/components/SectionSlider'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import useDevicePage from '@/hooks/useDevicePage'
 import useLoginFirst from '@/hooks/useLoginFirst'
 import { Platform } from '@/lib/enums'
@@ -13,16 +14,16 @@ import useNewsList, { News } from '@/services/useNewsList'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
-import { toCdnUrl, toCurrency } from '@/utils'
+import { toCurrency } from '@/utils'
 import cs from 'classnames'
 import type { NextPage } from 'next'
-import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 import { homeSlides } from '../home'
 
 const MobileHome: NextPage = () => {
+  const toCdnUrl = useCdnUrl()
   useDevicePage('/home', '/mb/home')
-  const canRecharge = useStore((s) => s.canRecharge)
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   const { data: user } = useMe()
   const [page, setPage] = useState(1)
   const [currentNewsTab, setCurrentNewsTab] = useState(0)

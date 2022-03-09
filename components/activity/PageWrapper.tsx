@@ -1,6 +1,6 @@
 import useLoginFirst from '@/hooks/useLoginFirst'
 import { useStore } from '@/store/useStore'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import { useRouter } from 'next/dist/client/router'
 import React, { memo, ReactNode } from 'react'
 import { BiDollar, BiDownload, BiHome } from 'react-icons/bi'
@@ -12,7 +12,8 @@ import SideBox from '../SideBox'
 import Link from 'next/link'
 
 function PageWrapper({ children }: { children: ReactNode }) {
-  const canRecharge = useStore((s) => s.canRecharge)
+  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
+  const toCdnUrl = useCdnUrl()
   const router = useRouter()
 
   const handleRechargeClicked = useLoginFirst('/recharge')

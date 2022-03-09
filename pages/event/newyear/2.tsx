@@ -4,7 +4,7 @@ import ListWrapper from '@/components/activity/ListWrapper'
 import PageWrapper from '@/components/activity/PageWrapper'
 import ActivitySection from '@/components/activity/Section'
 import SubTitle from '@/components/activity/SubTitle'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React from 'react'
 interface Gift {
   name: string
@@ -100,6 +100,7 @@ const groupList: Group[] = [
 ]
 
 export default function Activity_05() {
+  const toCdnUrl = useCdnUrl()
   return (
     <PageWrapper>
       <ActivityBtns id={2} />

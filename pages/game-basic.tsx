@@ -4,7 +4,7 @@ import IntroLobby from '@/components/appIntro/Lobby'
 import Layout from '@/components/layout/Layout'
 import PageBanner from '@/components/layout/PageBanner'
 import TabGroup from '@/components/TabGroup'
-import { toCdnUrl } from '@/utils'
+import useCdnUrl from '@/hooks/useCdnUrl'
 import React, { ReactNode, useState } from 'react'
 
 const tabsMap = {
@@ -14,6 +14,7 @@ const tabsMap = {
 }
 
 function GameBasic() {
+  const toCdnUrl = useCdnUrl()
   const [activeTab, setActiveTab] = useState('1')
   const compMap: Record<string, ReactNode> = {
     1: <IntroLobby />,

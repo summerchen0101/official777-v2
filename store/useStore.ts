@@ -6,11 +6,15 @@ interface Game {
   intros: number[]
 }
 
-interface IState {
+interface ClientEnv {
   apiBaseUrl: string
-  setApiBaseUrl: (url: string) => void
+  cdnBaseUrl: string
   canRecharge: boolean
-  setCanRecharge: (val: boolean) => void
+}
+
+interface IState {
+  clientEnv: ClientEnv
+  setClientEnv: (env: ClientEnv) => void
   isShowSidebar: boolean
   toggleSidebar: () => void
   isShowSideBox: boolean
@@ -30,10 +34,12 @@ interface IState {
 }
 
 export const useStore = create<IState>((set) => ({
-  apiBaseUrl: '',
-  setApiBaseUrl: (apiBaseUrl) => set({ apiBaseUrl }),
-  canRecharge: true,
-  setCanRecharge: (canRecharge) => set({ canRecharge }),
+  clientEnv: {
+    apiBaseUrl: '',
+    cdnBaseUrl: '',
+    canRecharge: true,
+  },
+  setClientEnv: (clientEnv) => set({ clientEnv }),
   isShowSidebar: false,
   toggleSidebar: () =>
     set((state) => ({ isShowSidebar: !state.isShowSidebar })),
