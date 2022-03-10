@@ -88,7 +88,7 @@ interface TicketGift {
 
 const ticketGifts_boss: TicketGift[] = [
   {
-    ticket: '金',
+    ticket: '金券',
     gifts: [
       {
         name: '金幣158,000,000',
@@ -135,7 +135,7 @@ const ticketGifts_boss: TicketGift[] = [
     ],
   },
   {
-    ticket: '銀',
+    ticket: '銀券',
     gifts: [
       {
         name: '金幣24,700,000',
@@ -182,7 +182,7 @@ const ticketGifts_boss: TicketGift[] = [
     ],
   },
   {
-    ticket: '銅',
+    ticket: '銅券',
     gifts: [
       {
         name: '金幣2,590,000',
@@ -216,11 +216,22 @@ const ticketGifts_boss: TicketGift[] = [
       },
     ],
   },
+  {
+    ticket: '加碼獎',
+    gifts: [
+      {
+        name: '金幣2,590,000',
+        icon: '金幣.png',
+        amount: 10,
+        gold: 0,
+      },
+    ],
+  },
 ]
 
 const ticketGifts_online: TicketGift[] = [
   {
-    ticket: '金',
+    ticket: '金券',
     gifts: [
       {
         name: '賓士名車卡',
@@ -267,7 +278,7 @@ const ticketGifts_online: TicketGift[] = [
     ],
   },
   {
-    ticket: '銀',
+    ticket: '銀券',
     gifts: [
       {
         name: 'Yamaha R3卡',
@@ -314,7 +325,7 @@ const ticketGifts_online: TicketGift[] = [
     ],
   },
   {
-    ticket: '銅',
+    ticket: '銅券',
     gifts: [
       {
         name: 'iPhone 13卡',
@@ -348,6 +359,17 @@ const ticketGifts_online: TicketGift[] = [
       },
     ],
   },
+  {
+    ticket: '加碼獎',
+    gifts: [
+      {
+        name: 'iPhone 13卡',
+        icon: '禮品卡片-iphone13.png',
+        amount: 10,
+        gold: 2590000,
+      },
+    ],
+  },
 ]
 
 export default function Activity_01() {
@@ -360,7 +382,6 @@ export default function Activity_01() {
   const { data: eventOverview } = useEventOverview({ eventCode: 'newyear' })
 
   const ticketGifts = canRecharge ? ticketGifts_online : ticketGifts_boss
-
   const { onShow } = usePopupStore((s) => s.voucherAwards)
   const [activeVoucher, setActiveVoucher] = useState<VoucherType>()
 
@@ -377,7 +398,7 @@ export default function Activity_01() {
       <ActivitySection title={canRecharge ? '名車抽起來' : '拿券抽金幣'}>
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>2022/1/26(三) 18:00 ~ 2022/3/27(日) 23:59</ContentText>
+          <ContentText>2022/1/26(三) 18:00 ~ 2022/4/24(日) 23:59</ContentText>
         </div>
         <div>
           <SubTitle>活動對象</SubTitle>
@@ -503,7 +524,7 @@ export default function Activity_01() {
       <ActivitySection title="直播抽獎">
         <div>
           <SubTitle>活動時間</SubTitle>
-          <ContentText>3月底（詳細日期待公布）</ContentText>
+          <ContentText>2022/4/28(四) 18:30</ContentText>
         </div>
         <div>
           <SubTitle>直播平台</SubTitle>
@@ -513,7 +534,6 @@ export default function Activity_01() {
           <SubTitle>名單公告時間</SubTitle>
           <ContentText>2022/2/25(五) 18:00</ContentText>
         </div> */}
-
         <div>
           <SubTitle>活動獎項</SubTitle>
           <div className="flex gap-4 justify-center mt-6">
@@ -526,7 +546,7 @@ export default function Activity_01() {
                 )}
                 onClick={(e) => setTab(i)}
               >
-                {t.ticket}券
+                {t.ticket}
               </div>
             ))}
           </div>
@@ -556,6 +576,13 @@ export default function Activity_01() {
                 </div>
               </div>
             ))}
+            <div className="col-span-2" hidden={tab !== 3}>
+              <ContentText>
+                ※加碼獎抽獎限未於金券、銀券、銅券抽獎中得獎的玩家才能參與
+                <br />
+                ※抽獎不分券別，玩家持有號碼與抽出號碼一樣即可獲獎
+              </ContentText>
+            </div>
           </div>
         </div>
       </ActivitySection>
