@@ -19,7 +19,7 @@
     "startAt": "2022/01/17 12:00",
     "endAt": "2022/03/02 16:00",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 0
   },
   {
@@ -52,7 +52,7 @@
     "startAt": "2022/01/26 19:00",
     "endAt": "2023/01/15 12:00",
     "isRedirect": true,
-    "sort": 1,
+    "sort": 0,
     "platform": 1
   },
   {
@@ -118,7 +118,7 @@
     "startAt": "2022/02/10 16:00",
     "endAt": "2022/02/11 23:59",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 0
   },
   {
@@ -129,7 +129,7 @@
     "startAt": "2022/02/14 10:30",
     "endAt": "2022/02/14 23:59",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 0
   },
   {
@@ -140,7 +140,7 @@
     "startAt": "2022/02/17 10:30",
     "endAt": "2022/02/17 23:59",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 0
   },
   {
@@ -151,7 +151,7 @@
     "startAt": "2022/02/17 10:30",
     "endAt": "2022/04/01 00:00",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 0
   },
   {
@@ -173,7 +173,7 @@
     "startAt": "2022/02/24 19:00",
     "endAt": "2023/02/25 00:00",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 0
   },
   {
@@ -195,7 +195,7 @@
     "startAt": "2022/02/25 16:00",
     "endAt": "2023/02/25 23:59",
     "isRedirect": true,
-    "sort": 1,
+    "sort": 0,
     "platform": 1
   },
   {
@@ -206,7 +206,7 @@
     "startAt": "2022/03/02 16:00",
     "endAt": "2023/03/02 23:59",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 1
   },
   {
@@ -241,6 +241,39 @@
     "isRedirect": false,
     "sort": 0,
     "platform": 1
+  },
+  {
+    "title": "大頭家賀虎年億萬金幣大放送！活動加碼再延長！",
+    "content": "親愛的頭家<br/><br/>慶祝iOS版本上線，老闆決定延長活動至2022/4/24(日)並再加碼10名百萬金幣獎項讓更多玩家得獎喔！<br/>趕快玩遊戲拿獎券！下一個大獎得主就是你喔！<br/><br/>大頭家娛樂城 營運團隊 敬上",
+    "category": 2,
+    "createdAt": "2022/03/11",
+    "startAt": "2022/03/11 12:00",
+    "endAt": "2023/01/15 12:00",
+    "isRedirect": false,
+    "sort": 1,
+    "platform": 2
+  },
+  {
+    "title": "大頭家賀虎年送百萬賓士名車！活動加碼再延長！",
+    "content": "親愛的頭家<br/><br/>慶祝iOS版本上線，老闆決定延長活動至2022/4/24(日)並再加碼10支iPhone獎項讓更多玩家得獎喔！<br/>趕快玩遊戲拿獎券！下一個大獎得主就是你喔！<br/><br/>大頭家娛樂城 營運團隊 敬上",
+    "category": 2,
+    "createdAt": "2022/03/11",
+    "startAt": "2022/03/11 12:00",
+    "endAt": "2023/01/15 12:00",
+    "isRedirect": false,
+    "sort": 0,
+    "platform": 1
+  },
+  {
+    "title": "3/16 維護公告",
+    "content": "親愛的頭家：<br/><br/>爲了讓各位玩家享受優良的遊戲品質，系統將於3/16(三) 上午10:00~ 下午1:00 進行維護作業，造成諸多不便，還請見諒。<br/><br/>大頭家娛樂城營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/03/11",
+    "startAt": "2022/03/11 12:00",
+    "endAt": "2022/03/16 23:59",
+    "isRedirect": false,
+    "sort": 1,
+    "platform": 0
   }
 ]
 
