@@ -81,7 +81,7 @@ export default function LoginPopup() {
   }
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
-      cellphone: `${d.phoneCode}-${d.phone}`,
+      cellphone: `${d.phoneCode}-${d.phone.replace(/^0+/, '')}`,
       password: d.pw,
       type: 1,
     })
