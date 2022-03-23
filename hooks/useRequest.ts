@@ -6,6 +6,7 @@ import { useCallback } from 'react'
 import useErrorHandler from './useErrorHandler'
 import { useStore } from '@/store/useStore'
 import { errCodes } from '@/lib/errCodes'
+import { useRouter } from 'next/dist/client/router'
 
 export const apiPath = 'apis/v1'
 export const publicApiPath = 'public/apis/v1'
@@ -13,7 +14,7 @@ export const publicApiPath = 'public/apis/v1'
 const useRequest = () => {
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
-
+  const router = useRouter()
   const { apiErrHandler } = useErrorHandler()
   return useCallback(
     async function <Res extends ResBase, Req extends {} = {}>({
@@ -34,7 +35,11 @@ const useRequest = () => {
           data,
           baseURL: apiBaseUrl,
           validateStatus: function (status) {
-            return (status >= 200 && status < 300) || status === 422
+            return (
+              (status >= 200 && status < 300) ||
+              status === 422 ||
+              status === 401
+            )
           },
           transformResponse: [(data) => (data ? JSONbig.parse(data) : data)],
           transformRequest: [
@@ -63,8 +68,15 @@ const useRequest = () => {
         // }
         if (res.data.code) {
           console.log(res.data)
-          if (+res.data.code === 401003) {
-            return
+          switch (+res.data.code) {
+            case 401001:
+              router.push('/home')
+              break
+            case 401003:
+              return
+
+            default:
+              break
           }
 
           throw Error(

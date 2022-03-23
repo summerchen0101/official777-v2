@@ -228,7 +228,7 @@
     "startAt": "2022/03/03 16:30",
     "endAt": "2023/03/03 16:30",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 1
   },
   {
@@ -239,7 +239,7 @@
     "startAt": "2022/03/04 18:30",
     "endAt": "2023/03/04 18:30",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 1
   },
   {
@@ -318,6 +318,16 @@
     "isRedirect": false,
     "sort": 0,
     "platform": 0
+  },
+  {
+    "title": "維護時間延長公告",
+    "content": "親愛的頭家：<br/><br/>因應遊戲內容調整，原定今日(3/23)維護作業將延長至下午3:00，有最新消息會同步於官網與粉絲團公告，造成諸多不便，還請見諒。<br/><br/>大頭家娛樂城營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/03/23",
+    "startAt": "2022/03/23 14:00",
+    "endAt": "2022/03/23 23:59",
+    "isRedirect": false,
+    "sort": 1,
+    "platform": 0
   }
 ]
-
