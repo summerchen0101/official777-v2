@@ -1,0 +1,5 @@
+{
+  "apiBaseUrl": "https://app-qa.ffglobaltech.com",
+  "cdnBaseUrl": "https://resource-cdn.bigboss101.com/official",
+  "canRecharge": true
+}
