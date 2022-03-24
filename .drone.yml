@@ -40,6 +40,8 @@ steps:
         - ACCESS_TOKEN
       build_args:
         - USER=drone.robot
+    depends_on:
+      - build_dev
     when:
       branch:
         - dev
