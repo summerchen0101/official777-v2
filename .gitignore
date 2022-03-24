@@ -36,5 +36,3 @@ yarn-error.log*
 
 .latest-docker
 /resources
-
-env.json

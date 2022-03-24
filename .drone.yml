@@ -9,7 +9,7 @@ steps:
       ACCESS_TOKEN:
         from_secret: git_token
     commands:
-      - mv ./public/config/env-dev.json ./public/config/env.json
+      - mv ./deployments/config/env-dev.json ./deployments/config/env.json
     when:
       branch:
         - dev
@@ -20,7 +20,7 @@ steps:
       ACCESS_TOKEN:
         from_secret: git_token
     commands:
-       - mv ./public/config/env-qa.json ./public/config/env.json
+       - mv ./deployments/config/env-qa.json ./deployments/config/env.json
     when:
       event:
         - tag
