@@ -115,11 +115,11 @@ steps:
       template: ./deployments/helm/cm.yaml
       configmap_file: ./deployments/config/env.json
       ca:
-        from_secret: k8s_cert
+        from_secret: k8s_cert_qa
       server:
-        from_secret: k8s_server
+        from_secret: k8s_server_qa
       token:
-        from_secret: k8s_token
+        from_secret: k8s_token_qa
     depends_on:
       - docker_gcr
     when:
@@ -136,6 +136,9 @@ steps:
       skip_tls_verify: true
       debug: true
       values_files: "./deployments/helm/official-values.yaml"
+      values:
+        - image.repository=gcr.io/megarich/official
+        - image.tag=${DRONE_TAG}
     environment:
       wait_for_upgrade: true
       KUBE_API_SERVER:
