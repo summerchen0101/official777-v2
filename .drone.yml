@@ -3,6 +3,28 @@ type:
 name: official-web
 
 steps:
+  - name: build_dev
+    image: reg.ffglobaltech.com/golang:1.15
+    environment:
+      ACCESS_TOKEN:
+        from_secret: git_token
+    commands:
+      - mv ./deployments/config/env-dev.json ./deployments/config/env.json
+    when:
+      branch:
+        - dev
+
+  - name: build_tag
+    image: reg.ffglobaltech.com/golang:1.15
+    environment:
+      ACCESS_TOKEN:
+        from_secret: git_token
+    commands:
+       - mv ./deployments/config/env-qa.json ./deployments/config/env.json
+    when:
+      event:
+        - tag
+
   - name: docker_dev
     image: reg.ffglobaltech.com/plugins/docker
     privileged: true
@@ -18,6 +40,8 @@ steps:
         - ACCESS_TOKEN
       build_args:
         - USER=drone.robot
+    depends_on:
+      - build_dev
     when:
       branch:
         - dev
@@ -82,3 +106,48 @@ steps:
       - configMap
     when:
       branch: dev
+
+
+  - name: configMapTag
+    image: reg.ffglobaltech.com/drone-plugin-kube:0.2.0
+    settings:
+      namespace: official-web
+      template: ./deployments/helm/cm.yaml
+      configmap_file: ./deployments/config/env.json
+      ca:
+        from_secret: k8s_cert_qa
+      server:
+        from_secret: k8s_server_qa
+      token:
+        from_secret: k8s_token_qa
+    depends_on:
+      - docker_gcr
+    when:
+      event: tag
+
+
+  - name: deployTag
+    image: reg.ffglobaltech.com/drone-helm3
+    settings:
+      add_repos: "megarich=https://helm.ffglobaltech.com/"
+      mode: upgrade
+      chart: megarich/official
+      release: official
+      skip_tls_verify: true
+      debug: true
+      values_files: "./deployments/helm/official-values.yaml"
+      values:
+        - image.repository=gcr.io/megarich/official
+        - image.tag=${DRONE_TAG}
+    environment:
+      wait_for_upgrade: true
+      KUBE_API_SERVER:
+        from_secret: k8s_server_qa
+      KUBE_TOKEN:
+        from_secret: k8s_token_qa
+      kube_certificate:
+        from_secret: k8s_cert_qa
+    depends_on:
+      - configMapTag
+    when:
+      event: tag
