@@ -94,7 +94,7 @@
     "category": 1,
     "createdAt": "2022/01/26",
     "startAt": "2022/01/26 19:00",
-    "endAt": "2099",
+    "endAt": "2022/02/28 19:00",
     "isRedirect": false,
     "sort": 1,
     "platform": 1
@@ -182,7 +182,7 @@
     "category": 1,
     "createdAt": "2022/02/25",
     "startAt": "2022/02/25 16:00",
-    "endAt": "2023/02/25 23:59",
+    "endAt": "2022/03/31 23:59",
     "isRedirect": false,
     "sort": 1,
     "platform": 1
@@ -337,6 +337,17 @@
     "createdAt": "2022/03/25",
     "startAt": "2022/03/25 18:00",
     "endAt": "2023/03/04 18:30",
+    "isRedirect": false,
+    "sort": 1,
+    "platform": 1
+  },
+  {
+    "title": "MyCard系統4月份例行維護時間",
+    "content": "親愛的玩家您好，<br/> MyCard系統4月份例行性維護時間如下<br/> 2022/4/11 08:00~09:30(GMT+8)<br/>2022/4/25 08:00~09:30(GMT+8)<br/><br/>大頭家娛樂城 營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/03/29",
+    "startAt": "2022/03/29 15:30",
+    "endAt": "2022/04/30 23:59",
     "isRedirect": false,
     "sort": 1,
     "platform": 1

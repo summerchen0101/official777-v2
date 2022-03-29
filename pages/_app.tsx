@@ -48,7 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Mega Game Global Tech</title>
+        <title>大頭家娛樂城</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
