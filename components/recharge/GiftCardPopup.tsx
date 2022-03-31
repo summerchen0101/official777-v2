@@ -40,8 +40,8 @@ export default function RechargeGiftCardPopup() {
     try {
       if (type === SerialType.SW) {
         const res = await doSWExchange({
-          serialNum: d.serialNum,
-          password: d.password,
+          serialNum: d.serialNum.trim(),
+          password: d.password.trim(),
         })
         if (res?.ok) {
           alert('智冠序號兌換成功')
@@ -50,7 +50,7 @@ export default function RechargeGiftCardPopup() {
         }
       } else {
         const res = await doExchange({
-          serialNum: d.serialNum,
+          serialNum: d.serialNum.trim(),
         })
         if (res?.ok) {
           alert('序號兌換成功')
