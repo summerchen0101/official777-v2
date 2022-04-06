@@ -32,8 +32,12 @@ function UserPw() {
     formState: { errors },
     watch,
     reset,
+    getValues,
+    trigger,
   } = useForm<Inputs>()
   const onSendSms = async () => {
+    const isValid = await trigger(['new_pw', 'new_pw_confirm'])
+    if (!isValid) return
     const res = await sendSms({
       userID: data?.id,
     })
@@ -85,7 +89,7 @@ function UserPw() {
                     required: { value: true, message: '不可為空' },
                     pattern: {
                       value: /^\d{8}$/,
-                      message: '須為中8位數數字',
+                      message: '須為8位數數字',
                     },
                   })}
                 />
