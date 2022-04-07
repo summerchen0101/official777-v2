@@ -1,6 +1,6 @@
-import { useUserStore } from '@/store/useUserStore'
-import { ResBase } from '@/types'
+import { useUserStore } from './../store/useUserStore'
 import useRequest, { apiPath } from '@/hooks/useRequest'
+import { ResBase } from '@/types'
 import useSWR from 'swr'
 
 export interface MeRes extends ResBase {
@@ -34,12 +34,11 @@ function useMe() {
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating, mutate } = useSWR(
     token ? [`${apiPath}/member/me`, token] : null,
-    (url, token, category, page, perPage) =>
+    (url, token) =>
       request<MeRes>({
         url,
         method: 'get',
         config: {
-          params: { category, page, perPage },
           headers: {
             Authorization: `Bearer ${token}`,
           },
