@@ -89,9 +89,6 @@ function UserPw() {
                     },
                   })}
                 />
-                {/* <p className="lg:w-36 text-gold-400 text-sm mt-2 lg:mt-0">
-                  ＊中英文6~12位
-                </p> */}
 
                 {errors.new_pw && (
                   <div className="text-sm text-red-500">
