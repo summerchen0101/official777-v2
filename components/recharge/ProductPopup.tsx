@@ -10,7 +10,7 @@ export default function RechargeProductPopup() {
       <div className="text-3xl text-center">產包購買</div>
       <div className="max-w-[800px] mt-10 mx-auto">
         <div className="space-y-8">
-          <table className="w-full rounded-lg overflow-hidden">
+          <table className="gold-table w-full rounded-lg overflow-hidden">
             <thead>
               <tr>
                 <th colSpan={2}>請選擇要購買的產包</th>

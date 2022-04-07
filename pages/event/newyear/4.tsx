@@ -114,7 +114,7 @@ export default function Activity_06() {
           {ticketGiftStages.map((group, group_i) => (
             <table
               key={group_i}
-              className="rounded-lg overflow-hidden w-full max-w-[800px] mx-auto"
+              className="gold-table rounded-lg overflow-hidden w-full max-w-[800px] mx-auto"
             >
               <thead>
                 <tr>

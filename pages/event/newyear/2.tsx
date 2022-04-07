@@ -133,7 +133,10 @@ export default function Activity_05() {
         </div>
         <div className="grid sm:grid-cols-2 gap-4">
           {groupList.map((group, group_i) => (
-            <table key={group_i} className="rounded-lg overflow-hidden">
+            <table
+              key={group_i}
+              className="gold-table rounded-lg overflow-hidden"
+            >
               <thead>
                 <tr>
                   <th colSpan={2} className="text-center text-xl">
