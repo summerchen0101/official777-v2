@@ -24,13 +24,13 @@ export default function RechargeProductPopup() {
                     <div className="">
                       <p>產包名稱：XXXXX</p>
                       <p>產包定價：$1,200</p>
-                      <p>
+                      <div>
                         產包內容：
                         <ul className="list-inside list-decimal mt-1 ml-2">
                           <li>基本面額：1,200</li>
                           <li>隨機道具卡一張</li>
                         </ul>
-                      </p>
+                      </div>
                     </div>
                   </td>
                   <td className="w-12">
