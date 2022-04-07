@@ -39,7 +39,7 @@
     "sass": "^1.49.7",
     "slick-carousel": "^1.8.1",
     "store2": "^2.12.0",
-    "swr": "^1.0.1",
+    "swr": "^1.2.2",
     "tailwindcss": "^2.2.9",
     "usehooks-ts": "^2.1.1",
     "video.js": "^7.17.0",

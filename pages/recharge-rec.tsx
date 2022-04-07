@@ -44,7 +44,7 @@ function RechargeRec() {
           <div>
             <LoadingCover isLoading={isLoading}>
               <div className="w-full overflow-x-auto">
-                <table className="w-[700px] sm:w-full sm:rounded-lg overflow-hidden">
+                <table className="gold-table w-[700px] sm:w-full sm:rounded-lg overflow-hidden">
                   <thead>
                     <tr>
                       <th>平台</th>

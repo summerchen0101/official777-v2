@@ -32,7 +32,7 @@ function PunishmentPage() {
             />
           </div>
           <LoadingCover isLoading={isLoading}>
-            <table className="w-full text-gray-500 shadow">
+            <table className="gold-table w-full text-gray-500 shadow">
               <thead>
                 <tr>
                   <th>暱稱</th>

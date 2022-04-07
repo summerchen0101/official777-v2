@@ -29,7 +29,9 @@ html {
   scroll-behavior: smooth;
 }
 
-@layer components {
+table.gold-table {
+  @apply text-gray-800 sm:rounded-t overflow-hidden;
+
   td,
   th {
     @apply sm:px-3 sm:py-2.5 text-left text-sm sm:text-base;
@@ -46,17 +48,6 @@ html {
   tbody {
     @apply text-gray-700;
   }
-  table {
-    @apply w-full sm:w-auto text-gray-800 sm:rounded-t overflow-hidden;
-  }
-
-  /* label {
-    @apply block text-sm font-medium text-gray-700;
-  }
-  [type='text'],
-  [type='password'] {
-    @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
-  } */
 }
 
 .box {

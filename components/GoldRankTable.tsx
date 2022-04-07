@@ -11,7 +11,7 @@ function GoldRankTable() {
   })
   return (
     <LoadingCover isLoading={isLoading}>
-      <table className="w-full text-gray-500 shadow">
+      <table className="gold-table w-full text-gray-500 shadow">
         <thead>
           <tr>
             <th className="w-1/3 text-center">名次</th>

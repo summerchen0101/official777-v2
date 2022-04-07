@@ -10,7 +10,7 @@ export default function RechargeProductPopup() {
       <div className="text-3xl text-center">產包購買</div>
       <div className="max-w-[800px] mt-10 mx-auto">
         <div className="space-y-8">
-          <table className="w-full rounded-lg overflow-hidden">
+          <table className="gold-table w-full rounded-lg overflow-hidden">
             <thead>
               <tr>
                 <th colSpan={2}>請選擇要購買的產包</th>
@@ -24,13 +24,13 @@ export default function RechargeProductPopup() {
                     <div className="">
                       <p>產包名稱：XXXXX</p>
                       <p>產包定價：$1,200</p>
-                      <p>
+                      <div>
                         產包內容：
                         <ul className="list-inside list-decimal mt-1 ml-2">
                           <li>基本面額：1,200</li>
                           <li>隨機道具卡一張</li>
                         </ul>
-                      </p>
+                      </div>
                     </div>
                   </td>
                   <td className="w-12">

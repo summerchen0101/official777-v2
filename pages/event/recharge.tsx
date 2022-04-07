@@ -87,7 +87,7 @@ export default function RechargeActivity() {
               查看抽獎券數量
             </div>
           </div>
-          <table className="max-w-[700px] mx-auto sm:w-full rounded-lg overflow-hidden">
+          <table className="gold-table max-w-[700px] mx-auto sm:w-full rounded-lg overflow-hidden">
             <thead>
               <tr>
                 <th className="text-center">累積儲值</th>

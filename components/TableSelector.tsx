@@ -13,7 +13,7 @@ type Props = {
 function TableSelector({ isLoading, list = [], value, onChange }: Props) {
   return (
     <LoadingCover isLoading={isLoading}>
-      <table className="w-full rounded-lg overflow-hidden">
+      <table className="gold-table w-full rounded-lg overflow-hidden">
         <thead>
           <tr>
             <th></th>
