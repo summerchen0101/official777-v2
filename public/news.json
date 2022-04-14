@@ -305,7 +305,7 @@
     "startAt": "2022/03/18 18:00",
     "endAt": "2023/03/18 18:30",
     "isRedirect": false,
-    "sort": 0,
+    "sort": 1,
     "platform": 1
   },
   {
@@ -351,6 +351,17 @@
     "isRedirect": false,
     "sort": 1,
     "platform": 1
+  },
+  {
+    "title": "埃及豔后遊戲維護公告",
+    "content": "親愛的頭家：<br/><br/>埃及豔后遊戲因新增Free Game玩法，將於於4/14(四) 進行維護作業，會另行公告開放時間，造成諸多不便，還請見諒。<br/><br/>大頭家娛樂城營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/04/14",
+    "startAt": "2022/04/14 18:00",
+    "endAt": "2022/04/15 23:59",
+    "isRedirect": false,
+    "sort": 0,
+    "platform": 0
   }
 ]
 
