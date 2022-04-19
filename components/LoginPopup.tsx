@@ -204,9 +204,9 @@ export default function LoginPopup() {
                   />
                   <span className="text-sm">記住我的帳號</span>
                 </label>
-                <Link href="/forget-pw">
+                {/* <Link href="/forget-pw">
                   <a className="underline hover:no-underline">忘記密碼</a>
-                </Link>
+                </Link> */}
               </div>
               <div className="pt-5 space-y-2 lg:space-y-0">
                 <button className="btn active w-full" onClick={onSubmit}>
