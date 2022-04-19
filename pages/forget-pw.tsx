@@ -4,6 +4,7 @@ import useAuth from '@/hooks/useAuth'
 import useMe from '@/services/useMe'
 import usePwUpdate from '@/services/usePwUpdate'
 import useSms from '@/services/useSms'
+import { trimStart } from 'lodash'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
@@ -21,7 +22,6 @@ function UserPw() {
       setCount((c) => c - 1)
     }
   }, 1000)
-  useAuth()
   const { handler: doUpdate, isLoading } = usePwUpdate()
   const { data } = useMe()
   const { handler: sendSms, isLoading: isSmsLoading } = useSms()
@@ -30,11 +30,17 @@ function UserPw() {
     handleSubmit,
     formState: { errors },
     watch,
+    getValues,
     reset,
+    trigger,
   } = useForm<Inputs>()
   const onSendSms = async () => {
+    const result = await trigger('phone', { shouldFocus: true })
+    if (!result) return
     const res = await sendSms({
       userID: data?.id,
+      newCountryCode: '886',
+      newCellphone: trimStart(getValues('phone'), '0'),
     })
     if (res?.sendSuccess) {
       alert('簡訊已發送')
@@ -86,9 +92,9 @@ function UserPw() {
                   ＊中英文6~12位
                 </p> */}
 
-                {errors.new_pw && (
+                {errors.phone && (
                   <div className="text-sm text-red-500">
-                    {errors.new_pw.message}
+                    {errors.phone.message}
                   </div>
                 )}
               </div>
