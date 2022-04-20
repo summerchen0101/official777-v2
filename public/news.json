@@ -374,13 +374,24 @@
     "sort": 0,
     "platform": 0
   },
-  {
+   {
     "title": "3D深海總動員維護公告",
     "content": "尊貴的頭家：<br/><br/>為提升 3D深海總動員 遊戲品質，將於2022/04/16 進行遊戲維護，造成不便請見諒！<br/><br/>大頭家娛樂城營運團隊 敬上。",
     "category": 1,
     "createdAt": "2022/04/16",
     "startAt": "2022/04/16 17:30",
-    "endAt": "2022/04/29 18:30",
+    "endAt": "2022/04/20 11:30",
+    "isRedirect": false,
+    "sort": 0,
+    "platform": 0
+  },
+   {
+    "title": "3D深海總動員開放公告",
+    "content": "尊貴的頭家：<br/><br/>3D深海總動員已重新開放！感謝大家耐心等待！<br/><br/>大頭家娛樂城營運團隊 敬上。",
+    "category": 1,
+    "createdAt": "2022/04/20",
+    "startAt": "2022/04/20 12:00",
+    "endAt": "2022/04/29 23:59",
     "isRedirect": false,
     "sort": 0,
     "platform": 0
