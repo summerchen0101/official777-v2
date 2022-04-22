@@ -125,6 +125,11 @@ export const gameIntroImgsMap: Record<number, Record<string, string[]>> = {
     得分方式: ['GameInfo_28_2.png'],
     賠率表: ['GameInfo_28_3.png', 'GameInfo_28_4.png'],
   },
+  32: {
+    基本介紹: ['GameInfo_32_1.png'],
+    得分方式: ['GameInfo_32_2.png'],
+    賠率表: ['GameInfo_32_3.png', 'GameInfo_32_4.png'],
+  },
   1001: {
     基本介紹: ['GameInfo_1001_1.png'],
   },
