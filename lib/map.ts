@@ -148,6 +148,7 @@ export const gameMap: StringMap = {
   28: '年年有瑜',
   29: '女僕咖啡廳',
   30: '深海巨魷',
+  32: '嘻哈時代',
   [GameCode.Poker]: '3D 高倍21點',
   [GameCode.Fish]: '3D 深海總動員',
   [GameCode.Mahjong]: '發財麻將',
