@@ -472,5 +472,16 @@
     "isRedirect": false,
     "sort": 0,
     "platform": 0
+  },
+  {
+    "title": "4/27 臨時維護公告",
+    "content": "親愛的頭家：<br/><br/>因系統積分計算異常，導致俱樂部積分有誤，已於昨日(04/26)20:00修復完成，造成諸多不便，還請見諒。<br/><br/>大頭家娛樂城營運團隊 敬上",
+    "category": 1,
+    "createdAt": "2022/04/27",
+    "startAt": "2022/04/27 15:30",
+    "endAt": "2022/04/27 23:59",
+    "isRedirect": false,
+    "sort": 0,
+    "platform": 0
   }
 ]
