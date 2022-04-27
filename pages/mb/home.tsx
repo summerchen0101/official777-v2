@@ -84,36 +84,25 @@ const MobileHome: NextPage = () => {
           </p>
         </video>
       </section>
-      {user ? (
-        <div hidden={!user} className="px-4 space-y-2 mb-4">
-          <div className="grid grid-cols-2 gap-2 mb-4">
-            <div className="label-box">{user.nickname}</div>
-            <div className="label-box">VIP: LV{user.vipLevel}</div>
-            <div className="label-box">
-              <img
-                src={toCdnUrl('/coin.png')}
-                alt=""
-                className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
-              />
-              {toCurrency(user.coin)}
-            </div>
-            <div className="label-box">
-              <img
-                src={toCdnUrl('/point.png')}
-                alt=""
-                className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
-              />
-              {toCurrency(user.paymentPoint)}
-            </div>
+      {user && (
+        <div className="grid grid-cols-2 gap-2 m-4">
+          <div className="label-box">{user.nickname}</div>
+          <div className="label-box">VIP: LV{user.vipLevel}</div>
+          <div className="label-box">
+            <img
+              src={toCdnUrl('/coin.png')}
+              alt=""
+              className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
+            />
+            {toCurrency(user.coin)}
           </div>
-          <div className="silver-btn" onClick={handleLogout}>
-            登出
-          </div>
-        </div>
-      ) : (
-        <div className="mb-4 mx-4">
-          <div className="gold-btn" onClick={onToggle}>
-            登入
+          <div className="label-box">
+            <img
+              src={toCdnUrl('/point.png')}
+              alt=""
+              className="absolute left-0 top-0 ml-1 mt-0.5 h-6"
+            />
+            {toCurrency(user.paymentPoint)}
           </div>
         </div>
       )}
