@@ -52,7 +52,7 @@ const MobileHome: NextPage = () => {
   const handleRechargeClicked = useLoginFirst('/recharge')
   return (
     <Layout>
-      <section className="mb-8 mt-20">
+      <section className="mb-8 mt-16 sm:mt-20">
         <HomeSlider isHomePage slides={homeSlides} />
       </section>
       <section className="mb-8">
@@ -106,6 +106,34 @@ const MobileHome: NextPage = () => {
           </div>
         </div>
       )}
+
+      {/* <div className="flex gap-x-1 m-2">
+        <a
+          className="block"
+          target="_blank"
+          href={appUrlMap[Platform.IOS]}
+          rel="noreferrer"
+        >
+          <img src={toCdnUrl('/app_store.png')} alt="" className="" />
+        </a>
+        <a
+          className="block"
+          target="_blank"
+          href={appUrlMap[Platform.Android]}
+          rel="noreferrer"
+        >
+          <img src={toCdnUrl('/google_play.png')} alt="" className="" />
+        </a>
+        <a
+          className="block"
+          target="_blank"
+          href={toCdnUrl('/game.apk')}
+          rel="noreferrer"
+          download
+        >
+          <img src={toCdnUrl('/apk.png')} alt="" className="" />
+        </a>
+      </div> */}
 
       <div className="grid grid-cols-2 mb-6 mx-4">
         <div
