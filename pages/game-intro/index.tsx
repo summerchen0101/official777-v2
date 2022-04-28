@@ -143,7 +143,10 @@ function GameIntro() {
               onChange={(v) => setActiveTab(+v)}
             />
           </div>
-          <select className="tab-selector block lg:hidden mb-3">
+          <select
+            className="tab-selector block lg:hidden mb-3"
+            onChange={(e) => setActiveTab(+e.target.value)}
+          >
             {Object.entries(tabsMap).map(([key, label]) => (
               <option key={key} value={key}>
                 {label}
