@@ -483,5 +483,15 @@
     "isRedirect": false,
     "sort": 0,
     "platform": 0
-  }
+  },
+   {
+    "title": "大頭家賀虎年活動得獎公告",
+    "content": "/news/newyear-result",
+    "category": 2,
+    "createdAt": "2022/04/29",
+    "startAt": "2022/04/29 17:00",
+    "endAt": "2023/04/27 23:59",
+    "isRedirect": true,
+    "sort": 0,
+    "platform": 0}
 ]
