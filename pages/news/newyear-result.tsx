@@ -348,7 +348,7 @@ const tickets1: TicketResult[] = [
   },
   {
     award: '金幣2萬',
-    player: '0',
+    player: '0.0',
     ticket: '10183',
   },
   {
