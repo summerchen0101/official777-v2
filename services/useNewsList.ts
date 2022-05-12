@@ -46,7 +46,7 @@ function useNewsList({ type: _type, page, perpage }: NewsListReq) {
   const platform = canRecharge ? SitePlatform.MAIN : SitePlatform.SECONDARY
   const { data, isValidating } = useSWR<AxiosResponse<NewsListRes>>(
     [
-      'http://localhost:8080/public/announcements',
+      'https://sleepy-beyond-26575.herokuapp.com/public/announcements',
       type,
       platform,
       page,
