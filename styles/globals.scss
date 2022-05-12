@@ -186,3 +186,24 @@ section {
 .label-box {
   @apply bg-gradient-to-br from-gold-500 to-gold-200 rounded text-gold-800 px-2 py-1 lg:text-sm text-right font-medium relative border border-gold-200;
 }
+
+.news-content {
+  h1 {
+    @apply text-3xl
+  }
+  h2 {
+    @apply text-2xl
+  }
+  h3 {
+    @apply text-xl
+  }
+  h4 {
+    @apply text-lg
+  }
+  h5 {
+    @apply text-base
+  }
+  h6 {
+    @apply text-sm
+  }
+}

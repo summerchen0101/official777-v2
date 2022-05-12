@@ -1,71 +1,73 @@
+import { NewsType, SitePlatform } from '@/lib/enums'
 import { useStore } from '@/store/useStore'
-import { Pagination, ResBase } from '@/types'
-import { isAfter, isBefore } from 'date-fns'
-import { orderBy, take } from 'lodash'
-import { useMemo } from 'react'
+import { ListReqBase } from '@/types'
+import axios, { AxiosResponse } from 'axios'
 import useSWR from 'swr'
 
-export interface NewsListReq {
-  category: number
-  page: number
-  perPage: number
-}
-
 export interface News {
+  id: string
   title: string
   content: string
-  category: number
-  createdAt: string
-  startAt: string
-  endAt: string
-  isRedirect: Boolean
+  start_at: Date | null
+  end_at: Date | null
+  created_at: Date
+  updated_at: Date
+  type: string
+  is_active: boolean
+  platform: string
+  link: null | string
+  is_new_win: boolean
+  is_top: boolean
   sort: number
-  platform: number
 }
 
-export interface NewsListRes extends ResBase {
-  news: News[]
-  pagination: Pagination
+export interface Paginator {
+  page: number
+  perpage: number
+  total: number
 }
 
-function useNewsList({ category, page, perPage }: NewsListReq) {
+export interface NewsListRes {
+  items: News[]
+  paginator: Paginator
+}
+
+export interface NewsListReq extends ListReqBase {
+  // keyword?: string
+  // start_at?: number
+  // end_at?: number
+  // is_active?: boolean
+  type?: NewsType
+}
+
+function useNewsList({ type: _type, page, perpage }: NewsListReq) {
   const canRecharge = useStore((s) => s.clientEnv.canRecharge)
-  const { data, isValidating } = useSWR<News[]>('/news.json', (url) =>
-    fetch(url).then((res) => res.json()),
+  const type = _type !== NewsType.ALL ? _type : null
+  const platform = canRecharge ? SitePlatform.MAIN : SitePlatform.SECONDARY
+  const { data, isValidating } = useSWR<AxiosResponse<NewsListRes>>(
+    [
+      'http://localhost:8080/public/announcements',
+      type,
+      platform,
+      page,
+      perpage,
+    ],
+    (url, type, platform, page, perpage) =>
+      axios.get(url, {
+        params: { type, platform, page, perpage },
+      }),
   )
-  const list = useMemo(() => {
-    const periodData = data
-      ?.filter(
-        (t) =>
-          isAfter(new Date(), new Date(t.startAt)) &&
-          isBefore(new Date(), new Date(t.endAt)),
-      )
-      .filter((t) =>
-        t.platform > 0
-          ? canRecharge
-            ? t.platform === 1
-            : t.platform === 2
-          : true,
-      )
-    // 置頂 -> 日期
-    const orderedData = orderBy(
-      periodData,
-      ['sort', 'createdAt'],
-      ['asc', 'desc'],
-    )
-    if (category === 0) {
-      return take(orderedData, 10)
-    }
-    return orderedData?.filter((t) => t.category === category)
-  }, [category, data])
 
   return {
-    list,
+    list: data?.data.items || [],
     paginator: {
-      page: 1,
-      perPage: 100,
-      totalCount: data?.length,
-      totalPage: 1,
+      page: data?.data.paginator.page,
+      perPage: data?.data.paginator.perpage,
+      totalCount: data?.data.paginator.total,
+      totalPage:
+        Math.ceil(
+          data?.data.paginator.total! / data?.data.paginator.perpage!,
+        ) || 1,
     },
     isLoading: isValidating,
   }

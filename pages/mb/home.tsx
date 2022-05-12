@@ -7,7 +7,7 @@ import SectionSlider from '@/components/SectionSlider'
 import useCdnUrl from '@/hooks/useCdnUrl'
 import useDevicePage from '@/hooks/useDevicePage'
 import useLoginFirst from '@/hooks/useLoginFirst'
-import { Platform } from '@/lib/enums'
+import { NewsType, Platform } from '@/lib/enums'
 import { appUrlMap, newsTypeMap } from '@/lib/map'
 import useMe from '@/services/useMe'
 import useNewsList, { News } from '@/services/useNewsList'
@@ -16,21 +16,24 @@ import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { toCurrency } from '@/utils'
 import cs from 'classnames'
+import { format } from 'date-fns'
 import type { NextPage } from 'next'
+import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 import { homeSlides } from '../home'
 
 const MobileHome: NextPage = () => {
   const toCdnUrl = useCdnUrl()
+  const router = useRouter()
   useDevicePage('/home', '/mb/home')
   const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   const { data: user } = useMe()
   const [page, setPage] = useState(1)
-  const [currentNewsTab, setCurrentNewsTab] = useState(0)
+  const [currentNewsTab, setCurrentNewsTab] = useState(NewsType.ALL)
   const { list, isLoading, paginator } = useNewsList({
-    category: currentNewsTab,
+    type: currentNewsTab,
     page,
-    perPage: 10,
+    perpage: 10,
   })
   const showNews = useStore((s) => s.showNews)
   const showGamePopup = useStore((s) => s.showGamePopup)
@@ -38,10 +41,15 @@ const MobileHome: NextPage = () => {
   const clearUser = useUserStore((s) => s.clearUser)
 
   const handleNewsClicked = (news: News) => {
-    if (news.isRedirect) {
-      return window.open(news.content, 'news')
+    if (news.link) {
+      if (news.is_new_win) {
+        return window.open(news.link, 'news')
+      } else {
+        return router.push(news.link)
+      }
+    } else {
+      showNews(news)
     }
-    showNews(news)
   }
 
   const handleLogout = () => {
@@ -203,10 +211,10 @@ const MobileHome: NextPage = () => {
                 className={cs(
                   'news-tab-light text-xl cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
                   {
-                    'text-white': +key === currentNewsTab,
+                    'text-white': key === currentNewsTab,
                   },
                 )}
-                onClick={() => setCurrentNewsTab(+key)}
+                onClick={() => setCurrentNewsTab(key as NewsType)}
               >
                 <span>{label}</span>
                 <img src="" alt="" />
@@ -221,9 +229,11 @@ const MobileHome: NextPage = () => {
                   className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
                   onClick={() => handleNewsClicked(t)}
                 >
-                  <div className="w-20">[{newsTypeMap[t.category]}]</div>
+                  <div className="w-20">[{newsTypeMap[t.type]}]</div>
                   <div className="flex-1">{t.title}</div>
-                  <div>{t.createdAt}</div>
+                  <div>
+                    {format(new Date(t.created_at), 'yyyy-MM-dd HH:mm')}
+                  </div>
                 </div>
               ))}
             </div>
