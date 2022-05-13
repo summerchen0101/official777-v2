@@ -3807,7 +3807,7 @@ const ticketListMap: Record<number, TicketResult[]> = {
 function NewyearResult() {
   return (
     <div className="text-white sm:p-6">
-      <div className="mb-5">
+      <div className="mb-5 p-3">
         親愛的頭家：
         <br />
         <br />
