@@ -60,11 +60,6 @@ function FooterNav() {
                   className="h-16"
                   alt=""
                 />
-                <img
-                  src={toCdnUrl('/sponsor/三聯logo_橫.png')}
-                  className="h-16"
-                  alt=""
-                />
                 <img src={toCdnUrl('/15+.png')} className="h-14 ml-5" alt="" />
               </div>
             </div>
