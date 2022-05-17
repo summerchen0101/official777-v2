@@ -4,7 +4,7 @@ import { ListReqBase } from '@/types'
 import axios, { AxiosResponse } from 'axios'
 import useSWR from 'swr'
 
-export interface News {
+export type News = {
   id: string
   title: string
   content: string
@@ -19,7 +19,7 @@ export interface News {
   is_new_win: boolean
   is_top: boolean
   sort: number
-}
+} & { date: Date }
 
 export interface Paginator {
   page: number
@@ -59,7 +59,11 @@ function useNewsList({ type: _type, page, perpage }: NewsListReq) {
   )
 
   return {
-    list: data?.data.items || [],
+    list:
+      data?.data.items.map((t) => ({
+        ...t,
+        date: t.start_at || t.created_at,
+      })) || [],
     paginator: {
       page: data?.data.paginator.page,
       perPage: data?.data.paginator.perpage,

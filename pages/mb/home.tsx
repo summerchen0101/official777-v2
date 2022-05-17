@@ -231,9 +231,7 @@ const MobileHome: NextPage = () => {
                 >
                   <div className="w-20">[{newsTypeMap[t.type]}]</div>
                   <div className="flex-1">{t.title}</div>
-                  <div>
-                    {format(new Date(t.created_at), 'yyyy-MM-dd HH:mm')}
-                  </div>
+                  <div>{format(new Date(t.date), 'yyyy-MM-dd')}</div>
                 </div>
               ))}
             </div>

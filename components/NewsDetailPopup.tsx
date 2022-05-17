@@ -11,8 +11,7 @@ export default function NewsDetailPopup() {
     <Popup className="px-4" onClose={closeNews} isShow={isShowNewsPopup}>
       <div className="lg:w-[860px] mx-auto pt-8">
         <div className="text-sm mb-1">
-          {newsInfo?.created_at &&
-            format(new Date(newsInfo?.created_at), 'yyyy-MM-dd HH:mm')}
+          {newsInfo?.date && format(new Date(newsInfo?.date), 'yyyy-MM-dd')}
         </div>
         <div className="text-xl mb-3 text-yellow-200">{newsInfo?.title}</div>
         {/* <div className="flex items-center space-x-3 lg:justify-end mb-3">
