@@ -41,12 +41,14 @@ export interface NewsListReq extends ListReqBase {
 }
 
 function useNewsList({ type: _type, page, perpage }: NewsListReq) {
-  const canRecharge = useStore((s) => s.clientEnv.canRecharge)
+  const { canRecharge, summerApiPath } = useStore((s) => s.clientEnv)
   const type = _type !== NewsType.ALL ? _type : null
   const platform = canRecharge ? SitePlatform.MAIN : SitePlatform.SECONDARY
   const { data, isValidating } = useSWR<AxiosResponse<NewsListRes>>(
     [
-      `${process.env.NEXT_PUBLIC_SUMMER_API_PATH}/public/announcements`,
+      `${
+        process.env.NEXT_PUBLIC_SUMMER_API_PATH || summerApiPath
+      }/public/announcements`,
       type,
       platform,
       page,
