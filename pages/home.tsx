@@ -6,7 +6,7 @@ import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import SectionSlider from '@/components/SectionSlider'
 import useDevicePage from '@/hooks/useDevicePage'
-import { GameCode } from '@/lib/enums'
+import { GameCode, NewsType } from '@/lib/enums'
 import { largeGameSlides } from '@/lib/games'
 import { gameMap, newsTypeMap } from '@/lib/map'
 import useNewsList, { News } from '@/services/useNewsList'
@@ -16,6 +16,7 @@ import cs from 'classnames'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
+import { format } from 'date-fns'
 
 export const homeSlides: HomeSlide[] = [
   { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
@@ -30,21 +31,26 @@ const Home: NextPage = () => {
   const toCdnUrl = useCdnUrl()
   const router = useRouter()
   const [page, setPage] = useState(1)
-  const [currentNewsTab, setCurrentNewsTab] = useState(0)
+  const [currentNewsTab, setCurrentNewsTab] = useState(NewsType.ALL)
   const { list, isLoading, paginator } = useNewsList({
-    category: currentNewsTab,
+    type: currentNewsTab,
     page,
-    perPage: 10,
+    perpage: 10,
   })
   useDevicePage('/home', '/mb/home')
   const showNews = useStore((s) => s.showNews)
   const showGamePopup = useStore((s) => s.showGamePopup)
 
   const handleNewsClicked = (news: News) => {
-    if (news.isRedirect) {
-      return window.open(news.content, 'news')
+    if (news.link) {
+      if (news.is_new_win) {
+        return window.open(news.link, 'news')
+      } else {
+        return router.push(news.link)
+      }
+    } else {
+      showNews(news)
     }
-    showNews(news)
   }
   return (
     <Layout>
@@ -94,10 +100,10 @@ const Home: NextPage = () => {
                   className={cs(
                     'news-tab-light text-xl cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
                     {
-                      'text-white': +key === currentNewsTab,
+                      'text-white': key === currentNewsTab,
                     },
                   )}
-                  onClick={() => setCurrentNewsTab(+key)}
+                  onClick={() => setCurrentNewsTab(key as NewsType)}
                 >
                   <span>{label}</span>
                   <img src="" alt="" />
@@ -112,9 +118,9 @@ const Home: NextPage = () => {
                     className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
                     onClick={() => handleNewsClicked(t)}
                   >
-                    <div className="w-20">[{newsTypeMap[t.category]}]</div>
+                    <div className="w-20">[{newsTypeMap[t.type]}]</div>
                     <div className="flex-1">{t.title}</div>
-                    <div>{t.createdAt}</div>
+                    <div>{format(new Date(t.date), 'yyyy-MM-dd')}</div>
                   </div>
                 ))}
               </div>
