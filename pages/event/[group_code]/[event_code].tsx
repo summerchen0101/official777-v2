@@ -22,12 +22,12 @@ function EventPage() {
   )
   return (
     <EventWrapper group_code={data?.event_group.code} current={event_code}>
-      <div className="bg-black rounded-full p-5 px-10 -mb-8 z-10 min-w-[250px] text-center text-2xl border-4 border-purple-800">
+      <div className="p-5 px-10 -mb-8 z-10 min-w-[250px] text-center text-2xl title">
         {data?.title}
       </div>
-      <div className="bg-purple-800 p-10 pt-16 rounded-2xl w-full">
+      <div className="section p-10 pt-16 rounded-2xl w-full">
         <div className="mb-8">
-          <h2 className="text-yellow-500 text-2xl mb-2">活動時間</h2>
+          <h2 className="subTitle">活動時間</h2>
           <div className="text-xl">
             {data?.start_at &&
               format(new Date(data?.start_at), 'yyyy-MM-dd(eeeeee) HH:mm', {
@@ -41,21 +41,18 @@ function EventPage() {
           </div>
         </div>
         <div className="mb-8">
-          <h2 className="text-yellow-500 text-2xl mb-2">活動對象</h2>
+          <h2 className="subTitle">活動對象</h2>
           <div className="text-xl">{data?.target}</div>
         </div>
         <div className="mb-12">
-          <h2 className="text-yellow-500 text-2xl mb-2">活動說明</h2>
+          <h2 className="subTitle">活動說明</h2>
           <div className="text-xl">{data?.content}</div>
         </div>
 
         {/* 衝等 */}
         <div className="grid sm:grid-cols-2 gap-4">
           {data?.groups?.map((group, group_i) => (
-            <table
-              key={group_i}
-              className="gold-table rounded-lg overflow-hidden"
-            >
+            <table key={group_i}>
               <thead>
                 <tr>
                   <th colSpan={2}>
@@ -93,7 +90,7 @@ function EventPage() {
 
         {/* 刮刮樂 */}
         <div hidden={!data?.rebates} className="">
-          <table className="gold-table rounded-lg overflow-hidden w-full sm:w-[480px] mx-auto">
+          <table className="w-full sm:w-[480px] mx-auto">
             <thead>
               <tr className="text-xl">
                 <th>遊戲</th>
@@ -118,7 +115,7 @@ function EventPage() {
 
         {/* 累儲 */}
         <div hidden={!data?.recharges} className="">
-          <table className="gold-table rounded-lg overflow-hidden w-full sm:w-[600px] mx-auto">
+          <table className="w-full sm:w-[600px] mx-auto">
             <thead>
               <tr className="text-lg">
                 <th className="text-center">累積儲值金額</th>

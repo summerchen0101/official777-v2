@@ -207,3 +207,45 @@ section {
     @apply text-sm
   }
 }
+
+
+.dragon {
+  @apply bg-[#eaf5ee] text-gray-700 pb-16;
+  .section {
+    @apply bg-white
+  }
+  .title {
+    @apply bg-[#08892a] text-white rounded-full -mb-10 border-4 border-[#d59e22]
+
+  }
+  .subTitle {
+    @apply text-[#d59e22] font-medium text-2xl mb-2;
+    &::before {
+      content: '';
+      background-image: url("https://resource-cdn.bigboss101.com/official/event/202205/title_icon.svg");
+      @apply bg-contain w-[1.5em] h-[1.5em] inline-block mr-2 relative -bottom-2;
+    }
+  }
+
+  table {
+    @apply text-gray-800 sm:rounded-md overflow-hidden text-sm sm:text-base;
+
+    td,
+    th {
+      @apply sm:px-3 sm:py-2.5;
+    }
+    thead {
+      @apply hidden sm:table-header-group
+    }
+    thead tr {
+      @apply text-gray-900 bg-gradient-to-b from-gold-400 to-gold-600;
+    }
+    tbody tr {
+      @apply even:bg-gray-100 odd:bg-gray-200 flex flex-col p-2 sm:p-0 sm:table-row ;
+    }
+    tbody {
+      @apply text-gray-700;
+    }
+  }
+}
+

@@ -5,6 +5,8 @@ import useSWR from 'swr'
 export interface Event {
   code: string
   title: string
+  tab_img: string
+  tab_active_img: string
 }
 
 export interface EventGroup {
@@ -14,6 +16,7 @@ export interface EventGroup {
   code: string
   info: string
   url: string
+  theme: string
   platform: string
   events: Event[]
 }

@@ -15,7 +15,7 @@ function EventWrapper({ group_code, current, children }: Props) {
   const { data } = useEventGroup(group_code)
   return (
     <div
-      className="text-white bg-no-repeat bg-top"
+      className={cs('bg-no-repeat bg-top', data?.theme)}
       style={{
         backgroundImage: `url(${data?.banner})`,
         backgroundSize: '150%',
@@ -27,18 +27,21 @@ function EventWrapper({ group_code, current, children }: Props) {
       <div className="flex flex-col items-center sm:w-[1000px] mx-auto">
         <div className="mt-96"></div>
         {/* 頁籤按鈕 */}
-        <div className="flex gap-6 my-10">
+        <div className="flex my-10">
           {data?.events.map((t) => (
             <Link key={t.code} href={`/event/${group_code}/${t.code}`} passHref>
               <a
                 className={cs(
-                  'h-20 w-40 bg-indigo-600 text-white rounded-xl flex items-center justify-center cursor-pointer text-xl shadow-lg hover:animate-scale',
+                  'bg-indigo-600 text-white rounded-xl flex items-center justify-center cursor-pointer text-xl shadow-lg hover:animate-scale',
                   {
                     'bg-yellow-600': t.code === current,
                   },
                 )}
               >
-                {t.title}
+                <img
+                  src={t.code === current ? t.tab_active_img : t.tab_img}
+                  alt=""
+                />
               </a>
             </Link>
           ))}
