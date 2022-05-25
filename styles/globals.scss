@@ -216,13 +216,16 @@ section {
     background-size: auto;
   }
   .sky {
-    @apply pb-[48%] xl:pb-[600px];
+    @apply pb-[45.5%] xl:pb-[550px];
   }
 
   .nav {
-    @apply flex w-[60%] max-w-[627px] pb-[16%] xl:pb-40 mx-auto;
+    @apply grid grid-cols-2 gap-[5%] w-[55%] xl:w-[670px] max-w-max pb-[16%] xl:pb-28 mx-auto relative left-[-2%];
     .navBtn {
-      //
+      @apply hover:animate-scale;
+      &:nth-of-type(3), &:nth-of-type(4) {
+        @apply relative left-[15%];
+      }
     }
   }
 
@@ -231,7 +234,7 @@ section {
   }
 
   .section {
-    @apply bg-white p-6 sm:p-10 pt-16 sm:rounded-2xl w-full space-y-10;
+    @apply bg-white px-6 py-12 sm:p-16 sm:rounded-2xl w-full space-y-8;
     .html {
       ol{
         @apply list-decimal ml-5
