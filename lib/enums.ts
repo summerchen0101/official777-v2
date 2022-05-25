@@ -11,6 +11,13 @@ export enum NewsType {
   OPERATION = 'OPERATION',
 }
 
+export enum EventType {
+  NORMAL = 'NORMAL',
+  LEVEL_PRIZE = 'LEVEL_PRIZE',
+  GAME_REBATE = 'GAME_REBATE',
+  RECHARGE_PRIZE = 'RECHARGE_PRIZE',
+}
+
 export enum PrizeType {
   CARD = 'CARD',
   PHYSICAL = 'PHYSICAL',

@@ -210,14 +210,38 @@ section {
 
 
 .dragon {
-  @apply bg-[#eaf5ee] text-gray-700;
-  .section {
-    @apply bg-white p-10 pt-16 sm:rounded-2xl w-full
+  @apply bg-[hsl(118,32%,75%)] text-gray-700;
+  background-size: 160%;
+  @screen xl {
+    background-size: auto;
   }
-  .title {
-    @apply bg-[#08892a] text-white rounded-full border-4 border-[#d59e22] text-2xl sm:text-3xl p-3 sm:p-5 px-8 sm:px-10 -mb-8 z-10 min-w-[250px] sm:min-w-[330px] text-center
+  .sky {
+    @apply pb-[48%] xl:pb-[600px];
+  }
 
+  .nav {
+    @apply flex w-[60%] max-w-[627px] pb-[16%] xl:pb-40 mx-auto;
+    .navBtn {
+      //
+    }
   }
+
+  .title {
+    @apply bg-[hsl(121,32%,35%)] text-white rounded-full border-4 border-white text-2xl sm:text-3xl p-3 sm:p-5 px-8 sm:px-10 -mb-8 z-10 min-w-[250px] sm:min-w-[330px] text-center
+  }
+
+  .section {
+    @apply bg-white p-6 sm:p-10 pt-16 sm:rounded-2xl w-full space-y-10;
+    .html {
+      ol{
+        @apply list-decimal ml-5
+      }
+      ul{
+        @apply list-disc ml-5
+      }
+    }
+  }
+
   .subTitle {
     @apply text-[#d59e22] font-medium text-2xl mb-2;
     &::before {
@@ -225,6 +249,9 @@ section {
       background-image: url("https://resource-cdn.bigboss101.com/official/event/202205/title_icon.svg");
       @apply bg-contain w-[1.5em] h-[1.5em] inline-block mr-2 relative -bottom-2;
     }
+  }
+  .subContent {
+    @apply text-base md:text-lg;
   }
 
   table {
@@ -241,7 +268,7 @@ section {
       @apply text-gray-900 bg-gradient-to-b from-gold-400 to-gold-600;
     }
     tbody tr {
-      @apply even:bg-gray-100 odd:bg-gray-200 flex flex-col p-2 sm:p-0 sm:table-row ;
+      @apply even:bg-gray-50 odd:bg-gray-200 flex flex-col p-2 sm:p-0 sm:table-row ;
     }
     tbody {
       @apply text-gray-700;

@@ -23,7 +23,6 @@ function EventWrapper({ group_code, current, children }: Props) {
       className={cs('bg-no-repeat bg-top', data?.theme)}
       style={{
         backgroundImage: `url(${data?.banner})`,
-        backgroundSize: '150%',
       }}
     >
       <Head>
@@ -38,14 +37,13 @@ function EventWrapper({ group_code, current, children }: Props) {
       {/* <PageBanner /> */}
       <SideBox />
       <AppDownloadSideFloat />
+      <div className="sky"></div>
 
-      <div className="flex flex-col items-center sm:w-[1000px] max-w-full mx-auto">
-        {/* 頁籤按鈕 */}
-        <EventTabs current={current} group_code={group_code} />
-        <div className="mt-20"></div>
-        {/* 內容區塊 */}
+      {/* 頁籤按鈕 */}
+      <EventTabs current={current} group_code={group_code} />
+      {/* 內容區塊 */}
+      <div className="flex flex-col items-center sm:w-[1000px] max-w-full mx-auto pb-16 sm:pb-20">
         {children}
-        <div className="mt-16"></div>
       </div>
       <LoginPopup />
       <MobileFooter />

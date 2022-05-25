@@ -1,4 +1,5 @@
 import EventWrapper from '@/components/event/EventWrapper'
+import { EventType } from '@/lib/enums'
 import useEvent from '@/services/useEvent'
 import usePrizeList, { Prize } from '@/services/usePrizeList'
 import { toCurrency } from '@/utils'
@@ -23,10 +24,11 @@ function EventPage() {
   return (
     <EventWrapper group_code={data?.event_group.code} current={event_code}>
       <div className="title">{data?.title}</div>
+
       <div className="section">
-        <div className="mb-8">
+        <div hidden={data?.type === EventType.NORMAL}>
           <h2 className="subTitle">活動時間</h2>
-          <div className="text-xl">
+          <div className="subContent">
             {data?.start_at &&
               format(new Date(data?.start_at), 'yyyy-MM-dd(eeeeee) HH:mm', {
                 locale: zhTW,
@@ -38,13 +40,22 @@ function EventPage() {
               })}
           </div>
         </div>
-        <div className="mb-8">
+        <div hidden={data?.type === EventType.NORMAL}>
           <h2 className="subTitle">活動對象</h2>
-          <div className="text-xl">{data?.target}</div>
+          <div className="subContent">{data?.target}</div>
         </div>
-        <div className="mb-12">
+        <div hidden={data?.type === EventType.NORMAL}>
           <h2 className="subTitle">活動說明</h2>
-          <div className="text-xl">{data?.content}</div>
+          <div
+            className="subContent html"
+            dangerouslySetInnerHTML={{ __html: data?.content || '' }}
+          ></div>
+        </div>
+        <div hidden={data?.type !== EventType.NORMAL} className="sm:mt-5">
+          <div
+            className="subContent html"
+            dangerouslySetInnerHTML={{ __html: data?.content || '' }}
+          ></div>
         </div>
 
         {/* 衝等 */}
