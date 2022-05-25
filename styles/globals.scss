@@ -30,11 +30,11 @@ html {
 }
 
 table.gold-table {
-  @apply text-gray-800 sm:rounded-t overflow-hidden;
+  @apply text-gray-800 sm:rounded-t overflow-hidden text-sm sm:text-base;
 
   td,
   th {
-    @apply sm:px-3 sm:py-2.5 text-left text-sm sm:text-base;
+    @apply sm:px-3 sm:py-2.5;
   }
   thead {
     @apply hidden sm:table-header-group

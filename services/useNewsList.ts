@@ -1,7 +1,8 @@
+import useMyAxios from '@/hooks/useMyAxios'
 import { NewsType, SitePlatform } from '@/lib/enums'
 import { useStore } from '@/store/useStore'
 import { ListReqBase } from '@/types'
-import axios, { AxiosResponse } from 'axios'
+import { AxiosResponse } from 'axios'
 import useSWR from 'swr'
 
 export type News = {
@@ -41,21 +42,14 @@ export interface NewsListReq extends ListReqBase {
 }
 
 function useNewsList({ type: _type, page, perpage }: NewsListReq) {
-  const { canRecharge, summerApiPath } = useStore((s) => s.clientEnv)
+  const { canRecharge } = useStore((s) => s.clientEnv)
+  const myAxios = useMyAxios()
   const type = _type !== NewsType.ALL ? _type : null
   const platform = canRecharge ? SitePlatform.MAIN : SitePlatform.SECONDARY
   const { data, isValidating } = useSWR<AxiosResponse<NewsListRes>>(
-    [
-      `${
-        process.env.NEXT_PUBLIC_SUMMER_API_PATH || summerApiPath
-      }/public/announcements`,
-      type,
-      platform,
-      page,
-      perpage,
-    ],
+    ['public/announcements', type, platform, page, perpage],
     (url, type, platform, page, perpage) =>
-      axios.get(url, {
+      myAxios.get(url, {
         params: { type, platform, page, perpage },
       }),
   )

@@ -11,6 +11,12 @@ export enum NewsType {
   OPERATION = 'OPERATION',
 }
 
+export enum PrizeType {
+  CARD = 'CARD',
+  PHYSICAL = 'PHYSICAL',
+  COIN = 'COIN',
+}
+
 export enum SitePlatform {
   MAIN = 'MAIN',
   SECONDARY = 'SECONDARY',
