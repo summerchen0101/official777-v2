@@ -22,10 +22,8 @@ function EventPage() {
   )
   return (
     <EventWrapper group_code={data?.event_group.code} current={event_code}>
-      <div className="p-5 px-10 -mb-8 z-10 min-w-[250px] text-center text-2xl title">
-        {data?.title}
-      </div>
-      <div className="section p-10 pt-16 rounded-2xl w-full">
+      <div className="title">{data?.title}</div>
+      <div className="section">
         <div className="mb-8">
           <h2 className="subTitle">活動時間</h2>
           <div className="text-xl">

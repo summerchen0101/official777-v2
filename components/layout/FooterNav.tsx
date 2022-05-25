@@ -8,7 +8,7 @@ function FooterNav() {
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const canRecharge = useStore((s) => s.clientEnv.canRecharge)
   return (
-    <footer>
+    <footer className="hidden sm:block">
       <div className="bg-black/50">
         <div className="lg:w-[860px] mx-auto">
           <div className="grid grid-cols-2 gap-y-3 lg:flex justify-center lg:divide-x divide-gray-500 text-gray-300 py-4 px-8">

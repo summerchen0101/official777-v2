@@ -1,9 +1,14 @@
 import useEventGroup from '@/services/useEventGroup'
-import { useRouter } from 'next/dist/client/router'
-import React, { ReactNode } from 'react'
 import cs from 'classnames'
+import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
-import Link from 'next/link'
+import React, { memo, ReactNode } from 'react'
+import AppDownloadSideFloat from '../AppDownloadSideFloat'
+import FooterNav from '../layout/FooterNav'
+import LoginPopup from '../LoginPopup'
+import SideBox from '../SideBox'
+import EventTabs from './EventTabs'
+import MobileFooter from './MobileFooter'
 
 type Props = {
   group_code?: string
@@ -24,34 +29,29 @@ function EventWrapper({ group_code, current, children }: Props) {
       <Head>
         <title>大頭家娛樂城 | {data?.name}</title>
       </Head>
-      <div className="flex flex-col items-center sm:w-[1000px] mx-auto">
-        <div className="mt-96"></div>
+      <img
+        src="/img/logo.png"
+        alt=""
+        className="hidden sm:block cursor-pointer h-24 mt-2 fixed top-0 drop-shadow-lg"
+        onClick={() => router.push('/')}
+      />
+      {/* <PageBanner /> */}
+      <SideBox />
+      <AppDownloadSideFloat />
+
+      <div className="flex flex-col items-center sm:w-[1000px] max-w-full mx-auto">
         {/* 頁籤按鈕 */}
-        <div className="flex my-10">
-          {data?.events.map((t) => (
-            <Link key={t.code} href={`/event/${group_code}/${t.code}`} passHref>
-              <a
-                className={cs(
-                  'bg-indigo-600 text-white rounded-xl flex items-center justify-center cursor-pointer text-xl shadow-lg hover:animate-scale',
-                  {
-                    'bg-yellow-600': t.code === current,
-                  },
-                )}
-              >
-                <img
-                  src={t.code === current ? t.tab_active_img : t.tab_img}
-                  alt=""
-                />
-              </a>
-            </Link>
-          ))}
-        </div>
+        <EventTabs current={current} group_code={group_code} />
         <div className="mt-20"></div>
         {/* 內容區塊 */}
         {children}
+        <div className="mt-16"></div>
       </div>
+      <LoginPopup />
+      <MobileFooter />
+      <FooterNav />
     </div>
   )
 }
 
-export default EventWrapper
+export default memo(EventWrapper)

@@ -210,12 +210,12 @@ section {
 
 
 .dragon {
-  @apply bg-[#eaf5ee] text-gray-700 pb-16;
+  @apply bg-[#eaf5ee] text-gray-700;
   .section {
-    @apply bg-white
+    @apply bg-white p-10 pt-16 sm:rounded-2xl w-full
   }
   .title {
-    @apply bg-[#08892a] text-white rounded-full -mb-10 border-4 border-[#d59e22]
+    @apply bg-[#08892a] text-white rounded-full border-4 border-[#d59e22] text-2xl sm:text-3xl p-3 sm:p-5 px-8 sm:px-10 -mb-8 z-10 min-w-[250px] sm:min-w-[330px] text-center
 
   }
   .subTitle {
