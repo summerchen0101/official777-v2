@@ -9,10 +9,10 @@ export type News = {
   id: string
   title: string
   content: string
-  start_at: Date | null
-  end_at: Date | null
-  created_at: Date
-  updated_at: Date
+  start_at: string | null
+  end_at: string | null
+  created_at: string
+  updated_at: string
   type: string
   is_active: boolean
   platform: string

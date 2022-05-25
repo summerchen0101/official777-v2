@@ -36,10 +36,12 @@ export interface Event {
   title: string
   target: string
   content: string
+  tab_img: string
+  tab_active_img: string
   event_group_id: string
   type: string
-  start_at: null
-  end_at: null
+  start_at: string
+  end_at: string
   is_active: boolean
   sort: number
   rebates: Rebate[] | null
