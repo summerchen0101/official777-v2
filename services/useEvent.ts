@@ -3,7 +3,6 @@ import { AxiosResponse } from 'axios'
 import useSWR from 'swr'
 
 export interface EventGroup {
-  id: string
   name: string
   code: string
 }
@@ -38,7 +37,6 @@ export interface Event {
   content: string
   tab_img: string
   tab_active_img: string
-  event_group_id: string
   type: string
   start_at: string
   end_at: string
@@ -47,7 +45,7 @@ export interface Event {
   rebates: Rebate[] | null
   groups: LevelGroup[] | null
   recharges: Recharge[] | null
-  event_group: EventGroup
+  event_groups: EventGroup[]
 }
 
 function useEvent(code: string) {

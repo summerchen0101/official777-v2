@@ -10,6 +10,7 @@ import React, { useMemo } from 'react'
 
 function EventPage() {
   const router = useRouter()
+  const group_code = router.query.group_code as string
   const event_code = router.query.event_code as string
   const { data } = useEvent(event_code)
   const { list: prizeList } = usePrizeList()
@@ -22,7 +23,7 @@ function EventPage() {
     [prizeList],
   )
   return (
-    <EventWrapper group_code={data?.event_group.code} current={event_code}>
+    <EventWrapper group_code={group_code} current={event_code}>
       <div className="title">{data?.title}</div>
 
       <div className="section">

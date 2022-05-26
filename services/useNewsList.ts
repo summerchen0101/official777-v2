@@ -20,7 +20,7 @@ export type News = {
   is_new_win: boolean
   is_top: boolean
   sort: number
-} & { date: Date }
+} & { date: string }
 
 export interface Paginator {
   page: number
