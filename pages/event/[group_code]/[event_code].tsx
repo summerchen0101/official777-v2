@@ -66,26 +66,26 @@ function EventPage() {
               <thead>
                 <tr>
                   <th colSpan={2}>
-                    <h1 className="text-center text-xl">{group.title}</h1>
+                    <h1 className="text-center text-lg">{group.title}</h1>
                   </th>
                 </tr>
                 <tr>
-                  <th className="text-center">累積提升等級數</th>
-                  <th className="text-center">獎勵內容</th>
+                  <th>累積提升等級數</th>
+                  <th>獎勵內容</th>
                 </tr>
               </thead>
               <tbody>
                 {group.levels.map((t, i) => (
                   <tr key={i} className="">
                     <td className="w-[43%] sm:w-auto text-center text-xl text-gold-700 font-medium">
-                      <h2 className="text-xl">{t.level}級</h2>
+                      <h2 className="text-xl sm:text-2xl">{t.level}級</h2>
                     </td>
                     <td>
-                      <div className="flex items-center gap-1 font-medium">
+                      <div className="flex items-center gap-1 sm:text-lg font-medium">
                         <img
                           src={prizeMap[t.prize_id]?.img_path}
                           alt=""
-                          className="w-[20%] sm:w-12"
+                          className="w-[30%] sm:w-[4.5rem]"
                         />
                         {prizeMap[t.prize_id]?.name} x {t.count}
                       </div>
@@ -103,7 +103,7 @@ function EventPage() {
             <thead>
               <tr className="text-xl">
                 <th>遊戲</th>
-                <th className="text-center">回饋%數</th>
+                <th>回饋%數</th>
               </tr>
             </thead>
             <tbody>
@@ -127,24 +127,24 @@ function EventPage() {
           <table className="w-full sm:w-[600px] mx-auto">
             <thead>
               <tr className="text-lg">
-                <th className="text-center">累積儲值金額</th>
-                <th className="text-center">獎勵內容</th>
+                <th>累積儲值金額</th>
+                <th>獎勵內容</th>
               </tr>
             </thead>
             <tbody>
               {data?.recharges?.map((t) => (
                 <tr key={t.amount} className="">
                   <td className="w-[42%] sm:w-auto text-gold-700 font-medium">
-                    <h2 className="text-2xl text-center">
+                    <h2 className="text-xl sm:text-2xl text-center">
                       {toCurrency(t.amount)}
                     </h2>
                   </td>
                   <td key={t.amount}>
-                    <div className="flex items-center sm:justify-center gap-3 font-medium">
+                    <div className="flex items-center sm:justify-center gap-3 font-medium sm:text-lg">
                       <img
                         src={prizeMap[t.prize_id]?.img_path}
                         alt=""
-                        className="w-[20%] sm:w-12"
+                        className="w-[30%] sm:w-[4.5rem]"
                       />
                       {prizeMap[t.prize_id]?.name} x {t.count}
                     </div>
