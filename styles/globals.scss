@@ -210,27 +210,27 @@ section {
 
 
 .dragon {
-  @apply bg-[hsl(118,32%,75%)] text-gray-700;
+  @apply bg-[hsl(118,32%,75%)] text-gray-700 ;
   background-size: 160%;
   @screen xl {
     background-size: auto;
   }
   .sky {
-    @apply pb-[45.5%] xl:pb-[550px];
+    @apply pb-[45.5%] xl:pb-[550px] box-border;
   }
 
   .nav {
-    @apply grid grid-cols-2 gap-[5%] w-[55%] xl:w-[670px] max-w-max pb-[16%] sm:pb-32 xl:pb-28 mx-auto relative left-[-2%];
+    @apply gap-[5%] w-[55%] xl:w-[670px] pb-[16%] left-[-2%] grid grid-cols-2 max-w-max sm:pb-32 xl:pb-28 mx-auto relative;
     .navBtn {
       @apply hover:animate-scale;
       &:nth-of-type(3), &:nth-of-type(4) {
-        @apply relative left-[15%];
+        @apply left-[15%] relative;
       }
     }
   }
 
   .title {
-    @apply bg-[hsl(121,32%,35%)] text-white rounded-full border-4 border-white text-2xl sm:text-3xl p-3 sm:p-5 px-8 sm:px-10 -mb-8 z-10 min-w-[250px] sm:min-w-[330px] text-center
+    @apply bg-[hsl(121,32%,35%)] min-w-[250px] sm:min-w-[330px] text-white rounded-full border-4 border-white text-2xl sm:text-3xl p-3 sm:p-5 px-8 sm:px-10 -mb-8 z-10  text-center
   }
 
   .section {
@@ -250,7 +250,7 @@ section {
     &::before {
       content: '';
       background-image: url("https://resource-cdn.bigboss101.com/official/event/202205/title_icon.svg");
-      @apply bg-contain w-[1.5em] h-[1.5em] inline-block mr-2 relative -bottom-2;
+      @apply w-[1.5em] h-[1.5em] bg-contain inline-block mr-2 relative -bottom-2;
     }
   }
   .subContent {
