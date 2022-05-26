@@ -31,7 +31,7 @@ function EventWrapper({ group_code, current, children }: Props) {
       <img
         src="/img/logo.png"
         alt=""
-        className="hidden sm:block cursor-pointer h-24 mt-2 fixed top-0 drop-shadow-lg"
+        className="cursor-pointer h-[5%] sm:h-24 mt-2 fixed top-0 drop-shadow-lg"
         onClick={() => router.push('/')}
       />
       {/* <PageBanner /> */}
