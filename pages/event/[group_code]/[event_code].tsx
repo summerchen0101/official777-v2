@@ -60,7 +60,7 @@ function EventPage() {
         </div>
 
         {/* 衝等 */}
-        <div className="grid sm:grid-cols-2 gap-4 gap-y-8">
+        <div className="grid sm:grid-cols-2 gap-8">
           {data?.groups?.map((group, group_i) => (
             <table key={group_i}>
               <thead>
@@ -140,7 +140,7 @@ function EventPage() {
                     </h2>
                   </td>
                   <td key={t.amount}>
-                    <div className="flex items-center gap-3 font-medium">
+                    <div className="flex items-center sm:justify-center gap-3 font-medium">
                       <img
                         src={prizeMap[t.prize_id]?.img_path}
                         alt=""
