@@ -216,11 +216,11 @@ section {
     background-size: auto;
   }
   .sky {
-    @apply pb-[45.5%] xl:pb-[550px] box-border;
+    @apply pb-[44%] xl:pb-[540px] box-border;
   }
 
   .nav {
-    @apply gap-[5%] w-[55%] xl:w-[670px] pb-[16%] left-[-2%] grid grid-cols-2 max-w-max sm:pb-32 xl:pb-28 mx-auto relative;
+    @apply gap-[5%] w-[66%] xl:w-[700px] pb-[16%] left-[-2.5%] xl:left-[-40px] grid grid-cols-2 max-w-max sm:pb-32 xl:pb-28 mx-auto relative;
     .navBtn {
       @apply hover:animate-scale;
       &:nth-of-type(3), &:nth-of-type(4) {
@@ -250,7 +250,7 @@ section {
     &::before {
       content: '';
       background-image: url("https://resource-cdn.bigboss101.com/official/event/202205/粽子icon.png");
-      @apply w-[1.5em] h-[1.5em] bg-contain inline-block mr-2 relative -bottom-2;
+      @apply w-[1.6em] h-[1.8em] bg-contain inline-block mr-2 relative -bottom-2;
     }
   }
   .subContent {
