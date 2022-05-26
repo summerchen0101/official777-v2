@@ -37,7 +37,12 @@ function EventWrapper({ group_code, current, children }: Props) {
       {/* <PageBanner /> */}
       <SideBox />
       <AppDownloadSideFloat />
-      <div className="sky"></div>
+      <div className="sky">
+        <div className="title-top"></div>
+        {data?.title_img && (
+          <img className="title-img" src={data?.title_img} alt="" />
+        )}
+      </div>
 
       {/* 頁籤按鈕 */}
       <EventTabs current={current} group_code={group_code} />

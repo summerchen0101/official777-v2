@@ -14,11 +14,15 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        scale: {
+        'scale.sm': {
           '50%': { transform: 'scale(1.05)' },
+        },
+        scale: {
+          '50%': { transform: 'scale(1.1)' },
         },
       },
       animation: {
+        'scale.sm': 'scale.sm 1.5s ease-in-out infinite',
         scale: 'scale 1.5s ease-in-out infinite',
       },
       listStyleType: {

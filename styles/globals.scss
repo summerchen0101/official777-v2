@@ -216,13 +216,19 @@ section {
     background-size: auto;
   }
   .sky {
-    @apply pb-[44%] xl:pb-[540px] box-border;
+    @apply pb-[15%] xl:pb-[180px] box-border;
+    .title-top {
+      @apply pb-[6%] xl:pb-[65px] box-border;
+    }
+    .title-img {
+      @apply mx-auto relative left-[-21%] xl:left-[-250px] w-[40%] xl:w-[500px] animate-scale;
+    }
   }
 
   .nav {
-    @apply gap-[2%] xl:gap-4 w-[71%] xl:w-[720px] pb-[16%] left-[-2.5%] xl:left-[-40px] grid grid-cols-2 max-w-max sm:pb-32 xl:pb-28 mx-auto relative;
+    @apply gap-[2%] xl:gap-4 w-[71%] xl:w-[720px] pb-[8%] xl:pb-28 left-[-2%] xl:left-[-40px] grid grid-cols-2 max-w-max  mx-auto relative;
     .navBtn {
-      @apply hover:animate-scale;
+      @apply hover:animate-scale.sm;
       &:nth-of-type(3), &:nth-of-type(4) {
         @apply left-[15%] relative;
       }
@@ -258,20 +264,17 @@ section {
   }
 
   table {
-    @apply text-gray-800 sm:rounded-md overflow-hidden text-sm sm:text-base;
+    @apply text-gray-800 rounded-md overflow-hidden text-base;
 
     td,
     th {
-      @apply sm:px-3 sm:py-2.5;
-    }
-    thead {
-      @apply hidden sm:table-header-group
+      @apply px-3 py-2.5;
     }
     thead tr {
       @apply text-gray-900 bg-gradient-to-b from-gold-400 to-gold-600;
     }
     tbody tr {
-      @apply even:bg-gray-50 odd:bg-gray-200 flex flex-col p-2 sm:p-0 sm:table-row ;
+      @apply even:bg-gray-50 odd:bg-gray-200 ;
     }
     tbody {
       @apply text-gray-700;

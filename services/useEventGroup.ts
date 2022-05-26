@@ -11,7 +11,8 @@ export interface Event {
 
 export interface EventGroup {
   id: string
-  banner: null
+  banner: string | null
+  title_img: string | null
   name: string
   code: string
   info: string

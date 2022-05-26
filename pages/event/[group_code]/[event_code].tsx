@@ -60,7 +60,7 @@ function EventPage() {
         </div>
 
         {/* 衝等 */}
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-4 gap-y-8">
           {data?.groups?.map((group, group_i) => (
             <table key={group_i}>
               <thead>
@@ -77,18 +77,17 @@ function EventPage() {
               <tbody>
                 {group.levels.map((t, i) => (
                   <tr key={i} className="">
-                    <td className="text-center text-xl text-gold-700 font-medium">
+                    <td className="w-[43%] sm:w-auto text-center text-xl text-gold-700 font-medium">
                       <h2 className="text-xl">{t.level}級</h2>
                     </td>
                     <td>
-                      <div className="flex items-center gap-3 font-medium">
+                      <div className="flex items-center gap-1 font-medium">
                         <img
                           src={prizeMap[t.prize_id]?.img_path}
                           alt=""
-                          className="w-12 hidden sm:block"
+                          className="w-[20%] sm:w-12"
                         />
-                        {prizeMap[t.prize_id]?.name} x{' '}
-                        <span className="text-lg">{t.count}</span>
+                        {prizeMap[t.prize_id]?.name} x {t.count}
                       </div>
                     </td>
                   </tr>
@@ -135,20 +134,19 @@ function EventPage() {
             <tbody>
               {data?.recharges?.map((t) => (
                 <tr key={t.amount} className="">
-                  <td className="text-gold-700 font-medium">
+                  <td className="w-[42%] sm:w-auto text-gold-700 font-medium">
                     <h2 className="text-2xl text-center">
                       {toCurrency(t.amount)}
                     </h2>
                   </td>
                   <td key={t.amount}>
-                    <div className="flex items-center justify-center gap-3 font-medium">
+                    <div className="flex items-center gap-3 font-medium">
                       <img
                         src={prizeMap[t.prize_id]?.img_path}
                         alt=""
-                        className="w-12 hidden sm:block"
+                        className="w-[20%] sm:w-12"
                       />
-                      {prizeMap[t.prize_id]?.name} x{' '}
-                      <span className="text-lg">{t.count}</span>
+                      {prizeMap[t.prize_id]?.name} x {t.count}
                     </div>
                   </td>
                 </tr>
