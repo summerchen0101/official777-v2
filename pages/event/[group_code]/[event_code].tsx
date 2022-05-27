@@ -140,7 +140,7 @@ function EventPage() {
                     </h2>
                   </td>
                   <td key={t.amount}>
-                    <div className="flex items-center sm:justify-center gap-3 font-medium sm:text-lg">
+                    <div className="flex items-center sm:pl-[20%] gap-3 font-medium sm:text-lg">
                       <img
                         src={prizeMap[t.prize_id]?.img_path}
                         alt=""
