@@ -3,6 +3,33 @@ export enum Platform {
   Android = 'Android',
 }
 
+export enum NewsType {
+  ALL = 'ALL',
+  SERVICE = 'SERVICE',
+  GAME = 'GAME',
+  EVENT = 'EVENT',
+  OPERATION = 'OPERATION',
+}
+
+export enum EventType {
+  NORMAL = 'NORMAL',
+  LEVEL_PRIZE = 'LEVEL_PRIZE',
+  GAME_REBATE = 'GAME_REBATE',
+  RECHARGE_PRIZE = 'RECHARGE_PRIZE',
+}
+
+export enum PrizeType {
+  CARD = 'CARD',
+  PHYSICAL = 'PHYSICAL',
+  COIN = 'COIN',
+}
+
+export enum SitePlatform {
+  MAIN = 'MAIN',
+  SECONDARY = 'SECONDARY',
+  ALL = 'ALL',
+}
+
 export enum VoucherType {
   Golden = 100001,
   Silver = 100002,

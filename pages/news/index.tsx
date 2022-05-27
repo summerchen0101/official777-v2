@@ -3,27 +3,36 @@ import PageBanner from '@/components/layout/PageBanner'
 import LoadingCover from '@/components/LoadingCover'
 import NewsDetailPopup from '@/components/NewsDetailPopup'
 import useCdnUrl from '@/hooks/useCdnUrl'
+import { NewsType } from '@/lib/enums'
 import { newsTypeMap } from '@/lib/map'
 import useNewsList, { News } from '@/services/useNewsList'
 import { useStore } from '@/store/useStore'
 import cs from 'classnames'
+import { format } from 'date-fns'
+import { useRouter } from 'next/dist/client/router'
 import React, { useState } from 'react'
 
-function RechargeRec() {
+function NewsListPage() {
   const toCdnUrl = useCdnUrl()
+  const router = useRouter()
   const [page, setPage] = useState(1)
-  const [currentNewsTab, setCurrentNewsTab] = useState(0)
+  const [currentNewsTab, setCurrentNewsTab] = useState(NewsType.ALL)
   const { list, isLoading, paginator } = useNewsList({
-    category: currentNewsTab,
+    type: currentNewsTab,
     page,
-    perPage: 10,
+    perpage: 10,
   })
   const showNews = useStore((s) => s.showNews)
   const handleNewsClicked = (news: News) => {
-    if (news.isRedirect) {
-      return window.open(news.content, 'news')
+    if (news.link) {
+      if (news.is_new_win) {
+        return window.open(news.link, 'news')
+      } else {
+        return router.push(news.link)
+      }
+    } else {
+      showNews(news)
     }
-    showNews(news)
   }
   return (
     <Layout>
@@ -45,10 +54,10 @@ function RechargeRec() {
                   className={cs(
                     'news-tab-light text-xl cursor-pointer w-24 text-center border-r border-yellow-200/50 last-of-type:border-none px-4',
                     {
-                      'text-white': +key === currentNewsTab,
+                      'text-white': key === currentNewsTab,
                     },
                   )}
-                  onClick={() => setCurrentNewsTab(+key)}
+                  onClick={() => setCurrentNewsTab(key as NewsType)}
                 >
                   <span>{label}</span>
                   <img src="" alt="" />
@@ -63,9 +72,9 @@ function RechargeRec() {
                     className="flex flex-col lg:flex-row odd:bg-white/50 even:bg-white  px-5 py-2 border-2 border-brown-600 text-brown-700 cursor-pointer hover:bg-gold-100 transition-all"
                     onClick={() => handleNewsClicked(t)}
                   >
-                    <div className="w-20">[{newsTypeMap[t.category]}]</div>
+                    <div className="w-20">[{newsTypeMap[t.type]}]</div>
                     <div className="flex-1">{t.title}</div>
-                    <div>{t.createdAt}</div>
+                    <div>{format(new Date(t.date), 'yyyy-MM-dd')}</div>
                   </div>
                 ))}
               </div>
@@ -101,4 +110,4 @@ function RechargeRec() {
   )
 }
 
-export default RechargeRec
+export default NewsListPage

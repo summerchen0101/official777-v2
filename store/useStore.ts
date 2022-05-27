@@ -5,6 +5,7 @@ interface ClientEnv {
   apiBaseUrl: string
   cdnBaseUrl: string
   canRecharge: boolean
+  summerApiPath: string
 }
 
 interface IState {
@@ -32,6 +33,7 @@ export const useStore = create<IState>((set) => ({
   clientEnv: {
     apiBaseUrl: '',
     cdnBaseUrl: '',
+    summerApiPath: '',
     canRecharge: true,
   },
   setClientEnv: (clientEnv) => set({ clientEnv }),

@@ -30,11 +30,11 @@ html {
 }
 
 table.gold-table {
-  @apply text-gray-800 sm:rounded-t overflow-hidden;
+  @apply text-gray-800 sm:rounded-t overflow-hidden text-sm sm:text-base;
 
   td,
   th {
-    @apply sm:px-3 sm:py-2.5 text-left text-sm sm:text-base;
+    @apply sm:px-3 sm:py-2.5;
   }
   thead {
     @apply hidden sm:table-header-group
@@ -186,3 +186,99 @@ section {
 .label-box {
   @apply bg-gradient-to-br from-gold-500 to-gold-200 rounded text-gold-800 px-2 py-1 lg:text-sm text-right font-medium relative border border-gold-200;
 }
+
+.news-content {
+  h1 {
+    @apply text-3xl
+  }
+  h2 {
+    @apply text-2xl
+  }
+  h3 {
+    @apply text-xl
+  }
+  h4 {
+    @apply text-lg
+  }
+  h5 {
+    @apply text-base
+  }
+  h6 {
+    @apply text-sm
+  }
+}
+
+
+.dragon {
+  @apply bg-[hsl(118,32%,75%)] text-gray-700 ;
+  background-size: 160%;
+  @screen xl {
+    background-size: auto;
+  }
+  .sky {
+    @apply pb-[15%] xl:pb-[180px] box-border;
+    .title-top {
+      @apply pb-[6%] xl:pb-[65px] box-border;
+    }
+    .title-img {
+      @apply mx-auto relative left-[-21%] xl:left-[-250px] w-[40%] xl:w-[500px] animate-scale;
+    }
+  }
+
+  .nav {
+    @apply gap-[2%] xl:gap-4 w-[71%] xl:w-[720px] pb-[8%] xl:pb-28 left-[-2%] xl:left-[-40px] grid grid-cols-2 max-w-max  mx-auto relative;
+    .navBtn {
+      @apply hover:animate-scale-sm;
+      &:nth-of-type(3), &:nth-of-type(4) {
+        @apply left-[15%] relative;
+      }
+    }
+  }
+
+  .title {
+    @apply bg-[hsl(121,32%,35%)] min-w-[250px] sm:min-w-[330px] text-white rounded-full border-4 border-white text-2xl sm:text-3xl p-3 sm:p-5 px-8 sm:px-10 -mb-8 z-10  text-center
+  }
+
+  .section {
+    @apply bg-white px-6 py-12 sm:p-16 sm:rounded-2xl w-full space-y-8;
+    .html {
+      ol{
+        @apply list-decimal ml-5
+      }
+      ul{
+        @apply list-disc ml-5
+      }
+    }
+  }
+
+  .subTitle {
+    @apply text-[#d59e22] font-medium text-2xl mb-2;
+    &::before {
+      content: '';
+      background-image: url("https://resource-cdn.bigboss101.com/official/event/202205/粽子icon.png");
+      @apply w-[1.6em] h-[1.8em] bg-contain inline-block mr-2 relative -bottom-2;
+    }
+  }
+  .subContent {
+    @apply text-base md:text-lg;
+  }
+
+  table {
+    @apply text-gray-800 rounded-md overflow-hidden text-base;
+
+    td,
+    th {
+      @apply px-3 py-2.5;
+    }
+    thead tr {
+      @apply text-gray-900 bg-gradient-to-b from-gold-400 to-gold-600;
+    }
+    tbody tr {
+      @apply even:bg-gray-50 odd:bg-gray-200 ;
+    }
+    tbody {
+      @apply text-gray-700;
+    }
+  }
+}
+

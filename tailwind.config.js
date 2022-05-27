@@ -1,9 +1,30 @@
+// @keyframes pulse {
+//   50% {
+//     opacity: .5;
+//   }
+// }
+// .animate-pulse {
+//   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+// }
+
 module.exports = {
   mode: 'jit',
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      keyframes: {
+        'scale-sm': {
+          '50%': { transform: 'scale(1.05)' },
+        },
+        scale: {
+          '50%': { transform: 'scale(1.1)' },
+        },
+      },
+      animation: {
+        'scale-sm': 'scale-sm 1.5s ease-in-out infinite',
+        scale: 'scale 1.5s ease-in-out infinite',
+      },
       listStyleType: {
         square: 'square',
         roman: 'upper-roman',

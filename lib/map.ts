@@ -6,6 +6,7 @@ import {
   InvoiceType,
   ItemType,
   MCPaymentType,
+  NewsType,
   PaymentGateway,
   PaymentStatus,
   Platform,
@@ -20,10 +21,11 @@ import {
 import { StringMap } from '@/types'
 
 export const newsTypeMap: StringMap = {
-  0: '最新',
-  1: '營運',
-  2: '活動',
-  3: '客服',
+  [NewsType.ALL]: '最新',
+  [NewsType.EVENT]: '活動',
+  [NewsType.SERVICE]: '客服',
+  [NewsType.OPERATION]: '營運',
+  [NewsType.GAME]: '遊戲',
 }
 export const itemTypeMap: StringMap = {
   [ItemType.All]: '全部',
