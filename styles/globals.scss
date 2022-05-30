@@ -210,11 +210,8 @@ section {
 
 
 .dragon {
-  @apply bg-[hsl(118,32%,75%)] text-gray-700 ;
-  background-size: 160%;
-  @screen xl {
-    background-size: auto;
-  }
+  @apply bg-[hsl(118,32%,75%)] bg-160% xl:bg-auto text-gray-700;
+
   .sky {
     @apply pb-[15%] xl:pb-[180px] box-border;
     .title-top {
