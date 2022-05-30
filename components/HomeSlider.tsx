@@ -42,6 +42,7 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
               <a
                 target={t.newWin ? '_blank' : '_self'}
                 className="block w-full pb-[50%] xl:pb-[580px] bg-center bg-no-repeat bg-160% xl:bg-auto"
+                draggable={false}
                 style={{
                   backgroundImage: `url(${toCdnUrl(
                     canRecharge ? t.img : t.bossImg || t.img,
