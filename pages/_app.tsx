@@ -86,7 +86,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.online539.com" />
-        <meta property="og:image" content=" " />
+        <meta
+          property="og:image"
+          content="https://resource-cdn.bigboss101.com/official/banner/banner_02.jpg"
+        />
         <meta name="copyright" content="三聯陽泰科技" />
         <meta name="google" content="notranslate" />
       </Head>
