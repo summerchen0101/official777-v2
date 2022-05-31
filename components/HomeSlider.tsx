@@ -36,23 +36,33 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
   return (
     <Slider {...settings}>
       {slides.map((t, i) => {
-        const imgComp = (
-          <img
-            src={toCdnUrl(canRecharge ? t.img : t.bossImg || t.img)}
-            className={cs(
-              'h-[200px] md:h-auto object-cover object-center mx-auto max-h-[500px]',
-            )}
-            alt=""
-          />
-        )
         if (t.link) {
           return (
             <Link href={t.link} passHref key={i}>
-              <a target={t.newWin ? '_blank' : '_self'}>{imgComp}</a>
+              <a
+                target={t.newWin ? '_blank' : '_self'}
+                className="block w-full pb-[50%] xl:pb-[580px] bg-center bg-no-repeat bg-160% xl:bg-auto"
+                draggable={false}
+                style={{
+                  backgroundImage: `url(${toCdnUrl(
+                    canRecharge ? t.img : t.bossImg || t.img,
+                  )})`,
+                }}
+              ></a>
             </Link>
           )
         }
-        return imgComp
+        return (
+          <div
+            key={i}
+            className="block bg-top bg-no-repeat bg-160% xl:bg-auto"
+            style={{
+              backgroundImage: `url(${toCdnUrl(
+                canRecharge ? t.img : t.bossImg || t.img,
+              )})`,
+            }}
+          ></div>
+        )
       })}
     </Slider>
   )

@@ -33,6 +33,9 @@ module.exports = {
       zIndex: {
         '-1': '-1',
       },
+      backgroundSize: {
+        '160%': '160%',
+      },
       backgroundPosition: {
         // 'top-4': 'center top 1rem',
       },
