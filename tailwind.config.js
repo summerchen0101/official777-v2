@@ -20,10 +20,16 @@ module.exports = {
         scale: {
           '50%': { transform: 'scale(1.1)' },
         },
+        jumpup: {
+          '0%': { transform: 'translateY(20%)', opacity: 0 },
+          '60%': { transform: 'translateY(-0.5%)', opacity: 1 },
+          '100%': { transform: 'translateY(0%)', opacity: 1 },
+        },
       },
       animation: {
         'scale-sm': 'scale-sm 1.5s ease-in-out infinite',
         scale: 'scale 1.5s ease-in-out infinite',
+        jumpup: 'jumpup 1s ease-in-out',
       },
       listStyleType: {
         square: 'square',
