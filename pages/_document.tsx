@@ -28,6 +28,10 @@ class MyDocument extends Document {
               `,
             }}
           ></script>
+          <meta
+            name="facebook-domain-verification"
+            content="0yq4hfyroluhkfs9lzeoxqde8k7g0v"
+          />
         </Head>
         <body>
           <noscript
