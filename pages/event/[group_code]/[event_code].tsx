@@ -1,5 +1,5 @@
 import EventWrapper from '@/components/event/EventWrapper'
-import { EventType } from '@/lib/enums'
+import { CustomColumnType, EventType } from '@/lib/enums'
 import useEvent from '@/services/useEvent'
 import usePrizeList, { Prize } from '@/services/usePrizeList'
 import { toCurrency } from '@/utils'
@@ -7,6 +7,7 @@ import { format } from 'date-fns'
 import { zhTW } from 'date-fns/locale'
 import { useRouter } from 'next/dist/client/router'
 import React, { useMemo } from 'react'
+import cs from 'classnames'
 
 function EventPage() {
   const router = useRouter()
@@ -165,7 +166,7 @@ function EventPage() {
             hidden={data?.type !== EventType.CUSTOM_TABLE}
             className="overflow-x-auto"
           >
-            <table className="w-full sm:max-w-md mx-auto whitespace-nowrap">
+            <table className="w-full sm:max-w-2xl mx-auto whitespace-nowrap text-center">
               <thead>
                 <tr hidden={!tb.title}>
                   <th colSpan={tb.columns.length}>
@@ -183,15 +184,22 @@ function EventPage() {
                   <tr key={row_i} className="text-center">
                     {tb.columns.map((c) => (
                       <td key={c.key}>
-                        <div className="flex items-center sm:pl-[20%] gap-3 font-medium sm:text-lg">
-                          {row[c.key].icon && (
+                        <div
+                          className={cs('font-medium sm:text-lg space-x-3', {
+                            large: c.type === CustomColumnType.LARGE,
+                            highlight: c.type === CustomColumnType.HIGHLIGHT,
+                          })}
+                        >
+                          {!!row[c.key].icon && (
                             <img
                               src={prizeMap[row[c.key].icon!]?.img_path}
                               alt=""
-                              className="w-[30%] sm:w-[4.5rem]"
+                              className="w-[30%] sm:w-[4.5rem] align-middle inline-block"
                             />
                           )}
-                          {row[c.key].text}
+                          <span className="align-middle">
+                            {row[c.key].text}
+                          </span>
                         </div>
                       </td>
                     ))}

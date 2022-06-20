@@ -1,4 +1,5 @@
 import useMyAxios from '@/hooks/useMyAxios'
+import { CustomColumnType, EventType } from '@/lib/enums'
 import { AxiosResponse } from 'axios'
 import useSWR from 'swr'
 
@@ -29,12 +30,6 @@ export interface Recharge {
   prize_id: number
 }
 
-export enum CustomColumnType {
-  TEXT = 1,
-  ICON = 2,
-  TEXT_ICON = 3,
-}
-
 export interface CustomColumn {
   key: string
   name: string
@@ -60,7 +55,7 @@ export interface Event {
   content: string
   tab_img: string
   tab_active_img: string
-  type: string
+  type: EventType
   start_at: string
   end_at: string
   is_active: boolean

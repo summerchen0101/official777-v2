@@ -164,3 +164,9 @@ export enum VipLevel {
   LV5,
   LV6,
 }
+
+export enum CustomColumnType {
+  NORMAL = 1,
+  LARGE = 2,
+  HIGHLIGHT = 3,
+}

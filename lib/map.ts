@@ -1,4 +1,5 @@
 import {
+  CustomColumnType,
   ECPayInvoiceType,
   ECPayPaymentType,
   GameCode,
@@ -181,4 +182,10 @@ export const voucherTypeMap: StringMap = {
   [VoucherType.Golden]: '金',
   [VoucherType.Silver]: '銀',
   [VoucherType.Copper]: '銅',
+}
+
+export const customColumnTypeMap: StringMap = {
+  [CustomColumnType.NORMAL]: '一般',
+  [CustomColumnType.LARGE]: '放大',
+  [CustomColumnType.HIGHLIGHT]: '加亮放大',
 }
