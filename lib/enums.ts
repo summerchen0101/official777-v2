@@ -16,6 +16,7 @@ export enum EventType {
   LEVEL_PRIZE = 'LEVEL_PRIZE',
   GAME_REBATE = 'GAME_REBATE',
   RECHARGE_PRIZE = 'RECHARGE_PRIZE',
+  CUSTOM_TABLE = 'CUSTOM_TABLE',
 }
 
 export enum PrizeType {

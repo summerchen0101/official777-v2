@@ -223,7 +223,7 @@ section {
   }
 
   .nav {
-    @apply gap-[2%] xl:gap-4 w-[71%] xl:w-[720px] pb-[8%] xl:pb-28 left-[-2%] xl:left-[-40px] grid grid-cols-2 max-w-max  mx-auto relative;
+    @apply gap-[2%] xl:gap-4 w-[71%] xl:w-[720px] pb-[8%] xl:pb-28 left-[-2%] xl:left-[-40px] grid grid-cols-2 max-w-max  mx-auto relative min-h-[120px] sm:min-h-[380px];
     .navBtn {
       @apply hover:animate-scale-sm;
       &:nth-of-type(3), &:nth-of-type(4) {

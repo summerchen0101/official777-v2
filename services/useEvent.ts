@@ -29,6 +29,29 @@ export interface Recharge {
   prize_id: number
 }
 
+export enum CustomColumnType {
+  TEXT = 1,
+  ICON = 2,
+  TEXT_ICON = 3,
+}
+
+export interface CustomColumn {
+  key: string
+  name: string
+  type: CustomColumnType
+}
+
+export interface CustomColumnRow {
+  text?: string
+  icon?: number
+}
+
+export interface CustomTable {
+  title?: string
+  columns: CustomColumn[]
+  rows: Record<string, CustomColumnRow>[]
+}
+
 export interface Event {
   id: string
   code: string
@@ -46,6 +69,7 @@ export interface Event {
   groups: LevelGroup[] | null
   recharges: Recharge[] | null
   event_groups: EventGroup[]
+  custom_tables: CustomTable[]
 }
 
 function useEvent(code: string) {

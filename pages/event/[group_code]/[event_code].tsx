@@ -60,7 +60,10 @@ function EventPage() {
         </div>
 
         {/* 衝等 */}
-        <div className="grid sm:grid-cols-2 gap-8">
+        <div
+          className="grid sm:grid-cols-2 gap-8"
+          hidden={data?.type !== EventType.LEVEL_PRIZE}
+        >
           {data?.groups?.map((group, group_i) => (
             <table key={group_i}>
               <thead>
@@ -98,7 +101,7 @@ function EventPage() {
         </div>
 
         {/* 刮刮樂 */}
-        <div hidden={!data?.rebates} className="">
+        <div hidden={data?.type !== EventType.GAME_REBATE} className="">
           <table className="w-full sm:w-[480px] mx-auto">
             <thead>
               <tr className="text-xl">
@@ -123,7 +126,7 @@ function EventPage() {
         </div>
 
         {/* 累儲 */}
-        <div hidden={!data?.recharges} className="">
+        <div hidden={data?.type !== EventType.RECHARGE_PRIZE} className="">
           <table className="w-full sm:w-[600px] mx-auto">
             <thead>
               <tr className="text-lg">
@@ -154,6 +157,56 @@ function EventPage() {
             </tbody>
           </table>
         </div>
+
+        {/* 客製化表格 */}
+        {data?.custom_tables?.map((tb, i) => (
+          <div
+            key={i}
+            hidden={data?.type !== EventType.CUSTOM_TABLE}
+            className="overflow-x-auto"
+          >
+            <table className="w-full sm:max-w-md mx-auto whitespace-nowrap">
+              <thead>
+                <tr hidden={!tb.title}>
+                  <th colSpan={tb.columns.length}>
+                    <h1 className="text-center text-lg">{tb.title}</h1>
+                  </th>
+                </tr>
+                <tr>
+                  {tb.columns.map((c) => (
+                    <th key={c.key}>{c.name}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {tb?.rows?.map((row, row_i) => (
+                  <tr key={row_i} className="text-center">
+                    {tb.columns.map((c) => (
+                      <td key={c.key}>
+                        <div className="flex items-center sm:pl-[20%] gap-3 font-medium sm:text-lg">
+                          {row[c.key].icon && (
+                            <img
+                              src={prizeMap[row[c.key].icon!]?.img_path}
+                              alt=""
+                              className="w-[30%] sm:w-[4.5rem]"
+                            />
+                          )}
+                          {row[c.key].text}
+                        </div>
+                      </td>
+                    ))}
+                    {/* <td
+                      key={t.game}
+                      className="font-semibold text-2xl text-red-700"
+                    >
+                      {t.rebate}%
+                    </td> */}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
       </div>
     </EventWrapper>
   )
