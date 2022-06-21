@@ -1,4 +1,5 @@
 import useMyAxios from '@/hooks/useMyAxios'
+import { SitePlatform } from '@/lib/enums'
 import { AxiosResponse } from 'axios'
 import useSWR from 'swr'
 
@@ -7,6 +8,17 @@ export interface Event {
   title: string
   tab_img: string
   tab_active_img: string
+}
+
+export interface EventExpoEventGroup {
+  code: string
+  platform: SitePlatform
+}
+
+export interface EventExpo {
+  id: string
+  code: string
+  event_groups: EventExpoEventGroup[]
 }
 
 export interface EventGroup {
@@ -18,8 +30,9 @@ export interface EventGroup {
   info: string
   url: string
   theme: string
-  platform: string
+  platform: SitePlatform
   events: Event[]
+  event_expo: EventExpo
 }
 
 function useEventGroup(code?: string) {

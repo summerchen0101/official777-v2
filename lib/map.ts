@@ -16,6 +16,7 @@ import {
   RemitStatus,
   RewardStatus,
   RewardsType,
+  SitePlatform,
   VipLevel,
   VoucherType,
 } from './enums'
@@ -189,3 +190,12 @@ export const customColumnTypeMap: StringMap = {
   [CustomColumnType.LARGE]: '放大',
   [CustomColumnType.HIGHLIGHT]: '加亮放大',
 }
+
+// export const domainMap: Record<string, string[]> = {
+//   [SitePlatform.MAIN]: ['localhost:3388'],
+//   [SitePlatform.SECONDARY]: ['localhost:3399'],
+// }
+// export const domainMap: StringMap = {
+//   'localhost:3388': SitePlatform.MAIN,
+//   'localhost:3399': SitePlatform.SECONDARY,
+// }
