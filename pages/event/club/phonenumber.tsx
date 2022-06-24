@@ -25,10 +25,14 @@ function EventClubPhonePage() {
   const [userId, setUserId] = useState('')
   const [isLiked, setIsLiked] = useState(false)
   FB.getLoginStatus((res) => {
+    console.log(res)
     if (res.status === 'connected') {
       FB.api<{ name: string; id: string }>('/me', (res) => {
         setUsername(res.name)
         setUserId(res.id)
+      })
+      FB.api<ResData>(`/me/likes/101091025701333`, (res) => {
+        setIsLiked(res.data?.length > 0)
       })
     }
   })
@@ -36,23 +40,6 @@ function EventClubPhonePage() {
   // FB.Event.subscribe('auth.statusChange', (res) => {
   //   console.log(res)
   // })
-
-  useEffect(() => {
-    if (!userId) return
-    FB.api<ResData>(`/${userId}/likes/101091025701333`, (res) => {
-      setIsLiked(res.data.length > 0)
-    })
-
-    // FB.api('/me/permissions', function (response) {
-    //   var declined = []
-    //   for (let i = 0; i < response.data.length; i++) {
-    //     if (response.data[i].status == 'declined') {
-    //       declined.push(response.data[i].permission)
-    //     }
-    //   }
-    //   alert(declined.toString())
-    // })
-  }, [userId])
 
   const onFBLogin = () => {
     FB.login(
