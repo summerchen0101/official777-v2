@@ -1,5 +1,5 @@
 import EventWrapper from '@/components/event/EventWrapper'
-import { EventType } from '@/lib/enums'
+import { CustomColumnType, EventType } from '@/lib/enums'
 import useEvent from '@/services/useEvent'
 import usePrizeList, { Prize } from '@/services/usePrizeList'
 import { toCurrency } from '@/utils'
@@ -7,6 +7,7 @@ import { format } from 'date-fns'
 import { zhTW } from 'date-fns/locale'
 import { useRouter } from 'next/dist/client/router'
 import React, { useMemo } from 'react'
+import cs from 'classnames'
 
 function EventPage() {
   const router = useRouter()
@@ -60,7 +61,10 @@ function EventPage() {
         </div>
 
         {/* 衝等 */}
-        <div className="grid sm:grid-cols-2 gap-8">
+        <div
+          className="grid sm:grid-cols-2 gap-8"
+          hidden={data?.type !== EventType.LEVEL_PRIZE}
+        >
           {data?.groups?.map((group, group_i) => (
             <table key={group_i}>
               <thead>
@@ -98,7 +102,7 @@ function EventPage() {
         </div>
 
         {/* 刮刮樂 */}
-        <div hidden={!data?.rebates} className="">
+        <div hidden={data?.type !== EventType.GAME_REBATE} className="">
           <table className="w-full sm:w-[480px] mx-auto">
             <thead>
               <tr className="text-xl">
@@ -123,7 +127,7 @@ function EventPage() {
         </div>
 
         {/* 累儲 */}
-        <div hidden={!data?.recharges} className="">
+        <div hidden={data?.type !== EventType.RECHARGE_PRIZE} className="">
           <table className="w-full sm:w-[600px] mx-auto">
             <thead>
               <tr className="text-lg">
@@ -154,6 +158,63 @@ function EventPage() {
             </tbody>
           </table>
         </div>
+
+        {/* 客製化表格 */}
+        {data?.custom_tables?.map((tb, i) => (
+          <div
+            key={i}
+            hidden={data?.type !== EventType.CUSTOM_TABLE}
+            className="overflow-x-auto"
+          >
+            <table className="w-full sm:max-w-2xl mx-auto whitespace-nowrap text-center">
+              <thead>
+                <tr hidden={!tb.title}>
+                  <th colSpan={tb.columns.length}>
+                    <h1 className="text-center text-lg">{tb.title}</h1>
+                  </th>
+                </tr>
+                <tr>
+                  {tb.columns.map((c) => (
+                    <th key={c.key}>{c.name}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {tb?.rows?.map((row, row_i) => (
+                  <tr key={row_i} className="text-center">
+                    {tb.columns.map((c) => (
+                      <td key={c.key}>
+                        <div
+                          className={cs('font-medium sm:text-lg space-x-3', {
+                            large: c.type === CustomColumnType.LARGE,
+                            highlight: c.type === CustomColumnType.HIGHLIGHT,
+                          })}
+                        >
+                          {!!row[c.key].icon && (
+                            <img
+                              src={prizeMap[row[c.key].icon!]?.img_path}
+                              alt=""
+                              className="w-[30%] sm:w-[4.5rem] align-middle inline-block"
+                            />
+                          )}
+                          <span className="align-middle">
+                            {row[c.key].text}
+                          </span>
+                        </div>
+                      </td>
+                    ))}
+                    {/* <td
+                      key={t.game}
+                      className="font-semibold text-2xl text-red-700"
+                    >
+                      {t.rebate}%
+                    </td> */}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
       </div>
     </EventWrapper>
   )

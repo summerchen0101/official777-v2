@@ -1,8 +1,10 @@
+import { SitePlatform } from '@/lib/enums'
+import { sites } from '@/lib/sites'
 import useEventGroup from '@/services/useEventGroup'
 import cs from 'classnames'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
-import React, { memo, ReactNode } from 'react'
+import React, { memo, ReactNode, useEffect } from 'react'
 import AppDownloadSideFloat from '../AppDownloadSideFloat'
 import FooterNav from '../layout/FooterNav'
 import LoginPopup from '../LoginPopup'
@@ -15,9 +17,27 @@ type Props = {
   current?: string
   children?: ReactNode
 }
+
 function EventWrapper({ group_code, current, children }: Props) {
   const router = useRouter()
   const { data } = useEventGroup(group_code)
+  const currentSite = sites.find((t) => t.host === location.host)
+  useEffect(() => {
+    if (
+      !router.query.r &&
+      ![SitePlatform.ALL, currentSite?.platform].includes(data?.platform)
+    ) {
+      const illeageEventGroups = data?.event_expo.event_groups.filter((t) =>
+        [SitePlatform.ALL, currentSite?.platform].includes(t.platform),
+      )
+      if (illeageEventGroups?.[0]?.code) {
+        router.push(`/event/${illeageEventGroups?.[0]?.code}`)
+      } else {
+        router.push('/')
+      }
+    }
+  }, [])
+
   return (
     <div
       className={cs('bg-no-repeat bg-top', data?.theme)}
@@ -43,7 +63,7 @@ function EventWrapper({ group_code, current, children }: Props) {
           <img className="title-img" src={data?.title_img} alt="" />
         )}
       </div>
-
+      {/* <button onClick={() => router.push('/event/dragon2022')}>redirect</button> */}
       {/* 頁籤按鈕 */}
       <EventTabs current={current} group_code={group_code} />
       {/* 內容區塊 */}

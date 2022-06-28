@@ -1,4 +1,5 @@
 import useMyAxios from '@/hooks/useMyAxios'
+import { CustomColumnType, EventType } from '@/lib/enums'
 import { AxiosResponse } from 'axios'
 import useSWR from 'swr'
 
@@ -29,6 +30,23 @@ export interface Recharge {
   prize_id: number
 }
 
+export interface CustomColumn {
+  key: string
+  name: string
+  type: CustomColumnType
+}
+
+export interface CustomColumnRow {
+  text?: string
+  icon?: number
+}
+
+export interface CustomTable {
+  title?: string
+  columns: CustomColumn[]
+  rows: Record<string, CustomColumnRow>[]
+}
+
 export interface Event {
   id: string
   code: string
@@ -37,7 +55,7 @@ export interface Event {
   content: string
   tab_img: string
   tab_active_img: string
-  type: string
+  type: EventType
   start_at: string
   end_at: string
   is_active: boolean
@@ -46,6 +64,7 @@ export interface Event {
   groups: LevelGroup[] | null
   recharges: Recharge[] | null
   event_groups: EventGroup[]
+  custom_tables: CustomTable[]
 }
 
 function useEvent(code: string) {

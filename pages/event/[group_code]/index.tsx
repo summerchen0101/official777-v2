@@ -7,6 +7,7 @@ import { CgSpinnerTwo } from 'react-icons/cg'
 function EventGroupPage() {
   const router = useRouter()
   const { data } = useEventGroup(router.query.group_code as string)
+  console.log(data)
   useEffect(() => {
     if (data?.events[0]) {
       router.push(`${router.query.group_code}/${data?.events[0]?.code}`)
