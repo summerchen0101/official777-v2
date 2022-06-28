@@ -17,7 +17,7 @@ function EventTabs({ group_code, current }: Props) {
     <div className="nav">
       {data?.events.map((t) => (
         <Link key={t.code} href={`/event/${group_code}/${t.code}`} passHref>
-          <a className="navBtn">
+          <a className={cs('navBtn', { active: t.code === current })}>
             <img
               src={t.code === current ? t.tab_active_img : t.tab_img}
               alt=""

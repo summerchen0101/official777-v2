@@ -27,7 +27,7 @@ module.exports = {
         },
       },
       animation: {
-        'scale-sm': 'scale-sm 1.5s ease-in-out infinite',
+        'scale-sm': 'scale-sm 1.2s ease-in-out infinite',
         scale: 'scale 1.5s ease-in-out infinite',
         jumpup: 'jumpup 1s ease-in-out',
       },
@@ -40,6 +40,10 @@ module.exports = {
         '-1': '-1',
       },
       backgroundSize: {
+        '120%': '120%',
+        '130%': '130%',
+        '140%': '140%',
+        '150%': '150%',
         '160%': '160%',
       },
       backgroundPosition: {

@@ -15,7 +15,7 @@ function EventPage() {
   const event_code = router.query.event_code as string
   const { data } = useEvent(event_code)
   const { list: prizeList } = usePrizeList()
-  const prizeMap = useMemo(
+  const prizeMap = useMemo<Record<number, Prize>>(
     () =>
       prizeList?.reduce<Record<number, Prize>>((obj, next) => {
         obj[next.id] = next
@@ -29,7 +29,9 @@ function EventPage() {
 
       <div className="section">
         <div hidden={data?.type === EventType.NORMAL}>
-          <h2 className="subTitle">活動時間</h2>
+          <h2 className="subTitle">
+            <span className="align-middle">活動時間</span>
+          </h2>
           <div className="subContent">
             {data?.start_at &&
               format(new Date(data?.start_at), 'yyyy-MM-dd(eeeeee) HH:mm', {
@@ -185,21 +187,31 @@ function EventPage() {
                     {tb.columns.map((c) => (
                       <td key={c.key}>
                         <div
-                          className={cs('font-medium sm:text-lg space-x-3', {
-                            large: c.type === CustomColumnType.LARGE,
-                            highlight: c.type === CustomColumnType.HIGHLIGHT,
-                          })}
+                          className={cs(
+                            'font-medium sm:text-lg flex flex-col sm:flex-row gap-x-3 items-center',
+                            row[c.key].icon
+                              ? 'justify-left sm:pl-8'
+                              : 'justify-center',
+                            {
+                              large: c.type === CustomColumnType.LARGE,
+                              highlight: c.type === CustomColumnType.HIGHLIGHT,
+                            },
+                          )}
                         >
                           {!!row[c.key].icon && (
                             <img
                               src={prizeMap[row[c.key].icon!]?.img_path}
                               alt=""
-                              className="w-[30%] sm:w-[4.5rem] align-middle inline-block"
+                              className="w-[30%] sm:w-[4.5rem] align-middle"
                             />
                           )}
-                          <span className="align-middle">
-                            {row[c.key].text}
-                          </span>
+                          <div
+                            className="align-middle"
+                            dangerouslySetInnerHTML={{
+                              __html:
+                                row[c.key].text?.replace('\\n', '<br/>') || '',
+                            }}
+                          ></div>
                         </div>
                       </td>
                     ))}
