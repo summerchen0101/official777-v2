@@ -29,7 +29,9 @@ function EventPage() {
 
       <div className="section">
         <div hidden={data?.type === EventType.NORMAL}>
-          <h2 className="subTitle">活動時間</h2>
+          <h2 className="subTitle">
+            <span className="align-middle">活動時間</span>
+          </h2>
           <div className="subContent">
             {data?.start_at &&
               format(new Date(data?.start_at), 'yyyy-MM-dd(eeeeee) HH:mm', {
