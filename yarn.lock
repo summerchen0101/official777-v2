@@ -257,6 +257,11 @@
   dependencies:
     mini-svg-data-uri "^1.2.3"
 
+"@types/facebook-js-sdk@^3.3.5":
+  version "3.3.5"
+  resolved "https://registry.yarnpkg.com/@types/facebook-js-sdk/-/facebook-js-sdk-3.3.5.tgz#67ba5a73def60d498dbf66bd399aea29b2644e1d"
+  integrity sha512-80UAq9UoDzDDpsRXxV2ci1R+g/durNJTEzqh3ES4YkswW5T2lWAUuAghUWruw/H849ZhugyQqeaLHKF0iapReg==
+
 "@types/json-bigint@^1.0.1":
   version "1.0.1"
   resolved "https://registry.npmjs.org/@types/json-bigint/-/json-bigint-1.0.1.tgz"

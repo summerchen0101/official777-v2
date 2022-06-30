@@ -1,4 +1,5 @@
 import {
+  CustomColumnType,
   ECPayInvoiceType,
   ECPayPaymentType,
   GameCode,
@@ -15,6 +16,7 @@ import {
   RemitStatus,
   RewardStatus,
   RewardsType,
+  SitePlatform,
   VipLevel,
   VoucherType,
 } from './enums'
@@ -182,3 +184,18 @@ export const voucherTypeMap: StringMap = {
   [VoucherType.Silver]: '銀',
   [VoucherType.Copper]: '銅',
 }
+
+export const customColumnTypeMap: StringMap = {
+  [CustomColumnType.NORMAL]: '一般',
+  [CustomColumnType.LARGE]: '放大',
+  [CustomColumnType.HIGHLIGHT]: '加亮放大',
+}
+
+// export const domainMap: Record<string, string[]> = {
+//   [SitePlatform.MAIN]: ['localhost:3388'],
+//   [SitePlatform.SECONDARY]: ['localhost:3399'],
+// }
+// export const domainMap: StringMap = {
+//   'localhost:3388': SitePlatform.MAIN,
+//   'localhost:3399': SitePlatform.SECONDARY,
+// }

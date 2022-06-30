@@ -16,6 +16,7 @@ export enum EventType {
   LEVEL_PRIZE = 'LEVEL_PRIZE',
   GAME_REBATE = 'GAME_REBATE',
   RECHARGE_PRIZE = 'RECHARGE_PRIZE',
+  CUSTOM_TABLE = 'CUSTOM_TABLE',
 }
 
 export enum PrizeType {
@@ -162,4 +163,10 @@ export enum VipLevel {
   LV4,
   LV5,
   LV6,
+}
+
+export enum CustomColumnType {
+  NORMAL = 1,
+  LARGE = 2,
+  HIGHLIGHT = 3,
 }

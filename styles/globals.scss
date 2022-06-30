@@ -209,6 +209,87 @@ section {
 }
 
 
+.mahjong {
+  @apply bg-[hsl(1,82%,57%)] bg-160% xl:bg-auto text-gray-700;
+
+  .sky {
+    @apply pb-[6%] xl:pb-[45px] box-border;
+
+    // 標題上方空間
+    .title-top {
+      @apply pb-[28%] xl:pb-[325px] box-border;
+    }
+    // 主標題
+    .title-img {
+      @apply mx-auto relative left-[0%] xl:left-[-20px] w-[72%] xl:w-[880px] animate-scale;
+    }
+  }
+
+  // 頁籤
+  .nav {
+    @apply gap-[2%] xl:gap-4 w-[96%] xl:w-[1280px] pb-[12%] xl:pb-40 left-0 xl:left-[-40px] flex gap-x-1 xl:gap-x-4 max-w-max mx-auto relative;
+    .navBtn {
+      @apply hover:animate-scale-sm;
+      &.active {
+        @apply animate-scale-sm;
+      }
+    }
+  }
+
+  .title {
+    @apply bg-[hsl(34,95%,52%)] min-w-[250px] sm:min-w-[330px] text-white rounded-full border-4 border-white text-2xl sm:text-3xl p-3 sm:p-5 px-8 sm:px-10 -mb-8 z-10  text-center
+  }
+
+  .section {
+    @apply bg-white/60 px-6 py-12 sm:p-16 sm:rounded-2xl w-full space-y-8;
+    .html {
+      ol{
+        @apply list-decimal ml-5
+      }
+      ul{
+        @apply list-disc ml-5
+      }
+    }
+  }
+
+  .subTitle {
+    @apply text-[#a50a0a] font-medium text-2xl mb-2;
+    &::before {
+      content: '🎲';
+      @apply inline-block mr-2 text-4xl align-middle;
+    }
+  }
+  .subContent {
+    @apply text-base md:text-lg text-black;
+  }
+
+  table {
+    @apply text-gray-800 rounded-md overflow-hidden text-base;
+
+    td,
+    th {
+      @apply px-3 py-2.5;
+    }
+    thead tr {
+      @apply text-gray-900 bg-gradient-to-b from-gold-400 to-gold-600;
+    }
+    tbody tr {
+      @apply even:bg-gray-50 odd:bg-gray-200 ;
+    }
+    tbody {
+      @apply text-gray-700;
+      .large {
+        @apply text-lg sm:text-xl;
+      }
+      .highlight {
+        @apply text-red-700 text-xl sm:text-2xl;
+      }
+    }
+
+  }
+}
+
+
 .dragon {
   @apply bg-[hsl(118,32%,75%)] bg-160% xl:bg-auto text-gray-700;
 
@@ -223,7 +304,7 @@ section {
   }
 
   .nav {
-    @apply gap-[2%] xl:gap-4 w-[71%] xl:w-[720px] pb-[8%] xl:pb-28 left-[-2%] xl:left-[-40px] grid grid-cols-2 max-w-max  mx-auto relative;
+    @apply gap-[2%] xl:gap-4 w-[71%] xl:w-[720px] pb-[8%] xl:pb-28 left-[-2%] xl:left-[-40px] grid grid-cols-2 min-h-[120px] sm:min-h-[380px] max-w-max  mx-auto relative;
     .navBtn {
       @apply hover:animate-scale-sm;
       &:nth-of-type(3), &:nth-of-type(4) {
@@ -275,7 +356,16 @@ section {
     }
     tbody {
       @apply text-gray-700;
+      .large {
+        @apply text-lg sm:text-xl;
+      }
+      .highlight {
+        @apply text-red-700 text-xl sm:text-2xl;
+      }
     }
+
   }
 }
+
+
 
