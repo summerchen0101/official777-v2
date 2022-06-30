@@ -2,5 +2,5 @@
   "apiBaseUrl": "https://app-qa.ffglobaltech.com",
   "cdnBaseUrl": "https://resource-cdn.bigboss101.com/official",
   "canRecharge": true,
-  "summerApiPath": "https://official-api.herokuapp.com"
+  "summerApiPath": "https://www.techcake.net/api"
 }
