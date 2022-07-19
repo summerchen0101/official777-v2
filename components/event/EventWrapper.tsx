@@ -30,13 +30,14 @@ function EventWrapper({ group_code, current, children }: Props) {
       const illeageEventGroups = data?.event_expo.event_groups.filter((t) =>
         [SitePlatform.ALL, currentSite?.platform].includes(t.platform),
       )
+      if (!illeageEventGroups?.[0]?.code) return
       if (illeageEventGroups?.[0]?.code) {
         router.push(`/event/${illeageEventGroups?.[0]?.code}`)
       } else {
         router.push('/')
       }
     }
-  }, [])
+  }, [data])
 
   return (
     <div

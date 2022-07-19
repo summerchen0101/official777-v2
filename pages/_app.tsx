@@ -12,7 +12,6 @@ import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
-  console.log('path: ' + process.env.NEXT_PUBLIC_SUMMER_API_PATH)
   const setClientEnv = useStore((s) => s.setClientEnv)
   const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
   const getConfig = async () => {
