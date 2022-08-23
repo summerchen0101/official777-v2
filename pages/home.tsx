@@ -19,12 +19,7 @@ import { useState } from 'react'
 import { format } from 'date-fns'
 
 export const homeSlides: HomeSlide[] = [
-  {
-    img: '/banner/端午活動官網Banner_1920x660.jpg',
-    bossImg: '/banner/banner_03_boss.jpg',
-    link: '/event/dragon2022',
-    newWin: true,
-  },
+  { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
   { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
 ]
 
