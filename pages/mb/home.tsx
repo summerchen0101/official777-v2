@@ -20,6 +20,7 @@ import { format } from 'date-fns'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
+import YouTube from 'react-youtube'
 import { homeSlides } from '../home'
 
 const MobileHome: NextPage = () => {
@@ -64,33 +65,9 @@ const MobileHome: NextPage = () => {
         <HomeSlider isHomePage slides={homeSlides} />
       </section>
       <section className="mb-8">
-        <div className="text-yellow-500 font-medium text-2xl mb-4 text-center">
-          台北電玩展2022
+        <div className="flex justify-center mt-2">
+          <YouTube videoId="_s3G20BzHLc" opts={{ width: 400, height: 250 }} />
         </div>
-        <video
-          className="w-full"
-          controls
-          preload="auto"
-          data-setup="{}"
-          autoPlay
-        >
-          <source
-            src={toCdnUrl('/video/電玩展紀錄片.mp4')}
-            type="video/mp4"
-          ></source>
-
-          <p className="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading
-            to a web browser that
-            <a
-              href="https://videojs.com/html5-video-support/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              supports HTML5 video
-            </a>
-          </p>
-        </video>
       </section>
       {user && (
         <div className="grid grid-cols-2 gap-2 m-4">
