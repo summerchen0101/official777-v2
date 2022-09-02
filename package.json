@@ -37,6 +37,7 @@
     "react-icons": "^4.2.0",
     "react-paginate": "^8.1.0",
     "react-slick": "^0.28.1",
+    "react-youtube": "^9.0.3",
     "sass": "^1.49.7",
     "slick-carousel": "^1.8.1",
     "store2": "^2.12.0",
