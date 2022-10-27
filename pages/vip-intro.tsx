@@ -37,34 +37,34 @@ const vipIntro = [
   },
   {
     項目: '房間保留時間/分',
-    [VipLevel.LV1]: '30',
-    [VipLevel.LV2]: '180',
-    [VipLevel.LV3]: '360',
-    [VipLevel.LV4]: '720',
-    [VipLevel.LV5]: '1,440',
-    [VipLevel.LV6]: '2,880',
+    [VipLevel.LV1]: '60',
+    [VipLevel.LV2]: '360',
+    [VipLevel.LV3]: '1440',
+    [VipLevel.LV4]: '4320',
+    [VipLevel.LV5]: '10080',
+    [VipLevel.LV6]: '20160',
   },
   {
     項目: '頭相框',
-    [VipLevel.LV1]: '黑色',
-    [VipLevel.LV2]: '銅色',
-    [VipLevel.LV3]: '銀色',
+    [VipLevel.LV1]: '綠色',
+    [VipLevel.LV2]: '藍色',
+    [VipLevel.LV3]: '紫色',
     [VipLevel.LV4]: '金色',
     [VipLevel.LV5]: '紅色',
     [VipLevel.LV6]: '彩色',
   },
   {
     項目: 'SLOT注額上限',
-    [VipLevel.LV1]: '100',
-    [VipLevel.LV2]: '10,000',
-    [VipLevel.LV3]: '20,000',
-    [VipLevel.LV4]: '30,000',
-    [VipLevel.LV5]: '50,000',
-    [VipLevel.LV6]: '100,000',
+    [VipLevel.LV1]: '20',
+    [VipLevel.LV2]: '500',
+    [VipLevel.LV3]: '5000',
+    [VipLevel.LV4]: '20000',
+    [VipLevel.LV5]: '100000',
+    [VipLevel.LV6]: '200000',
   },
   {
     項目: '發紅包',
-    [VipLevel.LV1]: '-',
+    [VipLevel.LV1]: '有',
     [VipLevel.LV2]: '有',
     [VipLevel.LV3]: '有',
     [VipLevel.LV4]: '有',
@@ -73,9 +73,9 @@ const vipIntro = [
   },
   {
     項目: '紅包服務費',
-    [VipLevel.LV1]: '-',
-    [VipLevel.LV2]: '1%',
-    [VipLevel.LV3]: '0.50%',
+    [VipLevel.LV1]: '免費',
+    [VipLevel.LV2]: '免費',
+    [VipLevel.LV3]: '免費',
     [VipLevel.LV4]: '免費',
     [VipLevel.LV5]: '免費',
     [VipLevel.LV6]: '免費',
@@ -100,7 +100,7 @@ const vipIntro = [
   },
   {
     項目: '保險箱',
-    [VipLevel.LV1]: '-',
+    [VipLevel.LV1]: '有',
     [VipLevel.LV2]: '有',
     [VipLevel.LV3]: '有',
     [VipLevel.LV4]: '有',
@@ -131,8 +131,8 @@ const vipIntro = [
     [VipLevel.LV2]: '-',
     [VipLevel.LV3]: '-',
     [VipLevel.LV4]: '-',
-    [VipLevel.LV5]: '有',
-    [VipLevel.LV6]: '有',
+    [VipLevel.LV5]: '-',
+    [VipLevel.LV6]: '-',
   },
   {
     項目: '專屬經理',
@@ -141,7 +141,7 @@ const vipIntro = [
     [VipLevel.LV3]: '-',
     [VipLevel.LV4]: '-',
     [VipLevel.LV5]: '-',
-    [VipLevel.LV6]: '有',
+    [VipLevel.LV6]: '-',
   },
   {
     項目: '會員卡期限',
@@ -200,7 +200,7 @@ function VipIntro() {
             <img src={toCdnUrl(`/vip/${vipLevelMap[activeVip]}.png`)} alt="" />
           </div>
           <div className="flex text-white rounded-md overflow-hidden">
-            <div className="bg-black w-40">
+            <div className="bg-gray-900 w-40">
               <div className="p-2 text-gray-400 h-32 hidden lg:block"></div>
               {vipIntro.map((t, i) => (
                 <div key={i} className="p-2 text-gray-400">
@@ -216,7 +216,7 @@ function VipIntro() {
                 })}
               >
                 <div className="bg-black text-gray-200 text-center p-2 h-32 hidden lg:block">
-                  <div className="">{label}</div>
+                  <div>{label}</div>
                   <img
                     src={toCdnUrl(`/vip/${label}.png`)}
                     alt=""
@@ -224,7 +224,7 @@ function VipIntro() {
                   />
                 </div>
                 {vipIntro.map((t, i) => (
-                  <div key={i} className="bg-purple-900 p-2">
+                  <div key={i} className="bg-gray-800 p-2">
                     {t[+code as unknown as VipLevel]}
                   </div>
                 ))}
