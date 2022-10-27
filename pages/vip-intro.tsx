@@ -201,9 +201,12 @@ function VipIntro() {
           </div>
           <div className="flex text-white rounded-md overflow-hidden">
             <div className="bg-gray-900 w-40">
-              <div className="p-2 text-gray-400 h-32 hidden lg:block"></div>
+              <div className="p-2 text-gray-400 h-32 hidden lg:block "></div>
               {vipIntro.map((t, i) => (
-                <div key={i} className="p-2 text-gray-400">
+                <div
+                  key={i}
+                  className="p-2 text-gray-400 border-b border-gray-700"
+                >
                   {t.項目}
                 </div>
               ))}
@@ -215,7 +218,7 @@ function VipIntro() {
                   hidden: activeVip !== +code,
                 })}
               >
-                <div className="bg-black text-gray-200 text-center p-2 h-32 hidden lg:block">
+                <div className="bg-black text-gray-200 text-center p-2 h-32 hidden lg:block ">
                   <div>{label}</div>
                   <img
                     src={toCdnUrl(`/vip/${label}.png`)}
@@ -224,7 +227,10 @@ function VipIntro() {
                   />
                 </div>
                 {vipIntro.map((t, i) => (
-                  <div key={i} className="bg-gray-800 p-2">
+                  <div
+                    key={i}
+                    className="bg-gray-800 p-2 border-b border-gray-700"
+                  >
                     {t[+code as unknown as VipLevel]}
                   </div>
                 ))}
