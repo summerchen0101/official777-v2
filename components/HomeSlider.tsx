@@ -1,9 +1,7 @@
-import React from 'react'
-import Slider, { Settings } from 'react-slick'
-import cs from 'classnames'
 import useCdnUrl from '@/hooks/useCdnUrl'
 import { useStore } from '@/store/useStore'
 import Link from 'next/link'
+import Slider, { Settings } from 'react-slick'
 
 export interface HomeSlide {
   img: string
@@ -35,35 +33,20 @@ function HomeSlider({ slides, dots, isHomePage }: Props) {
 
   return (
     <Slider {...settings}>
-      {slides.map((t, i) => {
-        if (t.link) {
-          return (
-            <Link href={t.link} passHref key={i}>
-              <a
-                target={t.newWin ? '_blank' : '_self'}
-                className="block w-full pb-[50%] xl:pb-[580px] bg-center bg-no-repeat bg-160% xl:bg-auto"
-                draggable={false}
-                style={{
-                  backgroundImage: `url(${toCdnUrl(
-                    canRecharge ? t.img : t.bossImg || t.img,
-                  )})`,
-                }}
-              ></a>
-            </Link>
-          )
-        }
-        return (
-          <div
-            key={i}
-            className="block bg-top bg-no-repeat bg-160% xl:bg-auto"
+      {slides.map((t, i) => (
+        <Link href={t.link || '#'} passHref key={i}>
+          <a
+            target={t.newWin ? '_blank' : '_self'}
+            className="block w-full pb-[50%] xl:pb-[580px] bg-center bg-no-repeat bg-160% xl:bg-cover"
+            draggable={false}
             style={{
               backgroundImage: `url(${toCdnUrl(
                 canRecharge ? t.img : t.bossImg || t.img,
               )})`,
             }}
-          ></div>
-        )
-      })}
+          ></a>
+        </Link>
+      ))}
     </Slider>
   )
 }
