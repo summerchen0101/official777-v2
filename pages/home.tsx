@@ -20,7 +20,11 @@ import { format } from 'date-fns'
 import YouTube from 'react-youtube'
 
 export const homeSlides: HomeSlide[] = [
-  { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
+  {
+    img: '/banner/mahjong_banner.png',
+    link: 'https://activity.online539.com/event/prod/220803/index.html',
+    newWin: true,
+  },
   { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
 ]
 
@@ -51,7 +55,10 @@ const Home: NextPage = () => {
   }
   return (
     <Layout>
-      <PageBanner />
+      <section className="mb-16 mt-16 sm:mt-20">
+        <HomeSlider slides={homeSlides} dots />
+        <div className="bg-gradient-to-b from-black/70 via-purple-700 to-black/70 h-10 flex justify-center items-center -mt-2"></div>
+      </section>
       <section className="lg:w-[860px] mx-auto mb-16">
         <div className="flex justify-center mt-2">
           <YouTube videoId="_s3G20BzHLc" />

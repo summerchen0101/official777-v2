@@ -147,10 +147,10 @@ const vipIntro = [
     項目: '會員卡期限',
     [VipLevel.LV1]: '永久',
     [VipLevel.LV2]: '永久',
-    [VipLevel.LV3]: '60天',
-    [VipLevel.LV4]: '60天',
-    [VipLevel.LV5]: '60天',
-    [VipLevel.LV6]: '60天',
+    [VipLevel.LV3]: '永久',
+    [VipLevel.LV4]: '永久',
+    [VipLevel.LV5]: '永久',
+    [VipLevel.LV6]: '永久',
   },
 ]
 
