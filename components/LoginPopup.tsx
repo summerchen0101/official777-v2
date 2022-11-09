@@ -134,13 +134,13 @@ export default function LoginPopup() {
                   />
                 </div>
               </div>
-              <div
+              {/* <div
                 className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
                 onClick={() => handleOAuthLogin(OAuthChannel.Facebook)}
               >
                 <img src={toCdnUrl('/icon_loginFacebook.png')} alt="" />
                 <div className="flex-1 text-center">facebook登入</div>
-              </div>
+              </div> */}
               <div
                 className="border border-gray-500 rounded px-2 h-10 flex items-center cursor-pointer bg-purple-100 hover:bg-purple-200"
                 onClick={() => handleOAuthLogin(OAuthChannel.Line)}
