@@ -20,11 +20,7 @@ import { format } from 'date-fns'
 import YouTube from 'react-youtube'
 
 export const homeSlides: HomeSlide[] = [
-  {
-    img: '/banner/mahjong_banner.png',
-    link: 'https://activity.online539.com/event/prod/220803/index.html',
-    newWin: true,
-  },
+  { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
   { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
 ]
 
