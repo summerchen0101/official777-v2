@@ -120,7 +120,7 @@ export default function RechargeGiftCardPopup() {
             取消
           </button>
           <button className="btn active w-40" onClick={onSubmit}>
-            立即購買
+            立即兌換
           </button>
         </div>
       </div>
