@@ -6,6 +6,7 @@ import useCdnUrl from '@/hooks/useCdnUrl'
 import React, { useState } from 'react'
 import cs from 'classnames'
 import PicIntro from '@/components/PicIntro'
+import { toCurrency } from '@/utils'
 
 const vipIntro = [
   {
@@ -38,11 +39,11 @@ const vipIntro = [
   {
     項目: '房間保留時間/分',
     [VipLevel.LV1]: '60',
-    [VipLevel.LV2]: '360',
-    [VipLevel.LV3]: '1440',
-    [VipLevel.LV4]: '4320',
-    [VipLevel.LV5]: '10080',
-    [VipLevel.LV6]: '20160',
+    [VipLevel.LV2]: '120',
+    [VipLevel.LV3]: '180',
+    [VipLevel.LV4]: '360',
+    [VipLevel.LV5]: '720',
+    [VipLevel.LV6]: toCurrency(1440),
   },
   {
     項目: '頭相框',
@@ -57,10 +58,10 @@ const vipIntro = [
     項目: 'SLOT注額上限',
     [VipLevel.LV1]: '20',
     [VipLevel.LV2]: '500',
-    [VipLevel.LV3]: '5000',
-    [VipLevel.LV4]: '20000',
-    [VipLevel.LV5]: '100000',
-    [VipLevel.LV6]: '200000',
+    [VipLevel.LV3]: toCurrency(5000),
+    [VipLevel.LV4]: toCurrency(200000),
+    [VipLevel.LV5]: toCurrency(200000),
+    [VipLevel.LV6]: toCurrency(200000),
   },
   {
     項目: '發紅包',
