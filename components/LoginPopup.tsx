@@ -2,31 +2,38 @@ import useCdnUrl from '@/hooks/useCdnUrl'
 import useStorage from '@/hooks/useStorage'
 import { OAuthChannel, YesNo } from '@/lib/enums'
 import useAppleState from '@/services/useAppleState'
-import useLogin from '@/services/useLogin'
 import useOAuthLogin from '@/services/useOAuthLogin'
+import useSendSms from '@/services/useSendSms'
+import useSmsLogin from '@/services/useSmsLogin'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import cs from 'classnames'
+import { trimStart } from 'lodash'
 import { useRouter } from 'next/dist/client/router'
-import Link from 'next/link'
 import qs from 'query-string'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import AppleLogin from 'react-apple-login'
 import { useForm } from 'react-hook-form'
-import { CgSpinnerTwo } from 'react-icons/cg'
+import { useInterval } from 'usehooks-ts'
 import LoadingCover from './LoadingCover'
 
 type Inputs = {
   phoneCode: string
   phone: string
-  pw: string
+  code: string
 }
 
 export default function LoginPopup() {
   const toCdnUrl = useCdnUrl()
+  const [count, setCount] = useState(0)
+  const { handler: sendSms, isLoading: isSmsLoading } = useSendSms()
+  useInterval(() => {
+    if (count > 0) {
+      setCount((c) => c - 1)
+    }
+  }, 1000)
   const [appleState, setAppleState] = useState('')
-  const { handler: login, isLoading } = useLogin()
   const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
   const {
     register,
@@ -34,6 +41,8 @@ export default function LoginPopup() {
     formState: { errors },
     reset,
     setValue,
+    getValues,
+    trigger,
   } = useForm<Inputs>()
   const router = useRouter()
   const [isRemember, setIsRemember] = useStorage('isRemember', false)
@@ -77,10 +86,24 @@ export default function LoginPopup() {
       router.push(res?.data)
     }
   }
+
+  const onSendSms = async () => {
+    const result = await trigger('phone', { shouldFocus: true })
+    if (!result) return
+    const res = await sendSms({
+      countryCode: '886',
+      cellphone: trimStart(getValues('phone'), '0'),
+    })
+    alert('簡訊已發送')
+    setCount(60)
+  }
+
+  const { handler: login, isLoading } = useSmsLogin()
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
-      cellphone: `${d.phoneCode}-${d.phone.replace(/^0+/, '')}`,
-      password: d.pw,
+      countryCode: d.phoneCode,
+      cellphone: d.phone.replace(/^0+/, ''),
+      digitCode: d.code,
       type: 1,
     })
     if (res && !res.code) {
@@ -90,7 +113,7 @@ export default function LoginPopup() {
         refreshToken: res.refreshToken,
         expiresIn: res.expiresIn,
       })
-      reset({ phone: '', pw: '' })
+      reset({ phone: '' })
       onToggle()
       alert('登入成功')
       if (router.query.to) {
@@ -180,17 +203,33 @@ export default function LoginPopup() {
                 )}
               </div>
               <div className="flex flex-col">
-                <label htmlFor="">會員密碼</label>
-                <input
-                  type="password"
-                  className="rounded py-1.5"
-                  {...register('pw', {
-                    required: { value: true, message: '不可為空' },
-                  })}
-                />
-                {errors.pw && (
+                <label htmlFor="">簡訊驗證碼</label>
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="text"
+                    className="rounded py-1.5 flex-1"
+                    {...register('code', {
+                      required: { value: true, message: '不可為空' },
+                    })}
+                    placeholder="請輸入驗證碼"
+                  />
+                  <div>
+                    <button
+                      type="button"
+                      className="btn btn-sm"
+                      onClick={onSendSms}
+                      disabled={count > 0}
+                    >
+                      發送驗證碼
+                      <span className="ml-1" hidden={!count}>
+                        {count}s
+                      </span>
+                    </button>
+                  </div>
+                </div>
+                {errors.code && (
                   <div className="text-sm text-red-500">
-                    {errors.pw.message}
+                    {errors.code.message}
                   </div>
                 )}
               </div>
