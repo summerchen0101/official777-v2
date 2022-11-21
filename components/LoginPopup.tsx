@@ -60,7 +60,10 @@ export default function LoginPopup() {
 
   useEffect(() => {
     if (isShow) {
-      setValue('phone', cacheAcc)
+      reset({
+        phone: cacheAcc,
+        code: '',
+      })
     }
   }, [cacheAcc, setValue, isShow])
 
@@ -207,7 +210,7 @@ export default function LoginPopup() {
                 <div className="flex items-center space-x-2">
                   <input
                     type="text"
-                    className="rounded py-1.5 flex-1"
+                    className="rounded py-1.5 flex-1 w-32"
                     {...register('code', {
                       required: { value: true, message: '不可為空' },
                     })}
@@ -216,7 +219,7 @@ export default function LoginPopup() {
                   <div>
                     <button
                       type="button"
-                      className="btn btn-sm"
+                      className="btn btn-sm w-max"
                       onClick={onSendSms}
                       disabled={count > 0}
                     >
