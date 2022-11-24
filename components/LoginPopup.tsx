@@ -97,8 +97,12 @@ export default function LoginPopup() {
       countryCode: '886',
       cellphone: trimStart(getValues('phone'), '0'),
     })
-    alert('簡訊已發送')
-    setCount(60)
+    if (res?.ok) {
+      alert('簡訊已發送')
+      setCount(60)
+    } else {
+      alert('發送失敗')
+    }
   }
 
   const { handler: login, isLoading } = useSmsLogin()
@@ -109,7 +113,7 @@ export default function LoginPopup() {
       digitCode: d.code,
       type: 1,
     })
-    if (res && !res.code) {
+    if (res?.ok) {
       setCacheAcc(isRemember ? d.phone : '')
       setTokenInfo({
         accessToken: res.accessToken,
@@ -122,6 +126,8 @@ export default function LoginPopup() {
       if (router.query.to) {
         router.push(router.query.to as string)
       }
+    } else {
+      alert('登入失敗')
     }
   })
   return (
