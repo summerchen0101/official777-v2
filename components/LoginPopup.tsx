@@ -151,7 +151,7 @@ export default function LoginPopup() {
       onMouseDown={onToggle}
     >
       <div
-        className="w-full h-full lg:h-auto lg:w-[400px] bg-white lg:rounded-xl overflow-hidden border border-purple-800/90"
+        className="w-full h-full lg:h-auto lg:w-[360px] bg-white lg:rounded-xl overflow-hidden border border-purple-800/90"
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="text-white text-2xl bg-purple-800 text-center py-2">
@@ -198,7 +198,7 @@ export default function LoginPopup() {
                 <label htmlFor="">手機號碼</label>
                 <div className="flex gap-2">
                   <select
-                    className="rounded py-1.5"
+                    className="rounded py-1.5 w-1/2"
                     defaultValue="886"
                     {...register('phoneCode', {
                       required: { value: true, message: '不可為空' },
@@ -212,7 +212,7 @@ export default function LoginPopup() {
                   </select>
                   <input
                     type="text"
-                    className="rounded py-1.5 flex-1"
+                    className="rounded py-1.5 w-1/2"
                     {...register('phone', {
                       required: { value: true, message: '不可為空' },
                       // pattern: {
