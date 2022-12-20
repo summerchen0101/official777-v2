@@ -8,6 +8,7 @@ import useSmsLogin from '@/services/useSmsLogin'
 import usePopupStore from '@/store/usePopupStore'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
+import { StringMap } from '@/types'
 import cs from 'classnames'
 import { trimStart } from 'lodash'
 import { useRouter } from 'next/dist/client/router'
@@ -22,6 +23,17 @@ type Inputs = {
   phoneCode: string
   phone: string
   code: string
+}
+{
+  /* 1 (美國)
+                    60 (馬來西亞)
+                    852 (香港) */
+}
+const phoneCodeMap: StringMap = {
+  1: '1(美國)',
+  60: '60(馬來西亞)',
+  852: '852(香港)',
+  886: '886(台灣)',
 }
 
 export default function LoginPopup() {
@@ -91,10 +103,10 @@ export default function LoginPopup() {
   }
 
   const onSendSms = async () => {
-    const result = await trigger('phone', { shouldFocus: true })
+    const result = await trigger(['phone', 'phoneCode'], { shouldFocus: true })
     if (!result) return
     const res = await sendSms({
-      countryCode: '886',
+      countryCode: getValues('phoneCode'),
       cellphone: trimStart(getValues('phone'), '0'),
     })
     if (res?.ok) {
@@ -187,11 +199,16 @@ export default function LoginPopup() {
                 <div className="flex gap-2">
                   <select
                     className="rounded py-1.5"
+                    defaultValue="886"
                     {...register('phoneCode', {
                       required: { value: true, message: '不可為空' },
                     })}
                   >
-                    <option>886</option>
+                    {Object.entries(phoneCodeMap).map(([key, label]) => (
+                      <option key={key} value={key}>
+                        {label}
+                      </option>
+                    ))}
                   </select>
                   <input
                     type="text"
