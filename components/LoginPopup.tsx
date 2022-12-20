@@ -151,7 +151,7 @@ export default function LoginPopup() {
       onMouseDown={onToggle}
     >
       <div
-        className="w-full h-full lg:h-auto lg:w-[360px] bg-white lg:rounded-xl overflow-hidden border border-purple-800/90"
+        className="w-full h-full lg:h-auto lg:w-[400px] bg-white lg:rounded-xl overflow-hidden border border-purple-800/90"
         onMouseDown={(e) => e.stopPropagation()}
       >
         <div className="text-white text-2xl bg-purple-800 text-center py-2">
