@@ -20,6 +20,16 @@ import { format } from 'date-fns'
 import YouTube from 'react-youtube'
 
 export const homeSlides: HomeSlide[] = [
+  {
+    img: '/banner/christmas_1920x660.jpg',
+    link: '/app-redirect',
+    newWin: true,
+  },
+  {
+    img: '/banner/littlemary_1920x660.jpg',
+    link: '/app-redirect',
+    newWin: true,
+  },
   { img: '/banner/九尾狐_1920x660.jpg', link: '/app-redirect', newWin: true },
   { img: '/banner/banner_02.jpg', link: '/app-redirect', newWin: true },
 ]
