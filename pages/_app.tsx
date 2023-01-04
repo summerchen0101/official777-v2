@@ -5,10 +5,6 @@ import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
 import { useEffect } from 'react'
-import 'slick-carousel/slick/slick-theme.css'
-import 'slick-carousel/slick/slick.css'
-import 'tailwindcss/tailwind.css'
-import '../styles/globals.scss'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
