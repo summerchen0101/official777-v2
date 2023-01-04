@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 function HeaderNav() {
   return (
@@ -32,13 +33,15 @@ function HeaderNav() {
           data-out="fadeOutUp"
         >
           <li className="nav-li-icon">
-            <a href="#">
-              <img
-                src="images/menu_home.png"
-                alt=""
-                className="img-responsive center-block"
-              />
-            </a>
+            <Link href="/home" passHref>
+              <a>
+                <img
+                  src="images/menu_home.png"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </Link>
           </li>
           <li className="nav-li-text dropdown">
             <a href="#" className="dropdown-toggle" data-toggle="dropdown">
@@ -46,7 +49,9 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="content/news/news.html">公告</a>
+                <Link href="/news" passHref>
+                  <a>公告</a>
+                </Link>
               </li>
               <li>
                 <a href="content/news/punishment.html">懲罰名單</a>

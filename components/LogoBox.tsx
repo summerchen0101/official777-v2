@@ -1,4 +1,4 @@
-import React from 'react'
+import Link from 'next/link'
 
 function LogoBox() {
   return (
@@ -7,13 +7,15 @@ function LogoBox() {
       data-wow-duration="2s"
       data-wow-delay="0.5s"
     >
-      <a href="index.html">
-        <img
-          src="images/logo.png"
-          alt=""
-          className="img-responsive center-block"
-        />
-      </a>
+      <Link href="/home" passHref>
+        <a>
+          <img
+            src="images/logo.png"
+            alt=""
+            className="img-responsive center-block"
+          />
+        </a>
+      </Link>
     </div>
   )
 }
