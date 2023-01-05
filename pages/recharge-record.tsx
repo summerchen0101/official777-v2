@@ -5,17 +5,24 @@ import LoginPopup from '@/components/LoginPopup'
 import LogoBox from '@/components/LogoBox'
 import Pagination from '@/components/Pagination'
 import RechargeFloat from '@/components/RechargeFloat'
-import usePunishmentList from '@/services/usePunishmentList'
+import { PaymentStatus } from '@/lib/enums'
+import {
+  gatewayPaymentMap,
+  paymentGatewayMap,
+  paymentStatusMap,
+} from '@/lib/map'
 import useRechargeRecList from '@/services/useRechargeRecList'
-import { toDateTime } from '@/utils'
+import { toCurrency, toDateTime } from '@/utils'
+import cs from 'classnames'
 import { useState } from 'react'
 
 function PunishmentPage() {
   const [page, setPage] = useState(1)
+  const [gateway, setGateway] = useState(0)
 
   const { list, paginator } = useRechargeRecList({
     paymentStatus: 0,
-    paymentGateway: 0,
+    paymentGateway: gateway,
     page,
     createdAtMsStart: 0,
     createdAtMsEnd: 0,
@@ -65,7 +72,7 @@ function PunishmentPage() {
               <div className="ranking-box-goldline">
                 <div className="ranking-box-black">
                   <div className="content-box">
-                    {/* <form role="form" className="row">
+                    <form role="form" className="row">
                       <div className="form-group col-lg-6">
                         <h3>
                           儲值總額(NT):999,999,999,999<span></span>
@@ -73,12 +80,19 @@ function PunishmentPage() {
                       </div>
                       <div className="form-group col-lg-3">
                         <label htmlFor="name">平台</label>
-                        <select className="form-control">
-                          <option>全部</option>
-                          <option>Google</option>
-                          <option>Apple</option>
-                          <option>智冠Mycard</option>
-                          <option>綠界</option>
+                        <select
+                          className="form-control"
+                          defaultValue={gateway}
+                          onChange={(e) => setGateway(+e.target.value)}
+                        >
+                          <option value={0}>全部</option>
+                          {Object.entries(paymentGatewayMap).map(
+                            ([key, label]) => (
+                              <option key={key} value={key}>
+                                {label}
+                              </option>
+                            ),
+                          )}
                         </select>
                       </div>
                       <div className="form-group col-lg-3">
@@ -92,12 +106,13 @@ function PunishmentPage() {
                           <option>補單</option>
                         </select>
                       </div>
-                    </form> */}
+                    </form>
                     <div className="table-responsive">
                       <table className="table table-dark table-striped table-hover">
                         <thead>
                           <tr>
                             <th>平台</th>
+                            <th>交易方式</th>
                             <th>儲值時間</th>
                             <th>狀態</th>
                             <th>金額</th>
@@ -106,10 +121,29 @@ function PunishmentPage() {
                         <tbody>
                           {list?.map((t) => (
                             <tr key={t.ID}>
-                              <td>-</td>
-                              <td>2022-10-06 14:35:59</td>
-                              <td>已取消</td>
-                              <td>$1,000</td>
+                              {/* <td>{paymentGatewayMap[t.PaymentGateway]}</td> */}
+                              <td title="平台">
+                                {paymentGatewayMap[t.PaymentGateway] || '-'}
+                              </td>
+                              <td>
+                                {gatewayPaymentMap[t.PaymentGateway]?.[
+                                  t.PaymentType
+                                ] || '-'}
+                              </td>
+                              <td>{toDateTime(t.CreatedAtMs)}</td>
+                              <td
+                                className={cs({
+                                  'text-red-500':
+                                    t.PaymentStatus === PaymentStatus.Fail,
+                                  'text-green-500':
+                                    t.PaymentStatus === PaymentStatus.Success,
+                                })}
+                              >
+                                {paymentStatusMap[t.PaymentStatus]}
+                              </td>
+                              <td className="text-lg text-purple-700">
+                                ${toCurrency(t.PriceAmountMicros)}
+                              </td>
                             </tr>
                           ))}
                         </tbody>
