@@ -20,13 +20,11 @@ function LoginPopup() {
           <form className="form-horizontal" role="form">
             <div className="input-group pop-btn-lg2">
               <div className="input-group-btn2">
-                <select className="form-control2">
+                <select className="form-control2" defaultValue={886}>
                   <option value={1}>1(美國)</option>
                   <option value={60}>60(馬來西亞)</option>
                   <option value={852}>852(香港)</option>
-                  <option value={886} selected>
-                    886(台灣)
-                  </option>
+                  <option value={886}>886(台灣)</option>
                 </select>
               </div>
               {/* /btn-group */}

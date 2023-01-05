@@ -54,12 +54,12 @@ function NewsPage() {
         <LogoBox />
         <div className="content-box">
           <img
-            src="../../images/news/header_news.jpg"
+            src="/images/news/header_news.jpg"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
           <img
-            src="../../images/news/header_phone_news.jpg"
+            src="/images/news/header_phone_news.jpg"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
@@ -72,7 +72,7 @@ function NewsPage() {
       <div className="content">
         <div className="content-title-box">
           <img
-            src="../../images/news/title_news.png"
+            src="/images/news/title_news.png"
             alt=""
             className="img-responsive center-block"
           />
