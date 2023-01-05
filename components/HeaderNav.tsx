@@ -1,7 +1,12 @@
 import React from 'react'
 import Link from 'next/link'
+import { showLoginPopup } from '@/utils'
+import { useUserStore } from '@/store/useUserStore'
+import { useRouter } from 'next/dist/client/router'
 
 function HeaderNav() {
+  const user = useUserStore((s) => s.user)
+  const router = useRouter()
   return (
     <nav
       className="navbar navbar-default navbar-mobile bootsnav navbar-fixed-top wow fadeInDown"
@@ -140,10 +145,24 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="content/member/member_recharge.html">儲值紀錄</a>
+                <a
+                  href="#"
+                  onClick={() =>
+                    user ? router.push('/recharge-record') : showLoginPopup()
+                  }
+                >
+                  儲值紀錄
+                </a>
               </li>
               <li>
-                <a href="content/member/member_user.html">修改密碼</a>
+                <a
+                  href="#"
+                  onClick={() =>
+                    user ? router.push('/recharge-record') : showLoginPopup()
+                  }
+                >
+                  修改密碼
+                </a>
               </li>
             </ul>
           </li>

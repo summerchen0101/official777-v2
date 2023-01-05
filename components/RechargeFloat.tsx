@@ -1,4 +1,4 @@
-import React from 'react'
+import { showLoginPopup } from '@/utils'
 
 function RechargeFloat() {
   return (
@@ -8,7 +8,7 @@ function RechargeFloat() {
       data-wow-duration="1s"
     >
       <div className="store-box">
-        <a className="show-layer" data-show-layer="hw-layer02">
+        <a className="show-layer" onClick={() => showLoginPopup()}>
           <img
             src="images/window_store.png"
             alt=""

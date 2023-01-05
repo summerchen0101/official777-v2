@@ -1,14 +1,22 @@
 import React from 'react'
 
 function LoginPopup() {
+  const closeDetail = () => {
+    $('#hw-layer02').fadeOut()
+  }
   return (
-    <div className="hw-overlay2" id="hw-layer02">
-      <div className="hw-layer-wrap2">
+    <div className="hw-overlay2" id="hw-layer02" onClick={() => closeDetail()}>
+      <div className="hw-layer-wrap">
         <span className="glyphicon glyphicon-remove hwLayer-close2" />
         <div className="hw-layer-wrap2-header">
           <h1 className="text-center">登入</h1>
         </div>
-        <div className="hw-content2">
+        <div
+          className="hw-content2"
+          onClick={(e) => {
+            e.stopPropagation()
+          }}
+        >
           <button type="button" className="btn btn-default pop-btn-lg">
             <img src="images/icon_loginApple.png" alt="" />
             Apple ID登入

@@ -78,3 +78,13 @@ export function localOpen(appUrl: string) {
     window.location.replace(appDownloadUrl)
   }, 2000)
 }
+
+export function showLoginPopup() {
+  const layer = $('#hw-layer02')
+  const layerwrap = layer.find('.hw-layer-wrap')
+  layer.fadeIn()
+  //屏幕居中
+  layerwrap.css({
+    'margin-top': -layerwrap.outerHeight() / 2,
+  })
+}
