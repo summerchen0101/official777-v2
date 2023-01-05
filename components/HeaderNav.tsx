@@ -54,7 +54,9 @@ function HeaderNav() {
                 </Link>
               </li>
               <li>
-                <a href="content/news/punishment.html">懲罰名單</a>
+                <Link href="/punishment" passHref>
+                  <a>懲罰名單</a>
+                </Link>
               </li>
             </ul>
           </li>

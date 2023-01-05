@@ -4,6 +4,7 @@ import useNewsList from '@/services/useNewsList'
 import { format } from 'date-fns'
 import { keyBy } from 'lodash'
 import { memo, useEffect, useMemo, useRef, useState } from 'react'
+import Pagination from '../Pagination'
 function NewsBox() {
   const popRef = useRef<HTMLDivElement>(null)
   const [type, setType] = useState<NewsType>(NewsType.ALL)
@@ -85,42 +86,11 @@ function NewsBox() {
                       ))}
                     </tbody>
                   </table>
-                  <form role="form" className="form-box">
-                    <div className="form-group">
-                      <div className="form-btn-left">
-                        <button
-                          type="button"
-                          className="btn btn-default"
-                          onClick={() => setPage((p) => (p > 1 ? p - 1 : 1))}
-                        >
-                          上一頁
-                        </button>
-                      </div>
-                      <select
-                        className="form-control form-center"
-                        onChange={(e) => setPage(+e.target.value)}
-                        value={page}
-                      >
-                        {[...Array(paginator.totalPage)].map((_, i) => (
-                          <option key={i}>{i + 1}</option>
-                        ))}
-                      </select>
-                      <div className="form-btn-right">
-                        <button
-                          type="button"
-                          className="btn btn-default"
-                          onClick={() =>
-                            setPage((p) =>
-                              p < paginator.totalPage ? p + 1 : p,
-                            )
-                          }
-                        >
-                          下一頁
-                        </button>
-                      </div>
-                    </div>
-                    <hr className="float-none" />
-                  </form>
+                  <Pagination
+                    page={page}
+                    onPageChange={setPage}
+                    totalPage={paginator.totalPage}
+                  />
                 </div>
               </div>
             </div>

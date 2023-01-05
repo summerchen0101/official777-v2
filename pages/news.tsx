@@ -1,10 +1,9 @@
 import AppDownloadFloat from '@/components/AppDownloadFloat'
 import FooterComp from '@/components/FooterComp'
 import HeaderNav from '@/components/HeaderNav'
-import HomeBanners from '@/components/home/HomeBanners'
-import RechargeBtns from '@/components/home/RechargeBtns'
 import LoginPopup from '@/components/LoginPopup'
 import LogoBox from '@/components/LogoBox'
+import Pagination from '@/components/Pagination'
 import RechargeFloat from '@/components/RechargeFloat'
 import { NewsType } from '@/lib/enums'
 import { newsTypeMap } from '@/lib/map'
@@ -126,46 +125,11 @@ function NewsPage() {
                                 ))}
                               </tbody>
                             </table>
-                            <form role="form" className="form-box">
-                              <div className="form-group">
-                                <div className="form-btn-left">
-                                  <button
-                                    type="button"
-                                    className="btn btn-default"
-                                    onClick={() =>
-                                      setPage((p) => (p > 1 ? p - 1 : 1))
-                                    }
-                                  >
-                                    上一頁
-                                  </button>
-                                </div>
-                                <select
-                                  className="form-control form-center"
-                                  onChange={(e) => setPage(+e.target.value)}
-                                  value={page}
-                                >
-                                  {[...Array(paginator.totalPage)].map(
-                                    (_, i) => (
-                                      <option key={i}>{i + 1}</option>
-                                    ),
-                                  )}
-                                </select>
-                                <div className="form-btn-right">
-                                  <button
-                                    type="button"
-                                    className="btn btn-default"
-                                    onClick={() =>
-                                      setPage((p) =>
-                                        p < paginator.totalPage ? p + 1 : p,
-                                      )
-                                    }
-                                  >
-                                    下一頁
-                                  </button>
-                                </div>
-                              </div>
-                              <hr className="float-none" />
-                            </form>
+                            <Pagination
+                              page={page}
+                              onPageChange={setPage}
+                              totalPage={paginator.totalPage}
+                            />
                           </div>
                         </div>
                       </div>
