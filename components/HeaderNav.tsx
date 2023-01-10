@@ -179,27 +179,27 @@ function HeaderNav() {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link href="/recharge-mc-sn" passHref>
+                    <Link href="/recharge-mc?p=1" passHref>
                       <a>序號儲值</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/recharge-mc-trans" passHref>
+                    <Link href="/recharge-mc?p=2" passHref>
                       <a>線上轉點</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/recharge-mc-tel" passHref>
+                    <Link href="/recharge-mc?p=5" passHref>
                       <a>電信支付</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/recharge-mc-card" passHref>
+                    <Link href="/recharge-mc?p=3" passHref>
                       <a>信用卡支付</a>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/recharge-mc-free" passHref>
+                    <Link href="/recharge-mc?p=4" passHref>
                       <a>免費抵扣</a>
                     </Link>
                   </li>

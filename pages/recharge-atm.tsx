@@ -1,7 +1,131 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
+import {
+  ECPayInvoiceType,
+  ECPayPaymentType,
+  InvoiceType,
+  ItemType,
+  PaymentGateway,
+} from '@/lib/enums'
+import { ecpayPaymentTypeMap } from '@/lib/map'
+import useEcpayOrderCreate from '@/services/useEcpayOrderCreate'
+import useGoodsList from '@/services/useGoodsList'
+import useMe from '@/services/useMe'
+import usePopupStore from '@/store/usePopupStore'
+import { StringMap } from '@/types'
+import { useRouter } from 'next/dist/client/router'
+import React, { useEffect, useState } from 'react'
+import { useForm } from 'react-hook-form'
+
+interface Inputs {
+  productID: number
+  email: string
+  phone: string
+  // paymentType: ECPayPaymentType
+  citizenCarrrierNum: string
+  phoneCarrierNum: string
+  loveCode: string
+  agree: boolean
+}
 
 function ContactOkPage() {
+  const router = useRouter()
+  const [paymentType, setPaymentType] = useState(ECPayPaymentType.ATM)
+  const [invoiceType, setInvoiceType] = useState(InvoiceType.DONATE)
+  const [donateType, setDonateType] = useState('')
+  const [carrierType, setCarrierType] = useState(
+    ECPayInvoiceType.EC_PAY_INVOICE,
+  )
+  const isShow = usePopupStore((s) => s.transfer.isShow)
+  const onHide = usePopupStore((s) => s.transfer.onHide)
+  const { list } = useGoodsList({
+    page: 1,
+    perPage: 30,
+    itemType: ItemType.All,
+    paymentType,
+    paymentGateway: PaymentGateway.ECPay,
+  })
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    getValues,
+    reset,
+    setValue,
+    control,
+  } = useForm<Inputs>()
+
+  useEffect(() => {
+    if (list?.length) {
+      setValue('productID', list?.[0].ItemId)
+    }
+  }, [list])
+
+  const { handler: doCreate, isLoading } = useEcpayOrderCreate()
+  const { data } = useMe()
+
+  const handleUseUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.checked) {
+      setValue('email', data?.email!)
+      setValue('phone', data?.cellphone?.replace('886-', '')!)
+    } else {
+      setValue('email', '')
+      setValue('phone', '')
+    }
+  }
+
+  const onSubmit = handleSubmit(async (d) => {
+    const product = list?.find((t) => t.ItemId === d.productID)
+
+    if (
+      confirm(
+        `透過${ecpayPaymentTypeMap[paymentType]}消費 $${product?.Price}元是否確認?`,
+      )
+    ) {
+      const carrierNumMap: StringMap = {
+        [ECPayInvoiceType.PHONE_CARRIER]: d.phoneCarrierNum,
+        [ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE]: d.citizenCarrrierNum,
+      }
+      let loveCode = ''
+      if (invoiceType === InvoiceType.DONATE) {
+        loveCode = donateType === 'other' ? d.loveCode : '978'
+      }
+      const res = await doCreate({
+        productID: d.productID,
+        gatewayCode: PaymentGateway.ECPay,
+        userID: data?.id!,
+        paymentType,
+        invoice: {
+          eCPayInvoiceType:
+            invoiceType === InvoiceType.DONATE
+              ? ECPayInvoiceType.DONATE_INVOICE
+              : carrierType,
+          citizenDigitalCertificateNum: d.citizenCarrrierNum || undefined,
+          carrierNum: carrierNumMap[carrierType] || undefined,
+          loveCode,
+          notifyMail: d.email || undefined,
+          phone: d.phone || undefined,
+        },
+      })
+
+      if (res?.data.data) {
+        const win = window.open(
+          'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5',
+          'payment',
+        )
+        const doc = res.data.data.replace(
+          '<head>',
+          `<head>\n<base href="${res.data.requestURL}">`,
+        )
+        win?.document.write(doc)
+
+        win?.document.close()
+      }
+    }
+  })
+
   return (
     <PageLayout>
       <header
