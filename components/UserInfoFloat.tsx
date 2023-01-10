@@ -1,9 +1,19 @@
 import useMe from '@/services/useMe'
+import { useUserStore } from '@/store/useUserStore'
 import { toCurrency } from '@/utils'
+import { useRouter } from 'next/dist/client/router'
 import { memo } from 'react'
 
 function UserInfoFloat() {
   const { data: user } = useMe()
+  const router = useRouter()
+  const clearUser = useUserStore((s) => s.clearUser)
+
+  const handleLogout = () => {
+    clearUser()
+    alert('登出成功')
+    router.push('/home')
+  }
   return (
     <div
       className="window-box-logout hidden-xs wow fadeInLeft"
@@ -50,7 +60,7 @@ function UserInfoFloat() {
         <div className="logout-vip">
           <p>VIP: LV{user?.vipLevel}</p>
         </div>
-        <a href="#">
+        <a href="#" onClick={handleLogout}>
           <img
             src="images/window_logout.png"
             alt=""

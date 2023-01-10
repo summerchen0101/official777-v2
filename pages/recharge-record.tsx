@@ -1,11 +1,6 @@
-import AppDownloadFloat from '@/components/AppDownloadFloat'
-import FooterComp from '@/components/FooterComp'
-import HeaderNav from '@/components/HeaderNav'
-import LoginPopup from '@/components/LoginPopup'
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
 import Pagination from '@/components/Pagination'
-import RechargeFloat from '@/components/RechargeFloat'
 import { PaymentStatus } from '@/lib/enums'
 import {
   gatewayPaymentMap,
