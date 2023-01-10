@@ -140,16 +140,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </script>
 
       <script defer src="js/wow.js"></script>
-      <script>
-        {/* var wow = new WOW({
-	  boxClass: 'wow',            // 欲套用wow.js的class                      (預設wow)
-	  animateClass: 'animated',   // 欲修改設定animat.css 的類別名稱            (預設animated)
-	  offset: 100,                  // 當用戶滾動並到達這個距離時才開始執行動畫      (預設是0)
-	  mobile: false,               // 是否在行動裝置上執行動畫                   (預設是true)
-	  live: true                  // 非同步產生的內容是否要套用                 (預設是true)
-	  });
-	  wow.init(); */}
-      </script>
 
       <script defer src="js/newstabs.js"></script>
 
