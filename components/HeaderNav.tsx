@@ -265,9 +265,14 @@ function HeaderNav() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" passHref>
-                  <a>聯繫客服</a>
-                </Link>
+                <a
+                  href="#"
+                  onClick={() =>
+                    user ? router.push('/contact') : showLoginPopup()
+                  }
+                >
+                  聯繫客服
+                </a>
               </li>
               <li>
                 <Link href="/files" passHref>
