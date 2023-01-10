@@ -1,6 +1,3 @@
-import AppDownloadFloat from '@/components/AppDownloadFloat'
-import FooterComp from '@/components/FooterComp'
-import HeaderNav from '@/components/HeaderNav'
 import EventBanners from '@/components/home/EventBanners'
 import FeatureBanners from '@/components/home/FeatureBanners'
 import GameBanners from '@/components/home/GameBanners'
@@ -8,20 +5,12 @@ import HomeBanners from '@/components/home/HomeBanners'
 import NewsBox from '@/components/home/NewsBox'
 import RechargeBtns from '@/components/home/RechargeBtns'
 import VideoBanners from '@/components/home/VideoBanners'
-import LoginPopup from '@/components/LoginPopup'
 import LogoBox from '@/components/LogoBox'
-import RechargeFloat from '@/components/RechargeFloat'
-import UserInfoFloat from '@/components/UserInfoFloat'
-import useMe from '@/services/useMe'
+import PageLayout from '@/components/PageLayout'
 
 function HomePage() {
-  const { data: user, isLoading } = useMe()
   return (
-    <>
-      <HeaderNav />
-      <AppDownloadFloat />
-      {user ? <UserInfoFloat /> : <RechargeFloat />}
-
+    <PageLayout>
       <header
         className="header-box wow fadeIn"
         data-wow-duration="2s"
@@ -44,10 +33,7 @@ function HomePage() {
       <GameBanners />
       <VideoBanners />
       <FeatureBanners />
-
-      <FooterComp />
-      <LoginPopup />
-    </>
+    </PageLayout>
   )
 }
 

@@ -3,6 +3,7 @@ import FooterComp from '@/components/FooterComp'
 import HeaderNav from '@/components/HeaderNav'
 import LoginPopup from '@/components/LoginPopup'
 import LogoBox from '@/components/LogoBox'
+import PageLayout from '@/components/PageLayout'
 import Pagination from '@/components/Pagination'
 import RechargeFloat from '@/components/RechargeFloat'
 import { PaymentStatus } from '@/lib/enums'
@@ -33,10 +34,7 @@ function PunishmentPage() {
   })
 
   return (
-    <>
-      <HeaderNav />
-      <AppDownloadFloat />
-      <RechargeFloat />
+    <PageLayout>
       <header
         className="header-box wow fadeIn"
         data-wow-duration="2s"
@@ -169,10 +167,7 @@ function PunishmentPage() {
         </div>
         <hr className="float-none" />
       </div>
-
-      <FooterComp />
-      <LoginPopup />
-    </>
+    </PageLayout>
   )
 }
 

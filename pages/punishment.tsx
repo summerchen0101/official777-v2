@@ -1,10 +1,6 @@
-import AppDownloadFloat from '@/components/AppDownloadFloat'
-import FooterComp from '@/components/FooterComp'
-import HeaderNav from '@/components/HeaderNav'
-import LoginPopup from '@/components/LoginPopup'
 import LogoBox from '@/components/LogoBox'
+import PageLayout from '@/components/PageLayout'
 import Pagination from '@/components/Pagination'
-import RechargeFloat from '@/components/RechargeFloat'
 import usePunishmentList from '@/services/usePunishmentList'
 import { toDateTime } from '@/utils'
 import { useState } from 'react'
@@ -14,10 +10,7 @@ function PunishmentPage() {
   const { list, paginator } = usePunishmentList({ page, perPage: 15 })
 
   return (
-    <>
-      <HeaderNav />
-      <AppDownloadFloat />
-      <RechargeFloat />
+    <PageLayout>
       <header
         className="header-box wow fadeIn"
         data-wow-duration="2s"
@@ -95,10 +88,7 @@ function PunishmentPage() {
         </div>
         <hr className="float-none" />
       </div>
-
-      <FooterComp />
-      <LoginPopup />
-    </>
+    </PageLayout>
   )
 }
 

@@ -1,10 +1,6 @@
-import AppDownloadFloat from '@/components/AppDownloadFloat'
-import FooterComp from '@/components/FooterComp'
-import HeaderNav from '@/components/HeaderNav'
-import LoginPopup from '@/components/LoginPopup'
 import LogoBox from '@/components/LogoBox'
+import PageLayout from '@/components/PageLayout'
 import Pagination from '@/components/Pagination'
-import RechargeFloat from '@/components/RechargeFloat'
 import { NewsType } from '@/lib/enums'
 import { newsTypeMap } from '@/lib/map'
 import useNewsList from '@/services/useNewsList'
@@ -41,10 +37,7 @@ function NewsPage() {
     $('#hw-overlay').fadeOut()
   }
   return (
-    <>
-      <HeaderNav />
-      <AppDownloadFloat />
-      <RechargeFloat />
+    <PageLayout>
       <header
         className="header-box wow fadeIn"
         data-wow-duration="2s"
@@ -173,10 +166,7 @@ function NewsPage() {
           </div>
         </div>
       )}
-
-      <FooterComp />
-      <LoginPopup />
-    </>
+    </PageLayout>
   )
 }
 
