@@ -1,7 +1,42 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
+import useSWSerialExchange from '@/services/useSWSerialExchange'
+import { useForm } from 'react-hook-form'
+
+type Inputs = {
+  serialNum: string
+  password: string
+}
 
 function ContactOkPage() {
+  const { handler: doSWExchange, isLoading: isSWLoading } =
+    useSWSerialExchange()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    reset,
+  } = useForm<Inputs>()
+
+  const onReset = () => reset({ serialNum: '', password: '' })
+
+  const onSubmit = handleSubmit(async (d) => {
+    try {
+      const res = await doSWExchange({
+        serialNum: d.serialNum.trim(),
+        password: d.password.trim(),
+      })
+      if (res?.ok) {
+        alert('智冠序號兌換成功')
+        onReset()
+      } else {
+        alert('兌換失敗')
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  })
   return (
     <PageLayout>
       <header
@@ -54,7 +89,13 @@ function ContactOkPage() {
                           className="form-control"
                           placeholder="輸入時請留意，序號前不可有空白鍵"
                           id="number"
+                          {...register('serialNum', { required: '不可為空' })}
                         />
+                        {errors.serialNum && (
+                          <div className="text-danger">
+                            {errors.serialNum.message}
+                          </div>
+                        )}
                       </div>
                       <div className="form-group input-group-lg">
                         <label htmlFor="Password" className="control-label">
@@ -65,17 +106,25 @@ function ContactOkPage() {
                           className="form-control"
                           id="Password"
                           placeholder="輸入時請留意，密碼前不可有空白鍵"
+                          {...register('password', { required: '不可為空' })}
                         />
+                        {errors.password && (
+                          <div className="text-danger">
+                            {errors.password.message}
+                          </div>
+                        )}
                         <br />
                         <button
                           type="button"
                           className="btn btn-default btn-lg btn-50"
+                          onClick={onReset}
                         >
                           取消
                         </button>
                         <button
                           type="button"
                           className="btn btn-default btn-lg btn-50"
+                          onClick={onSubmit}
                         >
                           確認兌換
                         </button>
