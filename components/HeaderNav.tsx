@@ -220,7 +220,7 @@ function HeaderNav() {
                 <a
                   href="#"
                   onClick={() =>
-                    user ? router.push('/recharge-record') : showLoginPopup()
+                    user ? router.push('/change-pw') : showLoginPopup()
                   }
                 >
                   修改密碼
