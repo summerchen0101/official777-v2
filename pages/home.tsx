@@ -21,6 +21,11 @@ import YouTube from 'react-youtube'
 
 export const homeSlides: HomeSlide[] = [
   {
+    img: '/banner/魔龍傳奇-1920x660.png',
+    link: '/app-redirect',
+    newWin: true,
+  },
+  {
     img: '/banner/christmas_1920x660.jpg',
     link: '/app-redirect',
     newWin: true,
