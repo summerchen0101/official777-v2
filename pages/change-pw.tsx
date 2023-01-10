@@ -1,21 +1,73 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
-import Pagination from '@/components/Pagination'
-import { PaymentStatus } from '@/lib/enums'
-import {
-  gatewayPaymentMap,
-  paymentGatewayMap,
-  paymentStatusMap,
-} from '@/lib/map'
+import useAuth from '@/hooks/useAuth'
 import useMe from '@/services/useMe'
-import useRechargeRecList from '@/services/useRechargeRecList'
-import { toCurrency, toDateTime } from '@/utils'
-import cs from 'classnames'
-import { useState } from 'react'
+import usePwUpdate from '@/services/usePwUpdate'
+import useSms from '@/services/useSms'
+import useCdnUrl from '@/hooks/useCdnUrl'
+import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { useInterval } from 'usehooks-ts'
+
+type Inputs = {
+  pwType: 'login' | 'trade'
+  code: string
+  new_pw: string
+  new_pw_confirm: string
+}
 
 function ChangePwPage() {
   const { data: user } = useMe()
 
+  const toCdnUrl = useCdnUrl()
+  const [count, setCount] = useState(0)
+  useInterval(() => {
+    if (count > 0) {
+      setCount((c) => c - 1)
+    }
+  }, 1000)
+  useAuth()
+  const { handler: doUpdate, isLoading } = usePwUpdate()
+  const { data } = useMe()
+  const { handler: sendSms, isLoading: isSmsLoading } = useSms()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+    reset,
+  } = useForm<Inputs>()
+  const onSendSms = async () => {
+    const res = await sendSms({
+      userID: data?.id,
+    })
+    if (!res?.ok) {
+      if (res?.code === '403001') {
+        return alert('帳號無手機')
+      }
+      return alert('發送失敗')
+    }
+    if (res?.sendSuccess) {
+      alert('簡訊已發送')
+      setCount(60)
+    }
+  }
+  const onSubmit = handleSubmit(async (d) => {
+    try {
+      const res = await doUpdate({
+        answer: d.code,
+        [d.pwType === 'login' ? 'newPassword' : 'newSecondPassword']: d.new_pw,
+      })
+      if (res?.ok) {
+        alert('密碼更新成功')
+        reset()
+      } else {
+        alert('更新失敗')
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  })
   return (
     <PageLayout>
       <header
@@ -65,19 +117,19 @@ function ChangePwPage() {
                         <label className="radio-inline">
                           <input
                             type="radio"
-                            name="optionsRadiosinline"
                             id="optionsRadios1"
-                            defaultValue="option1"
-                            checked
+                            value="login"
+                            {...register('pwType', { required: '不可為空' })}
+                            defaultChecked
                           />
                           修改密碼
                         </label>
                         <label className="radio-inline">
                           <input
                             type="radio"
-                            name="optionsRadiosinline"
                             id="optionsRadios2"
-                            defaultValue="option2"
+                            value="trade"
+                            {...register('pwType', { required: '不可為空' })}
                           />{' '}
                           修改二次密碼
                         </label>
@@ -90,7 +142,19 @@ function ChangePwPage() {
                           className="form-control"
                           id="Password"
                           placeholder="請設置8-12位新密碼，支援英文及數字"
+                          {...register('new_pw', {
+                            required: { value: true, message: '不可為空' },
+                            pattern: {
+                              value: /^\w{8,12}$/,
+                              message: '須為中英文8~12位',
+                            },
+                          })}
                         />
+                        {errors.new_pw && (
+                          <div className="text-danger">
+                            {errors.new_pw.message}
+                          </div>
+                        )}
                         <label htmlFor="Password2" className="control-label">
                           請再次輸入新密碼
                         </label>
@@ -99,7 +163,19 @@ function ChangePwPage() {
                           className="form-control"
                           id="Password2"
                           placeholder="請再次輸入新密碼"
+                          {...register('new_pw_confirm', {
+                            required: { value: true, message: '不可為空' },
+                            validate: (val) => {
+                              const ok = val === watch('new_pw')
+                              return ok ? ok : '與新密碼不同'
+                            },
+                          })}
                         />
+                        {errors.new_pw_confirm && (
+                          <div className="text-danger">
+                            {errors.new_pw_confirm.message}
+                          </div>
+                        )}
                         <label htmlFor="verify" className="control-label">
                           簡訊驗證碼
                         </label>
@@ -109,25 +185,38 @@ function ChangePwPage() {
                           className="form-control input-lg form-verify"
                           id="verify"
                           placeholder="請輸簡訊驗證碼"
+                          {...register('code', {
+                            required: { value: true, message: '不可為空' },
+                          })}
                         />
                         <button
                           type="button"
                           className="btn btn-default btn-lg btn-verify"
+                          onClick={onSendSms}
+                          disabled={count > 0}
                         >
                           發送驗證碼
+                          <span hidden={!count}>({count}s)</span>
                         </button>
+                        {errors.code && (
+                          <div className="text-danger">
+                            {errors.code.message}
+                          </div>
+                        )}
                       </div>
                       <hr />
                       <br />
                       <button
                         type="button"
                         className="btn btn-default btn-lg btn-50"
+                        onClick={() => reset()}
                       >
                         取消修改
                       </button>
                       <button
                         type="button"
                         className="btn btn-default btn-lg btn-50"
+                        onClick={onSubmit}
                       >
                         確認修改
                       </button>
