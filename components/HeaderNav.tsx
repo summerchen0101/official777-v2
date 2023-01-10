@@ -256,13 +256,19 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="content/service/service_faq.html">常見問題</a>
+                <Link href="/faq" passHref>
+                  <a>常見問題</a>
+                </Link>
               </li>
               <li>
-                <a href="content/service/service_contact.html">聯繫客服</a>
+                <Link href="/contact" passHref>
+                  <a>聯繫客服</a>
+                </Link>
               </li>
               <li>
-                <a href="content/service/service_files.html">表單下載</a>
+                <Link href="/files" passHref>
+                  <a>表單下載</a>
+                </Link>
               </li>
             </ul>
           </li>
