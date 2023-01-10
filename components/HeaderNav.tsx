@@ -1,3 +1,4 @@
+import useCdnUrl from '@/hooks/useCdnUrl'
 import bootsNavBar from '@/public/js/bootsnav'
 import useMe from '@/services/useMe'
 import { showLoginPopup, toCurrency } from '@/utils'
@@ -8,6 +9,7 @@ import { useEffect } from 'react'
 function HeaderNav() {
   const { data: user } = useMe()
   const router = useRouter()
+  const toCdnUrl = useCdnUrl()
 
   useEffect(() => {
     bootsNavBar()
@@ -45,7 +47,7 @@ function HeaderNav() {
           <li className="nav-li-text hidden visible-xs">
             <div className="logut-avatar">
               <img
-                src="/images/login/401.png"
+                src={toCdnUrl(`/avatar/${user?.avatarID}.png`)}
                 alt=""
                 className="img-circle img-responsive center-block"
               />

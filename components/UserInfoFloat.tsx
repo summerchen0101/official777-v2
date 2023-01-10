@@ -1,3 +1,4 @@
+import useCdnUrl from '@/hooks/useCdnUrl'
 import useMe from '@/services/useMe'
 import { useUserStore } from '@/store/useUserStore'
 import { toCurrency } from '@/utils'
@@ -8,6 +9,7 @@ function UserInfoFloat() {
   const { data: user } = useMe()
   const router = useRouter()
   const clearUser = useUserStore((s) => s.clearUser)
+  const toCdnUrl = useCdnUrl()
 
   const handleLogout = () => {
     clearUser()
@@ -23,7 +25,7 @@ function UserInfoFloat() {
       <div className="logout-box">
         <div className="logut-avatar">
           <img
-            src="/images/login/401.png"
+            src={toCdnUrl(`/avatar/${user?.avatarID}.png`)}
             alt=""
             className="img-circle img-responsive center-block"
           />
