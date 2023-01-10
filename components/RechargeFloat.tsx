@@ -24,7 +24,7 @@ function RechargeFloat() {
       <div className="store-box">
         <a className="show-layer" onClick={() => showLoginPopup()}>
           <img
-            src="images/window_store.png"
+            src="/images/window_store.png"
             alt=""
             className="img-responsive center-block"
           />

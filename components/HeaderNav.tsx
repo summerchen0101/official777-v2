@@ -36,7 +36,7 @@ function HeaderNav() {
           <li className="nav-li-icon hidden-xs">
             <a href="#">
               <img
-                src="images/menu_home.png"
+                src="/images/menu_home.png"
                 alt=""
                 className="img-responsive center-block"
               />
@@ -45,7 +45,7 @@ function HeaderNav() {
           <li className="nav-li-text hidden visible-xs">
             <div className="logut-avatar">
               <img
-                src="images/login/401.png"
+                src="/images/login/401.png"
                 alt=""
                 className="img-circle img-responsive center-block"
               />
@@ -77,7 +77,7 @@ function HeaderNav() {
                 <div className="logout-mony">
                   <div className="logout-mony-icon">
                     <img
-                      src="images/login/icon_point.png"
+                      src="/images/login/icon_point.png"
                       alt=""
                       className="img-responsive center-block"
                     />
@@ -230,14 +230,20 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="content/ranking/ranking_rank.html">富豪榜</a>
+                <Link href="/gold-ranks" passHref>
+                  <a>富豪榜</a>
+                </Link>
               </li>
               <li>
-                <a href="content/ranking/ranking_honor.html">榮譽榜</a>
+                <Link href="/slot-ranks" passHref>
+                  <a>榮譽榜</a>
+                </Link>
               </li>
-              <li>
-                <a href="content/ranking/ranking_vs.html">競賽榜</a>
-              </li>
+              {/* <li>
+                <Link href="/ranks/gold" passHref>
+                  <a>競賽榜</a>
+                </Link>
+              </li> */}
             </ul>
           </li>
           <li className="nav-li-text dropdown">
@@ -267,7 +273,7 @@ function HeaderNav() {
               rel="noreferrer"
             >
               <img
-                src="images/menu_facebook.png"
+                src="/images/menu_facebook.png"
                 alt=""
                 className="img-responsive center-block"
               />
@@ -276,7 +282,7 @@ function HeaderNav() {
           <li className="nav-li-icon">
             <a href="https://lin.ee/bkrZ0cD" target="_blank" rel="noreferrer">
               <img
-                src="images/menu_line.png"
+                src="/images/menu_line.png"
                 alt=""
                 className="img-responsive center-block"
               />
@@ -289,7 +295,7 @@ function HeaderNav() {
               rel="noreferrer"
             >
               <img
-                src="images/menu_tiktok.png"
+                src="/images/menu_tiktok.png"
                 alt=""
                 className="img-responsive center-block"
               />
@@ -302,7 +308,7 @@ function HeaderNav() {
               rel="noreferrer"
             >
               <img
-                src="images/menu_instagram.png"
+                src="/images/menu_instagram.png"
                 alt=""
                 className="img-responsive center-block"
               />
@@ -315,7 +321,7 @@ function HeaderNav() {
               rel="noreferrer"
             >
               <img
-                src="images/menu_youtube.png"
+                src="/images/menu_youtube.png"
                 alt=""
                 className="img-responsive center-block"
               />

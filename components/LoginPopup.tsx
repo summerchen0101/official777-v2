@@ -160,7 +160,7 @@ function LoginPopup() {
             className="btn btn-default pop-btn-lg"
             onClick={handleAppleLogin}
           >
-            <img src="images/icon_loginApple.png" alt="" />
+            <img src="/images/icon_loginApple.png" alt="" />
             Apple ID登入
           </button>
           <div hidden>
@@ -178,7 +178,7 @@ function LoginPopup() {
             className="btn btn-default pop-btn-lg"
             onClick={() => handleOAuthLogin(OAuthChannel.Line)}
           >
-            <img src="images/icon_loginLine.png" alt="" />
+            <img src="/images/icon_loginLine.png" alt="" />
             Line登入
           </button>
           <form className="form-horizontal" role="form">

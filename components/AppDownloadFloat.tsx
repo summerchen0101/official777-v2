@@ -9,7 +9,7 @@ function AppDownloadFloat() {
     >
       <div className="icon-box">
         <img
-          src="images/window_icon.png"
+          src="/images/window_icon.png"
           alt=""
           className="img-responsive center-block"
         />
@@ -19,7 +19,7 @@ function AppDownloadFloat() {
           rel="noreferrer"
         >
           <img
-            src="images/window_apple.png"
+            src="/images/window_apple.png"
             alt=""
             className="img-responsive center-block"
           />
@@ -30,7 +30,7 @@ function AppDownloadFloat() {
           rel="noreferrer"
         >
           <img
-            src="images/window_google.png"
+            src="/images/window_google.png"
             alt=""
             className="img-responsive center-block"
           />
@@ -41,13 +41,13 @@ function AppDownloadFloat() {
           rel="noreferrer"
         >
           <img
-            src="images/window_apk.png"
+            src="/images/window_apk.png"
             alt=""
             className="img-responsive center-block"
           />
         </a>
         <img
-          src="images/window_qr.png"
+          src="/images/window_qr.png"
           alt=""
           className="img-responsive center-block"
         />

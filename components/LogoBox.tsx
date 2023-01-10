@@ -10,7 +10,7 @@ function LogoBox() {
       <Link href="/home" passHref>
         <a>
           <img
-            src="images/logo.png"
+            src="/images/logo.png"
             alt=""
             className="img-responsive center-block"
           />

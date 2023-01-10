@@ -17,7 +17,7 @@ function FeatureBanners() {
     <section className="frature-box" id="frature-box">
       <div className="title-box wow flipInX" data-wow-duration="1s">
         <img
-          src="images/title_frature.png"
+          src="/images/title_frature.png"
           alt=""
           className="img-responsive center-block"
         />
@@ -28,12 +28,12 @@ function FeatureBanners() {
         data-wow-duration="2s"
       >
         <img
-          src="images/frature_left.png"
+          src="/images/frature_left.png"
           alt=""
           className="img-responsive hidden-xs"
         />
         <img
-          src="images/frature_phone_left.png"
+          src="/images/frature_phone_left.png"
           alt=""
           className="img-responsive hidden visible-xs"
         />
@@ -44,12 +44,12 @@ function FeatureBanners() {
         data-wow-duration="2s"
       >
         <img
-          src="images/frature_right.png"
+          src="/images/frature_right.png"
           alt=""
           className="img-responsive pull-right hidden-xs"
         />
         <img
-          src="images/frature_phone_right.png"
+          src="/images/frature_phone_right.png"
           alt=""
           className="img-responsive hidden visible-xs"
         />
@@ -59,56 +59,56 @@ function FeatureBanners() {
           <ul className="frature-banner slider">
             <li>
               <img
-                src="images/frature_banner01_800x430.jpg"
+                src="/images/frature_banner01_800x430.jpg"
                 alt=""
                 className="img-responsive center-block"
               />
             </li>
             <li>
               <img
-                src="images/frature_banner02_800x430.jpg"
+                src="/images/frature_banner02_800x430.jpg"
                 alt=""
                 className="img-responsive center-block"
               />
             </li>
             <li>
               <img
-                src="images/frature_banner03_800x430.jpg"
+                src="/images/frature_banner03_800x430.jpg"
                 alt=""
                 className="img-responsive center-block"
               />
             </li>
             <li>
               <img
-                src="images/frature_banner04_800x430.jpg"
+                src="/images/frature_banner04_800x430.jpg"
                 alt=""
                 className="img-responsive center-block"
               />
             </li>
             <li>
               <img
-                src="images/frature_banner05_800x430.jpg"
+                src="/images/frature_banner05_800x430.jpg"
                 alt=""
                 className="img-responsive center-block"
               />
             </li>
             <li>
               <img
-                src="images/frature_banner06_800x430.jpg"
+                src="/images/frature_banner06_800x430.jpg"
                 alt=""
                 className="img-responsive center-block"
               />
             </li>
             <li>
               <img
-                src="images/frature_banner07_800x430.jpg"
+                src="/images/frature_banner07_800x430.jpg"
                 alt=""
                 className="img-responsive center-block"
               />
             </li>
             <li>
               <img
-                src="images/frature_banner08_800x430.jpg"
+                src="/images/frature_banner08_800x430.jpg"
                 alt=""
                 className="img-responsive center-block"
               />

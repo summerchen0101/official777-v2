@@ -10,12 +10,12 @@ function RechargeBtns() {
       <div className="btn-evnet">
         <a href="content/recharge/recharge.html">
           <img
-            src="images/btn_event.png"
+            src="/images/btn_event.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
           <img
-            src="images/btn_phone_event.png"
+            src="/images/btn_phone_event.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
@@ -24,12 +24,12 @@ function RechargeBtns() {
       <div className="btn-shop">
         <a href="content/recharge/mc_giftcard.html">
           <img
-            src="images/btn_shop.png"
+            src="/images/btn_shop.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
           <img
-            src="images/btn_phone_shop.png"
+            src="/images/btn_phone_shop.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
@@ -38,12 +38,12 @@ function RechargeBtns() {
       <div className="btn-mycard">
         <a href="content/recharge/giftcard.html">
           <img
-            src="images/btn_mycard.png"
+            src="/images/btn_mycard.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
           <img
-            src="images/btn_phone_mycard.png"
+            src="/images/btn_phone_mycard.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />

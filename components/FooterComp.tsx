@@ -7,11 +7,15 @@ function FooterComp() {
       <div className="copyrignt-box">
         <div className="cr-logo">
           <div className="cr-logo-left">
-            <img src="images/logo_tech.png" alt="" className="img-responsive" />
+            <img
+              src="/images/logo_tech.png"
+              alt=""
+              className="img-responsive"
+            />
           </div>
           <div className="cr-logo-right">
             <img
-              src="images/logo_three.png"
+              src="/images/logo_three.png"
               alt=""
               className="img-responsive"
             />
@@ -35,7 +39,7 @@ function FooterComp() {
           </p>
         </div>
         <div className="cr-grading">
-          <img src="images/cr_grading.png" alt="" className="img-responsive" />
+          <img src="/images/cr_grading.png" alt="" className="img-responsive" />
         </div>
         <hr className="no-float" />
       </div>

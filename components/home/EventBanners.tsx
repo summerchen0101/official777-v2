@@ -17,7 +17,7 @@ function EventBanners() {
     <section className="event-box" id="event-box">
       <div className="title-box wow flipInX" data-wow-duration="1s">
         <img
-          src="images/title_event.png"
+          src="/images/title_event.png"
           alt=""
           className="img-responsive center-block"
         />
@@ -27,7 +27,7 @@ function EventBanners() {
         data-wow-delay="0.2s"
         data-wow-duration="2s"
       >
-        <img src="images/event_left.png" alt="" className="img-responsive" />
+        <img src="/images/event_left.png" alt="" className="img-responsive" />
       </div>
       <div
         className="event-right wow bounceInRight"
@@ -35,7 +35,7 @@ function EventBanners() {
         data-wow-duration="2s"
       >
         <img
-          src="images/event_right.png"
+          src="/images/event_right.png"
           alt=""
           className="img-responsive pull-right"
         />
@@ -58,7 +58,7 @@ function EventBanners() {
                 rel="noreferrer"
               >
                 <img
-                  src="images/eventbanner/event_banner900x500.jpg"
+                  src="/images/eventbanner/event_banner900x500.jpg"
                   alt=""
                   className="img-responsive center-block"
                 />
@@ -71,7 +71,7 @@ function EventBanners() {
                 rel="noreferrer"
               >
                 <img
-                  src="images/eventbanner/event_banner900x500.jpg"
+                  src="/images/eventbanner/event_banner900x500.jpg"
                   alt=""
                   className="img-responsive center-block"
                 />
@@ -84,7 +84,7 @@ function EventBanners() {
                 rel="noreferrer"
               >
                 <img
-                  src="images/eventbanner/event_banner900x500.jpg"
+                  src="/images/eventbanner/event_banner900x500.jpg"
                   alt=""
                   className="img-responsive center-block"
                 />
@@ -97,7 +97,7 @@ function EventBanners() {
                 rel="noreferrer"
               >
                 <img
-                  src="images/eventbanner/event_banner900x500.jpg"
+                  src="/images/eventbanner/event_banner900x500.jpg"
                   alt=""
                   className="img-responsive center-block"
                 />

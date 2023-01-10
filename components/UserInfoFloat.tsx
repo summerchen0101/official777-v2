@@ -23,7 +23,7 @@ function UserInfoFloat() {
       <div className="logout-box">
         <div className="logut-avatar">
           <img
-            src="images/login/401.png"
+            src="/images/login/401.png"
             alt=""
             className="img-circle img-responsive center-block"
           />
@@ -34,7 +34,7 @@ function UserInfoFloat() {
         <div className="logout-gold">
           <div className="logout-gold-icon">
             <img
-              src="images/login/icon_coin.png"
+              src="/images/login/icon_coin.png"
               alt=""
               className="img-responsive center-block"
             />
@@ -47,7 +47,7 @@ function UserInfoFloat() {
         <div className="logout-mony">
           <div className="logout-mony-icon">
             <img
-              src="images/login/icon_point.png"
+              src="/images/login/icon_point.png"
               alt=""
               className="img-responsive center-block"
             />
@@ -62,7 +62,7 @@ function UserInfoFloat() {
         </div>
         <a href="#" onClick={handleLogout}>
           <img
-            src="images/window_logout.png"
+            src="/images/window_logout.png"
             alt=""
             className="img-circle img-responsive center-block"
           />

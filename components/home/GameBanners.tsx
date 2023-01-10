@@ -5,7 +5,7 @@ function GameBanners() {
     <section className="game-box" id="game-box">
       <div className="title-box wow flipInX" data-wow-duration="1s">
         <img
-          src="images/title_game.png"
+          src="/images/title_game.png"
           alt=""
           className="img-responsive center-block"
         />
@@ -16,12 +16,12 @@ function GameBanners() {
         data-wow-duration="2s"
       >
         <img
-          src="images/game_left.png"
+          src="/images/game_left.png"
           alt=""
           className="img-responsive hidden-xs"
         />
         <img
-          src="images/game_phone_left.png"
+          src="/images/game_phone_left.png"
           alt=""
           className="img-responsive hidden visible-xs"
         />
@@ -32,12 +32,12 @@ function GameBanners() {
         data-wow-duration="2s"
       >
         <img
-          src="images/game_right.png"
+          src="/images/game_right.png"
           alt=""
           className="img-responsive pull-right hidden-xs"
         />
         <img
-          src="images/game_phone_right.png"
+          src="/images/game_phone_right.png"
           alt=""
           className="img-responsive pull-right hidden visible-xs"
         />
@@ -55,7 +55,7 @@ function GameBanners() {
               data-toggle="dropdown"
             >
               <img
-                src="images/game_menu.png"
+                src="/images/game_menu.png"
                 alt=""
                 className="img-responsive center-block"
               />
@@ -110,49 +110,49 @@ function GameBanners() {
             <div className="carousel-inner game-banner-inner">
               <div className="item active">
                 <img
-                  src="images/game01.png"
+                  src="/images/game01.png"
                   alt="First slide"
                   className="center-block img-responsive"
                 />
               </div>
               <div className="item">
                 <img
-                  src="images/game02.png"
+                  src="/images/game02.png"
                   alt="Second slide"
                   className="center-block img-responsive"
                 />
               </div>
               <div className="item">
                 <img
-                  src="images/game03.png"
+                  src="/images/game03.png"
                   alt="Third slide"
                   className="center-block img-responsive"
                 />
               </div>
               <div className="item">
                 <img
-                  src="images/game04.png"
+                  src="/images/game04.png"
                   alt="First slide"
                   className="center-block img-responsive"
                 />
               </div>
               <div className="item">
                 <img
-                  src="images/game05.png"
+                  src="/images/game05.png"
                   alt="Second slide"
                   className="center-block img-responsive"
                 />
               </div>
               <div className="item">
                 <img
-                  src="images/game06.png"
+                  src="/images/game06.png"
                   alt="Third slide"
                   className="center-block img-responsive"
                 />
               </div>
               <div className="item">
                 <img
-                  src="images/game07.png"
+                  src="/images/game07.png"
                   alt="Second slide"
                   className="center-block img-responsive"
                 />
@@ -170,7 +170,7 @@ function GameBanners() {
                 aria-hidden="true"
               >
                 <img
-                  src="images/game_arrow_back.png"
+                  src="/images/game_arrow_back.png"
                   alt=""
                   className="img-responsive center-block"
                 />
@@ -188,7 +188,7 @@ function GameBanners() {
                 aria-hidden="true"
               >
                 <img
-                  src="images/game_arrow_next.png"
+                  src="/images/game_arrow_next.png"
                   alt=""
                   className="img-responsive center-block"
                 />

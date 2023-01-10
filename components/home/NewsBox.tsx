@@ -38,7 +38,7 @@ function NewsBox() {
     <section className="news" id="news">
       <div className="title-box wow flipInX" data-wow-duration="1s">
         <img
-          src="images/title_news.png"
+          src="/images/title_news.png"
           alt=""
           className="img-responsive center-block"
         />
