@@ -36,13 +36,15 @@ function HeaderNav() {
           data-out="fadeOutUp"
         >
           <li className="nav-li-icon hidden-xs">
-            <a href="#">
-              <img
-                src="/images/menu_home.png"
-                alt=""
-                className="img-responsive center-block"
-              />
-            </a>
+            <Link href="/home" passHref>
+              <a>
+                <img
+                  src="/images/menu_home.png"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </Link>
           </li>
           <li className="nav-li-text hidden visible-xs">
             <div className="logut-avatar">
