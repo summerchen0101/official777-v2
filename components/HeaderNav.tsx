@@ -1,6 +1,6 @@
 import bootsNavBar from '@/public/js/bootsnav'
 import useMe from '@/services/useMe'
-import { showLoginPopup } from '@/utils'
+import { showLoginPopup, toCurrency } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import Link from 'next/link'
 import { useEffect } from 'react'
@@ -54,7 +54,7 @@ function HeaderNav() {
           <li className="nav-li-text dropdown hidden visible-xs">
             <a href="#" className="dropdown-toggle" data-toggle="dropdown">
               <div className="logout-id">
-                <p>南京西清白芳如</p>
+                <p>{user?.nickname}</p>
               </div>
             </a>
             <ul className="dropdown-menu">
@@ -68,7 +68,7 @@ function HeaderNav() {
                     />
                   </div>
                   <div className="logout-gold-text">
-                    <p>123</p>
+                    <p>{toCurrency(user?.coin)}</p>
                   </div>
                   <hr className="float-none" />
                 </div>
@@ -83,14 +83,14 @@ function HeaderNav() {
                     />
                   </div>
                   <div className="logout-mony-text">
-                    <p>999,999,999,999</p>
+                    <p>{toCurrency(user?.paymentPoint)}</p>
                   </div>
                   <hr className="float-none" />
                 </div>
               </li>
               <li>
                 <div className="logout-vip">
-                  <p>VIP: LV999</p>
+                  <p>VIP: LV{user?.vipLevel}</p>
                 </div>
               </li>
             </ul>

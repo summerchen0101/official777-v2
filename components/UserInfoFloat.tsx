@@ -1,6 +1,9 @@
+import useMe from '@/services/useMe'
+import { toCurrency } from '@/utils'
 import { memo } from 'react'
 
 function UserInfoFloat() {
+  const { data: user } = useMe()
   return (
     <div
       className="window-box-logout hidden-xs wow fadeInLeft"
@@ -16,7 +19,7 @@ function UserInfoFloat() {
           />
         </div>
         <div className="logout-id">
-          <p>南京西清白芳如</p>
+          <p>{user?.nickname}</p>
         </div>
         <div className="logout-gold">
           <div className="logout-gold-icon">
@@ -27,7 +30,7 @@ function UserInfoFloat() {
             />
           </div>
           <div className="logout-gold-text">
-            <p>123</p>
+            <p>{toCurrency(user?.coin)}</p>
           </div>
           <hr className="float-none" />
         </div>
@@ -40,12 +43,12 @@ function UserInfoFloat() {
             />
           </div>
           <div className="logout-mony-text">
-            <p>999,999,999,999</p>
+            <p>{toCurrency(user?.paymentPoint)}</p>
           </div>
           <hr className="float-none" />
         </div>
         <div className="logout-vip">
-          <p>VIP: LV999</p>
+          <p>VIP: LV{user?.vipLevel}</p>
         </div>
         <a href="#">
           <img
