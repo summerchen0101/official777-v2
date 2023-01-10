@@ -1,10 +1,6 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
-import Pagination from '@/components/Pagination'
-import { RankType } from '@/lib/enums'
-import useRankList from '@/services/useRankList'
-import { toCurrency } from '@/utils'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 function FaqPage() {
   useEffect(() => {
