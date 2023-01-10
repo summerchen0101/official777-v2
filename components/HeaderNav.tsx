@@ -165,7 +165,9 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="content/recharge/recharge.html">活動序號兌換</a>
+                <Link href="/recharge-promo" passHref>
+                  <a>活動序號兌換</a>
+                </Link>
               </li>
               <li className="dropdown">
                 <a
@@ -177,27 +179,41 @@ function HeaderNav() {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a href="content/recharge/mc_giftcard.html">序號儲值</a>
+                    <Link href="/recharge-mc-sn" passHref>
+                      <a>序號儲值</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="content/recharge/mc_transfer.html">線上轉點</a>
+                    <Link href="/recharge-mc-trans" passHref>
+                      <a>線上轉點</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="content/recharge/mc_tele.html">電信支付</a>
+                    <Link href="/recharge-mc-tel" passHref>
+                      <a>電信支付</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="content/recharge/mc_credit.html">信用卡支付</a>
+                    <Link href="/recharge-mc-card" passHref>
+                      <a>信用卡支付</a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="content/recharge/mc_coupon.html">免費抵扣</a>
+                    <Link href="/recharge-mc-free" passHref>
+                      <a>免費抵扣</a>
+                    </Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="content/recharge/giftcard.html">智冠實體產包</a>
+                <Link href="/recharge-pkg" passHref>
+                  <a>智冠實體產包</a>
+                </Link>
               </li>
               <li>
-                <a href="content/recharge/ecpay_atm.html">綠界銀行轉帳</a>
+                <Link href="/recharge-atm" passHref>
+                  <a>綠界銀行轉帳</a>
+                </Link>
               </li>
             </ul>
           </li>
