@@ -29,6 +29,55 @@ function ContactOkPage() {
         <div className="gold-line" />
       </header>
       <div className="content">
+        <div className="content-btn-box">
+          <div className="btn-content-mycard">
+            <a href="mc_giftcard.html">
+              <img
+                src="/images/recharge/mc_giftcard.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </a>
+          </div>
+          <div className="btn-content-mycard">
+            <a href="mc_transfer.html">
+              <img
+                src="/images/recharge/mc_transfer.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </a>
+          </div>
+          <div className="btn-content-mycard">
+            <a href="mc_tele.html">
+              <img
+                src="/images/recharge/mc_tele.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </a>
+          </div>
+          <div className="btn-content-mycard">
+            <a href="mc_credit.html">
+              <img
+                src="/images/recharge/mc_credit.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </a>
+          </div>
+          <div className="btn-content-mycard">
+            <a href="mc_coupon.html">
+              <img
+                src="/images/recharge/mc_coupon.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </a>
+          </div>
+          <hr className="float-none" />
+        </div>
+
         <div className="content-title-box">
           <img
             src="/images/recharge/title_mc_giftcard.png"
