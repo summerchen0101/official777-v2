@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <script defer src="js/jquery-1.11.3.min.js"></script>
       <script defer src="js/bootstrap.js"></script>
-      <script defer src="js/bootsnav.js"></script>
+      {/* <script defer src="js/bootsnav.js"></script> */}
       <script defer src="js/backtop.js"></script>
 
       <script defer src="js/slick.js"></script>

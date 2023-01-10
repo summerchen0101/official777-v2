@@ -1,12 +1,17 @@
-import React from 'react'
-import Link from 'next/link'
+import bootsNavBar from '@/public/js/bootsnav'
+import useMe from '@/services/useMe'
 import { showLoginPopup } from '@/utils'
-import { useUserStore } from '@/store/useUserStore'
 import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
+import { useEffect } from 'react'
 
 function HeaderNav() {
-  const user = useUserStore((s) => s.user)
+  const { data: user } = useMe()
   const router = useRouter()
+
+  useEffect(() => {
+    bootsNavBar()
+  }, [])
   return (
     <nav
       className="navbar navbar-default navbar-mobile bootsnav navbar-fixed-top wow fadeInDown"
@@ -21,15 +26,6 @@ function HeaderNav() {
         >
           <i className="fa fa-bars" />
         </button>
-        <div className="nav-btn hidden visible-xs">
-          <a href="#">
-            <img
-              src="images/window_store_phone.png"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
-        </div>
       </div>
       <div className="collapse navbar-collapse" id="navbar-menu">
         <ul
@@ -37,16 +33,78 @@ function HeaderNav() {
           data-in="fadeInDown"
           data-out="fadeOutUp"
         >
-          <li className="nav-li-icon">
-            <Link href="/home" passHref>
-              <a>
-                <img
-                  src="images/menu_home.png"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </Link>
+          <li className="nav-li-icon hidden-xs">
+            <a href="#">
+              <img
+                src="images/menu_home.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </a>
+          </li>
+          <li className="nav-li-text hidden visible-xs">
+            <div className="logut-avatar">
+              <img
+                src="images/login/401.png"
+                alt=""
+                className="img-circle img-responsive center-block"
+              />
+            </div>
+          </li>
+          <li className="nav-li-text dropdown hidden visible-xs">
+            <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+              <div className="logout-id">
+                <p>南京西清白芳如</p>
+              </div>
+            </a>
+            <ul className="dropdown-menu">
+              <li>
+                <div className="logout-gold">
+                  <div className="logout-gold-icon">
+                    <img
+                      src="/images/login/icon_coin.png"
+                      alt=""
+                      className="img-responsive center-block"
+                    />
+                  </div>
+                  <div className="logout-gold-text">
+                    <p>123</p>
+                  </div>
+                  <hr className="float-none" />
+                </div>
+              </li>
+              <li>
+                <div className="logout-mony">
+                  <div className="logout-mony-icon">
+                    <img
+                      src="images/login/icon_point.png"
+                      alt=""
+                      className="img-responsive center-block"
+                    />
+                  </div>
+                  <div className="logout-mony-text">
+                    <p>999,999,999,999</p>
+                  </div>
+                  <hr className="float-none" />
+                </div>
+              </li>
+              <li>
+                <div className="logout-vip">
+                  <p>VIP: LV999</p>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li className="nav-li-text hidden visible-xs">
+            <a href="#">
+              <span className="glyphicon glyphicon-log-out"> </span>登出帳號
+            </a>
+          </li>
+          <li className="nav-li-text hidden visible-xs">
+            <a href="#">
+              <span className="glyphicon glyphicon-cloud-download"> </span>
+              立即下載
+            </a>
           </li>
           <li className="nav-li-text dropdown">
             <a href="#" className="dropdown-toggle" data-toggle="dropdown">

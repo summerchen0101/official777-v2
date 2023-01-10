@@ -68,7 +68,7 @@
 }
 .game-menu-box{
 	position: relative;
-	width: 40%;
+	width: 60%;
 	margin: 0 auto;
 	padding: 2% 0 0;
 	text-align: center;
@@ -119,8 +119,8 @@
 		width: 100%;
 	}
 	.dropdown-menu {
-		margin: -5px 11% 0;
-		min-width: 115px;
+		margin: -5px 13% 0;
+		min-width: 135px;
 	}
 	
 }

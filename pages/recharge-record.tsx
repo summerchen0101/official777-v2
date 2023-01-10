@@ -11,6 +11,7 @@ import {
   paymentGatewayMap,
   paymentStatusMap,
 } from '@/lib/map'
+import useMe from '@/services/useMe'
 import useRechargeRecList from '@/services/useRechargeRecList'
 import { toCurrency, toDateTime } from '@/utils'
 import cs from 'classnames'
@@ -19,9 +20,11 @@ import { useState } from 'react'
 function PunishmentPage() {
   const [page, setPage] = useState(1)
   const [gateway, setGateway] = useState(0)
+  const [status, setStatus] = useState(0)
+  const { data: user } = useMe()
 
   const { list, paginator } = useRechargeRecList({
-    paymentStatus: 0,
+    paymentStatus: status,
     paymentGateway: gateway,
     page,
     createdAtMsStart: 0,
@@ -74,9 +77,7 @@ function PunishmentPage() {
                   <div className="content-box">
                     <form role="form" className="row">
                       <div className="form-group col-lg-6">
-                        <h3>
-                          儲值總額(NT):999,999,999,999<span></span>
-                        </h3>
+                        <h3>儲值總額(NT):{toCurrency(user?.vipExpAmount)}</h3>
                       </div>
                       <div className="form-group col-lg-3">
                         <label htmlFor="name">平台</label>
@@ -97,13 +98,19 @@ function PunishmentPage() {
                       </div>
                       <div className="form-group col-lg-3">
                         <label htmlFor="name">狀態</label>
-                        <select className="form-control">
-                          <option>全部</option>
-                          <option>尚未建立</option>
-                          <option>訂單成功</option>
-                          <option>訂單失敗</option>
-                          <option>退款</option>
-                          <option>補單</option>
+                        <select
+                          className="form-control"
+                          defaultValue={status}
+                          onChange={(e) => setStatus(+e.target.value)}
+                        >
+                          <option value={0}>全部</option>
+                          {Object.entries(paymentStatusMap).map(
+                            ([key, label]) => (
+                              <option key={key} value={key}>
+                                {label}
+                              </option>
+                            ),
+                          )}
                         </select>
                       </div>
                     </form>

@@ -11,14 +11,17 @@ import VideoBanners from '@/components/home/VideoBanners'
 import LoginPopup from '@/components/LoginPopup'
 import LogoBox from '@/components/LogoBox'
 import RechargeFloat from '@/components/RechargeFloat'
-import React, { useEffect } from 'react'
+import UserInfoFloat from '@/components/UserInfoFloat'
+import useMe from '@/services/useMe'
 
 function HomePage() {
+  const { data: user, isLoading } = useMe()
   return (
     <>
       <HeaderNav />
       <AppDownloadFloat />
-      <RechargeFloat />
+      {user ? <UserInfoFloat /> : <RechargeFloat />}
+
       <header
         className="header-box wow fadeIn"
         data-wow-duration="2s"
