@@ -65,17 +65,24 @@ function ContactOkPage() {
   }, [list])
 
   const { handler: doCreate, isLoading } = useEcpayOrderCreate()
-  const { data } = useMe()
+  const { data: user } = useMe()
 
-  const handleUseUser = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.checked) {
-      setValue('email', data?.email!)
-      setValue('phone', data?.cellphone?.replace('886-', '')!)
-    } else {
-      setValue('email', '')
-      setValue('phone', '')
+  useEffect(() => {
+    if (user) {
+      setValue('email', user?.email!)
+      setValue('phone', user?.cellphone?.replace('886-', '')!)
     }
-  }
+  }, [])
+
+  // const handleUseUser = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.checked) {
+  //     setValue('email', user?.email!)
+  //     setValue('phone', user?.cellphone?.replace('886-', '')!)
+  //   } else {
+  //     setValue('email', '')
+  //     setValue('phone', '')
+  //   }
+  // }
 
   const onSubmit = handleSubmit(async (d) => {
     const product = list?.find((t) => t.ItemId === d.productID)
@@ -96,7 +103,7 @@ function ContactOkPage() {
       const res = await doCreate({
         productID: d.productID,
         gatewayCode: PaymentGateway.ECPay,
-        userID: data?.id!,
+        userID: user?.id!,
         paymentType,
         invoice: {
           eCPayInvoiceType:
@@ -209,7 +216,7 @@ function ContactOkPage() {
                       <div className="form-group col-lg-6">
                         <label htmlFor="name">發票類型</label>
                         <select
-                          className="w-full rounded"
+                          className="form-control input-lg"
                           value={invoiceType}
                           onChange={(e) =>
                             setInvoiceType(e.target.value as InvoiceType)
@@ -229,7 +236,7 @@ function ContactOkPage() {
                           <div className="form-group col-lg-6 ">
                             <label htmlFor="name">捐贈發票</label>
                             <select
-                              className="w-full rounded"
+                              className="form-control input-lg"
                               value={donateType}
                               onChange={(e) => setDonateType(e.target.value)}
                             >
@@ -281,26 +288,6 @@ function ContactOkPage() {
                             </select>
                           </div>
 
-                          {/* <div className="form-group col-lg-6 input-group-lg">
-                        <label htmlFor="number2" className="control-label ">
-                          綠界載具
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="number2"
-                        />
-                      </div>
-                      <div className="form-group col-lg-6 input-group-lg">
-                        <label htmlFor="number3" className="control-label ">
-                          自然人憑證載具
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="number3"
-                        />
-                      </div> */}
                           <div
                             hidden={
                               carrierType !== ECPayInvoiceType.PHONE_CARRIER
@@ -330,6 +317,7 @@ function ContactOkPage() {
                               </div>
                             )}
                           </div>
+
                           <div
                             hidden={
                               carrierType !==
@@ -360,6 +348,27 @@ function ContactOkPage() {
                               </div>
                             )}
                           </div>
+
+                          {/* <div className="form-group col-lg-6 input-group-lg">
+                        <label htmlFor="number2" className="control-label ">
+                          綠界載具
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="number2"
+                        />
+                      </div>
+                      <div className="form-group col-lg-6 input-group-lg">
+                        <label htmlFor="number3" className="control-label ">
+                          自然人憑證載具
+                        </label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="number3"
+                        />
+                      </div> */}
                         </>
                       )}
 
@@ -392,7 +401,7 @@ function ContactOkPage() {
                         <thead>
                           <tr>
                             <th>手機號碼或Email，請至少填一項</th>
-                            <th>
+                            {/* <th>
                               <form role="form">
                                 <div className="col-lg-12">
                                   <div className="checkbox">
@@ -406,7 +415,7 @@ function ContactOkPage() {
                                   </div>
                                 </div>
                               </form>
-                            </th>
+                            </th> */}
                           </tr>
                         </thead>
                       </table>
