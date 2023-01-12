@@ -77,32 +77,6 @@ function EventBanners() {
                 />
               </a>
             </li>
-            <li>
-              <a
-                href="https://activity.online539.com/event/prod/220803/index.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/eventbanner/event_banner900x500.jpg"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://activity.online539.com/event/prod/220803/index.html"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/eventbanner/event_banner900x500.jpg"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </li>
           </ul>
         </div>
       </div>
