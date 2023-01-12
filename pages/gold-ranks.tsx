@@ -10,7 +10,7 @@ function GoldRanksPage() {
   const [page, setPage] = useState(1)
   const { list, isLoading, paginator } = useRankList({
     rankType: RankType.Gold,
-    page: 1,
+    page,
     perPage: 10,
   })
 
@@ -65,7 +65,7 @@ function GoldRanksPage() {
                         </thead>
                         <tbody>
                           {list?.map((t) => (
-                            <tr key={t.uid}>
+                            <tr key={t.rank}>
                               <td className="text-center">{t.rank}</td>
                               <td>{t.nickname}</td>
                               <td>${toCurrency(t.gold)}</td>

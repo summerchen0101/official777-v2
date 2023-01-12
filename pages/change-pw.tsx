@@ -4,6 +4,7 @@ import useAuth from '@/hooks/useAuth'
 import usePwUpdate from '@/services/usePwUpdate'
 import useSms from '@/services/useSms'
 import useAuthPage from '@/utils/useAuthPage'
+import { trim } from 'lodash'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
@@ -53,8 +54,10 @@ function ChangePwPage() {
   const onSubmit = handleSubmit(async (d) => {
     try {
       const res = await doUpdate({
-        answer: d.code,
-        [d.pwType === 'login' ? 'newPassword' : 'newSecondPassword']: d.new_pw,
+        answer: trim(d.code),
+        [d.pwType === 'login' ? 'newPassword' : 'newSecondPassword']: trim(
+          d.new_pw,
+        ),
       })
       if (res?.ok) {
         alert('密碼更新成功')
@@ -112,7 +115,7 @@ function ChangePwPage() {
                           請選擇要修改的密碼
                         </label>
                         <br />
-                        <label className="radio-inline">
+                        {/* <label className="radio-inline">
                           <input
                             type="radio"
                             id="optionsRadios1"
@@ -121,13 +124,14 @@ function ChangePwPage() {
                             defaultChecked
                           />
                           修改密碼
-                        </label>
+                        </label> */}
                         <label className="radio-inline">
                           <input
                             type="radio"
                             id="optionsRadios2"
                             value="trade"
                             {...register('pwType', { required: '不可為空' })}
+                            defaultChecked
                           />{' '}
                           修改二次密碼
                         </label>

@@ -8,6 +8,7 @@ import useTicketFields from '@/services/useTicketFields'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import cs from 'classnames'
 
 function ContactPage() {
   const toCdnUrl = useCdnUrl()
@@ -101,7 +102,9 @@ function ContactPage() {
                         .map((t, i) => (
                           <div
                             key={i}
-                            className="form-group col-lg-12 input-group-lg"
+                            className={cs('form-group col-lg-12', {
+                              'input-group-lg': t.type === 'text',
+                            })}
                           >
                             <label htmlFor="" className="control-label">
                               {t.required && (

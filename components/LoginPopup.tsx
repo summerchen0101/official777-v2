@@ -113,6 +113,11 @@ function LoginPopup() {
     }
   }
 
+  const closePopup = () => {
+    setCount(0)
+    $('#hw-layer02').fadeOut()
+  }
+
   const { handler: login, isLoading } = useSmsLogin()
   const onSubmit = handleSubmit(async (d) => {
     const res = await login({
@@ -131,6 +136,7 @@ function LoginPopup() {
       reset({ phone: '' })
       onToggle()
       alert('登入成功')
+      closePopup()
       if (router.query.to) {
         router.push(router.query.to as string)
       }
@@ -139,9 +145,6 @@ function LoginPopup() {
     }
   })
 
-  const closePopup = () => {
-    $('#hw-layer02').fadeOut()
-  }
   return (
     <div className="hw-overlay2" id="hw-layer02" onClick={() => closePopup()}>
       <div className="hw-layer-wrap">
