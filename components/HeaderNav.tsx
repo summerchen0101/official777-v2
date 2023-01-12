@@ -11,6 +11,10 @@ function HeaderNav() {
   const router = useRouter()
   const toCdnUrl = useCdnUrl()
 
+  const handleComingSoon = () => {
+    alert('敬請期待～')
+  }
+
   useEffect(() => {
     bootsNavBar()
   }, [])
@@ -133,25 +137,39 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="content/novice/novice_gameui.html">遊戲介面操作</a>
+                <a href="#" onClick={handleComingSoon}>
+                  遊戲介面操作
+                </a>
               </li>
               <li>
-                <a href="content/novice/novice_gameplay.html">遊戲玩法介紹</a>
+                <a href="#" onClick={handleComingSoon}>
+                  遊戲玩法介紹
+                </a>
               </li>
               <li>
-                <a href="content/novice/novice_obj.html">道具使用說明</a>
+                <a href="#" onClick={handleComingSoon}>
+                  道具使用說明
+                </a>
               </li>
               <li>
-                <a href="content/novice/novice_gift.html">紅包收發說明</a>
+                <a href="#" onClick={handleComingSoon}>
+                  紅包收發說明
+                </a>
               </li>
               <li>
-                <a href="content/novice/novice_club.html">俱樂部功能介紹</a>
+                <a href="#" onClick={handleComingSoon}>
+                  俱樂部功能介紹
+                </a>
               </li>
               <li>
-                <a href="content/novice/novice_vip.html">VIP層級介紹</a>
+                <a href="#" onClick={handleComingSoon}>
+                  VIP層級介紹
+                </a>
               </li>
               <li>
-                <a href="content/novice/novice_card.html">卡牌收集說明</a>
+                <a href="#" onClick={handleComingSoon}>
+                  卡牌收集說明
+                </a>
               </li>
             </ul>
           </li>
