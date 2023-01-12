@@ -37,7 +37,11 @@ function HomeBanners() {
       </li>
       <li>
         <div className="hidden-xs">
-          <a href="#">
+          <a
+            href="https://activity.online539.com/event/anniversary1212/index.html"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               src="/images/headerbanner/pcbanner/header_banner02.png"
               alt=""
@@ -46,7 +50,11 @@ function HomeBanners() {
           </a>
         </div>
         <div className="hidden visible-xs">
-          <a href="#">
+          <a
+            href="https://activity.online539.com/event/anniversary1212/index.html"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               src="/images/headerbanner/phonebanner/phonebanner02.png"
               alt=""
