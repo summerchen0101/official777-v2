@@ -1,6 +1,52 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect, useState } from 'react'
+import cs from 'classnames'
 
+// 1. 形象：https://www.youtube.com/watch?v=gGM1z6pHE1A
+// 2. 魔龍：https://www.youtube.com/watch?v=Z2bHQoFElxo&feature=youtu.be
+// 3. 7PK：https://www.youtube.com/watch?v=5sOi_gm_j5U&list=PLqSqbq_4yu22O_k2SNreFnfoxNqx40PBm&index=15
+// 4. 九尾狐：https://www.youtube.com/watch?v=RryoJOYZpdc&list=PLqSqbq_4yu22O_k2SNreFnfoxNqx40PBm&index=4
+// 5. 小瑪莉：https://www.youtube.com/watch?v=WqVpeBZCl74&list=PLqSqbq_4yu216_lJRxbVH4e5MsLmsNPNb&index=6
 function VideoBanners() {
+  const videoList = [
+    {
+      key: 'gGM1z6pHE1A',
+      thumbnail: 'video_banner01_700x400.jpg',
+      name: '形象',
+    },
+    {
+      key: 'Z2bHQoFElxo',
+      thumbnail: 'video_banner02_700x400.jpg',
+      name: '魔龍',
+    },
+    {
+      key: '5sOi_gm_j5U',
+      thumbnail: 'video_banner01_700x400.jpg',
+      name: '7PK',
+    },
+    {
+      key: 'RryoJOYZpdc',
+      thumbnail: 'video_banner02_700x400.jpg',
+      name: '九尾狐',
+    },
+    {
+      key: 'WqVpeBZCl74',
+      thumbnail: 'video_banner01_700x400.jpg',
+      name: '小瑪莉',
+    },
+  ]
+
+  const [current, setCurrent] = useState(videoList[0].key)
+
+  function openMovie(isYID) {
+    var nW = $(window).width()
+    var nH = $(window).height()
+    $.fancybox.open({
+      width: nW,
+      height: nH,
+      href: 'https://www.youtube.com/embed/' + isYID + '?autoplay=1',
+      type: 'iframe',
+    })
+  }
   return (
     <section className="video-box" id="video-box">
       <div className="title-box wow flipInX" data-wow-duration="1s">
@@ -45,24 +91,25 @@ function VideoBanners() {
         >
           {/* 轮播（Carousel）项目 */}
           <div className="carousel-inner video-banner-inner">
-            <div className="item active">
-              <a href="javascript:;" id="youtube01">
-                <img
-                  src="/images/video_banner01_700x400.jpg"
-                  alt="First slide"
-                  className="center-block img-responsive"
-                />
-              </a>
-            </div>
-            <div className="item">
-              <a href="javascript:;" id="youtube02">
-                <img
-                  src="/images/video_banner02_700x400.jpg"
-                  alt="Second slide"
-                  className="center-block img-responsive"
-                />
-              </a>
-            </div>
+            {videoList.map((t) => (
+              <div
+                key={t.key}
+                className={cs('item', { active: current === t.key })}
+                onClick={(e) => {
+                  openMovie(t.key)
+                }}
+              >
+                <a href="#">
+                  {/* {t.name} */}
+                  <img
+                    src={`/images/${t.thumbnail}`}
+                    alt={t.name}
+                    className="center-block img-responsive"
+                    onClick={(e) => e.preventDefault()}
+                  />
+                </a>
+              </div>
+            ))}
           </div>
           <a
             className="left carousel-control video-arrow-left"
