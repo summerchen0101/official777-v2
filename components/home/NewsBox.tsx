@@ -75,7 +75,12 @@ function NewsBox() {
                             <p>【{newsTypeMap[t.type]}】</p>
                           </td>
                           <td>
-                            <a onClick={() => showDetail(t.id)}>{t.title}</a>
+                            <a
+                              className="show-layer"
+                              onClick={() => showDetail(t.id)}
+                            >
+                              {t.title}
+                            </a>
                           </td>
                           <td>
                             <p>
