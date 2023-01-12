@@ -164,7 +164,7 @@ function HeaderNav() {
                 <a
                   href="#"
                   onClick={() =>
-                    user ? router.push('/recharge-record') : showLoginPopup()
+                    user ? router.push('/recharge-promo') : showLoginPopup()
                   }
                 >
                   活動序號兌換

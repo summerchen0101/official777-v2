@@ -87,7 +87,7 @@ function RechargePromoPage() {
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="輸入時請留意，序號前不可有空白鍵"
+                          placeholder="請輸入兌換序號"
                           {...register('serialNum', { required: '不可為空' })}
                         />
                       </div>

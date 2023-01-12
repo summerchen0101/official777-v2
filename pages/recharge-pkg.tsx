@@ -88,8 +88,9 @@ function RechargePkgPage() {
                         </label>
                         <input
                           type="text"
+                          autoComplete="new-password"
                           className="form-control"
-                          placeholder="輸入時請留意，序號前不可有空白鍵"
+                          placeholder="請輸入兌換序號"
                           id="number"
                           {...register('serialNum', { required: '不可為空' })}
                         />
@@ -105,9 +106,10 @@ function RechargePkgPage() {
                         </label>
                         <input
                           type="password"
+                          autoComplete="new-password"
                           className="form-control"
                           id="Password"
-                          placeholder="輸入時請留意，密碼前不可有空白鍵"
+                          placeholder="請輸入兌換密碼"
                           {...register('password', { required: '不可為空' })}
                         />
                         {errors.password && (
