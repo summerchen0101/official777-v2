@@ -1,6 +1,22 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
+import cs from 'classnames'
+
+const gameList = [
+  { name: '發財麻將', img: 'game01.png' },
+  { name: '3D深海總動員', img: 'game02.png' },
+  { name: '超級777', img: 'game03.png' },
+  { name: '刮刮樂', img: 'game04.png' },
+  { name: '年年有瑜', img: 'game05.png' },
+  { name: '百家樂視訊', img: 'game06.png' },
+  { name: '百人妞妞', img: 'game07.png' },
+]
 
 function GameBanners() {
+  useEffect(() => {
+    $('#myCarousel').carousel({
+      interval: 3000,
+    })
+  }, [])
   return (
     <section className="game-box" id="game-box">
       <div className="title-box wow flipInX" data-wow-duration="1s">
@@ -61,27 +77,18 @@ function GameBanners() {
               />
             </button>
             <ul className="dropdown-menu" role="menu">
-              <li>
-                <a className="slide-01 game-btn">發財麻將</a>
-              </li>
-              <li>
-                <a className="slide-02 game-btn">3D深海總動員</a>
-              </li>
-              <li>
-                <a className="slide-03 game-btn">超級777</a>
-              </li>
-              <li>
-                <a className="slide-04 game-btn">刮刮樂</a>
-              </li>
-              <li>
-                <a className="slide-05 game-btn">年年有瑜</a>
-              </li>
-              <li>
-                <a className="slide-06 game-btn">百家樂視訊</a>
-              </li>
-              <li>
-                <a className="slide-07 game-btn">百人妞妞</a>
-              </li>
+              {gameList.map((t, i) => (
+                <li key={t.img}>
+                  <a
+                    className="game-btn"
+                    onClick={() => {
+                      $('#myCarousel').carousel(i)
+                    }}
+                  >
+                    {t.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -93,70 +100,28 @@ function GameBanners() {
         >
           {/* 轮播（Carousel）指标 */}
           <ol className="carousel-indicators">
-            <li
-              data-target="#myCarousel"
-              data-slide-to={0}
-              className="active"
-            />
-            <li data-target="#myCarousel" data-slide-to={1} />
-            <li data-target="#myCarousel" data-slide-to={2} />
-            <li data-target="#myCarousel" data-slide-to={3} />
-            <li data-target="#myCarousel" data-slide-to={4} />
-            <li data-target="#myCarousel" data-slide-to={5} />
-            <li data-target="#myCarousel" data-slide-to={6} />
+            {gameList.map((t, i) => (
+              <li
+                key={t.img}
+                data-target="#myCarousel"
+                data-slide-to={i}
+                className={i === 0 ? 'active' : ''}
+              />
+            ))}
           </ol>
           {/* 轮播（Carousel）项目 */}
           <div className="game-banner-box">
             <div className="carousel-inner game-banner-inner">
-              <div className="item active">
-                <img
-                  src="/images/game01.png"
-                  alt="First slide"
-                  className="center-block img-responsive"
-                />
-              </div>
-              <div className="item">
-                <img
-                  src="/images/game02.png"
-                  alt="Second slide"
-                  className="center-block img-responsive"
-                />
-              </div>
-              <div className="item">
-                <img
-                  src="/images/game03.png"
-                  alt="Third slide"
-                  className="center-block img-responsive"
-                />
-              </div>
-              <div className="item">
-                <img
-                  src="/images/game04.png"
-                  alt="First slide"
-                  className="center-block img-responsive"
-                />
-              </div>
-              <div className="item">
-                <img
-                  src="/images/game05.png"
-                  alt="Second slide"
-                  className="center-block img-responsive"
-                />
-              </div>
-              <div className="item">
-                <img
-                  src="/images/game06.png"
-                  alt="Third slide"
-                  className="center-block img-responsive"
-                />
-              </div>
-              <div className="item">
-                <img
-                  src="/images/game07.png"
-                  alt="Second slide"
-                  className="center-block img-responsive"
-                />
-              </div>
+              {gameList.map((t, i) => (
+                <div key={t.img} className={cs('item', { active: i === 0 })}>
+                  <img
+                    src={`/images/${t.img}`}
+                    alt={t.name}
+                    className="center-block img-responsive"
+                  />
+                </div>
+              ))}
+
               {/* 轮播（Carousel）导航 */}
             </div>
             <a

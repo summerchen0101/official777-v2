@@ -105,34 +105,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       <script>
         {/* $(function(){
-			$('#myCarousel').carousel({
-				interval: 3000
-			})
-			$(".slide-01").click(function(){
-				$("#myCarousel").carousel(0);
-			});
-			$(".slide-02").click(function(){
-				$("#myCarousel").carousel(1);
-			});
-			$(".slide-03").click(function(){
-				$("#myCarousel").carousel(2);
-			});
-			$(".slide-04").click(function(){
-				$("#myCarousel").carousel(3);
-			});
-			$(".slide-05").click(function(){
-				$("#myCarousel").carousel(4);
-			});
-			$(".slide-06").click(function(){
-				$("#myCarousel").carousel(5);
-			});
-			$(".slide-07").click(function(){
-				$("#myCarousel").carousel(6);
-			});
-		}); */}
-      </script>
-      <script>
-        {/* $(function(){
 			$('#myCarousel2').carousel({
 				interval: 3000
 			});
