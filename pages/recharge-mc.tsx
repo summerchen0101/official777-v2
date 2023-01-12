@@ -25,7 +25,7 @@ const imgMap: StringMap = {
   [MCPaymentType.CREDIT_CARD]: 'mc_credit',
   [MCPaymentType.FREE_POINT]: 'mc_coupon',
 }
-function ContactOkPage() {
+function RechargeMcPage() {
   const [paymentType, setPaymentType] = useState(MCPaymentType.IN_GAME)
 
   const { list, isLoading: isListLoading } = useGoodsList({
@@ -195,4 +195,4 @@ function ContactOkPage() {
   )
 }
 
-export default ContactOkPage
+export default RechargeMcPage

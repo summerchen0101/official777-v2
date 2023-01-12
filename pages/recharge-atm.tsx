@@ -12,10 +12,9 @@ import { ecpayInvoiceMap, ecpayPaymentTypeMap, invoiceTypeMap } from '@/lib/map'
 import useEcpayOrderCreate from '@/services/useEcpayOrderCreate'
 import useGoodsList from '@/services/useGoodsList'
 import useMe from '@/services/useMe'
-import usePopupStore from '@/store/usePopupStore'
 import { StringMap } from '@/types'
-import { useRouter } from 'next/dist/client/router'
-import React, { useEffect, useState } from 'react'
+import { showLoginPopup } from '@/utils'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 interface Inputs {
@@ -29,16 +28,13 @@ interface Inputs {
   agree: boolean
 }
 
-function ContactOkPage() {
-  const router = useRouter()
+function RechargeAtmPage() {
   const [paymentType, setPaymentType] = useState(ECPayPaymentType.ATM)
   const [invoiceType, setInvoiceType] = useState(InvoiceType.DONATE)
   const [donateType, setDonateType] = useState('')
   const [carrierType, setCarrierType] = useState(
     ECPayInvoiceType.EC_PAY_INVOICE,
   )
-  const isShow = usePopupStore((s) => s.transfer.isShow)
-  const onHide = usePopupStore((s) => s.transfer.onHide)
   const { list } = useGoodsList({
     page: 1,
     perPage: 30,
@@ -52,8 +48,6 @@ function ContactOkPage() {
     handleSubmit,
     formState: { errors },
     watch,
-    getValues,
-    reset,
     setValue,
     control,
   } = useForm<Inputs>()
@@ -64,15 +58,21 @@ function ContactOkPage() {
     }
   }, [list])
 
-  const { handler: doCreate, isLoading } = useEcpayOrderCreate()
-  const { data: user } = useMe()
+  const { handler: doCreate } = useEcpayOrderCreate()
+  const { data: user, isLoading } = useMe()
+
+  useEffect(() => {
+    if (!user && !isLoading) {
+      showLoginPopup()
+    }
+  }, [user])
 
   useEffect(() => {
     if (user) {
       setValue('email', user?.email!)
       setValue('phone', user?.cellphone?.replace('886-', '')!)
     }
-  }, [])
+  }, [user])
 
   // const handleUseUser = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   if (e.target.checked) {
@@ -491,4 +491,4 @@ function ContactOkPage() {
   )
 }
 
-export default ContactOkPage
+export default RechargeAtmPage

@@ -8,7 +8,7 @@ type Inputs = {
   password: string
 }
 
-function ContactOkPage() {
+function RechargePkgPage() {
   const { handler: doSWExchange, isLoading: isSWLoading } =
     useSWSerialExchange()
   const {
@@ -143,4 +143,4 @@ function ContactOkPage() {
   )
 }
 
-export default ContactOkPage
+export default RechargePkgPage

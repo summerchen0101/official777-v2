@@ -13,7 +13,7 @@ import { toCurrency, toDateTime } from '@/utils'
 import cs from 'classnames'
 import { useState } from 'react'
 
-function PunishmentPage() {
+function RechargeRecordPage() {
   const [page, setPage] = useState(1)
   const [gateway, setGateway] = useState(0)
   const [status, setStatus] = useState(0)
@@ -166,4 +166,4 @@ function PunishmentPage() {
   )
 }
 
-export default PunishmentPage
+export default RechargeRecordPage

@@ -9,7 +9,7 @@ type Inputs = {
   password: string
 }
 
-function ContactOkPage() {
+function RechargePromoPage() {
   const { handler: doExchange, isLoading: isSWLoading } = useSerialExchange()
   const {
     register,
@@ -124,4 +124,4 @@ function ContactOkPage() {
   )
 }
 
-export default ContactOkPage
+export default RechargePromoPage
