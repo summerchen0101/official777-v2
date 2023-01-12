@@ -1,6 +1,7 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
 import useSWSerialExchange from '@/services/useSWSerialExchange'
+import useAuthPage from '@/utils/useAuthPage'
 import { useForm } from 'react-hook-form'
 
 type Inputs = {
@@ -9,6 +10,7 @@ type Inputs = {
 }
 
 function RechargePkgPage() {
+  useAuthPage()
   const { handler: doSWExchange, isLoading: isSWLoading } =
     useSWSerialExchange()
   const {

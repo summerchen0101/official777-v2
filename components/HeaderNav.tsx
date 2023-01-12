@@ -156,64 +156,109 @@ function HeaderNav() {
             </ul>
           </li>
           <li className="nav-li-text dropdown">
-            <a
-              href="content/recharge/mc_giftcard.html"
-              className="dropdown-toggle"
-              data-toggle="dropdown"
-            >
+            <a href="#" className="dropdown-toggle" data-toggle="dropdown">
               儲值/序號
             </a>
             <ul className="dropdown-menu">
               <li>
-                <Link href="/recharge-promo" passHref>
-                  <a>活動序號兌換</a>
-                </Link>
+                <a
+                  href="#"
+                  onClick={() =>
+                    user ? router.push('/recharge-record') : showLoginPopup()
+                  }
+                >
+                  活動序號兌換
+                </a>
               </li>
               <li className="dropdown">
-                <a
-                  href="content/recharge/mc_giftcard.html"
-                  className="dropdown-toggle"
-                  data-toggle="dropdown"
-                >
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                   MyCard支付
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link href="/recharge-mc?p=1" passHref>
-                      <a>序號儲值</a>
-                    </Link>
+                    <a
+                      href="#"
+                      onClick={() =>
+                        user
+                          ? router.push('/recharge-mc?p=1')
+                          : showLoginPopup()
+                      }
+                    >
+                      序號儲值
+                    </a>
                   </li>
                   <li>
-                    <Link href="/recharge-mc?p=2" passHref>
-                      <a>線上轉點</a>
-                    </Link>
+                    <a
+                      href="#"
+                      onClick={() =>
+                        user
+                          ? router.push('/recharge-mc?p=2')
+                          : showLoginPopup()
+                      }
+                    >
+                      線上轉點
+                    </a>
                   </li>
                   <li>
-                    <Link href="/recharge-mc?p=5" passHref>
-                      <a>電信支付</a>
-                    </Link>
+                    <a
+                      href="#"
+                      onClick={() =>
+                        user
+                          ? router.push('/recharge-mc?p=5')
+                          : showLoginPopup()
+                      }
+                    >
+                      電信支付
+                    </a>
                   </li>
                   <li>
-                    <Link href="/recharge-mc?p=3" passHref>
-                      <a>信用卡支付</a>
-                    </Link>
+                    <a
+                      href="#"
+                      onClick={() =>
+                        user
+                          ? router.push('/recharge-mc?p=3')
+                          : showLoginPopup()
+                      }
+                    >
+                      信用卡支付
+                    </a>
                   </li>
                   <li>
-                    <Link href="/recharge-mc?p=4" passHref>
-                      <a>免費抵扣</a>
-                    </Link>
+                    <a
+                      href="#"
+                      onClick={() =>
+                        user
+                          ? router.push('/recharge-mc?p=4')
+                          : showLoginPopup()
+                      }
+                    >
+                      免費抵扣
+                    </a>
                   </li>
                 </ul>
               </li>
               <li>
-                <Link href="/recharge-pkg" passHref>
-                  <a>智冠實體產包</a>
-                </Link>
+                <a
+                  href="#"
+                  onClick={() =>
+                    user ? router.push('/recharge-pkg') : showLoginPopup()
+                  }
+                >
+                  智冠實體產包
+                </a>
               </li>
               <li>
                 <Link href="/recharge-atm" passHref>
                   <a>綠界銀行轉帳</a>
                 </Link>
+                <a
+                  href="#"
+                  onClick={() =>
+                    user ? router.push('/recharge-atm') : showLoginPopup()
+                  }
+                >
+                  綠界銀行轉帳
+                </a>
               </li>
             </ul>
           </li>

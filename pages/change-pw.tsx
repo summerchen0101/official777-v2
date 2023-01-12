@@ -1,11 +1,10 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
 import useAuth from '@/hooks/useAuth'
-import useMe from '@/services/useMe'
 import usePwUpdate from '@/services/usePwUpdate'
 import useSms from '@/services/useSms'
-import useCdnUrl from '@/hooks/useCdnUrl'
-import React, { useState } from 'react'
+import useAuthPage from '@/utils/useAuthPage'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
 
@@ -17,9 +16,8 @@ type Inputs = {
 }
 
 function ChangePwPage() {
-  const { data: user } = useMe()
+  const user = useAuthPage()
 
-  const toCdnUrl = useCdnUrl()
   const [count, setCount] = useState(0)
   useInterval(() => {
     if (count > 0) {
@@ -28,7 +26,7 @@ function ChangePwPage() {
   }, 1000)
   useAuth()
   const { handler: doUpdate, isLoading } = usePwUpdate()
-  const { data } = useMe()
+
   const { handler: sendSms, isLoading: isSmsLoading } = useSms()
   const {
     register,
@@ -39,7 +37,7 @@ function ChangePwPage() {
   } = useForm<Inputs>()
   const onSendSms = async () => {
     const res = await sendSms({
-      userID: data?.id,
+      userID: user?.id,
     })
     if (!res?.ok) {
       if (res?.code === '403001') {

@@ -10,6 +10,7 @@ import {
 import useMe from '@/services/useMe'
 import useRechargeRecList from '@/services/useRechargeRecList'
 import { toCurrency, toDateTime } from '@/utils'
+import useAuthPage from '@/utils/useAuthPage'
 import cs from 'classnames'
 import { useState } from 'react'
 
@@ -17,7 +18,7 @@ function RechargeRecordPage() {
   const [page, setPage] = useState(1)
   const [gateway, setGateway] = useState(0)
   const [status, setStatus] = useState(0)
-  const { data: user } = useMe()
+  const user = useAuthPage()
 
   const { list, paginator } = useRechargeRecList({
     paymentStatus: status,

@@ -11,9 +11,8 @@ import {
 import { ecpayInvoiceMap, ecpayPaymentTypeMap, invoiceTypeMap } from '@/lib/map'
 import useEcpayOrderCreate from '@/services/useEcpayOrderCreate'
 import useGoodsList from '@/services/useGoodsList'
-import useMe from '@/services/useMe'
 import { StringMap } from '@/types'
-import { showLoginPopup } from '@/utils'
+import useAuthPage from '@/utils/useAuthPage'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -59,13 +58,7 @@ function RechargeAtmPage() {
   }, [list])
 
   const { handler: doCreate } = useEcpayOrderCreate()
-  const { data: user, isLoading } = useMe()
-
-  useEffect(() => {
-    if (!user && !isLoading) {
-      showLoginPopup()
-    }
-  }, [user])
+  const user = useAuthPage()
 
   useEffect(() => {
     if (user) {
@@ -73,16 +66,6 @@ function RechargeAtmPage() {
       setValue('phone', user?.cellphone?.replace('886-', '')!)
     }
   }, [user])
-
-  // const handleUseUser = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (e.target.checked) {
-  //     setValue('email', user?.email!)
-  //     setValue('phone', user?.cellphone?.replace('886-', '')!)
-  //   } else {
-  //     setValue('email', '')
-  //     setValue('phone', '')
-  //   }
-  // }
 
   const onSubmit = handleSubmit(async (d) => {
     const product = list?.find((t) => t.ItemId === d.productID)

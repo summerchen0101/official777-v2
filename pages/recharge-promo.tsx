@@ -1,7 +1,7 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
 import useSerialExchange from '@/services/useSerialExchange'
-import useSWSerialExchange from '@/services/useSWSerialExchange'
+import useAuthPage from '@/utils/useAuthPage'
 import { useForm } from 'react-hook-form'
 
 type Inputs = {
@@ -10,6 +10,7 @@ type Inputs = {
 }
 
 function RechargePromoPage() {
+  useAuthPage()
   const { handler: doExchange, isLoading: isSWLoading } = useSerialExchange()
   const {
     register,

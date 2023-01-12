@@ -7,6 +7,8 @@ import useGoodsList from '@/services/useGoodsList'
 import useMe from '@/services/useMe'
 import useOrderCreate from '@/services/useOrderCreate'
 import { StringMap } from '@/types'
+import { showLoginPopup } from '@/utils'
+import useAuthPage from '@/utils/useAuthPage'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -57,7 +59,8 @@ function RechargeMcPage() {
     }
   }, [list])
 
-  const { data } = useMe()
+  const user = useAuthPage()
+
   const { handler: doCreate, isLoading } = useOrderCreate()
 
   const router = useRouter()
@@ -74,7 +77,7 @@ function RechargeMcPage() {
       const res = await doCreate({
         productID: d.productID,
         gatewayCode: PaymentGateway.MyCard,
-        userID: data?.id!,
+        userID: user?.id!,
         paymentType:
           paymentType === MCPaymentType.ASIA_PACIFIC_MOBILE
             ? d.telPay
