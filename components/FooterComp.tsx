@@ -4,20 +4,30 @@ function FooterComp() {
   return (
     <footer className="footerbox" id="footerbox">
       <div className="gold-line" />
+      <div className="footer-menu">
+        <ul>
+          <li className="text-center">
+            <a href="content/service/service_terms.html">服務條款</a>
+          </li>
+          <li className="text-center">
+            <a href="content/service/service_rules.html">遊戲管理規章</a>
+          </li>
+          <li className="text-center">
+            <a href="content/service/service_privacy.html">隱私權政策</a>
+          </li>
+          <li className="text-center">
+            <a href="content/service/service_equipment.html">需求配備</a>
+          </li>
+        </ul>
+        <hr className="float-none" />
+      </div>
       <div className="copyrignt-box">
         <div className="cr-logo">
           <div className="cr-logo-left">
             <img
               src="/images/logo_tech.png"
               alt=""
-              className="img-responsive"
-            />
-          </div>
-          <div className="cr-logo-right">
-            <img
-              src="/images/logo_three.png"
-              alt=""
-              className="img-responsive"
+              className="img-responsive center-block"
             />
           </div>
         </div>

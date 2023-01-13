@@ -179,6 +179,13 @@ a , a:link , a:visited , a:hover , a:active {
 	margin: 10% auto;
 }
 
+/*CONTENT*/
+.content2{
+	position: relative;
+	margin-top: 80px;
+	min-height: 750px;
+}
+
 /*NEWS*/
 .news{
 	position: relative;
@@ -555,8 +562,25 @@ a , a:link , a:visited , a:hover , a:active {
 	line-height: 30px;
 	padding: 0;
 }
+.content-box h1{
+	font-size: 36px;
+	font-weight: bolder;
+	color: #eee8bf;
+	text-align: center;
+}
+
 .content-box h2{
 	font-size: 36px;
+	font-weight: bolder;
+	color: #eee8bf;
+}
+.content-box h3{
+	font-size: 20px;
+	font-weight: bolder;
+	color: #eee8bf;
+}
+.content-box h4{
+	font-size: 20px;
 	font-weight: bolder;
 	color: #eee8bf;
 }
@@ -721,6 +745,35 @@ thead > tr > th {
 	display: inline-block;
 	background-color: black;
 }
+.footer-menu{
+	position: relative;
+	padding: 10px 0;
+	margin-bottom: 10px;
+}
+.footer-menu ul{
+	position: relative;
+	width: 30%;
+	margin: 0 auto;
+	padding: 0;
+	list-style: none;
+}
+.footer-menu ul li{
+	float: left;
+	width: 25%;
+	border-left: solid 1px #282828;
+	border-right: solid 1px #464646;
+}
+.footer-menu ul > li > a{
+	font-size: 14px;
+	font-weight: bolder;
+	color: white;
+	text-shadow:  0 0 0.5em #ffc35b,0 0 0.5em #a97110;
+	background-color: transparent;
+	outline: none;
+	padding: 0;
+}
+
+
 .copyrignt-box{
 	position: relative;
 	width: 56%;
@@ -730,7 +783,7 @@ thead > tr > th {
 .cr-logo-left{
 	position: relative;
 	float: left;
-	width: 20%;
+	width: 40%;
 	margin-bottom: 1%;
 }
 .cr-logo-right{
@@ -784,6 +837,9 @@ thead > tr > th {
 		margin: -20% auto 0%;
 	}
 	/*FOOTER*/
+	.footer-menu ul{
+		width: 50%;
+	}
 	.copyrignt-box{
 		width: 70%;
 	}	
@@ -831,6 +887,9 @@ thead > tr > th {
 	right: 4%;
 	}
 	/*FOOTER*/
+	.footer-menu ul{
+		width: 70%;
+	}
 	.copyrignt-box{
 		width: 90%;
 	}
@@ -886,12 +945,15 @@ thead > tr > th {
 		width: 6%;
 	}
 	/*FOOTER*/
+	.footer-menu ul{
+		width: 90%;
+	}
 	.copyrignt-box{
 		width: 90%;
 	}
 	.cr-logo-left{
 		float: left;
-		width: 50%;
+		width: 100%;
 	}
 	.cr-logo-right{
 		float: right;
@@ -1016,6 +1078,9 @@ h9{
 
 	
 	/*CONTENT*/
+	.content2{
+		min-height: 350px;
+	}
     .container {
         margin: 0 auto;
     }
@@ -1151,10 +1216,21 @@ h9{
 		font-size: 14px;
 		line-height: 20px;
 	}
+	.content-box h1{
+		font-size: 28px;
+		line-height: 30px;
+	}
 	.content-box h2{
 		font-size: 20px;
 		line-height: 30px;
 	}
+	.content-box h3{
+		font-size: 16px;
+	}
+	.content-box h4{
+		font-size: 16px;
+	}
+	
 	.content-btn-box{
 		width: 96%;
 	}
@@ -1174,12 +1250,15 @@ h9{
 		font-size: 14px;
 	}
 	/*FOOTER*/
+	.footer-menu ul{
+		width: 96%;
+	}
 	.copyrignt-box{
 		width: 96%;
 	}
 	.cr-logo-left{
 		float: left;
-		width: 50%;
+		width: 100%;
 	}
 	.cr-logo-right{
 		float: right;
