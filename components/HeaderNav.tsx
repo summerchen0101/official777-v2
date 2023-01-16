@@ -6,6 +6,8 @@ import useAuthRoute from '@/utils/useAuthRoute'
 import { showLoginPopup } from '@/utils'
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { useUserStore } from '@/store/useUserStore'
+import { useRouter } from 'next/dist/client/router'
 
 function HeaderNav() {
   const { data: user } = useMe()
@@ -14,6 +16,15 @@ function HeaderNav() {
 
   const handleComingSoon = () => {
     alert('敬請期待～')
+  }
+  const router = useRouter()
+
+  const clearUser = useUserStore((s) => s.clearUser)
+
+  const handleLogout = () => {
+    clearUser()
+    alert('登出成功')
+    router.push('/home')
   }
 
   useEffect(() => {
@@ -118,14 +129,14 @@ function HeaderNav() {
                 </ul>
               </li>
               <li className="nav-li-text hidden visible-xs">
-                <a href="#">
+                <a href="#" onClick={() => handleLogout()}>
                   <span className="glyphicon glyphicon-log-out"> </span>登出帳號
                 </a>
               </li>
             </>
           ) : null}
           <li className="nav-li-text hidden visible-xs">
-            <a href="#">
+            <a href="#" onClick={() => router.push('/app-redirect')}>
               <span className="glyphicon glyphicon-cloud-download"> </span>
               立即下載
             </a>
