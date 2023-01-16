@@ -136,7 +136,7 @@ function HeaderNav() {
             </>
           ) : null}
           <li className="nav-li-text hidden visible-xs">
-            <a href="#">
+            <a href="#" onClick={() => router.push('/app-redirect')}>
               <span className="glyphicon glyphicon-cloud-download"> </span>
               立即下載
             </a>
