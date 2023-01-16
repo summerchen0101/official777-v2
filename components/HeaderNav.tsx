@@ -33,15 +33,17 @@ function HeaderNav() {
         >
           <i className="fa fa-bars" />
         </button>
-        <div className="nav-btn hidden visible-xs">
-          <a className="show-layer" onClick={() => showLoginPopup()}>
-            <img
-              src="images/window_store_phone.png"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
-        </div>
+        {!user ? (
+          <div className="nav-btn hidden visible-xs">
+            <a className="show-layer" onClick={() => showLoginPopup()}>
+              <img
+                src="images/window_store_phone.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </a>
+          </div>
+        ) : null}
       </div>
       <div className="collapse navbar-collapse" id="navbar-menu">
         <ul
