@@ -9,6 +9,7 @@ export interface MeRes extends ResBase {
   avatarID: number
   coin: number
   vipLevel: number
+  vipExpAmount: number
   email: string
   countryCode: string
   cellphone: string
