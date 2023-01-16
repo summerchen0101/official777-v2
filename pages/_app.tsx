@@ -1,6 +1,7 @@
 import { LoginRes } from '@/services/useLogin'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
+import { showLoginPopup } from '@/utils'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
@@ -19,6 +20,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     getConfig()
   }, [])
+
+  useEffect(() => {
+    if (router.query.to) {
+      showLoginPopup()
+    }
+  }, [router.query.to])
 
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
 
