@@ -147,7 +147,7 @@ function LoginPopup() {
 
   return (
     <div className="hw-overlay2" id="hw-layer02" onClick={() => closePopup()}>
-      <div className="hw-layer-wrap">
+      <div className="hw-layer-wrap2">
         <span className="glyphicon glyphicon-remove hwLayer-close2" />
         <div className="hw-layer-wrap2-header">
           <h1 className="text-center">登入</h1>

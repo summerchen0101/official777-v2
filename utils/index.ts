@@ -81,7 +81,9 @@ export function localOpen(appUrl: string) {
 
 export function showLoginPopup() {
   const layer = $('#hw-layer02')
-  const layerwrap = layer.find('.hw-layer-wrap')
+  const layerwrap = layer.find(
+    '.hw-layer-wrap , .hw-layer-wrap2 , .hw-layer-wrap3',
+  )
   layer.fadeIn()
   //屏幕居中
   layerwrap.css({

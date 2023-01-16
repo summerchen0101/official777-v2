@@ -3,6 +3,7 @@ import bootsNavBar from '@/public/js/bootsnav'
 import useMe from '@/services/useMe'
 import { toCurrency } from '@/utils'
 import useAuthRoute from '@/utils/useAuthRoute'
+import { showLoginPopup } from '@/utils'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
@@ -32,6 +33,15 @@ function HeaderNav() {
         >
           <i className="fa fa-bars" />
         </button>
+        <div className="nav-btn hidden visible-xs">
+          <a className="show-layer" onClick={() => showLoginPopup()}>
+            <img
+              src="images/window_store_phone.png"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
       </div>
       <div className="collapse navbar-collapse" id="navbar-menu">
         <ul
@@ -50,64 +60,68 @@ function HeaderNav() {
               </a>
             </Link>
           </li>
-          <li className="nav-li-text hidden visible-xs">
-            <div className="logut-avatar">
-              <img
-                src={toCdnUrl(`/avatar/${user?.avatarID}.png`)}
-                alt=""
-                className="img-circle img-responsive center-block"
-              />
-            </div>
-          </li>
-          <li className="nav-li-text dropdown hidden visible-xs">
-            <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-              <div className="logout-id">
-                <p>{user?.nickname}</p>
-              </div>
-            </a>
-            <ul className="dropdown-menu">
-              <li>
-                <div className="logout-gold">
-                  <div className="logout-gold-icon">
-                    <img
-                      src="/images/login/icon_coin.png"
-                      alt=""
-                      className="img-responsive center-block"
-                    />
-                  </div>
-                  <div className="logout-gold-text">
-                    <p>{toCurrency(user?.coin)}</p>
-                  </div>
-                  <hr className="float-none" />
+          {user ? (
+            <>
+              <li className="nav-li-text hidden visible-xs">
+                <div className="logut-avatar">
+                  <img
+                    src={toCdnUrl(`/avatar/${user?.avatarID}.png`)}
+                    alt=""
+                    className="img-circle img-responsive center-block"
+                  />
                 </div>
               </li>
-              <li>
-                <div className="logout-mony">
-                  <div className="logout-mony-icon">
-                    <img
-                      src="/images/login/icon_point.png"
-                      alt=""
-                      className="img-responsive center-block"
-                    />
+              <li className="nav-li-text dropdown hidden visible-xs">
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                  <div className="logout-id">
+                    <p>{user?.nickname}</p>
                   </div>
-                  <div className="logout-mony-text">
-                    <p>{toCurrency(user?.paymentPoint)}</p>
-                  </div>
-                  <hr className="float-none" />
-                </div>
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <div className="logout-gold">
+                      <div className="logout-gold-icon">
+                        <img
+                          src="/images/login/icon_coin.png"
+                          alt=""
+                          className="img-responsive center-block"
+                        />
+                      </div>
+                      <div className="logout-gold-text">
+                        <p>{toCurrency(user?.coin)}</p>
+                      </div>
+                      <hr className="float-none" />
+                    </div>
+                  </li>
+                  <li>
+                    <div className="logout-mony">
+                      <div className="logout-mony-icon">
+                        <img
+                          src="/images/login/icon_point.png"
+                          alt=""
+                          className="img-responsive center-block"
+                        />
+                      </div>
+                      <div className="logout-mony-text">
+                        <p>{toCurrency(user?.paymentPoint)}</p>
+                      </div>
+                      <hr className="float-none" />
+                    </div>
+                  </li>
+                  <li>
+                    <div className="logout-vip">
+                      <p>VIP: LV{user?.vipLevel}</p>
+                    </div>
+                  </li>
+                </ul>
               </li>
-              <li>
-                <div className="logout-vip">
-                  <p>VIP: LV{user?.vipLevel}</p>
-                </div>
+              <li className="nav-li-text hidden visible-xs">
+                <a href="#">
+                  <span className="glyphicon glyphicon-log-out"> </span>登出帳號
+                </a>
               </li>
-            </ul>
-          </li>
-          <li className="nav-li-text hidden visible-xs">
-            <a href="#">
-              <span className="glyphicon glyphicon-log-out"> </span>登出帳號
-            </a>
-          </li>
+            </>
+          ) : null}
           <li className="nav-li-text hidden visible-xs">
             <a href="#">
               <span className="glyphicon glyphicon-cloud-download"> </span>
