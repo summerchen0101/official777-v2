@@ -53,12 +53,12 @@ function EventBanners() {
           <ul className="event-banner slider">
             <li>
               <a
-                href="https://activity.online539.com/event/prod/220803/index.html"
+                href="https://www.facebook.com/Online539"
                 target="_blank"
                 rel="noreferrer"
               >
                 <img
-                  src="/images/eventbanner/event_banner900x500.jpg"
+                  src="/images/eventbanner/娜編迎新春.jpg"
                   alt=""
                   className="img-responsive center-block"
                 />
@@ -66,7 +66,33 @@ function EventBanners() {
             </li>
             <li>
               <a
-                href="https://activity.online539.com/event/prod/220803/index.html"
+                href="https://www.facebook.com/Online539"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/eventbanner/刮到娜編去.png"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/Online539"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/eventbanner/跟著娜編找金兔.jpg"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/Online539"
                 target="_blank"
                 rel="noreferrer"
               >
