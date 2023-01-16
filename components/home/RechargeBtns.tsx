@@ -1,10 +1,8 @@
-import useMe from '@/services/useMe'
-import { showLoginPopup } from '@/utils'
-import { useRouter } from 'next/dist/client/router'
+import useAuthRoute from '@/utils/useAuthRoute'
 
 function RechargeBtns() {
-  const { data: user } = useMe()
-  const router = useRouter()
+  const toAuthRoute = useAuthRoute()
+
   return (
     <div
       className="btn-box wow fadeInUp"
@@ -12,12 +10,7 @@ function RechargeBtns() {
       data-wow-duration="2s"
     >
       <div className="btn-evnet">
-        <a
-          href="#"
-          onClick={() =>
-            user ? router.push('/recharge-promo') : showLoginPopup()
-          }
-        >
+        <a href="#" onClick={() => toAuthRoute('/recharge-promo')}>
           <img
             src="/images/btn_event.png"
             alt=""
@@ -31,12 +24,7 @@ function RechargeBtns() {
         </a>
       </div>
       <div className="btn-shop">
-        <a
-          href="#"
-          onClick={() =>
-            user ? router.push('/recharge-mc?p=1') : showLoginPopup()
-          }
-        >
+        <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=1')}>
           <img
             src="/images/btn_shop.png"
             alt=""
@@ -50,12 +38,7 @@ function RechargeBtns() {
         </a>
       </div>
       <div className="btn-mycard">
-        <a
-          href="#"
-          onClick={() =>
-            user ? router.push('/recharge-pkg') : showLoginPopup()
-          }
-        >
+        <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
           <img
             src="/images/btn_mycard.png"
             alt=""

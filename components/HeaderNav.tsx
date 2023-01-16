@@ -1,15 +1,15 @@
 import useCdnUrl from '@/hooks/useCdnUrl'
 import bootsNavBar from '@/public/js/bootsnav'
 import useMe from '@/services/useMe'
-import { showLoginPopup, toCurrency } from '@/utils'
-import { useRouter } from 'next/dist/client/router'
+import { toCurrency } from '@/utils'
+import useAuthRoute from '@/utils/useAuthRoute'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
 function HeaderNav() {
   const { data: user } = useMe()
-  const router = useRouter()
   const toCdnUrl = useCdnUrl()
+  const toAuthRoute = useAuthRoute()
 
   const handleComingSoon = () => {
     alert('敬請期待～')
@@ -179,12 +179,7 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a
-                  href="#"
-                  onClick={() =>
-                    user ? router.push('/recharge-promo') : showLoginPopup()
-                  }
-                >
+                <a href="#" onClick={() => toAuthRoute('/recharge-promo')}>
                   活動序號兌換
                 </a>
               </li>
@@ -194,87 +189,39 @@ function HeaderNav() {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a
-                      href="#"
-                      onClick={() =>
-                        user
-                          ? router.push('/recharge-mc?p=1')
-                          : showLoginPopup()
-                      }
-                    >
+                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=1')}>
                       序號儲值
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      onClick={() =>
-                        user
-                          ? router.push('/recharge-mc?p=2')
-                          : showLoginPopup()
-                      }
-                    >
+                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=2')}>
                       線上轉點
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      onClick={() =>
-                        user
-                          ? router.push('/recharge-mc?p=5')
-                          : showLoginPopup()
-                      }
-                    >
+                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=5')}>
                       電信支付
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      onClick={() =>
-                        user
-                          ? router.push('/recharge-mc?p=3')
-                          : showLoginPopup()
-                      }
-                    >
+                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=3')}>
                       信用卡支付
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      onClick={() =>
-                        user
-                          ? router.push('/recharge-mc?p=4')
-                          : showLoginPopup()
-                      }
-                    >
+                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=4')}>
                       免費抵扣
                     </a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a
-                  href="#"
-                  onClick={() =>
-                    user ? router.push('/recharge-pkg') : showLoginPopup()
-                  }
-                >
+                <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
                   智冠實體產包
                 </a>
               </li>
               <li>
-                <Link href="/recharge-atm" passHref>
-                  <a>綠界銀行轉帳</a>
-                </Link>
-                <a
-                  href="#"
-                  onClick={() =>
-                    user ? router.push('/recharge-atm') : showLoginPopup()
-                  }
-                >
+                <a href="#" onClick={() => toAuthRoute('/recharge-atm')}>
                   綠界銀行轉帳
                 </a>
               </li>
@@ -286,22 +233,12 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a
-                  href="#"
-                  onClick={() =>
-                    user ? router.push('/recharge-record') : showLoginPopup()
-                  }
-                >
+                <a href="#" onClick={() => toAuthRoute('/recharge-record')}>
                   儲值紀錄
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  onClick={() =>
-                    user ? router.push('/change-pw') : showLoginPopup()
-                  }
-                >
+                <a href="#" onClick={() => toAuthRoute('/change-pw')}>
                   修改密碼
                 </a>
               </li>
@@ -344,12 +281,7 @@ function HeaderNav() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#"
-                  onClick={() =>
-                    user ? router.push('/contact') : showLoginPopup()
-                  }
-                >
+                <a href="#" onClick={() => toAuthRoute('/contact')}>
                   聯繫客服
                 </a>
               </li>
