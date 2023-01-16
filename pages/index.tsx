@@ -12,7 +12,7 @@ const Index: NextPage = () => {
       router.push(router.query.to as string)
       return
     }
-    router.push(window.innerWidth > 600 ? '/home' : '/mb/home')
+    router.push('/home')
   }, [router])
   return (
     <div>
