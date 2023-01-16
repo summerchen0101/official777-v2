@@ -27,6 +27,16 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, [router.query.to])
 
+  useEffect(() => {
+    $('#navbar-menu').collapse('hide')
+    $('.navbar-toggle > i.fa').removeClass('fa-times')
+    $('.navbar-toggle > i.fa').addClass('fa-bars')
+    $('body').removeClass('side-right')
+    //移除SCROLL鎖//
+    $('html').removeClass('noscroll')
+    $('body').removeClass('noscroll')
+  }, [router])
+
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
 
   useEffect(() => {
