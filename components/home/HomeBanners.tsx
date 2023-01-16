@@ -19,7 +19,7 @@ function HomeBanners() {
         <div className="hidden-xs">
           <a href="#">
             <img
-              src="/images/headerbanner/pcbanner/header_banner01.png"
+              src="/images/headerbanner/pcbanner/header_banner01.jpg"
               alt=""
               className="img-responsive center-block"
             />
@@ -28,7 +28,7 @@ function HomeBanners() {
         <div className="hidden visible-xs">
           <a href="#">
             <img
-              src="/images/headerbanner/phonebanner/phonebanner01.png"
+              src="/images/headerbanner/phonebanner/phonebanner01.jpg"
               alt=""
               className="img-responsive center-block"
             />
@@ -43,7 +43,7 @@ function HomeBanners() {
             rel="noreferrer"
           >
             <img
-              src="/images/headerbanner/pcbanner/header_banner02.png"
+              src="/images/headerbanner/pcbanner/header_banner02.jpg"
               alt=""
               className="img-responsive center-block"
             />
@@ -56,7 +56,7 @@ function HomeBanners() {
             rel="noreferrer"
           >
             <img
-              src="/images/headerbanner/phonebanner/phonebanner02.png"
+              src="/images/headerbanner/phonebanner/phonebanner02.jpg"
               alt=""
               className="img-responsive center-block"
             />
