@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 function FooterComp() {
   return (
@@ -7,16 +8,24 @@ function FooterComp() {
       <div className="footer-menu">
         <ul>
           <li className="text-center">
-            <a href="content/service/service_terms.html">服務條款</a>
+            <Link href="/terms" passHref>
+              <a>服務條款</a>
+            </Link>
           </li>
           <li className="text-center">
-            <a href="content/service/service_rules.html">遊戲管理規章</a>
+            <Link href="/rules" passHref>
+              <a>遊戲管理規章</a>
+            </Link>
           </li>
           <li className="text-center">
-            <a href="content/service/service_privacy.html">隱私權政策</a>
+            <Link href="/privacy" passHref>
+              <a>隱私權政策</a>
+            </Link>
           </li>
           <li className="text-center">
-            <a href="content/service/service_equipment.html">需求配備</a>
+            <Link href="/equipment" passHref>
+              <a>需求配備</a>
+            </Link>
           </li>
         </ul>
         <hr className="float-none" />
