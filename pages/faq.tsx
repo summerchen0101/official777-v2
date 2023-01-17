@@ -81,7 +81,7 @@ function FaqPage() {
                   <div className="content-box">
                     <ul className="sub-tab">
                       <li>
-                        <a href="#sub-tab-1">儲值相關</a>
+                        <a href="#sub-tab-1">帳號相關</a>
                       </li>
                       <li>
                         <a href="#sub-tab-2">儲值相關</a>
@@ -195,7 +195,7 @@ function FaqPage() {
                               可透過遊戲大廳上方【商城】進行儲值，依據您的手機裝置版本不同，可使用不同的支付方式完成儲值：
                             </p>
                             <ol>
-                              <li>OS＞Apple Pay</li>
+                              <li>iOS＞Apple Pay</li>
                               <li>Google＞Google Pay</li>
                               <li>APK＞MyCard 或 綠界支付轉帳</li>
                             </ol>
