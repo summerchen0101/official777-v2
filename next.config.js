@@ -1,5 +1,14 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/mb/home',
+        destination: '/home',
+        permanent: false,
+      },
+    ]
+  },
   reactStrictMode: true,
   typescript: {
     ignoreBuildErrors: true,

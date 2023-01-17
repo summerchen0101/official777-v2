@@ -1,3 +1,4 @@
+import ErrorBoundary from '@/components/ErrorBoundary'
 import { LoginRes } from '@/services/useLogin'
 import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
@@ -28,14 +29,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.query.to])
 
   useEffect(() => {
-    if ($) {
-      $('#navbar-menu').collapse('hide')
-      $('.navbar-toggle > i.fa').removeClass('fa-times')
-      $('.navbar-toggle > i.fa').addClass('fa-bars')
-      $('body').removeClass('side-right')
-      //移除SCROLL鎖//
-      $('html').removeClass('noscroll')
-      $('body').removeClass('noscroll')
+    try {
+      if ($) {
+        $('#navbar-menu').collapse('hide')
+        $('.navbar-toggle > i.fa').removeClass('fa-times')
+        $('.navbar-toggle > i.fa').addClass('fa-bars')
+        $('body').removeClass('side-right')
+        //移除SCROLL鎖//
+        $('html').removeClass('noscroll')
+        $('body').removeClass('noscroll')
+      }
+    } catch (err) {
+      console.log(err)
     }
   }, [router])
 
@@ -113,7 +118,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 `}
       </Script> */}
       <div className="bg-cover" />
-      {apiBaseUrl && <Component {...pageProps} />}
+      {apiBaseUrl && (
+        <ErrorBoundary router={router}>
+          <Component {...pageProps} />
+        </ErrorBoundary>
+      )}
 
       <script defer src="js/jquery-1.11.3.min.js"></script>
       <script defer src="js/bootstrap.js"></script>
