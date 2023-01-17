@@ -80,7 +80,7 @@ function RechargeMcPage() {
         userID: user?.id!,
         paymentType:
           paymentType === MCPaymentType.ASIA_PACIFIC_MOBILE
-            ? d.telPay
+            ? +d.telPay
             : paymentType,
       })
       if (res?.data.requestURL) {
