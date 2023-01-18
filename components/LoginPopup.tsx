@@ -115,7 +115,7 @@ function LoginPopup() {
 
   const closePopup = () => {
     setCount(0)
-    $('#hw-layer02').fadeOut()
+    $('#loginPopup').fadeOut()
   }
 
   const { handler: login, isLoading } = useSmsLogin()
@@ -146,7 +146,7 @@ function LoginPopup() {
   })
 
   return (
-    <div className="hw-overlay2" id="hw-layer02" onClick={() => closePopup()}>
+    <div className="hw-overlay2" id="loginPopup" onClick={() => closePopup()}>
       <div className="hw-layer-wrap2">
         <span className="glyphicon glyphicon-remove hwLayer-close2" />
         <div className="hw-layer-wrap2-header">

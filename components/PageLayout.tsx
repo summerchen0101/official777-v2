@@ -6,6 +6,7 @@ import RechargeFloat from '@/components/RechargeFloat'
 import UserInfoFloat from '@/components/UserInfoFloat'
 import useMe from '@/services/useMe'
 import { memo, ReactNode } from 'react'
+import AppDownloadPopup from './AppDownloadPopup'
 
 type Props = {
   children: ReactNode
@@ -23,6 +24,7 @@ function PageLayout({ children }: Props) {
 
       <FooterComp />
       <LoginPopup />
+      <AppDownloadPopup />
     </>
   )
 }

@@ -79,14 +79,20 @@ export function localOpen(appUrl: string) {
   }, 2000)
 }
 
-export function showLoginPopup() {
-  const layer = $('#hw-layer02')
-  const layerwrap = layer.find(
-    '.hw-layer-wrap , .hw-layer-wrap2 , .hw-layer-wrap3',
-  )
+function showLayer(id: string) {
+  var layer = $('#' + id),
+    layerwrap = layer.find('.hw-layer-wrap , .hw-layer-wrap2 , .hw-layer-wrap3')
   layer.fadeIn()
   //屏幕居中
   layerwrap.css({
     'margin-top': -layerwrap.outerHeight() / 2,
   })
+}
+
+export function showLoginPopup() {
+  showLayer('loginPopup')
+}
+
+export function showAppPopup() {
+  showLayer('appPopup')
 }
