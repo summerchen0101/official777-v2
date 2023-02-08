@@ -105,7 +105,8 @@ function FaqPage() {
                           <dt className="sub-menu-dt">Q：如何綁定遊戲帳號？</dt>
                           <dd className="sub-menu-dd">
                             <p>
-                              在登入畫面中選擇【手機帳號】後，點擊【忘記密碼】輸入原綁定的手機號碼【確認】時，將會以簡訊驗證碼方式重設登入密碼。
+                              在遊戲大廳右上方【設定】中，可選擇【綁定會員帳號(手機號碼)】、【LINE】、(
+                              iOS設備【Apple ID】)進行連動綁定。
                             </p>
                           </dd>
                           <dt className="sub-menu-dt">

@@ -110,6 +110,19 @@ function EventBanners() {
                 rel="noreferrer"
               >
                 <img
+                  src="/images/eventbanner/每日活動(舞姬貂蟬).jpg"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/Online539"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
                   src="/images/eventbanner/粉專破5000.jpg"
                   alt=""
                   className="img-responsive center-block"
