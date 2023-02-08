@@ -58,6 +58,58 @@ function EventBanners() {
                 rel="noreferrer"
               >
                 <img
+                  src="/images/eventbanner/每日活動(深海拉拉樂).jpg"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/Online539"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/eventbanner/每日活動(鋼鐵超人).jpg"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/Online539"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/eventbanner/每日活動(夜上海).jpg"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/Online539"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
+                  src="/images/eventbanner/每日活動(沙灘派對).jpg"
+                  alt=""
+                  className="img-responsive center-block"
+                />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/Online539"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <img
                   src="/images/eventbanner/粉專破5000.jpg"
                   alt=""
                   className="img-responsive center-block"
