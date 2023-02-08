@@ -28,7 +28,7 @@ function HomeBanners() {
         <div className="hidden visible-xs">
           <a href="#">
             <img
-              src="/images/headerbanner/phonebanner/phonebanner01.png"
+              src="/images/headerbanner/phonebanner/九尾狐-828x1150.jpg"
               alt=""
               className="img-responsive center-block"
             />
@@ -48,7 +48,7 @@ function HomeBanners() {
         <div className="hidden visible-xs">
           <a href="#">
             <img
-              src="/images/headerbanner/phonebanner/phonebanner01.png"
+              src="/images/headerbanner/phonebanner/魔龍傳奇-828x1150.jpg"
               alt=""
               className="img-responsive center-block"
             />
@@ -68,7 +68,7 @@ function HomeBanners() {
         <div className="hidden visible-xs">
           <a href="#">
             <img
-              src="/images/headerbanner/phonebanner/phonebanner01.png"
+              src="/images/headerbanner/phonebanner/歡樂聖誕-828x1150.jpg"
               alt=""
               className="img-responsive center-block"
             />
