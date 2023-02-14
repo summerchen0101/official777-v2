@@ -1,5 +1,28 @@
 import React, { memo, useEffect } from 'react'
 
+const sliders = [
+  {
+    imgSrc: '/images/eventbanner/每日活動0217.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0218.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0219.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0220.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/粉專破5000.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+]
+
 function EventBanners() {
   useEffect(() => {
     $('.event-banner').slick({
@@ -51,84 +74,17 @@ function EventBanners() {
           data-wow-duration="1s"
         >
           <ul className="event-banner slider">
-            <li>
-              <a
-                href="https://www.facebook.com/Online539"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/eventbanner/每日活動(深海拉拉樂).jpg"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/Online539"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/eventbanner/每日活動(鋼鐵超人).jpg"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/Online539"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/eventbanner/每日活動(夜上海).jpg"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/Online539"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/eventbanner/每日活動(沙灘派對).jpg"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/Online539"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/eventbanner/每日活動(舞姬貂蟬).jpg"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.facebook.com/Online539"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img
-                  src="/images/eventbanner/粉專破5000.jpg"
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </li>
+            {sliders.map((t) => (
+              <li key={t.imgSrc}>
+                <a href={t.link} target="_blank" rel="noreferrer">
+                  <img
+                    src={t.imgSrc}
+                    alt=""
+                    className="img-responsive center-block"
+                  />
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
