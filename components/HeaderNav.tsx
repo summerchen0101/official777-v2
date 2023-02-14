@@ -283,11 +283,14 @@ function HeaderNav() {
               會員專區
             </a>
             <ul className="dropdown-menu">
-              <li>
-                <a href="#" onClick={() => toAuthRoute('/recharge-record')}>
-                  儲值紀錄
-                </a>
-              </li>
+              {canRecharge ? (
+                <li>
+                  <a href="#" onClick={() => toAuthRoute('/recharge-record')}>
+                    儲值紀錄
+                  </a>
+                </li>
+              ) : null}
+
               <li>
                 <a href="#" onClick={() => toAuthRoute('/change-pw')}>
                   修改密碼
