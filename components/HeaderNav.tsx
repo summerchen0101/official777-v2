@@ -8,8 +8,10 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { useUserStore } from '@/store/useUserStore'
 import { useRouter } from 'next/dist/client/router'
+import { useStore } from '@/store/useStore'
 
 function HeaderNav() {
+  const { canRecharge } = useStore((s) => s.clientEnv)
   const { data: user } = useMe()
   const toCdnUrl = useCdnUrl()
   const toAuthRoute = useAuthRoute()
@@ -200,60 +202,82 @@ function HeaderNav() {
               </li>
             </ul>
           </li>
-          <li className="nav-li-text dropdown">
-            <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-              儲值/序號
-            </a>
-            <ul className="dropdown-menu">
-              <li>
-                <a href="#" onClick={() => toAuthRoute('/recharge-promo')}>
-                  活動序號兌換
-                </a>
-              </li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                  MyCard支付
-                </a>
-                <ul className="dropdown-menu">
-                  <li>
-                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=1')}>
-                      序號儲值
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=2')}>
-                      線上轉點
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=5')}>
-                      電信支付
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=3')}>
-                      信用卡支付
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=4')}>
-                      免費抵扣
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
-                  智冠實體產包
-                </a>
-              </li>
-              <li>
-                <a href="#" onClick={() => toAuthRoute('/recharge-atm')}>
-                  綠界銀行轉帳
-                </a>
-              </li>
-            </ul>
-          </li>
+          {canRecharge ? (
+            <li className="nav-li-text dropdown">
+              <a href="#" className="dropdown-toggle" data-toggle="dropdown">
+                儲值/序號
+              </a>
+              <ul className="dropdown-menu">
+                <li>
+                  <a href="#" onClick={() => toAuthRoute('/recharge-promo')}>
+                    活動序號兌換
+                  </a>
+                </li>
+                <li className="dropdown">
+                  <a
+                    href="#"
+                    className="dropdown-toggle"
+                    data-toggle="dropdown"
+                  >
+                    MyCard支付
+                  </a>
+                  <ul className="dropdown-menu">
+                    <li>
+                      <a
+                        href="#"
+                        onClick={() => toAuthRoute('/recharge-mc?p=1')}
+                      >
+                        序號儲值
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        onClick={() => toAuthRoute('/recharge-mc?p=2')}
+                      >
+                        線上轉點
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        onClick={() => toAuthRoute('/recharge-mc?p=5')}
+                      >
+                        電信支付
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        onClick={() => toAuthRoute('/recharge-mc?p=3')}
+                      >
+                        信用卡支付
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        onClick={() => toAuthRoute('/recharge-mc?p=4')}
+                      >
+                        免費抵扣
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
+                    智冠實體產包
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick={() => toAuthRoute('/recharge-atm')}>
+                    綠界銀行轉帳
+                  </a>
+                </li>
+              </ul>
+            </li>
+          ) : null}
+
           <li className="nav-li-text dropdown">
             <a href="#" className="dropdown-toggle" data-toggle="dropdown">
               會員專區

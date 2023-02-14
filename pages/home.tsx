@@ -7,9 +7,11 @@ import RechargeBtns from '@/components/home/RechargeBtns'
 import VideoBanners from '@/components/home/VideoBanners'
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
+import { useStore } from '@/store/useStore'
 import { useEffect } from 'react'
 
 function HomePage() {
+  const { canRecharge } = useStore((s) => s.clientEnv)
   useEffect(() => {
     var wow = new WOW({
       boxClass: 'wow', // 欲套用wow.js的class                      (預設wow)
@@ -35,7 +37,8 @@ function HomePage() {
         <div className="black-line" />
         <div className="gold-line" />
       </header>
-      <RechargeBtns />
+      {canRecharge ? <RechargeBtns /> : null}
+
       <div className="arrow-box arrow-animate hidden-xs">
         <i className="arrow " />
       </div>
