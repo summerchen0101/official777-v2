@@ -9,6 +9,20 @@ function RechargeBtns() {
       data-wow-delay="0.2s"
       data-wow-duration="2s"
     >
+      <div className="btn-mycard">
+        <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
+          <img
+            src="/images/btn_mycard.png"
+            alt=""
+            className="img-responsive center-block hidden-xs"
+          />
+          <img
+            src="/images/btn_phone_mycard.png"
+            alt=""
+            className="img-responsive center-block hidden visible-xs"
+          />
+        </a>
+      </div>
       <div className="btn-evnet">
         <a href="#" onClick={() => toAuthRoute('/recharge-promo')}>
           <img
@@ -37,20 +51,7 @@ function RechargeBtns() {
           />
         </a>
       </div>
-      <div className="btn-mycard">
-        <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
-          <img
-            src="/images/btn_mycard.png"
-            alt=""
-            className="img-responsive center-block hidden-xs"
-          />
-          <img
-            src="/images/btn_phone_mycard.png"
-            alt=""
-            className="img-responsive center-block hidden visible-xs"
-          />
-        </a>
-      </div>
+
       <hr className="float-none" />
     </div>
   )
