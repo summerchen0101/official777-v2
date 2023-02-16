@@ -46,7 +46,7 @@ function HeaderNav() {
         >
           <i className="fa fa-bars" />
         </button>
-        {!user && canRecharge ? (
+        {!user ? (
           <div className="nav-btn hidden visible-xs">
             <a className="show-layer" onClick={() => showLoginPopup()}>
               <img
