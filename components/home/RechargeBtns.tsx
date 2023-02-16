@@ -10,7 +10,7 @@ function RechargeBtns() {
       data-wow-duration="2s"
     >
       <div className="btn-mycard">
-        <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
+        <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=1')}>
           <img
             src="/images/btn_mycard.png"
             alt=""
@@ -38,7 +38,7 @@ function RechargeBtns() {
         </a>
       </div>
       <div className="btn-shop">
-        <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=1')}>
+        <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
           <img
             src="/images/btn_shop.png"
             alt=""
