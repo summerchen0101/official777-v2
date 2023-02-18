@@ -18,7 +18,31 @@ const sliders = [
     link: '"https://www.facebook.com/Online539"',
   },
   {
-    imgSrc: '/images/eventbanner/粉專破5000.jpg',
+    imgSrc: '/images/eventbanner/每日活動0221.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0222.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0223.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0224.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0226.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0227.jpg',
+    link: '"https://www.facebook.com/Online539"',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0228.jpg',
     link: '"https://www.facebook.com/Online539"',
   },
 ]
