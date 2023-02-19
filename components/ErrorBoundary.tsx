@@ -7,7 +7,7 @@ interface Props {
 class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
   constructor(props: Props) {
     super(props)
-    this.props.router.push('/home')
+    // this.props.router.push('/home')
     // Define a state variable to track whether is an error or not
     this.state = { hasError: false }
   }
