@@ -1,6 +1,8 @@
+import { useStore } from '@/store/useStore'
 import React from 'react'
 
 function AppDownloadPopup() {
+  const { canRecharge } = useStore((s) => s.clientEnv)
   return (
     <div
       className="hw-overlay2"
@@ -44,18 +46,23 @@ function AppDownloadPopup() {
                 className="img-responsive center-block"
               />
             </a>
-            <br />
-            <a
-              href="https://resource-cdn.bigboss101.com/official/game.apk"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src="images/window_apk.png"
-                alt=""
-                className="img-responsive center-block"
-              />
-            </a>
+            {canRecharge ? (
+              <>
+                {' '}
+                <br />
+                <a
+                  href="https://resource-cdn.bigboss101.com/official/game.apk"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src="images/window_apk.png"
+                    alt=""
+                    className="img-responsive center-block"
+                  />
+                </a>
+              </>
+            ) : null}
           </div>
         </div>
       </div>

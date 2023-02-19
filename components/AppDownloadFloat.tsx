@@ -1,7 +1,9 @@
 import React from 'react'
 import { showAppPopup } from '@/utils'
+import { useStore } from '@/store/useStore'
 
 function AppDownloadFloat() {
+  const { canRecharge } = useStore((s) => s.clientEnv)
   return (
     <>
       <div
@@ -37,17 +39,20 @@ function AppDownloadFloat() {
               className="img-responsive center-block"
             />
           </a>
-          <a
-            href="https://resource-cdn.bigboss101.com/official/game.apk"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="/images/window_apk.png"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
+          {canRecharge ? (
+            <a
+              href="https://resource-cdn.bigboss101.com/official/game.apk"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img
+                src="/images/window_apk.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </a>
+          ) : null}
+
           <img
             src="/images/window_qr.png"
             alt=""
