@@ -1,6 +1,7 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
 import { useEffect } from 'react'
+import Link from 'next/link'
 
 function FaqPage() {
   useEffect(() => {
@@ -278,7 +279,15 @@ function FaqPage() {
                                 本娛樂城為官方正式儲值方式是透過本遊戲內「商城」或是《大頭家》娛樂城官方網站完成進行儲值遊戲點數（頭家點）。
                               </li>
                               <li>
-                                遊戲點數或金幣一經儲值完成後，任何非官方交易均為違規行為，相關資訊皆可在「服務條款」與「遊戲管理規章」中參閱了解。
+                                遊戲點數或金幣一經儲值完成後，任何非官方交易均為違規行為，相關資訊皆可在
+                                <Link href="/terms" passHref>
+                                  <a>「服務條款」</a>
+                                </Link>
+                                與
+                                <Link href="/rules" passHref>
+                                  <a>「遊戲管理規章」</a>
+                                </Link>
+                                中參閱了解。
                               </li>
                             </ul>
                           </dd>
