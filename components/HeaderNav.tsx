@@ -208,11 +208,6 @@ function HeaderNav() {
                 儲值/序號
               </a>
               <ul className="dropdown-menu">
-                <li>
-                  <a href="#" onClick={() => toAuthRoute('/recharge-promo')}>
-                    活動序號兌換
-                  </a>
-                </li>
                 <li className="dropdown">
                   <a
                     href="#"
@@ -265,13 +260,18 @@ function HeaderNav() {
                   </ul>
                 </li>
                 <li>
-                  <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
-                    智冠實體產包
+                  <a href="#" onClick={() => toAuthRoute('/recharge-atm')}>
+                    綠界銀行轉帳
                   </a>
                 </li>
                 <li>
-                  <a href="#" onClick={() => toAuthRoute('/recharge-atm')}>
-                    綠界銀行轉帳
+                  <a href="#" onClick={() => toAuthRoute('/recharge-promo')}>
+                    活動序號兌換
+                  </a>
+                </li>
+                <li>
+                  <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
+                    智冠實體產包
                   </a>
                 </li>
               </ul>
