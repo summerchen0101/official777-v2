@@ -29,7 +29,7 @@ function AppDownloadPopup() {
               rel="noreferrer"
             >
               <img
-                src="images/window_apple.png"
+                src="/images/window_apple.png"
                 alt=""
                 className="img-responsive center-block"
               />
@@ -41,7 +41,7 @@ function AppDownloadPopup() {
               rel="noreferrer"
             >
               <img
-                src="images/window_google.png"
+                src="/images/window_google.png"
                 alt=""
                 className="img-responsive center-block"
               />
@@ -56,7 +56,7 @@ function AppDownloadPopup() {
                   rel="noreferrer"
                 >
                   <img
-                    src="images/window_apk.png"
+                    src="/images/window_apk.png"
                     alt=""
                     className="img-responsive center-block"
                   />

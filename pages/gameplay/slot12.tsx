@@ -18,7 +18,7 @@ function IntroGamePlaySlot01Page() {
             className="img-responsive center-block hidden-xs"
           />
           <img
-            src="/images/novice/header_phone_service.jpg"
+            src="/images/novice/header_phone_novice.jpg"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />

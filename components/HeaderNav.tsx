@@ -50,7 +50,7 @@ function HeaderNav() {
           <div className="nav-btn hidden visible-xs">
             <a className="show-layer" onClick={() => showLoginPopup()}>
               <img
-                src="images/window_store_phone.png"
+                src="/images/window_store_phone.png"
                 alt=""
                 className="img-responsive center-block"
               />

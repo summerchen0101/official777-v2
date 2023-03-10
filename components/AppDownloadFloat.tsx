@@ -63,7 +63,7 @@ function AppDownloadFloat() {
       <div className="window-box-download hidden visible-xs">
         <a className="show-layer" onClick={() => showAppPopup()}>
           <img
-            src="images/btn_download.png"
+            src="/images/btn_download.png"
             alt=""
             className="img-responsive pull-right"
           />
