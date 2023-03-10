@@ -107,7 +107,7 @@ function IntroGamePlayPage() {
                             <h4>年年有瑜</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot01.html"
+                              href="/gameplay/slot01"
                               target="_blank"
                             >
                               遊戲介紹
@@ -136,7 +136,7 @@ function IntroGamePlayPage() {
                             <h4>3D魔龍傳奇</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot26.html"
+                              href="/gameplay/slot26"
                               target="_blank"
                             >
                               遊戲介紹
@@ -165,7 +165,7 @@ function IntroGamePlayPage() {
                             <h4>九尾狐</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot03.html"
+                              href="/gameplay/slot03"
                               target="_blank"
                             >
                               遊戲介紹
@@ -194,7 +194,7 @@ function IntroGamePlayPage() {
                             <h4>芭絲特</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot28.html"
+                              href="/gameplay/slot28"
                               target="_blank"
                             >
                               遊戲介紹
@@ -223,7 +223,7 @@ function IntroGamePlayPage() {
                             <h4>恭喜發財</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot14.html"
+                              href="/gameplay/slot14"
                               target="_blank"
                             >
                               遊戲介紹
@@ -252,7 +252,7 @@ function IntroGamePlayPage() {
                             <h4>招財聚寶</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot27.html"
+                              href="/gameplay/slot27"
                               target="_blank"
                             >
                               遊戲介紹
@@ -281,7 +281,7 @@ function IntroGamePlayPage() {
                             <h4>歡樂聖誕</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot30.html"
+                              href="/gameplay/slot30"
                               target="_blank"
                             >
                               遊戲介紹
@@ -310,7 +310,7 @@ function IntroGamePlayPage() {
                             <h4>西部牛仔</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot06.html"
+                              href="/gameplay/slot06"
                               target="_blank"
                             >
                               遊戲介紹
@@ -339,7 +339,7 @@ function IntroGamePlayPage() {
                             <h4>夜上海</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot02.html"
+                              href="/gameplay/slot02"
                               target="_blank"
                             >
                               遊戲介紹
@@ -368,7 +368,7 @@ function IntroGamePlayPage() {
                             <h4>頭家夜總會</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot04.html"
+                              href="/gameplay/slot04"
                               target="_blank"
                             >
                               遊戲介紹
@@ -397,7 +397,7 @@ function IntroGamePlayPage() {
                             <h4>超級777</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot07.html"
+                              href="/gameplay/slot07"
                               target="_blank"
                             >
                               遊戲介紹
@@ -426,7 +426,7 @@ function IntroGamePlayPage() {
                             <h4>經典777</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot19.html"
+                              href="/gameplay/slot19"
                               target="_blank"
                             >
                               遊戲介紹
@@ -455,7 +455,7 @@ function IntroGamePlayPage() {
                             <h4>深海拉拉樂</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot22.html"
+                              href="/gameplay/slot22"
                               target="_blank"
                             >
                               遊戲介紹
@@ -484,7 +484,7 @@ function IntroGamePlayPage() {
                             <h4>麻將拉拉樂</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot20.html"
+                              href="/gameplay/slot20"
                               target="_blank"
                             >
                               遊戲介紹
@@ -513,7 +513,7 @@ function IntroGamePlayPage() {
                             <h4>沙灘派對</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot09.html"
+                              href="/gameplay/slot09"
                               target="_blank"
                             >
                               遊戲介紹
@@ -542,7 +542,7 @@ function IntroGamePlayPage() {
                             <h4>埃及豔后</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot10.html"
+                              href="/gameplay/slot10"
                               target="_blank"
                             >
                               遊戲介紹
@@ -571,7 +571,7 @@ function IntroGamePlayPage() {
                             <h4>女僕咖啡廳</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot13.html"
+                              href="/gameplay/slot13"
                               target="_blank"
                             >
                               遊戲介紹
@@ -600,7 +600,7 @@ function IntroGamePlayPage() {
                             <h4>呆萌鳥</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot11.html"
+                              href="/gameplay/slot11"
                               target="_blank"
                             >
                               遊戲介紹
@@ -629,7 +629,7 @@ function IntroGamePlayPage() {
                             <h4>開心動物園</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot16.html"
+                              href="/gameplay/slot16"
                               target="_blank"
                             >
                               遊戲介紹
@@ -658,7 +658,7 @@ function IntroGamePlayPage() {
                             <h4>昆蟲樂園</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot21.html"
+                              href="/gameplay/slot21"
                               target="_blank"
                             >
                               遊戲介紹
@@ -687,7 +687,7 @@ function IntroGamePlayPage() {
                             <h4>糖果消消樂</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot05.html"
+                              href="/gameplay/slot05"
                               target="_blank"
                             >
                               遊戲介紹
@@ -716,7 +716,7 @@ function IntroGamePlayPage() {
                             <h4>魔法消消樂</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot29.html"
+                              href="/gameplay/slot29"
                               target="_blank"
                             >
                               遊戲介紹
@@ -745,7 +745,7 @@ function IntroGamePlayPage() {
                             <h4>舞姬貂蟬</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot08.html"
+                              href="/gameplay/slot08"
                               target="_blank"
                             >
                               遊戲介紹
@@ -774,7 +774,7 @@ function IntroGamePlayPage() {
                             <h4>三國之義薄雲天</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot12.html"
+                              href="/gameplay/slot12"
                               target="_blank"
                             >
                               遊戲介紹
@@ -803,7 +803,7 @@ function IntroGamePlayPage() {
                             <h4>甜心護士</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot15.html"
+                              href="/gameplay/slot15"
                               target="_blank"
                             >
                               遊戲介紹
@@ -832,7 +832,7 @@ function IntroGamePlayPage() {
                             <h4>神燈精靈</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot23.html"
+                              href="/gameplay/slot23"
                               target="_blank"
                             >
                               遊戲介紹
@@ -861,7 +861,7 @@ function IntroGamePlayPage() {
                             <h4>嘻哈時代</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot17.html"
+                              href="/gameplay/slot17"
                               target="_blank"
                             >
                               遊戲介紹
@@ -890,7 +890,7 @@ function IntroGamePlayPage() {
                             <h4>鋼鐵超人</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot18.html"
+                              href="/gameplay/slot18"
                               target="_blank"
                             >
                               遊戲介紹
@@ -919,7 +919,7 @@ function IntroGamePlayPage() {
                             <h4>巨龍家族</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot24.html"
+                              href="/gameplay/slot24"
                               target="_blank"
                             >
                               遊戲介紹
@@ -948,7 +948,7 @@ function IntroGamePlayPage() {
                             <h4>海盜傳奇</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_slot25.html"
+                              href="/gameplay/slot25"
                               target="_blank"
                             >
                               遊戲介紹
@@ -982,7 +982,7 @@ function IntroGamePlayPage() {
                             <h4>百人妞妞</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble01.html"
+                              href="gameplay/novice_gameplay_gamble01"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1011,7 +1011,7 @@ function IntroGamePlayPage() {
                             <h4>搶莊妞妞</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble03.html"
+                              href="gameplay/novice_gameplay_gamble03"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1040,7 +1040,7 @@ function IntroGamePlayPage() {
                             <h4>百人射龍門</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble04.html"
+                              href="gameplay/novice_gameplay_gamble04"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1069,7 +1069,7 @@ function IntroGamePlayPage() {
                             <h4>百人推筒子</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble06.html"
+                              href="gameplay/novice_gameplay_gamble06"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1098,7 +1098,7 @@ function IntroGamePlayPage() {
                             <h4>視訊百家樂</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble02.html"
+                              href="gameplay/novice_gameplay_gamble02"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1127,7 +1127,7 @@ function IntroGamePlayPage() {
                             <h4>3D高倍21點</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble05.html"
+                              href="gameplay/novice_gameplay_gamble05"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1155,7 +1155,7 @@ function IntroGamePlayPage() {
                             <h4>發財麻將</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble07.html"
+                              href="gameplay/novice_gameplay_gamble07"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1189,7 +1189,7 @@ function IntroGamePlayPage() {
                             <h4>深海魔龍傳</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_other01.html"
+                              href="gameplay/novice_gameplay_other01"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1218,7 +1218,7 @@ function IntroGamePlayPage() {
                             <h4>3D深海總動員</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_other02.html"
+                              href="gameplay/novice_gameplay_other02"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1247,7 +1247,7 @@ function IntroGamePlayPage() {
                             <h4>7PK</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_other03.html"
+                              href="gameplay/novice_gameplay_other03"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1276,7 +1276,7 @@ function IntroGamePlayPage() {
                             <h4>小瑪莉</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_other04.html"
+                              href="gameplay/novice_gameplay_other04"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1305,7 +1305,7 @@ function IntroGamePlayPage() {
                             <h4>幸運大輪盤</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_other05.html"
+                              href="gameplay/novice_gameplay_other05"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1334,7 +1334,7 @@ function IntroGamePlayPage() {
                             <h4>刮刮樂</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_other06.html"
+                              href="gameplay/novice_gameplay_other06"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1357,7 +1357,7 @@ function IntroGamePlayPage() {
                             <h4>彈珠PK10</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_other07.html"
+                              href="gameplay/novice_gameplay_other07"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1386,7 +1386,7 @@ function IntroGamePlayPage() {
                             <h4>賭場</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_other08.html"
+                              href="gameplay/novice_gameplay_other08"
                               target="_blank"
                             >
                               遊戲介紹
