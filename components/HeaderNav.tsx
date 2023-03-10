@@ -166,39 +166,39 @@ function HeaderNav() {
             </a>
             <ul className="dropdown-menu">
               <li>
-                <a href="#" onClick={handleComingSoon}>
-                  遊戲介面操作
-                </a>
+                <Link href="/intro-gameui" passHref>
+                  <a>遊戲介面操作</a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={handleComingSoon}>
-                  遊戲玩法介紹
-                </a>
+                <Link href="/intro-gameplay" passHref>
+                  <a>遊戲玩法介紹</a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={handleComingSoon}>
-                  道具使用說明
-                </a>
+                <Link href="/intro-object" passHref>
+                  <a>道具使用說明</a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={handleComingSoon}>
-                  紅包收發說明
-                </a>
+                <Link href="/intro-gift" passHref>
+                  <a>紅包收發說明</a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={handleComingSoon}>
-                  俱樂部功能介紹
-                </a>
+                <Link href="/intro-club" passHref>
+                  <a>俱樂部功能介紹</a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={handleComingSoon}>
-                  VIP層級介紹
-                </a>
+                <Link href="/intro-vip" passHref>
+                  <a>VIP層級介紹</a>
+                </Link>
               </li>
               <li>
-                <a href="#" onClick={handleComingSoon}>
-                  卡牌收集說明
-                </a>
+                <Link href="/intro-card" passHref>
+                  <a>卡牌收集說明</a>
+                </Link>
               </li>
             </ul>
           </li>
