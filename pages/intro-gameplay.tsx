@@ -982,7 +982,7 @@ function IntroGamePlayPage() {
                             <h4>百人妞妞</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble01"
+                              href="/gameplay/gamble01"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1011,7 +1011,7 @@ function IntroGamePlayPage() {
                             <h4>搶莊妞妞</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble03"
+                              href="/gameplay/gamble03"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1040,7 +1040,7 @@ function IntroGamePlayPage() {
                             <h4>百人射龍門</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble04"
+                              href="/gameplay/gamble04"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1069,7 +1069,7 @@ function IntroGamePlayPage() {
                             <h4>百人推筒子</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble06"
+                              href="/gameplay/gamble06"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1098,7 +1098,7 @@ function IntroGamePlayPage() {
                             <h4>視訊百家樂</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble02"
+                              href="/gameplay/gamble02"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1127,7 +1127,7 @@ function IntroGamePlayPage() {
                             <h4>3D高倍21點</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble05"
+                              href="/gameplay/gamble05"
                               target="_blank"
                             >
                               遊戲介紹
@@ -1155,7 +1155,7 @@ function IntroGamePlayPage() {
                             <h4>發財麻將</h4>
                             <a
                               className="card-btn"
-                              href="gameplay/novice_gameplay_gamble07"
+                              href="/gameplay/gamble07"
                               target="_blank"
                             >
                               遊戲介紹
