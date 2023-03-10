@@ -105,9 +105,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="https://resource-cdn.bigboss101.com/official/banner/banner_02.jpg"
         />
         <title>大頭家娛樂城 </title>
-        <link rel="shortcut icon" href="images/favicon.ico" />
-        <link rel="bookmark" href="images/favicon.ico" />
-        <link rel="icon" href="images/favicon.ico" />
+        <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="bookmark" href="/images/favicon.ico" />
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
       {/* <Script id="google-analytics" strategy="afterInteractive">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -124,12 +124,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </ErrorBoundary>
       )}
 
-      <script defer src="js/jquery-1.11.3.min.js"></script>
-      <script defer src="js/bootstrap.js"></script>
-      {/* <script defer src="js/bootsnav.js"></script> */}
-      <script defer src="js/backtop.js"></script>
+      <script defer src="/js/jquery-1.11.3.min.js"></script>
+      <script defer src="/js/bootstrap.js"></script>
+      {/* <script defer src="/js/bootsnav.js"></script> */}
+      <script defer src="/js/backtop.js"></script>
 
-      <script defer src="js/slick.js"></script>
+      <script defer src="/js/slick.js"></script>
 
       <script>
         {/* $(function(){
@@ -139,13 +139,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		}); */}
       </script>
 
-      <script defer src="js/wow.js"></script>
+      <script defer src="/js/wow.js"></script>
 
-      <script defer src="js/newstabs.js"></script>
+      <script defer src="/js/newstabs.js"></script>
 
-      <script defer src="js/fancybox.js"></script>
-      <script defer src="js/youtublink.js"></script>
-      <script defer src="js/popup.js"></script>
+      <script defer src="/js/fancybox.js"></script>
+      <script defer src="/js/youtublink.js"></script>
+      <script defer src="/js/popup.js"></script>
     </>
   )
 }
