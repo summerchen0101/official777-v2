@@ -125,7 +125,7 @@ function IntroCardPage() {
                           className="img-responsive center-block"
                         />
                         <h4>
-                          步驟2.可查看所有卡牌冊、當前收集概況及及滿後可兌換金幣金額
+                          步驟2.可查看所有卡牌冊、當前收集概況及集滿後可兌換金幣金額
                         </h4>
                         <img
                           src="/images/novice/card/card_img2_02.jpg"
