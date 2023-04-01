@@ -36,6 +36,12 @@ function ServiceTermsPage() {
                       VOEUX Road, Central Sheung Wan
                       <br />
                       統一編號： 73031517-000-05-21-0
+                      <br />
+                      台灣代理行銷公司：三聯陽泰科技有限公司
+                      <br />
+                      統一編號： 90442668
+                      <br />
+                      通訊地址：台北市信義區松仁路101號12樓
                     </p>
                     <h4>第一條　契約之依據</h4>
                     <ul>
