@@ -2,10 +2,6 @@ import React, { memo, useEffect } from 'react'
 
 const sliders = [
   {
-    imgSrc: '/images/eventbanner/每日活動0331.jpg',
-    link: '"https://www.facebook.com/Online539"',
-  },
-  {
     imgSrc: '/images/eventbanner/每日活動0407.jpg',
     link: '"https://www.facebook.com/Online539"',
   },
