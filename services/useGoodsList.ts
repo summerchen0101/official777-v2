@@ -9,7 +9,6 @@ export interface GoodsListReq {
   paymentGateway: number
   page: number
   perPage: number
-  isShow?: boolean
 }
 
 export interface Goods {
@@ -45,12 +44,11 @@ function useGoodsList({
   paymentGateway,
   page,
   perPage,
-  isShow,
 }: GoodsListReq) {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
   const { data, isValidating } = useSWR(
-    isShow && paymentType
+    paymentType
       ? [
           `${publicApiPath}/payment/storeItems`,
           token,

@@ -1,17 +1,16 @@
-import Layout from '@/components/layout/Layout'
-import PageBanner from '@/components/layout/PageBanner'
+import LogoBox from '@/components/LogoBox'
+import PageLayout from '@/components/PageLayout'
 import useCdnUrl from '@/hooks/useCdnUrl'
 import { reportCategory } from '@/lib/report'
 import useMe from '@/services/useMe'
 import useTicketCreate from '@/services/useTicketCreate'
 import useTicketFields from '@/services/useTicketFields'
-import { getFileInfo } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { CgSpinner } from 'react-icons/cg'
+import cs from 'classnames'
 
-function Contact() {
+function ContactPage() {
   const toCdnUrl = useCdnUrl()
   const router = useRouter()
   // const { list: ticketOpts } = useTicketOpts()
@@ -44,6 +43,7 @@ function Contact() {
   const { handler: doCreate, isLoading } = useTicketCreate()
   const { data } = useMe()
   const [reviewImg, setReviewImg] = useState('')
+
   const onSubmit = handleSubmit(async (d) => {
     const formData = new FormData(formRef.current || undefined)
     if (!d.attachment) {
@@ -53,174 +53,165 @@ function Contact() {
     if (res?.ok) {
       setReviewImg('')
       // formRef.current?.reset()
-      reset()
-      alert('您的問題已送出')
+      router.push('/contact-ok')
     }
   })
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!e.target.files?.[0]) return
-    const { dataUrl, size } = await getFileInfo(e.target.files[0])
-    if (size / 1024 / 1024 > 2) {
-      alert('圖片大小請勿超過2M')
-      setValue('attachment', null)
-      setReviewImg('')
-      return
-    }
-    setReviewImg(dataUrl)
-  }
   return (
-    <section className="mt-16">
-      <div className="lg:w-[860px] mx-auto">
-        <div className="mb-6 flex justify-center lg:justify-start">
+    <PageLayout>
+      <header
+        className="header-box wow fadeIn"
+        data-wow-duration="2s"
+        data-wow-delay="0.2s"
+        id="header-box"
+      >
+        <LogoBox />
+        <div className="content-box">
           <img
-            src={toCdnUrl('/title_service.png')}
-            alt="聯繫客服"
-            className="h-10"
+            src="/images/service/header_service.jpg"
+            alt=""
+            className="img-responsive center-block hidden-xs"
+          />
+          <img
+            src="/images/service/header_phone_service.jpg"
+            alt=""
+            className="img-responsive center-block hidden visible-xs"
           />
         </div>
-        <div className="form-box">
-          <form className="space-y-5" ref={formRef}>
-            {formFields
-              .sort((a, b) => a.position - b.position)
-              .map((t, i) => (
-                <div
-                  key={i}
-                  className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2"
-                >
-                  <label
-                    htmlFor=""
-                    className="sm:w-28 lg:text-right text-gray-200"
-                  >
-                    {t.required && <span className="text-red-500">*</span>}
-                    {t.name}
-                  </label>
-                  {t.type === 'select' && (
-                    <select
-                      className="rounded-sm border-none bg-gray-100 lg:w-96 h-9"
-                      {...register(t.itemID.toString(), {
-                        required: t.required ? '不可為空' : undefined,
-                        value: t.options?.find((t) => t.default)?.name,
-                      })}
-                    >
-                      <option value="">{t.description}</option>
-                      {t.options?.map((opt) => (
-                        <option key={opt.name}>{opt.name}</option>
-                      ))}
-                    </select>
-                  )}
-                  {t.type === 'text' && (
-                    <input
-                      type="text"
-                      className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
-                      {...register(t.itemID.toString(), {
-                        required: t.required ? '不可為空' : undefined,
-                        pattern: {
-                          value: new RegExp(
-                            t.regexp_for_validation
-                              .replace(`\\A`, '^')
-                              .replace(`\\z`, '$'),
-                          ),
-                          message: '請填寫正確格式',
-                        },
-                      })}
-                      placeholder={t.description}
-                    />
-                  )}
-                  {t.type === 'file' && (
-                    <>
-                      <input
-                        type="file"
-                        {...register(t.itemID.toString(), {
-                          required: t.required ? '不可為空' : undefined,
-                        })}
-                        accept="image/*"
-                        multiple={t.dataType === 'multiple'}
-                        className="rounded-sm border-none bg-gray-100 h-9 lg:w-96"
-                      />
-                      <div hidden={!t.description} className="text-gray-400">
-                        {t.description}
+        <hr className="float-none" />
+        <div className="gold-line-mini" />
+        <div className="black-line" />
+        <div className="gold-line" />
+      </header>
+      <div className="content">
+        <div className="content-title-box">
+          <img
+            src="/images/service/title_contact.png"
+            alt=""
+            className="img-responsive center-block"
+          />
+        </div>
+        <div className="tab-content-box">
+          <div className="ranking-box">
+            <div className="ranking-box-gold">
+              <div className="ranking-box-goldline">
+                <div className="ranking-box-black">
+                  <div className="content-box">
+                    <form role="form" ref={formRef}>
+                      {formFields
+                        .sort((a, b) => a.position - b.position)
+                        .map((t, i) => (
+                          <div
+                            key={i}
+                            className={cs('form-group col-lg-12', {
+                              'input-group-lg': t.type === 'text',
+                            })}
+                          >
+                            <label htmlFor="" className="control-label">
+                              {t.required && (
+                                <span className="text-danger">*</span>
+                              )}
+                              {t.name}
+                            </label>
+                            {t.type === 'select' && (
+                              <select
+                                className="form-control input-lg"
+                                {...register(t.itemID.toString(), {
+                                  required: t.required ? '不可為空' : undefined,
+                                  value: t.options?.find((t) => t.default)
+                                    ?.name,
+                                })}
+                              >
+                                <option value="">{t.description}</option>
+                                {t.options?.map((opt) => (
+                                  <option key={opt.name}>{opt.name}</option>
+                                ))}
+                              </select>
+                            )}
+                            {t.type === 'text' && (
+                              <input
+                                type="text"
+                                className="form-control"
+                                {...register(t.itemID.toString(), {
+                                  required: t.required ? '不可為空' : undefined,
+                                  pattern: {
+                                    value: new RegExp(
+                                      t.regexp_for_validation
+                                        .replace(`\\A`, '^')
+                                        .replace(`\\z`, '$'),
+                                    ),
+                                    message: '請填寫正確格式',
+                                  },
+                                })}
+                                placeholder={t.description}
+                              />
+                            )}
+                            {t.type === 'file' && (
+                              <>
+                                <label className="sr-only" htmlFor="inputfile">
+                                  選擇檔案
+                                </label>
+                                <input
+                                  type="file"
+                                  id="inputfile"
+                                  className="btn  btn-default btn-lg btn-block"
+                                  {...register(t.itemID.toString(), {
+                                    required: t.required
+                                      ? '不可為空'
+                                      : undefined,
+                                  })}
+                                  accept="image/*"
+                                  multiple={t.dataType === 'multiple'}
+                                />
+                                <div
+                                  hidden={!t.description}
+                                  className="text-muted"
+                                >
+                                  {t.description}
+                                </div>
+                              </>
+                            )}
+                            {t.type === 'textarea' && (
+                              <textarea
+                                className="form-control"
+                                rows={5}
+                                defaultValue=""
+                                {...register(t.itemID.toString(), {
+                                  required: t.required ? '不可為空' : undefined,
+                                })}
+                                placeholder={t.description}
+                              />
+                            )}
+
+                            {errors[t.itemID] && (
+                              <div className="text-sm text-danger">
+                                {errors[t.itemID].message}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+
+                      <div className="button-center-box text-center">
+                        <button
+                          type="button"
+                          className="btn btn-default btn-lg btn-center"
+                          onClick={onSubmit}
+                          disabled={isLoading}
+                        >
+                          確認送出
+                        </button>
                       </div>
-                    </>
-                  )}
-                  {t.type === 'textarea' && (
-                    <textarea
-                      className="rounded-sm border-none bg-gray-100 flex-1 h-28"
-                      {...register(t.itemID.toString(), {
-                        required: t.required ? '不可為空' : undefined,
-                      })}
-                      placeholder={t.description}
-                    />
-                  )}
-
-                  {errors[t.itemID] && (
-                    <div className="text-sm text-red-500">
-                      {errors[t.itemID].message}
-                    </div>
-                  )}
-                </div>
-              ))}
-            {/* <input hidden name="requester_id" value={data?.id} /> */}
-
-            {/* <div className="flex flex-col lg:flex-row lg:space-x-4 lg:items-center gap-y-2">
-              <label htmlFor="" className="sm:w-28 lg:text-right text-gray-200">
-                相關截圖 <span className="sm:block">(上限2M)</span>
-              </label>
-              <div className="relative h-40 rounded bg-white/10 flex justify-center items-center hover:cursor-pointer flex-1">
-                <div className="absolute">
-                  <div className="flex flex-col items-center ">
-                    <BiCloudUpload size="100px" className="text-gray-300" />
+                    </form>
+                    <hr className="float-none" />
                   </div>
                 </div>
-                <img
-                  hidden={!reviewImg}
-                  src={reviewImg}
-                  alt=""
-                  className="h-full w-full object-contain absolute"
-                />
-                <input
-                  type="file"
-                  {...register('attachment')}
-                  accept="image/*"
-                  className="h-48 lg:h-full w-full opacity-0 cursor-pointer"
-                  onChange={handleFileUpload}
-                />
               </div>
-            </div> */}
-
-            <div className="pt-3 flex justify-center">
-              <button
-                className="btn active w-40"
-                type="button"
-                onClick={onSubmit}
-                disabled={isLoading}
-              >
-                {isLoading ? (
-                  <>
-                    處理中 <CgSpinner className="animate-spin text-xl ml-1" />
-                  </>
-                ) : (
-                  '確認送出'
-                )}
-              </button>
             </div>
-          </form>
+          </div>
         </div>
+        <hr className="float-none" />
       </div>
-    </section>
+    </PageLayout>
   )
-}
-
-function ContactPage() {
-  const router = useRouter()
-  if (router.query.layout) {
-    return (
-      <Layout>
-        <PageBanner />
-        <Contact />
-      </Layout>
-    )
-  }
-  return <Contact />
 }
 
 export default ContactPage

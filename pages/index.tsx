@@ -12,14 +12,12 @@ const Index: NextPage = () => {
       router.push(router.query.to as string)
       return
     }
-    router.push(window.innerWidth > 600 ? '/home' : '/mb/home')
+    router.push('/home')
   }, [router])
   return (
-    <div className="flex flex-col justify-center items-center  h-full">
-      <div hidden={!msg} className="text-gold-500 text-2xl mb-5">
-        {msg}
-      </div>
-      <CgSpinnerTwo className="text-white/30 animate-spin text-8xl" />
+    <div>
+      <h1>{msg || '載入中...'}</h1>
+      <CgSpinnerTwo />
     </div>
   )
 }

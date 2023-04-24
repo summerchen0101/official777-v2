@@ -1,0 +1,114 @@
+body{
+	background-color: transparent;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+hr{
+	border: none;
+	border-top: 1px solid #3f3f3f;
+	border-bottom: 1px solid #060505;
+	margin: 10px auto;
+}
+ol{
+	margin-left: 20px;
+	list-style: disc;
+	font-size: 16px;
+	color: white;
+	line-height: 28px;
+}
+ul{
+	margin-left: 20px;
+	list-style: decimal;
+	font-size: 16px;
+	color: white;
+	line-height: 28px;
+}
+
+p {
+	font-size: 17px;
+	color: white;
+	line-height: 18px;
+	margin: 0;
+}
+a , a:link , a:visited , a:hover , a:active {
+	text-decoration-line: none;
+	color: white;
+}
+.float-none{
+	border: hidden;
+	margin: 0;
+	padding: 0;
+	clear:both;
+}
+h1{
+	font-size: 36px;
+	font-weight: bolder;
+	color: #eee8bf;
+	text-align: center;
+}
+
+h2{
+	font-size: 36px;
+	font-weight: bolder;
+	color: #eee8bf;
+}
+h3{
+	font-size: 24px;
+	font-weight: bolder;
+	color: #eee8bf;
+}
+h4{
+	font-size: 20px;
+	font-weight: bolder;
+	color: #eee8bf;
+}
+h5{
+	font-size: 26px;
+	font-weight: bolder;
+	color: #eee8bf;
+}
+/*PC-BIG*/
+@media(min-width:1921px) and (max-width:3840px) {
+}
+
+/*PC*/
+@media(min-width:1200px) and (max-width:1720px) {	
+}
+/*Pad*/
+@media(min-width:992px) and (max-width:1199px) {
+}
+/*Pad End*/
+
+/*Pad2*/
+@media(min-width:768px) and (max-width:991px) {	
+}
+/*Pad2 End*/
+
+/*Mobile*/
+@media(min-width:0px) and (max-width:767px) {
+	p , ol , ul{
+		font-size: 16px;
+		line-height: 20px;
+	}
+	h1{
+		font-size: 28px;
+		line-height: 40px;	
+	}
+	h2{
+		font-size: 20px;
+		line-height: 25px;	
+	}
+	h3{
+		font-size: 20px;
+		line-height: 30px;
+	}
+	h5{
+		font-size: 20px;
+		line-height: 30px;
+	}
+	h9{
+		font-size: 15px;
+	}
+}
+/*Mobile End*/
