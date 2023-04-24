@@ -137,18 +137,18 @@ function ChangePwPage() {
                         </label>
                         <hr />
                         <label htmlFor="Password" className="control-label">
-                          請設置8-12位新密碼，支援英文及數字
+                          請設置8位新密碼，僅支援數字。
                         </label>
                         <input
                           type="password"
                           className="form-control"
                           id="Password"
-                          placeholder="請設置8-12位新密碼，支援英文及數字"
+                          placeholder="請設置8位新密碼，僅支援數字。"
                           {...register('new_pw', {
                             required: { value: true, message: '不可為空' },
                             pattern: {
-                              value: /^\w{8,12}$/,
-                              message: '須為中英文8~12位',
+                              value: /^[0-9]{8}$/,
+                              message: '須為數字8位',
                             },
                           })}
                         />
