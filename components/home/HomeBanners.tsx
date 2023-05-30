@@ -19,6 +19,46 @@ function HomeBanners() {
         <div className="hidden-xs">
           <a href="#">
             <img
+              src="/images/headerbanner/pcbanner/回饋大贈送_1920x700.png"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+        <div className="hidden visible-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/phonebanner/回饋大贈送_828x1150.png"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div className="hidden-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/pcbanner/雷神之錘_1920x700.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+        <div className="hidden visible-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/phonebanner/雷神之錘_828x1150.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div className="hidden-xs">
+          <a href="#">
+            <img
               src="/images/headerbanner/pcbanner/封面_1920x700.jpg"
               alt=""
               className="img-responsive center-block"
@@ -75,26 +115,7 @@ function HomeBanners() {
           </a>
         </div>
       </li>
-      <li>
-        <div className="hidden-xs">
-          <a href="#">
-            <img
-              src="/images/headerbanner/pcbanner/歡樂聖誕BANNER-1920x700.jpg"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
-        </div>
-        <div className="hidden visible-xs">
-          <a href="#">
-            <img
-              src="/images/headerbanner/phonebanner/歡樂聖誕-828x1150.jpg"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
-        </div>
-      </li>
+
       <li>
         <div className="hidden-xs">
           <a href="#">
