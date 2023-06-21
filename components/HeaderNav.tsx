@@ -303,11 +303,11 @@ function HeaderNav() {
               排行榜
             </a>
             <ul className="dropdown-menu">
-              <li>
+              {/* <li>
                 <Link href="/gold-ranks" passHref>
                   <a>富豪榜</a>
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/slot-ranks" passHref>
                   <a>榮譽榜</a>
