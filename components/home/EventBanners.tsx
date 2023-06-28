@@ -2,31 +2,27 @@ import React, { memo, useEffect } from 'react'
 
 const sliders = [
   {
-    imgSrc: '/images/eventbanner/每日活動0621.jpg',
+    imgSrc: '/images/eventbanner/每日活動0628.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0622.jpg',
+    imgSrc: '/images/eventbanner/每日活動0629.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0623.jpg',
+    imgSrc: '/images/eventbanner/每日活動0630.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0624.jpg',
+    imgSrc: '/images/eventbanner/每日活動0701.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0625.jpg',
+    imgSrc: '/images/eventbanner/每日活動0702.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0626.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0627.jpg',
+    imgSrc: '/images/eventbanner/每日活動0703.jpg',
     link: 'https://www.facebook.com/Online539',
   },
 ]
