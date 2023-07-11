@@ -3,7 +3,7 @@ import useRequest, { apiPath } from '@/hooks/useRequest'
 import { useState } from 'react'
 
 export interface RechargeReq {
-  provider: string
+  provider: number
   accessToken: string
 }
 

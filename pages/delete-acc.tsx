@@ -7,6 +7,7 @@ import useUserDelete from '@/services/useUserDelete'
 import { useUserStore } from '@/store/useUserStore'
 import useAuthPage from '@/utils/useAuthPage'
 import { trim } from 'lodash'
+import { useRouter } from 'next/dist/client/router'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
@@ -19,7 +20,9 @@ type Inputs = {
 
 function DeleteAccPage() {
   const user = useAuthPage()
+  const router = useRouter()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
+  const provider = useUserStore((s) => s.provider)
 
   const [count, setCount] = useState(0)
   useInterval(() => {
@@ -38,14 +41,18 @@ function DeleteAccPage() {
     reset,
   } = useForm<Inputs>()
   const onSubmit = handleSubmit(async (d) => {
+    if (d.nickname !== user?.nickname || d.uid !== user.id.toString()) {
+      alert('刪除資訊有誤，請再次確認')
+      return
+    }
     try {
       const res = await doDelete({
-        provider: '1',
+        provider: provider,
         accessToken: token || '',
       })
       if (res?.ok) {
+        router.push('/home')
         alert('帳號已刪除')
-        reset()
       } else {
         alert('帳號刪除失敗')
       }
