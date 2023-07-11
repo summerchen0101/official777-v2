@@ -315,6 +315,11 @@ function HeaderNav({ pure }: Props) {
                   修改密碼
                 </a>
               </li>
+              <li>
+                <a href="#" onClick={() => toAuthRoute('/delete-acc')}>
+                  刪除帳號
+                </a>
+              </li>
             </ul>
           </li>
           {!pure ? (
