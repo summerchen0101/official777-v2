@@ -1,6 +1,8 @@
 import { ResBase } from '@/types'
 import useRequest from '@/hooks/useRequest'
 import { useState } from 'react'
+import { useUserStore } from '@/store/useUserStore'
+import { LoginProvider } from '@/lib/enums'
 
 export interface LoginReq {
   cellphone: string
@@ -17,6 +19,7 @@ export interface LoginRes extends ResBase {
 
 export default function useLogin() {
   const request = useRequest()
+  const setProvider = useUserStore((s) => s.setProvider)
   const [isLoading, setIsLoading] = useState(false)
   const handler = async (data: LoginReq) => {
     setIsLoading(true)
@@ -26,6 +29,7 @@ export default function useLogin() {
       data,
     })
     setIsLoading(false)
+    setProvider(LoginProvider.MEGA)
     return res
   }
   return {

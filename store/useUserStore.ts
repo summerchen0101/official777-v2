@@ -1,3 +1,4 @@
+import { LoginProvider } from '@/lib/enums'
 import create from 'zustand'
 import { persist } from 'zustand/middleware'
 interface TokenInfo {
@@ -12,7 +13,9 @@ interface User {
 }
 
 export const useUserStore = create<{
+  provider: LoginProvider
   tokenInfo: TokenInfo | null
+  setProvider: (provider: LoginProvider) => void
   setTokenInfo: (tokenInfo: TokenInfo) => void
 
   user: User | null
@@ -21,12 +24,14 @@ export const useUserStore = create<{
 }>(
   persist(
     (set, get) => ({
+      provider: LoginProvider.MEGA,
       tokenInfo: null,
       setTokenInfo: (tokenInfo) =>
         set({
           tokenInfo,
         }),
       user: null,
+      setProvider: (provider) => set({ provider }),
       setUser: (user) => set({ user }),
       clearUser: () => set({ user: null, tokenInfo: null }),
     }),

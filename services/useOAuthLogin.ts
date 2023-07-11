@@ -1,7 +1,8 @@
-import { OAuthChannel, YesNo } from '@/lib/enums'
+import { LoginProvider, OAuthChannel, YesNo } from '@/lib/enums'
 import { ResBase } from '@/types'
 import useRequest from '@/hooks/useRequest'
 import { useState } from 'react'
+import { useUserStore } from '@/store/useUserStore'
 
 export interface OAuthLoginReq {
   autoRedirect: YesNo.No
@@ -14,6 +15,7 @@ export interface OAuthLoginRes extends ResBase {
 
 export default function useOAuthLogin() {
   const request = useRequest()
+  const setProvider = useUserStore((s) => s.setProvider)
   const [isLoading, setIsLoading] = useState(false)
   const handler = async (channel: OAuthChannel, data: OAuthLoginReq) => {
     setIsLoading(true)
@@ -23,6 +25,9 @@ export default function useOAuthLogin() {
       config: { params: data },
     })
     setIsLoading(false)
+    if (channel === OAuthChannel.Line) {
+      setProvider(LoginProvider.LINE)
+    }
     return res
   }
   return {
