@@ -3,6 +3,8 @@ import PageLayout from '@/components/PageLayout'
 import useAuth from '@/hooks/useAuth'
 import usePwUpdate from '@/services/usePwUpdate'
 import useSms from '@/services/useSms'
+import useUserDelete from '@/services/useUserDelete'
+import { useUserStore } from '@/store/useUserStore'
 import useAuthPage from '@/utils/useAuthPage'
 import { trim } from 'lodash'
 import { useState } from 'react'
@@ -17,6 +19,7 @@ type Inputs = {
 
 function DeleteAccPage() {
   const user = useAuthPage()
+  const token = useUserStore((s) => s.tokenInfo?.accessToken)
 
   const [count, setCount] = useState(0)
   useInterval(() => {
@@ -25,9 +28,8 @@ function DeleteAccPage() {
     }
   }, 1000)
   useAuth()
-  const { handler: doUpdate, isLoading } = usePwUpdate()
+  const { handler: doDelete, isLoading } = useUserDelete()
 
-  const { handler: sendSms, isLoading: isSmsLoading } = useSms()
   const {
     register,
     handleSubmit,
@@ -35,38 +37,24 @@ function DeleteAccPage() {
     watch,
     reset,
   } = useForm<Inputs>()
-  const onSendSms = async () => {
-    const res = await sendSms({
-      userID: user?.id,
-    })
-    if (!res?.ok) {
-      if (res?.code === '403001') {
-        return alert('帳號無手機')
-      }
-      return alert('發送失敗')
-    }
-    if (res?.sendSuccess) {
-      alert('簡訊已發送')
-      setCount(60)
-    }
-  }
   const onSubmit = handleSubmit(async (d) => {
-    // try {
-    //   const res = await doUpdate({
-    //     //
-    //   })
-    //   if (res?.ok) {
-    //     alert('帳號已刪除')
-    //     reset()
-    //   } else {
-    //     alert('帳號刪除失敗')
-    //   }
-    // } catch (err) {
-    //   console.log(err)
-    // }
+    try {
+      const res = await doDelete({
+        provider: '1',
+        accessToken: token || '',
+      })
+      if (res?.ok) {
+        alert('帳號已刪除')
+        reset()
+      } else {
+        alert('帳號刪除失敗')
+      }
+    } catch (err) {
+      console.log(err)
+    }
   })
   return (
-    <PageLayout>
+    <PageLayout pure>
       <header
         className="header-box wow fadeIn"
         data-wow-duration="2s"
