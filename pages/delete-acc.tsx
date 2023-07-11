@@ -10,8 +10,6 @@ import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
 
 type Inputs = {
-  nickname: string
-  uid: string
   confirm: boolean
 }
 
@@ -39,17 +37,17 @@ function DeleteAccPage() {
     reset,
   } = useForm<Inputs>()
 
-  useEffect(() => {
-    if (user) {
-      setValue('nickname', user.nickname)
-      setValue('uid', user.id.toString())
-    }
-  }, [user])
+  // useEffect(() => {
+  //   if (user) {
+  //     setValue('nickname', user.nickname)
+  //     setValue('uid', user.id.toString())
+  //   }
+  // }, [user])
   const onSubmit = handleSubmit(async (d) => {
-    if (d.nickname !== user?.nickname || d.uid !== user.id.toString()) {
-      alert('刪除資訊有誤，請再次確認')
-      return
-    }
+    // if (d.nickname !== user?.nickname || d.uid !== user.id.toString()) {
+    //   alert('刪除資訊有誤，請再次確認')
+    //   return
+    // }
     try {
       const res = await doDelete({
         provider: provider,
@@ -107,41 +105,6 @@ function DeleteAccPage() {
                   <div className="content-box">
                     <form className="form-horizontal" role="form">
                       <div className="form-group input-group-lg">
-                        <label htmlFor="nickname" className="control-label">
-                          玩家暱稱
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="nickname"
-                          placeholder="請輸入玩家暱稱"
-                          {...register('nickname', {
-                            required: { value: true, message: '不可為空' },
-                          })}
-                        />
-                        {errors.nickname && (
-                          <div className="text-danger">
-                            {errors.nickname.message}
-                          </div>
-                        )}
-                        <label htmlFor="uid" className="control-label">
-                          UID
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="uid"
-                          placeholder="請輸入UID"
-                          {...register('uid', {
-                            required: { value: true, message: '不可為空' },
-                          })}
-                        />
-                        {errors.uid && (
-                          <div className="text-danger">
-                            {errors.uid.message}
-                          </div>
-                        )}
-                        <br />
                         <label className="checkbox-inline">
                           <input
                             type="checkbox"
