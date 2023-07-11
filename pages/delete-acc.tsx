@@ -1,14 +1,11 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
 import useAuth from '@/hooks/useAuth'
-import usePwUpdate from '@/services/usePwUpdate'
-import useSms from '@/services/useSms'
 import useUserDelete from '@/services/useUserDelete'
 import { useUserStore } from '@/store/useUserStore'
 import useAuthPage from '@/utils/useAuthPage'
-import { trim } from 'lodash'
 import { useRouter } from 'next/dist/client/router'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
 
@@ -36,10 +33,18 @@ function DeleteAccPage() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
     watch,
     reset,
   } = useForm<Inputs>()
+
+  useEffect(() => {
+    if (user) {
+      setValue('nickname', user.nickname)
+      setValue('uid', user.id.toString())
+    }
+  }, [user])
   const onSubmit = handleSubmit(async (d) => {
     if (d.nickname !== user?.nickname || d.uid !== user.id.toString()) {
       alert('刪除資訊有誤，請再次確認')
