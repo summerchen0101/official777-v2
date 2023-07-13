@@ -27,6 +27,7 @@ function DeleteAccPage() {
   }, 1000)
   useAuth()
   const { handler: doDelete, isLoading } = useUserDelete()
+  const clearUser = useUserStore((s) => s.clearUser)
 
   const {
     register,
@@ -54,6 +55,7 @@ function DeleteAccPage() {
         accessToken: token || '',
       })
       if (res?.ok) {
+        clearUser()
         router.push('/home')
         alert('帳號已刪除')
       } else {
