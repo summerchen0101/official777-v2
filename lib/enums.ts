@@ -50,6 +50,14 @@ export enum RankType {
   Slot = 2,
 }
 
+export enum LoginProvider {
+  MEGA = 1,
+  GOOGLE = 2,
+  FB = 3,
+  LINE = 4,
+  APPLE = 5,
+}
+
 export enum PaymentGateway {
   Google = 1,
   Apple = 2,

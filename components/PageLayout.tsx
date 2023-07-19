@@ -11,21 +11,22 @@ import AppDownloadPopup from './AppDownloadPopup'
 
 type Props = {
   children: ReactNode
+  pure?: boolean
 }
 
-function PageLayout({ children }: Props) {
+function PageLayout({ children, pure }: Props) {
   const { data: user, isLoading } = useMe()
   return (
     <>
-      <HeaderNav />
-      <AppDownloadFloat />
+      <HeaderNav pure={pure} />
       {user ? <UserInfoFloat /> : <RechargeFloat />}
 
       {children}
 
       <FooterComp />
+
       <LoginPopup />
-      <AppDownloadPopup />
+      {!pure ? <AppDownloadPopup /> : null}
     </>
   )
 }

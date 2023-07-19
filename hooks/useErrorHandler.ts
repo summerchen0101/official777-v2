@@ -7,14 +7,14 @@ import { useCallback } from 'react'
 
 function useErrorHandler() {
   const router = useRouter()
-  const { data: maintainInfo } = useMaintenance()
+  // const { data: maintainInfo } = useMaintenance()
   const clearUser = useUserStore((s) => s.clearUser)
   const apiErrHandler = useCallback(
     (error: AxiosError<any>) => {
       console.log(error.message)
-      if (maintainInfo?.isMaintenanceInProgress) {
-        router.push('/maintainance')
-      }
+      // if (maintainInfo?.isMaintenanceInProgress) {
+      //   router.push('/maintainance')
+      // }
       if (error.response) {
         // 错误来自回传参数
         let msg = '錯誤發生'
