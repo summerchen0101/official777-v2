@@ -49,6 +49,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (router.query.accessToken) {
       const res = router.query as unknown as LoginRes
+      console.log(router.query.isNewOAuthAccount === 'true')
+      if (router.query.isNewOAuthAccount === 'true') {
+        alert('新用戶，已登入成功')
+      }
       setTokenInfo({
         accessToken: res.accessToken,
         refreshToken: res.refreshToken,
@@ -61,7 +65,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       delete router.query.accessToken
       delete router.query.refreshToken
       delete router.query.expiresIn
-      // delete router.query.to
+      delete router.query.to
       router.replace({ query: router.query })
     }
   }, [router, setTokenInfo])

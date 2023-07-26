@@ -88,9 +88,9 @@ const useRequest = () => {
           console.log(err.response?.data)
           console.log(err.response?.status)
           console.log(err.toJSON())
+          apiErrHandler(err as AxiosError<any>)
           return { ok: false, ...err.response?.data } as Res
         }
-        apiErrHandler(err as AxiosError<any>)
         return { ok: false, message: '', code: 999 } as unknown as Res
       }
     },
