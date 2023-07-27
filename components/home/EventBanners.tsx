@@ -7,27 +7,23 @@ const sliders = [
   },
 
   {
-    imgSrc: '/images/eventbanner/每日活動0719.jpg',
+    imgSrc: '/images/eventbanner/每日活動0727.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0720.jpg',
+    imgSrc: '/images/eventbanner/每日活動0728.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0721.jpg',
+    imgSrc: '/images/eventbanner/每日活動0729.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0722.jpg',
+    imgSrc: '/images/eventbanner/每日活動0730.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0723.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0724.jpg',
+    imgSrc: '/images/eventbanner/每日活動0731.jpg',
     link: 'https://www.facebook.com/Online539',
   },
 ]
