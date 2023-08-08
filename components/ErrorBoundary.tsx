@@ -4,41 +4,43 @@ import React from 'react'
 interface Props {
   router: NextRouter
 }
-class ErrorBoundary extends React.Component<Props, { hasError: boolean }> {
+
+interface State {
+  hasError: boolean
+  error?: Error
+  errorInfo?: React.ErrorInfo
+}
+
+class ErrorBoundary extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
-    // this.props.router.push('/home')
-    // Define a state variable to track whether is an error or not
     this.state = { hasError: false }
   }
-  static getDerivedStateFromError(error: any) {
-    // Update state so the next render will show the fallback UI
 
+  static getDerivedStateFromError(error: Error): State {
     return { hasError: true }
   }
-  componentDidCatch(error: any, errorInfo: any) {
-    // You can use your own error logging service here
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    // Log the error and errorInfo
     console.log({ error, errorInfo })
     console.log(location.pathname)
+    // Save the error and errorInfo to the state
+    this.setState({ error, errorInfo })
   }
+
   render() {
-    // Check if the error is thrown
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
+    const { hasError, error, errorInfo } = this.state
+
+    if (hasError) {
       return (
         <div>
           <h2 className="text-warning">Oops, there is an error!</h2>
-          {/* <button
-            type="button"
-            onClick={() => this.setState({ hasError: false })}
-          >
-            Try again?
-          </button> */}
+          {error && <div>Error: {error.toString()}</div>}
+          {errorInfo && <div>Error Info: {errorInfo.componentStack}</div>}
         </div>
       )
     }
-
-    // Return children components in case of no error
 
     return this.props.children
   }
