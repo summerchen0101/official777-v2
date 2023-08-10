@@ -47,8 +47,22 @@ function MyApp({ Component, pageProps }: AppProps) {
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
 
   useEffect(() => {
+    if (router.query.errCode) {
+      if (router.query.errCode === '403012') {
+        alert('註冊已達上限，請洽客服')
+      } else {
+        alert(router.query.errMsg)
+      }
+      return
+    }
     if (router.query.accessToken) {
       const res = router.query as unknown as LoginRes
+      console.log(router.query)
+      console.log(router.query.isNewOAuthAccount === 'true')
+      if (router.query.isNewOAuthAccount === 'true') {
+        alert('新用戶，已登入成功')
+      }
+
       setTokenInfo({
         accessToken: res.accessToken,
         refreshToken: res.refreshToken,
@@ -61,7 +75,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       delete router.query.accessToken
       delete router.query.refreshToken
       delete router.query.expiresIn
-      // delete router.query.to
+      delete router.query.to
       router.replace({ query: router.query })
     }
   }, [router, setTokenInfo])
