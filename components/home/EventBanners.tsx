@@ -21,7 +21,7 @@ const sliders = [
 
 function EventBanners() {
   useEffect(() => {
-    $('.event-banner').slick({
+    $('.event-banner')?.slick({
       dots: true,
       infinite: true,
       arrows: false,
