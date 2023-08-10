@@ -13,7 +13,7 @@ interface User {
 }
 
 export const useUserStore = create<{
-  provider: LoginProvider
+  provider: LoginProvider | null
   tokenInfo: TokenInfo | null
   setProvider: (provider: LoginProvider) => void
   setTokenInfo: (tokenInfo: TokenInfo) => void
@@ -24,7 +24,7 @@ export const useUserStore = create<{
 }>(
   persist(
     (set, get) => ({
-      provider: LoginProvider.MEGA,
+      provider: null,
       tokenInfo: null,
       setTokenInfo: (tokenInfo) =>
         set({
@@ -33,7 +33,7 @@ export const useUserStore = create<{
       user: null,
       setProvider: (provider) => set({ provider }),
       setUser: (user) => set({ user }),
-      clearUser: () => set({ user: null, tokenInfo: null }),
+      clearUser: () => set({ user: null, tokenInfo: null, provider: null }),
     }),
     {
       name: 'user-storage', // unique name
