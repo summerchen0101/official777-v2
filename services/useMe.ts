@@ -1,6 +1,8 @@
+import { LoginProvider } from '@/lib/enums'
 import { useUserStore } from './../store/useUserStore'
 import useRequest, { apiPath } from '@/hooks/useRequest'
 import { ResBase } from '@/types'
+import { useEffect } from 'react'
 import useSWR from 'swr'
 
 export interface MeRes extends ResBase {
@@ -33,6 +35,7 @@ export interface MeRes extends ResBase {
 function useMe() {
   const request = useRequest()
   const token = useUserStore((s) => s.tokenInfo?.accessToken)
+  const setProvider = useUserStore((s) => s.setProvider)
   const { data, isValidating, mutate } = useSWR(
     token ? [`${apiPath}/member/me`, token] : null,
     (url, token) =>
@@ -46,6 +49,16 @@ function useMe() {
         },
       }),
   )
+
+  useEffect(() => {
+    if (data?.appleID) {
+      setProvider(LoginProvider.APPLE)
+    } else if (data?.lineID) {
+      setProvider(LoginProvider.LINE)
+    } else {
+      setProvider(LoginProvider.MEGA)
+    }
+  }, [data])
 
   return { data, isLoading: isValidating, mutate }
 }

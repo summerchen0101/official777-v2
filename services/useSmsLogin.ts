@@ -20,7 +20,6 @@ export interface SmsLoginRes extends ResBase {
 
 export default function useSmsLogin() {
   const request = useRequest()
-  const setProvider = useUserStore((s) => s.setProvider)
   const [isLoading, setIsLoading] = useState(false)
   const handler = async (data: SmsLoginReq) => {
     setIsLoading(true)
@@ -30,7 +29,6 @@ export default function useSmsLogin() {
       data,
     })
     setIsLoading(false)
-    setProvider(LoginProvider.MEGA)
     return res
   }
   return {
