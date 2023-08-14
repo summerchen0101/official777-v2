@@ -19,7 +19,6 @@ export interface LoginRes extends ResBase {
 
 export default function useLogin() {
   const request = useRequest()
-  const setProvider = useUserStore((s) => s.setProvider)
   const [isLoading, setIsLoading] = useState(false)
   const handler = async (data: LoginReq) => {
     setIsLoading(true)
@@ -29,7 +28,6 @@ export default function useLogin() {
       data,
     })
     setIsLoading(false)
-    setProvider(LoginProvider.MEGA)
     return res
   }
   return {

@@ -13,7 +13,6 @@ export interface AppleStateRes extends ResBase {
 
 export default function useAppleState() {
   const request = useRequest()
-  const setProvider = useUserStore((s) => s.setProvider)
   const [isLoading, setIsLoading] = useState(false)
   const handler = async (data: AppleStateReq) => {
     setIsLoading(true)
@@ -23,7 +22,6 @@ export default function useAppleState() {
       config: { params: data },
     })
     setIsLoading(false)
-    setProvider(LoginProvider.APPLE)
     return res
   }
   return {
