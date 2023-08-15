@@ -53,7 +53,7 @@ function FooterComp() {
             <br />
             <span>
               例行維護時間 星期三 09：00 ~
-              12：00　電子信箱：support@online539.com
+              12：00　電子信箱：megagame815@gmail.com
             </span>
           </p>
         </div>
