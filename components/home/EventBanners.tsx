@@ -17,6 +17,18 @@ const sliders = [
     imgSrc: '/images/eventbanner/每日活動0820.jpg',
     link: 'https://www.facebook.com/Online539',
   },
+  {
+    imgSrc: '/images/eventbanner/每日活動0821.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0822.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0823.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
 ]
 
 function EventBanners() {
