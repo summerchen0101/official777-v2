@@ -96,112 +96,41 @@ function ContactPage() {
               <div className="ranking-box-goldline">
                 <div className="ranking-box-black">
                   <div className="content-box">
-                    <form role="form" ref={formRef}>
-                      {formFields
-                        .sort((a, b) => a.position - b.position)
-                        .map((t, i) => (
-                          <div
-                            key={i}
-                            className={cs('form-group col-lg-12', {
-                              'input-group-lg': t.type === 'text',
-                            })}
-                          >
-                            <label htmlFor="" className="control-label">
-                              {t.required && (
-                                <span className="text-danger">*</span>
-                              )}
-                              {t.name}
-                            </label>
-                            {t.type === 'select' && (
-                              <select
-                                className="form-control input-lg"
-                                {...register(t.itemID.toString(), {
-                                  required: t.required ? '不可為空' : undefined,
-                                  value: t.options?.find((t) => t.default)
-                                    ?.name,
-                                })}
-                              >
-                                <option value="">{t.description}</option>
-                                {t.options?.map((opt) => (
-                                  <option key={opt.name}>{opt.name}</option>
-                                ))}
-                              </select>
-                            )}
-                            {t.type === 'text' && (
-                              <input
-                                type="text"
-                                className="form-control"
-                                {...register(t.itemID.toString(), {
-                                  required: t.required ? '不可為空' : undefined,
-                                  pattern: {
-                                    value: new RegExp(
-                                      t.regexp_for_validation
-                                        .replace(`\\A`, '^')
-                                        .replace(`\\z`, '$'),
-                                    ),
-                                    message: '請填寫正確格式',
-                                  },
-                                })}
-                                placeholder={t.description}
-                              />
-                            )}
-                            {t.type === 'file' && (
-                              <>
-                                <label className="sr-only" htmlFor="inputfile">
-                                  選擇檔案
-                                </label>
-                                <input
-                                  type="file"
-                                  id="inputfile"
-                                  className="btn  btn-default btn-lg btn-block"
-                                  {...register(t.itemID.toString(), {
-                                    required: t.required
-                                      ? '不可為空'
-                                      : undefined,
-                                  })}
-                                  accept="image/*"
-                                  multiple={t.dataType === 'multiple'}
-                                />
-                                <div
-                                  hidden={!t.description}
-                                  className="text-muted"
-                                >
-                                  {t.description}
-                                </div>
-                              </>
-                            )}
-                            {t.type === 'textarea' && (
-                              <textarea
-                                className="form-control"
-                                rows={5}
-                                defaultValue=""
-                                {...register(t.itemID.toString(), {
-                                  required: t.required ? '不可為空' : undefined,
-                                })}
-                                placeholder={t.description}
-                              />
-                            )}
-
-                            {errors[t.itemID] && (
-                              <div className="text-sm text-danger">
-                                {errors[t.itemID].message}
-                              </div>
-                            )}
-                          </div>
-                        ))}
-
-                      <div className="button-center-box text-center">
-                        <button
-                          type="button"
-                          className="btn btn-default btn-lg btn-center"
-                          onClick={onSubmit}
-                          disabled={isLoading}
+                    <p>
+                      尊貴的頭家：
+                      <br />
+                      我們十分重視您的到訪，歡迎加入大頭家官方客服LINE：@online539或來信至官方信箱：megagame815@gmail.com，我們將盡快協助。
+                    </p>
+                    <hr />
+                    <br />
+                    <div className="row">
+                      <div className="col-lg-2 btn-img-hover"></div>
+                      <div className="col-lg-4 btn-img-hover">
+                        <a
+                          href="https://line.me/R/ti/p/@online539"
+                          target="_blank"
+                          rel="noreferrer"
                         >
-                          確認送出
-                        </button>
+                          <img
+                            src="/images/service/btn_line.png"
+                            alt=""
+                            className="img-responsive center-block"
+                          />
+                        </a>
                       </div>
-                    </form>
-                    <hr className="float-none" />
+                      <div className="col-lg-4 btn-img-hover">
+                        <a href="mailto:megagame815@gmail.com?subject=問題回報&body=請在這裡描述您的問題...">
+                          <img
+                            src="/images/service/btn_email.png"
+                            alt="Email"
+                            className="img-responsive center-block"
+                          />
+                        </a>
+                      </div>
+                      <div className="col-lg-2 btn-img-hover"></div>
+                    </div>
+                    <br />
+                    <br />
                   </div>
                 </div>
               </div>
