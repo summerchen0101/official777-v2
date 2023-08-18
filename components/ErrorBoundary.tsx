@@ -36,8 +36,10 @@ class ErrorBoundary extends React.Component<Props, State> {
       return (
         <div>
           <h2 className="text-warning">Oops, there is an error!</h2>
-          {error && <div>Error: {error.toString()}</div>}
-          {errorInfo && <div>Error Info: {errorInfo.componentStack}</div>}
+          <div className="text-gray-300">
+            {error && <div>Error: {error.toString()}</div>}
+            {errorInfo && <div>Error Info: {errorInfo.componentStack}</div>}
+          </div>
         </div>
       )
     }
