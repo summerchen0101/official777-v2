@@ -30,7 +30,7 @@ function ServiceTermsPage() {
                       企業經營者名稱：MEGA GAME GLOBAL TECH
                       LIMITED公司（以下簡稱「乙方」）
                       <br />
-                      電子郵件： megagame815@gmail.com
+                      電子郵件： megagames815@gmail.com
                       <br />
                       營業所地址： UNIT 2202 22/F West Exchange Tower 332 DES
                       VOEUX Road, Central Sheung Wan
@@ -358,7 +358,7 @@ function ServiceTermsPage() {
                         甲方不滿意乙方提供之連線品質、遊戲管理、費用計費、其他相關之服務品質，或對乙方依遊戲規則之處置不服時，得於收到通知之翌日起七日內至乙方之服務中心或以電子郵件或書面提出申訴，乙方應於接獲申訴後，於十五日內回覆處理之結果。
                       </li>
                       <li>
-                        乙方應於官網或本遊戲中明示服務專線（02-87761077）、電子郵件（megagame815@gmail.com）或郵寄地址（台北市信義區松仁路101號12樓）等相關申訴管道。
+                        乙方應於官網或本遊戲中明示服務專線（02-87761077）、電子郵件（megagames815@gmail.com）或郵寄地址（台北市信義區松仁路101號12樓）等相關申訴管道。
                       </li>
                     </ul>
                     <h4>第十八條　契約之終止與退費</h4>
