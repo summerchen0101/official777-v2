@@ -99,7 +99,7 @@ function ContactPage() {
                     <p>
                       尊貴的頭家：
                       <br />
-                      我們十分重視您的到訪，歡迎加入大頭家官方客服LINE：@online539或來信至官方信箱：megagame815@gmail.com，我們將盡快協助。
+                      我們十分重視您的到訪，歡迎加入大頭家官方客服LINE：@online539或來信至官方信箱：megagames815@gmail.com，我們將盡快協助。
                     </p>
                     <hr />
                     <br />
@@ -119,7 +119,7 @@ function ContactPage() {
                         </a>
                       </div>
                       <div className="col-lg-4 btn-img-hover">
-                        <a href="mailto:megagame815@gmail.com?subject=問題回報&body=請在這裡描述您的問題...">
+                        <a href="mailto:megagames815@gmail.com?subject=問題回報&body=請在這裡描述您的問題...">
                           <img
                             src="/images/service/btn_email.png"
                             alt="Email"
