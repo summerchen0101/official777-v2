@@ -50,6 +50,12 @@ export enum RankType {
   Slot = 2,
 }
 
+export enum LoginViaType {
+  PHONE = 'PHONE',
+  LINE = 'LINE',
+  APPLE = 'APPLE',
+}
+
 export enum LoginProvider {
   MEGA = 1,
   GOOGLE = 2,

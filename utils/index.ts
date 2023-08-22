@@ -4,6 +4,7 @@ import { OptionType } from '@/types/index'
 import { format } from 'date-fns'
 import { StringMap } from '@/types'
 import numeral from 'numeral'
+import qs from 'query-string'
 
 export const toDate = (time: number, isUnix?: boolean) =>
   time && format(isUnix ? time * 1000 : time, 'yyyy-MM-dd')
@@ -95,4 +96,18 @@ export function showLoginPopup() {
 
 export function showAppPopup() {
   showLayer('appPopup')
+}
+
+export const queryPlusQuery = (
+  url: string,
+  obj: Record<string, string | number>,
+) => {
+  const parsed = qs.parseUrl(url)
+
+  Object.entries(obj).map(([key, value]) => {
+    parsed.query[key] = value.toString()
+  })
+
+  const stringified = qs.stringify(parsed.query)
+  return `${parsed.url}?${stringified}`
 }
