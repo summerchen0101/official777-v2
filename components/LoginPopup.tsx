@@ -2,7 +2,7 @@ import { StringMap } from '@/types'
 import React from 'react'
 import useCdnUrl from '@/hooks/useCdnUrl'
 import useStorage from '@/hooks/useStorage'
-import { OAuthChannel, YesNo } from '@/lib/enums'
+import { LoginViaType, OAuthChannel, YesNo } from '@/lib/enums'
 import useAppleState from '@/services/useAppleState'
 import useOAuthLogin from '@/services/useOAuthLogin'
 import useSendSms from '@/services/useSendSms'
@@ -75,8 +75,10 @@ function LoginPopup() {
     }
   }, [cacheAcc, setValue, isShow])
 
+  const setLoginViaType = useUserStore((s) => s.setLoginViaType)
   const setTokenInfo = useUserStore((s) => s.setTokenInfo)
   const handleAppleLogin = async () => {
+    setLoginViaType(LoginViaType.APPLE)
     const res = await doGetAppleState({
       backUrl,
     })
@@ -89,6 +91,7 @@ function LoginPopup() {
     }
   }
   const handleOAuthLogin = async (channel: OAuthChannel) => {
+    setLoginViaType(LoginViaType.LINE)
     const res = await doOAuthLogin(channel, {
       autoRedirect: YesNo.No,
       backUrl,
@@ -120,6 +123,7 @@ function LoginPopup() {
 
   const { handler: login, isLoading } = useSmsLogin()
   const onSubmit = handleSubmit(async (d) => {
+    setLoginViaType(LoginViaType.PHONE)
     const res = await login({
       countryCode: d.phoneCode,
       cellphone: d.phone.replace(/^0+/, ''),
