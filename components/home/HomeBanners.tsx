@@ -19,6 +19,26 @@ function HomeBanners() {
         <div className="hidden-xs">
           <a href="#">
             <img
+              src="/images/headerbanner/pcbanner/德州撲克_1920x700.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+        <div className="hidden visible-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/phonebanner/德州撲克_828x1150.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div className="hidden-xs">
+          <a href="#">
+            <img
               src="/images/headerbanner/pcbanner/按讚臉書粉絲團_1920x700.jpg"
               alt=""
               className="img-responsive center-block"
@@ -35,26 +55,7 @@ function HomeBanners() {
           </a>
         </div>
       </li>
-      <li>
-        <div className="hidden-xs">
-          <a href="#">
-            <img
-              src="/images/headerbanner/pcbanner/魔龍2_1920x700.jpg"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
-        </div>
-        <div className="hidden visible-xs">
-          <a href="#">
-            <img
-              src="/images/headerbanner/phonebanner/魔龍2_828x1150.jpg"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
-        </div>
-      </li>
+
       <li>
         <div className="hidden-xs">
           <a href="#">
