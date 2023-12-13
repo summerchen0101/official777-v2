@@ -2,22 +2,6 @@ import React, { memo, useEffect } from 'react'
 
 const sliders = [
   {
-    imgSrc: '/images/eventbanner/每日活動1209.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動1210.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動1211.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動1212.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
     imgSrc: '/images/eventbanner/每日活動1213.jpg',
     link: 'https://www.facebook.com/Online539',
   },
@@ -31,6 +15,30 @@ const sliders = [
   },
   {
     imgSrc: '/images/eventbanner/每日活動1216.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動1217.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動1218.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動1219.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動1220.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動1221.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動1222.jpg',
     link: 'https://www.facebook.com/Online539',
   },
 ]
