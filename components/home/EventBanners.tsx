@@ -2,55 +2,63 @@ import React, { memo, useEffect } from 'react'
 
 const sliders = [
   {
-    imgSrc: '/images/eventbanner/每日活動0104.jpg',
+    imgSrc: '/images/eventbanner/每日活動0117.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0105.jpg',
+    imgSrc: '/images/eventbanner/每日活動0118.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0106.jpg',
+    imgSrc: '/images/eventbanner/每日活動0119.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0107.jpg',
+    imgSrc: '/images/eventbanner/每日活動0120.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0108.jpg',
+    imgSrc: '/images/eventbanner/每日活動0121.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0109.jpg',
+    imgSrc: '/images/eventbanner/每日活動0122.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0110.jpg',
+    imgSrc: '/images/eventbanner/每日活動0123.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0111.jpg',
+    imgSrc: '/images/eventbanner/每日活動0124.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0112.jpg',
+    imgSrc: '/images/eventbanner/每日活動0125.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0113.jpg',
+    imgSrc: '/images/eventbanner/每日活動0126.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0114.jpg',
+    imgSrc: '/images/eventbanner/每日活動0127.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0115.jpg',
+    imgSrc: '/images/eventbanner/每日活動0128.jpg',
     link: 'https://www.facebook.com/Online539',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0116.jpg',
+    imgSrc: '/images/eventbanner/每日活動0129.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0130.jpg',
+    link: 'https://www.facebook.com/Online539',
+  },
+  {
+    imgSrc: '/images/eventbanner/每日活動0131.jpg',
     link: 'https://www.facebook.com/Online539',
   },
 ]
