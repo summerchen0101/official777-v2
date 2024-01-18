@@ -28,7 +28,6 @@ interface Inputs {
 }
 
 function RechargeAtmPage() {
-  const [paymentType, setPaymentType] = useState(ECPayPaymentType.ATM)
   const [invoiceType, setInvoiceType] = useState(InvoiceType.DONATE)
   const [donateType, setDonateType] = useState('')
   const [carrierType, setCarrierType] = useState(
@@ -38,7 +37,7 @@ function RechargeAtmPage() {
     page: 1,
     perPage: 30,
     itemType: ItemType.All,
-    paymentType,
+    paymentType: ECPayPaymentType.ATM,
     paymentGateway: PaymentGateway.ECPay,
   })
 
@@ -70,11 +69,7 @@ function RechargeAtmPage() {
   const onSubmit = handleSubmit(async (d) => {
     const product = list?.find((t) => t.ItemId === d.productID)
 
-    if (
-      confirm(
-        `透過${ecpayPaymentTypeMap[paymentType]}消費 $${product?.Price}元是否確認?`,
-      )
-    ) {
+    if (confirm(`透過ATM消費 $${product?.Price}元是否確認?`)) {
       const carrierNumMap: StringMap = {
         [ECPayInvoiceType.PHONE_CARRIER]: d.phoneCarrierNum,
         [ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE]: d.citizenCarrrierNum,
@@ -87,7 +82,7 @@ function RechargeAtmPage() {
         productID: d.productID,
         gatewayCode: PaymentGateway.ECPay,
         userID: user?.id!,
-        paymentType,
+        paymentType: ECPayPaymentType.ATM,
         invoice: {
           eCPayInvoiceType:
             invoiceType === InvoiceType.DONATE
@@ -160,36 +155,7 @@ function RechargeAtmPage() {
                       name="productID"
                       control={control}
                     />
-                    <h2 className="text-center">Step.2 選擇付款類型</h2>
-                    <hr />
-                    <div className="table-responsive">
-                      <table className="table table-dark table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th colSpan={2}>請選擇付款類型</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            {Object.entries(ecpayPaymentTypeMap).map(
-                              ([code, label]) => (
-                                <td key={code}>
-                                  <label>
-                                    <input
-                                      type="radio"
-                                      onChange={() => setPaymentType(+code)}
-                                      checked={+code === paymentType}
-                                    />
-                                    <span className="ml-1">{label}</span>
-                                  </label>
-                                </td>
-                              ),
-                            )}
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <h2 className="text-center">Step.3 填寫發票資訊</h2>
+                    <h2 className="text-center">Step.2 填寫發票資訊</h2>
                     <hr />
                     <form role="form">
                       <div className="form-group col-lg-6">
@@ -373,7 +339,7 @@ function RechargeAtmPage() {
                       </div>
                     </form>
                     <hr className="float-none" />
-                    <h2 className="text-center">Step.4 聯絡資訊(二擇一填寫)</h2>
+                    <h2 className="text-center">Step.3 聯絡資訊(二擇一填寫)</h2>
                     <hr />
                     <div className="table-responsive">
                       <table className="table table-dark table-striped table-hover">
