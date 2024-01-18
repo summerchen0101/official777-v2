@@ -100,12 +100,8 @@ function RechargeAtmPage() {
           phone: d.phone || undefined,
         },
       })
-
       if (res?.data.data) {
-        const win = window.open(
-          'https://payment-stage.ecpay.com.tw/Cashier/AioCheckOut/V5',
-          'payment',
-        )
+        const win = window.open(res.data.requestURL, 'payment')
         const doc = res.data.data.replace(
           '<head>',
           `<head>\n<base href="${res.data.requestURL}">`,
