@@ -19,6 +19,46 @@ function HomeBanners() {
         <div className="hidden-xs">
           <a href="#">
             <img
+              src="/images/headerbanner/pcbanner/官網電腦板_1920x700.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+        <div className="hidden visible-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/phonebanner/官網手機板_828x1150.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div className="hidden-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/pcbanner/俱樂部素材_1920x700.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+        <div className="hidden visible-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/phonebanner/俱樂部素材_828x1150.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div className="hidden-xs">
+          <a href="#">
+            <img
               src="/images/headerbanner/pcbanner/德州撲克_1920x700.jpg"
               alt=""
               className="img-responsive center-block"
