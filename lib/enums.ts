@@ -3,6 +3,11 @@ export enum Platform {
   Android = 'Android',
 }
 
+export enum SerialNumType {
+  Event = 'Event',
+  PKG = 'PKG',
+}
+
 export enum NewsType {
   ALL = 'ALL',
   SERVICE = 'SERVICE',
