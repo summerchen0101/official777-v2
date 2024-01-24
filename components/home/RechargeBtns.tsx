@@ -24,28 +24,28 @@ function RechargeBtns() {
         </a>
       </div>
       <div className="btn-evnet">
-        <a href="#" onClick={() => toAuthRoute('/recharge-promo')}>
+        <a href="#" onClick={() => toAuthRoute('/recharge-num')}>
           <img
-            src="/images/btn_event.png"
+            src="/images/btn_park.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
           <img
-            src="/images/btn_phone_event.png"
+            src="/images/btn_phone_park.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
         </a>
       </div>
       <div className="btn-shop">
-        <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
+        <a href="#" onClick={() => toAuthRoute('/recharge-gift')}>
           <img
-            src="/images/btn_shop.png"
+            src="/images/btn_gift.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
           <img
-            src="/images/btn_phone_shop.png"
+            src="/images/btn_phone_gift.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
