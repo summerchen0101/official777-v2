@@ -41,6 +41,7 @@ function RechargeAtmPage() {
     formState: { errors },
     watch,
     setValue,
+    reset,
     control,
   } = useForm<Inputs>()
 
@@ -139,78 +140,23 @@ function RechargeAtmPage() {
                     <GiftPkgSelector
                       name="productID"
                       control={control}
-                      defaultValue={5371}
                       rules={{ required: '品項不可為空' }}
                     />
-                    <h2 className="text-center">Step.2 填寫發票資訊</h2>
-                    <hr />
-                    <form role="form">
-                      <div className="form-group col-lg-6">
-                        <label htmlFor="name">發票類型</label>
-                        <select
-                          className="form-control input-lg"
-                          value={invoiceType}
-                          onChange={(e) =>
-                            setInvoiceType(e.target.value as InvoiceType)
-                          }
-                        >
-                          {Object.entries(invoiceTypeMap).map(
-                            ([code, label]) => (
-                              <option key={code} value={code}>
-                                {label}
-                              </option>
-                            ),
-                          )}
-                        </select>
-                      </div>
-                      {invoiceType === InvoiceType.DONATE ? (
-                        <>
-                          <div className="form-group col-lg-6 ">
-                            <label htmlFor="name">捐贈發票</label>
-                            <select
-                              className="form-control input-lg"
-                              value={donateType}
-                              onChange={(e) => setDonateType(e.target.value)}
-                            >
-                              <option value="">捐給愛心動物協會</option>
-                              <option value="other">其他單位</option>
-                            </select>
-                          </div>
-                          <div
-                            hidden={donateType !== 'other'}
-                            className="form-group col-lg-6 input-group-lg"
-                          >
-                            <label htmlFor="number1" className="control-label">
-                              捐贈碼
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="number1"
-                              {...register('loveCode', {
-                                required:
-                                  invoiceType === InvoiceType.DONATE &&
-                                  donateType === 'other' &&
-                                  '不可為空',
-                              })}
-                            />
-                            {errors.loveCode && (
-                              <div className="text-danger">
-                                {errors.loveCode.message}
-                              </div>
-                            )}
-                          </div>
-                        </>
-                      ) : (
-                        <>
+                    {watch('productID') ? (
+                      <>
+                        <h2 className="text-center">Step.2 填寫發票資訊</h2>
+                        <hr />
+                        <form role="form">
                           <div className="form-group col-lg-6">
-                            <label htmlFor="name">電子載具</label>
+                            <label htmlFor="name">發票類型</label>
                             <select
                               className="form-control input-lg"
-                              value={carrierType}
-                              onChange={(e) => setCarrierType(+e.target.value)}
+                              value={invoiceType}
+                              onChange={(e) =>
+                                setInvoiceType(e.target.value as InvoiceType)
+                              }
                             >
-                              {Object.entries(ecpayInvoiceMap).map(
+                              {Object.entries(invoiceTypeMap).map(
                                 ([code, label]) => (
                                   <option key={code} value={code}>
                                     {label}
@@ -219,121 +165,171 @@ function RechargeAtmPage() {
                               )}
                             </select>
                           </div>
+                          {invoiceType === InvoiceType.DONATE ? (
+                            <>
+                              <div className="form-group col-lg-6 ">
+                                <label htmlFor="name">捐贈發票</label>
+                                <select
+                                  className="form-control input-lg"
+                                  value={donateType}
+                                  onChange={(e) =>
+                                    setDonateType(e.target.value)
+                                  }
+                                >
+                                  <option value="">捐給愛心動物協會</option>
+                                  <option value="other">其他單位</option>
+                                </select>
+                              </div>
+                              <div
+                                hidden={donateType !== 'other'}
+                                className="form-group col-lg-6 input-group-lg"
+                              >
+                                <label
+                                  htmlFor="number1"
+                                  className="control-label"
+                                >
+                                  捐贈碼
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  id="number1"
+                                  {...register('loveCode', {
+                                    required:
+                                      invoiceType === InvoiceType.DONATE &&
+                                      donateType === 'other' &&
+                                      '不可為空',
+                                  })}
+                                />
+                                {errors.loveCode && (
+                                  <div className="text-danger">
+                                    {errors.loveCode.message}
+                                  </div>
+                                )}
+                              </div>
+                            </>
+                          ) : (
+                            <>
+                              <div className="form-group col-lg-6">
+                                <label htmlFor="name">電子載具</label>
+                                <select
+                                  className="form-control input-lg"
+                                  value={carrierType}
+                                  onChange={(e) =>
+                                    setCarrierType(+e.target.value)
+                                  }
+                                >
+                                  {Object.entries(ecpayInvoiceMap).map(
+                                    ([code, label]) => (
+                                      <option key={code} value={code}>
+                                        {label}
+                                      </option>
+                                    ),
+                                  )}
+                                </select>
+                              </div>
 
-                          <div
-                            hidden={
-                              carrierType !== ECPayInvoiceType.PHONE_CARRIER
-                            }
-                            className="form-group col-lg-6 input-group-lg"
-                          >
-                            <label htmlFor="number4" className="control-label ">
-                              手機載具 (ex: /xxxx)
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="number4"
-                              {...register('phoneCarrierNum', {
-                                onChange: (e) =>
-                                  (e.target.value =
-                                    e.target.value.toUpperCase()),
-                                required:
-                                  carrierType ===
-                                    ECPayInvoiceType.PHONE_CARRIER &&
-                                  '不可為空',
-                              })}
-                            />
-                            {errors.phoneCarrierNum && (
+                              <div
+                                hidden={
+                                  carrierType !== ECPayInvoiceType.PHONE_CARRIER
+                                }
+                                className="form-group col-lg-6 input-group-lg"
+                              >
+                                <label
+                                  htmlFor="number4"
+                                  className="control-label "
+                                >
+                                  手機載具 (ex: /xxxx)
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  id="number4"
+                                  {...register('phoneCarrierNum', {
+                                    onChange: (e) =>
+                                      (e.target.value =
+                                        e.target.value.toUpperCase()),
+                                    required:
+                                      carrierType ===
+                                        ECPayInvoiceType.PHONE_CARRIER &&
+                                      '不可為空',
+                                  })}
+                                />
+                                {errors.phoneCarrierNum && (
+                                  <div className="text-danger">
+                                    {errors.phoneCarrierNum.message}
+                                  </div>
+                                )}
+                              </div>
+
+                              <div
+                                hidden={
+                                  carrierType !==
+                                  ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE
+                                }
+                                className="form-group col-lg-6 input-group-lg"
+                              >
+                                <label
+                                  htmlFor="number4"
+                                  className="control-label "
+                                >
+                                  自然人憑證載具
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  id="number4"
+                                  {...register('citizenCarrrierNum', {
+                                    onChange: (e) =>
+                                      (e.target.value =
+                                        e.target.value.toUpperCase()),
+                                    required:
+                                      carrierType ===
+                                        ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE &&
+                                      '不可為空',
+                                  })}
+                                />
+                                {errors.citizenCarrrierNum && (
+                                  <div className="text-danger">
+                                    {errors.citizenCarrrierNum.message}
+                                  </div>
+                                )}
+                              </div>
+                            </>
+                          )}
+
+                          <div className="col-lg-12">
+                            <div className="checkbox">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  {...register('agree', {
+                                    required:
+                                      invoiceType === InvoiceType.CLOUD &&
+                                      '請勾選同意',
+                                  })}
+                                />
+                                我同意辦理退貨時，由三聯陽泰科技代為處理發票及銷貨退回證明單，以加速退貨退款作業。
+                              </label>
+                            </div>
+                            {errors.agree && (
                               <div className="text-danger">
-                                {errors.phoneCarrierNum.message}
+                                {errors.agree.message}
                               </div>
                             )}
                           </div>
-
-                          <div
-                            hidden={
-                              carrierType !==
-                              ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE
-                            }
-                            className="form-group col-lg-6 input-group-lg"
-                          >
-                            <label htmlFor="number4" className="control-label ">
-                              自然人憑證載具
-                            </label>
-                            <input
-                              type="text"
-                              className="form-control"
-                              id="number4"
-                              {...register('citizenCarrrierNum', {
-                                onChange: (e) =>
-                                  (e.target.value =
-                                    e.target.value.toUpperCase()),
-                                required:
-                                  carrierType ===
-                                    ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE &&
-                                  '不可為空',
-                              })}
-                            />
-                            {errors.citizenCarrrierNum && (
-                              <div className="text-danger">
-                                {errors.citizenCarrrierNum.message}
-                              </div>
-                            )}
-                          </div>
-
-                          {/* <div className="form-group col-lg-6 input-group-lg">
-                        <label htmlFor="number2" className="control-label ">
-                          綠界載具
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="number2"
-                        />
-                      </div>
-                      <div className="form-group col-lg-6 input-group-lg">
-                        <label htmlFor="number3" className="control-label ">
-                          自然人憑證載具
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          id="number3"
-                        />
-                      </div> */}
-                        </>
-                      )}
-
-                      <div className="col-lg-12">
-                        <div className="checkbox">
-                          <label>
-                            <input
-                              type="checkbox"
-                              {...register('agree', {
-                                required:
-                                  invoiceType === InvoiceType.CLOUD &&
-                                  '請勾選同意',
-                              })}
-                            />
-                            我同意辦理退貨時，由三聯陽泰科技代為處理發票及銷貨退回證明單，以加速退貨退款作業。
-                          </label>
-                        </div>
-                        {errors.agree && (
-                          <div className="text-danger">
-                            {errors.agree.message}
-                          </div>
-                        )}
-                      </div>
-                    </form>
-                    <hr className="float-none" />
-                    <h2 className="text-center">Step.3 聯絡資訊(二擇一填寫)</h2>
-                    <hr />
-                    <div className="table-responsive">
-                      <table className="table table-dark table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th>手機號碼或Email，請至少填一項</th>
-                            {/* <th>
+                        </form>
+                        <hr className="float-none" />
+                        <h2 className="text-center">
+                          Step.3 聯絡資訊(二擇一填寫)
+                        </h2>
+                        <hr />
+                        <div className="table-responsive">
+                          <table className="table table-dark table-striped table-hover">
+                            <thead>
+                              <tr>
+                                <th>手機號碼或Email，請至少填一項</th>
+                                {/* <th>
                               <form role="form">
                                 <div className="col-lg-12">
                                   <div className="checkbox">
@@ -348,69 +344,71 @@ function RechargeAtmPage() {
                                 </div>
                               </form>
                             </th> */}
-                          </tr>
-                        </thead>
-                      </table>
-                      <br />
-                      <form role="form">
-                        <div className="form-group col-lg-6 input-group-lg">
-                          <label htmlFor="mail" className="control-label ">
-                            E-Mail
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="請輸入E-Mail"
-                            id="mail"
-                            {...register('email', {
-                              required: !watch('phone'),
-                            })}
-                          />
+                              </tr>
+                            </thead>
+                          </table>
+                          <br />
+                          <form role="form">
+                            <div className="form-group col-lg-6 input-group-lg">
+                              <label htmlFor="mail" className="control-label ">
+                                E-Mail
+                              </label>
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="請輸入E-Mail"
+                                id="mail"
+                                {...register('email', {
+                                  required: !watch('phone'),
+                                })}
+                              />
+                            </div>
+                            <div className="form-group col-lg-6 input-group-lg">
+                              <label htmlFor="phone" className="control-label ">
+                                手機號碼
+                              </label>
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="請輸入手機號碼"
+                                id="phone"
+                                {...register('phone', {
+                                  required: !watch('email'),
+                                })}
+                              />
+                            </div>
+                            {(errors.email || errors.phone) && (
+                              <div className="text-danger">
+                                手機號碼或Email，請至少填一項
+                              </div>
+                            )}
+                          </form>
                         </div>
-                        <div className="form-group col-lg-6 input-group-lg">
-                          <label htmlFor="phone" className="control-label ">
-                            手機號碼
-                          </label>
-                          <input
-                            type="text"
-                            className="form-control"
-                            placeholder="請輸入手機號碼"
-                            id="phone"
-                            {...register('phone', {
-                              required: !watch('email'),
-                            })}
-                          />
-                        </div>
-                        {(errors.email || errors.phone) && (
-                          <div className="text-danger">
-                            手機號碼或Email，請至少填一項
-                          </div>
-                        )}
-                      </form>
-                    </div>
-                    <p className="text-center">
-                      <span className="glyphicon glyphicon-exclamation-sign" />
-                      請注意！系統處理時間約5分鐘 ~
-                      1小時才能完成遊戲入點，請耐心等候。
-                    </p>
-                    <br />
-                    <form className="form-horizontal" role="form">
-                      <button
-                        type="button"
-                        className="btn btn-default btn-lg btn-50"
-                        // onClick={() => reset()}
-                      >
-                        取消
-                      </button>
-                      <button
-                        type="button"
-                        className="btn btn-default btn-lg btn-50"
-                        onClick={onSubmit}
-                      >
-                        立即購買
-                      </button>
-                      <hr className="float-none" />
-                    </form>
+                        <p className="text-center">
+                          <span className="glyphicon glyphicon-exclamation-sign" />
+                          請注意！系統處理時間約5分鐘 ~
+                          1小時才能完成遊戲入點，請耐心等候。
+                        </p>
+                        <br />
+                        <form className="form-horizontal" role="form">
+                          <button
+                            type="button"
+                            className="btn btn-default btn-lg btn-50"
+                            onClick={() => reset({ productID: 0 })}
+                          >
+                            取消
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-default btn-lg btn-50"
+                            onClick={onSubmit}
+                          >
+                            立即購買
+                          </button>
+                          <hr className="float-none" />
+                        </form>
+                      </>
+                    ) : null}
                   </div>
                 </div>
               </div>
