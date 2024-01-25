@@ -279,16 +279,13 @@ function HeaderNav({ pure }: Props) {
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="#"
-                        onClick={() => toAuthRoute('/recharge-promo')}
-                      >
-                        活動序號兌換
+                      <a href="#" onClick={() => toAuthRoute('/recharge-num')}>
+                        序號兌換
                       </a>
                     </li>
                     <li>
-                      <a href="#" onClick={() => toAuthRoute('/recharge-pkg')}>
-                        智冠實體產包
+                      <a href="#" onClick={() => toAuthRoute('/recharge-gift')}>
+                        超值禮包
                       </a>
                     </li>
                   </ul>
