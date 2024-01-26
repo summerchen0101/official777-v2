@@ -1,17 +1,14 @@
 import GiftPkgSelector from '@/components/GiftPkgSelector'
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
-import RechargePointSelector from '@/components/RechargePointSelector'
 import {
   ECPayInvoiceType,
   ECPayPaymentType,
   InvoiceType,
-  ItemType,
   PaymentGateway,
 } from '@/lib/enums'
-import { ecpayInvoiceMap, ecpayPaymentTypeMap, invoiceTypeMap } from '@/lib/map'
+import { ecpayInvoiceMap, invoiceTypeMap } from '@/lib/map'
 import useEcpayOrderCreate from '@/services/useEcpayOrderCreate'
-import useGoodsList from '@/services/useGoodsList'
 import { StringMap } from '@/types'
 import useAuthPage from '@/utils/useAuthPage'
 import { useEffect, useState } from 'react'
