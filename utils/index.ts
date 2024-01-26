@@ -111,3 +111,7 @@ export const queryPlusQuery = (
   const stringified = qs.stringify(parsed.query)
   return `${parsed.url}?${stringified}`
 }
+
+export const handleComingSoon = () => {
+  alert('敬請期待～')
+}

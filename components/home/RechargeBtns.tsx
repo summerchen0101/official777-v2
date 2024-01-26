@@ -1,3 +1,4 @@
+import { handleComingSoon } from '@/utils'
 import useAuthRoute from '@/utils/useAuthRoute'
 
 function RechargeBtns() {
@@ -38,7 +39,8 @@ function RechargeBtns() {
         </a>
       </div>
       <div className="btn-shop">
-        <a href="#" onClick={() => toAuthRoute('/recharge-gift')}>
+        <a href="#" onClick={handleComingSoon}>
+          {/* <a href="#" onClick={() => toAuthRoute('/recharge-gift')}> */}
           <img
             src="/images/btn_gift.png"
             alt=""

@@ -19,9 +19,6 @@ function HeaderNav({ pure }: Props) {
   const toCdnUrl = useCdnUrl()
   const toAuthRoute = useAuthRoute()
 
-  const handleComingSoon = () => {
-    alert('敬請期待～')
-  }
   const router = useRouter()
 
   const clearUser = useUserStore((s) => s.clearUser)
