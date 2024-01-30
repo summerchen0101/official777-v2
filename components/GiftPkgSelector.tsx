@@ -9,7 +9,7 @@ const gifts = [
     title: '大頭家歡樂包',
     price: 3888,
     content: `
-    金龙碎片*5
+    金龍碎片*5
     官將首角色`,
   },
   {
@@ -18,7 +18,7 @@ const gifts = [
     title: '超值豪爽包',
     price: 8880,
     content: `
-    金龙碎片*11
+    金龍碎片*11
     1星超級卡
     雷神角色`,
   },
@@ -28,7 +28,7 @@ const gifts = [
     title: '金龍豐收包',
     price: 16800,
     content: `
-    金龙碎片*22
+    金龍碎片*22
     1星超級卡
     趙雲角色`,
   },
