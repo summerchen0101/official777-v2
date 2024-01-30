@@ -1,7 +1,7 @@
 import useCdnUrl from '@/hooks/useCdnUrl'
 import bootsNavBar from '@/public/js/bootsnav'
 import useMe from '@/services/useMe'
-import { toCurrency } from '@/utils'
+import { handleComingSoon, toCurrency } from '@/utils'
 import useAuthRoute from '@/utils/useAuthRoute'
 import { showLoginPopup } from '@/utils'
 import Link from 'next/link'
@@ -281,7 +281,7 @@ function HeaderNav({ pure }: Props) {
                       </a>
                     </li>
                     <li>
-                      <a href="#" onClick={() => toAuthRoute('/recharge-gift')}>
+                      <a href="#" onClick={handleComingSoon}>
                         超值禮包
                       </a>
                     </li>
