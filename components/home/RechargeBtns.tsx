@@ -39,8 +39,8 @@ function RechargeBtns() {
         </a>
       </div>
       <div className="btn-shop">
-        <a href="#" onClick={handleComingSoon}>
-          {/* <a href="#" onClick={() => toAuthRoute('/recharge-gift')}> */}
+        {/* <a href="#" onClick={handleComingSoon}> */}
+        <a href="#" onClick={() => toAuthRoute('/recharge-gift')}>
           <img
             src="/images/btn_gift.png"
             alt=""
