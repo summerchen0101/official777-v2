@@ -281,7 +281,7 @@ function HeaderNav({ pure }: Props) {
                       </a>
                     </li>
                     <li>
-                      <a href="#" onClick={handleComingSoon}>
+                      <a href="#" onClick={() => toAuthRoute('/recharge-gift')}>
                         超值禮包
                       </a>
                     </li>
