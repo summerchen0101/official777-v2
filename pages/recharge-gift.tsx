@@ -80,7 +80,7 @@ function RechargeAtmPage() {
         },
       })
       if (res?.data.data) {
-        const win = window.open('', 'payment')
+        const win = window.open(res.data.requestURL, 'payment')
         const doc = res.data.data.replace(
           '<head>',
           `<head>\n<base href="${res.data.requestURL}">`,
