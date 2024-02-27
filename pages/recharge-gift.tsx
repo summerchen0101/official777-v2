@@ -13,6 +13,7 @@ import { StringMap } from '@/types'
 import useAuthPage from '@/utils/useAuthPage'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { CgSpinner } from 'react-icons/cg'
 
 interface Inputs {
   productID: number
@@ -26,6 +27,8 @@ interface Inputs {
 }
 
 function RechargeAtmPage() {
+  const [resUrl, setResUrl] = useState('')
+  const [resHtml, setResHtml] = useState('')
   const [invoiceType, setInvoiceType] = useState(InvoiceType.DONATE)
   const [donateType, setDonateType] = useState('')
   const [carrierType, setCarrierType] = useState(
@@ -42,7 +45,7 @@ function RechargeAtmPage() {
     control,
   } = useForm<Inputs>()
 
-  const { handler: doCreate } = useEcpayOrderCreate()
+  const { handler: doCreate, isLoading } = useEcpayOrderCreate()
   const user = useAuthPage()
 
   useEffect(() => {
@@ -53,44 +56,46 @@ function RechargeAtmPage() {
   }, [user])
 
   const onSubmit = handleSubmit(async (d) => {
-    if (confirm(`透過ATM消費是否確認?`)) {
-      const carrierNumMap: StringMap = {
-        [ECPayInvoiceType.PHONE_CARRIER]: d.phoneCarrierNum,
-        [ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE]: d.citizenCarrrierNum,
-      }
-      let loveCode = ''
-      if (invoiceType === InvoiceType.DONATE) {
-        loveCode = donateType === 'other' ? d.loveCode : '978'
-      }
-      const res = await doCreate({
-        productID: d.productID,
-        gatewayCode: PaymentGateway.ECPay,
-        userID: user?.id!,
-        paymentType: ECPayPaymentType.ATM,
-        invoice: {
-          eCPayInvoiceType:
-            invoiceType === InvoiceType.DONATE
-              ? ECPayInvoiceType.DONATE_INVOICE
-              : carrierType,
-          citizenDigitalCertificateNum: d.citizenCarrrierNum || undefined,
-          carrierNum: carrierNumMap[carrierType] || undefined,
-          loveCode,
-          notifyMail: d.email || undefined,
-          phone: d.phone || undefined,
-        },
-      })
-      if (res?.data.data) {
-        const win = window.open(res.data.requestURL, 'payment')
-        const doc = res.data.data.replace(
-          '<head>',
-          `<head>\n<base href="${res.data.requestURL}">`,
-        )
-        win?.document.write(doc)
-
-        win?.document.close()
-      }
+    const carrierNumMap: StringMap = {
+      [ECPayInvoiceType.PHONE_CARRIER]: d.phoneCarrierNum,
+      [ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE]: d.citizenCarrrierNum,
+    }
+    let loveCode = ''
+    if (invoiceType === InvoiceType.DONATE) {
+      loveCode = donateType === 'other' ? d.loveCode : '978'
+    }
+    const res = await doCreate({
+      productID: d.productID,
+      gatewayCode: PaymentGateway.ECPay,
+      userID: user?.id!,
+      paymentType: ECPayPaymentType.ATM,
+      invoice: {
+        eCPayInvoiceType:
+          invoiceType === InvoiceType.DONATE
+            ? ECPayInvoiceType.DONATE_INVOICE
+            : carrierType,
+        citizenDigitalCertificateNum: d.citizenCarrrierNum || undefined,
+        carrierNum: carrierNumMap[carrierType] || undefined,
+        loveCode,
+        notifyMail: d.email || undefined,
+        phone: d.phone || undefined,
+      },
+    })
+    if (res?.data.data) {
+      setResUrl(res.data.requestURL)
+      setResHtml(res.data.data)
     }
   })
+
+  const openPaymentWin = () => {
+    if (!resUrl || !resHtml) return
+    const win = window.open(resUrl, 'payment')
+    const doc = resHtml.replace('<head>', `<head>\n<base href="${resUrl}">`)
+    win?.document.write(doc)
+    win?.document.close()
+    setResUrl('')
+    setResHtml('')
+  }
 
   return (
     <PageLayout>
@@ -391,17 +396,34 @@ function RechargeAtmPage() {
                           <button
                             type="button"
                             className="btn btn-default btn-lg btn-50"
-                            onClick={() => reset({ productID: 0 })}
+                            onClick={() => {
+                              reset({ productID: 0 })
+                              setResHtml('')
+                              setResUrl('')
+                            }}
                           >
                             取消
                           </button>
-                          <button
-                            type="button"
-                            className="btn btn-default btn-lg btn-50"
-                            onClick={onSubmit}
-                          >
-                            立即購買
-                          </button>
+
+                          {resUrl && resHtml ? (
+                            <button
+                              type="button"
+                              className="btn btn-default btn-lg btn-50"
+                              onClick={openPaymentWin}
+                            >
+                              開啟支付視窗
+                            </button>
+                          ) : (
+                            <button
+                              type="button"
+                              className="btn btn-default btn-lg btn-50"
+                              onClick={onSubmit}
+                              disabled={isLoading}
+                            >
+                              {isLoading ? '處理中...' : '立即購買'}
+                            </button>
+                          )}
+
                           <hr className="float-none" />
                         </form>
                       </>
