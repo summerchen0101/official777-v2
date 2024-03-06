@@ -83,6 +83,26 @@ steps:
     when:
       event: tag
 
+  - name: docker_gar  
+    image: reg.ffglobaltech.com/plugins/gar
+    privileged: true
+    environment:
+      ACCESS_TOKEN:
+        from_secret: git_token
+    settings:
+      repo: megarich/tw/taiwan/official
+      registry: asia-east1-docker.pkg.dev
+      tags: ${DRONE_TAG}
+      dockerfile: ./dockerfile
+      json_key:
+        from_secret: google_credentials
+      build_args_from_env:
+        - ACCESS_TOKEN
+      build_args:
+        - USER=drone.robot
+    when:
+      event: tag
+
       
   - name: deploy
     image: reg.ffglobaltech.com/drone-helm3
@@ -121,7 +141,7 @@ steps:
       token:
         from_secret: k8s_token_qa
     depends_on:
-      - docker_gcr
+      - docker_gar
     when:
       event: tag
 
@@ -137,8 +157,9 @@ steps:
       debug: true
       values_files: "./deployments/helm/official-values.yaml"
       values:
-        - image.repository=gcr.io/megarich/official
+        - image.repository=asia-east1-docker.pkg.dev/megarich/tw/taiwan/official
         - image.tag=${DRONE_TAG}
+        - imagePullSecrets[0].name=gar-secret
     environment:
       wait_for_upgrade: true
       KUBE_API_SERVER:
