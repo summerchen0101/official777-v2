@@ -63,25 +63,25 @@ steps:
     when:
       branch: dev
 
-  - name: docker_gcr
-    image: reg.ffglobaltech.com/plugins/gcr
-    privileged: true
-    environment:
-      ACCESS_TOKEN:
-        from_secret: git_token
-    settings:
-      registry: gcr.io
-      repo: megarich/official
-      tags: ${DRONE_TAG}
-      dockerfile: ./dockerfile
-      json_key:
-        from_secret: google_credentials
-      build_args_from_env:
-        - ACCESS_TOKEN
-      build_args:
-        - USER=drone.robot
-    when:
-      event: tag
+  # - name: docker_gcr
+  #   image: reg.ffglobaltech.com/plugins/gcr
+  #   privileged: true
+  #   environment:
+  #     ACCESS_TOKEN:
+  #       from_secret: git_token
+  #   settings:
+  #     registry: gcr.io
+  #     repo: megarich/official
+  #     tags: ${DRONE_TAG}
+  #     dockerfile: ./dockerfile
+  #     json_key:
+  #       from_secret: google_credentials
+  #     build_args_from_env:
+  #       - ACCESS_TOKEN
+  #     build_args:
+  #       - USER=drone.robot
+  #   when:
+  #     event: tag
 
   - name: docker_gar  
     image: reg.ffglobaltech.com/plugins/gar
