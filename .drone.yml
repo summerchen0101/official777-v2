@@ -101,9 +101,8 @@ steps:
       build_args:
         - USER=drone.robot
     when:
-      event: tag
+      event: tag      
 
-      
   - name: deploy
     image: reg.ffglobaltech.com/drone-helm3
     settings:
