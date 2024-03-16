@@ -28,7 +28,7 @@ interface Inputs {
   agree: boolean
 }
 
-function RechargeFunPage() {
+function RechargeCardPage() {
   const [invoiceType, setInvoiceType] = useState(InvoiceType.DONATE)
   const [donateType, setDonateType] = useState('')
   const [carrierType, setCarrierType] = useState(
@@ -470,4 +470,4 @@ function RechargeFunPage() {
   )
 }
 
-export default RechargeFunPage
+export default RechargeCardPage

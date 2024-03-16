@@ -1,6 +1,8 @@
 import GiftPkgSelector from '@/components/GiftPkgSelector'
 import LogoBox from '@/components/LogoBox'
+import LuckyPkgSelector from '@/components/LuckyPkgSelector'
 import PageLayout from '@/components/PageLayout'
+import usePaymentWin from '@/hooks/usePaymentWin'
 import {
   ECPayInvoiceType,
   ECPayPaymentType,
@@ -26,14 +28,21 @@ interface Inputs {
   agree: boolean
 }
 
+const tabs: Record<string, string> = {
+  gift: '限定禮包',
+  lucky: '金幣福袋',
+}
+
 function RechargeAtmPage() {
-  const [resUrl, setResUrl] = useState('')
-  const [resHtml, setResHtml] = useState('')
   const [invoiceType, setInvoiceType] = useState(InvoiceType.DONATE)
   const [donateType, setDonateType] = useState('')
   const [carrierType, setCarrierType] = useState(
     ECPayInvoiceType.EC_PAY_INVOICE,
   )
+  const [tab, setTab] = useState('gift')
+
+  const { resUrl, setResUrl, resHtml, setResHtml, openPaymentWin } =
+    usePaymentWin()
 
   const {
     register,
@@ -87,16 +96,6 @@ function RechargeAtmPage() {
     }
   })
 
-  const openPaymentWin = () => {
-    if (!resUrl || !resHtml) return
-    const win = window.open(resUrl, 'payment')
-    const doc = resHtml.replace('<head>', `<head>\n<base href="${resUrl}">`)
-    win?.document.write(doc)
-    win?.document.close()
-    setResUrl('')
-    setResHtml('')
-  }
-
   return (
     <PageLayout>
       <header
@@ -137,13 +136,34 @@ function RechargeAtmPage() {
               <div className="ranking-box-goldline">
                 <div className="ranking-box-black">
                   <div className="content-box">
+                    <ul className="sub-tab2">
+                      {Object.keys(tabs).map((key) => (
+                        <li
+                          key={key}
+                          className={key === tab ? 'active' : ''}
+                          onClick={() => setTab(key)}
+                        >
+                          <a href="#">{tabs[key]}</a>
+                        </li>
+                      ))}
+                    </ul>
+                    <hr className="float-none" />
                     <h2 className="text-center">Step.1 選擇購買品項</h2>
                     <hr />
-                    <GiftPkgSelector
-                      name="productID"
-                      control={control}
-                      rules={{ required: '品項不可為空' }}
-                    />
+                    {tab === 'lucky' ? (
+                      <LuckyPkgSelector
+                        name="productID"
+                        control={control}
+                        rules={{ required: '品項不可為空' }}
+                      />
+                    ) : (
+                      <GiftPkgSelector
+                        name="productID"
+                        control={control}
+                        rules={{ required: '品項不可為空' }}
+                      />
+                    )}
+
                     {watch('productID') ? (
                       <>
                         <h2 className="text-center">Step.2 填寫發票資訊</h2>
@@ -331,21 +351,6 @@ function RechargeAtmPage() {
                             <thead>
                               <tr>
                                 <th>手機號碼或Email，請至少填一項</th>
-                                {/* <th>
-                              <form role="form">
-                                <div className="col-lg-12">
-                                  <div className="checkbox">
-                                    <label>
-                                      <input
-                                        type="checkbox"
-                                        onChange={handleUseUser}
-                                      />
-                                      使用會員資料
-                                    </label>
-                                  </div>
-                                </div>
-                              </form>
-                            </th> */}
                               </tr>
                             </thead>
                           </table>
