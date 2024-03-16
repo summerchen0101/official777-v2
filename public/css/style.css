@@ -228,11 +228,11 @@ a , a:link , a:visited , a:hover , a:active {
 	-moz-box-shadow: 0 1px 15px rgba(0,0,0,0.75), inset 0 0 3px #595858;
 	box-shadow: 0 1px 15px rgba(0,0,0,0.75), inset 0 0 3px #595858;
 }
-.btn-evnet , .btn-shop , .btn-mycard{
+.btn-evnet , .btn-shop , .btn-mycard ,.btn-bank ,.btn-gift{
 	position: relative;
 	float: left;
-	width: 33%;
-	padding: 2%;
+	width: 25%;
+	padding: 2% 0%;
 }
 
 .btn-content-mycard{
@@ -1305,7 +1305,7 @@ h9{
 		margin: 0 auto;
 		padding: 5%;
 	}
-	.btn-evnet , .btn-shop , .btn-mycard{
+	.btn-evnet , .btn-shop , .btn-mycard ,.btn-bank ,.btn-gift{
 		padding: 0 0.5%;
 	}
 
