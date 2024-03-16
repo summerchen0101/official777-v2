@@ -271,8 +271,8 @@ function HeaderNav({ pure }: Props) {
                       </ul>
                     </li>
                     <li>
-                      <a href="#" onClick={() => toAuthRoute('/recharge-atm')}>
-                        綠界銀行轉帳
+                      <a href="#" onClick={() => toAuthRoute('/recharge-fun')}>
+                        銀行轉帳/信用卡
                       </a>
                     </li>
                     <li>

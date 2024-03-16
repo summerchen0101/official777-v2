@@ -75,13 +75,13 @@ function LuckyPkgSelector<T extends FieldValues>({ ...restProps }: Props<T>) {
             <div className="title-left">
               <h4>{g.title}</h4>
             </div>
-            <div className="title-right">
+            {/* <div className="title-right">
               <img
                 src="/images/recharge/gift_tag.png"
                 alt=""
                 className="img-responsive pull-right"
               />
-            </div>
+            </div> */}
             <hr className="float-none" />
             <hr />
             <p>

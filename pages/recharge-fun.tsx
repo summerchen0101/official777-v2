@@ -18,7 +18,7 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 interface Inputs {
-  productID: number
+  productID?: number
   email: string
   phone: string
   paymentType: ECPayPaymentType
@@ -34,6 +34,7 @@ function RechargeFunPage() {
   const [carrierType, setCarrierType] = useState(
     ECPayInvoiceType.EC_PAY_INVOICE,
   )
+
   const { list } = useGoodsList({
     page: 1,
     perPage: 30,
@@ -41,6 +42,17 @@ function RechargeFunPage() {
     paymentType: ECPayPaymentType.ATM,
     paymentGateway: PaymentGateway.ECPay,
   })
+  const defaultValues: Inputs = {
+    paymentType: ECPayPaymentType.ATM,
+    productID: list?.[0].ItemId,
+    email: '',
+    phone: '',
+    citizenCarrrierNum: '',
+    phoneCarrierNum: '',
+    loveCode: '',
+    agree: false,
+  }
+
   const { resUrl, setResUrl, resHtml, setResHtml, openPaymentWin } =
     usePaymentWin()
 
@@ -51,10 +63,9 @@ function RechargeFunPage() {
     watch,
     setValue,
     control,
+    reset,
   } = useForm<Inputs>({
-    defaultValues: {
-      paymentType: ECPayPaymentType.ATM,
-    },
+    defaultValues,
   })
 
   useEffect(() => {
@@ -86,7 +97,7 @@ function RechargeFunPage() {
         loveCode = donateType === 'other' ? d.loveCode : '978'
       }
       const res = await doCreate({
-        productID: d.productID,
+        productID: d.productID || 0,
         gatewayCode: PaymentGateway.ECPay,
         userID: user?.id!,
         paymentType: +d.paymentType,
@@ -171,7 +182,9 @@ function RechargeFunPage() {
                               <label>
                                 <input
                                   type="radio"
-                                  {...register('paymentType')}
+                                  {...register('paymentType', {
+                                    setValueAs: (val) => val?.toString(),
+                                  })}
                                   value={ECPayPaymentType.ATM}
                                 />
                                 綠界銀行轉帳
@@ -434,7 +447,7 @@ function RechargeFunPage() {
                       <button
                         type="button"
                         className="btn btn-default btn-lg btn-50"
-                        // onClick={() => reset()}
+                        onClick={() => reset(defaultValues)}
                       >
                         取消
                       </button>

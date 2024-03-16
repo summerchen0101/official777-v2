@@ -21,7 +21,7 @@ interface Inputs {
   productID: number
   email: string
   phone: string
-  // paymentType: ECPayPaymentType
+  paymentType: ECPayPaymentType
   citizenCarrrierNum: string
   phoneCarrierNum: string
   loveCode: string
@@ -31,6 +31,11 @@ interface Inputs {
 const tabs: Record<string, string> = {
   gift: '限定禮包',
   lucky: '金幣福袋',
+}
+
+const defaultValues = {
+  productID: 0,
+  paymentType: ECPayPaymentType.ATM,
 }
 
 function RechargeAtmPage() {
@@ -52,7 +57,9 @@ function RechargeAtmPage() {
     setValue,
     reset,
     control,
-  } = useForm<Inputs>()
+  } = useForm<Inputs>({
+    defaultValues: defaultValues,
+  })
 
   const { handler: doCreate, isLoading } = useEcpayOrderCreate()
   const user = useAuthPage()
@@ -77,7 +84,7 @@ function RechargeAtmPage() {
       productID: d.productID,
       gatewayCode: PaymentGateway.ECPay,
       userID: user?.id!,
-      paymentType: ECPayPaymentType.ATM,
+      paymentType: +d.paymentType,
       invoice: {
         eCPayInvoiceType:
           invoiceType === InvoiceType.DONATE
@@ -90,7 +97,7 @@ function RechargeAtmPage() {
         phone: d.phone || undefined,
       },
     })
-    if (res?.data.data) {
+    if (res?.data?.data) {
       setResUrl(res.data.requestURL)
       setResHtml(res.data.data)
     }
@@ -166,7 +173,46 @@ function RechargeAtmPage() {
 
                     {watch('productID') ? (
                       <>
-                        <h2 className="text-center">Step.2 填寫發票資訊</h2>
+                        <h2 className="text-center">Step.2 選擇付款方式</h2>
+                        <hr />
+                        <div className="table-responsive">
+                          <table className="table table-dark table-striped table-hover">
+                            <thead>
+                              <tr>
+                                <th colSpan={2}>請選擇付款方式</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <label>
+                                    <input
+                                      type="radio"
+                                      {...register('paymentType', {
+                                        setValueAs: (val) => val?.toString(),
+                                      })}
+                                      value={ECPayPaymentType.ATM}
+                                    />
+                                    綠界銀行轉帳
+                                  </label>
+                                </td>
+                                <td>
+                                  <label>
+                                    <input
+                                      type="radio"
+                                      {...register('paymentType', {
+                                        setValueAs: (val) => val?.toString(),
+                                      })}
+                                      value={ECPayPaymentType.CREDIT_CARD}
+                                    />
+                                    綠界信用卡付款
+                                  </label>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <h2 className="text-center">Step.3 填寫發票資訊</h2>
                         <hr />
                         <form role="form">
                           <div className="form-group col-lg-6">
@@ -343,7 +389,7 @@ function RechargeAtmPage() {
                         </form>
                         <hr className="float-none" />
                         <h2 className="text-center">
-                          Step.3 聯絡資訊(二擇一填寫)
+                          Step.4 聯絡資訊(二擇一填寫)
                         </h2>
                         <hr />
                         <div className="table-responsive">
@@ -402,7 +448,7 @@ function RechargeAtmPage() {
                             type="button"
                             className="btn btn-default btn-lg btn-50"
                             onClick={() => {
-                              reset({ productID: 0 })
+                              reset(defaultValues)
                               setResHtml('')
                               setResUrl('')
                             }}
