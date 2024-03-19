@@ -8,6 +8,25 @@
 	background-color: rgba(0,0,0,0.8);
 	z-index: 9999;
 }
+.gift-pop {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.8);
+	z-index: 9999;
+}
+.gift-pop-content {
+	width: 25%;
+	top: 20%;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+	z-index: 10000;
+}
 .hw-content img{
   display: block;
   max-width: 90%;
@@ -439,6 +458,10 @@
 		position: relative;
 		width: 60%;
 		margin: 10% auto;
+	}
+	.gift-pop-content {
+		width: 90%;
+		top: 15%;
 	}
 }
 

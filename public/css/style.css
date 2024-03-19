@@ -918,7 +918,9 @@ thead > tr > th {
 	height: 100%;
 	border: none;
 }
-
+.img-rounded{
+	border-radius: 15px;
+}
 
 /*FOOTER*/
 .footerbox{
