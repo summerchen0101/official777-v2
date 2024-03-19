@@ -148,7 +148,10 @@ function RechargeAtmPage() {
                         <li
                           key={key}
                           className={key === tab ? 'active' : ''}
-                          onClick={() => setTab(key)}
+                          onClick={() => {
+                            setTab(key)
+                            setValue('productID', 0)
+                          }}
                         >
                           <a href="#">{tabs[key]}</a>
                         </li>
