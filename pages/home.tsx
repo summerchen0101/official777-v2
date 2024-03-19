@@ -1,3 +1,4 @@
+import AdPopup from '@/components/AdPopup'
 import EventBanners from '@/components/home/EventBanners'
 import FeatureBanners from '@/components/home/FeatureBanners'
 import GameBanners from '@/components/home/GameBanners'
@@ -47,6 +48,7 @@ function HomePage() {
       <GameBanners />
       <VideoBanners />
       <FeatureBanners />
+      <AdPopup />
     </PageLayout>
   )
 }
