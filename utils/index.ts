@@ -1,7 +1,7 @@
 import { appUrlMap } from './../lib/map'
 import { Platform } from './../lib/enums'
 import { OptionType } from '@/types/index'
-import { format } from 'date-fns'
+import { differenceInMilliseconds, format } from 'date-fns'
 import { StringMap } from '@/types'
 import numeral from 'numeral'
 import qs from 'query-string'
@@ -114,4 +114,21 @@ export const queryPlusQuery = (
 
 export const handleComingSoon = () => {
   alert('敬請期待～')
+}
+
+export const scheduleAction = (hours: number, cb: () => void) => {
+  const now = new Date()
+  const nextTime = new Date(now)
+  const hoursToMilliseconds = hours * 60 * 60 * 1000 // 将小时转换为毫秒
+  nextTime.setTime(
+    now.getTime() + hoursToMilliseconds - (now.getTime() % hoursToMilliseconds),
+  )
+
+  const delay = differenceInMilliseconds(nextTime, now)
+
+  // 設置定時器
+  setTimeout(() => {
+    cb()
+    scheduleAction(hours, cb) // 重新計畫下一次，使用相同的間隔
+  }, delay)
 }
