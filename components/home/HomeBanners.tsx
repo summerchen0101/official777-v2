@@ -19,7 +19,7 @@ function HomeBanners() {
         <div className="hidden-xs">
           <a href="#">
             <img
-              src="/images/headerbanner/pcbanner/新年_1920x700.jpg"
+              src="/images/headerbanner/pcbanner/周年_1920x700.jpg"
               alt=""
               className="img-responsive center-block"
             />
@@ -28,7 +28,7 @@ function HomeBanners() {
         <div className="hidden visible-xs">
           <a href="#">
             <img
-              src="/images/headerbanner/phonebanner/新年_828x1150.jpg"
+              src="/images/headerbanner/phonebanner/周年_828x1150.jpg"
               alt=""
               className="img-responsive center-block"
             />
