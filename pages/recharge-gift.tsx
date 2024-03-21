@@ -1,6 +1,6 @@
-import GiftPkgSelector from '@/components/GiftPkgSelector'
+import GiftPkgSelector, { GiftPkg } from '@/components/GiftPkgSelector'
 import LogoBox from '@/components/LogoBox'
-import LuckyPkgSelector from '@/components/LuckyPkgSelector'
+import LuckyPkgSelector, { LuckyPkg } from '@/components/LuckyPkgSelector'
 import PageLayout from '@/components/PageLayout'
 import usePaymentWin from '@/hooks/usePaymentWin'
 import {
@@ -13,9 +13,131 @@ import { ecpayInvoiceMap, invoiceTypeMap } from '@/lib/map'
 import useEcpayOrderCreate from '@/services/useEcpayOrderCreate'
 import { StringMap } from '@/types'
 import useAuthPage from '@/utils/useAuthPage'
+import useAuthRoute from '@/utils/useAuthRoute'
+import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { CgSpinner } from 'react-icons/cg'
+
+const giftPkgs: GiftPkg[] = [
+  {
+    id: 5371,
+    img: '/images/recharge/gift01.png',
+    title: '大頭家歡樂包',
+    price: 3888,
+    content: `
+    金龍碎片*5
+    官將首角色`,
+  },
+  {
+    id: 5372,
+    img: '/images/recharge/gift02.png',
+    title: '超值豪爽包',
+    price: 8880,
+    content: `
+    金龍碎片*11
+    1星超級卡
+    雷神角色`,
+  },
+  {
+    id: 5373,
+    img: '/images/recharge/gift03.png',
+    title: '金龍豐收包',
+    price: 16800,
+    content: `
+    金龍碎片*22
+    1星超級卡
+    趙雲角色`,
+  },
+  {
+    id: 6001,
+    img: '/images/recharge/gift07.jpg',
+    title: '週年慶禮包',
+    price: 990,
+    content: `
+    限定角色*1 (官將首)
+    隨機各星FG券*1`,
+    hidden: true,
+  },
+  {
+    id: 6002,
+    img: '/images/recharge/gift04.jpg',
+    title: '頭家財金包',
+    price: 880,
+    content: `
+    新角色*1--雷神
+    抽 金幣 50000 到 200000不等`,
+  },
+  {
+    id: 6003,
+    img: '/images/recharge/gift05.jpg',
+    title: '有錢真旺包',
+    price: 2880,
+    content: `
+    新角色*1--美人魚
+    抽 金幣100000 到 1000000`,
+  },
+  {
+    id: 6004,
+    img: '/images/recharge/gift06.jpg',
+    title: '財運滿袋包',
+    price: 5880,
+    content: `
+    新角色*1--趙雲
+    抽 金幣200000 到 2500000`,
+  },
+]
+
+const luckyPkgs: LuckyPkg[] = [
+  {
+    id: 5374,
+    img: '/images/recharge/lucky01.png',
+    title: '寶貝開運包',
+    price: 2998,
+    content: `一星威利卡X1`,
+    coinRates: [
+      { amount: 330000, multiply: 110, rate: 30 },
+      { amount: 360000, multiply: 120, rate: 25 },
+      { amount: 390000, multiply: 130, rate: 20 },
+      { amount: 450000, multiply: 150, rate: 15 },
+      { amount: 600000, multiply: 200, rate: 7.5 },
+      { amount: 900000, multiply: 300, rate: 2.4 },
+      { amount: 1500000, multiply: 500, rate: 0.1 },
+    ],
+  },
+  {
+    id: 5375,
+    img: '/images/recharge/lucky02.png',
+    title: '九尾傾城包',
+    price: 19998,
+    content: `一星超級卡X1`,
+    coinRates: [
+      { amount: 2200000, multiply: 110, rate: 30 },
+      { amount: 2400000, multiply: 120, rate: 25 },
+      { amount: 2600000, multiply: 130, rate: 20 },
+      { amount: 3000000, multiply: 150, rate: 15 },
+      { amount: 4000000, multiply: 200, rate: 7.5 },
+      { amount: 6000000, multiply: 300, rate: 2.4 },
+      { amount: 10000000, multiply: 500, rate: 0.1 },
+    ],
+  },
+  {
+    id: 5376,
+    img: '/images/recharge/lucky03.png',
+    title: '雷神降臨包',
+    price: 49998,
+    content: `一星超級卡X1`,
+    coinRates: [
+      { amount: 5500000, multiply: 110, rate: 30 },
+      { amount: 6000000, multiply: 120, rate: 25 },
+      { amount: 6500000, multiply: 130, rate: 20 },
+      { amount: 7500000, multiply: 150, rate: 15 },
+      { amount: 10000000, multiply: 200, rate: 7.5 },
+      { amount: 15000000, multiply: 300, rate: 2.4 },
+      { amount: 25000000, multiply: 500, rate: 0.1 },
+    ],
+  },
+]
 
 interface Inputs {
   productID: number
@@ -60,6 +182,14 @@ function RechargeAtmPage() {
   } = useForm<Inputs>({
     defaultValues: defaultValues,
   })
+
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.query.id) {
+      setValue('productID', +(router.query.id as string))
+    }
+  }, [router])
 
   const { handler: doCreate, isLoading } = useEcpayOrderCreate()
   const user = useAuthPage()
@@ -165,12 +295,19 @@ function RechargeAtmPage() {
                         name="productID"
                         control={control}
                         rules={{ required: '品項不可為空' }}
+                        list={luckyPkgs}
                       />
                     ) : (
                       <GiftPkgSelector
                         name="productID"
                         control={control}
                         rules={{ required: '品項不可為空' }}
+                        list={giftPkgs.filter((g) => {
+                          if (watch('productID')) {
+                            return true
+                          }
+                          return !g.hidden
+                        })}
                       />
                     )}
 

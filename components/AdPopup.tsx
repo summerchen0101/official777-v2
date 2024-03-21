@@ -1,21 +1,27 @@
-import { useStore } from '@/store/useStore'
+import { scheduleAction } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import React from 'react'
+import { useEffect } from 'react'
 
 function AdPopup() {
   const router = useRouter()
+  useEffect(() => {
+    scheduleAction(4, () => {
+      $('#adPopup').fadeIn()
+    })
+  }, [])
   return (
-    <div className="gift-pop" id="adPopup">
+    <div className="gift-pop hw-overlay2" id="adPopup">
       <div
         className="gift-pop-content"
         style={{ cursor: 'pointer' }}
         onClick={() => {
-          router.push('/recharge-gift')
+          router.push('/recharge-gift?id=6001')
         }}
       >
         <span
           className="glyphicon glyphicon-remove hwLayer-close2"
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation()
             $('#adPopup').fadeOut()
           }}
         />

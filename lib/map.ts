@@ -57,6 +57,7 @@ export const mcPaymentWithTeleMap: StringMap = {
 export const ecpayPaymentTypeMap: StringMap = {
   [ECPayPaymentType.ATM]: 'ATM',
   [ECPayPaymentType.WEB_ATM]: 'WebATM',
+  [ECPayPaymentType.CREDIT_CARD]: '信用卡',
 }
 
 export const rewardsTypeMap: StringMap = {

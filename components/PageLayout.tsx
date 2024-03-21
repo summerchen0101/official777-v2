@@ -8,6 +8,7 @@ import useMe from '@/services/useMe'
 import { useStore } from '@/store/useStore'
 import { memo, ReactNode } from 'react'
 import AppDownloadPopup from './AppDownloadPopup'
+import AdPopup from './AdPopup'
 
 type Props = {
   children: ReactNode
@@ -28,6 +29,7 @@ function PageLayout({ children, pure }: Props) {
 
       <LoginPopup />
       {!pure ? <AppDownloadPopup /> : null}
+      <AdPopup />
     </>
   )
 }

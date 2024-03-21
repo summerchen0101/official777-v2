@@ -48,7 +48,6 @@ function HomePage() {
       <GameBanners />
       <VideoBanners />
       <FeatureBanners />
-      <AdPopup />
     </PageLayout>
   )
 }
