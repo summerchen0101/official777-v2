@@ -13,11 +13,9 @@ import { ecpayInvoiceMap, invoiceTypeMap } from '@/lib/map'
 import useEcpayOrderCreate from '@/services/useEcpayOrderCreate'
 import { StringMap } from '@/types'
 import useAuthPage from '@/utils/useAuthPage'
-import useAuthRoute from '@/utils/useAuthRoute'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { CgSpinner } from 'react-icons/cg'
 
 const giftPkgs: GiftPkg[] = [
   {
@@ -188,6 +186,7 @@ function RechargeAtmPage() {
   useEffect(() => {
     if (router.query.id) {
       setValue('productID', +(router.query.id as string))
+      router.replace({ query: {} })
     }
   }, [router])
 
