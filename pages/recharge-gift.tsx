@@ -279,6 +279,8 @@ function RechargeAtmPage() {
                           key={key}
                           className={key === tab ? 'active' : ''}
                           onClick={() => {
+                            setResHtml('')
+                            setResUrl('')
                             setTab(key)
                             setValue('productID', 0)
                           }}
