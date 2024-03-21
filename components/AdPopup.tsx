@@ -1,14 +1,18 @@
+import useMe from '@/services/useMe'
 import { scheduleAction } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect } from 'react'
 
 function AdPopup() {
   const router = useRouter()
+  const { data: user } = useMe()
   useEffect(() => {
     scheduleAction(4, () => {
-      $('#adPopup').fadeIn()
+      if (user) {
+        $('#adPopup').fadeIn()
+      }
     })
-  }, [])
+  }, [user])
   return (
     <div className="gift-pop hw-overlay2" id="adPopup">
       <div
