@@ -204,7 +204,7 @@ function RechargeAtmPage() {
 
   useEffect(() => {
     if (router.query.id) return
-    schedulePeriodAction(0.25, 0.1, () => {
+    schedulePeriodAction(4, 1, () => {
       $('#adPopup').fadeIn()
     })
   }, [router])
