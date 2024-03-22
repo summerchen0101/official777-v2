@@ -1,18 +1,8 @@
-import useMe from '@/services/useMe'
-import { schedulePeriodAction } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
-import { useEffect } from 'react'
 
 function AdPopup() {
   const router = useRouter()
-  const { data: user } = useMe()
-  useEffect(() => {
-    schedulePeriodAction(0.25, 0.1, () => {
-      if (user) {
-        $('#adPopup').fadeIn()
-      }
-    })
-  }, [user])
+
   return (
     <div className="gift-pop hw-overlay2" id="adPopup">
       <div
@@ -20,6 +10,7 @@ function AdPopup() {
         style={{ cursor: 'pointer' }}
         onClick={() => {
           router.push('/recharge-gift?id=6001')
+          $('#adPopup').fadeOut()
         }}
       >
         <span

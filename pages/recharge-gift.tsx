@@ -11,7 +11,9 @@ import {
 } from '@/lib/enums'
 import { ecpayInvoiceMap, invoiceTypeMap } from '@/lib/map'
 import useEcpayOrderCreate from '@/services/useEcpayOrderCreate'
+import useMe from '@/services/useMe'
 import { StringMap } from '@/types'
+import { schedulePeriodAction } from '@/utils'
 import useAuthPage from '@/utils/useAuthPage'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
@@ -186,7 +188,7 @@ function RechargeAtmPage() {
   useEffect(() => {
     if (router.query.id) {
       setValue('productID', +(router.query.id as string))
-      router.replace({ query: {} })
+      // router.replace({ query: {} })
     }
   }, [router])
 
@@ -199,6 +201,13 @@ function RechargeAtmPage() {
       setValue('phone', user?.cellphone?.replace('886-', '')!)
     }
   }, [user])
+
+  useEffect(() => {
+    if (router.query.id) return
+    schedulePeriodAction(0.25, 0.1, () => {
+      $('#adPopup').fadeIn()
+    })
+  }, [router])
 
   const onSubmit = handleSubmit(async (d) => {
     const carrierNumMap: StringMap = {
