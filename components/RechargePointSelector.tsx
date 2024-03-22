@@ -1,5 +1,6 @@
 import { Goods } from '@/services/useGoodsList'
 import { toCurrency } from '@/utils'
+import { useMemo } from 'react'
 import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
 
 interface Props<T extends FieldValues> extends UseControllerProps<T> {
@@ -15,6 +16,13 @@ function RechargePointSelector<T extends FieldValues>({
     fieldState: { error },
   } = useController(restProps)
 
+  const listWithPlus = useMemo(() => {
+    return list?.map((t) => ({
+      ...t,
+      plusPercent: Math.round(((t.UseValue - t.Price) / t.Price) * 100) - 5,
+    }))
+  }, [list])
+
   return (
     <div className="table-responsive">
       <table className="table table-dark table-striped table-hover">
@@ -27,7 +35,7 @@ function RechargePointSelector<T extends FieldValues>({
           </tr>
         </thead>
         <tbody>
-          {list?.map((t) => (
+          {listWithPlus?.map((t) => (
             <tr key={t.ItemId} onClick={() => field.onChange(t.ItemId)}>
               <td>
                 <input
@@ -39,8 +47,8 @@ function RechargePointSelector<T extends FieldValues>({
               <td>${toCurrency(t.Price)}</td>
               <td>{toCurrency(t.UseValue)}</td>
               <td>
-                {toCurrency(t.UseValue * 100)}(
-                {Math.round(((t.UseValue - t.Price) / t.Price) * 100)}%)
+                {toCurrency(t.UseValue * 100)}(105%
+                {t.plusPercent > 0 ? `+${t.plusPercent}%` : ''})
               </td>
             </tr>
           ))}
