@@ -1,5 +1,5 @@
 import useMe from '@/services/useMe'
-import { scheduleAction } from '@/utils'
+import { schedulePeriodAction } from '@/utils'
 import { useRouter } from 'next/dist/client/router'
 import { useEffect } from 'react'
 
@@ -7,7 +7,7 @@ function AdPopup() {
   const router = useRouter()
   const { data: user } = useMe()
   useEffect(() => {
-    scheduleAction(4, () => {
+    schedulePeriodAction(0.25, 0.1, () => {
       if (user) {
         $('#adPopup').fadeIn()
       }

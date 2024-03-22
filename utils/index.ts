@@ -119,7 +119,7 @@ export const handleComingSoon = () => {
 export const scheduleAction = (hours: number, cb: () => void) => {
   const now = new Date()
   const nextTime = new Date(now)
-  const hoursToMilliseconds = hours * 60 * 60 * 1000 // 将小时转换为毫秒
+  const hoursToMilliseconds = hours * 60 * 60 * 1000 // 將小時轉換為毫秒
   nextTime.setTime(
     now.getTime() + hoursToMilliseconds - (now.getTime() % hoursToMilliseconds),
   )
@@ -131,4 +131,40 @@ export const scheduleAction = (hours: number, cb: () => void) => {
     cb()
     scheduleAction(hours, cb) // 重新計畫下一次，使用相同的間隔
   }, delay)
+}
+
+export function schedulePeriodAction(
+  intervalHours: number,
+  durationHours: number,
+  cb: () => void,
+): void {
+  // 计算下一次活动开始的时间
+  function calculateNextStartTime(): number {
+    const now: Date = new Date()
+    const msSinceMidnight: number =
+      now.getTime() - new Date(now.toDateString()).getTime()
+    const intervalMs: number = intervalHours * 60 * 60 * 1000
+    const nextStartDelay: number = intervalMs - (msSinceMidnight % intervalMs)
+    return now.getTime() + nextStartDelay
+  }
+
+  // 定时检查是否执行回调
+  function checkAndScheduleCallback(): void {
+    const now: Date = new Date()
+    const msSinceMidnight: number =
+      now.getTime() - new Date(now.toDateString()).getTime()
+    const intervalMs: number = intervalHours * 60 * 60 * 1000
+    const positionInCycle: number = msSinceMidnight % intervalMs
+    const durationMs: number = durationHours * 60 * 60 * 1000
+
+    if (positionInCycle < durationMs) {
+      cb()
+    }
+
+    // 计算下一次触发检查的时间
+    const nextStartTime: number = calculateNextStartTime()
+    setTimeout(checkAndScheduleCallback, nextStartTime - Date.now())
+  }
+
+  checkAndScheduleCallback()
 }
