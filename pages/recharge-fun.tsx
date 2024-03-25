@@ -1,5 +1,6 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
+import PaymentWinPopup from '@/components/PaymentWinPopup'
 import RechargePointSelector from '@/components/RechargePointSelector'
 import usePaymentWin from '@/hooks/usePaymentWin'
 import {
@@ -53,8 +54,7 @@ function RechargeFunPage() {
     agree: false,
   }
 
-  const { resUrl, setResUrl, resHtml, setResHtml, openPaymentWin } =
-    usePaymentWin()
+  const { setResUrl, setResHtml, openPaymentWin } = usePaymentWin()
 
   const {
     register,
@@ -116,6 +116,7 @@ function RechargeFunPage() {
       if (res?.data.data) {
         setResUrl(res.data.requestURL)
         setResHtml(res.data.data)
+        $('#paymentWin').fadeIn()
       }
     }
   })
@@ -451,24 +452,14 @@ function RechargeFunPage() {
                       >
                         取消
                       </button>
-                      {resUrl && resHtml ? (
-                        <button
-                          type="button"
-                          className="btn btn-default btn-lg btn-50"
-                          onClick={openPaymentWin}
-                        >
-                          開啟支付視窗
-                        </button>
-                      ) : (
-                        <button
-                          type="button"
-                          className="btn btn-default btn-lg btn-50"
-                          onClick={onSubmit}
-                          disabled={isLoading}
-                        >
-                          {isLoading ? '處理中...' : '立即購買'}
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        className="btn btn-default btn-lg btn-50"
+                        onClick={onSubmit}
+                        disabled={isLoading}
+                      >
+                        立即購買
+                      </button>
                       <hr className="float-none" />
                     </form>
                   </div>
@@ -479,6 +470,7 @@ function RechargeFunPage() {
         </div>
         <hr className="float-none" />
       </div>
+      <PaymentWinPopup onClick={openPaymentWin} />
     </PageLayout>
   )
 }
