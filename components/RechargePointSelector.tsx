@@ -46,9 +46,14 @@ function RechargePointSelector<T extends FieldValues>({
               </td>
               <td>${toCurrency(t.Price)}</td>
               <td>{toCurrency(t.UseValue)}</td>
-              <td style={{ textAlign: 'right', paddingRight: 20 }}>
+              <td>
                 {toCurrency(t.UseValue * 100)}(105%
-                {t.plusPercent > 0 ? `+${t.plusPercent}%` : ''})
+                {t.plusPercent > 0 ? (
+                  <span style={{ fontWeight: 800, color: 'yellow' }}>
+                    +{t.plusPercent}%
+                  </span>
+                ) : null}
+                )
               </td>
             </tr>
           ))}
