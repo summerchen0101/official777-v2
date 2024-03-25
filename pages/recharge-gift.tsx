@@ -2,6 +2,7 @@ import GiftPkgSelector, { GiftPkg } from '@/components/GiftPkgSelector'
 import LogoBox from '@/components/LogoBox'
 import LuckyPkgSelector, { LuckyPkg } from '@/components/LuckyPkgSelector'
 import PageLayout from '@/components/PageLayout'
+import PaymentWinPopup from '@/components/PaymentWinPopup'
 import usePaymentWin from '@/hooks/usePaymentWin'
 import {
   ECPayInvoiceType,
@@ -168,8 +169,7 @@ function RechargeAtmPage() {
   )
   const [tab, setTab] = useState('gift')
 
-  const { resUrl, setResUrl, resHtml, setResHtml, openPaymentWin } =
-    usePaymentWin()
+  const { setResUrl, setResHtml, openPaymentWin } = usePaymentWin()
 
   const {
     register,
@@ -238,6 +238,7 @@ function RechargeAtmPage() {
     if (res?.data?.data) {
       setResUrl(res.data.requestURL)
       setResHtml(res.data.data)
+      $('#paymentWin').fadeIn()
     }
   })
 
@@ -281,7 +282,7 @@ function RechargeAtmPage() {
               <div className="ranking-box-goldline">
                 <div className="ranking-box-black">
                   <div className="content-box">
-                    <ul className="sub-tab2">
+                    {/* <ul className="sub-tab2">
                       {Object.keys(tabs).map((key) => (
                         <li
                           key={key}
@@ -297,7 +298,7 @@ function RechargeAtmPage() {
                         </li>
                       ))}
                     </ul>
-                    <hr className="float-none" />
+                    <hr className="float-none" /> */}
                     <h2 className="text-center">Step.1 選擇購買品項</h2>
                     <hr />
                     {tab === 'lucky' ? (
@@ -606,24 +607,14 @@ function RechargeAtmPage() {
                             取消
                           </button>
 
-                          {resUrl && resHtml ? (
-                            <button
-                              type="button"
-                              className="btn btn-default btn-lg btn-50"
-                              onClick={openPaymentWin}
-                            >
-                              開啟支付視窗
-                            </button>
-                          ) : (
-                            <button
-                              type="button"
-                              className="btn btn-default btn-lg btn-50"
-                              onClick={onSubmit}
-                              disabled={isLoading}
-                            >
-                              {isLoading ? '處理中...' : '立即購買'}
-                            </button>
-                          )}
+                          <button
+                            type="button"
+                            className="btn btn-default btn-lg btn-50"
+                            onClick={onSubmit}
+                            disabled={isLoading}
+                          >
+                            立即購買
+                          </button>
 
                           <hr className="float-none" />
                         </form>
@@ -637,6 +628,7 @@ function RechargeAtmPage() {
         </div>
         <hr className="float-none" />
       </div>
+      <PaymentWinPopup onClick={openPaymentWin} />
     </PageLayout>
   )
 }
