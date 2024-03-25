@@ -1,6 +1,7 @@
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
 import RechargePointSelector from '@/components/RechargePointSelector'
+import usePaymentWin from '@/hooks/usePaymentWin'
 import {
   ECPayInvoiceType,
   ECPayPaymentType,
@@ -17,22 +18,23 @@ import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 interface Inputs {
-  productID: number
+  productID?: number
   email: string
   phone: string
-  // paymentType: ECPayPaymentType
+  paymentType: ECPayPaymentType
   citizenCarrrierNum: string
   phoneCarrierNum: string
   loveCode: string
   agree: boolean
 }
 
-function RechargeAtmPage() {
+function RechargeFunPage() {
   const [invoiceType, setInvoiceType] = useState(InvoiceType.DONATE)
   const [donateType, setDonateType] = useState('')
   const [carrierType, setCarrierType] = useState(
     ECPayInvoiceType.EC_PAY_INVOICE,
   )
+
   const { list } = useGoodsList({
     page: 1,
     perPage: 30,
@@ -40,6 +42,19 @@ function RechargeAtmPage() {
     paymentType: ECPayPaymentType.ATM,
     paymentGateway: PaymentGateway.ECPay,
   })
+  const defaultValues: Inputs = {
+    paymentType: ECPayPaymentType.ATM,
+    productID: list?.[0].ItemId,
+    email: '',
+    phone: '',
+    citizenCarrrierNum: '',
+    phoneCarrierNum: '',
+    loveCode: '',
+    agree: false,
+  }
+
+  const { resUrl, setResUrl, resHtml, setResHtml, openPaymentWin } =
+    usePaymentWin()
 
   const {
     register,
@@ -48,7 +63,10 @@ function RechargeAtmPage() {
     watch,
     setValue,
     control,
-  } = useForm<Inputs>()
+    reset,
+  } = useForm<Inputs>({
+    defaultValues,
+  })
 
   useEffect(() => {
     if (list?.length) {
@@ -56,7 +74,7 @@ function RechargeAtmPage() {
     }
   }, [list])
 
-  const { handler: doCreate } = useEcpayOrderCreate()
+  const { handler: doCreate, isLoading } = useEcpayOrderCreate()
   const user = useAuthPage()
 
   useEffect(() => {
@@ -69,7 +87,7 @@ function RechargeAtmPage() {
   const onSubmit = handleSubmit(async (d) => {
     const product = list?.find((t) => t.ItemId === d.productID)
 
-    if (confirm(`透過ATM消費 $${product?.Price}元是否確認?`)) {
+    if (confirm(`消費 $${product?.Price}元是否確認?`)) {
       const carrierNumMap: StringMap = {
         [ECPayInvoiceType.PHONE_CARRIER]: d.phoneCarrierNum,
         [ECPayInvoiceType.CITIZEN_DIGITAL_CERTIFICATE]: d.citizenCarrrierNum,
@@ -79,10 +97,10 @@ function RechargeAtmPage() {
         loveCode = donateType === 'other' ? d.loveCode : '978'
       }
       const res = await doCreate({
-        productID: d.productID,
+        productID: d.productID || 0,
         gatewayCode: PaymentGateway.ECPay,
         userID: user?.id!,
-        paymentType: ECPayPaymentType.ATM,
+        paymentType: +d.paymentType,
         invoice: {
           eCPayInvoiceType:
             invoiceType === InvoiceType.DONATE
@@ -96,14 +114,8 @@ function RechargeAtmPage() {
         },
       })
       if (res?.data.data) {
-        const win = window.open(res.data.requestURL, 'payment')
-        const doc = res.data.data.replace(
-          '<head>',
-          `<head>\n<base href="${res.data.requestURL}">`,
-        )
-        win?.document.write(doc)
-
-        win?.document.close()
+        setResUrl(res.data.requestURL)
+        setResHtml(res.data.data)
       }
     }
   })
@@ -137,7 +149,7 @@ function RechargeAtmPage() {
       <div className="content">
         <div className="content-title-box">
           <img
-            src="/images/recharge/title_ecpay_atm.png"
+            src="/images/recharge/title_funpoint.png"
             alt=""
             className="img-responsive center-block"
           />
@@ -155,7 +167,46 @@ function RechargeAtmPage() {
                       name="productID"
                       control={control}
                     />
-                    <h2 className="text-center">Step.2 填寫發票資訊</h2>
+                    <h2 className="text-center">Step.2 選擇付款方式</h2>
+                    <hr />
+                    <div className="table-responsive">
+                      <table className="table table-dark table-striped table-hover">
+                        <thead>
+                          <tr>
+                            <th colSpan={2}>請選擇付款方式</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <label>
+                                <input
+                                  type="radio"
+                                  {...register('paymentType', {
+                                    setValueAs: (val) => val?.toString(),
+                                  })}
+                                  value={ECPayPaymentType.ATM}
+                                />
+                                綠界銀行轉帳
+                              </label>
+                            </td>
+                            <td>
+                              <label>
+                                <input
+                                  type="radio"
+                                  {...register('paymentType', {
+                                    setValueAs: (val) => val.toString(),
+                                  })}
+                                  value={ECPayPaymentType.CREDIT_CARD}
+                                />
+                                綠界信用卡付款
+                              </label>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h2 className="text-center">Step.3 填寫發票資訊</h2>
                     <hr />
                     <form role="form">
                       <div className="form-group col-lg-6">
@@ -339,28 +390,13 @@ function RechargeAtmPage() {
                       </div>
                     </form>
                     <hr className="float-none" />
-                    <h2 className="text-center">Step.3 聯絡資訊(二擇一填寫)</h2>
+                    <h2 className="text-center">Step.4 聯絡資訊(二擇一填寫)</h2>
                     <hr />
                     <div className="table-responsive">
                       <table className="table table-dark table-striped table-hover">
                         <thead>
                           <tr>
                             <th>手機號碼或Email，請至少填一項</th>
-                            {/* <th>
-                              <form role="form">
-                                <div className="col-lg-12">
-                                  <div className="checkbox">
-                                    <label>
-                                      <input
-                                        type="checkbox"
-                                        onChange={handleUseUser}
-                                      />
-                                      使用會員資料
-                                    </label>
-                                  </div>
-                                </div>
-                              </form>
-                            </th> */}
                           </tr>
                         </thead>
                       </table>
@@ -411,17 +447,28 @@ function RechargeAtmPage() {
                       <button
                         type="button"
                         className="btn btn-default btn-lg btn-50"
-                        // onClick={() => reset()}
+                        onClick={() => reset(defaultValues)}
                       >
                         取消
                       </button>
-                      <button
-                        type="button"
-                        className="btn btn-default btn-lg btn-50"
-                        onClick={onSubmit}
-                      >
-                        立即購買
-                      </button>
+                      {resUrl && resHtml ? (
+                        <button
+                          type="button"
+                          className="btn btn-default btn-lg btn-50"
+                          onClick={openPaymentWin}
+                        >
+                          開啟支付視窗
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          className="btn btn-default btn-lg btn-50"
+                          onClick={onSubmit}
+                          disabled={isLoading}
+                        >
+                          {isLoading ? '處理中...' : '立即購買'}
+                        </button>
+                      )}
                       <hr className="float-none" />
                     </form>
                   </div>
@@ -436,4 +483,4 @@ function RechargeAtmPage() {
   )
 }
 
-export default RechargeAtmPage
+export default RechargeFunPage

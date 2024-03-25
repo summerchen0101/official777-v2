@@ -142,6 +142,7 @@ export enum ECPayPaymentType {
   UNKNOWN_PAYMENT_TYPE = 0,
   ATM = 1,
   WEB_ATM = 2,
+  CREDIT_CARD = 3,
 }
 
 export enum InvoiceType {

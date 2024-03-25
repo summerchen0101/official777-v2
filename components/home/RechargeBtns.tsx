@@ -24,7 +24,21 @@ function RechargeBtns() {
           />
         </a>
       </div>
-      <div className="btn-evnet">
+      <div className="btn-bank">
+        <a href="#" onClick={() => toAuthRoute('/recharge-fun')}>
+          <img
+            src="images/btn_bank.png"
+            alt=""
+            className="img-responsive center-block hidden-xs"
+          />
+          <img
+            src="images/btn_phone_bank.png"
+            alt=""
+            className="img-responsive center-block hidden visible-xs"
+          />
+        </a>
+      </div>
+      <div className="btn-shop">
         <a href="#" onClick={() => toAuthRoute('/recharge-num')}>
           <img
             src="/images/btn_park.png"
@@ -38,7 +52,7 @@ function RechargeBtns() {
           />
         </a>
       </div>
-      <div className="btn-shop">
+      <div className="btn-gift">
         {/* <a href="#" onClick={handleComingSoon}> */}
         <a href="#" onClick={() => toAuthRoute('/recharge-gift')}>
           <img

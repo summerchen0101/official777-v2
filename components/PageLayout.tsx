@@ -5,8 +5,8 @@ import LoginPopup from '@/components/LoginPopup'
 import RechargeFloat from '@/components/RechargeFloat'
 import UserInfoFloat from '@/components/UserInfoFloat'
 import useMe from '@/services/useMe'
-import { useStore } from '@/store/useStore'
 import { memo, ReactNode } from 'react'
+import AdPopup from './AdPopup'
 import AppDownloadPopup from './AppDownloadPopup'
 
 type Props = {
@@ -28,6 +28,7 @@ function PageLayout({ children, pure }: Props) {
 
       <LoginPopup />
       {!pure ? <AppDownloadPopup /> : null}
+      <AdPopup />
     </>
   )
 }

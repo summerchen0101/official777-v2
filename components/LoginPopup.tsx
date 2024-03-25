@@ -1,5 +1,5 @@
 import { StringMap } from '@/types'
-import React from 'react'
+import React, { useMemo } from 'react'
 import useCdnUrl from '@/hooks/useCdnUrl'
 import useStorage from '@/hooks/useStorage'
 import { LoginViaType, OAuthChannel, YesNo } from '@/lib/enums'
@@ -116,7 +116,10 @@ function LoginPopup() {
     }
   }
 
+  const allowClose = useMemo(() => router.pathname === '/home', [router])
+
   const closePopup = () => {
+    if (!allowClose) return
     setCount(0)
     $('#loginPopup').fadeOut()
   }
@@ -150,9 +153,15 @@ function LoginPopup() {
   })
 
   return (
-    <div className="hw-overlay2" id="loginPopup" onClick={() => closePopup()}>
+    <div className="hw-overlay2" id="loginPopup">
       <div className="hw-layer-wrap2">
-        <span className="glyphicon glyphicon-remove hwLayer-close2" />
+        {allowClose ? (
+          <span
+            className="glyphicon glyphicon-remove hwLayer-close2"
+            onClick={() => closePopup()}
+          />
+        ) : null}
+
         <div className="hw-layer-wrap2-header">
           <h1 className="text-center">登入</h1>
         </div>

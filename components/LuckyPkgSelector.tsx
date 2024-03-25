@@ -1,18 +1,24 @@
+import { toCurrency } from '@/utils'
+import { takeRight } from 'lodash'
 import { FieldValues, useController, UseControllerProps } from 'react-hook-form'
 
-export interface GiftPkg {
+export interface LuckyPkg {
   id: number
   img: string
   title: string
   price: number
   content: string
-  hidden?: boolean
+  coinRates: {
+    amount: number
+    multiply: number
+    rate: number
+  }[]
 }
 interface Props<T extends FieldValues> extends UseControllerProps<T> {
-  list: GiftPkg[]
+  list: LuckyPkg[]
 }
 
-function GiftPkgSelector<T extends FieldValues>({
+function LuckyPkgSelector<T extends FieldValues>({
   list = [],
   ...restProps
 }: Props<T>) {
@@ -36,19 +42,32 @@ function GiftPkgSelector<T extends FieldValues>({
             <div className="title-left">
               <h4>{g.title}</h4>
             </div>
-            <div className="title-right">
+            {/* <div className="title-right">
               <img
                 src="/images/recharge/gift_tag.png"
                 alt=""
                 className="img-responsive pull-right"
               />
-            </div>
+            </div> */}
             <hr className="float-none" />
             <hr />
             <p>
               售價：{g.price} <br />
               內容物：
-              <span className="whitespace-pre-wrap">{g.content}</span>
+              <div>{g.content}</div>
+              <div>
+                隨機數量的金幣({toCurrency(g.coinRates[0]?.amount, 0)}~
+                {toCurrency(g.coinRates[g.coinRates.length - 1]?.amount, 0)})
+              </div>
+              <br />
+              詳細資訊：
+              <div>
+                {g.coinRates.map(
+                  (t, i) =>
+                    (i !== 0 ? '、' : '') +
+                    `${toCurrency(t.amount, 0)}金幣(${t.rate}%)`,
+                )}
+              </div>
             </p>
             <br />
             {!field.value ? (
@@ -71,4 +90,4 @@ function GiftPkgSelector<T extends FieldValues>({
   )
 }
 
-export default GiftPkgSelector
+export default LuckyPkgSelector
