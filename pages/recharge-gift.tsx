@@ -49,43 +49,43 @@ const giftPkgs: GiftPkg[] = [
     1星超級卡
     趙雲角色`,
   },
-  {
-    id: 6001,
-    img: '/images/recharge/gift07.jpg',
-    title: '週年慶禮包',
-    price: 990,
-    content: `
-    限定角色*1 (官將首)
-    隨機各星FG券*1`,
-    hidden: true,
-  },
-  {
-    id: 6002,
-    img: '/images/recharge/gift04.jpg',
-    title: '頭家財金包',
-    price: 880,
-    content: `
-    新角色*1--雷神
-    隨機獲贈 金幣一批，50,000到200,000不等`,
-  },
-  {
-    id: 6003,
-    img: '/images/recharge/gift05.jpg',
-    title: '有錢真旺包',
-    price: 2880,
-    content: `
-    新角色*1--美人魚
-    隨機獲贈 金幣一批，100,000到1,000,000不等`,
-  },
-  {
-    id: 6004,
-    img: '/images/recharge/gift06.jpg',
-    title: '財運滿袋包',
-    price: 5880,
-    content: `
-    新角色*1--趙雲
-    隨機獲贈 金幣一批，200,000到2,500,000不等`,
-  },
+  // {
+  //   id: 6001,
+  //   img: '/images/recharge/gift07.jpg',
+  //   title: '週年慶禮包',
+  //   price: 990,
+  //   content: `
+  //   限定角色*1 (官將首)
+  //   隨機各星FG券*1`,
+  //   hidden: true,
+  // },
+  // {
+  //   id: 6002,
+  //   img: '/images/recharge/gift04.jpg',
+  //   title: '頭家財金包',
+  //   price: 880,
+  //   content: `
+  //   新角色*1--雷神
+  //   隨機獲贈 金幣一批，50,000到200,000不等`,
+  // },
+  // {
+  //   id: 6003,
+  //   img: '/images/recharge/gift05.jpg',
+  //   title: '有錢真旺包',
+  //   price: 2880,
+  //   content: `
+  //   新角色*1--美人魚
+  //   隨機獲贈 金幣一批，100,000到1,000,000不等`,
+  // },
+  // {
+  //   id: 6004,
+  //   img: '/images/recharge/gift06.jpg',
+  //   title: '財運滿袋包',
+  //   price: 5880,
+  //   content: `
+  //   新角色*1--趙雲
+  //   隨機獲贈 金幣一批，200,000到2,500,000不等`,
+  // },
 ]
 
 const luckyPkgs: LuckyPkg[] = [
@@ -202,12 +202,12 @@ function RechargeAtmPage() {
     }
   }, [user])
 
-  useEffect(() => {
-    if (router.query.id) return
-    schedulePeriodAction(4, 1, () => {
-      $('#adPopup').fadeIn()
-    })
-  }, [router])
+  // useEffect(() => {
+  //   if (router.query.id) return
+  //   schedulePeriodAction(4, 1, () => {
+  //     $('#adPopup').fadeIn()
+  //   })
+  // }, [router])
 
   const onSubmit = handleSubmit(async (d) => {
     const carrierNumMap: StringMap = {
@@ -281,7 +281,7 @@ function RechargeAtmPage() {
               <div className="ranking-box-goldline">
                 <div className="ranking-box-black">
                   <div className="content-box">
-                    <ul className="sub-tab2">
+                    {/* <ul className="sub-tab2">
                       {Object.keys(tabs).map((key) => (
                         <li
                           key={key}
@@ -297,7 +297,7 @@ function RechargeAtmPage() {
                         </li>
                       ))}
                     </ul>
-                    <hr className="float-none" />
+                    <hr className="float-none" /> */}
                     <h2 className="text-center">Step.1 選擇購買品項</h2>
                     <hr />
                     {tab === 'lucky' ? (
