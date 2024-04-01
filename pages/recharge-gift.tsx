@@ -22,35 +22,6 @@ import { useForm } from 'react-hook-form'
 
 const giftPkgs: GiftPkg[] = [
   {
-    id: 5371,
-    img: '/images/recharge/gift01.png',
-    title: '大頭家歡樂包',
-    price: 3888,
-    content: `
-    金龍碎片*5
-    官將首角色`,
-  },
-  {
-    id: 5372,
-    img: '/images/recharge/gift02.png',
-    title: '超值豪爽包',
-    price: 8880,
-    content: `
-    金龍碎片*11
-    1星超級卡
-    雷神角色`,
-  },
-  {
-    id: 5373,
-    img: '/images/recharge/gift03.png',
-    title: '金龍豐收包',
-    price: 16800,
-    content: `
-    金龍碎片*22
-    1星超級卡
-    趙雲角色`,
-  },
-  {
     id: 6001,
     img: '/images/recharge/gift07.jpg',
     title: '週年慶禮包',
