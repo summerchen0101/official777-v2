@@ -219,6 +219,11 @@ function HeaderNav({ pure }: Props) {
                     儲值/序號
                   </a>
                   <ul className="dropdown-menu">
+                    <li>
+                      <a href="#" onClick={() => toAuthRoute('/recharge-fun')}>
+                        銀行轉帳/信用卡
+                      </a>
+                    </li>
                     <li className="dropdown">
                       <a
                         href="#"
@@ -269,11 +274,6 @@ function HeaderNav({ pure }: Props) {
                           </a>
                         </li>
                       </ul>
-                    </li>
-                    <li>
-                      <a href="#" onClick={() => toAuthRoute('/recharge-fun')}>
-                        銀行轉帳/信用卡
-                      </a>
                     </li>
                     <li>
                       <a href="#" onClick={() => toAuthRoute('/recharge-num')}>
