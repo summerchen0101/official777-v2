@@ -28,7 +28,7 @@ function PageLayout({ children, pure }: Props) {
 
       <LoginPopup />
       {!pure ? <AppDownloadPopup /> : null}
-      <AdPopup />
+      {/* <AdPopup /> */}
     </>
   )
 }
