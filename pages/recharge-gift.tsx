@@ -167,7 +167,7 @@ function RechargeAtmPage() {
   const [carrierType, setCarrierType] = useState(
     ECPayInvoiceType.EC_PAY_INVOICE,
   )
-  const [tab, setTab] = useState('gift')
+  const [tab, setTab] = useState('lucky')
 
   const { setResUrl, setResHtml, openPaymentWin } = usePaymentWin()
 
