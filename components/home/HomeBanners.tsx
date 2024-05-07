@@ -179,26 +179,6 @@ function HomeBanners() {
         <div className="hidden-xs">
           <a href="#">
             <img
-              src="/images/headerbanner/pcbanner/周年_1920x700.jpg"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
-        </div>
-        <div className="hidden visible-xs">
-          <a href="#">
-            <img
-              src="/images/headerbanner/phonebanner/周年_828x1150.jpg"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </a>
-        </div>
-      </li>
-      <li>
-        <div className="hidden-xs">
-          <a href="#">
-            <img
               src="/images/headerbanner/pcbanner/MAIN_1920x700.jpg"
               alt=""
               className="img-responsive center-block"
