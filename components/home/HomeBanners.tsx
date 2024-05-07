@@ -19,6 +19,66 @@ function HomeBanners() {
         <div className="hidden-xs">
           <a href="#">
             <img
+              src="/images/headerbanner/pcbanner/洛基傳奇_1920x700.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+        <div className="hidden visible-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/phonebanner/洛基傳奇_828x1150.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div className="hidden-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/pcbanner/西遊記_1920x700.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+        <div className="hidden visible-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/phonebanner/西遊記_828x1150.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div className="hidden-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/pcbanner/防詐騙宣導_1920x700.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+        <div className="hidden visible-xs">
+          <a href="#">
+            <img
+              src="/images/headerbanner/phonebanner/防詐騙宣導_828x1150.jpg"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </a>
+        </div>
+      </li>
+      <li>
+        <div className="hidden-xs">
+          <a href="#">
+            <img
               src="/images/headerbanner/pcbanner/儲值01_1920x700.jpg"
               alt=""
               className="img-responsive center-block"
