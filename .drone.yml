@@ -32,7 +32,7 @@ steps:
       ACCESS_TOKEN:
         from_secret: git_token
     settings:
-      repo: reg.ffglobaltech.com/official
+      repo: reg.ffglobaltech.com/megarich/official
       use_cache: true
       tags: latest
       dockerfile: ./dockerfile
