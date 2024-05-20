@@ -7,7 +7,7 @@ function AppDownloadFloat() {
   return (
     <>
       <div
-        className="window-box hidden-xs wow fadeInRight"
+        className="window-box hidden-xs wow fadeInRight flex items-start justify-center pt-8"
         data-wow-delay="0.4s"
         data-wow-duration="1s"
       >

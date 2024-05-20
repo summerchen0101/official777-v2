@@ -13,27 +13,25 @@
   background: rgb(30, 30, 31); /* Old browsers */
   background: -moz-linear-gradient(
     top,
-    rgba(30, 30, 31, 1) 0%,
-    rgba(35, 35, 38, 1) 50%,
-    rgba(28, 28, 28, 1) 51%,
-    rgba(28, 28, 28, 1) 100%
+    #302a55 0%,
+    #2a3c7d 50%,
+    #302a55 100%
   ); /* FF3.6-15 */
   background: -webkit-linear-gradient(
     top,
-    rgba(30, 30, 31, 1) 0%,
-    rgba(35, 35, 38, 1) 50%,
-    rgba(28, 28, 28, 1) 51%,
-    rgba(28, 28, 28, 1) 100%
+    #302a55 0%,
+    #2a3c7d 50%,
+    #302a55 100%
   ); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(
     to bottom,
-    rgba(30, 30, 31, 1) 0%,
-    rgba(35, 35, 38, 1) 50%,
-    rgba(28, 28, 28, 1) 51%,
-    rgba(28, 28, 28, 1) 100%
+    #302a55 0%,
+    #2a3c7d 50%,
+    #302a55 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e1e1f', endColorstr='#1c1c1c',GradientType=0 ); /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#302a55', endColorstr='#302a55',GradientType=0 ); /* IE6-9 */
 }
+
 
 .navbar-nav {
   float: none;
