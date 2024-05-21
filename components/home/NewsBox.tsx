@@ -63,7 +63,8 @@ function NewsBox() {
                 ))}
               </ul>
               <hr className="float-none" />
-              <hr />
+              <div className="h-5"></div>
+              {/* <hr /> */}
               <div className="frame_content_all">
                 {/*TAB1最新*/}
                 <div className="tab-content">

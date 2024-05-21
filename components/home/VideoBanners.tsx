@@ -70,14 +70,6 @@ function VideoBanners() {
         />
       </div>
       <div className="video-center wow fadeInUpBig" data-wow-duration="1s">
-        <a
-          className="slot-bar hidden-xs hidden-sm"
-          href="#myCarousel2"
-          role="button"
-          data-slide="next"
-        >
-          <img src="/images/slotbox.png" alt="" />
-        </a>
         <div
           id="myCarousel2"
           className="carousel slide video-banner-box wow flipInX"
@@ -146,7 +138,7 @@ function VideoBanners() {
         <a
           href="https://www.youtube.com/channel/UCeCfX4g4MOJnQeYQ2igb_lw"
           target="_blank"
-          className="btn-morevideo"
+          className="btn-morevideo mx-auto"
           rel="noreferrer"
         >
           更多影片

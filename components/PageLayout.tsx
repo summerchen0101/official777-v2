@@ -19,6 +19,7 @@ function PageLayout({ children, pure }: Props) {
   return (
     <>
       <HeaderNav pure={pure} />
+      <div className="h-24"></div>
       {!pure ? <AppDownloadFloat /> : null}
       {user ? <UserInfoFloat /> : <RechargeFloat />}
 

@@ -90,7 +90,8 @@ function NewsPage() {
                           ))}
                         </ul>
                         <hr className="float-none" />
-                        <hr />
+                        <div className="h-10"></div>
+
                         <div className="frame_content_all">
                           {/*TAB1最新*/}
                           <div className="tab-content">
