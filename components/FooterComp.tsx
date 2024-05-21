@@ -28,18 +28,10 @@ function FooterComp() {
             </Link>
           </li>
         </ul>
-        <hr className="float-none" />
+        {/* <hr className="float-none" /> */}
       </div>
+      <div className="h-10"></div>
       <div className="copyrignt-box">
-        <div className="cr-logo">
-          <div className="cr-logo-left">
-            <img
-              src="/images/logo_tech.png"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </div>
-        </div>
         <div className="cr-text">
           <p>
             ※
@@ -60,8 +52,10 @@ function FooterComp() {
         <div className="cr-grading">
           <img src="/images/cr_grading.png" alt="" className="img-responsive" />
         </div>
-        <hr className="no-float" />
+        {/* <hr className="no-float" /> */}
       </div>
+      <div className="float-none"></div>
+      <div className="h-5"></div>
     </footer>
   )
 }

@@ -81,7 +81,7 @@ function EventBanners() {
           className="img-responsive center-block"
         />
       </div>
-      <div
+      {/* <div
         className="event-left wow bounceInLeft"
         data-wow-delay="0.2s"
         data-wow-duration="2s"
@@ -98,7 +98,7 @@ function EventBanners() {
           alt=""
           className="img-responsive pull-right"
         />
-      </div>
+      </div> */}
       <div
         className="event-center wow fadeInUp"
         data-wow-delay="0.4s"
@@ -109,9 +109,9 @@ function EventBanners() {
           data-wow-delay="1s"
           data-wow-duration="1s"
         >
-          <ul className="event-banner slider">
+          <ul className="event-banner slider ">
             {sliders.map((t) => (
-              <li key={t.imgSrc}>
+              <li key={t.imgSrc} className="rounded-3xl overflow-hidden">
                 <a href={t.link} target="_blank" rel="noreferrer">
                   <img
                     src={t.imgSrc}

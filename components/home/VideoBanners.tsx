@@ -43,7 +43,7 @@ function VideoBanners() {
     })
   }
   return (
-    <section className="video-box" id="video-box">
+    <section className="video-box h-[830px]" id="video-box">
       <div className="title-box wow flipInX" data-wow-duration="1s">
         <img
           src="/images/title_video.png"
@@ -51,7 +51,7 @@ function VideoBanners() {
           className="img-responsive center-block"
         />
       </div>
-      <div
+      {/* <div
         className="video-left wow bounceInLeft"
         data-wow-delay="0.2s"
         data-wow-duration="2s"
@@ -68,7 +68,7 @@ function VideoBanners() {
           alt=""
           className="img-responsive pull-right"
         />
-      </div>
+      </div> */}
       <div className="video-center wow fadeInUpBig" data-wow-duration="1s">
         <div
           id="myCarousel2"
