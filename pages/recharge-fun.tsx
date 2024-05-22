@@ -15,6 +15,7 @@ import useEcpayOrderCreate from '@/services/useEcpayOrderCreate'
 import useGoodsList from '@/services/useGoodsList'
 import { StringMap } from '@/types'
 import useAuthPage from '@/utils/useAuthPage'
+import { useRouter } from 'next/dist/client/router'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -29,9 +30,15 @@ interface Inputs {
   agree: boolean
 }
 
+const titleImgMap: StringMap = {
+  [ECPayPaymentType.CREDIT_CARD]: '/images/recharge/title_funpoint.png',
+  [ECPayPaymentType.ATM]: '/images/recharge/title_ecpay_atm.png',
+}
+
 function RechargeFunPage() {
   const [invoiceType, setInvoiceType] = useState(InvoiceType.DONATE)
   const [donateType, setDonateType] = useState('')
+  const [paymentType, setPaymentType] = useState(ECPayPaymentType.ATM)
   const [carrierType, setCarrierType] = useState(
     ECPayInvoiceType.EC_PAY_INVOICE,
   )
@@ -40,11 +47,11 @@ function RechargeFunPage() {
     page: 1,
     perPage: 30,
     itemType: ItemType.All,
-    paymentType: ECPayPaymentType.ATM,
+    paymentType: paymentType,
     paymentGateway: PaymentGateway.ECPay,
   })
   const defaultValues: Inputs = {
-    paymentType: ECPayPaymentType.ATM,
+    paymentType: paymentType,
     productID: list?.[0].ItemId,
     email: '',
     phone: '',
@@ -121,6 +128,14 @@ function RechargeFunPage() {
     }
   })
 
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.query.p) {
+      setPaymentType(+router.query.p)
+    }
+  }, [router.query])
+
   return (
     <PageLayout>
       <header
@@ -150,7 +165,7 @@ function RechargeFunPage() {
       <div className="content">
         <div className="content-title-box">
           <img
-            src="/images/recharge/title_funpoint.png"
+            src={titleImgMap[paymentType]}
             alt=""
             className="img-responsive center-block"
           />
@@ -161,53 +176,15 @@ function RechargeFunPage() {
               <div className="ranking-box-goldline">
                 <div className="ranking-box-black">
                   <div className="content-box">
-                    <h2 className="text-center">Step.1 選擇購買品項</h2>
+                    <h3 className="text-center">Step.1 選擇購買點數</h3>
                     <hr />
                     <RechargePointSelector
                       list={list}
                       name="productID"
                       control={control}
                     />
-                    <h2 className="text-center">Step.2 選擇付款方式</h2>
-                    <hr />
-                    <div className="table-responsive">
-                      <table className="table table-dark table-striped table-hover">
-                        <thead>
-                          <tr>
-                            <th colSpan={2}>請選擇付款方式</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>
-                              <label>
-                                <input
-                                  type="radio"
-                                  {...register('paymentType', {
-                                    setValueAs: (val) => val?.toString(),
-                                  })}
-                                  value={ECPayPaymentType.ATM}
-                                />
-                                綠界銀行轉帳
-                              </label>
-                            </td>
-                            <td>
-                              <label>
-                                <input
-                                  type="radio"
-                                  {...register('paymentType', {
-                                    setValueAs: (val) => val.toString(),
-                                  })}
-                                  value={ECPayPaymentType.CREDIT_CARD}
-                                />
-                                綠界信用卡付款
-                              </label>
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <h2 className="text-center">Step.3 填寫發票資訊</h2>
+
+                    <h3 className="text-center">Step.2 發票設定</h3>
                     <hr />
                     <form role="form">
                       <div className="form-group col-lg-6">
@@ -380,7 +357,7 @@ function RechargeFunPage() {
                                   '請勾選同意',
                               })}
                             />
-                            我同意辦理退貨時，由三聯陽泰科技代為處理發票及銷貨退回證明單，以加速退貨退款作業。
+                            我同意辦理退貨時，由七七七科技代為處理發票及銷貨退回證明單，以加速退貨退款作業。
                           </label>
                         </div>
                         {errors.agree && (
@@ -391,7 +368,7 @@ function RechargeFunPage() {
                       </div>
                     </form>
                     <hr className="float-none" />
-                    <h2 className="text-center">Step.4 聯絡資訊(二擇一填寫)</h2>
+                    <h3 className="text-center">Step.3 聯絡資訊(擇一填寫)</h3>
                     <hr />
                     <div className="table-responsive">
                       <table className="table table-dark table-striped table-hover">

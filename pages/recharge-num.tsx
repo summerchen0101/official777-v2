@@ -92,6 +92,7 @@ function RechargePkgPage() {
                       </li>
                     </ul>
                     <hr className="float-none" />
+                    <div className="h-4"></div>
                     <div className="sub_content_all">
                       <div id="sub-tab-1" className="sub-tab-content">
                         <h2 className="text-center">產包序號開通</h2>

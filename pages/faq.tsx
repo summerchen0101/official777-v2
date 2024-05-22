@@ -92,6 +92,7 @@ function FaqPage() {
                       </li>
                     </ul>
                     <hr className="float-none" />
+                    <div className="h-6"></div>
                     <div className="sub_content_all">
                       <div id="sub-tab-1" className="sub-tab-content">
                         <h2 className="text-center">帳號相關</h2>

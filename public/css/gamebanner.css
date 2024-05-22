@@ -1,130 +1,147 @@
 @charset "utf-8";
 /* CSS Document */
 
-.banner-box-list{
-	position: relative;
-	width: 30%;
-	margin: 0 auto;
+.banner-box-list {
+  position: relative;
+  width: 30%;
+  margin: 0 auto;
 }
 
-.carousel-inner{
-	margin: 0 auto;
+.carousel-inner {
+  margin: 0 auto;
 }
 
-.banner-menu{
-	position: relative;
-	width: 50%;
-	margin: 0 auto;
-	padding: 1%;
-	text-align: center;
+.banner-menu {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1%;
+  text-align: center;
 }
-.glyphicon-chevron-left:before , .glyphicon-chevron-right:before{
-	content: none;
-}
-
-.carousel-indicators{
-	bottom: -40px;
+.glyphicon-chevron-left:before,
+.glyphicon-chevron-right:before {
+  content: none;
 }
 
-
-.carousel-indicators li{
-	background-color: rgba(255,255,255,1);
-	border: none;
-	margin: 2px;
-	width: 10px;
-	height: 10px;
-}
-.carousel-indicators li.active{
-	width: 10px;
-	height: 10px;
-	background-color: rgba(200,177,116,1);
-	margin: 2px;
+.carousel-indicators {
+  bottom: -40px;
 }
 
-.carousel-control{
-	width: 5%;
-	opacity: 1;
-	text-shadow: 0 0px 10px rgb(0 0 0 / 100%);
+.carousel-indicators li {
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  margin: 2px;
+  width: 10px;
+  height: 10px;
+}
+.carousel-indicators li.active {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(200, 177, 116, 1);
+  margin: 2px;
 }
 
-.carousel-control.left , .carousel-control.right {
-	background-image: none;
-}
-.carousel-control .glyphicon-chevron-left , .carousel-control .glyphicon-chevron-right {
-	width: 70px;
-	height: 100px;
-	font-size: 50px;
-	margin-top: -50px;
+.carousel-control {
+  width: 5%;
+  opacity: 1;
+  text-shadow: 0 0px 10px rgb(0 0 0 / 100%);
 }
 
-.carousel-control.left  img , .carousel-control.right  img {
-    transition: all 0.2s ease-out;
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
 }
-.carousel-control.left  img:hover , .carousel-control.right  img:hover {
-    transform: scale(0.9);
-}
-.carousel-control.left  img:hover , .carousel-control.right  img:hover {
-    filter: contrast(120%);
-}
-.game-menu-box{
-	position: relative;
-	width: 60%;
-	margin: 0 auto;
-	padding: 2% 0 0;
-	text-align: center;
-}
-.game-menu{
-    padding: 0;
-	border: none;
-	color: white;
-	background-color: transparent;
-}
-.game-menu:hover , .game-menu:active , .game-menu:focus{
-	color: white;
+.carousel-control .glyphicon-chevron-left,
+.carousel-control .glyphicon-chevron-right {
+  width: 70px;
+  height: 100px;
+  font-size: 50px;
+  margin-top: -50px;
 }
 
-.game-btn{
-	font-size: 18px;
-	font-weight: bolder;
-	text-align: center;
+.carousel-control.left img,
+.carousel-control.right img {
+  transition: all 0.2s ease-out;
+}
+.carousel-control.left img:hover,
+.carousel-control.right img:hover {
+  transform: scale(0.9);
+}
+.carousel-control.left img:hover,
+.carousel-control.right img:hover {
+  filter: contrast(120%);
+}
+.game-menu-box {
+  position: relative;
+  width: 60%;
+  margin: 0 auto;
+  padding: 2% 0 0;
+  text-align: center;
+}
+.game-menu {
+  padding: 0;
+  border: none;
+  color: white;
+  background-color: transparent;
+}
+.game-menu:hover,
+.game-menu:active,
+.game-menu:focus {
+  color: white;
+}
+
+.game-btn {
+  font-size: 18px;
+  font-weight: bolder;
+  text-align: center;
 }
 
 .dropdown-menu {
-	margin: -5px 10% 0;
-	padding: 0;
-	border-radius: 0px;
-	border: 2px solid #363d44;
-	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#21282f+0,3a3d42+49,21282f+100 */
-	background: rgb(33,40,47); /* Old browsers */
-	background: -moz-linear-gradient(left,  rgba(33,40,47,1) 0%, rgba(58,61,66,1) 49%, rgba(33,40,47,1) 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(left,  rgba(33,40,47,1) 0%,rgba(58,61,66,1) 49%,rgba(33,40,47,1) 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to right,  rgba(33,40,47,1) 0%,rgba(58,61,66,1) 49%,rgba(33,40,47,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21282f', endColorstr='#21282f',GradientType=1 ); /* IE6-9 */
-  	min-width: 150px;
+  margin: -5px 10% 0;
+  padding: 0;
+  border-radius: 0px;
+  border: 2px solid #363d44;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#21282f+0,3a3d42+49,21282f+100 */
+  background: rgb(33, 40, 47); /* Old browsers */
+  background: -moz-linear-gradient(
+    left,
+    rgba(33, 40, 47, 1) 0%,
+    rgba(58, 61, 66, 1) 49%,
+    rgba(33, 40, 47, 1) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    left,
+    rgba(33, 40, 47, 1) 0%,
+    rgba(58, 61, 66, 1) 49%,
+    rgba(33, 40, 47, 1) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to right,
+    rgba(33, 40, 47, 1) 0%,
+    rgba(58, 61, 66, 1) 49%,
+    rgba(33, 40, 47, 1) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#21282f', endColorstr='#21282f',GradientType=1 ); /* IE6-9 */
+  min-width: 150px;
 }
 .dropdown-menu > li > a {
-	padding: 3px 0px;
-	color: #fffed4;
-	font-size: 16px;
+  padding: 3px 0px;
+  color: #fffed4;
+  font-size: 16px;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-	color: #262626;
-	background-color: #d4a84e;
-	font-weight: bolder;
+  color: #fff;
+  background-color: #302a55;
+  font-weight: bolder;
 }
 /*Mobile*/
-@media(min-width:0px) and (max-width:767px) {
-	.banner-box-list{
-		width: 100%;
-	}
-	.dropdown-menu {
-		margin: -5px 13% 0;
-		min-width: 135px;
-	}
-	
+@media (min-width: 0px) and (max-width: 767px) {
+  .banner-box-list {
+    width: 100%;
+  }
+  .dropdown-menu {
+    margin: -5px 13% 0;
+    min-width: 135px;
+  }
 }
-
-
-
-

@@ -303,7 +303,7 @@ function RechargeAtmPage() {
                       ))}
                     </ul>
                     <hr className="float-none" />
-                    <h2 className="text-center">Step.1 選擇購買品項</h2>
+                    <h3 className="text-center">Step.1 選擇購買品項</h3>
                     <hr />
                     {tab === 'lucky' ? (
                       <LuckyPkgSelector
@@ -328,7 +328,7 @@ function RechargeAtmPage() {
 
                     {watch('productID') ? (
                       <>
-                        <h2 className="text-center">Step.2 選擇付款方式</h2>
+                        <h3 className="text-center">Step.2 選擇付款方式</h3>
                         <hr />
                         <div className="table-responsive">
                           <table className="table table-dark table-striped table-hover">
@@ -367,7 +367,7 @@ function RechargeAtmPage() {
                             </tbody>
                           </table>
                         </div>
-                        <h2 className="text-center">Step.3 填寫發票資訊</h2>
+                        <h3 className="text-center">Step.3 填寫發票資訊</h3>
                         <hr />
                         <form role="form">
                           <div className="form-group col-lg-6">
@@ -532,7 +532,7 @@ function RechargeAtmPage() {
                                       '請勾選同意',
                                   })}
                                 />
-                                我同意辦理退貨時，由三聯陽泰科技代為處理發票及銷貨退回證明單，以加速退貨退款作業。
+                                我同意辦理退貨時，由七七七科技代為處理發票及銷貨退回證明單，以加速退貨退款作業。
                               </label>
                             </div>
                             {errors.agree && (
@@ -543,9 +543,9 @@ function RechargeAtmPage() {
                           </div>
                         </form>
                         <hr className="float-none" />
-                        <h2 className="text-center">
+                        <h3 className="text-center">
                           Step.4 聯絡資訊(二擇一填寫)
-                        </h2>
+                        </h3>
                         <hr />
                         <div className="table-responsive">
                           <table className="table table-dark table-striped table-hover">

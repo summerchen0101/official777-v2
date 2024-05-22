@@ -13,16 +13,16 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      // container: {
-      //   center: true, // 讓 container 居中
-      //   padding: '2rem', // 設定全域 padding
-      //   screens: {
-      //     sm: '100%', // 小於 sm 的寬度
-      //     md: '100%', // 小於 md 的寬度
-      //     lg: '1024px', // 在 lg 的寬度
-      //     xl: '1280px', // 在 xl 的寬度
-      //   },
-      // },
+      container: {
+        center: true, // 讓 container 居中
+        padding: '2rem', // 設定全域 padding
+        screens: {
+          sm: '100%', // 小於 sm 的寬度
+          md: '100%', // 小於 md 的寬度
+          lg: '1024px', // 在 lg 的寬度
+          xl: '1024px', // 在 xl 的寬度
+        },
+      },
       keyframes: {
         'scale-sm': {
           '50%': { transform: 'scale(1.05)' },

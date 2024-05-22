@@ -21,15 +21,10 @@ type Inputs = {
   // userID: number
 }
 
-const imgMap: StringMap = {
-  [MCPaymentType.IN_GAME]: 'mc_giftcard',
-  [MCPaymentType.COST_POINT]: 'mc_transfer',
-  // [MCPaymentType.ASIA_PACIFIC_MOBILE]: 'mc_tele',
-  // [MCPaymentType.CREDIT_CARD]: 'mc_credit',
-  [MCPaymentType.FREE_POINT]: 'mc_coupon',
-}
 function RechargeMcPage() {
-  const [paymentType, setPaymentType] = useState(MCPaymentType.IN_GAME)
+  const [paymentType, setPaymentType] = useState(
+    MCPaymentType.ASIA_PACIFIC_MOBILE,
+  )
 
   const { list, isLoading: isListLoading } = useGoodsList({
     page: 1,
@@ -120,31 +115,9 @@ function RechargeMcPage() {
         <div className="gold-line" />
       </header>
       <div className="content">
-        <div className="content-btn-box">
-          {Object.entries(imgMap).map(([key, name]) => (
-            <div
-              key={key}
-              className={cs(
-                'btn-content-mycard',
-                paymentType === +key ? 'active' : '',
-              )}
-            >
-              <a href="#" onClick={() => setPaymentType(+key as MCPaymentType)}>
-                <img
-                  src={`/images/recharge/${name}.png`}
-                  alt=""
-                  className="img-responsive center-block"
-                />
-              </a>
-            </div>
-          ))}
-
-          <hr className="float-none" />
-        </div>
-
         <div className="content-title-box">
           <img
-            src={`/images/recharge/title_${imgMap[paymentType]}.png`}
+            src="/images/recharge/title_mc_tele.png"
             alt=""
             className="img-responsive center-block"
           />

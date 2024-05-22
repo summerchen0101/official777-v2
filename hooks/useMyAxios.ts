@@ -5,7 +5,7 @@ const useMyAxios = () => {
   const summerApiPath = useStore((s) => s.clientEnv.summerApiPath)
 
   const myAxios = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_SUMMER_API_PATH || summerApiPath,
+    baseURL: summerApiPath,
   })
 
   return myAxios

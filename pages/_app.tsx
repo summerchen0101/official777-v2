@@ -13,14 +13,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
   const setClientEnv = useStore((s) => s.setClientEnv)
   const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
-  const getConfig = async () => {
-    const config = await fetch('/config/env.json').then((res) => res.json())
-    setClientEnv(config)
-  }
+  // const getConfig = async () => {
+  //   const config = await fetch('/config/env.json').then((res) => res.json())
+  //   setClientEnv(config)
+  // }
 
-  useEffect(() => {
-    getConfig()
-  }, [])
+  // useEffect(() => {
+  //   getConfig()
+  // }, [])
 
   useEffect(() => {
     if (router.query.to) {
@@ -94,8 +94,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="獎金最高，開獎最多！韓瑜帶你嗨不停！大獎超敢開，紅包天天送，讓你輕鬆做頭家！公正公開，金幣送不停!現在登入先送十連抽！"
         />
         <meta name="keywords" content="大頭家娛樂城、韓瑜、麻將、手遊、3D" />
-        <meta name="author" content="三聯陽泰科技股份有限公司" />
-        <meta name="copyright" content="本網頁為三聯陽泰科技版權所有" />
+        <meta name="author" content="七七七科技股份有限公司" />
+        <meta name="copyright" content="本網頁為七七七科技版權所有" />
         <meta name="google" content="notranslate" />
         <meta
           name="google-site-verification"

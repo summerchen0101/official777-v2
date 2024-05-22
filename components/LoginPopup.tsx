@@ -62,9 +62,14 @@ function LoginPopup() {
   const { handler: doGetAppleState, isLoading: isAppleStateLoading } =
     useAppleState()
 
-  const backUrl = `${location.protocol}//${location.host}?${qs.stringify({
-    to: router.query.to,
-  })}`
+  let backUrl = ''
+  if (typeof window !== 'undefined') {
+    backUrl = `${window.location.protocol}//${
+      window.location.host
+    }?${qs.stringify({
+      to: router.query.to,
+    })}`
+  }
 
   useEffect(() => {
     if (isShow) {
@@ -173,11 +178,11 @@ function LoginPopup() {
         >
           <button
             type="button"
-            className="btn btn-default pop-btn-lg"
+            className="btn btn-default pop-btn-lg flex items-center justify-center"
             onClick={handleAppleLogin}
           >
             <img src="/images/icon_loginApple.png" alt="" />
-            Apple ID登入
+            <div className="ml-4">Apple ID登入</div>
           </button>
           <div hidden>
             <AppleLogin
@@ -191,11 +196,11 @@ function LoginPopup() {
           </div>
           <button
             type="button"
-            className="btn btn-default pop-btn-lg"
+            className="btn btn-default pop-btn-lg flex items-center justify-center"
             onClick={() => handleOAuthLogin(OAuthChannel.Line)}
           >
             <img src="/images/icon_loginLine.png" alt="" />
-            Line登入
+            <div className="ml-4">Line登入</div>
           </button>
           <form className="form-horizontal" role="form">
             <div className="input-group pop-btn-lg2">
@@ -216,7 +221,7 @@ function LoginPopup() {
               </div>
               {/* /btn-group */}
               <input
-                type="text"
+                // type="text"
                 className="input-group-btn3"
                 {...register('phone', {
                   required: { value: true, message: '不可為空' },
@@ -240,7 +245,7 @@ function LoginPopup() {
               </label>
               <div className="col-lg-12">
                 <input
-                  type="text"
+                  // type="text"
                   className="form-control input-lg form-verify"
                   id="verify"
                   placeholder="請輸簡訊驗證碼"
