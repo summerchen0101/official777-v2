@@ -15,6 +15,7 @@ import AppleLogin from 'react-apple-login'
 import { useForm } from 'react-hook-form'
 import { useInterval } from 'usehooks-ts'
 import { queryPlusQuery } from '@/utils'
+import useQuery from '@/utils/useQuery'
 
 type Inputs = {
   confirm: boolean
@@ -30,14 +31,21 @@ function DeleteAccPage() {
   const { handler: doOAuthLogin, isLoading: isOAuthLoading } = useOAuthLogin()
   const { handler: doGetAppleState, isLoading: isAppleStateLoading } =
     useAppleState()
+  const query = useQuery()
 
-  const backUrl = queryPlusQuery(location.href, { confirm: 'yes' })
+  useEffect(() => {
+    if (query) {
+      setValue('confirm', query.has('confirm'))
+    }
+  }, [query])
+
+  const backUrl = query
+    ? queryPlusQuery(window.location.href, { confirm: 'yes' })
+    : ''
 
   const handleAppleLogin = async () => {
     setLoginViaType(LoginViaType.APPLE)
-    const res = await doGetAppleState({
-      backUrl,
-    })
+    const res = await doGetAppleState({ backUrl })
     if (res?.data) {
       setAppleState(res.data)
       setTimeout(() => {
@@ -46,6 +54,7 @@ function DeleteAccPage() {
       })
     }
   }
+
   const handleOAuthLogin = async (channel: OAuthChannel) => {
     setLoginViaType(LoginViaType.LINE)
     const res = await doOAuthLogin(channel, {
@@ -63,11 +72,13 @@ function DeleteAccPage() {
       setCount((c) => c - 1)
     }
   }, 1000)
+
   useAuth()
+
   const { handler: doDelete, isLoading } = useUserDelete()
   const clearUser = useUserStore((s) => s.clearUser)
   const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
-  const urlParams = new URLSearchParams(location.search)
+
   const {
     register,
     handleSubmit,
@@ -77,21 +88,14 @@ function DeleteAccPage() {
     reset,
   } = useForm<Inputs>({
     defaultValues: {
-      confirm: urlParams.has('confirm'),
+      confirm: false,
     },
   })
-
-  // useEffect(() => {
-  //   if (user) {
-  //     setValue('nickname', user.nickname)
-  //     setValue('uid', user.id.toString())
-  //   }
-  // }, [user])
   const loginViaType = useUserStore((s) => s.loginViaType)
   const onSubmit = handleSubmit(async (d) => {
     // if (d.nickname !== user?.nickname || d.uid !== user.id.toString()) {
-    //   alert('刪除資訊有誤，請再次確認')
-    //   return
+    //   alert('刪除資訊有誤，請再次確認');
+    //   return;
     // }
 
     if (
