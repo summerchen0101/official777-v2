@@ -68,7 +68,9 @@ function SlotRanksPage() {
                         <tbody>
                           {list?.map((t) => (
                             <tr key={t.rank}>
-                              <td className="text-center">{t.rank}</td>
+                              <td className="text-center text-yellow-500 font-bold">
+                                {t.rank}
+                              </td>
                               <td>{t.nickname}</td>
                               {/* <td>女僕咖啡廳</td> */}
                               <td>{toCurrency(+t.bettingOdds)}</td>
