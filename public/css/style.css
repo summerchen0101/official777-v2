@@ -4,6 +4,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
+
 hr {
   border: none;
   border-top: 1px solid #3f3f3f;

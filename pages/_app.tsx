@@ -6,21 +6,13 @@ import { showLoginPopup } from '@/utils'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { MouseEvent, useEffect, useState } from 'react'
 import '../styles/globals.scss'
+import useImgHover from '@/utils/useImgHover'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
-  const setClientEnv = useStore((s) => s.setClientEnv)
-  const apiBaseUrl = useStore((s) => s.clientEnv.apiBaseUrl)
-  // const getConfig = async () => {
-  //   const config = await fetch('/config/env.json').then((res) => res.json())
-  //   setClientEnv(config)
-  // }
-
-  // useEffect(() => {
-  //   getConfig()
-  // }, [])
+  useImgHover()
 
   useEffect(() => {
     if (router.query.to) {
@@ -123,11 +115,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 `}
       </Script> */}
       <div className="bg-cover" />
-      {apiBaseUrl && (
-        <ErrorBoundary router={router}>
-          <Component {...pageProps} />
-        </ErrorBoundary>
-      )}
+      <ErrorBoundary router={router}>
+        <Component {...pageProps} />
+      </ErrorBoundary>
 
       <script defer src="/js/jquery-1.11.3.min.js"></script>
       <script defer src="/js/bootstrap.js"></script>
@@ -151,7 +141,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <script defer src="/js/fancybox.js"></script>
       <script defer src="/js/youtublink.js"></script>
       <script defer src="/js/popup.js"></script>
-      <script defer src="/js/imghover.js"></script>
     </>
   )
 }
