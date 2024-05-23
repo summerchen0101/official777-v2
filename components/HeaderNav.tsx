@@ -108,7 +108,7 @@ function HeaderNav({ pure }: Props) {
                               className="img-responsive center-block"
                             />
                           </div>
-                          <div className="logout-gold-text">
+                          <div className="logout-text w-4/5">
                             <p>{toCurrency(user?.coin)}</p>
                           </div>
                           <hr className="float-none" />
@@ -123,7 +123,7 @@ function HeaderNav({ pure }: Props) {
                               className="img-responsive center-block"
                             />
                           </div>
-                          <div className="logout-mony-text">
+                          <div className="logout-text w-4/5">
                             <p>{toCurrency(user?.paymentPoint)}</p>
                           </div>
                           <hr className="float-none" />
@@ -138,7 +138,7 @@ function HeaderNav({ pure }: Props) {
                               className="img-responsive center-block"
                             />
                           </div>
-                          <div className="logout-mony-text">
+                          <div className="logout-text w-4/5">
                             <p>VIP: LV{user?.vipLevel}</p>
                           </div>
                           <hr className="float-none" />

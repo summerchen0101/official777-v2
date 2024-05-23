@@ -296,8 +296,7 @@ a:active {
   position: relative;
   float: left;
 }
-.logout-gold-text,
-.logout-mony-text {
+.logout-text {
   position: relative;
   /* width: 85%; */
   float: right;
@@ -315,8 +314,7 @@ a:active {
   color: white;
   text-align: center;
 }
-.logout-gold-text p,
-.logout-mony-text p {
+.logout-text p {
   font-size: 14px;
   color: white;
   text-align: right;
@@ -1603,16 +1601,14 @@ thead > tr > th {
   .logout-icon {
     width: 20%;
   }
-  .logout-gold-text,
-  .logout-mony-text {
+  .logout-text {
     width: 80%;
   }
 
   .logout-id p {
     font-size: 18px;
   }
-  .logout-gold-text p,
-  .logout-mony-text p,
+  .logout-text p,
   .logout-vip p {
     font-size: 18px;
     line-height: 56px;

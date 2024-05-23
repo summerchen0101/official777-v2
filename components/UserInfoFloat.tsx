@@ -33,44 +33,43 @@ function UserInfoFloat() {
         <div className="logout-id">
           <p>{user?.nickname}</p>
         </div>
-        <div className="logout-gold">
-          <div className="logout-icon w-1/6">
-            <img
-              src="/images/login/icon_coin.png"
-              alt=""
-              className="img-responsive center-block"
-            />
+        <div className="space-y-3 my-5">
+          <div className="logout-gold flex items-center justify-between">
+            <div className="logout-icon w-1/6">
+              <img
+                src="/images/login/icon_coin.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </div>
+            <div className="logout-text">
+              <p>{toCurrency(user?.coin)}</p>
+            </div>
           </div>
-          <div className="logout-gold-text">
-            <p>{toCurrency(user?.coin)}</p>
+          <div className="logout-mony flex items-center justify-between">
+            <div className="logout-icon w-1/6">
+              <img
+                src="/images/login/icon_point.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </div>
+            <div className="logout-text w-5/6">
+              <p>{toCurrency(user?.paymentPoint)}</p>
+            </div>
           </div>
-          <hr className="float-none" />
-        </div>
-        <div className="logout-mony">
-          <div className="logout-icon w-1/6">
-            <img
-              src="/images/login/icon_point.png"
-              alt=""
-              className="img-responsive center-block"
-            />
+          <div className="logout-vip flex items-center justify-between">
+            <div className="logout-icon w-1/4">
+              <img
+                src="/images/login/icon_vip.png"
+                alt=""
+                className="img-responsive center-block"
+              />
+            </div>
+            <div className="logout-text">
+              <p>VIP: LV{user?.vipLevel}</p>
+            </div>
           </div>
-          <div className="logout-mony-text">
-            <p>{toCurrency(user?.paymentPoint)}</p>
-          </div>
-          <hr className="float-none" />
-        </div>
-        <div className="logout-vip">
-          <div className="logout-icon w-1/5">
-            <img
-              src="/images/login/icon_vip.png"
-              alt=""
-              className="img-responsive center-block"
-            />
-          </div>
-          <div className="logout-mony-text">
-            <p>VIP: LV{user?.vipLevel}</p>
-          </div>
-          <hr className="float-none" />
         </div>
         <a href="#" onClick={handleLogout}>
           <img
