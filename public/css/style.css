@@ -1659,10 +1659,10 @@ thead > tr > th {
   }
   /*EVENT*/
   .event-box {
-    padding-bottom: 10%;
+    /* padding-bottom: 10%; */
   }
   .event-box {
-    margin-bottom: 20%;
+    margin-bottom: 10%;
   }
   .event-left {
     width: 50%;
@@ -1677,14 +1677,13 @@ thead > tr > th {
     margin-left: -10%;
   }
   .event-center {
-    position: absolute;
     width: 96%;
     left: 2%;
-    margin: 60% auto;
+    margin: 0 auto;
   }
   /*GAME*/
   .game-box {
-    padding-bottom: 50%;
+    /* padding-bottom: 50%; */
   }
   .game-left,
   .game-right {
@@ -1693,10 +1692,10 @@ thead > tr > th {
     margin-bottom: 70%;
   }
   .game-center {
-    position: absolute;
+    /* position: absolute; */
     width: 96%;
     left: 2%;
-    margin: 48% auto;
+    margin: 0 auto;
     background-image: none;
   }
   .game-banner-inner {
@@ -1708,7 +1707,7 @@ thead > tr > th {
   }
   /*VIDEO*/
   .video-box {
-    padding-bottom: 25%;
+    /* padding-bottom: 25%; */
   }
   .video-left {
     width: 50%;
@@ -1726,7 +1725,7 @@ thead > tr > th {
   .video-center {
     width: 98%;
     left: 0;
-    margin: 60% auto 0;
+    margin: 0 auto;
     padding: 0;
     padding-bottom: 10%;
   }
@@ -1744,8 +1743,8 @@ thead > tr > th {
     background-image: url('../images/video_btn_more_phone.png');
   }
   .btn-morevideo {
-    width: 30%;
-    height: 60px;
+    width: 32%;
+    height: 30px;
     background-position: bottom;
   }
   /*FRATURE*/

@@ -43,7 +43,7 @@ function VideoBanners() {
     })
   }
   return (
-    <section className="video-box h-[830px]" id="video-box">
+    <section className="video-box" id="video-box">
       <div className="title-box wow flipInX" data-wow-duration="1s">
         <img
           src="/images/title_video.png"
