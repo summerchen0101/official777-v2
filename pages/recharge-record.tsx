@@ -142,7 +142,7 @@ function RechargeRecordPage() {
                               >
                                 {paymentStatusMap[t.PaymentStatus]}
                               </td>
-                              <td className="text-lg text-purple-700">
+                              <td className="text-yellow-500">
                                 ${toCurrency(t.PriceAmountMicros)}
                               </td>
                             </tr>

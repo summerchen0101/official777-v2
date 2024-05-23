@@ -48,7 +48,7 @@
 }
 .hw-content p,
 .hw-content3 p {
-  color: dimgray;
+  color: #aea8c3;
   font-size: 18px;
   line-height: 28px;
   margin-left: 30px;
@@ -56,47 +56,47 @@
 }
 .hw-content ol,
 .hw-content3 ol {
-  color: dimgray;
+  color: #aea8c3;
   font-size: 18px;
   margin-right: 30px;
 }
 .hw-content ul,
 .hw-content3 ul {
-  color: dimgray;
+  color: #aea8c3;
   font-size: 18px;
   margin-right: 30px;
 }
 .hw-content h1,
 .hw-content3 h1 {
-  color: dimgray;
+  color: #aea8c3;
   font-size: 36px;
   font-weight: bolder;
   text-align: center;
 }
 .hw-content h2,
 .hw-content3 h2 {
-  color: dimgray;
+  color: #aea8c3;
   font-size: 28px;
   font-weight: bolder;
   margin-left: 30px;
 }
 .hw-content h3,
 .hw-content3 h3 {
-  color: dimgray;
+  color: #aea8c3;
   font-size: 24px;
   font-weight: bolder;
   margin-left: 30px;
 }
 .hw-content h4,
 .hw-content3 h4 {
-  color: dimgray;
+  color: #aea8c3;
   font-size: 18px;
   font-weight: bolder;
   margin-left: 30px;
 }
 .hw-content h9,
 .hw-content3 h9 {
-  color: dimgray;
+  color: #aea8c3;
   font-size: 18px;
   line-height: 28px;
 }
@@ -108,7 +108,7 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  background-color: #fff;
+  background: #4d4a56;
   box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.12);
   padding: 2%;
   border-radius: 20px;
@@ -152,6 +152,7 @@
   margin: 0 auto;
   overflow: scroll;
   overflow-x: hidden;
+  color: #aea8c3;
 }
 .hw-content2 {
   position: relative;
