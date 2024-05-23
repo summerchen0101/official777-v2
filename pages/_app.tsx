@@ -104,24 +104,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* <meta name="next-head-count" content="19" /> */}
         <meta property="fb:pages" content="101091025701333" />
         <meta property="fb:app_id" content="327137328773940" />
-        <meta
-          property="og:title"
-          content="大頭家娛樂城 | 本土劇女神韓瑜強力推薦、開獎最高獎金最多、頭家攏來這"
-        />
-        <meta
-          property="og:description"
-          content="獎金最高，開獎最多！韓瑜帶你嗨不停！大獎超敢開，紅包天天送，讓你輕鬆致富做頭家！"
-        />
+        <meta property="og:title" content="七七七娛樂城" />
+        <meta property="og:description" content="" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://www.online539.com" />
-        <meta
-          property="og:image"
-          content="https://resource-cdn.bigboss101.com/official/banner/banner_02.jpg"
-        />
-        <title>大頭家娛樂城 </title>
-        <link rel="shortcut icon" href="/images/favicon.ico" />
-        <link rel="bookmark" href="/images/favicon.ico" />
-        <link rel="icon" href="/images/favicon.ico" />
+        <meta property="og:url" content="https://www.777.com" />
+        <meta property="og:image" content="" />
+        <title>七七七娛樂城</title>
+        <link rel="shortcut icon" href="/images/logo.png" />
+        <link rel="bookmark" href="/images/logo.png" />
+        <link rel="icon" href="/images/logo.png" />
       </Head>
       {/* <Script id="google-analytics" strategy="afterInteractive">
         {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

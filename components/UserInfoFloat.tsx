@@ -60,7 +60,16 @@ function UserInfoFloat() {
           <hr className="float-none" />
         </div>
         <div className="logout-vip">
-          <p>VIP: LV{user?.vipLevel}</p>
+          <div className="logout-mony-icon">
+            <img
+              src="/images/login/icon_vip.png"
+              alt=""
+              className="img-responsive center-block"
+            />
+          </div>
+          <div className="logout-mony-text">
+            <p>VIP: LV{user?.vipLevel}</p>
+          </div>
         </div>
         <a href="#" onClick={handleLogout}>
           <img

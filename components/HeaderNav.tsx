@@ -60,7 +60,7 @@ function HeaderNav({ pure }: Props) {
       </div>
       <div className="collapse navbar-collapse" id="navbar-menu">
         <ul
-          className="nav navbar-nav"
+          className="nav navbar-nav flex items-center justify-center"
           data-in="fadeInDown"
           data-out="fadeOutUp"
         >
@@ -376,6 +376,9 @@ function HeaderNav({ pure }: Props) {
                     </Link>
                   </li>
                 </ul>
+              </li>
+              <li className="px-12">
+                <div className="blue-btn">登入</div>
               </li>
               <li className="nav-li-icon">
                 <a

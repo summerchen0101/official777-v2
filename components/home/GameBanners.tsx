@@ -2,13 +2,13 @@ import React, { memo, useEffect } from 'react'
 import cs from 'classnames'
 
 const gameList = [
-  { name: '發財麻將', img: 'game01.png' },
-  { name: '3D深海總動員', img: 'game02.png' },
-  { name: '超級777', img: 'game03.png' },
-  { name: '刮刮樂', img: 'game04.png' },
-  { name: '年年有瑜', img: 'game05.png' },
-  { name: '百家樂視訊', img: 'game06.png' },
-  { name: '百人妞妞', img: 'game07.png' },
+  { name: '雷神之鎚', img: 'img_hotgame_slot1.jpg' },
+  { name: '魔龍傳奇', img: 'img_hotgame_slot2.jpg' },
+  { name: '多福多發', img: 'img_hotgame_slot3.jpg' },
+  { name: '招財貓', img: 'img_hotgame_slot4.jpg' },
+  { name: '鍾馗', img: 'img_hotgame_slot7.jpg' },
+  { name: '少林熊貓', img: 'img_hotgame_slot9.jpg' },
+  { name: '七七七', img: 'img_hotgame_slot10.jpg' },
 ]
 
 function GameBanners() {
@@ -18,7 +18,7 @@ function GameBanners() {
     })
   }, [])
   return (
-    <section className="game-box" id="game-box">
+    <section className="game-box mx-auto" id="game-box">
       <div className="title-box wow flipInX" data-wow-duration="1s">
         <img
           src="/images/title_game.png"
@@ -27,71 +27,10 @@ function GameBanners() {
         />
       </div>
       <div
-        className="game-left wow bounceInLeft"
-        data-wow-delay="0.2s"
-        data-wow-duration="2s"
-      >
-        <img
-          src="/images/game_left.png"
-          alt=""
-          className="img-responsive hidden-xs"
-        />
-        <img
-          src="/images/game_phone_left.png"
-          alt=""
-          className="img-responsive hidden visible-xs"
-        />
-      </div>
-      <div
-        className="game-right wow bounceInRight"
-        data-wow-delay="0.2s"
-        data-wow-duration="2s"
-      >
-        <img
-          src="/images/game_right.png"
-          alt=""
-          className="img-responsive pull-right hidden-xs"
-        />
-        <img
-          src="/images/game_phone_right.png"
-          alt=""
-          className="img-responsive pull-right hidden visible-xs"
-        />
-      </div>
-      <div
-        className="game-center wow bounceIn"
+        className="game-center wow bounceIn mx-auto mb-24"
         data-wow-delay="1.5s"
         data-wow-duration="2s"
       >
-        <div className="game-menu-box">
-          <div className="btn-group">
-            <button
-              type="button"
-              className="btn dropdown-toggle game-menu"
-              data-toggle="dropdown"
-            >
-              <img
-                src="/images/game_menu.png"
-                alt=""
-                className="img-responsive center-block"
-              />
-            </button>
-            <ul className="dropdown-menu" role="menu">
-              {gameList.map((t, i) => (
-                <li key={t.img}>
-                  <a
-                    className="game-btn"
-                    onClick={() => {
-                      $('#myCarousel').carousel(i)
-                    }}
-                  >
-                    {t.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
         <div
           id="myCarousel"
           className="carousel slide banner-box-list wow flipInY"
@@ -110,12 +49,12 @@ function GameBanners() {
             ))}
           </ol>
           {/* 轮播（Carousel）项目 */}
-          <div className="game-banner-box">
+          <div className="">
             <div className="carousel-inner game-banner-inner">
               {gameList.map((t, i) => (
                 <div key={t.img} className={cs('item', { active: i === 0 })}>
                   <img
-                    src={`/images/${t.img}`}
+                    src={`/images/hotgame/${t.img}`}
                     alt={t.name}
                     className="center-block img-responsive"
                   />

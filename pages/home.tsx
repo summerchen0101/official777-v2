@@ -38,14 +38,16 @@ function HomePage() {
         <div className="black-line" />
         <div className="gold-line" />
       </header>
+      <div className="absolute w-full">
+        <div className="arrow-box arrow-animate hidden-xs">
+          <i className="arrow " />
+        </div>
+      </div>
       <div className="bg-gradient-to-b from-[#302a55] via-[#2a3c7d] to-[#302a55] container shadow-xl relative">
         <div className="vertical-gold-line absolute left-0 top-0 w-2 min-h-full"></div>
         <div className="vertical-gold-line absolute right-0 top-0 w-2 min-h-full"></div>
         {/* {canRecharge ? <RechargeBtns /> : null} */}
 
-        <div className="arrow-box arrow-animate hidden-xs">
-          <i className="arrow " />
-        </div>
         <NewsBox />
         <EventBanners />
         <GameBanners />

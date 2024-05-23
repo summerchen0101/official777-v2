@@ -548,7 +548,6 @@ a:active {
   position: relative;
   max-width: 1920px;
   padding-bottom: 2%;
-  margin: 5% auto 0;
 }
 .game-left,
 .game-right {
@@ -559,25 +558,8 @@ a:active {
   float: left;
 }
 .game-center {
-  position: absolute;
-  width: 100%;
-  z-index: 2;
-  margin-top: -3%;
-  background-image: url('../images/game_gold.png');
-  background-position: top center;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-.game-banner-box {
   position: relative;
   width: 90%;
-  padding: 3%;
-  margin: 0 auto;
-  z-index: 2;
-  background-image: url('../images/game_center_frame.jpg');
-  background-position: top center;
-  background-size: contain;
-  background-repeat: no-repeat;
 }
 .game-banner-inner {
   width: 80%;
@@ -1908,3 +1890,34 @@ thead > tr > th {
   }
 }
 /*Mobile End*/
+
+/* 按鈕 */
+
+.blue-btn {
+  background: linear-gradient(
+    to bottom,
+    #79b5f5,
+    #4a90e2
+  ); /* 漸層從淺藍到深藍 */
+  font-weight: 800;
+  color: white; /* 白色文字 */
+  border: none; /* 無邊框 */
+  border-radius: 25px; /* 圓角 */
+  padding: 5px 20px; /* 內邊距 */
+  font-size: 16px; /* 字體大小 */
+  cursor: pointer; /* 指針變為手形 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.3); /* 外部陰影和內部陰影 */
+  display: inline-block; /* 行內塊 */
+  text-align: center; /* 文字居中 */
+  line-height: 1.5; /* 行高 */
+  font-family: 'Arial', sans-serif; /* 字體 */
+}
+
+.blue-btn:hover {
+  background: linear-gradient(
+    to bottom,
+    #4a90e2,
+    #3a78c2
+  ); /* 當鼠標懸停時的漸層顏色 */
+}
