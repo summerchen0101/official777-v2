@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, memo } from 'react'
 
 interface HoverImgProps {
   src: string
@@ -45,4 +45,4 @@ const HoverImg: React.FC<HoverImgProps> = ({
   return <img ref={imgRef} src={src} alt={alt} className={className} />
 }
 
-export default HoverImg
+export default memo(HoverImg)
