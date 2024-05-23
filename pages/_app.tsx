@@ -1,18 +1,22 @@
 import ErrorBoundary from '@/components/ErrorBoundary'
 import { LoginRes } from '@/services/useLogin'
-import { useStore } from '@/store/useStore'
 import { useUserStore } from '@/store/useUserStore'
 import { showLoginPopup } from '@/utils'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/dist/client/router'
 import Head from 'next/head'
-import { MouseEvent, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import '../styles/globals.scss'
-import useImgHover from '@/utils/useImgHover'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
-  useImgHover()
+  const [isReady, setIsReady] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsReady(true)
+    })
+  }, [])
 
   useEffect(() => {
     if (router.query.to) {
@@ -115,9 +119,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 `}
       </Script> */}
       <div className="bg-cover" />
-      <ErrorBoundary router={router}>
-        <Component {...pageProps} />
-      </ErrorBoundary>
+      {isReady && (
+        <ErrorBoundary router={router}>
+          <Component {...pageProps} />
+        </ErrorBoundary>
+      )}
 
       <script defer src="/js/jquery-1.11.3.min.js"></script>
       <script defer src="/js/bootstrap.js"></script>

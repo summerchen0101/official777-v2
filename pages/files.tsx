@@ -1,3 +1,4 @@
+import HoverImg from '@/components/HoverImg'
 import LogoBox from '@/components/LogoBox'
 import PageLayout from '@/components/PageLayout'
 import { useEffect } from 'react'
@@ -51,9 +52,9 @@ function FilesPage() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          <img
+                          <HoverImg
                             src="/images/service/btn_prize.png"
-                            data-active-src="/images/service/btn_prize_active.png"
+                            activeSrc="/images/service/btn_prize_active.png"
                             alt=""
                             className="img-responsive center-block"
                           />
@@ -65,9 +66,9 @@ function FilesPage() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          <img
+                          <HoverImg
                             src="/images/service/btn_revise.png"
-                            data-active-src="/images/service/btn_revise_active.png"
+                            activeSrc="/images/service/btn_revise_active.png"
                             alt=""
                             className="img-responsive center-block"
                           />
@@ -79,9 +80,9 @@ function FilesPage() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          <img
+                          <HoverImg
                             src="/images/service/btn_list.png"
-                            data-active-src="/images/service/btn_list_active.png"
+                            activeSrc="/images/service/btn_list_active.png"
                             alt=""
                             className="img-responsive center-block"
                           />

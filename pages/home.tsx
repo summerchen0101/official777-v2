@@ -1,6 +1,4 @@
-import AdPopup from '@/components/AdPopup'
 import EventBanners from '@/components/home/EventBanners'
-import FeatureBanners from '@/components/home/FeatureBanners'
 import GameBanners from '@/components/home/GameBanners'
 import HomeBanners from '@/components/home/HomeBanners'
 import NewsBox from '@/components/home/NewsBox'
@@ -13,6 +11,7 @@ import { useEffect } from 'react'
 
 function HomePage() {
   const { canRecharge } = useStore((s) => s.clientEnv)
+
   useEffect(() => {
     var wow = new WOW({
       boxClass: 'wow', // 欲套用wow.js的class                      (預設wow)

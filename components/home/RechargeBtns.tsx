@@ -1,5 +1,5 @@
-import { handleComingSoon } from '@/utils'
 import useAuthRoute from '@/utils/useAuthRoute'
+import HoverImg from '../HoverImg'
 
 function RechargeBtns() {
   const toAuthRoute = useAuthRoute()
@@ -12,15 +12,15 @@ function RechargeBtns() {
     >
       <div className="btn-bank">
         <a href="#" onClick={() => toAuthRoute('/recharge-fun')}>
-          <img
+          <HoverImg
             src="images/btn_bank.png"
-            data-active-src="images/btn_bank_active.png"
+            activeSrc="images/btn_bank_active.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
-          <img
+          <HoverImg
             src="images/btn_phone_bank.png"
-            data-active-src="images/btn_phone_bank_active.png"
+            activeSrc="images/btn_phone_bank_active.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
@@ -29,15 +29,15 @@ function RechargeBtns() {
 
       <div className="btn-mycard">
         <a href="#" onClick={() => toAuthRoute('/recharge-mc?p=1')}>
-          <img
+          <HoverImg
             src="/images/btn_mycard.png"
-            data-active-src="images/btn_mycard_active.png"
+            activeSrc="images/btn_mycard_active.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
-          <img
+          <HoverImg
             src="/images/btn_phone_mycard.png"
-            data-active-src="images/btn_phone_mycard_active.png"
+            activeSrc="images/btn_phone_mycard_active.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
@@ -45,15 +45,15 @@ function RechargeBtns() {
       </div>
       <div className="btn-shop">
         <a href="#" onClick={() => toAuthRoute('/recharge-num')}>
-          <img
+          <HoverImg
             src="/images/btn_park.png"
-            data-active-src="images/btn_park_active.png"
+            activeSrc="images/btn_park_active.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
-          <img
+          <HoverImg
             src="/images/btn_phone_park.png"
-            data-active-src="images/btn_phone_park_active.png"
+            activeSrc="images/btn_phone_park_active.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
@@ -62,15 +62,15 @@ function RechargeBtns() {
       <div className="btn-gift">
         {/* <a href="#" onClick={handleComingSoon}> */}
         <a href="#" onClick={() => toAuthRoute('/recharge-gift')}>
-          <img
+          <HoverImg
             src="/images/btn_gift.png"
-            data-active-src="images/btn_gift_active.png"
+            activeSrc="images/btn_gift_active.png"
             alt=""
             className="img-responsive center-block hidden-xs"
           />
-          <img
+          <HoverImg
             src="/images/btn_phone_gift.png"
-            data-active-src="images/btn_phone_gift_active.png"
+            activeSrc="images/btn_phone_gift_active.png"
             alt=""
             className="img-responsive center-block hidden visible-xs"
           />
