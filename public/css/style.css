@@ -292,16 +292,14 @@ a:active {
   border-radius: 50px;
 }
 
-.logout-gold-icon,
-.logout-mony-icon {
+.logout-icon {
   position: relative;
-  width: 15%;
   float: left;
 }
 .logout-gold-text,
 .logout-mony-text {
   position: relative;
-  width: 85%;
+  /* width: 85%; */
   float: right;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1602,8 +1600,7 @@ thead > tr > th {
     border-bottom: solid 1px #2e2e2e;
   }
 
-  .logout-gold-icon,
-  .logout-mony-icon {
+  .logout-icon {
     width: 20%;
   }
   .logout-gold-text,

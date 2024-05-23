@@ -34,7 +34,7 @@ function UserInfoFloat() {
           <p>{user?.nickname}</p>
         </div>
         <div className="logout-gold">
-          <div className="logout-gold-icon">
+          <div className="logout-icon w-1/6">
             <img
               src="/images/login/icon_coin.png"
               alt=""
@@ -47,7 +47,7 @@ function UserInfoFloat() {
           <hr className="float-none" />
         </div>
         <div className="logout-mony">
-          <div className="logout-mony-icon">
+          <div className="logout-icon w-1/6">
             <img
               src="/images/login/icon_point.png"
               alt=""
@@ -60,7 +60,7 @@ function UserInfoFloat() {
           <hr className="float-none" />
         </div>
         <div className="logout-vip">
-          <div className="logout-mony-icon">
+          <div className="logout-icon w-1/5">
             <img
               src="/images/login/icon_vip.png"
               alt=""
@@ -70,6 +70,7 @@ function UserInfoFloat() {
           <div className="logout-mony-text">
             <p>VIP: LV{user?.vipLevel}</p>
           </div>
+          <hr className="float-none" />
         </div>
         <a href="#" onClick={handleLogout}>
           <img

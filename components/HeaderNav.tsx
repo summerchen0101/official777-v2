@@ -101,7 +101,7 @@ function HeaderNav({ pure }: Props) {
                     <ul className="dropdown-menu">
                       <li>
                         <div className="logout-gold">
-                          <div className="logout-gold-icon">
+                          <div className="logout-icon w-1/5">
                             <img
                               src="/images/login/icon_coin.png"
                               alt=""
@@ -116,7 +116,7 @@ function HeaderNav({ pure }: Props) {
                       </li>
                       <li>
                         <div className="logout-mony">
-                          <div className="logout-mony-icon">
+                          <div className="logout-icon w-1/5">
                             <img
                               src="/images/login/icon_point.png"
                               alt=""
@@ -131,7 +131,17 @@ function HeaderNav({ pure }: Props) {
                       </li>
                       <li>
                         <div className="logout-vip">
-                          <p>VIP: LV{user?.vipLevel}</p>
+                          <div className="logout-icon w-1/5">
+                            <img
+                              src="/images/login/icon_vip.png"
+                              alt=""
+                              className="img-responsive center-block"
+                            />
+                          </div>
+                          <div className="logout-mony-text">
+                            <p>VIP: LV{user?.vipLevel}</p>
+                          </div>
+                          <hr className="float-none" />
                         </div>
                       </li>
                     </ul>
