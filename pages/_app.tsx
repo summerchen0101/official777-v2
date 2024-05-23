@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     setTimeout(() => {
       setIsReady(true)
-    })
+    }, 100)
   }, [])
 
   useEffect(() => {
