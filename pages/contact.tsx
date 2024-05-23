@@ -9,6 +9,7 @@ import { useRouter } from 'next/dist/client/router'
 import { useEffect, useRef, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import cs from 'classnames'
+import HoverImg from '@/components/HoverImg'
 
 function ContactPage() {
   const toCdnUrl = useCdnUrl()
@@ -111,9 +112,9 @@ function ContactPage() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          <img
+                          <HoverImg
                             src="/images/service/btn_line.png"
-                            data-active-src="images/service/btn_line_active.png"
+                            activeSrc="images/service/btn_line_active.png"
                             alt=""
                             className="img-responsive center-block"
                           />
@@ -121,9 +122,9 @@ function ContactPage() {
                       </div>
                       <div className="col-lg-4 btn-img-hover">
                         <a href="mailto:megagames815@gmail.com?subject=問題回報&body=請在這裡描述您的問題...">
-                          <img
+                          <HoverImg
                             src="/images/service/btn_email.png"
-                            data-active-src="images/service/btn_email_active.png"
+                            activeSrc="images/service/btn_email_active.png"
                             alt="Email"
                             className="img-responsive center-block"
                           />
