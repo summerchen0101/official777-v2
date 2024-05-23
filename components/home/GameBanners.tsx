@@ -50,7 +50,7 @@ function GameBanners() {
           </ol>
           {/* 轮播（Carousel）项目 */}
           <div className="">
-            <div className="carousel-inner game-banner-inner">
+            <div className="carousel-inner game-banner-inner rounded-2xl shadow-2xl">
               {gameList.map((t, i) => (
                 <div key={t.img} className={cs('item', { active: i === 0 })}>
                   <img

@@ -151,6 +151,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <script defer src="/js/fancybox.js"></script>
       <script defer src="/js/youtublink.js"></script>
       <script defer src="/js/popup.js"></script>
+      <script defer src="/js/imghover.js"></script>
     </>
   )
 }

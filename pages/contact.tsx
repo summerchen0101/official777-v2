@@ -113,6 +113,7 @@ function ContactPage() {
                         >
                           <img
                             src="/images/service/btn_line.png"
+                            data-active-src="images/service/btn_line_active.png"
                             alt=""
                             className="img-responsive center-block"
                           />
@@ -122,6 +123,7 @@ function ContactPage() {
                         <a href="mailto:megagames815@gmail.com?subject=問題回報&body=請在這裡描述您的問題...">
                           <img
                             src="/images/service/btn_email.png"
+                            data-active-src="images/service/btn_email_active.png"
                             alt="Email"
                             className="img-responsive center-block"
                           />

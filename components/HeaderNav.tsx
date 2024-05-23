@@ -377,9 +377,14 @@ function HeaderNav({ pure }: Props) {
                   </li>
                 </ul>
               </li>
-              <li className="px-12">
-                <div className="blue-btn">登入</div>
-              </li>
+              {!user ? (
+                <li className="px-12">
+                  <div className="blue-btn" onClick={() => showLoginPopup()}>
+                    登入
+                  </div>
+                </li>
+              ) : null}
+
               <li className="nav-li-icon">
                 <a
                   href="https://www.facebook.com/Online539"

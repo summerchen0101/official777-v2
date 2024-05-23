@@ -53,6 +53,7 @@ function FilesPage() {
                         >
                           <img
                             src="/images/service/btn_prize.png"
+                            data-active-src="/images/service/btn_prize_active.png"
                             alt=""
                             className="img-responsive center-block"
                           />
@@ -66,6 +67,7 @@ function FilesPage() {
                         >
                           <img
                             src="/images/service/btn_revise.png"
+                            data-active-src="/images/service/btn_revise_active.png"
                             alt=""
                             className="img-responsive center-block"
                           />
@@ -79,6 +81,7 @@ function FilesPage() {
                         >
                           <img
                             src="/images/service/btn_list.png"
+                            data-active-src="/images/service/btn_list_active.png"
                             alt=""
                             className="img-responsive center-block"
                           />
