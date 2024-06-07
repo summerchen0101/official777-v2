@@ -12,15 +12,15 @@ hr {
   margin: 10px auto !important;
 }
 ol {
-  margin-left: 20px !important;
-  list-style: disc !important;
+  margin-left: 20px;
+  list-style: disc;
   font-size: 16px;
   color: white;
   line-height: 28px;
 }
 ul {
-  margin-left: 20px !important;
-  list-style: decimal !important;
+  margin-left: 20px;
+  list-style: decimal;
   font-size: 16px;
   color: white;
   line-height: 28px;
