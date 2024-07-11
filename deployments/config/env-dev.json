@@ -1,5 +1,5 @@
 {
-  "apiBaseUrl": "https://app-alpha.ffglobaltech.com",
+  "apiBaseUrl": "https://apis-tw.alpha.ffglobaltech.com",
   "cdnBaseUrl": "https://resource-cdn.bigboss101.com/official",
   "canRecharge": true,
   "summerApiPath": "https://ffgt.techcake.net/api"

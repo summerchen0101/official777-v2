@@ -31,7 +31,7 @@
   cursor: pointer;
   font-weight: bold;
   letter-spacing: 1px;
-  background: #483865; /* Background color for active and hover state */
+  background: #3c0c3d; /* Background color for active and hover state */
   color: #f0e68c; /* Light yellow text color */
 }
 
@@ -47,12 +47,12 @@
   cursor: pointer;
   font-weight: bold;
   letter-spacing: 1px;
-  background: #3a3367; /* Background color for default state */
-  color: #6e6c96; /* Light purple text color */
-  border: 1px solid #6e6c96; /* Light purple border */
-  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75), inset 0 0 3px #6e6c96;
-  -moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75), inset 0 0 3px #6e6c96;
-  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75), inset 0 0 3px #6e6c96;
+  background: #503367; /* Background color for default state */
+  color: #826c96; /* Light purple text color */
+  border: 1px solid #523459; /* Light purple border */
+  -webkit-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75), inset 0 0 3px #603064;
+  -moz-box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75), inset 0 0 3px #603064;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.75), inset 0 0 3px #603064;
 }
 
 .btn-tab {
