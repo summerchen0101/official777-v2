@@ -1806,7 +1806,7 @@ thead > tr > th {
   }
   .content-title-box {
     width: 100%;
-    margin-bottom: -10%;
+    /* margin-bottom: -10%; */
   }
   .content-box p,
   .content-box ul,
@@ -1907,28 +1907,24 @@ thead > tr > th {
 
 /* 按鈕 */
 
-.blue-btn {
-  background: linear-gradient(
-    to bottom,
-    #79b5f5,
-    #4a90e2
-  ); /* 漸層從淺藍到深藍 */
+.login-btn {
+  background: linear-gradient(to bottom, #a05a2c, #8c3b10);
   font-weight: 800;
-  color: white; /* 白色文字 */
-  border: none; /* 無邊框 */
-  border-radius: 25px; /* 圓角 */
-  padding: 5px 20px; /* 內邊距 */
-  font-size: 16px; /* 字體大小 */
-  cursor: pointer; /* 指針變為手形 */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 5px 20px;
+  font-size: 16px;
+  cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
-    inset 0 -2px 4px rgba(255, 255, 255, 0.3); /* 外部陰影和內部陰影 */
-  display: inline-block; /* 行內塊 */
-  text-align: center; /* 文字居中 */
-  line-height: 1.5; /* 行高 */
-  font-family: 'Arial', sans-serif; /* 字體 */
+    inset 0 -2px 4px rgba(255, 255, 255, 0.3);
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5;
+  font-family: 'Arial', sans-serif;
 }
 
-.blue-btn:hover {
+.login-btn:hover {
   background: linear-gradient(
     to bottom,
     #4a90e2,

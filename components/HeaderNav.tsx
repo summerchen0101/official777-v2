@@ -389,7 +389,7 @@ function HeaderNav({ pure }: Props) {
               </li>
               {!user ? (
                 <li className="px-12">
-                  <div className="blue-btn" onClick={() => showLoginPopup()}>
+                  <div className="login-btn" onClick={() => showLoginPopup()}>
                     登入
                   </div>
                 </li>
