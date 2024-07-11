@@ -983,9 +983,9 @@ input[type='checkbox'] {
 }
 .content-title-box {
   position: relative;
-  width: 40%;
+  width: 25%;
   z-index: 2;
-  margin: 0 auto -3%;
+  margin: 16px auto;
 }
 /*TABLE*/
 .table-dark,
@@ -1805,7 +1805,7 @@ thead > tr > th {
     margin: 4%;
   }
   .content-title-box {
-    width: 100%;
+    width: 60%;
     /* margin-bottom: -10%; */
   }
   .content-box p,
@@ -1925,9 +1925,5 @@ thead > tr > th {
 }
 
 .login-btn:hover {
-  background: linear-gradient(
-    to bottom,
-    #4a90e2,
-    #3a78c2
-  ); /* 當鼠標懸停時的漸層顏色 */
+  background: linear-gradient(to bottom, #a06a45, #8b441e);
 }
