@@ -397,7 +397,7 @@ function HeaderNav({ pure }: Props) {
 
               <li className="nav-li-icon">
                 <a
-                  href="https://www.facebook.com/Online539"
+                  href=""
                   target="_blank"
                   rel="noreferrer"
                 >

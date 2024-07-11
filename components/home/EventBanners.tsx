@@ -2,60 +2,16 @@ import React, { memo, useEffect } from 'react'
 
 const sliders = [
   {
-    imgSrc: '/images/eventbanner/每日活動0516.jpg',
-    link: 'https://www.facebook.com/Online539',
+    imgSrc: '/images/eventbanner/announce01.png',
+    link: '',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0517.jpg',
-    link: 'https://www.facebook.com/Online539',
+    imgSrc: '/images/eventbanner/announce01.png',
+    link: '',
   },
   {
-    imgSrc: '/images/eventbanner/每日活動0518.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0519.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0520.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0521.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0522.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0523.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0524.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0525.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0526.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0527.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0528.jpg',
-    link: 'https://www.facebook.com/Online539',
-  },
-  {
-    imgSrc: '/images/eventbanner/每日活動0529.jpg',
-    link: 'https://www.facebook.com/Online539',
+    imgSrc: '/images/eventbanner/announce01.png',
+    link: '',
   },
 ]
 
@@ -110,8 +66,8 @@ function EventBanners() {
           data-wow-duration="1s"
         >
           <ul className="event-banner slider ">
-            {sliders.map((t) => (
-              <li key={t.imgSrc} className="rounded-3xl overflow-hidden">
+            {sliders.map((t, i) => (
+              <li key={i} className="rounded-3xl overflow-hidden">
                 <a href={t.link} target="_blank" rel="noreferrer">
                   <img
                     src={t.imgSrc}
