@@ -13,20 +13,20 @@
   background: rgb(30, 30, 31); /* Old browsers */
   background: -moz-linear-gradient(
     top,
-    #170c29 0%,
-    #302a55 100%
+    #341038 0%,
+    #3a1035 100%
   ); /* FF3.6-15 */
   background: -webkit-linear-gradient(
     top,
-    #170c29 0%,
-    #302a55 100%
+    #341038 0%,
+    #3a1035 100%
   ); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(
     to bottom,
-    #170c29 0%,
-    #302a55 100%
+    #341038 0%,
+    #3a1035 100%
   ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#170c29', endColorstr='#302a55',GradientType=0 ); /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#341038', endColorstr='#3a1035', GradientType=0); /* IE6-9 */
 }
 
 .navbar-nav {
@@ -114,14 +114,14 @@ nav.navbar.bootsnav ul.nav > li > a {
 nav.navbar.bootsnav li.dropdown ul.dropdown-menu {
   width: 100%;
   text-align: center;
-  background-color: #302a55; /* Dark purple background */
-  border: solid 1px #413d7b; /* Light purple border */
+  background-color: var(--color2); /* Dark purple background */
+  border: solid 1px var(--color8); /* Light purple border */
   border-top: solid 4px #af9be3; /* Light purple border top */
   margin: 0;
 }
 
 nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li {
-  border-bottom: solid 1px #413d7b; /* Light purple border bottom */
+  border-bottom: solid 1px var(--color8); /* Light purple border bottom */
 }
 
 nav.navbar.bootsnav li.dropdown ul.dropdown-menu > li > a {

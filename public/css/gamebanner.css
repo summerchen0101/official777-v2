@@ -132,7 +132,7 @@
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   color: #fff;
-  background-color: #302a55;
+  background-color: var(--color2);
   font-weight: bolder;
 }
 /*Mobile*/
