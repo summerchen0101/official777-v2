@@ -8,7 +8,7 @@ const gameList = [
   { name: '招財貓', img: 'img_hotgame_slot4.jpg' },
   { name: '鍾馗', img: 'img_hotgame_slot7.jpg' },
   { name: '少林熊貓', img: 'img_hotgame_slot9.jpg' },
-  { name: '七七七', img: 'img_hotgame_slot10.jpg' },
+  { name: '喜從天降', img: 'img_hotgame_slot10.jpg' },
 ]
 
 function GameBanners() {

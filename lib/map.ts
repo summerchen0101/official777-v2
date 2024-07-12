@@ -161,7 +161,7 @@ export const gameMap: StringMap = {
   [GameCode.Lottery]: '刮刮樂',
   [GameCode.Lottery_777]: '幸運777',
   [GameCode.Lottery_Mahjong]: '摸麻將',
-  [GameCode.Lottery_Jackpot]: '大頭家超級紅包',
+  [GameCode.Lottery_Jackpot]: '喜從天降超級紅包',
 }
 
 export const appUrlMap: StringMap = {

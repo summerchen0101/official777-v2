@@ -24,7 +24,7 @@ const giftPkgs: GiftPkg[] = [
   {
     id: 5371,
     img: '/images/recharge/gift01.png',
-    title: '大頭家歡樂包',
+    title: '喜從天降歡樂包',
     price: 3888,
     content: `
     金龍碎片*5

@@ -100,7 +100,7 @@ function ContactPage() {
                     <p>
                       尊貴的頭家：
                       <br />
-                      我們十分重視您的到訪，歡迎加入大頭家官方客服LINE：@online539或來信至官方信箱：megagames815@gmail.com，我們將盡快協助。
+                      我們十分重視您的到訪，歡迎加入喜從天降官方客服LINE：@online539或來信至官方信箱：megagames815@gmail.com，我們將盡快協助。
                     </p>
                     <hr />
                     <br />
