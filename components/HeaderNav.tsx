@@ -177,7 +177,7 @@ function HeaderNav({ pure }: Props) {
                   </li>
                 </ul>
               </li>
-              <li className="nav-li-text dropdown">
+              {/* <li className="nav-li-text dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                   新手引導
                 </a>
@@ -218,7 +218,7 @@ function HeaderNav({ pure }: Props) {
                     </Link>
                   </li>
                 </ul>
-              </li>
+              </li> */}
               {canRecharge ? (
                 <li className="nav-li-text dropdown">
                   <a
@@ -396,11 +396,7 @@ function HeaderNav({ pure }: Props) {
               ) : null}
 
               <li className="nav-li-icon">
-                <a
-                  href=""
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href="" target="_blank" rel="noreferrer">
                   <img
                     src="/images/menu_facebook.png"
                     alt=""
