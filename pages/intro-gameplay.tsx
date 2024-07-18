@@ -873,7 +873,7 @@ function IntroGamePlayPage() {
                               <br />
                               隨機事件經常有，
                               <br />
-                              成為大頭家不是夢！
+                              成為喜從天降不是夢！
                             </p>
                           </div>
                           <hr className="float-none" />
@@ -1394,7 +1394,7 @@ function IntroGamePlayPage() {
                             <hr className="float-none" />
                             <hr />
                             <p>
-                              想當大頭家就在這裡，
+                              想當喜從天降就在這裡，
                               <br />
                               經營式模擬賭城玩法，
                               <br />

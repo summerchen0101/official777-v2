@@ -89,9 +89,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           name="description"
           content="獎金最高，開獎最多！韓瑜帶你嗨不停！大獎超敢開，紅包天天送，讓你輕鬆做頭家！公正公開，金幣送不停!現在登入先送十連抽！"
         />
-        <meta name="keywords" content="大頭家娛樂城、韓瑜、麻將、手遊、3D" />
+        <meta name="keywords" content="喜從天降娛樂城、韓瑜、麻將、手遊、3D" />
         <meta name="author" content="七七七科技股份有限公司" />
-        <meta name="copyright" content="本網頁為七七七科技版權所有" />
+        <meta name="copyright" content="本網頁為喜從天降科技版權所有" />
         <meta name="google" content="notranslate" />
         <meta
           name="google-site-verification"
@@ -100,12 +100,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* <meta name="next-head-count" content="19" /> */}
         <meta property="fb:pages" content="101091025701333" />
         <meta property="fb:app_id" content="327137328773940" />
-        <meta property="og:title" content="七七七娛樂城" />
+        <meta property="og:title" content="喜從天降娛樂城" />
         <meta property="og:description" content="" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.777.com" />
         <meta property="og:image" content="" />
-        <title>七七七娛樂城</title>
+        <title>喜從天降娛樂城</title>
         <link rel="shortcut icon" href="/images/logo.png" />
         <link rel="bookmark" href="/images/logo.png" />
         <link rel="icon" href="/images/logo.png" />
